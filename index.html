@@ -46,7 +46,7 @@
   <!-- ===========================================
        HEADER
        =========================================== -->
-  <header class="header header--transparent">
+  <header class="header">
     <div class="container header__inner">
       <a href="#" class="header__logo">
         <svg class="header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -191,10 +191,13 @@
           </p>
         </div>
         <div class="feature__visual" data-animate="fade-left">
-          <div class="screenshot-placeholder screenshot-frame featured">
-            <i data-lucide="link" class="screenshot-placeholder__icon"></i>
-            <span class="screenshot-placeholder__text font-caption">Cross-referencing screenshot coming soon</span>
-          </div>
+          <button type="button" class="feature__image-btn screenshot-frame featured"
+                  data-lightbox="cross-reference"
+                  data-lightbox-title="Cross-Referenced World"
+                  data-lightbox-desc="Finally see the full picture. Items, relationships, chapters, locations—everything about your character, connected and ready when you need it."
+                  data-lightbox-image="images/CharacterPage.webp">
+            <img src="images/CharacterPage.webp" alt="Character page showing cross-referenced connections" class="feature__image">
+          </button>
         </div>
       </div>
     </div>
@@ -213,7 +216,7 @@
             <svg class="feature__quill" aria-hidden="true"><use href="#icon-quill"/></svg>
           </h2>
           <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
-            Introducing the Glorious Searchbar. Ctrl+K from anywhere. Instantly search every character, location, item, chapter, and note in your project. Stop scrolling through documents. Just ask.
+            Introducing the Glorious Searchbar. Instantly search every character, location, item, chapter, and note in your project. Stop scrolling through documents. Just start typing and the Glorious Searchbar works its magic.
           </p>
           <div class="feature__shortcut" data-animate="fade-up" data-stagger="2">
             <kbd class="font-kbd">Ctrl</kbd>
@@ -223,10 +226,13 @@
           </div>
         </div>
         <div class="feature__visual" data-animate="fade-right">
-          <div class="screenshot-placeholder screenshot-frame featured">
-            <i data-lucide="search" class="screenshot-placeholder__icon"></i>
-            <span class="screenshot-placeholder__text font-caption">Search feature GIF coming soon</span>
-          </div>
+          <button type="button" class="feature__image-btn screenshot-frame featured"
+                  data-lightbox="searchbar"
+                  data-lightbox-title="The Glorious Searchbar"
+                  data-lightbox-desc="One search. Every detail. Type a name and instantly see the character, their home, their belongings, and every note that mentions them."
+                  data-lightbox-image="images/GloriousSearchbar.webp">
+            <img src="images/GloriousSearchbar.webp" alt="The Glorious Searchbar showing instant search results" class="feature__image">
+          </button>
         </div>
       </div>
     </div>
@@ -253,10 +259,13 @@
           </div>
         </div>
         <div class="feature__visual" data-animate="fade-left">
-          <div class="screenshot-placeholder screenshot-frame featured">
-            <i data-lucide="share-2" class="screenshot-placeholder__icon"></i>
-            <span class="screenshot-placeholder__text font-caption">Relationship map screenshot coming soon</span>
-          </div>
+          <button type="button" class="feature__image-btn screenshot-frame featured"
+                  data-lightbox="relationship-map"
+                  data-lightbox-title="The Relationship Map"
+                  data-lightbox-desc="You know how your characters connect—but can you see it? The Relationship Map turns your character web into an interactive visual, revealing alliances, rivalries, and clusters you might have missed."
+                  data-lightbox-image="images/RelationshipMap.webp">
+            <img src="images/RelationshipMap.webp" alt="Interactive relationship map showing character connections" class="feature__image">
+          </button>
         </div>
       </div>
     </div>
@@ -283,10 +292,13 @@
           </div>
         </div>
         <div class="feature__visual" data-animate="fade-right">
-          <div class="screenshot-placeholder screenshot-frame featured">
-            <i data-lucide="tag" class="screenshot-placeholder__icon"></i>
-            <span class="screenshot-placeholder__text font-caption">Tags viewer screenshot coming soon</span>
-          </div>
+          <button type="button" class="feature__image-btn screenshot-frame featured"
+                  data-lightbox="tags-viewer"
+                  data-lightbox-title="The Tags Viewer"
+                  data-lightbox-desc="One tag. Every connection. Mark anything in your book—characters, places, items, chapters, notes—with the custom tags you create, then instantly pull them together in one convenient view."
+                  data-lightbox-image="images/TagsViewer.webp">
+            <img src="images/TagsViewer.webp" alt="Tags viewer showing all items connected to a tag" class="feature__image">
+          </button>
         </div>
       </div>
     </div>
@@ -371,19 +383,17 @@
           <p class="quick-feature__desc font-body-sm">Kingdom &rarr; City &rarr; Tavern &rarr; Secret Basement. It's all there, with intricate details saved for each of your book's settings.</p>
         </div>
 
-        <div class="quick-feature card-hover" data-animate="fade-up">
-          <button type="button" class="quick-feature__image-btn"
-                  data-lightbox="timeline"
-                  data-lightbox-title="Timeline View"
-                  data-lightbox-desc="See your entire story at a glance. The timeline shows which characters appear in which chapters, helping you track character arcs and spot plot holes before they become problems.">
-            <div class="quick-feature__image-placeholder">
-              <i data-lucide="bar-chart-2" class="quick-feature__placeholder-icon"></i>
-              <span class="quick-feature__placeholder-text font-caption">Click to preview</span>
-            </div>
-          </button>
+        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
+                data-lightbox="timeline"
+                data-lightbox-title="Timeline View"
+                data-lightbox-desc="One view. Every character. Every chapter. See who appears where, spot unintended absences, and catch pacing problems before they reach your readers."
+                data-lightbox-image="images/TimelineView.webp">
+          <div class="quick-feature__image-wrapper">
+            <img src="images/TimelineView.webp" alt="Timeline view showing character appearances across chapters" class="quick-feature__image">
+          </div>
           <h3 class="quick-feature__title">Timeline View</h3>
           <p class="quick-feature__desc font-body-sm">Visually see where your characters appear across chapters</p>
-        </div>
+        </button>
 
         <div class="quick-feature card-hover" data-animate="fade-up">
           <button type="button" class="quick-feature__image-btn"
@@ -479,7 +489,7 @@
       <nav class="footer__nav">
         <a href="#features" class="footer__link">Features</a>
         <a href="#download" class="footer__link">Download</a>
-        <a href="https://github.com/hisnameisjoel/penpoint-updates" target="_blank" rel="noopener" class="footer__link">GitHub</a>
+        <a href="mailto:support@penpoint.app" class="footer__link">Contact Support</a>
       </nav>
 
       <span class="footer__copyright">&copy; 2025 Penpoint. All rights reserved.</span>

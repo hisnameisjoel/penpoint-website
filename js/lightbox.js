@@ -14,6 +14,7 @@
     element: null,
     titleEl: null,
     descEl: null,
+    imageWrapper: null,
     isOpen: false,
 
     init() {
@@ -22,6 +23,7 @@
 
       this.titleEl = this.element.querySelector('.lightbox__title');
       this.descEl = this.element.querySelector('.lightbox__desc');
+      this.imageWrapper = this.element.querySelector('.lightbox__image-wrapper');
 
       this.bindEvents();
     },
@@ -33,7 +35,8 @@
           e.preventDefault();
           const title = btn.dataset.lightboxTitle || '';
           const desc = btn.dataset.lightboxDesc || '';
-          this.open(title, desc);
+          const image = btn.dataset.lightboxImage || '';
+          this.open(title, desc, image);
         });
       });
 
@@ -57,12 +60,30 @@
       });
     },
 
-    open(title, desc) {
+    open(title, desc, imageSrc) {
       if (!this.element) return;
 
       // Update content
       if (this.titleEl) this.titleEl.textContent = title;
       if (this.descEl) this.descEl.textContent = desc;
+
+      // Update image
+      if (this.imageWrapper) {
+        if (imageSrc) {
+          // Show actual image
+          this.imageWrapper.innerHTML = `<img src="${imageSrc}" alt="${title}" class="lightbox__image">`;
+        } else {
+          // Show placeholder
+          this.imageWrapper.innerHTML = `
+            <div class="lightbox__image-placeholder">
+              <i data-lucide="image" class="lightbox__placeholder-icon"></i>
+              <span class="lightbox__placeholder-text font-caption">Screenshot coming soon</span>
+            </div>
+          `;
+          // Re-initialize lucide icons for the placeholder
+          if (window.lucide) lucide.createIcons();
+        }
+      }
 
       // Show lightbox
       this.element.classList.add('lightbox--open');

@@ -68,33 +68,6 @@
   }
 
   // ===========================================
-  // HEADER SCROLL BEHAVIOR
-  // ===========================================
-
-  function initHeaderScroll() {
-    const header = document.querySelector('.header');
-    if (!header) return;
-
-    let lastScroll = 0;
-    const scrollThreshold = 100;
-
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-
-      // Add/remove solid background based on scroll position
-      if (currentScroll > scrollThreshold) {
-        header.classList.remove('header--transparent');
-        header.classList.add('header--solid');
-      } else {
-        header.classList.remove('header--solid');
-        header.classList.add('header--transparent');
-      }
-
-      lastScroll = currentScroll;
-    }, { passive: true });
-  }
-
-  // ===========================================
   // SMOOTH SCROLL FOR ANCHOR LINKS
   // ===========================================
 
@@ -161,7 +134,6 @@
     initStaggerGroups();
     // Then initialize scroll animations
     initAnimations();
-    initHeaderScroll();
     initSmoothScroll();
     initMobileMenu();
 
