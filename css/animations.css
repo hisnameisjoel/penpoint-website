@@ -1,0 +1,236 @@
+/* ===========================================
+   Penpoint Animation System
+   Scroll-triggered animations via Intersection Observer
+   =========================================== */
+
+/* ===========================================
+   KEYFRAME DEFINITIONS
+   Extracted from app's onboarding
+   =========================================== */
+
+/* Fade in with upward rise - primary scroll animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide in from left - for headlines and alternating content */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from right - for alternating content */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale in - for icons and emphasis elements */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Quick fade - for rapid transitions */
+@keyframes quickFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle pulse for CTAs - draws attention */
+@keyframes pulseScale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+/* Shadow pulse for CTA buttons */
+@keyframes pulseShadow {
+  0%, 100% {
+    box-shadow: -7px 7px 0 0 rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: -9px 9px 0 0 rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* Fade in only - simple opacity transition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===========================================
+   ANIMATION UTILITY CLASSES
+   Apply these to elements, triggered by JS
+   =========================================== */
+
+/* Base state - elements start hidden */
+[data-animate] {
+  opacity: 0;
+}
+
+/* Triggered state - when element enters viewport */
+[data-animate].animate-in {
+  animation-duration: var(--duration-animation);
+  animation-timing-function: var(--ease-penpoint);
+  animation-fill-mode: forwards;
+}
+
+/* Animation type variations */
+[data-animate="fade-up"].animate-in {
+  animation-name: fadeInUp;
+}
+
+[data-animate="fade-left"].animate-in {
+  animation-name: slideInFromLeft;
+}
+
+[data-animate="fade-right"].animate-in {
+  animation-name: slideInFromRight;
+}
+
+[data-animate="scale"].animate-in {
+  animation-name: scaleIn;
+}
+
+[data-animate="fade"].animate-in {
+  animation-name: fadeIn;
+}
+
+[data-animate="quick"].animate-in {
+  animation-name: quickFade;
+  animation-duration: var(--duration-slow);
+}
+
+/* ===========================================
+   STAGGER DELAYS
+   Use data-stagger attribute for sequential animations
+   =========================================== */
+
+[data-stagger="1"] { animation-delay: 100ms; }
+[data-stagger="2"] { animation-delay: 200ms; }
+[data-stagger="3"] { animation-delay: 300ms; }
+[data-stagger="4"] { animation-delay: 400ms; }
+[data-stagger="5"] { animation-delay: 500ms; }
+[data-stagger="6"] { animation-delay: 600ms; }
+
+/* ===========================================
+   SPECIAL ANIMATIONS
+   For specific elements like CTA buttons
+   =========================================== */
+
+/* CTA pulse animation - subtle attention grab */
+.animate-pulse {
+  animation: pulseScale 2s var(--ease-in-out) infinite;
+}
+
+/* CTA shadow pulse - for download buttons */
+.animate-pulse-shadow {
+  animation: pulseShadow 2s var(--ease-in-out) infinite;
+}
+
+/* Delayed pulse - runs once after page load */
+.animate-pulse-delayed {
+  animation: pulseScale 2s var(--ease-in-out) 3s 1;
+}
+
+/* ===========================================
+   HOVER ANIMATIONS
+   Smooth state transitions
+   =========================================== */
+
+.hover-lift {
+  transition: transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+.hover-scale {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* ===========================================
+   HERO TEXT ROTATION
+   Keyframe animations for cycling headlines
+   =========================================== */
+
+@keyframes heroTextFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes heroTextFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-rotate__text {
+  display: inline-block;
+}
+
+.hero-rotate__text.hero-rotate--fading-out {
+  animation: heroTextFadeOut 600ms var(--ease-in-out) forwards;
+}
+
+.hero-rotate__text.hero-rotate--fading-in {
+  animation: heroTextFadeIn 600ms var(--ease-in-out) forwards;
+}
+

@@ -1,0 +1,115 @@
+/* ===========================================
+   Penpoint Design System - CSS Variables
+   Extracted from app's design system
+   =========================================== */
+
+:root {
+  /* ===========================================
+     COLOR SYSTEM - Parchment Theme
+     Warm, writer-friendly palette
+     =========================================== */
+
+  /* Primary Backgrounds */
+  --background: 255 247 230;        /* #FFF7E6 - Main page background (warm parchment) */
+  --background-accent: 248 240 225; /* #F8F0E1 - Subtle section differentiation */
+  --card: 253 234 204;              /* #FDEACC - Card/panel backgrounds */
+  --popover: 253 234 204;           /* #FDEACC - Dropdown/popup backgrounds */
+  --paper: 252 248 240;             /* #FCF8F0 - Pure content areas */
+
+  /* Text Colors */
+  --foreground: 61 46 28;           /* #3D2E1C - Primary text (dark brown) */
+  --muted-foreground: 125 93 53;    /* #7D5D35 - Secondary/muted text */
+
+  /* Interactive Elements */
+  --primary: 41 36 30;              /* #29241E - Buttons, active states (dark sandstone) */
+  --primary-foreground: 254 249 240; /* #FEF9F0 - Text on primary backgrounds */
+  --secondary: 92 82 70;            /* #5C5246 - Secondary buttons */
+  --secondary-foreground: 254 249 240;
+
+  /* Accents & States */
+  --muted: 235 220 200;             /* #EBDCC8 - Hover backgrounds */
+  --accent: 61 54 46;               /* #3D362E - Accent elements */
+  --accent-foreground: 254 249 240;
+
+  /* Borders & Inputs */
+  --border: 230 220 205;            /* #E6DCCD - Subtle borders */
+  --input: 248 231 210;             /* #F8E7D2 - Input field backgrounds */
+  --ring: 41 36 30;                 /* Focus ring color */
+
+  /* Special */
+  --destructive: 185 28 28;         /* #B91C1C - Error/warning states */
+
+  /* ===========================================
+     TYPOGRAPHY SCALE
+     =========================================== */
+  --text-xs: 0.7rem;      /* ~11px - Captions, small labels */
+  --text-sm: 0.9rem;      /* ~14px - Secondary text */
+  --text-base: 1rem;      /* ~16px - Body text */
+  --text-med: 1.1rem;     /* ~18px - Medium emphasis */
+  --text-lg: 1.2rem;      /* ~19px - Large body text */
+  --text-xl: 1.2rem;      /* ~19px - Small headings */
+  --text-2xl: 1.4rem;     /* ~22px - Section headings */
+  --text-3xl: 1.8rem;     /* ~29px - Page headings */
+  --text-4xl: 2.4rem;     /* ~38px - Display/hero text */
+
+  /* Line Heights */
+  --leading-tight: 1.25;      /* Large headings */
+  --leading-snug: 1.375;      /* Small headings */
+  --leading-normal: 1.5;      /* Body text */
+  --leading-relaxed: 1.625;   /* Long-form content */
+
+  /* Letter Spacing */
+  --tracking-tighter: -0.05em;  /* Large display text */
+  --tracking-tight: -0.025em;   /* Headings */
+  --tracking-normal: 0em;       /* Body text */
+  --tracking-wide: 0.025em;     /* Small caps, labels */
+
+  /* ===========================================
+     SPACING SYSTEM
+     4px base unit, 8px grid
+     =========================================== */
+  --space-1: 0.25rem;     /* 4px */
+  --space-2: 0.5rem;      /* 8px */
+  --space-3: 0.75rem;     /* 12px */
+  --space-4: 1rem;        /* 16px */
+  --space-5: 1.25rem;     /* 20px */
+  --space-6: 1.5rem;      /* 24px */
+  --space-8: 2rem;        /* 32px */
+  --space-10: 2.5rem;     /* 40px */
+  --space-12: 3rem;       /* 48px */
+  --space-16: 4rem;       /* 64px */
+  --space-20: 5rem;       /* 80px */
+  --space-24: 6rem;       /* 96px */
+
+  /* Layout Spacing */
+  --container-padding: 1.5rem;     /* 24px */
+  --section-gap: 5rem;             /* 80px - Between major sections */
+  --component-gap: 2rem;           /* 32px - Between components */
+  --element-gap: 1rem;             /* 16px - Between related elements */
+
+  /* ===========================================
+     LAYOUT DIMENSIONS
+     =========================================== */
+  --container-max-width: 75rem;    /* 1200px */
+  --header-height: 4rem;           /* 64px */
+
+  /* ===========================================
+     BORDER RADIUS - NONE
+     Sharp corners are a Penpoint signature
+     =========================================== */
+  --radius: 0;
+
+  /* ===========================================
+     ANIMATION & TRANSITIONS
+     =========================================== */
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-penpoint: cubic-bezier(0.4, 0, 0.2, 1);  /* Primary easing */
+
+  --duration-fast: 150ms;       /* Hover states, quick feedback */
+  --duration-normal: 200ms;     /* Standard transitions */
+  --duration-slow: 300ms;       /* Page/section transitions */
+  --duration-slower: 500ms;     /* Complex animations */
+  --duration-animation: 600ms;  /* Scroll animations */
+}

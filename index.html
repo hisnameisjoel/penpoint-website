@@ -3,27 +3,525 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Penpoint - Where Your Story Comes Together. A simple tool for writers to track characters, locations, and story details across books and series.">
+  <meta name="keywords" content="character tracking software, novel writing, character management, story organization, writing companion app">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Penpoint - Where Your Story Comes Together">
+  <meta property="og:description" content="Writers lose track of their own stories. Penpoint fixes that. Track characters, locations, and every detail across your books.">
+  <meta property="og:image" content="assets/og-image.png">
+
   <title>Penpoint - Where Your Story Comes Together</title>
-  <style>
-    body {
-      font-family: 'Georgia', serif;
-      background-color: #FFF7E6;
-      color: #3D2E1C;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      text-align: center;
-    }
-    h1 { font-size: 2.4rem; margin-bottom: 0.5rem; }
-    p { font-size: 1.2rem; color: #7D5D35; }
-  </style>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Google Fonts - Source Serif 4 only -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Lucide Icons (same library as the app) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Font Awesome (for platform icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <div>
-    <h1>Penpoint</h1>
-    <p>Coming soon...</p>
+
+  <!-- SVG Sprite (hidden) -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite">
+    <symbol id="icon-quill" viewBox="0 0 24 24">
+      <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+    </symbol>
+  </svg>
+
+  <!-- ===========================================
+       HEADER
+       =========================================== -->
+  <header class="header header--transparent">
+    <div class="container header__inner">
+      <a href="#" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+        </svg>
+        <span class="header__logo-text">Penpoint</span>
+        <span class="header__tagline">Where Your Story Comes Together</span>
+      </a>
+
+      <nav class="header__nav">
+        <a href="#features" class="header__nav-link">Features</a>
+        <a href="#download" class="btn btn-outline">Download</a>
+      </nav>
+
+      <button type="button" class="header__menu-btn" aria-label="Menu" aria-expanded="false">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ===========================================
+       HERO SECTION
+       =========================================== -->
+  <section class="hero section">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <h1 class="hero__headline font-display" data-animate="fade-left">
+          <span class="hero-rotate__text">"Was his name Aldric or Aldrick?"</span>
+        </h1>
+        <p class="hero__subheadline font-body-lg" data-animate="fade-up" data-stagger="1">
+          Writers lose track of their own stories. Penpoint keeps everything searchable, visual, and in one place.
+        </p>
+        <div class="hero__cta" data-animate="fade-up" data-stagger="2">
+          <a href="#download" class="btn btn-primary btn-xl btn-shadow">
+            Start Organizing Your Story
+          </a>
+        </div>
+      </div>
+      <div class="hero__visual" data-animate="fade-right" data-stagger="1">
+        <div class="screenshot-placeholder screenshot-frame featured">
+          <i data-lucide="image" class="screenshot-placeholder__icon"></i>
+          <span class="screenshot-placeholder__text font-caption">Hero screenshot coming soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===========================================
+       PAIN POINTS SECTION
+       =========================================== -->
+  <section class="pain-points section" id="problem">
+    <div class="container">
+      <div class="pain-points__grid" data-stagger-group data-stagger-delay="150">
+
+        <div class="pain-point card-hover" data-animate="fade-up">
+          <i data-lucide="circle-help" class="pain-point__icon"></i>
+          <h3 class="pain-point__title font-heading-sm">"What was that guy's name?"</h3>
+          <p class="pain-point__desc font-body-sm">Forgetting character details buried 200 pages ago.</p>
+        </div>
+
+        <div class="pain-point card-hover" data-animate="fade-up">
+          <i data-lucide="users" class="pain-point__icon"></i>
+          <h3 class="pain-point__title font-heading-sm">"Who is carrying a sword?"</h3>
+          <p class="pain-point__desc font-body-sm">Tracking each character's possessions over time.</p>
+        </div>
+
+        <div class="pain-point card-hover" data-animate="fade-up">
+          <i data-lucide="file-text" class="pain-point__icon"></i>
+          <h3 class="pain-point__title font-heading-sm">"My notes are everywhere!"</h3>
+          <p class="pain-point__desc font-body-sm">Post-its, Google Docs, random text files, sticky notes.</p>
+        </div>
+
+        <div class="pain-point card-hover" data-animate="fade-up">
+          <i data-lucide="share-2" class="pain-point__icon"></i>
+          <h3 class="pain-point__title font-heading-sm">"I can't visualize how everyone connects."</h3>
+          <p class="pain-point__desc font-body-sm">Complex character webs that won't fit in your head.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===========================================
+       STRUCTURE BRIDGE
+       =========================================== -->
+  <section class="structure-bridge section">
+    <div class="container">
+      <h2 class="structure-bridge__intro font-heading" data-animate="fade-up">
+        Penpoint organizes your story into five simple categories:
+      </h2>
+
+      <div class="structure-bridge__categories" data-stagger-group data-stagger-delay="100">
+        <div class="category-card card-hover" data-animate="fade-left">
+          <i data-lucide="users" class="category-card__icon"></i>
+          <span class="category-card__label font-heading-sm">Characters</span>
+        </div>
+
+        <div class="category-card card-hover" data-animate="fade-left">
+          <i data-lucide="package" class="category-card__icon"></i>
+          <span class="category-card__label font-heading-sm">Items</span>
+        </div>
+
+        <div class="category-card card-hover" data-animate="fade-left">
+          <i data-lucide="map-pin" class="category-card__icon"></i>
+          <span class="category-card__label font-heading-sm">Locations</span>
+        </div>
+
+        <div class="category-card card-hover" data-animate="fade-left">
+          <i data-lucide="file-text" class="category-card__icon"></i>
+          <span class="category-card__label font-heading-sm">Chapters</span>
+        </div>
+
+        <div class="category-card card-hover" data-animate="fade-left">
+          <i data-lucide="book-marked" class="category-card__icon"></i>
+          <span class="category-card__label font-heading-sm">Notes</span>
+        </div>
+      </div>
+
+      <p class="structure-bridge__transition font-heading" data-animate="fade-up">
+        And then makes them actually useful.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ===========================================
+       FEATURE: CROSS-REFERENCED WORLD
+       =========================================== -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="feature feature--reversed">
+        <div class="feature__content">
+          <h2 class="feature__headline font-heading-lg" data-animate="fade-right">
+            It's all coming together.
+            <svg class="feature__quill" aria-hidden="true"><use href="#icon-quill"/></svg>
+          </h2>
+          <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
+            Characters link to chapters. Items belong to owners. Locations nest inside each other. As you fill in the details, Penpoint weaves them into one living, cross-referenced world.
+          </p>
+        </div>
+        <div class="feature__visual" data-animate="fade-left">
+          <div class="screenshot-placeholder screenshot-frame featured">
+            <i data-lucide="link" class="screenshot-placeholder__icon"></i>
+            <span class="screenshot-placeholder__text font-caption">Cross-referencing screenshot coming soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===========================================
+       FEATURE: THE GLORIOUS SEARCHBAR
+       =========================================== -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="feature">
+        <div class="feature__content">
+          <h2 class="feature__headline font-heading-lg" data-animate="fade-left">
+            Your ideas will find you.
+            <svg class="feature__quill" aria-hidden="true"><use href="#icon-quill"/></svg>
+          </h2>
+          <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
+            Introducing the Glorious Searchbar. Ctrl+K from anywhere. Instantly search every character, location, item, chapter, and note in your project. Stop scrolling through documents. Just ask.
+          </p>
+          <div class="feature__shortcut" data-animate="fade-up" data-stagger="2">
+            <kbd class="font-kbd">Ctrl</kbd>
+            <span>+</span>
+            <kbd class="font-kbd">K</kbd>
+            <span class="font-body-sm">from anywhere to activate the searchbar</span>
+          </div>
+        </div>
+        <div class="feature__visual" data-animate="fade-right">
+          <div class="screenshot-placeholder screenshot-frame featured">
+            <i data-lucide="search" class="screenshot-placeholder__icon"></i>
+            <span class="screenshot-placeholder__text font-caption">Search feature GIF coming soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===========================================
+       FEATURE: RELATIONSHIP MAP
+       =========================================== -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="feature feature--reversed">
+        <div class="feature__content">
+          <h2 class="feature__headline font-heading-lg" data-animate="fade-right">
+            See your story's shape.
+            <svg class="feature__quill" aria-hidden="true"><use href="#icon-quill"/></svg>
+          </h2>
+          <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
+            Complex character webs refuse to stay in your head. See who's connected to whom at a glance with visual relationship mapping. Finally understand your own story.
+          </p>
+          <div class="feature__shortcut" data-animate="fade-up" data-stagger="2">
+            <span class="font-body-sm">View relationship connections in the</span>
+            <kbd class="font-kbd">Relationship Map</kbd>
+          </div>
+        </div>
+        <div class="feature__visual" data-animate="fade-left">
+          <div class="screenshot-placeholder screenshot-frame featured">
+            <i data-lucide="share-2" class="screenshot-placeholder__icon"></i>
+            <span class="screenshot-placeholder__text font-caption">Relationship map screenshot coming soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===========================================
+       FEATURE: UNIVERSAL TAGS
+       =========================================== -->
+  <section class="section">
+    <div class="container">
+      <div class="feature">
+        <div class="feature__content">
+          <h2 class="feature__headline font-heading-lg" data-animate="fade-left">
+            One click to see it all.
+            <svg class="feature__quill" aria-hidden="true"><use href="#icon-quill"/></svg>
+          </h2>
+          <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
+            Tags are your power tools. Tag anything&mdash;characters, locations, items, chapters, notes. Click a tag and see everything connected to it in one place. Your factions, your plotlines, your secrets, organized.
+          </p>
+          <div class="feature__shortcut" data-animate="fade-up" data-stagger="2">
+            <span class="font-body-sm">Browse by tag in the</span>
+            <kbd class="font-kbd">Tags Viewer</kbd>
+          </div>
+        </div>
+        <div class="feature__visual" data-animate="fade-right">
+          <div class="screenshot-placeholder screenshot-frame featured">
+            <i data-lucide="tag" class="screenshot-placeholder__icon"></i>
+            <span class="screenshot-placeholder__text font-caption">Tags viewer screenshot coming soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===========================================
+       TRUST BLOCK
+       =========================================== -->
+  <section class="trust-block section">
+    <div class="container">
+      <h2 class="font-heading-lg text-center section-heading" data-animate="fade-up">
+        Your stories are yours, forever.
+      </h2>
+      <div class="trust-block__grid" data-stagger-group data-stagger-delay="100">
+
+        <div class="trust-point" data-animate="scale">
+          <i class="fa-solid fa-hard-drive trust-point__icon"></i>
+          <span class="trust-point__label font-ui">Your data stays on your computer</span>
+        </div>
+
+        <div class="trust-point" data-animate="scale">
+          <i class="fa-solid fa-user-xmark trust-point__icon"></i>
+          <span class="trust-point__label font-ui">No account or sign-up required</span>
+        </div>
+
+        <div class="trust-point" data-animate="scale">
+          <i class="fa-solid fa-infinity trust-point__icon"></i>
+          <span class="trust-point__label font-ui">Pay once, own forever</span>
+        </div>
+
+        <div class="trust-point" data-animate="scale">
+          <i class="fa-solid fa-desktop trust-point__icon"></i>
+          <span class="trust-point__label font-ui">Works entirely offline</span>
+        </div>
+
+        <div class="trust-point" data-animate="scale">
+          <i class="fa-solid fa-file-arrow-down trust-point__icon"></i>
+          <span class="trust-point__label font-ui">Export to markdown anytime</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===========================================
+       QUICK FEATURES
+       =========================================== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="font-heading-lg text-center section-heading" data-animate="fade-up">
+        The features writers actually need
+      </h2>
+      <div class="quick-features__grid" data-stagger-group data-stagger-delay="100">
+
+        <div class="quick-feature card-hover" data-animate="fade-up">
+          <button type="button" class="quick-feature__image-btn"
+                  data-lightbox="layouts"
+                  data-lightbox-title="Custom Character Layouts"
+                  data-lightbox-desc="Every story tracks different details. Romance writers need relationship status. Fantasy writers need magical abilities. Customize your character sheets to capture exactly what matters to your story.">
+            <div class="quick-feature__image-placeholder">
+              <i data-lucide="users" class="quick-feature__placeholder-icon"></i>
+              <span class="quick-feature__placeholder-text font-caption">Click to preview</span>
+            </div>
+          </button>
+          <h3 class="quick-feature__title">Custom Character Layouts</h3>
+          <p class="quick-feature__desc font-body-sm">Your world is complex. Track what matters to YOUR story with fully customizable layouts.</p>
+        </div>
+
+        <div class="quick-feature card-hover" data-animate="fade-up">
+          <button type="button" class="quick-feature__image-btn"
+                  data-lightbox="locations"
+                  data-lightbox-title="Nested Locations"
+                  data-lightbox-desc="Build your world with hierarchical locations. Create kingdoms that contain cities, cities that contain taverns, and taverns that contain secret basements. Every location stores its own details, inhabitants, and connections.">
+            <div class="quick-feature__image-placeholder">
+              <i data-lucide="map-pin" class="quick-feature__placeholder-icon"></i>
+              <span class="quick-feature__placeholder-text font-caption">Click to preview</span>
+            </div>
+          </button>
+          <h3 class="quick-feature__title">Track your Locations</h3>
+          <p class="quick-feature__desc font-body-sm">Kingdom &rarr; City &rarr; Tavern &rarr; Secret Basement. It's all there, with intricate details saved for each of your book's settings.</p>
+        </div>
+
+        <div class="quick-feature card-hover" data-animate="fade-up">
+          <button type="button" class="quick-feature__image-btn"
+                  data-lightbox="timeline"
+                  data-lightbox-title="Timeline View"
+                  data-lightbox-desc="See your entire story at a glance. The timeline shows which characters appear in which chapters, helping you track character arcs and spot plot holes before they become problems.">
+            <div class="quick-feature__image-placeholder">
+              <i data-lucide="bar-chart-2" class="quick-feature__placeholder-icon"></i>
+              <span class="quick-feature__placeholder-text font-caption">Click to preview</span>
+            </div>
+          </button>
+          <h3 class="quick-feature__title">Timeline View</h3>
+          <p class="quick-feature__desc font-body-sm">Visually see where your characters appear across chapters</p>
+        </div>
+
+        <div class="quick-feature card-hover" data-animate="fade-up">
+          <button type="button" class="quick-feature__image-btn"
+                  data-lightbox="notes"
+                  data-lightbox-title="Notes for Everything Else"
+                  data-lightbox-desc="Not everything fits neatly into characters or locations. Notes let you capture world-building details, plot ideas, research, and anything else your story needs. Link notes to any other entity in your book.">
+            <div class="quick-feature__image-placeholder">
+              <i data-lucide="file-text" class="quick-feature__placeholder-icon"></i>
+              <span class="quick-feature__placeholder-text font-caption">Click to preview</span>
+            </div>
+          </button>
+          <h3 class="quick-feature__title">Notes, for everything else</h3>
+          <p class="quick-feature__desc font-body-sm">Write down your scattered ideas, create checklists, link to other pages</p>
+        </div>
+
+        <div class="quick-feature card-hover" data-animate="fade-up">
+          <button type="button" class="quick-feature__image-btn"
+                  data-lightbox="compendium"
+                  data-lightbox-title="The Compendium"
+                  data-lightbox-desc="Your world's encyclopedia. Browse an alphabetical index of every character, location, item, and note. Jump to any entry instantly. Perfect for those 'what did I name that thing?' moments.">
+            <div class="quick-feature__image-placeholder">
+              <i data-lucide="book" class="quick-feature__placeholder-icon"></i>
+              <span class="quick-feature__placeholder-text font-caption">Click to preview</span>
+            </div>
+          </button>
+          <h3 class="quick-feature__title">The Compendium</h3>
+          <p class="quick-feature__desc font-body-sm">View an alphabetical index of everything in your world</p>
+        </div>
+
+        <div class="quick-feature card-hover" data-animate="fade-up">
+          <button type="button" class="quick-feature__image-btn"
+                  data-lightbox="library"
+                  data-lightbox-title="Multi-Book Library"
+                  data-lightbox-desc="Writing a series? Manage all your books from one library. Copy characters, locations, items, and notes between books. Your recurring cast and world-building travel with you.">
+            <div class="quick-feature__image-placeholder">
+              <i data-lucide="library" class="quick-feature__placeholder-icon"></i>
+              <span class="quick-feature__placeholder-text font-caption">Click to preview</span>
+            </div>
+          </button>
+          <h3 class="quick-feature__title">Multi-Book Library</h3>
+          <p class="quick-feature__desc font-body-sm">Manage your entire series from one place; copy over characters, items, locations, and notes from one book to another</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===========================================
+       FINAL CTA
+       =========================================== -->
+  <section class="final-cta section" id="download">
+    <div class="container">
+      <h2 class="final-cta__headline font-heading-lg" data-animate="fade-up">
+        Ready to organize your story?
+      </h2>
+      <p class="final-cta__subtext font-body-lg" data-animate="fade-up" data-stagger="1">
+        No account needed. Your data stays on your computer.
+      </p>
+      <a href="#" class="btn btn-primary btn-xl btn-shadow" data-animate="scale" data-stagger="2">
+        Get Started
+      </a>
+      <div class="final-cta__platforms" data-animate="fade-up" data-stagger="3">
+        <span class="final-cta__platform">
+          <i class="fa-brands fa-windows final-cta__platform-icon"></i>
+          Windows
+        </span>
+        <span class="final-cta__platform">
+          <i class="fa-brands fa-apple final-cta__platform-icon"></i>
+          macOS
+        </span>
+        <span class="final-cta__platform">
+          <i class="fa-brands fa-linux final-cta__platform-icon"></i>
+          Linux
+        </span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===========================================
+       FOOTER
+       =========================================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo">
+        <svg class="footer__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+        </svg>
+        <span class="footer__logo-text">Penpoint</span>
+      </div>
+
+      <nav class="footer__nav">
+        <a href="#features" class="footer__link">Features</a>
+        <a href="#download" class="footer__link">Download</a>
+        <a href="https://github.com/hisnameisjoel/penpoint-updates" target="_blank" rel="noopener" class="footer__link">GitHub</a>
+      </nav>
+
+      <span class="footer__copyright">&copy; 2025 Penpoint. All rights reserved.</span>
+    </div>
+  </footer>
+
+
+  <!-- ===========================================
+       LIGHTBOX MODAL
+       =========================================== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="lightbox__overlay"></div>
+    <div class="lightbox__container">
+      <button type="button" class="lightbox__close" aria-label="Close lightbox">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="lightbox__content">
+        <div class="lightbox__image-wrapper">
+          <!-- Placeholder for now - will be replaced with actual images -->
+          <div class="lightbox__image-placeholder">
+            <i data-lucide="image" class="lightbox__placeholder-icon"></i>
+            <span class="lightbox__placeholder-text font-caption">Screenshot coming soon</span>
+          </div>
+        </div>
+        <div class="lightbox__info">
+          <h3 class="lightbox__title font-heading"></h3>
+          <p class="lightbox__desc font-body"></p>
+        </div>
+      </div>
+    </div>
   </div>
+
+
+  <!-- JavaScript -->
+  <script src="js/scroll-animations.js"></script>
+  <script src="js/lightbox.js"></script>
+  <script src="js/hero-rotate.js"></script>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    lucide.createIcons();
+  </script>
+
 </body>
 </html>
