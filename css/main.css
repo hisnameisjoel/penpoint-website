@@ -454,8 +454,7 @@ button {
 }
 
 .pain-point__icon {
-  width: 32px;
-  height: 32px;
+  font-size: 2rem;
   margin: 0 auto;
   color: rgb(var(--primary));
   flex-shrink: 0;
@@ -607,7 +606,7 @@ button {
 
 .trust-block__grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr) !important;
+  grid-template-columns: repeat(5, 1fr);
   gap: var(--space-4);
   width: 100%;
 }
@@ -1114,7 +1113,7 @@ body.lightbox-open {
   }
 
   .trust-block__grid {
-    grid-template-columns: repeat(5, 1fr) !important;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .quick-features__grid {
@@ -1137,6 +1136,11 @@ body.lightbox-open {
 }
 
 @media (max-width: 768px) {
+  /* Reduce section padding for mobile */
+  .section {
+    padding: var(--space-12) 0;
+  }
+
   .header__tagline {
     display: none;
   }
@@ -1159,34 +1163,61 @@ body.lightbox-open {
   }
 
   .header__nav-link {
-    padding: var(--space-2) 0;
+    padding: var(--space-3) 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
 
   .header__nav .btn {
     width: 100%;
     justify-content: center;
+    min-height: 44px;
   }
 
   .header__menu-btn {
     display: block;
+    min-width: 44px;
+    min-height: 44px;
   }
 
-  .header__menu-btn--active i {
-    /* Could rotate or change icon on active state */
-  }
-
-  .hero {
+  .hero.section {
     min-height: 0;
-    padding-top: calc(var(--header-height) + var(--space-8));
+    padding-top: calc(var(--header-height) + var(--space-10));
     padding-bottom: var(--space-12);
+  }
+
+  .hero__visual .screenshot-placeholder {
+    min-height: 280px;
   }
 
   .pain-points__grid {
     grid-template-columns: 1fr;
   }
 
+  /* Remove min-heights when cards stack */
+  .pain-point__title {
+    min-height: 0;
+  }
+
+  .pain-point__desc {
+    min-height: 0;
+  }
+
+  /* Reduce feature section gap when stacked */
+  .feature {
+    gap: var(--space-6);
+  }
+
+  /* Allow feature shortcut to wrap */
+  .feature__shortcut {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .trust-block__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
   }
 
   .quick-features__grid {
@@ -1197,10 +1228,21 @@ body.lightbox-open {
     height: 120px;
   }
 
+  /* Fix lightbox close button position */
+  .lightbox__close {
+    transform: none;
+    top: var(--space-2);
+    right: var(--space-2);
+  }
+
   .lightbox__container {
     width: auto;
     max-width: calc(100vw - 2rem);
     max-height: 85vh;
+  }
+
+  .lightbox__image {
+    max-height: calc(85vh - 120px);
   }
 
   .lightbox__image-placeholder {
@@ -1219,6 +1261,10 @@ body.lightbox-open {
     font-size: var(--text-sm);
   }
 
+  .final-cta {
+    padding: var(--space-16) 0;
+  }
+
   .footer__inner {
     flex-direction: column;
     gap: var(--space-6);
@@ -1232,6 +1278,10 @@ body.lightbox-open {
 }
 
 @media (max-width: 480px) {
+  .section {
+    padding: var(--space-10) 0;
+  }
+
   .structure-bridge__categories {
     gap: var(--space-3);
   }
@@ -1242,15 +1292,42 @@ body.lightbox-open {
 
   .trust-block__grid {
     grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .trust-point {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    gap: var(--space-4);
+  }
+
+  .trust-point__icon {
+    font-size: 1.75rem;
+    flex-shrink: 0;
   }
 
   .btn-xl {
     width: 100%;
   }
 
+  .final-cta {
+    padding: var(--space-12) 0;
+  }
+
   .final-cta__platforms {
     flex-direction: column;
     align-items: center;
+  }
+
+  /* Reduce lightbox info padding */
+  .lightbox__info {
+    padding: var(--space-3);
+  }
+
+  .lightbox__title {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-2);
   }
 }
 
@@ -1270,5 +1347,93 @@ body.lightbox-open {
 
   .container {
     padding: 0 var(--space-4);
+  }
+
+  .category-card {
+    padding: var(--space-2) var(--space-3);
+    gap: var(--space-2);
+  }
+
+  .category-card__icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .category-card__label {
+    font-size: var(--text-sm);
+  }
+}
+
+/* Extra narrow devices (iPhone SE 1st gen, etc) */
+@media (max-width: 320px) {
+  .container {
+    padding: 0 var(--space-3);
+  }
+
+  .hero__headline {
+    font-size: 1.4rem;
+  }
+
+  .hero__subheadline {
+    font-size: var(--text-base);
+  }
+
+  .feature__headline {
+    font-size: var(--text-xl);
+  }
+
+  .feature__desc {
+    font-size: var(--text-base);
+  }
+
+  .final-cta__headline {
+    font-size: var(--text-xl);
+  }
+
+  .btn-xl {
+    padding: 0.875rem 1.5rem;
+    font-size: var(--text-lg);
+  }
+
+  .structure-bridge__categories {
+    gap: var(--space-2);
+  }
+
+  .category-card {
+    padding: var(--space-1) var(--space-2);
+  }
+}
+
+/* ===========================================
+   HOVER STATES - Only for devices that support hover
+   Prevents sticky hover on touch devices
+   =========================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  .card-hover:hover {
+    box-shadow: -7px 7px 0 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .feature__image-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: -9px 9px 0 0 rgba(0, 0, 0, 0.25);
+  }
+
+  .quick-feature:hover {
+    border-color: rgb(var(--primary));
+  }
+}
+
+/* Remove hover effects for touch devices */
+@media (hover: none) {
+  .card-hover:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .feature__image-btn:hover {
+    transform: none;
+    box-shadow: -7px 7px 0 0 rgba(0, 0, 0, 0.2);
   }
 }
