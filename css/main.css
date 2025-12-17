@@ -314,7 +314,7 @@ button {
    =========================================== */
 
 .hero {
-  min-height: 100vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   padding-top: var(--header-height);
@@ -595,7 +595,14 @@ button {
 }
 
 .trust-block .section-heading {
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-4);
+}
+
+.trust-block__desc {
+  max-width: 40rem;
+  margin: 0 auto var(--space-12);
+  color: rgb(var(--muted-foreground));
+  line-height: var(--leading-relaxed);
 }
 
 .trust-block__grid {
@@ -625,6 +632,68 @@ button {
   color: rgb(var(--foreground));
   word-wrap: break-word;
   overflow-wrap: break-word;
+}
+
+/* ===========================================
+   TESTIMONIAL
+   =========================================== */
+
+.testimonial {
+  /* Uses standard .section padding (section-gap) for consistent spacing */
+}
+
+.testimonial__figure {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: var(--space-10);
+  align-items: stretch;
+  margin: 0;
+}
+
+.testimonial__divider {
+  background-color: rgb(var(--foreground));
+}
+
+.testimonial__quote {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.testimonial__pullquote {
+  font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl));
+  font-weight: 600;
+  line-height: var(--leading-snug);
+  color: rgb(var(--foreground));
+}
+
+.testimonial__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.testimonial__body {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: rgb(var(--muted-foreground));
+}
+
+.testimonial__attribution {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.testimonial__author {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: rgb(var(--foreground));
+}
+
+.testimonial__credits {
+  font-size: var(--text-xs);
+  color: rgb(var(--muted-foreground));
 }
 
 /* ===========================================
@@ -746,6 +815,24 @@ button {
   object-fit: cover;
   object-position: center;
   transform: translate(-50%, -50%) scale(1.2);
+  /* Smooth scaling for downscaled images */
+  -webkit-image-rendering: auto;
+  image-rendering: auto;
+  backface-visibility: hidden;
+}
+
+/* Modifier for top-center crop position */
+.quick-feature__image--top {
+  object-position: top center;
+}
+
+/* Modifier for top-left crop position */
+.quick-feature__image--top-left {
+  top: 0;
+  left: 0;
+  transform: scale(1.2);
+  transform-origin: top left;
+  object-position: top left;
 }
 
 /* ===========================================
@@ -778,9 +865,9 @@ button {
 
 .lightbox__container {
   position: relative;
-  max-width: calc(100vw - 4rem);
+  /* Let content (image) define width, but cap at 90vw */
+  max-width: 90vw;
   max-height: 90vh;
-  width: auto;
   background-color: rgb(var(--background));
   border: 1px solid rgb(var(--border));
   overflow: visible;
@@ -830,20 +917,22 @@ button {
 }
 
 .lightbox__image-wrapper {
+  /* Clean wrapper - no padding/margins, just contains the image */
   position: relative;
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow: hidden;
-  background-color: rgb(var(--card));
+  z-index: 1;
+  line-height: 0;
+  flex-shrink: 0;
+  /* Subtle shadow casting down onto the text area */
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
 }
 
 .lightbox__image {
+  /* Display at natural size, but cap at 90vw and leave room for text */
+  display: block;
   width: auto;
   height: auto;
-  max-width: 100%;
-  max-height: calc(90vh - 120px);
-  display: block;
-  margin: 0 auto;
+  max-width: 90vw;
+  max-height: calc(90vh - 140px);
 }
 
 .lightbox__image-placeholder {
@@ -852,8 +941,11 @@ button {
   align-items: center;
   justify-content: center;
   gap: var(--space-3);
+  width: 600px;
+  max-width: 90vw;
   height: 400px;
   color: rgb(var(--muted-foreground));
+  background-color: rgb(var(--card));
 }
 
 .lightbox__placeholder-icon {
@@ -867,9 +959,15 @@ button {
 }
 
 .lightbox__info {
-  padding: var(--space-6);
+  /* Trick: width:0 means it doesn't contribute to container width calculation,
+     but min-width:100% makes it fill the available space (set by image) */
+  width: 0;
+  min-width: 100%;
+  padding: var(--space-5) var(--space-6);
   background-color: rgb(var(--background-accent));
-  border-top: 1px solid rgb(var(--border));
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .lightbox__title {
@@ -1021,6 +1119,20 @@ body.lightbox-open {
 
   .quick-features__grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonial__figure {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .testimonial__divider {
+    display: none;
+  }
+
+  .testimonial__quote {
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid rgb(var(--foreground));
   }
 }
 

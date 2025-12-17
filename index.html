@@ -33,6 +33,15 @@
 
   <!-- Font Awesome (for platform icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-79JVXYBCTN');
+  </script>
 </head>
 <body>
 
@@ -58,7 +67,7 @@
 
       <nav class="header__nav">
         <a href="#features" class="header__nav-link">Features</a>
-        <a href="#download" class="btn btn-outline">Download</a>
+        <a href="https://forms.gle/aZiTnYr8cPwNMewU9" class="btn btn-outline" target="_blank" rel="noopener">Join the Beta</a>
       </nav>
 
       <button type="button" class="header__menu-btn" aria-label="Menu" aria-expanded="false">
@@ -81,8 +90,8 @@
           Writers lose track of their own stories. Penpoint keeps everything searchable, visual, and in one place.
         </p>
         <div class="hero__cta" data-animate="fade-up" data-stagger="2">
-          <a href="#download" class="btn btn-primary btn-xl btn-shadow">
-            Start Organizing Your Story
+          <a href="https://forms.gle/aZiTnYr8cPwNMewU9" class="btn btn-primary btn-xl btn-shadow" target="_blank" rel="noopener">
+            Join the Beta Program
           </a>
         </div>
       </div>
@@ -251,7 +260,7 @@
             <svg class="feature__quill" aria-hidden="true"><use href="#icon-quill"/></svg>
           </h2>
           <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
-            Complex character webs refuse to stay in your head. See who's connected to whom at a glance with visual relationship mapping. Finally understand your own story.
+            Complex character webs refuse to stay in your head. See who's connected to whom at a glance with visual relationship mapping. Finally understand how everyone connects.
           </p>
           <div class="feature__shortcut" data-animate="fade-up" data-stagger="2">
             <span class="font-body-sm">View relationship connections in the</span>
@@ -284,7 +293,7 @@
             <svg class="feature__quill" aria-hidden="true"><use href="#icon-quill"/></svg>
           </h2>
           <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
-            Tags are your power tools. Tag anything&mdash;characters, locations, items, chapters, notes. Click a tag and see everything connected to it in one place. Your factions, your plotlines, your secrets, organized.
+            Tags are your power tools. Tag anything&mdash;characters, locations, items, chapters, notes. Click a tag and see everything connected to it in one place. Your factions, your plotlines, your plot twists, organized.
           </p>
           <div class="feature__shortcut" data-animate="fade-up" data-stagger="2">
             <span class="font-body-sm">Browse by tag in the</span>
@@ -313,6 +322,9 @@
       <h2 class="font-heading-lg text-center section-heading" data-animate="fade-up">
         Your stories are yours, forever.
       </h2>
+      <p class="trust-block__desc font-body text-center" data-animate="fade-up" data-stagger="1">
+        Your work belongs to you, not us. No subscriptions, no cloud accounts, no lock-in, ever. Export everything to document form whenever you want.
+      </p>
       <div class="trust-block__grid" data-stagger-group data-stagger-delay="100">
 
         <div class="trust-point" data-animate="scale">
@@ -346,42 +358,64 @@
 
 
   <!-- ===========================================
+       TESTIMONIAL
+       =========================================== -->
+  <section class="testimonial section section-alt">
+    <div class="container">
+      <figure class="testimonial__figure">
+        <blockquote class="testimonial__quote" data-animate="fade-right">
+          <p class="testimonial__pullquote font-display">
+            "Everything Penpoint offers has made my authorship 100 times easier and 1000 times more organized and fun."
+          </p>
+        </blockquote>
+        <div class="testimonial__divider" aria-hidden="true"></div>
+        <div class="testimonial__content" data-animate="fade-left">
+          <p class="testimonial__body font-body">
+            <strong>Penpoint</strong> is the freaking best!!! It has expedited my entire writing process by leaps and bounds. Need to create a new character with a custom-made template? Done. 2 seconds. Need to create a new LitRPG legendary artifact that I can tab to my main character. Done. 3 seconds. Everything <strong>Penpoint</strong> offers has made my authorship 100 times easier and 1000 times more organized and fun. I'll be using this until the heat death of the universe, and perhaps even after that.
+          </p>
+          <figcaption class="testimonial__attribution font-ui">
+            <span class="testimonial__author">— Jesse Gerlach</span>
+            <span class="testimonial__credits">Author, <em>Sound Shaper Series</em>, <em>Rickleford</em>, <em>Orion Division</em></span>
+          </figcaption>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+
+  <!-- ===========================================
        QUICK FEATURES
        =========================================== -->
   <section class="section">
     <div class="container">
       <h2 class="font-heading-lg text-center section-heading" data-animate="fade-up">
-        The features writers actually need
+        The features you actually need
       </h2>
       <div class="quick-features__grid" data-stagger-group data-stagger-delay="100">
 
-        <div class="quick-feature card-hover" data-animate="fade-up">
-          <button type="button" class="quick-feature__image-btn"
-                  data-lightbox="layouts"
-                  data-lightbox-title="Custom Character Layouts"
-                  data-lightbox-desc="Every story tracks different details. Romance writers need relationship status. Fantasy writers need magical abilities. Customize your character sheets to capture exactly what matters to your story.">
-            <div class="quick-feature__image-placeholder">
-              <i data-lucide="users" class="quick-feature__placeholder-icon"></i>
-              <span class="quick-feature__placeholder-text font-caption">Click to preview</span>
-            </div>
-          </button>
+        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
+                data-lightbox="layouts"
+                data-lightbox-title="Custom Character Layouts"
+                data-lightbox-desc="Your characters, your layout. Drag and drop the blocks you need, configure how they display, and see the result immediately in your character page. Every story is different—your character sheets should be too."
+                data-lightbox-image="images/CharacterLayout.webp">
+          <div class="quick-feature__image-wrapper">
+            <img src="images/CharacterLayout.webp" alt="Character layout customization with drag-and-drop blocks" class="quick-feature__image quick-feature__image--top-left">
+          </div>
           <h3 class="quick-feature__title">Custom Character Layouts</h3>
           <p class="quick-feature__desc font-body-sm">Your world is complex. Track what matters to YOUR story with fully customizable layouts.</p>
-        </div>
+        </button>
 
-        <div class="quick-feature card-hover" data-animate="fade-up">
-          <button type="button" class="quick-feature__image-btn"
-                  data-lightbox="locations"
-                  data-lightbox-title="Nested Locations"
-                  data-lightbox-desc="Build your world with hierarchical locations. Create kingdoms that contain cities, cities that contain taverns, and taverns that contain secret basements. Every location stores its own details, inhabitants, and connections.">
-            <div class="quick-feature__image-placeholder">
-              <i data-lucide="map-pin" class="quick-feature__placeholder-icon"></i>
-              <span class="quick-feature__placeholder-text font-caption">Click to preview</span>
-            </div>
-          </button>
-          <h3 class="quick-feature__title">Track your Locations</h3>
+        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
+                data-lightbox="locations"
+                data-lightbox-title="Nested Locations"
+                data-lightbox-desc="From continent to country to city to room—see your entire world in one expandable tree. Click any location to see its description, the characters who live there, the items inside, and watch as all that information gets cross-referenced throughout the app."
+                data-lightbox-image="images/Locations.webp">
+          <div class="quick-feature__image-wrapper">
+            <img src="images/Locations.webp" alt="Nested locations tree with expandable hierarchy" class="quick-feature__image quick-feature__image--top-left">
+          </div>
+          <h3 class="quick-feature__title">Map your Locations</h3>
           <p class="quick-feature__desc font-body-sm">Kingdom &rarr; City &rarr; Tavern &rarr; Secret Basement. It's all there, with intricate details saved for each of your book's settings.</p>
-        </div>
+        </button>
 
         <button type="button" class="quick-feature card-hover" data-animate="fade-up"
                 data-lightbox="timeline"
@@ -389,53 +423,83 @@
                 data-lightbox-desc="One view. Every character. Every chapter. See who appears where, spot unintended absences, and catch pacing problems before they reach your readers."
                 data-lightbox-image="images/TimelineView.webp">
           <div class="quick-feature__image-wrapper">
-            <img src="images/TimelineView.webp" alt="Timeline view showing character appearances across chapters" class="quick-feature__image">
+            <img src="images/TimelineView.webp" alt="Timeline view showing character appearances across chapters" class="quick-feature__image quick-feature__image--top-left">
           </div>
           <h3 class="quick-feature__title">Timeline View</h3>
           <p class="quick-feature__desc font-body-sm">Visually see where your characters appear across chapters</p>
         </button>
 
-        <div class="quick-feature card-hover" data-animate="fade-up">
-          <button type="button" class="quick-feature__image-btn"
-                  data-lightbox="notes"
-                  data-lightbox-title="Notes for Everything Else"
-                  data-lightbox-desc="Not everything fits neatly into characters or locations. Notes let you capture world-building details, plot ideas, research, and anything else your story needs. Link notes to any other entity in your book.">
-            <div class="quick-feature__image-placeholder">
-              <i data-lucide="file-text" class="quick-feature__placeholder-icon"></i>
-              <span class="quick-feature__placeholder-text font-caption">Click to preview</span>
-            </div>
-          </button>
+        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
+                data-lightbox="notes"
+                data-lightbox-title="Notes for Everything Else"
+                data-lightbox-desc="Plot threads to resolve. Dialogue snippets to use. Research to remember. Worldbuilding details you'll need later. Your Notebook holds all the ideas that don't fit elsewhere; formatted, tagged, and searchable alongside everything else."
+                data-lightbox-image="images/Notebook.webp">
+          <div class="quick-feature__image-wrapper">
+            <img src="images/Notebook.webp" alt="Notebook with formatted notes and tags" class="quick-feature__image quick-feature__image--top-left">
+          </div>
           <h3 class="quick-feature__title">Notes, for everything else</h3>
           <p class="quick-feature__desc font-body-sm">Write down your scattered ideas, create checklists, link to other pages</p>
-        </div>
+        </button>
 
-        <div class="quick-feature card-hover" data-animate="fade-up">
-          <button type="button" class="quick-feature__image-btn"
-                  data-lightbox="compendium"
-                  data-lightbox-title="The Compendium"
-                  data-lightbox-desc="Your world's encyclopedia. Browse an alphabetical index of every character, location, item, and note. Jump to any entry instantly. Perfect for those 'what did I name that thing?' moments.">
-            <div class="quick-feature__image-placeholder">
-              <i data-lucide="book" class="quick-feature__placeholder-icon"></i>
-              <span class="quick-feature__placeholder-text font-caption">Click to preview</span>
-            </div>
-          </button>
+        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
+                data-lightbox="compendium"
+                data-lightbox-title="The Compendium"
+                data-lightbox-desc="Your story's encyclopedia, built automatically. Every character, location, and item are indexed alphabetically as you write. Find anything fast, catch accidental duplicates, and export to a single document for publishers to reference."
+                data-lightbox-image="images/Compendium.webp">
+          <div class="quick-feature__image-wrapper">
+            <img src="images/Compendium.webp" alt="Compendium showing alphabetical index of story elements" class="quick-feature__image quick-feature__image--top-left">
+          </div>
           <h3 class="quick-feature__title">The Compendium</h3>
           <p class="quick-feature__desc font-body-sm">View an alphabetical index of everything in your world</p>
-        </div>
+        </button>
 
-        <div class="quick-feature card-hover" data-animate="fade-up">
-          <button type="button" class="quick-feature__image-btn"
-                  data-lightbox="library"
-                  data-lightbox-title="Multi-Book Library"
-                  data-lightbox-desc="Writing a series? Manage all your books from one library. Copy characters, locations, items, and notes between books. Your recurring cast and world-building travel with you.">
-            <div class="quick-feature__image-placeholder">
-              <i data-lucide="library" class="quick-feature__placeholder-icon"></i>
-              <span class="quick-feature__placeholder-text font-caption">Click to preview</span>
-            </div>
-          </button>
+        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
+                data-lightbox="library"
+                data-lightbox-title="Multi-Book Library"
+                data-lightbox-desc="Writing book two? Don't start from scratch. Penpoint lets you transfer characters to your next book, keeping your series consistent without juggling files or re-entering details you've already written."
+                data-lightbox-image="images/BookSelector.webp">
+          <div class="quick-feature__image-wrapper">
+            <img src="images/BookSelector.webp" alt="Book library showing multiple books in a series" class="quick-feature__image quick-feature__image--top">
+          </div>
           <h3 class="quick-feature__title">Multi-Book Library</h3>
           <p class="quick-feature__desc font-body-sm">Manage your entire series from one place; copy over characters, items, locations, and notes from one book to another</p>
-        </div>
+        </button>
+
+        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
+                data-lightbox="items"
+                data-lightbox-title="Track Your Character's Possessions"
+                data-lightbox-desc="Who's carrying the ancient sword? Where did the stolen letter end up? Track every meaningful object in your story—link items to their owners, note their locations, and never lose track of that plot-critical artifact again."
+                data-lightbox-image="images/ItemsPage.webp">
+          <div class="quick-feature__image-wrapper">
+            <img src="images/ItemsPage.webp" alt="Items page showing character possessions and their owners" class="quick-feature__image quick-feature__image--top-left">
+          </div>
+          <h3 class="quick-feature__title">Track Your Character's Possessions</h3>
+          <p class="quick-feature__desc font-body-sm">Who owns what? Where is it now? Link items to characters and locations so you always know who's carrying the MacGuffin</p>
+        </button>
+
+        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
+                data-lightbox="chapters"
+                data-lightbox-title="Organize Your Chapters"
+                data-lightbox-desc="Create, reorder, and rename chapters with ease. Track whose POV each chapter follows, which characters appear, and where the action takes place. Your story's structure, laid out clearly so you can see the shape of your narrative at a glance."
+                data-lightbox-image="images/Chapters.webp">
+          <div class="quick-feature__image-wrapper">
+            <img src="images/Chapters.webp" alt="Chapters page showing POV tracking and character appearances" class="quick-feature__image quick-feature__image--top">
+          </div>
+          <h3 class="quick-feature__title">Organize Your Chapters</h3>
+          <p class="quick-feature__desc font-body-sm">Track POV, character appearances, and scene locations. Reorder with drag-and-drop as your story evolves</p>
+        </button>
+
+        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
+                data-lightbox="interface"
+                data-lightbox-title="Make It Yours"
+                data-lightbox-desc="Seven color themes from warm Parchment to dark Midnight. Adjustable typography for comfortable reading. Penpoint adapts to how you like to work—whether that's bright daylight writing or late-night sessions in dark mode."
+                data-lightbox-image="images/Interface.webp">
+          <div class="quick-feature__image-wrapper">
+            <img src="images/Interface.webp" alt="Interface settings showing theme and typography options" class="quick-feature__image quick-feature__image--top-left">
+          </div>
+          <h3 class="quick-feature__title">Make It Yours</h3>
+          <p class="quick-feature__desc font-body-sm">Seven color themes, adjustable typography, and a clean interface that gets out of your way. Write comfortably, day or night</p>
+        </button>
 
       </div>
     </div>
@@ -453,8 +517,8 @@
       <p class="final-cta__subtext font-body-lg" data-animate="fade-up" data-stagger="1">
         No account needed. Your data stays on your computer.
       </p>
-      <a href="#" class="btn btn-primary btn-xl btn-shadow" data-animate="scale" data-stagger="2">
-        Get Started
+      <a href="https://forms.gle/aZiTnYr8cPwNMewU9" class="btn btn-primary btn-xl btn-shadow" data-animate="scale" data-stagger="2" target="_blank" rel="noopener">
+        Join the Beta Program
       </a>
       <div class="final-cta__platforms" data-animate="fade-up" data-stagger="3">
         <span class="final-cta__platform">
@@ -492,7 +556,7 @@
         <a href="mailto:support@penpoint.app" class="footer__link">Contact Support</a>
       </nav>
 
-      <span class="footer__copyright">&copy; 2025 Penpoint. All rights reserved.</span>
+      <span class="footer__copyright">&copy; 2026 Tophat Creative, LLC. All Rights Reserved.</span>
     </div>
   </footer>
 
