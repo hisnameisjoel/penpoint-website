@@ -69,6 +69,34 @@ button {
   background-color: rgb(var(--background-accent));
 }
 
+/* Section divider with quill - full viewport width */
+.section-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  height: 0;
+  z-index: 1;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 var(--space-8);
+}
+
+.section-divider__line {
+  flex: 1;
+  height: 2px;
+  background-color: rgb(var(--border));
+}
+
+.section-divider__quill {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  fill: rgb(var(--muted-foreground));
+}
+
 /* Flexbox utilities */
 .flex {
   display: flex;
@@ -176,12 +204,12 @@ button {
 }
 
 .btn-primary {
-  background-color: rgb(var(--primary));
-  color: rgb(var(--primary-foreground));
+  background-color: rgb(var(--cta));
+  color: white;
 }
 
 .btn-primary:hover {
-  background-color: rgb(var(--primary) / 0.85);
+  background-color: rgb(var(--cta-hover));
 }
 
 .btn-outline {
@@ -318,6 +346,7 @@ button {
   display: flex;
   align-items: center;
   padding-top: var(--header-height);
+  background-color: rgb(var(--card));
 }
 
 .hero__inner {
@@ -367,6 +396,7 @@ button {
 
 .hero__visual .screenshot-placeholder {
   min-height: 480px;
+  background-color: white;
 }
 
 /* ===========================================
@@ -448,8 +478,9 @@ button {
   flex-direction: column;
   gap: var(--space-3);
   padding: var(--space-6);
-  background-color: rgb(var(--background));
+  background-color: rgb(var(--paper));
   border: 1px solid rgb(var(--border));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   text-align: center;
 }
 
@@ -588,9 +619,7 @@ button {
    =========================================== */
 
 .trust-block {
-  background-color: rgb(var(--card));
-  border-top: 1px solid rgb(var(--border));
-  border-bottom: 1px solid rgb(var(--border));
+  background-color: rgb(var(--background-accent));
 }
 
 .trust-block .section-heading {
@@ -638,7 +667,9 @@ button {
    =========================================== */
 
 .testimonial {
-  /* Uses standard .section padding (section-gap) for consistent spacing */
+  background-color: rgb(var(--card));
+  border-top: 1px solid rgb(var(--border));
+  border-bottom: 1px solid rgb(var(--border));
 }
 
 .testimonial__figure {
@@ -712,15 +743,20 @@ button {
   padding: var(--space-6);
   background-color: rgb(var(--card));
   border: 1px solid rgb(var(--border));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   text-align: left;
   cursor: pointer;
-  transition: border-color var(--duration-fast) var(--ease-out);
+  transition: border-color var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
   min-width: 0;
   overflow: hidden;
 }
 
 .quick-feature:hover {
   border-color: rgb(var(--primary));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 
 /* Image wrapper for cropping */

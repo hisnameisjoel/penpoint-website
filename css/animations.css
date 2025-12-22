@@ -103,8 +103,9 @@
    Apply these to elements, triggered by JS
    =========================================== */
 
-/* Base state - elements start hidden */
-[data-animate] {
+/* Base state - elements only hidden when JS is ready
+   This ensures content is visible if JS fails to load */
+.js-ready [data-animate] {
   opacity: 0;
 }
 

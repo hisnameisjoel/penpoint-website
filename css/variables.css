@@ -30,6 +30,8 @@
   --muted: 235 220 200;             /* #EBDCC8 - Hover backgrounds */
   --accent: 61 54 46;               /* #3D362E - Accent elements */
   --accent-foreground: 254 249 240;
+  --cta: 205 110 44;                /* #CD6E2C - Warm rust for CTAs */
+  --cta-hover: 181 95 37;           /* #B55F25 - Darker hover state */
 
   /* Borders & Inputs */
   --border: 230 220 205;            /* #E6DCCD - Subtle borders */
