@@ -27,6 +27,7 @@ body {
   -webkit-user-select: none;
   user-select: none;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 img, picture, video, canvas, svg {
@@ -162,7 +163,13 @@ button {
 
 /* Section heading with bottom margin */
 .section-heading {
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-2);
+}
+
+.section-subheading {
+  color: rgb(var(--muted-foreground));
+  margin-top: 0;
+  margin-bottom: var(--space-8);
 }
 
 /* ===========================================
@@ -370,11 +377,21 @@ button {
 }
 
 .hero__headline {
-  font-size: clamp(2rem, 5vw, var(--text-4xl));
+  font-size: clamp(1.75rem, 4vw, var(--text-3xl));
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: rgb(var(--foreground));
+  margin-bottom: var(--space-6);
+}
+
+.hero__quote {
+  font-size: clamp(1.5rem, 4vw, var(--text-3xl));
   font-weight: 600;
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tighter);
   color: rgb(var(--foreground));
+  margin-bottom: var(--space-4);
 }
 
 .hero__subheadline {
@@ -673,21 +690,28 @@ button {
 }
 
 .testimonial__figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin: 0;
+}
+
+.testimonial__columns {
   display: grid;
   grid-template-columns: 1fr 1px 1fr;
   gap: var(--space-10);
-  align-items: stretch;
-  margin: 0;
+  align-items: start;
 }
 
 .testimonial__divider {
   background-color: rgb(var(--foreground));
+  align-self: stretch;
 }
 
 .testimonial__quote {
   margin: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .testimonial__pullquote {
@@ -695,12 +719,14 @@ button {
   font-weight: 600;
   line-height: var(--leading-snug);
   color: rgb(var(--foreground));
+  text-align: right;
+  max-width: 90%;
+  margin-left: auto;
 }
 
 .testimonial__content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
 }
 
 .testimonial__body {
@@ -713,6 +739,8 @@ button {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
+  align-items: center;
+  text-align: center;
 }
 
 .testimonial__author {
@@ -732,8 +760,15 @@ button {
 
 .quick-features__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--component-gap);
+  /* Break out of container for wider layout */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 var(--space-8);
+  max-width: 1600px;
 }
 
 .quick-feature {
@@ -868,6 +903,15 @@ button {
   transform: scale(1.2);
   transform-origin: top left;
   object-position: top left;
+}
+
+/* Modifier for top-center crop position */
+.quick-feature__image--top-center {
+  top: 0;
+  left: 50%;
+  transform: scale(1.2) translateX(-50%);
+  transform-origin: top center;
+  object-position: top center;
 }
 
 /* ===========================================
@@ -1024,6 +1068,82 @@ body.lightbox-open {
 }
 
 /* ===========================================
+   FAQ SECTION
+   =========================================== */
+
+.faq {
+  padding: var(--space-20) 0;
+}
+
+.faq .section-heading {
+  margin-bottom: var(--space-12);
+}
+
+.faq__list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.faq__item {
+  background-color: rgb(var(--card));
+  border: 1px solid rgb(var(--border));
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  transition: all 0.2s ease;
+}
+
+.faq__item:hover {
+  border-color: rgb(var(--foreground) / 0.2);
+}
+
+.faq__item[open] {
+  background-color: rgb(var(--background));
+}
+
+.faq__question {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-user-select: none;
+  user-select: none;
+  margin: 0;
+}
+
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq__question::after {
+  content: '+';
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: rgb(var(--muted-foreground));
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  margin-left: var(--space-4);
+}
+
+.faq__item[open] .faq__question::after {
+  content: '−';
+}
+
+.faq__answer {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgb(var(--border));
+}
+
+.faq__answer p {
+  margin: 0;
+  line-height: var(--leading-relaxed);
+}
+
+/* ===========================================
    FINAL CTA
    =========================================== */
 
@@ -1119,6 +1239,12 @@ body.lightbox-open {
    RESPONSIVE STYLES
    =========================================== */
 
+@media (max-width: 1280px) {
+  .quick-features__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 1024px) {
   .hero__inner {
     grid-template-columns: 1fr;
@@ -1156,7 +1282,7 @@ body.lightbox-open {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .testimonial__figure {
+  .testimonial__columns {
     grid-template-columns: 1fr;
     gap: var(--space-6);
   }
@@ -1168,6 +1294,12 @@ body.lightbox-open {
   .testimonial__quote {
     padding-bottom: var(--space-6);
     border-bottom: 1px solid rgb(var(--foreground));
+  }
+
+  .testimonial__pullquote {
+    text-align: left;
+    margin-left: 0;
+    max-width: 100%;
   }
 }
 
@@ -1369,7 +1501,7 @@ body.lightbox-open {
 
 /* Very narrow devices */
 @media (max-width: 375px) {
-  .hero__headline {
+  .hero__quote {
     font-size: clamp(1.5rem, 8vw, 2rem);
   }
 
@@ -1406,7 +1538,7 @@ body.lightbox-open {
     padding: 0 var(--space-3);
   }
 
-  .hero__headline {
+  .hero__quote {
     font-size: 1.4rem;
   }
 

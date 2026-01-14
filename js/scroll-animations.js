@@ -71,20 +71,54 @@
   // SMOOTH SCROLL FOR ANCHOR LINKS
   // ===========================================
 
+  // Manual smooth scroll using requestAnimationFrame (more reliable)
+  function smoothScrollTo(targetY, duration = 600) {
+    const startY = window.pageYOffset;
+    const difference = targetY - startY;
+    const startTime = performance.now();
+
+    function step(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Easing function (ease-out cubic)
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+
+      window.scrollTo(0, startY + difference * easeOut);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
 
-        if (target) {
-          const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
-          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        // Skip if just "#" (like logo link)
+        if (!href || href === '#') {
+          e.preventDefault();
+          smoothScrollTo(0);
+          return;
+        }
 
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
+        // Try to find the target element
+        try {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+            smoothScrollTo(targetPosition);
+          }
+        } catch (err) {
+          // Invalid selector, let default behavior happen
+          console.warn('Invalid anchor selector:', href);
         }
       });
     });
