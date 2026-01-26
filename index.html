@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>document.documentElement.classList.add('js-ready');</script>
-  <meta name="description" content="Penpoint - Where Your Story Comes Together. A simple tool for writers to track characters, locations, and story details across books and series.">
-  <meta name="keywords" content="character tracking software, novel writing, character management, story organization, writing companion app">
+  <meta name="description" content="Searchable character & story bible for fiction writers. Visual relationship maps, instant search, nested locations. Your data stays on your computer.">
+  <meta name="keywords" content="character bible, story bible, series bible software, character tracking software, novel writing, character management, story organization, writing companion app">
   <link rel="canonical" href="https://penpoint.app/">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://penpoint.app/">
-  <meta property="og:title" content="Penpoint - Where Your Story Comes Together">
-  <meta property="og:description" content="Writers lose track of their own stories. Penpoint fixes that. Track characters, locations, and every detail across your books.">
+  <meta property="og:title" content="Penpoint - Character & Story Bible for Writers">
+  <meta property="og:description" content="Searchable character & story bible for fiction writers. Visual relationship maps, instant search, nested locations. Your data stays on your computer.">
   <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -21,11 +21,11 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://penpoint.app/">
-  <meta name="twitter:title" content="Penpoint - Where Your Story Comes Together">
-  <meta name="twitter:description" content="Writers lose track of their own stories. Penpoint fixes that. Track characters, locations, and every detail across your books.">
+  <meta name="twitter:title" content="Penpoint - Character & Story Bible for Writers">
+  <meta name="twitter:description" content="Searchable character & story bible for fiction writers. Visual relationship maps, instant search, nested locations. Your data stays on your computer.">
   <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
 
-  <title>Penpoint - Where Your Story Comes Together</title>
+  <title>Penpoint - Character & Story Bible for Writers | Searchable, Visual, Offline</title>
 
   <!-- Favicon & Icons -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -111,6 +111,22 @@
     "mainEntity": [
       {
         "@type": "Question",
+        "name": "What is a character bible?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A character bible is a reference document that tracks character details—names, traits, relationships, backstories, and appearances—to keep your story consistent across drafts and books. Think of it as your authoritative reference for every character in your fictional world, preventing continuity errors like forgetting eye color or misspelling names."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a story bible?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A story bible organizes all the details of your fictional world: characters, locations, timelines, worldbuilding notes, and plot threads. It's especially crucial for series where continuity matters. Writers use story bibles (also called series bibles or show bibles) to remember what happened in book 1 when writing book 3."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "What is Penpoint?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -139,6 +155,22 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes! All your data is stored locally on your computer in a SQLite database. No internet required, no account needed, complete privacy. Your story details never leave your machine unless you choose to export them."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I manage multiple books or a series?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Penpoint includes a multi-book library. You can transfer characters, locations, and items between books to maintain series consistency. Filter by book to see which characters appear in each installment, or view everything across your entire series at once."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Flowstate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flowstate is a forward-only writing mode that defeats writer's block. Sentences lock behind you as you write, with timed cycles alternating between writing sprints and editing windows. It's designed for writers who keep rewriting the same paragraph instead of moving forward—forcing you to embrace imperfect first drafts."
         }
       },
       {
@@ -210,7 +242,7 @@
     <div class="container hero__inner">
       <div class="hero__content">
         <h1 class="hero__headline font-heading-lg" data-animate="fade-up">
-          Penpoint: Character Bible & Story Bible for Writers
+          Character & Story Bible for Writers
         </h1>
         <p class="hero__quote font-display" data-animate="fade-left" data-stagger="1">
           "Was his name Aldric or Aldrick?"
@@ -390,7 +422,7 @@
       <div class="feature feature--reversed">
         <div class="feature__content">
           <h2 class="feature__headline font-heading-lg" data-animate="fade-right">
-            See your story's shape.          </h2>
+            Visualize how they all connect.          </h2>
           <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
             Complex character webs refuse to stay in your head. See who's connected to whom at a glance with visual relationship mapping. Finally understand how everyone connects.
           </p>
@@ -423,7 +455,7 @@
           <h2 class="feature__headline font-heading-lg" data-animate="fade-left">
             One click to see it all.          </h2>
           <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
-            Tags are your power tools. Tag anything&mdash;characters, locations, items, chapters, notes. Click a tag and see everything connected to it in one place. Your factions, your plotlines, your plot twists, organized.
+            Tags are your power tools. Tag anything: characters, locations, items, chapters, notes. Click a tag and see everything connected to it in one place. Your factions, your plotlines, your plot twists, organized.
           </p>
           <div class="feature__shortcut" data-animate="fade-up" data-stagger="2">
             <span class="font-body-sm">Browse by tag in the</span>
@@ -442,6 +474,38 @@
       </div>
     </div>
   </section>
+
+
+  <!-- ===========================================
+       FEATURE: ARC VISUALIZER
+       =========================================== -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="feature feature--reversed">
+        <div class="feature__content">
+          <h2 class="feature__headline font-heading-lg" data-animate="fade-right">
+            Let your story arcs be arcs.          </h2>
+          <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
+            Plot structure lives in your head until you see it. Penpoint turns your narrative into visual curves; main arcs, subplots, and character fortunes &mdash; so you can see at a glance where your story rises, falls, and transforms.
+          </p>
+          <div class="feature__shortcut" data-animate="fade-up" data-stagger="2">
+            <span class="font-body-sm">Plan your plot in the</span>
+            <kbd class="font-kbd">Arc Visualizer</kbd>
+          </div>
+        </div>
+        <div class="feature__visual" data-animate="fade-left">
+          <button type="button" class="feature__image-btn screenshot-frame featured"
+                  data-lightbox="arc-visualizer"
+                  data-lightbox-title="Story & Character Arcs"
+                  data-lightbox-desc="Your plot isn't a list&mdash;it's a shape. See your main story arc as a visual curve with keyframe markers for each major moment. Nest subplots that branch off at exactly the right beats. Track how each character's fortune rises and falls across the narrative. Start with proven frameworks&mdash;Save the Cat, Hero's Journey, Three-Act Structure&mdash;or build your own. When you can see your story's shape, you can feel when something's off."
+                  data-lightbox-image="images/ArcViewer.webp">
+            <img src="images/ArcViewer.webp" alt="Arc visualizer showing story arcs and character fortune curves" class="feature__image" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- Section Divider -->
   <div class="section-divider" aria-hidden="true">
@@ -714,6 +778,24 @@
 
         <details class="faq__item" data-animate="fade-up" data-stagger="1">
           <summary class="faq__question font-heading-sm">
+            What is a character bible?
+          </summary>
+          <div class="faq__answer font-body">
+            <p>A character bible is a reference document that tracks character details—names, traits, relationships, backstories, and appearances—to keep your story consistent across drafts and books. Think of it as your authoritative reference for every character in your fictional world, preventing continuity errors like forgetting eye color or misspelling names.</p>
+          </div>
+        </details>
+
+        <details class="faq__item" data-animate="fade-up" data-stagger="2">
+          <summary class="faq__question font-heading-sm">
+            What is a story bible?
+          </summary>
+          <div class="faq__answer font-body">
+            <p>A story bible organizes all the details of your fictional world: characters, locations, timelines, worldbuilding notes, and plot threads. It's especially crucial for series where continuity matters. Writers use story bibles (also called series bibles or show bibles) to remember what happened in book 1 when writing book 3.</p>
+          </div>
+        </details>
+
+        <details class="faq__item" data-animate="fade-up" data-stagger="3">
+          <summary class="faq__question font-heading-sm">
             What is Penpoint?
           </summary>
           <div class="faq__answer font-body">
@@ -721,7 +803,7 @@
           </div>
         </details>
 
-        <details class="faq__item" data-animate="fade-up" data-stagger="2">
+        <details class="faq__item" data-animate="fade-up" data-stagger="4">
           <summary class="faq__question font-heading-sm">
             Who is Penpoint for?
           </summary>
@@ -730,7 +812,7 @@
           </div>
         </details>
 
-        <details class="faq__item" data-animate="fade-up" data-stagger="3">
+        <details class="faq__item" data-animate="fade-up" data-stagger="5">
           <summary class="faq__question font-heading-sm">
             What makes Penpoint different from Notion or Scrivener?
           </summary>
@@ -739,7 +821,7 @@
           </div>
         </details>
 
-        <details class="faq__item" data-animate="fade-up" data-stagger="4">
+        <details class="faq__item" data-animate="fade-up" data-stagger="6">
           <summary class="faq__question font-heading-sm">
             Does Penpoint work offline?
           </summary>
@@ -748,7 +830,25 @@
           </div>
         </details>
 
-        <details class="faq__item" data-animate="fade-up" data-stagger="5">
+        <details class="faq__item" data-animate="fade-up" data-stagger="7">
+          <summary class="faq__question font-heading-sm">
+            Can I manage multiple books or a series?
+          </summary>
+          <div class="faq__answer font-body">
+            <p>Yes. Penpoint includes a multi-book library. You can transfer characters, locations, and items between books to maintain series consistency. Filter by book to see which characters appear in each installment, or view everything across your entire series at once.</p>
+          </div>
+        </details>
+
+        <details class="faq__item" data-animate="fade-up" data-stagger="8">
+          <summary class="faq__question font-heading-sm">
+            What is Flowstate?
+          </summary>
+          <div class="faq__answer font-body">
+            <p>Flowstate is a forward-only writing mode that defeats writer's block. Sentences lock behind you as you write, with timed cycles alternating between writing sprints and editing windows. It's designed for writers who keep rewriting the same paragraph instead of moving forward—forcing you to embrace imperfect first drafts.</p>
+          </div>
+        </details>
+
+        <details class="faq__item" data-animate="fade-up" data-stagger="9">
           <summary class="faq__question font-heading-sm">
             How much does Penpoint cost?
           </summary>
@@ -757,7 +857,7 @@
           </div>
         </details>
 
-        <details class="faq__item" data-animate="fade-up" data-stagger="6">
+        <details class="faq__item" data-animate="fade-up" data-stagger="10">
           <summary class="faq__question font-heading-sm">
             What platforms does Penpoint support?
           </summary>
@@ -766,7 +866,7 @@
           </div>
         </details>
 
-        <details class="faq__item" data-animate="fade-up" data-stagger="7">
+        <details class="faq__item" data-animate="fade-up" data-stagger="11">
           <summary class="faq__question font-heading-sm">
             Can I import my existing character notes?
           </summary>
@@ -826,6 +926,7 @@
 
       <nav class="footer__nav">
         <a href="#features" class="footer__link">Features</a>
+        <a href="#faq" class="footer__link">FAQ</a>
         <a href="#download" class="footer__link">Download</a>
         <a href="mailto:support@penpoint.app" class="footer__link">Contact Support</a>
       </nav>

@@ -80,3 +80,17 @@ Email: Available on website
 ## Status
 Currently in beta (2026)
 Active development with regular updates
+
+## Common Questions
+
+### What is a character bible?
+A character bible is a reference document that tracks character details—names, traits, relationships, backstories, and appearances—to keep your story consistent across drafts and books. Think of it as your authoritative reference for every character in your fictional world, preventing continuity errors like forgetting eye color or misspelling names.
+
+### What is a story bible?
+A story bible organizes all the details of your fictional world: characters, locations, timelines, worldbuilding notes, and plot threads. It's especially crucial for series where continuity matters. Writers use story bibles (also called series bibles or show bibles) to remember what happened in book 1 when writing book 3.
+
+### Can I manage multiple books or a series?
+Yes. Penpoint includes a multi-book library. You can transfer characters, locations, and items between books to maintain series consistency. Filter by book to see which characters appear in each installment, or view everything across your entire series at once.
+
+### What is Flowstate?
+Flowstate is a forward-only writing mode that defeats writer's block. Sentences lock behind you as you write, with timed cycles alternating between writing sprints and editing windows. It's designed for writers who keep rewriting the same paragraph instead of moving forward—forcing you to embrace imperfect first drafts.
