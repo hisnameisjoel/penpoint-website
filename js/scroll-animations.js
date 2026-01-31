@@ -39,11 +39,16 @@
     const animatedElements = document.querySelectorAll('[data-animate]');
 
     animatedElements.forEach(el => {
-      // Immediately animate elements already in viewport
       if (isInViewport(el)) {
-        el.classList.add('animate-in');
+        // Still respect stagger delays for elements already in viewport
+        const stagger = el.dataset.stagger;
+        if (stagger) {
+          const delay = parseInt(stagger) * 100;
+          setTimeout(() => el.classList.add('animate-in'), delay);
+        } else {
+          el.classList.add('animate-in');
+        }
       } else {
-        // Only observe elements not yet visible
         animationObserver.observe(el);
       }
     });
