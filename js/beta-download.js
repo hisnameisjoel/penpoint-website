@@ -19,6 +19,9 @@
     if (platform === 'mac') {
       return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_aarch64.dmg';
     }
+    if (platform === 'linux') {
+      return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_amd64.AppImage';
+    }
     return null;
   }
 
@@ -26,12 +29,14 @@
     if (!data.platforms) return false;
     if (platform === 'windows') return !!data.platforms['windows-x86_64'];
     if (platform === 'mac') return !!data.platforms['darwin-aarch64'];
+    if (platform === 'linux') return !!data.platforms['linux-x86_64'];
     return false;
   }
 
   function platformLabel(platform) {
     if (platform === 'windows') return 'Windows';
     if (platform === 'mac') return 'macOS';
+    if (platform === 'linux') return 'Linux';
     return platform;
   }
 
@@ -40,8 +45,8 @@
     var primaryBtn = document.getElementById('beta-download-primary');
     var secondaryBtn = document.getElementById('beta-download-secondary');
     var versionEl = document.getElementById('beta-version');
-    var primaryPlatform = (os === 'mac') ? 'mac' : 'windows';
-    var secondaryPlatform = (os === 'mac') ? 'windows' : 'mac';
+    var primaryPlatform = os === 'mac' ? 'mac' : os === 'linux' ? 'linux' : 'windows';
+    var secondaryPlatform = primaryPlatform === 'windows' ? 'mac' : 'windows';
 
     // Show correct install tab
     var tabs = document.querySelectorAll('[data-install-tab]');

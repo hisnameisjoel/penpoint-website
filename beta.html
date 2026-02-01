@@ -324,6 +324,9 @@
           <button type="button" class="install-tab" data-install-tab="mac">
             <i class="fa-brands fa-apple"></i>&ensp;macOS
           </button>
+          <button type="button" class="install-tab" data-install-tab="linux">
+            <i class="fa-brands fa-linux"></i>&ensp;Linux
+          </button>
         </div>
 
         <div class="install-panel" data-install-panel="windows">
@@ -351,6 +354,17 @@
           </ol>
           <p class="font-body-sm" style="color: rgb(var(--muted-foreground));">
             This warning appears because the app isn't notarized with Apple yet. The app is safe — you're downloading directly from our GitHub releases.
+          </p>
+        </div>
+
+        <div class="install-panel" data-install-panel="linux" hidden>
+          <ol class="font-body">
+            <li>Your browser may warn that the file isn't commonly downloaded. Click <strong>"Keep"</strong> to save it.</li>
+            <li>Make the AppImage executable. Open a terminal and run:<br><code>chmod +x Penpoint_*.AppImage</code></li>
+            <li>Double-click the <code>.AppImage</code> file to launch Penpoint, or run it from the terminal:<br><code>./Penpoint_*.AppImage</code></li>
+          </ol>
+          <p class="font-body-sm" style="color: rgb(var(--muted-foreground));">
+            A <code>.deb</code> package is also available on our <a href="https://github.com/hisnameisjoel/penpoint-updates/releases" style="color: rgb(var(--cta));">GitHub releases</a> page for Debian/Ubuntu users.
           </p>
         </div>
       </div>
