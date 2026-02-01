@@ -118,8 +118,22 @@
       pointer-events: none;
     }
 
-    .download-area__secondary {
-      font-size: var(--text-sm);
+    .download-area__also {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .download-area__also-label {
+      color: rgb(var(--muted-foreground));
+    }
+
+    .download-area__also-buttons {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     /* Section content spacing */
@@ -279,9 +293,10 @@
             <a id="beta-download-primary" class="btn btn-primary btn-xl btn-shadow" href="#">
               Loading...
             </a>
-            <a id="beta-download-secondary" class="btn btn-outline download-area__secondary" href="#">
-              Loading...
-            </a>
+            <div id="beta-download-also" class="download-area__also" style="display: none;">
+              <span class="download-area__also-label font-body-sm">Also available for</span>
+              <div class="download-area__also-buttons"></div>
+            </div>
           </div>
         </div>
       </div>

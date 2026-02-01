@@ -40,13 +40,21 @@
     return platform;
   }
 
+  function platformIcon(platform) {
+    if (platform === 'windows') return 'fa-brands fa-windows';
+    if (platform === 'mac') return 'fa-brands fa-apple';
+    if (platform === 'linux') return 'fa-brands fa-linux';
+    return '';
+  }
+
   function init() {
     var os = detectOS();
     var primaryBtn = document.getElementById('beta-download-primary');
-    var secondaryBtn = document.getElementById('beta-download-secondary');
+    var alsoContainer = document.getElementById('beta-download-also');
     var versionEl = document.getElementById('beta-version');
+    var allPlatforms = ['windows', 'mac', 'linux'];
     var primaryPlatform = os === 'mac' ? 'mac' : os === 'linux' ? 'linux' : 'windows';
-    var secondaryPlatform = primaryPlatform === 'windows' ? 'mac' : 'windows';
+    var otherPlatforms = allPlatforms.filter(function (p) { return p !== primaryPlatform; });
 
     // Show correct install tab
     var tabs = document.querySelectorAll('[data-install-tab]');
@@ -73,20 +81,19 @@
         if (versionEl) versionEl.textContent = 'Penpoint v' + version;
 
         var primaryAvail = platformAvailable(data, primaryPlatform);
-        var secondaryAvail = platformAvailable(data, secondaryPlatform);
 
-        // Primary button — show for detected OS
+        // Primary button — show for detected OS, or fall back to first available
         if (primaryBtn) {
           if (primaryAvail) {
             primaryBtn.href = buildInstallerUrl(version, primaryPlatform);
-            primaryBtn.textContent = 'Download for ' + platformLabel(primaryPlatform);
+            primaryBtn.innerHTML = '<i class="' + platformIcon(primaryPlatform) + '"></i>&ensp;Download for ' + platformLabel(primaryPlatform);
           } else {
-            // Detected OS not available — try showing the other platform as primary instead
-            if (secondaryAvail) {
-              primaryBtn.href = buildInstallerUrl(version, secondaryPlatform);
-              primaryBtn.textContent = 'Download for ' + platformLabel(secondaryPlatform);
-              // Swap so secondary logic below doesn't re-show it
-              secondaryAvail = false;
+            var fallback = otherPlatforms.find(function (p) { return platformAvailable(data, p); });
+            if (fallback) {
+              primaryBtn.href = buildInstallerUrl(version, fallback);
+              primaryBtn.innerHTML = '<i class="' + platformIcon(fallback) + '"></i>&ensp;Download for ' + platformLabel(fallback);
+              // Remove fallback from "also available" list
+              otherPlatforms = otherPlatforms.filter(function (p) { return p !== fallback; });
             } else {
               primaryBtn.href = RELEASES_PAGE;
               primaryBtn.textContent = 'View Downloads';
@@ -94,14 +101,19 @@
           }
         }
 
-        // Secondary button — only show if the other platform is also available
-        if (secondaryBtn) {
-          if (secondaryAvail) {
-            secondaryBtn.href = buildInstallerUrl(version, secondaryPlatform);
-            secondaryBtn.textContent = 'Also available for ' + platformLabel(secondaryPlatform);
-            secondaryBtn.style.display = '';
-          } else {
-            secondaryBtn.style.display = 'none';
+        // "Also available for" — show buttons for all other available platforms
+        if (alsoContainer) {
+          var buttonsContainer = alsoContainer.querySelector('.download-area__also-buttons');
+          var availableOthers = otherPlatforms.filter(function (p) { return platformAvailable(data, p); });
+          if (availableOthers.length > 0) {
+            availableOthers.forEach(function (p) {
+              var btn = document.createElement('a');
+              btn.href = buildInstallerUrl(version, p);
+              btn.className = 'btn btn-outline';
+              btn.innerHTML = '<i class="' + platformIcon(p) + '"></i>&ensp;' + platformLabel(p);
+              buttonsContainer.appendChild(btn);
+            });
+            alsoContainer.style.display = '';
           }
         }
       })
@@ -110,7 +122,7 @@
           primaryBtn.href = RELEASES_PAGE;
           primaryBtn.textContent = 'View Downloads';
         }
-        if (secondaryBtn) secondaryBtn.style.display = 'none';
+        if (alsoContainer) alsoContainer.style.display = 'none';
         if (versionEl) versionEl.textContent = '';
       });
   }
