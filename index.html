@@ -250,6 +250,18 @@
         <p class="hero__subheadline font-body-lg" data-animate="fade-up" data-stagger="2">
           Writers lose track of their own stories. Penpoint keeps everything searchable, visual, and in one place.
         </p>
+        <!-- TODO: DOWNLOAD BUTTON (replaces "Join the Beta Program" when ready)
+             When converting this to a download button:
+             1. Detect visitor's OS via navigator.platform / navigator.userAgent
+             2. Fetch https://updates.penpoint.app/latest.json to get the current version
+             3. latest.json has a "platforms" object with keys like "windows-x86_64" and
+                "darwin-aarch64", each containing a "url" to the GitHub Release asset
+             4. Show the appropriate download link for the detected OS (e.g. "Download for Windows")
+             5. Include a "Download for other platforms" link/dropdown for manual selection
+             6. The website should NEVER hardcode version numbers — always derive from latest.json
+                so releases automatically update the download link without touching website code
+             7. For platforms not yet in latest.json (e.g. Linux), show "Coming Soon" or hide
+        -->
         <div class="hero__cta" data-animate="fade-up" data-stagger="3">
           <a href="https://forms.gle/aZiTnYr8cPwNMewU9" class="btn btn-primary btn-xl btn-shadow" target="_blank" rel="noopener">
             Join the Beta Program
@@ -935,10 +947,15 @@
       <p class="final-cta__subtext font-body-lg" data-animate="fade-up" data-stagger="1">
         No account needed. Your data stays on your computer.
       </p>
+      <!-- TODO: DOWNLOAD BUTTON — see hero__cta comment above for full implementation notes.
+           This button should mirror the same OS-detection + latest.json logic as the hero CTA. -->
       <a href="https://forms.gle/aZiTnYr8cPwNMewU9" class="btn btn-primary btn-xl btn-shadow" data-animate="scale" data-stagger="2" target="_blank" rel="noopener">
         Join the Beta Program
       </a>
-      <div class="final-cta__platforms" data-animate="fade-up" data-stagger="3">
+      <a href="https://discord.gg/pp3HFnB7" class="final-cta__discord font-body-sm" data-animate="fade-up" data-stagger="3" target="_blank" rel="noopener">
+        <i class="fa-brands fa-discord"></i> Join our Discord
+      </a>
+      <div class="final-cta__platforms" data-animate="fade-up" data-stagger="4">
         <span class="final-cta__platform">
           <i class="fa-brands fa-windows final-cta__platform-icon"></i>
           Windows
@@ -972,6 +989,8 @@
         <a href="#features" class="footer__link">Features</a>
         <a href="#faq" class="footer__link">FAQ</a>
         <a href="#download" class="footer__link">Download</a>
+        <a href="https://discord.gg/pp3HFnB7" class="footer__link" target="_blank" rel="noopener">Discord</a>
+        <a href="privacy.html" class="footer__link">Privacy Policy</a>
         <a href="mailto:support@penpoint.app" class="footer__link">Contact Support</a>
       </nav>
 

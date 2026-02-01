@@ -1183,6 +1183,22 @@ body.lightbox-open {
   margin-bottom: var(--space-8);
 }
 
+.final-cta__discord {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: rgb(var(--foreground));
+  opacity: 0.7;
+  text-decoration: none;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
+  transition: opacity 0.2s;
+}
+
+.final-cta__discord:hover {
+  opacity: 1;
+}
+
 .final-cta__platforms {
   display: flex;
   justify-content: center;
