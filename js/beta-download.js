@@ -11,6 +11,23 @@
     return 'unknown';
   }
 
+  // Detect Apple Silicon vs Intel Mac using WebGL GPU renderer
+  function detectMacArch() {
+    try {
+      var canvas = document.createElement('canvas');
+      var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) return null;
+      var debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+      if (!debugInfo) return null;
+      var renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+      if (/Apple M\d|Apple GPU/i.test(renderer)) return 'mac-arm';
+      if (/Intel/i.test(renderer)) return 'mac-intel';
+      return null;
+    } catch (e) {
+      return null;
+    }
+  }
+
   function buildInstallerUrl(version, platform) {
     var tag = 'v' + version;
     if (platform === 'windows') {
@@ -58,14 +75,27 @@
     var alsoContainer = document.getElementById('beta-download-also');
     var versionEl = document.getElementById('beta-version');
 
-    // Determine primary platform - Mac users see architecture choice
+    // Determine primary platform
     var isMac = os === 'mac';
-    var primaryPlatform = os === 'linux' ? 'linux' : 'windows';
+    var macArch = isMac ? detectMacArch() : null;
+    var primaryPlatform = isMac
+      ? (macArch || 'mac')  // detected arch or generic 'mac'
+      : (os === 'linux' ? 'linux' : 'windows');
 
-    // For non-Mac users: these are the "also available" platforms
-    var otherPlatforms = isMac
-      ? ['windows', 'linux']
-      : (primaryPlatform === 'windows' ? ['mac-arm', 'mac-intel', 'linux'] : ['windows', 'mac-arm', 'mac-intel']);
+    // For non-Mac users or detected Mac arch: build "also available" list
+    var otherPlatforms;
+    if (isMac && macArch) {
+      // Detected Mac arch: show the other Mac variant + other platforms
+      var otherMac = macArch === 'mac-arm' ? 'mac-intel' : 'mac-arm';
+      otherPlatforms = [otherMac, 'windows', 'linux'];
+    } else if (isMac) {
+      // Mac but couldn't detect arch: will show both Mac buttons as primary
+      otherPlatforms = ['windows', 'linux'];
+    } else {
+      otherPlatforms = primaryPlatform === 'windows'
+        ? ['mac-arm', 'mac-intel', 'linux']
+        : ['windows', 'mac-arm', 'mac-intel'];
+    }
 
     // Show correct install tab
     var tabs = document.querySelectorAll('[data-install-tab]');
@@ -93,13 +123,22 @@
         if (versionEl) versionEl.textContent = 'Penpoint v' + version;
 
         if (primaryBtn) {
-          if (isMac) {
-            // Mac users: show architecture selection in primary area
+          if (isMac && macArch) {
+            // Mac user with detected architecture: single primary button
+            var detectedAvail = platformAvailable(data, macArch);
+            if (detectedAvail) {
+              primaryBtn.href = buildInstallerUrl(version, macArch);
+              primaryBtn.innerHTML = '<i class="fa-brands fa-apple"></i>&ensp;Download for ' + platformLabel(macArch);
+            } else {
+              primaryBtn.href = RELEASES_PAGE;
+              primaryBtn.textContent = 'View Downloads';
+            }
+          } else if (isMac) {
+            // Mac user but couldn't detect architecture: show both buttons equally
             var macArmAvail = platformAvailable(data, 'mac-arm');
             var macIntelAvail = platformAvailable(data, 'mac-intel');
 
             if (macArmAvail || macIntelAvail) {
-              // Replace the single button with two Mac architecture buttons
               var buttonsHTML = '<div class="mac-arch-buttons">';
               buttonsHTML += '<span class="mac-arch-label font-body">Choose your Mac type:</span>';
               buttonsHTML += '<div class="mac-arch-options">';
@@ -112,19 +151,18 @@
               }
 
               if (macIntelAvail) {
-                buttonsHTML += '<a class="btn ' + (macArmAvail ? 'btn-outline' : 'btn-primary btn-xl btn-shadow') + '" href="' + buildInstallerUrl(version, 'mac-intel') + '">';
+                buttonsHTML += '<a class="btn btn-primary btn-xl btn-shadow" href="' + buildInstallerUrl(version, 'mac-intel') + '">';
                 buttonsHTML += '<i class="fa-brands fa-apple"></i>&ensp;Intel';
                 buttonsHTML += '<span class="mac-arch-hint">2019 and earlier</span>';
                 buttonsHTML += '</a>';
               }
 
               buttonsHTML += '</div>';
-              buttonsHTML += '<span class="mac-arch-help font-body-sm">Not sure? Click  → About This Mac</span>';
+              buttonsHTML += '<span class="mac-arch-help font-body-sm">Not sure? Click \uf8ff → About This Mac</span>';
               buttonsHTML += '</div>';
 
               primaryBtn.outerHTML = buttonsHTML;
             } else {
-              // No Mac builds available
               primaryBtn.href = RELEASES_PAGE;
               primaryBtn.textContent = 'View Downloads';
             }
