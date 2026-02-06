@@ -27,6 +27,8 @@ Penpoint provides a simple, searchable database for all your story details:
 ## Key Features
 - **Glorious Searchbar**: Find any detail instantly across all your notes
 - **Relationship Map**: Visual web of character connections
+- **Story Arcs**: Visualize your main storyline and subplots as layered curves with keyframes marking each turning point. Start from classic presets (Three-Act, Hero's Journey, Save The Cat!, Romance, Mystery) or build your own
+- **Character Arcs**: Track a character's emotional fortune as a curve that rises and falls through the story. Use fortune modifiers (Major Rise, Minor Rise, Neutral, Minor Fall, Major Fall, Reset) to shape the curve. Overlay multiple characters to compare journeys side by side
 - **Character Profiles**: Track descriptions, relationships, chapter appearances
 - **Location & Item Tracking**: Organize places and objects in your story
 - **Multi-Select Filtering**: Filter by type, book, chapter, tags
@@ -67,6 +69,9 @@ Email: Available on website
 - Creating character bibles for novel series
 - Managing world-building for fantasy/sci-fi
 - Tracking continuity across multiple books
+- Visualizing plot structure with story arcs and subplots
+- Tracking character emotional journeys with fortune curves
+- Comparing multiple character arcs to find conflicts and parallels
 - Organizing screenplay character arcs
 - Reference guide while writing
 - Quick lookup of character details during drafting
@@ -91,6 +96,9 @@ A story bible organizes all the details of your fictional world: characters, loc
 
 ### Can I manage multiple books or a series?
 Yes. Penpoint includes a multi-book library. You can transfer characters, locations, and items between books to maintain series consistency. Filter by book to see which characters appear in each installment, or view everything across your entire series at once.
+
+### What are Story Arcs and Character Arcs?
+Penpoint offers two types of arc visualizers. Story Arcs map your plot structure—the main storyline and its subplots rendered as layered curves with diamond-shaped keyframes at each turning point. Subplots anchor to specific keyframes on their parent arc, showing exactly where secondary storylines weave through the main plot. Character Arcs track a character's fortune (emotional state) over time as a curve that rises and falls. Each keyframe has a fortune modifier (Major Rise, Minor Rise, Neutral, Minor Fall, Major Fall, Reset) that shapes the curve. You can overlay multiple character arcs on the same canvas to see how their journeys intersect—spotting conflicts, parallels, and dramatic timing at a glance.
 
 ### What is Flowstate?
 Flowstate is a forward-only writing mode that defeats writer's block. Sentences lock behind you as you write, with timed cycles alternating between writing sprints and editing windows. It's designed for writers who keep rewriting the same paragraph instead of moving forward—forcing you to embrace imperfect first drafts.
