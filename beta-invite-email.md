@@ -15,7 +15,7 @@ This is pre-release software, so things may break — and that's exactly why we 
 1. Head to the beta page: [https://penpoint.app/beta](https://penpoint.app/beta)
 2. Download the installer for your platform (Windows or macOS)
 3. Follow the short installation guide on the page — your OS will show a security warning since we're not code-signed yet, but the page walks you through it
-4. Join our Discord so we can work through issues together: [https://discord.gg/pp3HFnB7](https://discord.gg/pp3HFnB7)
+4. Join our Discord so we can work through issues together: [https://discord.gg/q7yV3PXrGB](https://discord.gg/q7yV3PXrGB)
 
 We're especially interested in hearing about your first impressions — onboarding, search, the relationship map, and export/import. But honestly, just use it the way you'd naturally use it and tell us what works and what doesn't.
 
