@@ -147,12 +147,18 @@
    Use data-stagger attribute for sequential animations
    =========================================== */
 
-[data-stagger="1"] { animation-delay: 100ms; }
-[data-stagger="2"] { animation-delay: 200ms; }
-[data-stagger="3"] { animation-delay: 300ms; }
-[data-stagger="4"] { animation-delay: 400ms; }
-[data-stagger="5"] { animation-delay: 500ms; }
-[data-stagger="6"] { animation-delay: 600ms; }
+[data-stagger="1"] { animation-delay: 50ms; }
+[data-stagger="2"] { animation-delay: 100ms; }
+[data-stagger="3"] { animation-delay: 150ms; }
+[data-stagger="4"] { animation-delay: 200ms; }
+[data-stagger="5"] { animation-delay: 250ms; }
+[data-stagger="6"] { animation-delay: 300ms; }
+[data-stagger="7"] { animation-delay: 350ms; }
+[data-stagger="8"] { animation-delay: 400ms; }
+[data-stagger="9"] { animation-delay: 450ms; }
+[data-stagger="10"] { animation-delay: 500ms; }
+[data-stagger="11"] { animation-delay: 550ms; }
+[data-stagger="12"] { animation-delay: 600ms; }
 
 /* ===========================================
    SPECIAL ANIMATIONS

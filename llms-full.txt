@@ -1,0 +1,141 @@
+# Penpoint - Write Your Book. Know Your World. One App.
+
+> Penpoint is a $40 desktop app (Windows, macOS, Linux) where writers write their manuscript and organize their worldbuilding in one place. No subscription, no cloud, no AI. Currently in beta.
+
+## About
+Penpoint is a desktop application where writers write their manuscripts and organize their worldbuilding in one place. It combines a distraction-free manuscript editor with visual worldbuilding tools — relationship maps, story arc visualizers, character fortune curves, nested locations, and instant search across everything. Writers no longer need to juggle Word for drafting and spreadsheets for tracking. Penpoint does both.
+
+## Tagline
+Where Your Story Comes Together
+
+## Core Problem
+Writers juggle multiple tools just to write a novel. The manuscript lives in Word or Scrivener. Character notes are in a spreadsheet. Worldbuilding is in Notion. The timeline is on a whiteboard. Every time a writer needs to check a detail, they leave their writing tool, hunt for the information, and lose their train of thought. On top of that, they lose track of their own story details — character name spellings, relationship details, plot points from earlier chapters.
+
+## Solution
+Penpoint puts the manuscript and the worldbuilding in the same app:
+- Write your entire novel in a clean, focused editor with scene management and chapter groups
+- Import existing manuscripts from Word, EPUB, Markdown, or plain text with automatic chapter detection
+- Scan chapters to auto-detect characters, locations, and items mentioned in your prose
+- Track every character, location, relationship, and plot detail in one searchable place
+- See your story's structure with visual relationship maps, arc visualizers, and timeline views
+- Export to Word, PDF, RTF, Markdown, or plain text at any time
+
+## Key Features
+
+### Manuscript Mode
+- **Manuscript Editor**: Write your entire book in a distraction-free editor with adjustable width, scene management, and chapter groups
+- **Manuscript Import**: Import from .docx, .epub, .md, or .txt files with smart chapter detection that splits manuscripts automatically
+- **Manuscript Export**: Export as .docx, .pdf, .rtf, or .txt — a single scene, a chapter, or the full book
+- **Chapter Scanner**: Right-click any chapter to scan your prose. Penpoint finds every character, location, and item mentioned, suggests matches, and discovers new proper nouns. Connect your worldbuilding in seconds, not hours
+- **Flowstate**: Timed writing sprints where sentences lock behind you — forward-only writing to defeat writer's block
+- **Scene Drafts & Versions**: Save named snapshots of your manuscript and try different directions for scenes without losing the original
+
+### Worldbuilding Tools
+- **Glorious Searchbar (Ctrl+K)**: Find any detail instantly across your manuscript AND your worldbuilding
+- **Relationship Map**: Visual web of character connections — see who's connected to whom at a glance
+- **Story Arcs**: Visualize your main storyline and subplots as layered curves with keyframes marking each turning point. Start from classic presets (Three-Act, Hero's Journey, Save The Cat!, Romance, Mystery) or build your own
+- **Character Arcs**: Track a character's emotional fortune as a curve that rises and falls through the story. Overlay multiple characters to compare journeys side by side
+- **Character Profiles**: Customizable character sheets — add blocks for what you need (text, traits, relationships), skip what you don't
+- **Nested Locations**: Kingdom → City → Tavern → Secret Basement. Build your world's geography as an expandable tree
+- **Items & Props**: Track who owns what and where it is
+- **Universal Tags**: Tag anything — characters, locations, items, chapters, notes — then see everything with that tag in one view
+- **Timeline View**: See when every character appears across your chapters
+- **Notebook**: Freeform notes with formatting, tags, and @mentions
+- **Compendium**: Alphabetical index of everything in your book
+
+### Data & Privacy
+- **Offline-First**: All data stored locally, works without internet
+- **No Account Required**: No sign-ups, no cloud, no subscription
+- **No AI**: Penpoint does not read, analyze, or generate prose. The writing is entirely the author's
+- **Cross-Platform**: Windows, macOS (Intel and Apple Silicon), and Linux
+- **Full Export**: Export everything to document formats at any time — no lock-in
+
+## Target Audience
+- Writers actively working on a book or series who want one tool for writing and organizing
+- Writers with existing manuscripts (60,000+ words) who want better story organization without switching tools
+- Series authors, fantasy/sci-fi worldbuilders, mystery writers tracking clues and continuity
+- Writers currently using Scrivener, Campfire, Dabble, Google Docs, or Word who want worldbuilding tools alongside their editor
+
+## Pricing
+One-time purchase: $40 USD
+No subscription, no recurring fees. Buy it, own it.
+
+## Platform Support
+- Windows (64-bit)
+- macOS (Intel and Apple Silicon)
+- Linux (AppImage)
+
+## Download
+https://penpoint.app/ (Join Beta Program)
+
+## Technology
+Desktop application built with Tauri (Rust + React)
+Local SQLite database for privacy and offline access
+
+## Company
+Developed by Tophat Creative, LLC
+Founded: 2024
+
+## Contact
+Website: https://penpoint.app/
+Email: Available on website
+
+## Use Cases
+- Writing novels and series with integrated worldbuilding
+- Importing existing manuscripts from Word, EPUB, Markdown, or plain text and continuing to write
+- Scanning chapters to auto-detect and tag characters, locations, and items
+- Creating character bibles and story bibles for novel series
+- Visualizing plot structure with story arcs and subplots
+- Tracking character emotional journeys with fortune curves
+- Managing world-building for fantasy/sci-fi
+- Tracking continuity across multiple books
+- Quick lookup of character details while writing
+
+## Differentiation from Competitors
+- **vs. Scrivener**: Scrivener organizes your manuscript but doesn't have worldbuilding tools. Penpoint organizes your manuscript AND your world — characters, relationships, arcs, locations, all of it
+- **vs. Campfire**: Campfire has worldbuilding tools (timelines, maps, character wikis), but you can't write your manuscript in it. Penpoint combines a full manuscript editor with worldbuilding in one app
+- **vs. Dabble**: Dabble has scene management and plotting, but limited worldbuilding. Penpoint adds relationship maps, arc visualizers, nested locations, and cross-referenced characters on top of the manuscript editor
+- **vs. Notion/Obsidian**: Built specifically for writers — not adapted from general note-taking. No setup required
+- **vs. Google Docs / Word**: Great for typing. Penpoint is built for writing books — with scene management, character tracking, and worldbuilding. Import your Word doc and keep going
+- **vs. World Anvil**: Your data stays private and offline. Plus you can write your manuscript here too
+- **vs. Spreadsheets**: Visual tools designed for stories, not data entry
+
+## What Penpoint is Not
+- Not a web app — it's a native desktop application
+- Not a cloud service — all data stays on your computer
+- Not AI-powered — Penpoint does not read, analyze, or generate prose
+- Not a mobile app — desktop only (Windows, macOS, Linux)
+- Not a subscription — one-time $40 purchase
+
+## Status
+Currently in beta (2026)
+Active development with regular updates
+
+## Common Questions
+
+### What is a character bible?
+A character bible is a reference document that tracks character details—names, traits, relationships, backstories, and appearances—to keep your story consistent across drafts and books. Think of it as your authoritative reference for every character in your fictional world, preventing continuity errors like forgetting eye color or misspelling names.
+
+### What is a story bible?
+A story bible organizes all the details of your fictional world: characters, locations, timelines, worldbuilding notes, and plot threads. It's especially crucial for series where continuity matters. Writers use story bibles (also called series bibles or show bibles) to remember what happened in book 1 when writing book 3.
+
+### Can I write my entire novel in Penpoint?
+Yes. Manuscript Mode gives you a clean, distraction-free editor with scene management, chapter groups, and keyboard shortcuts for everything. Import existing manuscripts from Word, EPUB, Markdown, or plain text, or start fresh. Your prose and your worldbuilding live in the same app.
+
+### What is the Chapter Scanner?
+After importing your manuscript — or after writing new chapters — right-click any chapter in the outline and select "Scan Chapter for Content." Penpoint reads your prose and finds every character, location, and item mentioned. It even discovers proper nouns that aren't in your worldbuilding yet. Review the results, check what to include, and click Apply. Your chapters and worldbuilding connect in seconds, not hours.
+
+### Can I manage multiple books or a series?
+Yes. Penpoint includes a multi-book library. You can transfer characters, locations, and items between books to maintain series consistency. Filter by book to see which characters appear in each installment, or view everything across your entire series at once.
+
+### What are Story Arcs and Character Arcs?
+Penpoint offers two types of arc visualizers. Story Arcs map your plot structure—the main storyline and its subplots rendered as layered curves with diamond-shaped keyframes at each turning point. Subplots anchor to specific keyframes on their parent arc, showing exactly where secondary storylines weave through the main plot. Character Arcs track a character's fortune (emotional state) over time as a curve that rises and falls. Each keyframe has a fortune modifier (Major Rise, Minor Rise, Neutral, Minor Fall, Major Fall, Reset) that shapes the curve. You can overlay multiple character arcs on the same canvas to see how their journeys intersect—spotting conflicts, parallels, and dramatic timing at a glance.
+
+### What is Flowstate?
+Flowstate is a forward-only writing mode that defeats writer's block. Sentences lock behind you as you write, with timed cycles alternating between writing sprints and editing windows. It's designed for writers who keep rewriting the same paragraph instead of moving forward—forcing you to embrace imperfect first drafts.
+
+### How much does Penpoint cost?
+$40, once. No subscription. We're currently in beta — join the waitlist to get early access.
+
+### What platforms does Penpoint support?
+Windows, macOS (Intel and Apple Silicon), and Linux. It's a native desktop app — not a web app running in a browser.

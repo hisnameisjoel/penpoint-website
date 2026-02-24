@@ -1,104 +1,14 @@
-# Penpoint - Character Bible & Story Bible for Writers
+# Penpoint
 
-## About
-Penpoint is a desktop application that helps fiction writers track characters, locations, relationships, and story details across books and series. It solves the common problem writers face when they lose track of their own story details - like forgetting a character's name spelling, physical descriptions, or plot points from earlier books.
+> A desktop app where writers write their manuscript and organize their worldbuilding in one place. Manuscript editor, visual relationship maps, story arc visualizers, instant search, and chapter scanning. $40 one-time purchase, no subscription. Windows, macOS, Linux.
 
-## Tagline
-Where Your Story Comes Together
+Penpoint combines a distraction-free manuscript editor with visual worldbuilding tools. Writers no longer need to juggle Word for drafting and spreadsheets for tracking. Write your entire novel and organize your characters, locations, items, and plot arcs in one app. All data stays on your computer.
 
-## Core Problem
-Writers lose track of their own stories. When writing book 2, 3, or 10 in a series, it's easy to forget:
-- Character name spellings (Was it Aldric or Aldrick?)
-- Physical descriptions
-- Relationship details
-- Plot points from earlier books
-- Location details
-- World-building lore
+## Pages
 
-## Solution
-Penpoint provides a simple, searchable database for all your story details:
-- Visual relationship maps showing character connections
-- Powerful search across all your notes
-- Organize by characters, locations, items, and custom categories
-- Chapter-by-chapter tracking
-- Profile pictures for characters
-- Export capabilities
+- [Homepage](https://penpoint.app/): Main product page with features, testimonials, FAQ, and download
+- [Privacy Policy](https://penpoint.app/privacy.html): Privacy policy and data handling
 
-## Key Features
-- **Glorious Searchbar**: Find any detail instantly across all your notes
-- **Relationship Map**: Visual web of character connections
-- **Story Arcs**: Visualize your main storyline and subplots as layered curves with keyframes marking each turning point. Start from classic presets (Three-Act, Hero's Journey, Save The Cat!, Romance, Mystery) or build your own
-- **Character Arcs**: Track a character's emotional fortune as a curve that rises and falls through the story. Use fortune modifiers (Major Rise, Minor Rise, Neutral, Minor Fall, Major Fall, Reset) to shape the curve. Overlay multiple characters to compare journeys side by side
-- **Character Profiles**: Track descriptions, relationships, chapter appearances
-- **Location & Item Tracking**: Organize places and objects in your story
-- **Multi-Select Filtering**: Filter by type, book, chapter, tags
-- **Offline-First**: All data stored locally, works without internet
-- **Cross-Platform**: Windows, macOS, and Linux support
+## Optional
 
-## Target Audience
-- Fiction writers (novels, series, screenplays)
-- Fantasy and sci-fi authors managing complex world-building
-- Series writers tracking details across multiple books
-- Anyone who needs a "story bible" or "character bible"
-
-## Pricing
-One-time purchase: $40 USD
-No subscription, no recurring fees.
-
-## Platform Support
-- Windows (64-bit)
-- macOS (Intel and Apple Silicon)
-- Linux (AppImage)
-
-## Download
-https://penpoint.app/ (Join Beta Program)
-
-## Technology
-Desktop application built with Tauri (Rust + React)
-Local SQLite database for privacy and offline access
-
-## Company
-Developed by Tophat Creative, LLC
-Founded: 2024
-
-## Contact
-Website: https://penpoint.app/
-Email: Available on website
-
-## Use Cases
-- Creating character bibles for novel series
-- Managing world-building for fantasy/sci-fi
-- Tracking continuity across multiple books
-- Visualizing plot structure with story arcs and subplots
-- Tracking character emotional journeys with fortune curves
-- Comparing multiple character arcs to find conflicts and parallels
-- Organizing screenplay character arcs
-- Reference guide while writing
-- Quick lookup of character details during drafting
-
-## Differentiation from Competitors
-- **vs. Notion**: Offline-first, purpose-built for fiction (not a general wiki)
-- **vs. Scrivener**: Focused on story tracking (not a full writing environment)
-- **vs. Spreadsheets**: Visual, searchable, relationship mapping
-- **vs. Physical notebooks**: Searchable, organized, always accessible
-
-## Status
-Currently in beta (2026)
-Active development with regular updates
-
-## Common Questions
-
-### What is a character bible?
-A character bible is a reference document that tracks character details—names, traits, relationships, backstories, and appearances—to keep your story consistent across drafts and books. Think of it as your authoritative reference for every character in your fictional world, preventing continuity errors like forgetting eye color or misspelling names.
-
-### What is a story bible?
-A story bible organizes all the details of your fictional world: characters, locations, timelines, worldbuilding notes, and plot threads. It's especially crucial for series where continuity matters. Writers use story bibles (also called series bibles or show bibles) to remember what happened in book 1 when writing book 3.
-
-### Can I manage multiple books or a series?
-Yes. Penpoint includes a multi-book library. You can transfer characters, locations, and items between books to maintain series consistency. Filter by book to see which characters appear in each installment, or view everything across your entire series at once.
-
-### What are Story Arcs and Character Arcs?
-Penpoint offers two types of arc visualizers. Story Arcs map your plot structure—the main storyline and its subplots rendered as layered curves with diamond-shaped keyframes at each turning point. Subplots anchor to specific keyframes on their parent arc, showing exactly where secondary storylines weave through the main plot. Character Arcs track a character's fortune (emotional state) over time as a curve that rises and falls. Each keyframe has a fortune modifier (Major Rise, Minor Rise, Neutral, Minor Fall, Major Fall, Reset) that shapes the curve. You can overlay multiple character arcs on the same canvas to see how their journeys intersect—spotting conflicts, parallels, and dramatic timing at a glance.
-
-### What is Flowstate?
-Flowstate is a forward-only writing mode that defeats writer's block. Sentences lock behind you as you write, with timed cycles alternating between writing sprints and editing windows. It's designed for writers who keep rewriting the same paragraph instead of moving forward—forcing you to embrace imperfect first drafts.
+- [Full Product Details](https://penpoint.app/llms-full.txt): Complete product documentation including all features, use cases, competitor comparisons, and FAQ

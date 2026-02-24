@@ -16,6 +16,7 @@
 
 html {
   scroll-behavior: smooth;
+  touch-action: manipulation;
 }
 
 body {
@@ -24,10 +25,8 @@ body {
   font-family: 'Source Serif 4', ui-serif, Georgia, serif;
   font-size: var(--text-base);
   line-height: var(--leading-normal);
-  -webkit-user-select: none;
-  user-select: none;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img, picture, video, canvas, svg {
@@ -79,9 +78,7 @@ button {
   gap: var(--space-6);
   height: 0;
   z-index: 1;
-  width: 100vw;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
   padding: 0 var(--space-8);
 }
 
@@ -411,6 +408,20 @@ button {
   position: relative;
 }
 
+.hero__visual--mobile {
+  display: none;
+}
+
+.hero__visual--mobile .screenshot-frame {
+  box-shadow: -7px 7px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.hero__visual--mobile .feature__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .hero__visual .screenshot-placeholder {
   min-height: 480px;
   background-color: white;
@@ -486,42 +497,44 @@ button {
 
 .pain-points__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--component-gap);
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8) var(--space-10);
+  max-width: 800px;
+  margin: var(--space-6) auto 0;
 }
 
-.pain-point {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-6);
-  background-color: rgb(var(--paper));
-  border: 1px solid rgb(var(--border));
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+.pain-point-line {
   text-align: center;
 }
 
-.pain-point__icon {
-  font-size: 2rem;
-  margin: 0 auto;
-  color: rgb(var(--primary));
-  flex-shrink: 0;
-}
-
-.pain-point__title {
-  font-size: var(--text-med);
+.pain-point-line__quote {
+  font-size: var(--text-lg);
   font-weight: 600;
   color: rgb(var(--foreground));
-  min-height: 2.75em; /* Accommodates 2 lines */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-style: italic;
 }
 
-.pain-point__desc {
+.pain-point-line__context {
   font-size: var(--text-sm);
   color: rgb(var(--muted-foreground));
-  min-height: 2.5em; /* Accommodates 2 lines */
+  margin-top: var(--space-1);
+}
+
+.pain-to-solution-arrow {
+  display: flex;
+  justify-content: center;
+  height: 0;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+  color: rgb(var(--muted-foreground));
+}
+
+.pain-to-solution-arrow i {
+  width: 10rem;
+  height: 10rem;
+  stroke-width: 1.5;
+  transform: translateY(-50%);
 }
 
 /* ===========================================
@@ -623,12 +636,17 @@ button {
 }
 
 .feature__shortcut {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--space-2);
   margin-top: var(--space-2);
   font-size: var(--text-sm);
   color: rgb(var(--muted-foreground));
+}
+
+.feature__shortcut > span {
+  white-space: nowrap;
 }
 
 /* ===========================================
@@ -752,6 +770,27 @@ button {
 .testimonial__credits {
   font-size: var(--text-xs);
   color: rgb(var(--muted-foreground));
+}
+
+.testimonial__credits a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.testimonial__credits a:hover {
+  color: rgb(var(--foreground));
+}
+
+/* Reversed layout: body on left, pullquote on right */
+.testimonial__columns--reversed .testimonial__pullquote {
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.testimonial__columns--reversed .testimonial__body {
+  text-align: right;
 }
 
 /* ===========================================
@@ -905,6 +944,114 @@ button {
   object-position: top left;
 }
 
+/* Modifier for items page — zooms into Holmes' Magnifying Glass detail */
+.quick-feature__image--items-detail {
+  top: 0;
+  left: 0;
+  transform: scale(2.8);
+  transform-origin: 85% 8%;
+  object-position: top right;
+}
+
+/* Modifier for location tree — shows the nested hierarchy with detail panel */
+.quick-feature__image--location-tree {
+  top: 0;
+  left: 0;
+  transform: scale(1.7);
+  transform-origin: 11% 16%;
+  object-position: top left;
+}
+
+/* Modifier for chapter page — shows the chapter detail panel */
+.quick-feature__image--chapter-detail {
+  top: 0;
+  left: 0;
+  transform: scale(2.2);
+  transform-origin: 40% 26%;
+  object-position: top right;
+}
+
+/* Modifier for notebook notes — zooms into an individual note */
+.quick-feature__image--notebook-zoom {
+  top: 0;
+  left: 0;
+  transform: scale(2.85);
+  transform-origin: 28% 22%;
+  object-position: top left;
+}
+
+/* Modifier for timeline grid — shows the character appearance grid */
+.quick-feature__image--timeline-grid {
+  top: 0;
+  left: 0;
+  transform: scale(3);
+  transform-origin: 6.5% 25%;
+  object-position: top left;
+}
+
+/* Modifier for compendium — zooms into top-left with heading */
+.quick-feature__image--compendium {
+  top: 0;
+  left: 0;
+  transform: scale(3.5);
+  transform-origin: 5% 8.5%;
+  object-position: top left;
+}
+
+/* Modifier for interface — zooms into the Color Theme section */
+.quick-feature__image--interface {
+  top: 0;
+  left: 0;
+  transform: scale(3);
+  transform-origin: 8% 22%;
+  object-position: top left;
+}
+
+/* Modifier for export dialog — zooms into Export Summary */
+.quick-feature__image--export {
+  top: 0;
+  left: 0;
+  transform: scale(2.2);
+  transform-origin: 48.8% 36%;
+  object-position: top left;
+}
+
+/* Modifier for layout builder — shows both the block editor and preview side by side */
+.quick-feature__image--right-panel {
+  top: 0;
+  left: 0;
+  transform: scale(2.8);
+  transform-origin: 59% 26%;
+  object-position: top center;
+}
+
+/* Modifier for center crop position — zooms into the center of the image */
+.quick-feature__image--center-zoom {
+  top: 0;
+  left: 0;
+  transform: scale(2.5);
+  transform-origin: 43% 48%;
+  object-position: center;
+}
+
+/* Modifier for upper-center crop — shows scan dialog below header */
+.quick-feature__image--upper-center {
+  top: 0;
+  left: 0;
+  transform: scale(2.2);
+  transform-origin: 16% 37%;
+  object-position: top center;
+}
+
+/* Modifier for top-right crop position — zooms into top-right quadrant */
+.quick-feature__image--top-right {
+  top: 0;
+  left: 0;
+  transform: scale(3);
+  transform-origin: 100% 0%;
+  object-position: top right;
+}
+
 /* Modifier for top-center crop position */
 .quick-feature__image--top-center {
   top: 0;
@@ -1011,7 +1158,7 @@ button {
   width: auto;
   height: auto;
   max-width: 90vw;
-  max-height: calc(90vh - 140px);
+  max-height: calc(90vh - 200px);
 }
 
 .lightbox__image-placeholder {
@@ -1042,7 +1189,7 @@ button {
      but min-width:100% makes it fill the available space (set by image) */
   width: 0;
   min-width: 100%;
-  padding: var(--space-5) var(--space-6);
+  padding: var(--space-5) var(--space-6) var(--space-12);
   background-color: rgb(var(--background-accent));
   box-sizing: border-box;
   word-wrap: break-word;
@@ -1084,14 +1231,14 @@ body.lightbox-open {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 
 .faq__item {
   background-color: rgb(var(--card));
   border: 1px solid rgb(var(--border));
   border-radius: var(--radius-md);
-  padding: var(--space-6);
+  padding: var(--space-4) var(--space-6);
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -1184,8 +1331,9 @@ body.lightbox-open {
 }
 
 .final-cta__discord {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-2);
   color: rgb(var(--foreground));
   opacity: 0.7;
@@ -1304,10 +1452,6 @@ body.lightbox-open {
     order: unset;
   }
 
-  .pain-points__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .trust-block__grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1319,6 +1463,10 @@ body.lightbox-open {
   .testimonial__columns {
     grid-template-columns: 1fr;
     gap: var(--space-6);
+  }
+
+  .testimonial__columns--reversed .testimonial__quote {
+    order: -1;
   }
 
   .testimonial__divider {
@@ -1393,17 +1541,17 @@ body.lightbox-open {
     min-height: 280px;
   }
 
+  .hero__visual--desktop {
+    display: none;
+  }
+
+  .hero__visual--mobile {
+    display: block;
+  }
+
   .pain-points__grid {
     grid-template-columns: 1fr;
-  }
-
-  /* Remove min-heights when cards stack */
-  .pain-point__title {
-    min-height: 0;
-  }
-
-  .pain-point__desc {
-    min-height: 0;
+    gap: var(--space-6);
   }
 
   /* Reduce feature section gap when stacked */
@@ -1422,12 +1570,44 @@ body.lightbox-open {
     gap: var(--space-6);
   }
 
+  /* Quick features: 2-col compact grid on mobile (saves ~50% scroll) */
   .quick-features__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+    /* Disable full-bleed breakout — container handles spacing on mobile */
+    width: auto;
+    left: auto;
+    transform: none;
+    position: static;
+    padding: 0;
+  }
+
+  .quick-feature {
+    padding: var(--space-3);
+    gap: var(--space-1);
+  }
+
+  .quick-feature__image-wrapper {
+    height: 100px;
+    margin-bottom: var(--space-1);
+  }
+
+  .quick-feature__title {
+    font-size: var(--text-sm);
+  }
+
+  .quick-feature__desc {
+    display: none;
   }
 
   .quick-feature__image-placeholder {
-    height: 120px;
+    height: 100px;
+  }
+
+  /* Scale down the pain-to-solution arrow on mobile */
+  .pain-to-solution-arrow i {
+    width: 4rem;
+    height: 4rem;
   }
 
   /* Fix lightbox close button position */
@@ -1531,6 +1711,24 @@ body.lightbox-open {
     font-size: var(--text-lg);
     margin-bottom: var(--space-2);
   }
+
+  /* Tighter quick features at small phones */
+  .quick-features__grid {
+    gap: var(--space-2);
+  }
+
+  .quick-feature {
+    padding: var(--space-2);
+  }
+
+  .quick-feature__image-wrapper {
+    height: 80px;
+  }
+
+  .pain-to-solution-arrow i {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 /* Very narrow devices */
@@ -1563,6 +1761,10 @@ body.lightbox-open {
 
   .category-card__label {
     font-size: var(--text-sm);
+  }
+
+  .quick-features__grid {
+    gap: var(--space-2);
   }
 }
 
@@ -1603,6 +1805,19 @@ body.lightbox-open {
 
   .category-card {
     padding: var(--space-1) var(--space-2);
+  }
+
+  /* Single column on very narrow screens — restore descriptions */
+  .quick-features__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-feature__image-wrapper {
+    height: 120px;
+  }
+
+  .quick-feature__desc {
+    display: block;
   }
 }
 
