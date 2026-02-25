@@ -335,6 +335,11 @@ button {
   color: rgb(var(--muted-foreground));
 }
 
+/* Links that only appear in the mobile dropdown menu */
+.header__nav-link--mobile-only {
+  display: none;
+}
+
 /* Mobile menu button */
 .header__menu-btn {
   display: none;
@@ -791,6 +796,69 @@ button {
 
 .testimonial__columns--reversed .testimonial__body {
   text-align: right;
+}
+
+/* ===========================================
+   TESTIMONIAL BLURB GRID
+   =========================================== */
+.blurb-grid {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: var(--space-8);
+}
+
+/* Vertical divider via pseudo-element */
+.blurb-grid::before {
+  content: '';
+  grid-column: 2;
+  grid-row: 1 / 3;
+  background-color: rgb(var(--foreground));
+}
+
+/* Explicit grid placement around divider */
+.blurb:nth-child(1) { grid-column: 1; grid-row: 1; }
+.blurb:nth-child(2) { grid-column: 3; grid-row: 1; }
+.blurb:nth-child(3) { grid-column: 1; grid-row: 2; }
+.blurb:nth-child(4) { grid-column: 3; grid-row: 2; }
+
+.blurb {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Left column: right-aligned, text converges toward divider */
+.blurb:nth-child(odd) {
+  text-align: right;
+}
+
+.blurb:nth-child(odd) .blurb__attribution {
+  align-items: flex-end;
+}
+
+.blurb__quote {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: rgb(var(--muted-foreground));
+  font-style: italic;
+  margin: 0;
+}
+
+.blurb__attribution {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.blurb__author {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: rgb(var(--foreground));
+}
+
+.blurb__credits {
+  font-size: var(--text-xs);
+  color: rgb(var(--muted-foreground));
 }
 
 /* ===========================================
@@ -1452,6 +1520,11 @@ body.lightbox-open {
     order: unset;
   }
 
+  /* On mobile, always show the image before the text */
+  .feature__visual {
+    order: -1;
+  }
+
   .trust-block__grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1517,6 +1590,10 @@ body.lightbox-open {
     min-height: 44px;
     display: flex;
     align-items: center;
+  }
+
+  .header__nav-link--mobile-only {
+    display: flex;
   }
 
   .header__nav .btn {
@@ -1673,20 +1750,70 @@ body.lightbox-open {
   }
 
   .trust-block__grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6) var(--space-4);
   }
 
   .trust-point {
-    flex-direction: row;
-    justify-content: flex-start;
-    text-align: left;
-    gap: var(--space-4);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-2);
+  }
+
+  .trust-point:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
   }
 
   .trust-point__icon {
-    font-size: 1.75rem;
-    flex-shrink: 0;
+    font-size: 2rem;
+  }
+
+  .testimonial__pullquote {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testimonial__body {
+    text-align: left;
+  }
+
+  /* Reset the reversed overrides — same treatment on mobile */
+  .testimonial__columns--reversed .testimonial__pullquote {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testimonial__columns--reversed .testimonial__body {
+    text-align: left;
+  }
+
+  .blurb-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .blurb-grid::before {
+    display: none;
+  }
+
+  .blurb:nth-child(odd) {
+    text-align: left;
+  }
+
+  .blurb:nth-child(odd) .blurb__attribution {
+    align-items: flex-start;
+  }
+
+  /* Reset explicit grid placement for single column */
+  .blurb:nth-child(1),
+  .blurb:nth-child(2),
+  .blurb:nth-child(3),
+  .blurb:nth-child(4) {
+    grid-column: 1;
+    grid-row: auto;
   }
 
   .btn-xl {

@@ -237,7 +237,11 @@
       </a>
 
       <nav class="header__nav" id="main-nav">
-        <a href="#features" class="header__nav-link">Features</a>
+        <a href="#features" class="header__nav-link">Overview</a>
+        <a href="#more-features" class="header__nav-link header__nav-link--mobile-only">Features</a>
+        <a href="#testimonials" class="header__nav-link header__nav-link--mobile-only">Testimonials</a>
+        <a href="#faq" class="header__nav-link">FAQ</a>
+        <a href="#download" class="header__nav-link header__nav-link--mobile-only">Download</a>
         <a href="https://forms.gle/aZiTnYr8cPwNMewU9" class="btn btn-outline" target="_blank" rel="noopener">Join the Beta</a>
       </nav>
 
@@ -583,7 +587,7 @@
   <!-- ===========================================
        TRUST BLOCK
        =========================================== -->
-  <section class="trust-block section">
+  <section class="trust-block section" id="privacy">
     <div class="container">
       <h2 class="font-heading-lg text-center section-heading" data-animate="fade-up">
         Your stories are yours, forever.
@@ -626,7 +630,7 @@
   <!-- ===========================================
        TESTIMONIAL: L.M. WHITELEY
        =========================================== -->
-  <section class="testimonial section">
+  <section class="testimonial section" id="testimonials">
     <div class="container">
       <figure class="testimonial__figure">
         <div class="testimonial__columns testimonial__columns--reversed">
@@ -651,29 +655,50 @@
   </section>
 
   <!-- ===========================================
-       TESTIMONIAL: JESSE GERLACH
+       TESTIMONIAL BLURB GRID
        =========================================== -->
   <section class="testimonial section">
     <div class="container">
-      <figure class="testimonial__figure">
-        <div class="testimonial__columns">
-          <blockquote class="testimonial__quote" data-animate="fade-right">
-            <p class="testimonial__pullquote font-display">
-              "Everything Penpoint offers has made my authorship 100 times easier and 1000 times more organized and fun."
-            </p>
-          </blockquote>
-          <div class="testimonial__divider" aria-hidden="true"></div>
-          <div class="testimonial__content" data-animate="fade-left">
-            <p class="testimonial__body font-body">
-              <strong>Penpoint</strong> is the freaking best!!! It has expedited my entire writing process by leaps and bounds. Need to create a new character with a custom-made template? Done. 2 seconds. Need to create a new LitRPG legendary artifact that I can tab to my main character. Done. 3 seconds. Everything <strong>Penpoint</strong> offers has made my authorship 100 times easier and 1000 times more organized and fun. I'll be using this until the heat death of the universe, and perhaps even after that.
-            </p>
-          </div>
-        </div>
-        <figcaption class="testimonial__attribution font-ui">
-          <span class="testimonial__author">— Jesse Gerlach</span>
-          <span class="testimonial__credits">Author, <em>Sound Shaper Series</em>, <em>Rickleford</em>, <em>Orion Division</em></span>
-        </figcaption>
-      </figure>
+      <div class="blurb-grid" data-stagger-group data-stagger-delay="100">
+
+        <blockquote class="blurb" data-animate="fade-up">
+          <p class="blurb__quote font-body">
+            "It's everything you need, with a UI that doesn't distract from actually writing. It's better than everyone else because it's cleaner, easier, stronger, and actually <strong>written for authors, by authors</strong>."
+          </p>
+          <footer class="blurb__attribution font-ui">
+            <span class="blurb__author">— Jesse Gerlach</span>
+            <span class="blurb__credits">Author, <em>Sound Shaper Series</em>, <em>Rickleford</em>, <em>Orion Division</em></span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="blurb" data-animate="fade-up">
+          <p class="blurb__quote font-body">
+            "Penpoint lets me work the way I like and the tools are there waiting for me when I need them. The Flowstate aspect of Manuscript mode is a <strong>game changer</strong>!"
+          </p>
+          <footer class="blurb__attribution font-ui">
+            <span class="blurb__author">— Jen Yocom</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="blurb" data-animate="fade-up">
+          <p class="blurb__quote font-body">
+            "The most approachable writing tool, that <strong>cuts no corners</strong>!"
+          </p>
+          <footer class="blurb__attribution font-ui">
+            <span class="blurb__author">— Alagar</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="blurb" data-animate="fade-up">
+          <p class="blurb__quote font-body">
+            "It combines all the best features available elsewhere with interesting and new ideas. <strong>It's the perfect writer's companion</strong>."
+          </p>
+          <footer class="blurb__attribution font-ui">
+            <span class="blurb__author">— Patrick O'Dell</span>
+          </footer>
+        </blockquote>
+
+      </div>
     </div>
   </section>
 
@@ -687,7 +712,7 @@
   <!-- ===========================================
        QUICK FEATURES
        =========================================== -->
-  <section class="section">
+  <section class="section" id="more-features">
     <div class="container">
       <h2 class="font-heading-lg text-center section-heading" data-animate="fade-up">
         The features you actually need
