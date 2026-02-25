@@ -33,10 +33,6 @@
   <link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png">
   <link rel="apple-touch-icon" href="images/icon-192.png">
 
-  <!-- Web App Manifest -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#2d2416">
-
   <!-- Google Fonts - Source Serif 4 only -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -216,6 +212,7 @@
   </script>
 </head>
 <body>
+  <a href="#main" class="sr-only focus:not-sr-only">Skip to main content</a>
 
   <!-- SVG Sprite (hidden) -->
   <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite">
@@ -257,7 +254,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
   <!-- ===========================================
        HERO SECTION
        =========================================== -->
@@ -870,20 +867,6 @@
           <h3 class="quick-feature__title">Multi-Book Library</h3>
           <p class="quick-feature__desc font-body-sm">Manage your entire series from one place; copy over characters, items, locations, and notes from one book to another</p>
         </button>
-
-        <!-- 10. Make It Yours (commented out)
-        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
-                data-lightbox="interface"
-                data-lightbox-title="Make It Yours"
-                data-lightbox-desc="Seven color themes from warm Parchment to dark Midnight. Adjustable typography for comfortable reading. Penpoint adapts to how you like to work, whether that's bright daylight writing or late-night sessions in dark mode."
-                data-lightbox-image="images/Interface.webp">
-          <div class="quick-feature__image-wrapper">
-            <img src="images/Interface.webp" alt="Interface settings showing theme and typography options" class="quick-feature__image quick-feature__image--interface" loading="lazy">
-          </div>
-          <h3 class="quick-feature__title">Make It Yours</h3>
-          <p class="quick-feature__desc font-body-sm">Seven color themes, adjustable typography, and a clean interface that gets out of your way.</p>
-        </button>
-        -->
 
         <!-- 11. Export -->
         <button type="button" class="quick-feature card-hover" data-animate="fade-up"
