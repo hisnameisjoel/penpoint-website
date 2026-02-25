@@ -40,6 +40,7 @@
   <!-- Google Fonts - Source Serif 4 only -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="images/CharacterArcs.webp" type="image/webp">
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
@@ -246,7 +247,11 @@
       </nav>
 
       <button type="button" class="header__menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
-        <i data-lucide="menu"></i>
+        <span class="hamburger">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </span>
       </button>
     </div>
   </header>
@@ -287,12 +292,12 @@
       </div>
       <div class="hero__visual hero__visual--desktop" data-animate="fade-right" data-stagger="1" style="perspective: 1200px;">
         <div class="screenshot-frame featured" style="transform: rotateZ(0deg) rotateX(3deg) rotateY(-5deg) translateX(37px) scale(1.25); transform-style: preserve-3d;">
-          <img src="images/CharacterArcs.webp" alt="Story arc visualization showing plot progression and character fortune curves" class="feature__image" loading="eager" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+          <img src="images/CharacterArcs.webp" alt="Story arc visualization showing plot progression and character fortune curves" class="feature__image" loading="eager" fetchpriority="high" style="max-width: 100%; max-height: 100%; object-fit: contain;">
         </div>
       </div>
       <div class="hero__visual hero__visual--mobile" data-animate="fade-up" data-stagger="1">
         <div class="screenshot-frame featured">
-          <img src="images/CharacterArcs.webp" alt="Story arc visualization showing plot progression and character fortune curves" class="feature__image" loading="eager">
+          <img src="images/CharacterArcs.webp" alt="Story arc visualization showing plot progression and character fortune curves" class="feature__image" loading="eager" fetchpriority="high">
         </div>
       </div>
     </div>

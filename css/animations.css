@@ -241,3 +241,24 @@
   animation: heroTextFadeIn 600ms var(--ease-in-out) forwards;
 }
 
+/* ===========================================
+   MOBILE: Quick features slide in from alternating sides
+   Odd cards (image left) slide from left,
+   Even cards (image right) slide from right
+   =========================================== */
+@media (max-width: 768px) {
+  /* Override fade-up with directional slide for quick features */
+  .quick-feature[data-animate="fade-up"].animate-in {
+    animation-name: slideInFromLeft;
+  }
+
+  .quick-feature:nth-child(even)[data-animate="fade-up"].animate-in {
+    animation-name: slideInFromRight;
+  }
+
+  /* Clear stagger delays so each card animates on its own scroll trigger */
+  .quick-feature[data-animate] {
+    animation-delay: 0ms !important;
+  }
+}
+
