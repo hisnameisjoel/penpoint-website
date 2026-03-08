@@ -3,7 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>document.documentElement.classList.add('js-ready');</script>
+  <script>
+    document.documentElement.classList.add('js-ready');
+
+    /* ============================================================
+       LAUNCH TOGGLE — flip to true when ready to sell
+       false = beta signup mode (Google Form)
+       true  = launch mode (Lemon Squeezy checkout)
+       ============================================================ */
+    var PENPOINT_LAUNCHED = false;
+  </script>
   <meta name="description" content="Write your novel and organize your world in one app. Manuscript editor, visual relationship maps, story arc visualizers, instant search, and chapter scanning. Your data stays on your computer.">
   <meta name="keywords" content="novel writing software, manuscript writing app, character bible, story bible, scrivener alternative, character tracking software, story organization, writing app with worldbuilding">
   <link rel="canonical" href="https://penpoint.app/">
@@ -49,6 +58,9 @@
 
   <!-- Lucide Icons (same library as the app) -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Lemon Squeezy Checkout Overlay -->
+  <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
 
   <!-- Font Awesome (for platform icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -100,7 +112,7 @@
       "url": "https://penpoint.app/#download",
       "price": 40,
       "priceCurrency": "USD",
-      "availability": "https://schema.org/PreOrder"
+      "availability": "https://schema.org/InStock"
     }
   }
   </script>
@@ -190,7 +202,7 @@
         "name": "How much does Penpoint cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "$40, once. No subscription. We're currently in beta, so join the waitlist to get early access."
+          "text": "$40, once. No subscription. Buy it, download it, and start writing."
         }
       },
       {
@@ -243,7 +255,7 @@
         <a href="#faq" class="header__nav-link">FAQ</a>
         <a href="#download" class="header__nav-link header__nav-link--mobile-only">Download</a>
         <a href="https://discord.gg/q7yV3PXrGB" class="header__discord" target="_blank" rel="noopener" aria-label="Join our Discord"><i class="fa-brands fa-discord"></i></a>
-        <a href="https://forms.gle/aZiTnYr8cPwNMewU9" class="btn btn-primary" target="_blank" rel="noopener">Join the Beta</a>
+        <a href="https://penpointapp.lemonsqueezy.com/checkout/buy/5576a809-44e7-4179-b5f6-69c145725060?embed=1" class="btn btn-primary lemonsqueezy-button">Buy Penpoint</a>
       </nav>
 
       <button type="button" class="header__menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
@@ -272,21 +284,9 @@
         <p class="hero__subheadline font-body-lg" data-animate="fade-up" data-stagger="2">
           Your manuscript and your worldbuilding live in one app. Write, search, visualize, and never lose track of your story again.
         </p>
-        <!-- TODO: DOWNLOAD BUTTON (replaces "Join the Beta Program" when ready)
-             When converting this to a download button:
-             1. Detect visitor's OS via navigator.platform / navigator.userAgent
-             2. Fetch https://updates.penpoint.app/latest.json to get the current version
-             3. latest.json has a "platforms" object with keys like "windows-x86_64" and
-                "darwin-aarch64", each containing a "url" to the GitHub Release asset
-             4. Show the appropriate download link for the detected OS (e.g. "Download for Windows")
-             5. Include a "Download for other platforms" link/dropdown for manual selection
-             6. The website should NEVER hardcode version numbers — always derive from latest.json
-                so releases automatically update the download link without touching website code
-             7. For platforms not yet in latest.json (e.g. Linux), show "Coming Soon" or hide
-        -->
         <div class="hero__cta" data-animate="fade-up" data-stagger="3">
-          <a href="https://forms.gle/aZiTnYr8cPwNMewU9" class="btn btn-primary btn-xl btn-shadow" target="_blank" rel="noopener">
-            Join the Beta Program
+          <a href="https://penpointapp.lemonsqueezy.com/checkout/buy/5576a809-44e7-4179-b5f6-69c145725060?embed=1" class="btn btn-primary btn-xl btn-shadow lemonsqueezy-button">
+            Buy Penpoint &mdash; $40
           </a>
         </div>
       </div>
@@ -1016,7 +1016,7 @@
           <div class="faq__answer-wrapper">
             <div class="faq__answer font-body">
               <div class="faq__answer-inner">
-                <p>$40, once. No subscription. We're currently in beta, so join the waitlist to get early access.</p>
+                <p>$40, once. No subscription. Buy it, download it, and start writing.</p>
               </div>
             </div>
           </div>
@@ -1064,10 +1064,8 @@
       <p class="final-cta__subtext font-body-lg" data-animate="fade-up" data-stagger="1">
         No account needed. Your data stays on your computer.
       </p>
-      <!-- TODO: DOWNLOAD BUTTON — see hero__cta comment above for full implementation notes.
-           This button should mirror the same OS-detection + latest.json logic as the hero CTA. -->
-      <a href="https://forms.gle/aZiTnYr8cPwNMewU9" class="btn btn-primary btn-xl btn-shadow" data-animate="scale" data-stagger="2" target="_blank" rel="noopener">
-        Join the Beta Program
+      <a href="https://penpointapp.lemonsqueezy.com/checkout/buy/5576a809-44e7-4179-b5f6-69c145725060?embed=1" class="btn btn-primary btn-xl btn-shadow lemonsqueezy-button" data-animate="scale" data-stagger="2">
+        Buy Penpoint &mdash; $40
       </a>
       <a href="https://discord.gg/q7yV3PXrGB" class="final-cta__discord font-body-sm" data-animate="fade-up" data-stagger="3" target="_blank" rel="noopener">
         <i class="fa-brands fa-discord"></i> Join our Discord
@@ -1210,6 +1208,41 @@
     } else {
       console.warn('Lucide icons failed to load');
     }
+  </script>
+
+  <!-- Launch Toggle: swap CTA buttons based on PENPOINT_LAUNCHED -->
+  <script>
+  (function () {
+    if (typeof PENPOINT_LAUNCHED !== 'undefined' && !PENPOINT_LAUNCHED) {
+      var BETA_URL = 'https://forms.gle/aZiTnYr8cPwNMewU9';
+
+      // Swap all Lemon Squeezy checkout buttons → beta signup
+      var lsButtons = document.querySelectorAll('.lemonsqueezy-button');
+      lsButtons.forEach(function (btn) {
+        btn.href = BETA_URL;
+        btn.target = '_blank';
+        btn.rel = 'noopener';
+        btn.classList.remove('lemonsqueezy-button');
+
+        // Header nav button: short text
+        if (btn.closest('.header__nav')) {
+          btn.textContent = 'Join the Beta';
+        } else {
+          btn.textContent = 'Join the Beta Program';
+        }
+      });
+
+      // Swap structured data availability
+      var ldScripts = document.querySelectorAll('script[type="application/ld+json"]');
+      ldScripts.forEach(function (s) {
+        if (s.textContent.indexOf('InStock') !== -1) {
+          s.textContent = s.textContent
+            .replace('"https://schema.org/InStock"', '"https://schema.org/PreOrder"')
+            .replace('"price": 40', '"price": 0');
+        }
+      });
+    }
+  })();
   </script>
 
 </body>

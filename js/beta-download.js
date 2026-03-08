@@ -28,10 +28,25 @@
     }
   }
 
+  // Detect Windows ARM64 using User-Agent Client Hints (Chromium only)
+  function detectWindowsArm() {
+    if (!navigator.userAgentData || typeof navigator.userAgentData.getHighEntropyValues !== 'function') {
+      return Promise.resolve(false);
+    }
+    return navigator.userAgentData.getHighEntropyValues(['architecture', 'bitness'])
+      .then(function (ua) {
+        return ua.architecture === 'arm' && ua.bitness === '64';
+      })
+      .catch(function () { return false; });
+  }
+
   function buildInstallerUrl(version, platform) {
     var tag = 'v' + version;
     if (platform === 'windows') {
       return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_x64-setup.exe';
+    }
+    if (platform === 'windows-arm') {
+      return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_arm64-setup.exe';
     }
     if (platform === 'mac-arm') {
       return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_aarch64.dmg';
@@ -48,6 +63,7 @@
   function platformAvailable(data, platform) {
     if (!data.platforms) return false;
     if (platform === 'windows') return !!data.platforms['windows-x86_64'];
+    if (platform === 'windows-arm') return !!data.platforms['windows-aarch64'];
     if (platform === 'mac-arm') return !!data.platforms['darwin-aarch64'];
     if (platform === 'mac-intel') return !!data.platforms['darwin-x86_64'];
     if (platform === 'linux') return !!data.platforms['linux-x86_64'];
@@ -56,6 +72,7 @@
 
   function platformLabel(platform) {
     if (platform === 'windows') return 'Windows';
+    if (platform === 'windows-arm') return 'Windows (ARM)';
     if (platform === 'mac-arm') return 'macOS (Apple Silicon)';
     if (platform === 'mac-intel') return 'macOS (Intel)';
     if (platform === 'linux') return 'Linux';
@@ -63,7 +80,7 @@
   }
 
   function platformIcon(platform) {
-    if (platform === 'windows') return 'fa-brands fa-windows';
+    if (platform === 'windows' || platform === 'windows-arm') return 'fa-brands fa-windows';
     if (platform === 'mac-arm' || platform === 'mac-intel') return 'fa-brands fa-apple';
     if (platform === 'linux') return 'fa-brands fa-linux';
     return '';
@@ -75,26 +92,34 @@
     var alsoContainer = document.getElementById('beta-download-also');
     var versionEl = document.getElementById('beta-version');
 
-    // Determine primary platform
+    // Determine primary platform (async for Windows ARM detection)
     var isMac = os === 'mac';
     var macArch = isMac ? detectMacArch() : null;
+    var isWindows = os === 'windows';
+
+    var armDetection = isWindows ? detectWindowsArm() : Promise.resolve(false);
+    armDetection.then(function (isWindowsArm) {
     var primaryPlatform = isMac
       ? (macArch || 'mac')  // detected arch or generic 'mac'
-      : (os === 'linux' ? 'linux' : 'windows');
+      : isWindows
+        ? (isWindowsArm ? 'windows-arm' : 'windows')
+        : (os === 'linux' ? 'linux' : 'windows');
 
     // For non-Mac users or detected Mac arch: build "also available" list
     var otherPlatforms;
     if (isMac && macArch) {
       // Detected Mac arch: show the other Mac variant + other platforms
       var otherMac = macArch === 'mac-arm' ? 'mac-intel' : 'mac-arm';
-      otherPlatforms = [otherMac, 'windows', 'linux'];
+      otherPlatforms = [otherMac, 'windows', 'windows-arm', 'linux'];
     } else if (isMac) {
       // Mac but couldn't detect arch: will show both Mac buttons as primary
       otherPlatforms = ['windows', 'linux'];
+    } else if (isWindows) {
+      // Show the other Windows variant + other platforms
+      var otherWin = isWindowsArm ? 'windows' : 'windows-arm';
+      otherPlatforms = [otherWin, 'mac-arm', 'mac-intel', 'linux'];
     } else {
-      otherPlatforms = primaryPlatform === 'windows'
-        ? ['mac-arm', 'mac-intel', 'linux']
-        : ['windows', 'mac-arm', 'mac-intel'];
+      otherPlatforms = ['windows', 'windows-arm', 'mac-arm', 'mac-intel'];
     }
 
     // Show correct install tab
@@ -112,7 +137,7 @@
     });
 
     // Auto-select the detected OS tab
-    var tabTarget = isMac ? 'mac' : primaryPlatform;
+    var tabTarget = isMac ? 'mac' : (primaryPlatform === 'windows-arm' ? 'windows' : primaryPlatform);
     var detectedTab = document.querySelector('[data-install-tab="' + tabTarget + '"]');
     if (detectedTab) detectedTab.click();
 
@@ -205,6 +230,7 @@
         if (alsoContainer) alsoContainer.style.display = 'none';
         if (versionEl) versionEl.textContent = '';
       });
+    }); // end armDetection.then
   }
 
   if (document.readyState === 'loading') {
