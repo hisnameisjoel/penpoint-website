@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 404: Page Not Found &mdash; Penpoint</title>
+  <meta name="description" content="This page seems to have wandered off the manuscript. Let's get you back to Penpoint.">
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+
+  <!-- Google Fonts - Source Serif 4 only -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    .page-404 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - var(--header-height) - 6rem);
+      text-align: center;
+      padding: var(--space-8) var(--container-padding);
+    }
+
+    .page-404__quill {
+      width: 5rem;
+      height: 5rem;
+      color: rgb(var(--cta));
+      margin-bottom: var(--space-6);
+      animation: quill-write 3s var(--ease-in-out) infinite;
+      transform-origin: bottom right;
+    }
+
+    @keyframes quill-write {
+      0%, 100% { transform: rotate(0deg) translateY(0); }
+      25% { transform: rotate(-8deg) translateY(-4px); }
+      50% { transform: rotate(3deg) translateY(0); }
+      75% { transform: rotate(-5deg) translateY(-2px); }
+    }
+
+    .page-404__code {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: 6rem;
+      font-weight: 700;
+      line-height: 1;
+      color: rgb(var(--foreground));
+      letter-spacing: var(--tracking-tighter);
+      margin-bottom: var(--space-4);
+    }
+
+    .page-404__headline {
+      margin-bottom: var(--space-6);
+    }
+
+    .page-404__manuscript {
+      max-width: 32rem;
+      margin: 0 auto var(--space-10);
+      padding: var(--space-8) var(--space-6);
+      background: rgb(var(--paper));
+      border: 1px solid rgb(var(--border));
+      position: relative;
+    }
+
+    .page-404__manuscript::before {
+      content: '';
+      position: absolute;
+      left: 3rem;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: rgb(var(--destructive) / 0.2);
+    }
+
+    .page-404__prose {
+      text-align: left;
+      color: rgb(var(--muted-foreground));
+    }
+
+    .page-404__prose p {
+      margin-bottom: var(--space-4);
+      padding-left: var(--space-4);
+    }
+
+    .page-404__prose p:last-child {
+      margin-bottom: 0;
+    }
+
+    .page-404__prose .strikethrough {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+
+    .page-404__prose .note {
+      font-style: italic;
+      color: rgb(var(--cta));
+    }
+
+    .page-404__cta {
+      display: inline-block;
+      padding: var(--space-3) var(--space-8);
+      background: rgb(var(--primary));
+      color: rgb(var(--primary-foreground));
+      text-decoration: none;
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-base);
+      font-weight: 600;
+      transition: background var(--duration-normal) var(--ease-penpoint);
+    }
+
+    .page-404__cta:hover {
+      background: rgb(var(--cta));
+    }
+
+    @media (max-width: 768px) {
+      .page-404__code {
+        font-size: 4rem;
+      }
+
+      .page-404__manuscript {
+        padding: var(--space-6) var(--space-4);
+      }
+
+      .page-404__manuscript::before {
+        left: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===========================================
+       HEADER
+       =========================================== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+        </svg>
+        <span class="header__logo-text">Penpoint</span>
+        <span class="header__tagline">Where Your Story Comes Together</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-404">
+
+      <svg class="page-404__quill" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+      </svg>
+
+      <div class="page-404__code">404</div>
+
+      <h1 class="page-404__headline font-heading-lg">Chapter 404: Page Not Found</h1>
+
+      <div class="page-404__manuscript">
+        <div class="page-404__prose font-body">
+          <p>
+            <span class="strikethrough">The hero turned the corner and found exactly what they were looking for.</span>
+          </p>
+          <p>
+            The hero turned the corner and found&hellip; nothing. The page had been ripped out. Whether by a rival author or a rogue editor, no one could say.
+          </p>
+          <p>
+            <span class="note">[Note to self: rewrite this scene. The reader is lost. &mdash;Ed.]</span>
+          </p>
+        </div>
+      </div>
+
+      <a href="/" class="page-404__cta">Back to Chapter One</a>
+
+    </div>
+  </main>
+
+  <!-- ===========================================
+       FOOTER
+       =========================================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo">
+        <svg class="footer__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+        </svg>
+        <span class="footer__logo-text">Penpoint</span>
+      </div>
+
+      <nav class="footer__nav">
+        <a href="/" class="footer__link">Home</a>
+        <a href="https://discord.gg/q7yV3PXrGB" class="footer__link" target="_blank" rel="noopener">Discord</a>
+        <a href="terms.html" class="footer__link">Terms of Service</a>
+        <a href="privacy.html" class="footer__link">Privacy Policy</a>
+      </nav>
+
+      <span class="footer__copyright">&copy; 2026 Tophat Creative, LLC. All Rights Reserved.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
