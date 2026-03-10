@@ -35,17 +35,8 @@
     .page-404__quill {
       width: 5rem;
       height: 5rem;
-      color: rgb(var(--cta));
+      color: rgb(var(--foreground));
       margin-bottom: var(--space-6);
-      animation: quill-write 3s var(--ease-in-out) infinite;
-      transform-origin: bottom right;
-    }
-
-    @keyframes quill-write {
-      0%, 100% { transform: rotate(0deg) translateY(0); }
-      25% { transform: rotate(-8deg) translateY(-4px); }
-      50% { transform: rotate(3deg) translateY(0); }
-      75% { transform: rotate(-5deg) translateY(-2px); }
     }
 
     .page-404__code {
@@ -71,15 +62,6 @@
       position: relative;
     }
 
-    .page-404__manuscript::before {
-      content: '';
-      position: absolute;
-      left: 3rem;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background: rgb(var(--destructive) / 0.2);
-    }
 
     .page-404__prose {
       text-align: left;
