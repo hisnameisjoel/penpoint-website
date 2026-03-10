@@ -26,6 +26,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+    gtag('consent', 'default', { 'analytics_storage': 'denied' });
     gtag('config', 'G-79JVXYBCTN');
   </script>
 
@@ -149,10 +150,11 @@
       <h1>Privacy Policy</h1>
       <p class="privacy-updated">Last updated: March 9, 2026</p>
 
-      <p>Penpoint is built by Tophat Creative, LLC. We believe your writing is yours — and so is your data. This policy explains what we collect, why, and how you stay in control.</p>
+      <p>Penpoint is built by Tophat Creative, LLC. We believe your writing is yours — and so is your data. This policy explains what we collect, why, and how you stay in control. By using Penpoint, you also agree to our <a href="terms.html">Terms of Service</a>.</p>
 
       <h2>Your Writing Data</h2>
-      <p>Penpoint is a desktop application. All of your projects, characters, notes, and other content are stored locally on your computer. We never have access to your writing data — no prose, character names, or project details ever leave your device.</p>
+      <p>Penpoint is a desktop application. All of your projects, characters, notes, and other content are stored locally on your computer. We do not have access to your writing data — no prose, manuscripts, or project files are ever transmitted to our servers.</p>
+      <p>Diagnostic logs generated on your device may include metadata such as entity names (e.g., a character's name) or navigation paths, but <strong>never</strong> your actual writing content. These logs remain on your computer unless you choose to share them with us for support purposes.</p>
 
       <h2>Optional Community Analytics</h2>
       <p>Penpoint includes an optional community analytics feature that helps us understand how writers use the app and powers aggregate community statistics (for example, "142 authors writing today"). This feature is <strong>disabled by default</strong> — it only activates if you explicitly opt in.</p>
@@ -167,8 +169,8 @@
         <li>Export counts by format (e.g., "exported 1 DOCX" — no file names or content)</li>
         <li>General time-of-day activity patterns</li>
       </ul>
-      <p>This data contains <strong>no personally identifiable information</strong> — no names, no email addresses, no IP addresses, and no writing content. The device identifier is a random number generated on your computer that cannot be traced back to you or your device.</p>
-      <p>You can view exactly what data is being sent at any time in <strong>Settings &gt; Community &amp; Updates</strong>. You can disable analytics at any time — doing so immediately stops all data collection and <strong>permanently deletes your historical data</strong> from our servers.</p>
+      <p>This data does not include your name, email address, IP address, or any writing content. The device identifier is a randomly generated number with no connection to your identity. Under certain privacy frameworks (such as the GDPR), a persistent pseudonymous identifier may be considered personal data — we treat it accordingly and process it only with your explicit consent.</p>
+      <p>You can view exactly what data is being sent at any time in <strong>Settings &gt; Community &amp; Updates</strong>. You can disable analytics at any time — doing so immediately stops all data collection and <strong>deletes your historical data</strong> from our active systems. Infrastructure-level backups maintained by our hosting provider may retain residual copies for a limited period consistent with their retention policies, after which they are automatically purged.</p>
       <p>Aggregate community statistics derived from this data (such as total active authors or total words written) may appear within the app or on the Penpoint website. These statistics only ever represent broad totals and can never identify an individual user.</p>
 
       <h2>Website Analytics</h2>
@@ -179,7 +181,7 @@
         <li>General geographic region (country/city level)</li>
         <li>Browser and device type</li>
       </ul>
-      <p>This data is aggregated and anonymous. We use it to understand which features interest writers most and how to improve the site. Google's privacy policy applies to this data collection: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+      <p>This data is aggregated and anonymous. Google Analytics operates in cookieless mode on our site — no tracking cookies are set on your device. We use this data to understand which features interest writers most and how to improve the site. Google's privacy policy applies to this data collection: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
 
       <h2>Auto-Update Checks</h2>
       <p>Penpoint periodically checks for new versions by contacting GitHub's servers. This is a standard HTTPS request that may transmit your IP address to GitHub. No personal data or usage information is included in these requests.</p>
@@ -200,14 +202,15 @@
 
       <h2>Data Retention</h2>
       <p>Community analytics data is retained for up to 18 months, after which it is automatically deleted. If you opt out of community analytics, all of your data is deleted from our servers immediately.</p>
-      <p>We do not retain website analytics data ourselves — Google's retention policies apply to that data. Support emails are retained only as long as needed to resolve your inquiry.</p>
+      <p>We do not retain website analytics data ourselves — Google's retention policies apply to that data. Support correspondence is retained for up to 24 months after the inquiry is resolved, then deleted. You may request earlier deletion of your support correspondence at any time by contacting us.</p>
 
       <h2>Data Security &amp; Location</h2>
-      <p>Community analytics data is transmitted over HTTPS (TLS) and stored on Supabase infrastructure hosted in the United States. The underlying database uses AES-256 encryption at rest. No personally identifiable information is collected or stored.</p>
+      <p>Community analytics data is transmitted over HTTPS (TLS) and stored on Supabase infrastructure hosted in the United States. The underlying database uses AES-256 encryption at rest. For users in the EEA or United Kingdom, data is transferred to the United States under Standard Contractual Clauses.</p>
 
       <h2>Third Parties</h2>
-      <p>We do not sell, share, or provide your data to any third party. The following services process data on our behalf as described in this policy:</p>
+      <p>We do not sell your data. We do not share it with third parties except as described below, where services process data on our behalf to operate Penpoint:</p>
       <ul>
+        <li><strong>Lemon Squeezy</strong> — acts as Merchant of Record for purchases. When you buy Penpoint, Lemon Squeezy collects your name, email address, billing address, and payment information to process the transaction. Tophat Creative does not have access to your full payment details. <a href="https://www.lemonsqueezy.com/privacy" target="_blank" rel="noopener">Lemon Squeezy privacy policy</a>.</li>
         <li><strong>Supabase</strong> — hosts anonymous community analytics data (if you opt in). <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase privacy policy</a>.</li>
         <li><strong>Google Analytics</strong> — collects anonymous visitor data on the Penpoint website. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google privacy policy</a>.</li>
         <li><strong>GitHub</strong> — serves app update checks. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub privacy statement</a>.</li>
