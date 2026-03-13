@@ -1,7 +1,6 @@
 (function () {
   var LATEST_JSON_URL = 'https://updates.penpoint.app/latest.json';
   var RELEASE_BASE = 'https://github.com/hisnameisjoel/penpoint-updates/releases/download';
-  var RELEASES_PAGE = 'https://github.com/hisnameisjoel/penpoint-updates/releases';
 
   function detectOS() {
     var ua = navigator.userAgent;
@@ -54,6 +53,12 @@
     if (platform === 'mac-intel') {
       return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_x64.dmg';
     }
+    if (platform === 'linux-appimage') {
+      return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_amd64.AppImage';
+    }
+    if (platform === 'linux-deb') {
+      return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_amd64.deb';
+    }
     if (platform === 'linux') {
       return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_amd64.AppImage';
     }
@@ -66,7 +71,7 @@
     if (platform === 'windows-arm') return !!data.platforms['windows-aarch64'];
     if (platform === 'mac-arm') return !!data.platforms['darwin-aarch64'];
     if (platform === 'mac-intel') return !!data.platforms['darwin-x86_64'];
-    if (platform === 'linux') return !!data.platforms['linux-x86_64'];
+    if (platform === 'linux' || platform === 'linux-appimage' || platform === 'linux-deb') return !!data.platforms['linux-x86_64'];
     return false;
   }
 
@@ -75,6 +80,8 @@
     if (platform === 'windows-arm') return 'Windows (ARM)';
     if (platform === 'mac-arm') return 'macOS (Apple Silicon)';
     if (platform === 'mac-intel') return 'macOS (Intel)';
+    if (platform === 'linux-appimage') return 'Linux (AppImage)';
+    if (platform === 'linux-deb') return 'Linux (Deb)';
     if (platform === 'linux') return 'Linux';
     return platform;
   }
@@ -82,7 +89,7 @@
   function platformIcon(platform) {
     if (platform === 'windows' || platform === 'windows-arm') return 'fa-brands fa-windows';
     if (platform === 'mac-arm' || platform === 'mac-intel') return 'fa-brands fa-apple';
-    if (platform === 'linux') return 'fa-brands fa-linux';
+    if (platform === 'linux' || platform === 'linux-appimage' || platform === 'linux-deb') return 'fa-brands fa-linux';
     return '';
   }
 
@@ -99,27 +106,31 @@
 
     var armDetection = isWindows ? detectWindowsArm() : Promise.resolve(false);
     armDetection.then(function (isWindowsArm) {
+    var isLinux = os === 'linux';
     var primaryPlatform = isMac
       ? (macArch || 'mac')  // detected arch or generic 'mac'
       : isWindows
         ? (isWindowsArm ? 'windows-arm' : 'windows')
-        : (os === 'linux' ? 'linux' : 'windows');
+        : (isLinux ? 'linux' : 'windows');
 
     // For non-Mac users or detected Mac arch: build "also available" list
     var otherPlatforms;
     if (isMac && macArch) {
       // Detected Mac arch: show the other Mac variant + other platforms
       var otherMac = macArch === 'mac-arm' ? 'mac-intel' : 'mac-arm';
-      otherPlatforms = [otherMac, 'windows', 'windows-arm', 'linux'];
+      otherPlatforms = [otherMac, 'windows', 'windows-arm', 'linux-appimage', 'linux-deb'];
     } else if (isMac) {
       // Mac but couldn't detect arch: will show both Mac buttons as primary
-      otherPlatforms = ['windows', 'linux'];
+      otherPlatforms = ['windows', 'linux-appimage', 'linux-deb'];
     } else if (isWindows) {
       // Show the other Windows variant + other platforms
       var otherWin = isWindowsArm ? 'windows' : 'windows-arm';
-      otherPlatforms = [otherWin, 'mac-arm', 'mac-intel', 'linux'];
-    } else {
+      otherPlatforms = [otherWin, 'mac-arm', 'mac-intel', 'linux-appimage', 'linux-deb'];
+    } else if (isLinux) {
+      // Linux: will show both format buttons as primary
       otherPlatforms = ['windows', 'windows-arm', 'mac-arm', 'mac-intel'];
+    } else {
+      otherPlatforms = ['windows', 'windows-arm', 'mac-arm', 'mac-intel', 'linux-appimage', 'linux-deb'];
     }
 
     // Show correct install tab
@@ -155,8 +166,9 @@
               primaryBtn.href = buildInstallerUrl(version, macArch);
               primaryBtn.innerHTML = '<i class="fa-brands fa-apple"></i>&ensp;Download for ' + platformLabel(macArch);
             } else {
-              primaryBtn.href = RELEASES_PAGE;
-              primaryBtn.textContent = 'View Downloads';
+              primaryBtn.textContent = 'macOS downloads unavailable';
+              primaryBtn.classList.add('btn-disabled');
+              primaryBtn.removeAttribute('href');
             }
           } else if (isMac) {
             // Mac user but couldn't detect architecture: show both buttons equally
@@ -188,19 +200,49 @@
 
               primaryBtn.outerHTML = buttonsHTML;
             } else {
-              primaryBtn.href = RELEASES_PAGE;
-              primaryBtn.textContent = 'View Downloads';
+              primaryBtn.textContent = 'macOS downloads unavailable';
+              primaryBtn.classList.add('btn-disabled');
+              primaryBtn.removeAttribute('href');
+            }
+          } else if (isLinux) {
+            // Linux user: show both AppImage and Deb buttons
+            var linuxAvail = platformAvailable(data, 'linux');
+
+            if (linuxAvail) {
+              var linuxHTML = '<div class="linux-format-buttons">';
+              linuxHTML += '<span class="linux-format-label font-body">Choose your format:</span>';
+              linuxHTML += '<div class="linux-format-options">';
+
+              linuxHTML += '<a class="btn btn-primary btn-xl btn-shadow" href="' + buildInstallerUrl(version, 'linux-appimage') + '">';
+              linuxHTML += '<i class="fa-brands fa-linux"></i>&ensp;AppImage';
+              linuxHTML += '<span class="linux-format-hint">Universal, no install needed</span>';
+              linuxHTML += '</a>';
+
+              linuxHTML += '<a class="btn btn-primary btn-xl btn-shadow" href="' + buildInstallerUrl(version, 'linux-deb') + '">';
+              linuxHTML += '<i class="fa-brands fa-linux"></i>&ensp;Deb Package';
+              linuxHTML += '<span class="linux-format-hint">Debian, Ubuntu, Mint</span>';
+              linuxHTML += '</a>';
+
+              linuxHTML += '</div>';
+              linuxHTML += '</div>';
+
+              primaryBtn.outerHTML = linuxHTML;
+            } else {
+              primaryBtn.textContent = 'Linux downloads unavailable';
+              primaryBtn.classList.add('btn-disabled');
+              primaryBtn.removeAttribute('href');
             }
           } else {
-            // Windows/Linux users: show single primary button
+            // Windows users: show single primary button
             var primaryAvail = platformAvailable(data, primaryPlatform);
 
             if (primaryAvail) {
               primaryBtn.href = buildInstallerUrl(version, primaryPlatform);
               primaryBtn.innerHTML = '<i class="' + platformIcon(primaryPlatform) + '"></i>&ensp;Download for ' + platformLabel(primaryPlatform);
             } else {
-              primaryBtn.href = RELEASES_PAGE;
-              primaryBtn.textContent = 'View Downloads';
+              primaryBtn.textContent = 'Downloads unavailable';
+              primaryBtn.classList.add('btn-disabled');
+              primaryBtn.removeAttribute('href');
             }
           }
         }
@@ -224,8 +266,9 @@
       })
       .catch(function () {
         if (primaryBtn) {
-          primaryBtn.href = RELEASES_PAGE;
-          primaryBtn.textContent = 'View Downloads';
+          primaryBtn.textContent = 'Downloads temporarily unavailable';
+          primaryBtn.classList.add('btn-disabled');
+          primaryBtn.removeAttribute('href');
         }
         if (alsoContainer) alsoContainer.style.display = 'none';
         if (versionEl) versionEl.textContent = '';

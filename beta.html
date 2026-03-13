@@ -186,6 +186,41 @@
       margin-top: var(--space-2);
     }
 
+    /* Linux format selection (reuses mac-arch styles) */
+    .linux-format-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .linux-format-label {
+      color: rgb(var(--foreground));
+      font-weight: 500;
+    }
+
+    .linux-format-options {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .linux-format-options .btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-1);
+      min-width: 180px;
+      padding: var(--space-5) var(--space-6);
+    }
+
+    .linux-format-hint {
+      font-size: var(--text-xs);
+      font-weight: 400;
+      opacity: 0.8;
+    }
+
     /* Section content spacing */
     .beta-content h2 {
       margin-bottom: var(--space-5);
@@ -409,7 +444,7 @@
             <li>Double-click the <code>.AppImage</code> file to launch Penpoint, or run it from the terminal:<br><code>./Penpoint_*.AppImage</code></li>
           </ol>
           <p class="font-body-sm" style="color: rgb(var(--muted-foreground));">
-            A <code>.deb</code> package is also available on our <a href="https://github.com/hisnameisjoel/penpoint-updates/releases" style="color: rgb(var(--cta));">GitHub releases</a> page for Debian/Ubuntu users.
+            A <code>.deb</code> package is also available as a download option above for Debian/Ubuntu users.
           </p>
         </div>
       </div>
