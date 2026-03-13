@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Try Penpoint Free — 14 Day Trial</title>
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    gtag('config', 'G-79JVXYBCTN');
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Font Awesome (for platform icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    .dl-narrow {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .dl-header {
+      padding: var(--space-5) 0;
+      border-bottom: 1px solid rgb(var(--border));
+    }
+
+    .dl-header__inner {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .dl-header__logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      text-decoration: none;
+      color: rgb(var(--foreground));
+    }
+
+    .dl-header__logo-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .dl-header__logo-text {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-xl);
+      font-weight: 700;
+    }
+
+    .dl-hero {
+      text-align: center;
+    }
+
+    .dl-hero h1 {
+      margin-bottom: var(--space-5);
+    }
+
+    .dl-hero p {
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: var(--space-4);
+    }
+
+    .download-area {
+      text-align: center;
+      padding: var(--space-10) var(--space-8);
+      background: rgb(var(--background-accent));
+      border: 1px solid rgb(var(--border));
+      margin-top: var(--space-8);
+    }
+
+    .download-area__version {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-sm);
+      color: rgb(var(--muted-foreground));
+      margin-bottom: var(--space-5);
+    }
+
+    .download-area__buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .download-area__also {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .download-area__also-label {
+      color: rgb(var(--muted-foreground));
+    }
+
+    .download-area__also-buttons {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .mac-arch-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .mac-arch-label {
+      color: rgb(var(--foreground));
+      font-weight: 500;
+    }
+
+    .mac-arch-options {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .mac-arch-options .btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-1);
+      min-width: 180px;
+      padding: var(--space-5) var(--space-6);
+    }
+
+    .mac-arch-hint {
+      font-size: var(--text-xs);
+      font-weight: 400;
+      opacity: 0.8;
+    }
+
+    .mac-arch-help {
+      color: rgb(var(--muted-foreground));
+      margin-top: var(--space-2);
+    }
+
+    .trial-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+
+    .trial-features__item {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+    }
+
+    .trial-features__icon {
+      color: rgb(var(--cta));
+      font-size: var(--text-lg);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .purchase-link {
+      text-align: center;
+      margin-top: var(--space-8);
+      padding: var(--space-6);
+      border: 1px solid rgb(var(--border));
+      background: rgb(var(--background-accent));
+    }
+
+    .contact-links {
+      display: flex;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+      margin-top: var(--space-5);
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-weight: 600;
+      color: rgb(var(--cta));
+      text-decoration: none;
+      font-size: var(--text-lg);
+    }
+
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+
+    .dl-footer {
+      text-align: center;
+      padding: var(--space-6) 0;
+      font-size: var(--text-sm);
+      color: rgb(var(--muted-foreground));
+    }
+
+    .mobile-fallback {
+      text-align: center;
+      padding: var(--space-16) var(--space-6);
+    }
+
+    .mobile-fallback__icon {
+      font-size: 3rem;
+      color: rgb(var(--cta));
+      margin-bottom: var(--space-6);
+    }
+
+    .mobile-fallback h1 {
+      margin-bottom: var(--space-5);
+    }
+
+    .mobile-fallback p {
+      max-width: 480px;
+      margin: 0 auto var(--space-4);
+      color: rgb(var(--muted-foreground));
+      line-height: var(--leading-relaxed);
+    }
+
+    @media (max-width: 640px) {
+      .trial-features { grid-template-columns: 1fr; }
+      .contact-links { flex-direction: column; gap: var(--space-4); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="dl-header">
+    <div class="container dl-header__inner">
+      <a href="https://penpoint.app" class="dl-header__logo">
+        <svg class="dl-header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+        </svg>
+        <span class="dl-header__logo-text">Penpoint</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- Mobile fallback -->
+  <div id="mobile-view" style="display: none;">
+    <section class="section">
+      <div class="container">
+        <div class="dl-narrow mobile-fallback">
+          <div class="mobile-fallback__icon">
+            <i class="fa-solid fa-laptop"></i>
+          </div>
+          <h1 class="font-heading-lg">Penpoint is a desktop app.</h1>
+          <p class="font-body-lg">
+            To download and try Penpoint, open this page on your computer &mdash; Windows, macOS, or Linux.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Desktop download -->
+  <div id="desktop-view" style="display: none;">
+
+    <!-- Hero -->
+    <section class="section">
+      <div class="container">
+        <div class="dl-narrow dl-hero">
+          <h1 class="font-heading-lg">Try Penpoint Free for 14 Days</h1>
+          <p class="font-body-lg">
+            Full access to all features. No credit card required.
+            Your data is always yours &mdash; export anytime, even after the trial ends.
+          </p>
+        </div>
+        <div class="dl-narrow">
+          <div class="download-area">
+            <div class="download-area__version" id="dl-version">Loading version...</div>
+            <div class="download-area__buttons">
+              <a id="dl-primary" class="btn btn-primary btn-xl btn-shadow" href="#">
+                Loading...
+              </a>
+              <div id="dl-also" class="download-area__also" style="display: none;">
+                <span class="download-area__also-label font-body-sm">Also available for</span>
+                <div class="download-area__also-buttons"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you get -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="dl-narrow">
+          <h2 class="font-heading-lg text-center">Everything included. No limits.</h2>
+          <div class="trial-features">
+            <div class="trial-features__item">
+              <i class="fa-solid fa-pen-nib trial-features__icon"></i>
+              <div>
+                <strong class="font-body">Manuscript Mode</strong>
+                <p class="font-body-sm" style="color: rgb(var(--muted-foreground))">Write your prose in a focused editor with chapter organization and scene management.</p>
+              </div>
+            </div>
+            <div class="trial-features__item">
+              <i class="fa-solid fa-users trial-features__icon"></i>
+              <div>
+                <strong class="font-body">Worldbuilding</strong>
+                <p class="font-body-sm" style="color: rgb(var(--muted-foreground))">Track characters, locations, items, timelines, story arcs, and more.</p>
+              </div>
+            </div>
+            <div class="trial-features__item">
+              <i class="fa-solid fa-file-export trial-features__icon"></i>
+              <div>
+                <strong class="font-body">Full Export</strong>
+                <p class="font-body-sm" style="color: rgb(var(--muted-foreground))">Export your work to Word, PDF, Markdown, or plain text &mdash; even after the trial ends.</p>
+              </div>
+            </div>
+            <div class="trial-features__item">
+              <i class="fa-solid fa-hard-drive trial-features__icon"></i>
+              <div>
+                <strong class="font-body">Your Data Stays Local</strong>
+                <p class="font-body-sm" style="color: rgb(var(--muted-foreground))">Everything lives on your computer. No cloud, no account, no internet required.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="purchase-link">
+            <p class="font-body">Ready to buy? <a href="https://penpoint.app/buy" style="color: rgb(var(--cta)); font-weight: 600;">Purchase Penpoint &mdash; $40</a></p>
+            <p class="font-body-sm" style="color: rgb(var(--muted-foreground)); margin-top: var(--space-2);">One-time purchase. No subscription. Free updates forever.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Help -->
+    <section class="section">
+      <div class="container">
+        <div class="dl-narrow" style="text-align: center;">
+          <h2 class="font-heading-lg">Need Help?</h2>
+          <p class="font-body">
+            Our Discord community is the fastest way to get answers.
+          </p>
+          <div class="contact-links" style="justify-content: center;">
+            <a href="https://discord.gg/q7yV3PXrGB" class="contact-link" target="_blank" rel="noopener">
+              <i class="fa-brands fa-discord"></i> Join our Discord
+            </a>
+            <a href="mailto:support@penpoint.app" class="contact-link">
+              <i class="fa-solid fa-envelope"></i> support@penpoint.app
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container dl-footer">
+      &copy; 2026 Tophat Creative, LLC. All Rights Reserved.
+    </div>
+  </footer>
+
+<script>
+(function () {
+  var TRIAL_JSON_URL = 'https://updates.penpoint.app/trial/latest.json';
+
+  function isMobile() {
+    return /Android|iPhone|iPad|iPod|webOS|BlackBerry|Opera Mini|IEMobile/i.test(navigator.userAgent)
+      || (navigator.maxTouchPoints > 1 && window.innerWidth < 820);
+  }
+
+  if (isMobile()) {
+    document.getElementById('mobile-view').style.display = '';
+    return;
+  }
+
+  document.getElementById('desktop-view').style.display = '';
+
+  function detectOS() {
+    var ua = navigator.userAgent;
+    if (/Windows/.test(ua)) return 'windows';
+    if (/Mac/.test(ua)) return 'mac';
+    if (/Linux/.test(ua)) return 'linux';
+    return 'unknown';
+  }
+
+  function detectMacArch() {
+    try {
+      var canvas = document.createElement('canvas');
+      var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) return null;
+      var debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+      if (!debugInfo) return null;
+      var renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+      if (/Apple M\d|Apple GPU/i.test(renderer)) return 'mac-arm';
+      if (/Intel/i.test(renderer)) return 'mac-intel';
+      return null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function detectWindowsArm() {
+    if (!navigator.userAgentData || typeof navigator.userAgentData.getHighEntropyValues !== 'function') {
+      return Promise.resolve(false);
+    }
+    return navigator.userAgentData.getHighEntropyValues(['architecture', 'bitness'])
+      .then(function (ua) { return ua.architecture === 'arm' && ua.bitness === '64'; })
+      .catch(function () { return false; });
+  }
+
+  function platformLabel(p) {
+    var labels = {
+      'windows': 'Windows',
+      'windows-arm': 'Windows (ARM)',
+      'mac-arm': 'macOS (Apple Silicon)',
+      'mac-intel': 'macOS (Intel)',
+      'linux': 'Linux'
+    };
+    return labels[p] || p;
+  }
+
+  function platformIcon(p) {
+    if (p === 'windows' || p === 'windows-arm') return 'fa-brands fa-windows';
+    if (p === 'mac-arm' || p === 'mac-intel') return 'fa-brands fa-apple';
+    if (p === 'linux') return 'fa-brands fa-linux';
+    return '';
+  }
+
+  // Map our platform keys to trial/latest.json installer keys
+  function installerKey(p) {
+    var map = {
+      'windows': 'windows-x86_64',
+      'windows-arm': 'windows-aarch64',
+      'mac-arm': 'darwin-aarch64',
+      'mac-intel': 'darwin-x86_64',
+      'linux': 'linux-x86_64'
+    };
+    return map[p];
+  }
+
+  var os = detectOS();
+  var isMac = os === 'mac';
+  var macArch = isMac ? detectMacArch() : null;
+  var isWindows = os === 'windows';
+
+  var armDetection = isWindows ? detectWindowsArm() : Promise.resolve(false);
+  armDetection.then(function (isWindowsArm) {
+    var primaryPlatform = isMac
+      ? (macArch || 'mac')
+      : isWindows
+        ? (isWindowsArm ? 'windows-arm' : 'windows')
+        : (os === 'linux' ? 'linux' : 'windows');
+
+    var otherPlatforms;
+    if (isMac && macArch) {
+      var otherMac = macArch === 'mac-arm' ? 'mac-intel' : 'mac-arm';
+      otherPlatforms = [otherMac, 'windows', 'windows-arm', 'linux'];
+    } else if (isMac) {
+      otherPlatforms = ['windows', 'linux'];
+    } else if (isWindows) {
+      var otherWin = isWindowsArm ? 'windows' : 'windows-arm';
+      otherPlatforms = [otherWin, 'mac-arm', 'mac-intel', 'linux'];
+    } else {
+      otherPlatforms = ['windows', 'windows-arm', 'mac-arm', 'mac-intel'];
+    }
+
+    var primaryBtn = document.getElementById('dl-primary');
+    var alsoContainer = document.getElementById('dl-also');
+    var versionEl = document.getElementById('dl-version');
+
+    fetch(TRIAL_JSON_URL)
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        var version = data.version;
+        var installers = data.installers || {};
+        if (versionEl) versionEl.textContent = 'Penpoint Trial v' + version;
+
+        function getUrl(p) { return installers[installerKey(p)] || null; }
+
+        if (primaryBtn) {
+          if (isMac && !macArch) {
+            // Unknown Mac arch — show both buttons
+            var armUrl = getUrl('mac-arm');
+            var intelUrl = getUrl('mac-intel');
+            if (armUrl || intelUrl) {
+              var html = '<div class="mac-arch-buttons">';
+              html += '<span class="mac-arch-label font-body">Choose your Mac type:</span>';
+              html += '<div class="mac-arch-options">';
+              if (armUrl) {
+                html += '<a class="btn btn-primary btn-xl btn-shadow" href="' + armUrl + '">';
+                html += '<i class="fa-brands fa-apple"></i>&ensp;Apple Silicon';
+                html += '<span class="mac-arch-hint">M1, M2, M3, M4</span></a>';
+              }
+              if (intelUrl) {
+                html += '<a class="btn btn-primary btn-xl btn-shadow" href="' + intelUrl + '">';
+                html += '<i class="fa-brands fa-apple"></i>&ensp;Intel';
+                html += '<span class="mac-arch-hint">2019 and earlier</span></a>';
+              }
+              html += '</div>';
+              html += '<span class="mac-arch-help font-body-sm">Not sure? Click \uF8FF \u2192 About This Mac</span>';
+              html += '</div>';
+              primaryBtn.outerHTML = html;
+            }
+          } else {
+            var url = getUrl(primaryPlatform);
+            if (url) {
+              primaryBtn.href = url;
+              primaryBtn.innerHTML = '<i class="' + platformIcon(primaryPlatform) + '"></i>&ensp;Download Free Trial for ' + platformLabel(primaryPlatform);
+            } else {
+              primaryBtn.textContent = 'Trial not yet available for ' + platformLabel(primaryPlatform);
+              primaryBtn.removeAttribute('href');
+            }
+          }
+        }
+
+        if (alsoContainer) {
+          var buttonsContainer = alsoContainer.querySelector('.download-area__also-buttons');
+          var available = otherPlatforms.filter(function (p) { return !!getUrl(p); });
+          if (available.length > 0) {
+            available.forEach(function (p) {
+              var btn = document.createElement('a');
+              btn.href = getUrl(p);
+              btn.className = 'btn btn-outline';
+              btn.innerHTML = '<i class="' + platformIcon(p) + '"></i>&ensp;' + platformLabel(p);
+              buttonsContainer.appendChild(btn);
+            });
+            alsoContainer.style.display = '';
+          }
+        }
+      })
+      .catch(function () {
+        if (primaryBtn) {
+          primaryBtn.textContent = 'Trial downloads coming soon';
+          primaryBtn.removeAttribute('href');
+        }
+        if (versionEl) versionEl.textContent = '';
+      });
+  });
+})();
+</script>
+
+</body>
+</html>

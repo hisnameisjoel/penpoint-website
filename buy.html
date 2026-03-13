@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <script>
+    /* ============================================================
+       LAUNCH TOGGLE — flip to true when ready to sell
+       false = beta signup mode (Google Form)
+       true  = launch mode (Lemon Squeezy checkout)
+       ============================================================ */
+    var PENPOINT_LAUNCHED = false;
+  </script>
+  <title>Buy Penpoint</title>
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('consent', 'default', { 'analytics_storage': 'denied' });
+    gtag('config', 'G-79JVXYBCTN');
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Lemon Squeezy Checkout Overlay -->
+  <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+
+  <style>
+    .dl-narrow {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .dl-header {
+      padding: var(--space-5) 0;
+      border-bottom: 1px solid rgb(var(--border));
+    }
+
+    .dl-header__inner {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .dl-header__logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      text-decoration: none;
+      color: rgb(var(--foreground));
+    }
+
+    .dl-header__logo-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .dl-header__logo-text {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-xl);
+      font-weight: 700;
+    }
+
+    /* Hero */
+    .dl-hero {
+      text-align: center;
+    }
+
+    .dl-hero h1 {
+      margin-bottom: var(--space-5);
+    }
+
+    .dl-hero p {
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: var(--space-4);
+    }
+
+    /* Purchase CTA */
+    .purchase-cta {
+      text-align: center;
+      padding: var(--space-10) var(--space-8);
+      background: rgb(var(--background-accent));
+      border: 1px solid rgb(var(--border));
+      margin-top: var(--space-8);
+    }
+
+    .purchase-cta__price {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-sm);
+      color: rgb(var(--muted-foreground));
+      margin-top: var(--space-5);
+    }
+
+    .purchase-cta__trust {
+      display: flex;
+      gap: var(--space-8);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: var(--space-8);
+    }
+
+    .purchase-cta__trust-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      color: rgb(var(--muted-foreground));
+      font-size: var(--text-sm);
+    }
+
+    .purchase-cta__trust-item i {
+      color: rgb(var(--cta));
+    }
+
+    /* Feature grid */
+    .trial-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+
+    .trial-features__item {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+    }
+
+    .trial-features__icon {
+      color: rgb(var(--cta));
+      font-size: var(--text-lg);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Contact */
+    .contact-links {
+      display: flex;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+      margin-top: var(--space-5);
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-weight: 600;
+      color: rgb(var(--cta));
+      text-decoration: none;
+      font-size: var(--text-lg);
+    }
+
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .dl-footer {
+      text-align: center;
+      padding: var(--space-6) 0;
+      font-size: var(--text-sm);
+      color: rgb(var(--muted-foreground));
+    }
+
+    /* Mobile fallback */
+    .mobile-fallback {
+      text-align: center;
+      padding: var(--space-16) var(--space-6);
+    }
+
+    .mobile-fallback__icon {
+      font-size: 3rem;
+      color: rgb(var(--cta));
+      margin-bottom: var(--space-6);
+    }
+
+    .mobile-fallback h1 {
+      margin-bottom: var(--space-5);
+    }
+
+    .mobile-fallback p {
+      max-width: 480px;
+      margin: 0 auto var(--space-4);
+      color: rgb(var(--muted-foreground));
+      line-height: var(--leading-relaxed);
+    }
+
+    @media (max-width: 640px) {
+      .trial-features { grid-template-columns: 1fr; }
+      .purchase-cta__trust { flex-direction: column; align-items: center; gap: var(--space-4); }
+      .contact-links { flex-direction: column; gap: var(--space-4); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG Sprite (hidden) -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite">
+    <symbol id="icon-quill" viewBox="0 0 24 24">
+      <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+    </symbol>
+  </svg>
+
+  <!-- Header -->
+  <header class="dl-header">
+    <div class="container dl-header__inner">
+      <a href="https://penpoint.app" class="dl-header__logo">
+        <svg class="dl-header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+        </svg>
+        <span class="dl-header__logo-text">Penpoint</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- =============================================
+       MOBILE FALLBACK
+       ============================================= -->
+  <div id="mobile-view" style="display: none;">
+    <section class="section">
+      <div class="container">
+        <div class="dl-narrow mobile-fallback">
+          <div class="mobile-fallback__icon">
+            <i class="fa-solid fa-laptop"></i>
+          </div>
+          <h1 class="font-heading-lg">Penpoint is a desktop app.</h1>
+          <p class="font-body-lg">
+            To purchase and download Penpoint, open this page on your computer &mdash; Windows, macOS, or Linux.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- =============================================
+       DESKTOP VIEW
+       ============================================= -->
+  <div id="desktop-view" style="display: none;">
+
+    <!-- Hero -->
+    <section class="section">
+      <div class="container">
+        <div class="dl-narrow dl-hero">
+          <h1 class="font-heading-lg">Get Penpoint</h1>
+          <div class="section-divider" aria-hidden="true" style="margin-bottom: var(--space-6);">
+            <span class="section-divider__line"></span>
+            <svg class="section-divider__quill"><use href="#icon-quill"/></svg>
+            <span class="section-divider__line"></span>
+          </div>
+          <p class="font-body-lg">
+            Your manuscript and your worldbuilding in one app. Write, organize, and never lose track of your story.
+          </p>
+        </div>
+        <div class="dl-narrow">
+          <div class="purchase-cta">
+            <a id="buy-button" href="https://penpointapp.lemonsqueezy.com/checkout/buy/5576a809-44e7-4179-b5f6-69c145725060?embed=1" class="btn btn-primary btn-xl btn-shadow lemonsqueezy-button">
+              Buy Penpoint &mdash; $40
+            </a>
+            <p class="purchase-cta__price">One-time purchase. No subscription.</p>
+            <div class="purchase-cta__trust">
+              <span class="purchase-cta__trust-item">
+                <i class="fa-solid fa-hard-drive"></i> Your data stays local
+              </span>
+              <span class="purchase-cta__trust-item">
+                <i class="fa-solid fa-infinity"></i> Free updates forever
+              </span>
+              <span class="purchase-cta__trust-item">
+                <i class="fa-solid fa-desktop"></i> Windows, macOS & Linux
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What You Get -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="dl-narrow">
+          <h2 class="font-heading-lg text-center">What you get</h2>
+          <div class="trial-features">
+            <div class="trial-features__item">
+              <i class="fa-solid fa-pen-nib trial-features__icon"></i>
+              <div>
+                <strong class="font-body">Manuscript Mode</strong>
+                <p class="font-body-sm" style="color: rgb(var(--muted-foreground))">Write your prose in a focused editor with chapter organization and scene management.</p>
+              </div>
+            </div>
+            <div class="trial-features__item">
+              <i class="fa-solid fa-users trial-features__icon"></i>
+              <div>
+                <strong class="font-body">Worldbuilding</strong>
+                <p class="font-body-sm" style="color: rgb(var(--muted-foreground))">Track characters, locations, items, timelines, story arcs, and more.</p>
+              </div>
+            </div>
+            <div class="trial-features__item">
+              <i class="fa-solid fa-file-export trial-features__icon"></i>
+              <div>
+                <strong class="font-body">Full Export</strong>
+                <p class="font-body-sm" style="color: rgb(var(--muted-foreground))">Export your work to Word, PDF, Markdown, or plain text at any time.</p>
+              </div>
+            </div>
+            <div class="trial-features__item">
+              <i class="fa-solid fa-hard-drive trial-features__icon"></i>
+              <div>
+                <strong class="font-body">Your Data Stays Local</strong>
+                <p class="font-body-sm" style="color: rgb(var(--muted-foreground))">Everything lives on your computer. No cloud, no account, no internet required.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upgrading from Trial -->
+    <section class="section">
+      <div class="container">
+        <div class="dl-narrow" style="text-align: center;">
+          <h2 class="font-heading-lg" style="margin-bottom: var(--space-4);">Already using the free trial?</h2>
+          <p class="font-body" style="max-width: 640px; margin: 0 auto;">
+            Installing the full version keeps all your books, chapters, and worldbuilding exactly where you left them. Just download, install, and keep writing.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Need Help -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="dl-narrow" style="text-align: center;">
+          <h2 class="font-heading-lg">Need Help?</h2>
+          <p class="font-body">
+            Our Discord community is the fastest way to get answers. You can also email us directly &mdash; we respond to every message.
+          </p>
+          <div class="contact-links" style="justify-content: center;">
+            <a href="https://discord.gg/q7yV3PXrGB" class="contact-link" target="_blank" rel="noopener">
+              <i class="fa-brands fa-discord"></i> Join our Discord
+            </a>
+            <a href="mailto:support@penpoint.app" class="contact-link">
+              <i class="fa-solid fa-envelope"></i> support@penpoint.app
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container dl-footer">
+      &copy; 2026 Tophat Creative, LLC. All Rights Reserved.
+    </div>
+  </footer>
+
+<script>
+(function () {
+  // Detect mobile devices
+  function isMobile() {
+    return /Android|iPhone|iPad|iPod|webOS|BlackBerry|Opera Mini|IEMobile/i.test(navigator.userAgent)
+      || (navigator.maxTouchPoints > 1 && window.innerWidth < 820);
+  }
+
+  if (isMobile()) {
+    document.getElementById('mobile-view').style.display = '';
+  } else {
+    document.getElementById('desktop-view').style.display = '';
+  }
+
+  // Launch toggle — when not launched, redirect buy button to beta form
+  if (typeof PENPOINT_LAUNCHED !== 'undefined' && !PENPOINT_LAUNCHED) {
+    var BETA_URL = 'https://forms.gle/aZiTnYr8cPwNMewU9';
+    var lsButtons = document.querySelectorAll('.lemonsqueezy-button');
+    lsButtons.forEach(function (btn) {
+      btn.href = BETA_URL;
+      btn.target = '_blank';
+      btn.rel = 'noopener';
+      btn.classList.remove('lemonsqueezy-button');
+      btn.textContent = 'Join the Beta Program';
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
