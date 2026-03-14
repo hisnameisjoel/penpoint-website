@@ -5,13 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
     document.documentElement.classList.add('js-ready');
-
-    /* ============================================================
-       LAUNCH TOGGLE — flip to true when ready to sell
-       false = beta signup mode (Google Form)
-       true  = launch mode (Lemon Squeezy checkout)
-       ============================================================ */
-    var PENPOINT_LAUNCHED = false;
   </script>
   <meta name="description" content="Write your novel and organize your world in one app. Manuscript editor, visual relationship maps, story arc visualizers, instant search, and chapter scanning. Your data stays on your computer.">
   <meta name="keywords" content="novel writing software, manuscript writing app, character bible, story bible, scrivener alternative, character tracking software, story organization, writing app with worldbuilding">
@@ -1177,6 +1170,7 @@
   <script src="js/scroll-animations.js"></script>
   <script src="js/lightbox.js"></script>
   <script src="js/hero-rotate.js"></script>
+  <script src="js/launch-countdown.js"></script>
 
   <!-- FAQ Accordion -->
   <script>
@@ -1243,40 +1237,6 @@
     }
   </script>
 
-  <!-- Launch Toggle: swap CTA buttons based on PENPOINT_LAUNCHED -->
-  <script>
-  (function () {
-    if (typeof PENPOINT_LAUNCHED !== 'undefined' && !PENPOINT_LAUNCHED) {
-      var BETA_URL = 'https://forms.gle/aZiTnYr8cPwNMewU9';
-
-      // Swap all Lemon Squeezy checkout buttons → beta signup
-      var lsButtons = document.querySelectorAll('.lemonsqueezy-button');
-      lsButtons.forEach(function (btn) {
-        btn.href = BETA_URL;
-        btn.target = '_blank';
-        btn.rel = 'noopener';
-        btn.classList.remove('lemonsqueezy-button');
-
-        // Header nav button: short text
-        if (btn.closest('.header__nav')) {
-          btn.textContent = 'Join the Beta';
-        } else {
-          btn.textContent = 'Join the Beta Program';
-        }
-      });
-
-      // Swap structured data availability
-      var ldScripts = document.querySelectorAll('script[type="application/ld+json"]');
-      ldScripts.forEach(function (s) {
-        if (s.textContent.indexOf('InStock') !== -1) {
-          s.textContent = s.textContent
-            .replace('"https://schema.org/InStock"', '"https://schema.org/PreOrder"')
-            .replace('"price": 40', '"price": 0');
-        }
-      });
-    }
-  })();
-  </script>
 
 </body>
 </html>

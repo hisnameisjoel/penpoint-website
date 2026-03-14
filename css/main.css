@@ -2215,3 +2215,198 @@ body.lightbox-open {
     box-shadow: -7px 7px 0 0 rgba(0, 0, 0, 0.2);
   }
 }
+
+
+/* ===========================================
+   LAUNCH COUNTDOWN
+   Pre-launch countdown timer + email signup
+   =========================================== */
+
+.launch-countdown {
+  text-align: center;
+}
+
+.launch-countdown__label {
+  margin-bottom: var(--space-5);
+  font-size: var(--text-xl);
+  color: rgb(var(--foreground));
+}
+
+/* ── Timer digits ── */
+
+.launch-countdown__timer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.launch-countdown__unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.launch-countdown__value {
+  font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  line-height: 1;
+  color: rgb(var(--foreground));
+  background: rgb(var(--background-accent));
+  border: 1px solid rgb(var(--border));
+  padding: var(--space-3) var(--space-4);
+  min-width: 3.5rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.launch-countdown__unit-label {
+  color: rgb(var(--muted-foreground));
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  font-size: var(--text-xs);
+}
+
+.launch-countdown__sep {
+  font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: rgb(var(--muted-foreground));
+  line-height: 1;
+  padding-top: var(--space-3);
+}
+
+/* ── Hero size (larger) ── */
+
+.launch-countdown--hero .launch-countdown__label {
+  font-size: var(--text-2xl);
+}
+
+.launch-countdown--hero .launch-countdown__value {
+  font-size: 3.5rem;
+  padding: var(--space-4) var(--space-5);
+  min-width: 4.5rem;
+}
+
+.launch-countdown--hero .launch-countdown__sep {
+  font-size: var(--text-4xl);
+  padding-top: var(--space-4);
+}
+
+/* ── Compact size (final CTA, compare, buy pages) ── */
+
+.launch-countdown--compact .launch-countdown__label {
+  font-size: var(--text-lg);
+}
+
+.launch-countdown--compact .launch-countdown__value {
+  font-size: var(--text-3xl);
+  padding: var(--space-2) var(--space-3);
+  min-width: 3rem;
+}
+
+.launch-countdown--compact .launch-countdown__sep {
+  font-size: var(--text-2xl);
+}
+
+/* ── Email signup form ── */
+
+.launch-countdown__signup {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.launch-countdown__signup-label {
+  color: rgb(var(--muted-foreground));
+  margin-bottom: var(--space-3);
+}
+
+.launch-countdown__form {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.launch-countdown__input {
+  flex: 1;
+  padding: 0.625rem var(--space-4);
+  font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+  font-size: var(--text-base);
+  background: rgb(var(--input));
+  border: 1px solid rgb(var(--border));
+  color: rgb(var(--foreground));
+  outline: none;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.launch-countdown__input:focus {
+  border-color: rgb(var(--cta));
+}
+
+.launch-countdown__input::placeholder {
+  color: rgb(var(--muted-foreground));
+  opacity: 0.6;
+}
+
+.launch-countdown__submit {
+  white-space: nowrap;
+  padding: 0.625rem var(--space-6);
+}
+
+.launch-countdown__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.launch-countdown__form-status {
+  margin-top: var(--space-3);
+  min-height: 1.5em;
+}
+
+.launch-countdown__form-status--success {
+  color: rgb(34, 120, 60);
+}
+
+.launch-countdown__form-status--error {
+  color: rgb(var(--destructive));
+}
+
+/* ── Mobile responsive ── */
+
+@media (max-width: 640px) {
+  .launch-countdown__timer {
+    gap: var(--space-2);
+  }
+
+  .launch-countdown__value,
+  .launch-countdown--hero .launch-countdown__value {
+    font-size: var(--text-3xl);
+    padding: var(--space-2) var(--space-3);
+    min-width: 2.75rem;
+  }
+
+  .launch-countdown__sep,
+  .launch-countdown--hero .launch-countdown__sep {
+    font-size: var(--text-2xl);
+    padding-top: var(--space-2);
+  }
+
+  .launch-countdown__form {
+    flex-direction: column;
+  }
+
+  .launch-countdown__submit {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .launch-countdown__value,
+  .launch-countdown--hero .launch-countdown__value {
+    font-size: var(--text-2xl);
+    padding: var(--space-2);
+    min-width: 2.25rem;
+  }
+}

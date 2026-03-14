@@ -5,13 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
     document.documentElement.classList.add('js-ready');
-
-    /* ============================================================
-       LAUNCH TOGGLE — flip to true when ready to sell
-       false = beta signup mode (Google Form)
-       true  = launch mode (Lemon Squeezy checkout)
-       ============================================================ */
-    var PENPOINT_LAUNCHED = false;
   </script>
   <title>Penpoint vs Scrivener, Dabble, Campfire & World Anvil — Feature & Price Comparison</title>
   <meta name="description" content="Compare Penpoint to Scrivener, Dabble, Campfire, and World Anvil on writing features, worldbuilding tools, pricing, and privacy. Full breakdown with prices.">
@@ -981,27 +974,7 @@
 
   <!-- JavaScript -->
   <script src="js/scroll-animations.js"></script>
-
-  <!-- Launch Toggle -->
-  <script>
-  (function () {
-    if (typeof PENPOINT_LAUNCHED !== 'undefined' && !PENPOINT_LAUNCHED) {
-      var BETA_URL = 'https://forms.gle/aZiTnYr8cPwNMewU9';
-      var lsButtons = document.querySelectorAll('.lemonsqueezy-button');
-      lsButtons.forEach(function (btn) {
-        btn.href = BETA_URL;
-        btn.target = '_blank';
-        btn.rel = 'noopener';
-        btn.classList.remove('lemonsqueezy-button');
-        if (btn.closest('.header__nav')) {
-          btn.textContent = 'Join the Beta';
-        } else {
-          btn.textContent = 'Join the Beta Program';
-        }
-      });
-    }
-  })();
-  </script>
+  <script src="js/launch-countdown.js"></script>
 
   <!-- Initialize Lucide Icons -->
   <script>

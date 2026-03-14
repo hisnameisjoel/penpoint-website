@@ -4,14 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <script>
-    /* ============================================================
-       LAUNCH TOGGLE — flip to true when ready to sell
-       false = beta signup mode (Google Form)
-       true  = launch mode (Lemon Squeezy checkout)
-       ============================================================ */
-    var PENPOINT_LAUNCHED = false;
-  </script>
   <title>Buy Penpoint</title>
 
   <!-- Favicon & Icons -->
@@ -394,21 +386,9 @@
   } else {
     document.getElementById('desktop-view').style.display = '';
   }
-
-  // Launch toggle — when not launched, redirect buy button to beta form
-  if (typeof PENPOINT_LAUNCHED !== 'undefined' && !PENPOINT_LAUNCHED) {
-    var BETA_URL = 'https://forms.gle/aZiTnYr8cPwNMewU9';
-    var lsButtons = document.querySelectorAll('.lemonsqueezy-button');
-    lsButtons.forEach(function (btn) {
-      btn.href = BETA_URL;
-      btn.target = '_blank';
-      btn.rel = 'noopener';
-      btn.classList.remove('lemonsqueezy-button');
-      btn.textContent = 'Join the Beta Program';
-    });
-  }
 })();
 </script>
+<script src="js/launch-countdown.js"></script>
 
 </body>
 </html>
