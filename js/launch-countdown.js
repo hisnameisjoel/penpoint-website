@@ -71,7 +71,7 @@
     // Email signup form
     html += '<div class="launch-countdown__signup">';
     html += '<p class="launch-countdown__signup-label font-body-sm">Get notified when Penpoint launches:</p>';
-    html += '<form class="launch-countdown__form" data-launch-form>';
+    html += '<form class="launch-countdown__form" data-launch-form method="POST" action="' + SUBSCRIBE_URL + '" target="ls-subscribe-frame">';
     html += '<input type="email" name="email" placeholder="your@email.com" required class="launch-countdown__input font-body">';
     html += '<button type="submit" class="btn btn-primary launch-countdown__submit">';
     html += 'Notify Me';
@@ -90,44 +90,31 @@
     return '<a href="' + LS_CHECKOUT_URL + '" class="' + cls + '">Buy Penpoint &mdash; $40</a>';
   }
 
-  // ── Handle form submission via fetch ─────────────────────────
+  // ── Ensure hidden iframe exists for form submissions ─────────
+  function ensureSubmitFrame() {
+    if (document.getElementById('ls-subscribe-frame')) return;
+    var iframe = document.createElement('iframe');
+    iframe.id = 'ls-subscribe-frame';
+    iframe.name = 'ls-subscribe-frame';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+  }
+
+  // ── Handle form submission via hidden iframe ───────────────
   function handleFormSubmit(form) {
     var statusEl = form.parentElement.querySelector('[data-launch-form-status]');
     var emailInput = form.querySelector('input[name="email"]');
-    var submitBtn = form.querySelector('button[type="submit"]');
     var email = emailInput.value.trim();
 
     if (!email) return;
 
-    // Disable form while submitting
-    emailInput.disabled = true;
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
-    statusEl.textContent = '';
-    statusEl.className = 'launch-countdown__form-status font-body-sm';
+    ensureSubmitFrame();
 
-    // Submit to Lemon Squeezy
-    var formData = new FormData();
-    formData.append('email', email);
-
-    fetch(SUBSCRIBE_URL, {
-      method: 'POST',
-      body: formData,
-      mode: 'no-cors'  // LS doesn't send CORS headers for this endpoint
-    })
-    .then(function () {
-      // With no-cors we can't read the response, but the request went through
-      form.style.display = 'none';
-      statusEl.textContent = "You're on the list! We'll email you on launch day.";
-      statusEl.className = 'launch-countdown__form-status launch-countdown__form-status--success font-body-sm';
-    })
-    .catch(function () {
-      statusEl.textContent = 'Something went wrong. Try again or join our Discord for updates.';
-      statusEl.className = 'launch-countdown__form-status launch-countdown__form-status--error font-body-sm';
-      emailInput.disabled = false;
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Notify Me';
-    });
+    // The form submits naturally via its action/target attributes.
+    // We just show the success message after a brief delay.
+    form.style.display = 'none';
+    statusEl.textContent = "You're on the list! We'll email you on launch day.";
+    statusEl.className = 'launch-countdown__form-status launch-countdown__form-status--success font-body-sm';
   }
 
   // ── Interval handle (so we can stop ticking after launch) ──
@@ -255,8 +242,8 @@
     // 4. Bind form submissions
     var forms = document.querySelectorAll('[data-launch-form]');
     forms.forEach(function (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
+      form.addEventListener('submit', function () {
+        // Don't preventDefault — let the form POST to the hidden iframe naturally
         handleFormSubmit(form);
       });
     });
