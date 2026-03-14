@@ -71,7 +71,7 @@
     // Email signup form
     html += '<div class="launch-countdown__signup">';
     html += '<p class="launch-countdown__signup-label font-body-sm">Get notified when Penpoint launches:</p>';
-    html += '<form class="launch-countdown__form" data-launch-form>';
+    html += '<form class="launch-countdown__form" data-launch-form method="POST" action="' + SUBSCRIBE_URL + '" target="ls-subscribe-frame">';
     html += '<input type="email" name="email" placeholder="your@email.com" required class="launch-countdown__input font-body">';
     html += '<button type="submit" class="btn btn-primary launch-countdown__submit">';
     html += 'Notify Me';
@@ -90,37 +90,28 @@
     return '<a href="' + LS_CHECKOUT_URL + '" class="' + cls + '">Buy Penpoint &mdash; $40</a>';
   }
 
-  // ── Handle form submission via AJAX (per LS docs) ───────────
+  // ── Ensure hidden iframe exists for form target ─────────────
+  function ensureSubmitFrame() {
+    if (document.getElementById('ls-subscribe-frame')) return;
+    var iframe = document.createElement('iframe');
+    iframe.id = 'ls-subscribe-frame';
+    iframe.name = 'ls-subscribe-frame';
+    iframe.setAttribute('sandbox', 'allow-scripts');
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+  }
+
+  // ── Handle form submission UI ──────────────────────────────
+  // Form POSTs natively to hidden iframe. We just update the UI.
   function handleFormSubmit(form) {
     var statusEl = form.parentElement.querySelector('[data-launch-form-status]');
-    var emailInput = form.querySelector('input[name="email"]');
-    var submitBtn = form.querySelector('button[type="submit"]');
-    var email = emailInput.value.trim();
 
-    if (!email) return;
+    ensureSubmitFrame();
 
-    // Capture email before disabling (disabled inputs excluded from FormData)
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
-    statusEl.textContent = '';
-    statusEl.className = 'launch-countdown__form-status font-body-sm';
-
-    fetch(SUBSCRIBE_URL, {
-      method: 'POST',
-      body: new FormData(form)
-    })
-    .then(function (response) {
-      if (!response.ok) throw new Error('Failed');
-      form.style.display = 'none';
-      statusEl.textContent = "You're on the list! We'll email you on launch day.";
-      statusEl.className = 'launch-countdown__form-status launch-countdown__form-status--success font-body-sm';
-    })
-    .catch(function () {
-      statusEl.textContent = 'Something went wrong. Try again or join our Discord for updates.';
-      statusEl.className = 'launch-countdown__form-status launch-countdown__form-status--error font-body-sm';
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Notify Me';
-    });
+    // Let the native form POST happen, then show success
+    form.style.display = 'none';
+    statusEl.textContent = "You're on the list! We'll email you on launch day.";
+    statusEl.className = 'launch-countdown__form-status launch-countdown__form-status--success font-body-sm';
   }
 
   // ── Interval handle (so we can stop ticking after launch) ──
@@ -248,8 +239,8 @@
     // 4. Bind form submissions (AJAX so user stays on page)
     var forms = document.querySelectorAll('[data-launch-form]');
     forms.forEach(function (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
+      form.addEventListener('submit', function () {
+        // Don't preventDefault — let native POST to iframe happen
         handleFormSubmit(form);
       });
     });
