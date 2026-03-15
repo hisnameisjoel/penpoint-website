@@ -221,6 +221,99 @@
       color: rgb(var(--muted-foreground));
     }
 
+    /* What's Next */
+    .whats-next__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+
+    .whats-next__card {
+      padding: var(--space-6);
+      background: rgb(var(--background-accent));
+      border: 1px solid rgb(var(--border));
+    }
+
+    .whats-next__card-icon {
+      font-size: var(--text-xl);
+      color: rgb(var(--cta));
+      margin-bottom: var(--space-3);
+    }
+
+    .whats-next__card h3 {
+      margin-bottom: var(--space-2);
+    }
+
+    .whats-next__card p {
+      color: rgb(var(--muted-foreground));
+      line-height: var(--leading-relaxed);
+    }
+
+    /* Install tabs */
+    .install-tabs {
+      display: flex;
+      gap: var(--space-2);
+      margin-bottom: var(--space-6);
+      margin-top: var(--space-2);
+    }
+
+    button.install-tab {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-base);
+      font-weight: 600;
+      padding: var(--space-3) var(--space-6);
+      background: rgb(var(--background));
+      border: 1px solid rgb(var(--border));
+      cursor: pointer;
+      color: rgb(var(--muted-foreground));
+      transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
+    }
+
+    button.install-tab:hover {
+      color: rgb(var(--foreground));
+      background: rgb(var(--background-accent));
+    }
+
+    button.install-tab.install-tab--active {
+      color: rgb(var(--primary-foreground));
+      background: rgb(var(--primary));
+      border-color: rgb(var(--primary));
+    }
+
+    .install-panel {
+      padding: var(--space-4) 0;
+    }
+
+    .install-panel ol {
+      padding-left: var(--space-6);
+      margin-bottom: var(--space-4);
+    }
+
+    .install-panel li {
+      margin-bottom: var(--space-3);
+      line-height: var(--leading-relaxed);
+    }
+
+    .install-panel strong {
+      color: rgb(var(--foreground));
+    }
+
+    .install-panel code {
+      font-family: monospace;
+      font-size: 0.9em;
+      background: rgb(var(--background-accent));
+      padding: 2px 6px;
+    }
+
+    .beta-content h2 {
+      margin-bottom: var(--space-5);
+    }
+
+    .beta-content p {
+      margin-bottom: var(--space-4);
+    }
+
     .mobile-fallback {
       text-align: center;
       padding: var(--space-16) var(--space-6);
@@ -245,6 +338,7 @@
 
     @media (max-width: 640px) {
       .trial-features { grid-template-columns: 1fr; }
+      .whats-next__grid { grid-template-columns: 1fr; }
       .contact-links { flex-direction: column; gap: var(--space-4); }
     }
   </style>
@@ -282,7 +376,89 @@
     </section>
   </div>
 
-  <!-- Desktop download -->
+  <!-- Pre-launch: countdown + email signup (shown before March 21) -->
+  <div id="prelaunch-view" style="display: none;">
+    <section class="section">
+      <div class="container">
+        <div class="dl-narrow dl-hero">
+          <h1 class="font-heading-lg">Try Penpoint Free for 14 Days</h1>
+          <p class="font-body-lg">
+            Full access to all features. No credit card required.
+            Your data is always yours &mdash; export anytime, even after the trial ends.
+          </p>
+        </div>
+        <div class="dl-narrow">
+          <div class="purchase-cta" style="padding: var(--space-10) var(--space-8); background: rgb(var(--background-accent)); border: 1px solid rgb(var(--border)); margin-top: var(--space-8);">
+            <!-- launch-countdown.js will replace this with countdown + email form -->
+            <a href="#" class="btn btn-primary btn-xl btn-shadow lemonsqueezy-button" style="pointer-events: none;">
+              Coming March 21st
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you get (same feature grid, shown pre-launch too) -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="dl-narrow">
+          <h2 class="font-heading-lg text-center">Everything included. No limits.</h2>
+          <div class="trial-features">
+            <div class="trial-features__item">
+              <i class="fa-solid fa-pen-nib trial-features__icon"></i>
+              <div>
+                <strong class="font-body">Manuscript Mode</strong>
+                <p class="font-body-sm" style="color: rgb(var(--muted-foreground))">Write your prose in a focused editor with chapter organization and scene management.</p>
+              </div>
+            </div>
+            <div class="trial-features__item">
+              <i class="fa-solid fa-users trial-features__icon"></i>
+              <div>
+                <strong class="font-body">Worldbuilding</strong>
+                <p class="font-body-sm" style="color: rgb(var(--muted-foreground))">Track characters, locations, items, timelines, story arcs, and more.</p>
+              </div>
+            </div>
+            <div class="trial-features__item">
+              <i class="fa-solid fa-file-export trial-features__icon"></i>
+              <div>
+                <strong class="font-body">Full Export</strong>
+                <p class="font-body-sm" style="color: rgb(var(--muted-foreground))">Export your work to Word, PDF, Markdown, or plain text &mdash; even after the trial ends.</p>
+              </div>
+            </div>
+            <div class="trial-features__item">
+              <i class="fa-solid fa-hard-drive trial-features__icon"></i>
+              <div>
+                <strong class="font-body">Your Data Stays Local</strong>
+                <p class="font-body-sm" style="color: rgb(var(--muted-foreground))">Everything lives on your computer. No cloud, no account, no internet required.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Help -->
+    <section class="section">
+      <div class="container">
+        <div class="dl-narrow" style="text-align: center;">
+          <h2 class="font-heading-lg">Need Help?</h2>
+          <p class="font-body">
+            Our Discord community is the fastest way to get answers.
+          </p>
+          <div class="contact-links" style="justify-content: center;">
+            <a href="https://discord.gg/q7yV3PXrGB" class="contact-link" target="_blank" rel="noopener">
+              <i class="fa-brands fa-discord"></i> Join our Discord
+            </a>
+            <a href="mailto:support@penpoint.app" class="contact-link">
+              <i class="fa-solid fa-envelope"></i> support@penpoint.app
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Desktop download (shown post-launch, March 21+) -->
   <div id="desktop-view" style="display: none;">
 
     <!-- Hero -->
@@ -356,6 +532,99 @@
       </div>
     </section>
 
+    <!-- What's Next -->
+    <section class="section">
+      <div class="container">
+        <div class="dl-narrow">
+          <h2 class="font-heading-lg text-center">What's Next?</h2>
+
+          <div class="whats-next__grid">
+            <div class="whats-next__card">
+              <div class="whats-next__card-icon">
+                <i class="fa-solid fa-circle-question"></i>
+              </div>
+              <h3 class="font-heading-sm">Built-in Help Guide</h3>
+              <p class="font-body-sm">Click the <strong>?</strong> icon in the top-right corner of the app at any time to open the help guide. It covers every feature, with step-by-step walkthroughs.</p>
+            </div>
+
+            <div class="whats-next__card">
+              <div class="whats-next__card-icon">
+                <i class="fa-solid fa-book-open"></i>
+              </div>
+              <h3 class="font-heading-sm">Start with the Demo Book</h3>
+              <p class="font-body-sm">Penpoint comes with a pre-built demo book so you can explore every feature before touching your own work. Poke around, break things, get comfortable.</p>
+            </div>
+
+            <div class="whats-next__card">
+              <div class="whats-next__card-icon">
+                <i class="fa-solid fa-file-import"></i>
+              </div>
+              <h3 class="font-heading-sm">Import Your Manuscript</h3>
+              <p class="font-body-sm">Already have a manuscript? Import from Word, EPUB, Markdown, or plain text. Penpoint detects chapter boundaries automatically. Then scan chapters to find your characters.</p>
+            </div>
+
+            <div class="whats-next__card">
+              <div class="whats-next__card-icon">
+                <i class="fa-solid fa-file-export"></i>
+              </div>
+              <h3 class="font-heading-sm">Export Anytime</h3>
+              <p class="font-body-sm">Your work is always yours. Export to Word, PDF, Markdown, or plain text at any point &mdash; even after the trial ends. You're never locked out of your content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation Guide -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="dl-narrow beta-content">
+          <h2 class="font-heading-lg text-center">Installation Guide</h2>
+
+          <div class="install-tabs">
+            <button type="button" class="install-tab install-tab--active" data-install-tab="windows">
+              <i class="fa-brands fa-windows"></i>&ensp;Windows
+            </button>
+            <button type="button" class="install-tab" data-install-tab="mac">
+              <i class="fa-brands fa-apple"></i>&ensp;macOS
+            </button>
+            <button type="button" class="install-tab" data-install-tab="linux">
+              <i class="fa-brands fa-linux"></i>&ensp;Linux
+            </button>
+          </div>
+
+          <div class="install-panel" data-install-panel="windows">
+            <ol class="font-body">
+              <li>Your browser may warn that the file <strong>"isn't commonly downloaded."</strong> This is normal for new software &mdash; click <strong>"Keep"</strong> or <strong>"See more &rarr; Keep anyway"</strong> to save the file.</li>
+              <li>Run the downloaded <code>.exe</code> installer.</li>
+              <li>Follow the installation prompts &mdash; Penpoint will launch when finished.</li>
+            </ol>
+          </div>
+
+          <div class="install-panel" data-install-panel="mac" hidden>
+            <ol class="font-body">
+              <li>Open the downloaded <code>.dmg</code> file.</li>
+              <li>Drag Penpoint to your <strong>Applications</strong> folder.</li>
+              <li>Open Penpoint from Applications &mdash; it will launch normally.</li>
+            </ol>
+          </div>
+
+          <div class="install-panel" data-install-panel="linux" hidden>
+            <p class="font-body" style="margin-bottom: var(--space-4);"><strong>.deb package</strong> (Ubuntu, Debian, Pop!_OS, Mint)</p>
+            <ol class="font-body" style="margin-bottom: var(--space-6);">
+              <li>Double-click the downloaded <code>.deb</code> file &mdash; your package manager will handle the rest.</li>
+              <li>Find Penpoint in your app launcher and open it.</li>
+            </ol>
+            <p class="font-body" style="margin-bottom: var(--space-4);"><strong>.AppImage</strong> (works on any distro)</p>
+            <ol class="font-body">
+              <li>Make the AppImage executable. Open a terminal and run:<br><code>chmod +x Penpoint_*.AppImage</code></li>
+              <li>Double-click the <code>.AppImage</code> file to launch Penpoint, or run it from the terminal:<br><code>./Penpoint_*.AppImage</code></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Help -->
     <section class="section">
       <div class="container">
@@ -396,8 +665,16 @@
       || (navigator.maxTouchPoints > 1 && window.innerWidth < 820);
   }
 
+  var LAUNCH_DATE = new Date('2026-03-21T00:00:00');
+  var isLaunched = new Date() >= LAUNCH_DATE;
+
   if (isMobile()) {
     document.getElementById('mobile-view').style.display = '';
+    return;
+  }
+
+  if (!isLaunched) {
+    document.getElementById('prelaunch-view').style.display = '';
     return;
   }
 
@@ -496,6 +773,24 @@
     var alsoContainer = document.getElementById('dl-also');
     var versionEl = document.getElementById('dl-version');
 
+    // Install tabs
+    var tabs = document.querySelectorAll('[data-install-tab]');
+    var panels = document.querySelectorAll('[data-install-panel]');
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var target = tab.getAttribute('data-install-tab');
+        tabs.forEach(function (t) { t.classList.remove('install-tab--active'); });
+        panels.forEach(function (p) { p.hidden = true; });
+        tab.classList.add('install-tab--active');
+        var panel = document.querySelector('[data-install-panel="' + target + '"]');
+        if (panel) panel.hidden = false;
+      });
+    });
+
+    var tabTarget = isMac ? 'mac' : (primaryPlatform === 'windows-arm' ? 'windows' : primaryPlatform);
+    var detectedTab = document.querySelector('[data-install-tab="' + tabTarget + '"]');
+    if (detectedTab) detectedTab.click();
+
     fetch(TRIAL_JSON_URL)
       .then(function (res) { return res.json(); })
       .then(function (data) {
@@ -566,6 +861,7 @@
   });
 })();
 </script>
+<script src="js/launch-countdown.js"></script>
 
 </body>
 </html>

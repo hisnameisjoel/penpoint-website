@@ -455,7 +455,9 @@ button {
 
 .hero__cta {
   display: flex;
-  gap: var(--space-4);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
   margin-top: var(--space-4);
 }
 
@@ -1559,7 +1561,7 @@ body.lightbox-open {
   }
 
   .hero__cta {
-    justify-content: center;
+    align-items: center;
   }
 
   .feature {
