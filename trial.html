@@ -861,6 +861,41 @@
   });
 })();
 </script>
+
+<!-- Click Tracking (anonymous aggregate counters, no PII) -->
+<script>
+(function() {
+  function trackClick(eventType) {
+    var key = 'pp_tracked_' + eventType;
+    if (sessionStorage.getItem(key)) return;
+    sessionStorage.setItem(key, '1');
+    fetch('https://lpgprxbwrkzxmbwzkisz.supabase.co/functions/v1/track-click', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ eventType: eventType }),
+      keepalive: true
+    }).catch(function() {});
+  }
+
+  // "Purchase Penpoint" link
+  var purchaseLink = document.querySelector('.purchase-link a[href*="penpoint.app/buy"]');
+  if (purchaseLink) {
+    purchaseLink.addEventListener('click', function() { trackClick('buy_click'); });
+  }
+
+  // Trial download buttons (dynamic — use event delegation on .download-area)
+  var dlArea = document.querySelector('.download-area');
+  if (dlArea) {
+    dlArea.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href]');
+      if (link && link.href && /\.(exe|dmg|AppImage|deb)/.test(link.href)) {
+        trackClick('trial_download');
+      }
+    });
+  }
+})();
+</script>
+
 <script src="js/launch-countdown.js"></script>
 
 </body>
