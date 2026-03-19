@@ -4,24 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Penpoint Beta — Download & Feedback</title>
+  <meta http-equiv="refresh" content="0;url=/trial">
+  <link rel="canonical" href="https://penpoint.app/trial">
+  <title>Penpoint Beta Has Launched</title>
 
   <!-- Favicon & Icons -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
   <link rel="apple-touch-icon" href="images/icon-192.png">
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('consent', 'default', { 'analytics_storage': 'denied' });
-    gtag('config', 'G-79JVXYBCTN');
-  </script>
-
-  <!-- Google Fonts -->
+  <!-- Google Fonts - Source Serif 4 only -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,491 +23,109 @@
   <link rel="stylesheet" href="css/typography.css">
   <link rel="stylesheet" href="css/main.css">
 
-  <!-- Font Awesome (for platform icons) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
   <style>
-    /* Constrain content width for readability */
-    .beta-narrow {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    /* Header */
-    .beta-header {
-      padding: var(--space-5) 0;
-      border-bottom: 1px solid rgb(var(--border));
-    }
-
-    .beta-header__inner {
+    .redirect-page {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: var(--space-4);
-    }
-
-    .beta-header__logo {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      text-decoration: none;
-      color: rgb(var(--foreground));
-    }
-
-    .beta-header__logo-icon {
-      width: 32px;
-      height: 32px;
-    }
-
-    .beta-header__logo-text {
-      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
-      font-size: var(--text-xl);
-      font-weight: 700;
-    }
-
-    .beta-badge {
-      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
-      font-size: var(--text-xs);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      background: rgb(var(--cta));
-      color: #fff;
-      padding: 3px 12px;
-      line-height: 1.6;
-    }
-
-    /* Welcome hero — centered like main site hero */
-    .beta-hero {
+      justify-content: center;
+      min-height: calc(100vh - var(--header-height) - 6rem);
       text-align: center;
+      padding: var(--space-8) var(--container-padding);
     }
 
-    .beta-hero h1 {
-      margin-bottom: var(--space-5);
-    }
-
-    .beta-hero p {
-      max-width: 620px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: var(--space-4);
-    }
-
-    /* Download area */
-    .download-area {
-      text-align: center;
-      padding: var(--space-10) var(--space-8);
-      background: rgb(var(--background-accent));
-      border: 1px solid rgb(var(--border));
-      margin-top: var(--space-8);
-    }
-
-    .download-area__version {
-      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
-      font-size: var(--text-sm);
-      color: rgb(var(--muted-foreground));
-      margin-bottom: var(--space-5);
-    }
-
-    .download-area__buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-4);
-    }
-
-    .btn-disabled {
-      opacity: 0.5;
-      pointer-events: none;
-    }
-
-    .download-area__also {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-3);
-    }
-
-    .download-area__also-label {
-      color: rgb(var(--muted-foreground));
-    }
-
-    .download-area__also-buttons {
-      display: flex;
-      gap: var(--space-3);
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    /* Mac architecture selection */
-    .mac-arch-buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-4);
-    }
-
-    .mac-arch-label {
+    .redirect-page__quill {
+      width: 5rem;
+      height: 5rem;
       color: rgb(var(--foreground));
-      font-weight: 500;
-    }
-
-    .mac-arch-options {
-      display: flex;
-      gap: var(--space-4);
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .mac-arch-options .btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-1);
-      min-width: 180px;
-      padding: var(--space-5) var(--space-6);
-    }
-
-    .mac-arch-hint {
-      font-size: var(--text-xs);
-      font-weight: 400;
-      opacity: 0.8;
-    }
-
-    .mac-arch-help {
-      color: rgb(var(--muted-foreground));
-      margin-top: var(--space-2);
-    }
-
-    /* Linux format selection (reuses mac-arch styles) */
-    .linux-format-buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-4);
-    }
-
-    .linux-format-label {
-      color: rgb(var(--foreground));
-      font-weight: 500;
-    }
-
-    .linux-format-options {
-      display: flex;
-      gap: var(--space-4);
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .linux-format-options .btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-1);
-      min-width: 180px;
-      padding: var(--space-5) var(--space-6);
-    }
-
-    .linux-format-hint {
-      font-size: var(--text-xs);
-      font-weight: 400;
-      opacity: 0.8;
-    }
-
-    /* Section content spacing */
-    .beta-content h2 {
-      margin-bottom: var(--space-5);
-    }
-
-    .beta-content p {
-      margin-bottom: var(--space-4);
-    }
-
-    /* Install tabs */
-    .install-tabs {
-      display: flex;
-      gap: var(--space-2);
       margin-bottom: var(--space-6);
-      margin-top: var(--space-2);
     }
 
-    button.install-tab {
+    .redirect-page__headline {
+      margin-bottom: var(--space-6);
+    }
+
+    .redirect-page__body {
+      max-width: 28rem;
+      margin: 0 auto var(--space-8);
+      color: rgb(var(--muted-foreground));
+    }
+
+    .redirect-page__body p {
+      margin-bottom: var(--space-4);
+    }
+
+    .redirect-page__cta {
+      display: inline-block;
+      padding: var(--space-3) var(--space-8);
+      background: rgb(var(--primary));
+      color: rgb(var(--primary-foreground));
+      text-decoration: none;
       font-family: 'Source Serif 4', ui-serif, Georgia, serif;
       font-size: var(--text-base);
       font-weight: 600;
-      padding: var(--space-3) var(--space-6);
-      background: rgb(var(--background));
-      border: 1px solid rgb(var(--border));
-      cursor: pointer;
-      color: rgb(var(--muted-foreground));
-      transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
+      transition: background var(--duration-normal) var(--ease-penpoint);
     }
 
-    button.install-tab:hover {
-      color: rgb(var(--foreground));
-      background: rgb(var(--background-accent));
-    }
-
-    button.install-tab.install-tab--active {
-      color: rgb(var(--primary-foreground));
-      background: rgb(var(--primary));
-      border-color: rgb(var(--primary));
-    }
-
-    .install-panel {
-      padding: var(--space-4) 0;
-    }
-
-    .install-panel ol {
-      padding-left: var(--space-6);
-      margin-bottom: var(--space-4);
-    }
-
-    .install-panel li {
-      margin-bottom: var(--space-3);
-      line-height: var(--leading-relaxed);
-    }
-
-    .install-panel strong {
-      color: rgb(var(--foreground));
-    }
-
-    .install-panel code {
-      font-family: monospace;
-      font-size: 0.9em;
-      background: rgb(var(--background-accent));
-      padding: 2px 6px;
-    }
-
-    /* Feedback list */
-    .feedback-list {
-      list-style: none;
-      padding: 0;
-      margin-top: var(--space-5);
-    }
-
-    .feedback-list li {
-      padding: var(--space-4) var(--space-5);
-      border-left: 3px solid rgb(var(--cta));
-      background: rgb(var(--background-accent));
-      margin-bottom: var(--space-4);
-      line-height: var(--leading-normal);
-    }
-
-    .feedback-list li strong {
-      display: block;
-      margin-bottom: var(--space-1);
-    }
-
-    /* Contact */
-    .contact-links {
-      display: flex;
-      gap: var(--space-8);
-      flex-wrap: wrap;
-      margin-top: var(--space-5);
-    }
-
-    .contact-link {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
-      font-weight: 600;
-      color: rgb(var(--cta));
-      text-decoration: none;
-      font-size: var(--text-lg);
-    }
-
-    .contact-link:hover {
-      text-decoration: underline;
-    }
-
-    /* Footer override */
-    .beta-footer {
-      text-align: center;
-      padding: var(--space-6) 0;
-      font-size: var(--text-sm);
-      color: rgb(var(--muted-foreground));
-    }
-
-    @media (max-width: 480px) {
-      .contact-links { flex-direction: column; gap: var(--space-4); }
+    .redirect-page__cta:hover {
+      background: rgb(var(--cta));
     }
   </style>
 </head>
 <body>
 
   <!-- Header -->
-  <header class="beta-header">
-    <div class="container beta-header__inner">
-      <a href="https://penpoint.app" class="beta-header__logo">
-        <svg class="beta-header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+  <header class="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
           <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
         </svg>
-        <span class="beta-header__logo-text">Penpoint</span>
+        <span class="header__logo-text">Penpoint</span>
+        <span class="header__tagline">Where Your Story Comes Together</span>
       </a>
-      <span class="beta-badge">Beta</span>
     </div>
   </header>
 
   <main>
+    <div class="redirect-page">
 
-  <!-- Welcome + Download -->
-  <section class="section">
-    <div class="container">
-      <div class="beta-narrow beta-hero">
-        <h1 class="font-heading-lg">Welcome to the Penpoint Beta</h1>
-        <p class="font-body-lg">
-          Thanks for testing Penpoint. This is pre-release software — things may break, and that's exactly why you're here. Your feedback shapes what this becomes.
-        </p>
-        <p class="font-body">
-          Download the app below, put it through its paces, and let us know what you think. Every bug report, rough edge, and honest reaction helps.
-        </p>
+      <svg class="redirect-page__quill" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+      </svg>
+
+      <h1 class="redirect-page__headline font-heading-lg">The Beta Has Launched</h1>
+
+      <div class="redirect-page__body font-body">
+        <p>Penpoint is now available to everyone. Taking you to the download page...</p>
+        <p>If you aren't redirected automatically, click below.</p>
       </div>
-      <div class="beta-narrow">
-        <div class="download-area">
-          <div class="download-area__version" id="beta-version">Loading version...</div>
-          <div class="download-area__buttons">
-            <a id="beta-download-primary" class="btn btn-primary btn-xl btn-shadow" href="#">
-              Loading...
-            </a>
-            <div id="beta-download-also" class="download-area__also" style="display: none;">
-              <span class="download-area__also-label font-body-sm">Also available for</span>
-              <div class="download-area__also-buttons"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+      <a href="/trial" class="redirect-page__cta">Go to Downloads</a>
+
     </div>
-  </section>
-
-  <!-- Installation Guide -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="beta-narrow beta-content">
-        <h2 class="font-heading-lg text-center">Installation Guide</h2>
-        <p class="font-body">
-          Penpoint isn't code-signed yet, so your OS will show a security warning. This is normal for beta software — here's how to get past it.
-        </p>
-
-        <div class="install-tabs">
-          <button type="button" class="install-tab install-tab--active" data-install-tab="windows">
-            <i class="fa-brands fa-windows"></i>&ensp;Windows
-          </button>
-          <button type="button" class="install-tab" data-install-tab="mac">
-            <i class="fa-brands fa-apple"></i>&ensp;macOS
-          </button>
-          <button type="button" class="install-tab" data-install-tab="linux">
-            <i class="fa-brands fa-linux"></i>&ensp;Linux
-          </button>
-        </div>
-
-        <div class="install-panel" data-install-panel="windows">
-          <ol class="font-body">
-            <li>Your browser may warn that the file <strong>"isn't commonly downloaded."</strong> This is normal for new software — click <strong>"Keep"</strong> or <strong>"See more &rarr; Keep anyway"</strong> to save the file.</li>
-            <li>Run the downloaded <code>.exe</code> installer.</li>
-            <li>Windows Defender SmartScreen will show <strong>"Windows protected your PC."</strong></li>
-            <li>Click <strong>"More info"</strong> (the small text link below the warning).</li>
-            <li>Click <strong>"Run anyway"</strong>.</li>
-            <li>The installer will complete and Penpoint will launch.</li>
-          </ol>
-          <p class="font-body-sm" style="color: rgb(var(--muted-foreground));">
-            This warning appears because we haven't purchased a code-signing certificate yet. The app is safe — you're downloading directly from our GitHub releases.
-          </p>
-        </div>
-
-        <div class="install-panel" data-install-panel="mac" hidden>
-          <ol class="font-body">
-            <li>Your browser may warn that the file is from an unidentified developer. In Safari, click <strong>"Allow"</strong> when prompted. In other browsers, click <strong>"Keep"</strong> to save the file.</li>
-            <li>Open the downloaded <code>.dmg</code> file and drag Penpoint to your Applications folder.</li>
-            <li>When you first open Penpoint, macOS will show <strong>"Penpoint can't be opened because Apple cannot check it for malicious software."</strong> — click <strong>"OK"</strong> to dismiss.</li>
-            <li>Open <strong>System Settings &rarr; Privacy & Security</strong>.</li>
-            <li>Scroll down — you'll see a message about Penpoint being blocked. Click <strong>"Open Anyway"</strong>.</li>
-            <li>macOS will ask one more time — click <strong>"Open"</strong> to confirm. Penpoint will launch normally from now on.</li>
-          </ol>
-          <p class="font-body-sm" style="color: rgb(var(--muted-foreground));">
-            This warning appears because the app isn't notarized with Apple yet. The app is safe — you're downloading directly from our GitHub releases.
-          </p>
-        </div>
-
-        <div class="install-panel" data-install-panel="linux" hidden>
-          <ol class="font-body">
-            <li>Your browser may warn that the file isn't commonly downloaded. Click <strong>"Keep"</strong> to save it.</li>
-            <li>Make the AppImage executable. Open a terminal and run:<br><code>chmod +x Penpoint_*.AppImage</code></li>
-            <li>Double-click the <code>.AppImage</code> file to launch Penpoint, or run it from the terminal:<br><code>./Penpoint_*.AppImage</code></li>
-          </ol>
-          <p class="font-body-sm" style="color: rgb(var(--muted-foreground));">
-            A <code>.deb</code> package is also available as a download option above for Debian/Ubuntu users.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Get in Touch -->
-  <section class="section">
-    <div class="container">
-      <div class="beta-narrow beta-content" style="text-align: center;">
-        <h2 class="font-heading-lg">Join the Beta Community</h2>
-        <p class="font-body">
-          Our Discord is where beta feedback happens — bug reports, feature discussions, and direct access to the team. Please join so we can work through issues together in real time. We also have our email via the button below.
-        </p>
-        <div class="contact-links" style="justify-content: center;">
-          <a href="https://discord.gg/q7yV3PXrGB" class="contact-link" target="_blank" rel="noopener">
-            <i class="fa-brands fa-discord"></i> Join our Discord
-          </a>
-          <a href="mailto:support@penpoint.app" class="contact-link">
-            <i class="fa-solid fa-envelope"></i> support@penpoint.app
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What We're Looking For -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="beta-narrow beta-content">
-        <h2 class="font-heading-lg text-center">What We're Looking For</h2>
-        <p class="font-body">
-          You don't need to test everything. Pick the areas that matter to your writing workflow and give us your honest take.
-        </p>
-
-        <ul class="feedback-list">
-          <li>
-            <strong class="font-heading-sm">Manuscript Mode</strong>
-            <span class="font-body-sm">Write your prose directly in Penpoint. Try creating scenes, splitting and merging them, reordering chapters, and switching between writing and worldbuilding. Does it feel natural?</span>
-          </li>
-          <li>
-            <strong class="font-heading-sm">Manuscript Import</strong>
-            <span class="font-body-sm">Bring an existing manuscript from Word, EPUB, Markdown, or plain text. Does Penpoint detect your chapters correctly? Try the Chapter Scanner to auto-connect your worldbuilding.</span>
-          </li>
-          <li>
-            <strong class="font-heading-sm">Flowstate</strong>
-            <span class="font-body-sm">Start a timed writing sprint with Ctrl+Shift+F. Your existing text locks behind you — you can only write forward. Does it help you push through?</span>
-          </li>
-          <li>
-            <strong class="font-heading-sm">Story & Character Arcs</strong>
-            <span class="font-body-sm">Visualize your plot as layered curves with keyframes. Track a character's fortune as rises and falls. Overlay multiple arcs to compare. Do these tools reveal anything useful about your story?</span>
-          </li>
-          <li>
-            <strong class="font-heading-sm">Everything Else</strong>
-            <span class="font-body-sm">Relationships, search, tags, locations, export — put it all through its paces. If you're working on something complex enough that you've lost track of details, throw it at Penpoint. Try to break it.</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
   </main>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container beta-footer">
-      &copy; 2026 Tophat Creative, LLC. All Rights Reserved.
+    <div class="container footer__inner">
+      <div class="footer__logo">
+        <svg class="footer__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+        </svg>
+        <span class="footer__logo-text">Penpoint</span>
+      </div>
+
+      <nav class="footer__nav">
+        <a href="/" class="footer__link">Home</a>
+        <a href="https://discord.gg/q7yV3PXrGB" class="footer__link" target="_blank" rel="noopener">Discord</a>
+        <a href="/terms" class="footer__link">Terms of Service</a>
+        <a href="/privacy" class="footer__link">Privacy Policy</a>
+      </nav>
+
+      <span class="footer__copyright">&copy; 2026 Tophat Creative, LLC. All Rights Reserved.</span>
     </div>
   </footer>
-
-<script src="js/beta-download.js"></script>
 
 </body>
 </html>
