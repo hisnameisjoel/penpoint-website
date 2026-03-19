@@ -176,8 +176,6 @@
     initSmoothScroll();
     initMobileMenu();
 
-    // Log initialization (minimal)
-    console.log('Penpoint animations ready');
   }
 
   // Start initialization

@@ -71,15 +71,10 @@
   function init() {
     textElement = document.querySelector('.hero-rotate__text');
 
-    if (!textElement) {
-      console.warn('Hero rotation: .hero-rotate__text element not found');
-      return;
-    }
+    if (!textElement) return;
 
     // Start the first rotation after the first line has been visible
     setTimeout(rotateText, CONFIG.firstHoldDuration);
-
-    console.log('Hero text rotation ready');
   }
 
   // Initialize when DOM is ready
