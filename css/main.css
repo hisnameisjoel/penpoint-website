@@ -1495,13 +1495,20 @@ body.lightbox-open {
 .footer {
   background-color: rgb(var(--primary));
   color: rgb(var(--primary-foreground));
-  padding: var(--space-8) 0;
+  padding: var(--space-12) 0 var(--space-8);
 }
 
-.footer__inner {
+.footer__top {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: var(--space-12);
+  padding-bottom: var(--space-10);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer__brand {
+  flex-shrink: 0;
 }
 
 .footer__logo {
@@ -1516,12 +1523,36 @@ body.lightbox-open {
 }
 
 .footer__logo-text {
-  font-weight: 600;
+  font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+  font-size: var(--text-lg);
+  font-weight: 700;
 }
 
-.footer__nav {
+.footer__tagline {
+  font-size: var(--text-sm);
+  opacity: 0.6;
+  margin-top: var(--space-2);
+}
+
+.footer__columns {
   display: flex;
-  gap: var(--space-6);
+  gap: var(--space-12);
+}
+
+.footer__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer__column-title {
+  font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-1);
 }
 
 .footer__link {
@@ -1534,9 +1565,23 @@ body.lightbox-open {
   opacity: 1;
 }
 
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-6);
+}
+
 .footer__copyright {
   font-size: var(--text-xs);
-  opacity: 0.6;
+  opacity: 0.5;
+}
+
+.footer__platforms {
+  display: flex;
+  gap: var(--space-4);
+  font-size: var(--text-sm);
+  opacity: 0.4;
 }
 
 /* ===========================================
@@ -1965,15 +2010,20 @@ body.lightbox-open {
     padding: var(--space-16) 0;
   }
 
-  .footer__inner {
+  .footer__top {
     flex-direction: column;
-    gap: var(--space-6);
-    text-align: center;
+    gap: var(--space-8);
   }
 
-  .footer__nav {
-    flex-wrap: wrap;
-    justify-content: center;
+  .footer__columns {
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
   }
 }
 

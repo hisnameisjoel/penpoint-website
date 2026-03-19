@@ -43,37 +43,6 @@
       margin: 0 auto;
     }
 
-    /* Header */
-    .dl-header {
-      padding: var(--space-5) 0;
-      border-bottom: 1px solid rgb(var(--border));
-    }
-
-    .dl-header__inner {
-      display: flex;
-      align-items: center;
-      gap: var(--space-4);
-    }
-
-    .dl-header__logo {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      text-decoration: none;
-      color: rgb(var(--foreground));
-    }
-
-    .dl-header__logo-icon {
-      width: 32px;
-      height: 32px;
-    }
-
-    .dl-header__logo-text {
-      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
-      font-size: var(--text-xl);
-      font-weight: 700;
-    }
-
     /* Hero */
     .dl-hero {
       text-align: center;
@@ -170,14 +139,6 @@
       text-decoration: underline;
     }
 
-    /* Footer */
-    .dl-footer {
-      text-align: center;
-      padding: var(--space-6) 0;
-      font-size: var(--text-sm);
-      color: rgb(var(--muted-foreground));
-    }
-
     /* Mobile fallback */
     .mobile-fallback {
       text-align: center;
@@ -218,18 +179,37 @@
   </svg>
 
   <!-- Header -->
-  <header class="dl-header">
-    <div class="container dl-header__inner">
-      <a href="https://penpoint.app" class="dl-header__logo">
-        <svg class="dl-header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+  <header class="header">
+    <div class="container header__inner">
+      <a href="https://penpoint.app" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
           <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
         </svg>
-        <span class="dl-header__logo-text">Penpoint</span>
+        <span class="header__logo-text">Penpoint</span>
+        <span class="header__tagline">Where Your Story Comes Together</span>
       </a>
+
+      <nav class="header__nav" id="main-nav">
+        <a href="/#problem" class="header__nav-link">Overview</a>
+        <a href="/#more-features" class="header__nav-link header__nav-link--mobile-only">Features</a>
+        <a href="/compare" class="header__nav-link">Compare</a>
+        <a href="/#faq" class="header__nav-link">FAQ</a>
+        <a href="/trial" class="header__nav-link">Free Trial</a>
+        <a href="https://discord.gg/q7yV3PXrGB" class="header__discord" target="_blank" rel="noopener" aria-label="Join our Discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="https://penpointapp.lemonsqueezy.com/checkout/buy/5576a809-44e7-4179-b5f6-69c145725060?embed=1" class="btn btn-primary lemonsqueezy-button">Buy Penpoint</a>
+      </nav>
+
+      <button type="button" class="header__menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="hamburger">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </span>
+      </button>
     </div>
   </header>
 
-  <main>
+  <main style="padding-top: var(--header-height);">
 
   <!-- =============================================
        MOBILE FALLBACK
@@ -368,8 +348,47 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container dl-footer">
-      &copy; 2026 Tophat Creative, LLC. All Rights Reserved.
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <svg class="footer__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+            </svg>
+            <span class="footer__logo-text">Penpoint</span>
+          </div>
+          <p class="footer__tagline">Where Your Story Comes Together</p>
+        </div>
+
+        <nav class="footer__columns">
+          <div class="footer__column">
+            <h4 class="footer__column-title">Product</h4>
+            <a href="/#more-features" class="footer__link">Features</a>
+            <a href="/compare" class="footer__link">Compare</a>
+            <a href="/#faq" class="footer__link">FAQ</a>
+            <a href="/trial" class="footer__link">Free Trial</a>
+          </div>
+          <div class="footer__column">
+            <h4 class="footer__column-title">Community</h4>
+            <a href="https://discord.gg/q7yV3PXrGB" class="footer__link" target="_blank" rel="noopener">Discord</a>
+            <a href="mailto:support@penpoint.app" class="footer__link">Contact Support</a>
+          </div>
+          <div class="footer__column">
+            <h4 class="footer__column-title">Legal</h4>
+            <a href="/terms" class="footer__link">Terms of Service</a>
+            <a href="/privacy" class="footer__link">Privacy Policy</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span class="footer__copyright">&copy; 2026 Tophat Creative, LLC. All Rights Reserved.</span>
+        <div class="footer__platforms">
+          <i class="fa-brands fa-windows"></i>
+          <i class="fa-brands fa-apple"></i>
+          <i class="fa-brands fa-linux"></i>
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -413,6 +432,27 @@
 </script>
 
 <script src="js/launch-countdown.js"></script>
+
+<!-- Mobile Menu Toggle -->
+<script>
+(function() {
+  var menuBtn = document.querySelector('.header__menu-btn');
+  var nav = document.querySelector('.header__nav');
+  if (!menuBtn || !nav) return;
+  menuBtn.addEventListener('click', function() {
+    var isOpen = nav.classList.toggle('header__nav--open');
+    menuBtn.classList.toggle('header__menu-btn--active');
+    menuBtn.setAttribute('aria-expanded', isOpen);
+  });
+  nav.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      nav.classList.remove('header__nav--open');
+      menuBtn.classList.remove('header__menu-btn--active');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
