@@ -84,6 +84,10 @@
       background: rgb(var(--background-accent));
       border: 1px solid rgb(var(--border));
       margin-top: var(--space-8);
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .download-area__version {
@@ -321,6 +325,97 @@
       line-height: var(--leading-relaxed);
     }
 
+    /* Attribution Survey */
+    .attribution-survey {
+      display: none;
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .attribution-survey.visible {
+      display: flex;
+      animation: attrFadeIn var(--duration-slow) var(--ease-out);
+    }
+
+    .attribution-survey__label {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: rgb(var(--foreground));
+      margin-bottom: var(--space-4);
+    }
+
+    .attribution-survey__hint {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-base);
+      color: rgb(var(--foreground));
+      font-weight: 500;
+      margin-bottom: var(--space-5);
+    }
+
+    .attribution-survey__select {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-base);
+      padding: var(--space-3) var(--space-4);
+      background: rgb(var(--input));
+      border: 1px solid rgb(var(--border));
+      color: rgb(var(--foreground));
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: var(--space-4);
+      cursor: pointer;
+    }
+
+    .attribution-survey__select:focus {
+      outline: none;
+      border-color: rgb(var(--cta));
+    }
+
+    .attribution-survey__actions {
+      display: flex;
+      gap: var(--space-3);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .attribution-survey__skip {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-sm);
+      color: rgb(var(--muted-foreground));
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .attribution-survey__skip:hover {
+      color: rgb(var(--foreground));
+    }
+
+    .attribution-survey__actions .btn:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    .attribution-survey__thanks {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-xl);
+      color: rgb(var(--cta));
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+
+    @keyframes attrFadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 640px) {
       .trial-features { grid-template-columns: 1fr; }
       .whats-next__grid { grid-template-columns: 1fr; }
@@ -485,6 +580,28 @@
               <div id="dl-also" class="download-area__also" style="display: none;">
                 <span class="download-area__also-label font-body-sm">Also available for</span>
                 <div class="download-area__also-buttons"></div>
+              </div>
+            </div>
+            <!-- Attribution Survey (shown after download starts) -->
+            <div class="attribution-survey" id="attribution-survey">
+              <p class="attribution-survey__label">Your download has started! Check your browser's download bar.</p>
+              <p class="attribution-survey__hint">While you wait &mdash; how did you hear about Penpoint?</p>
+              <select class="attribution-survey__select" id="attribution-select">
+                <option value="" disabled selected>Select one...</option>
+                <option value="referral_reddit">Reddit</option>
+                <option value="referral_youtube">YouTube</option>
+                <option value="referral_search">Google / Internet Search</option>
+                <option value="referral_ai">ChatGPT / AI Assistant</option>
+                <option value="referral_friend">A friend referred me</option>
+                <option value="referral_discord">Discord</option>
+                <option value="referral_blog">Blog / Article</option>
+                <option value="referral_social">Social Media</option>
+                <option value="referral_event">Writer's Meetup / Event</option>
+                <option value="referral_other">Other</option>
+              </select>
+              <div class="attribution-survey__actions">
+                <button type="button" class="btn btn-primary" id="attribution-submit">Submit</button>
+                <button type="button" class="attribution-survey__skip" id="attribution-skip">Skip</button>
               </div>
             </div>
           </div>
@@ -905,7 +1022,7 @@
 })();
 </script>
 
-<!-- Click Tracking (anonymous aggregate counters, no PII) -->
+<!-- Click Tracking + Attribution Survey (anonymous aggregate counters, no PII) -->
 <script>
 (function() {
   function trackClick(eventType) {
@@ -926,6 +1043,63 @@
     purchaseLink.addEventListener('click', function() { trackClick('buy_click'); });
   }
 
+  // Attribution survey logic
+  function showSurvey() {
+    if (sessionStorage.getItem('pp_attribution_shown')) return;
+    sessionStorage.setItem('pp_attribution_shown', '1');
+
+    var dlArea = document.querySelector('.download-area');
+    if (!dlArea) return;
+
+    var buttons = dlArea.querySelector('.download-area__buttons');
+    var version = dlArea.querySelector('.download-area__version');
+    if (buttons) buttons.style.display = 'none';
+    if (version) version.style.display = 'none';
+
+    var survey = document.getElementById('attribution-survey');
+    if (survey) survey.classList.add('visible');
+  }
+
+  function restoreDownloadArea() {
+    var dlArea = document.querySelector('.download-area');
+    if (!dlArea) return;
+    var buttons = dlArea.querySelector('.download-area__buttons');
+    var version = dlArea.querySelector('.download-area__version');
+    if (buttons) buttons.style.display = '';
+    if (version) version.style.display = '';
+    var survey = document.getElementById('attribution-survey');
+    if (survey) survey.classList.remove('visible');
+  }
+
+  var submitBtn = document.getElementById('attribution-submit');
+  var selectEl = document.getElementById('attribution-select');
+
+  // Disable submit until a value is selected
+  if (submitBtn) submitBtn.disabled = true;
+  if (selectEl && submitBtn) {
+    selectEl.addEventListener('change', function() {
+      submitBtn.disabled = !selectEl.value;
+    });
+  }
+
+  if (submitBtn) {
+    submitBtn.addEventListener('click', function() {
+      if (!selectEl || !selectEl.value) return;
+      submitBtn.disabled = true;
+      trackClick(selectEl.value);
+      var survey = document.getElementById('attribution-survey');
+      if (survey) {
+        survey.innerHTML = '<p class="attribution-survey__thanks">Thanks! Enjoy Penpoint.</p>';
+        setTimeout(restoreDownloadArea, 4000);
+      }
+    });
+  }
+
+  var skipBtn = document.getElementById('attribution-skip');
+  if (skipBtn) {
+    skipBtn.addEventListener('click', restoreDownloadArea);
+  }
+
   // Trial download buttons (dynamic — use event delegation on .download-area)
   var dlArea = document.querySelector('.download-area');
   if (dlArea) {
@@ -933,6 +1107,7 @@
       var link = e.target.closest('a[href]');
       if (link && link.href && /\.(exe|dmg|AppImage|deb)/.test(link.href)) {
         trackClick('trial_download');
+        setTimeout(showSurvey, 300);
       }
     });
   }
