@@ -10,7 +10,7 @@
   'use strict';
 
   // Launch date: March 21, 2026 at midnight, local user time
-  var LAUNCH_DATE = new Date('2026-03-21T00:00:00');
+  var LAUNCH_DATE = new Date('2026-03-20T00:00:00');
   var LS_STORE = 'penpointapp';
   var LS_CHECKOUT_URL = 'https://penpointapp.lemonsqueezy.com/checkout/buy/5576a809-44e7-4179-b5f6-69c145725060?embed=1';
   var SUBSCRIBE_URL = 'https://' + LS_STORE + '.lemonsqueezy.com/email-subscribe/external';
