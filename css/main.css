@@ -624,6 +624,7 @@ button {
   background-color: rgb(var(--card));
   border: 1px solid rgb(var(--border));
   color: rgb(var(--foreground));
+  user-select: none;
 }
 
 .category-card__icon {
@@ -700,6 +701,7 @@ button {
   margin-top: var(--space-2);
   font-size: var(--text-sm);
   color: rgb(var(--muted-foreground));
+  user-select: none;
 }
 
 .feature__shortcut > span {
@@ -863,7 +865,7 @@ button {
 .blurb-grid::before {
   content: '';
   grid-column: 2;
-  grid-row: 1 / 4;
+  grid-row: 1 / 5;
   background-color: rgb(var(--foreground));
 }
 
@@ -874,6 +876,8 @@ button {
 .blurb:nth-child(4) { grid-column: 3; grid-row: 2; }
 .blurb:nth-child(5) { grid-column: 1; grid-row: 3; }
 .blurb:nth-child(6) { grid-column: 3; grid-row: 3; }
+.blurb:nth-child(7) { grid-column: 1; grid-row: 4; }
+.blurb:nth-child(8) { grid-column: 3; grid-row: 4; }
 
 .blurb {
   display: flex;
@@ -893,7 +897,7 @@ button {
 .blurb__quote {
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
-  color: rgb(var(--muted-foreground));
+  color: rgb(var(--foreground));
   font-style: italic;
   margin: 0;
 }
@@ -907,7 +911,7 @@ button {
 .blurb__author {
   font-size: var(--text-sm);
   font-weight: 600;
-  color: rgb(var(--foreground));
+  color: rgb(var(--muted-foreground));
 }
 
 .blurb__credits {
@@ -2104,7 +2108,9 @@ body.lightbox-open {
   .blurb:nth-child(3),
   .blurb:nth-child(4),
   .blurb:nth-child(5),
-  .blurb:nth-child(6) {
+  .blurb:nth-child(6),
+  .blurb:nth-child(7),
+  .blurb:nth-child(8) {
     grid-column: 1;
     grid-row: auto;
   }
