@@ -154,28 +154,31 @@
   <main>
     <div class="container privacy-narrow privacy-content">
       <h1>Privacy Policy</h1>
-      <p class="privacy-updated">Last updated: March 16, 2026</p>
+      <p class="privacy-updated">Last updated: March 25, 2026</p>
 
       <p>Penpoint is built by Tophat Creative, LLC. We believe your writing is yours — and so is your data. This policy explains what we collect, why, and how you stay in control. By using Penpoint, you also agree to our <a href="/terms">Terms of Service</a>.</p>
 
       <h2>Your Writing Data</h2>
       <p>Penpoint is a desktop application. All of your projects, characters, notes, and other content are stored locally on your computer. We do not have access to your writing data — no prose, manuscripts, or project files are ever transmitted to our servers.</p>
-      <p>Diagnostic logs generated on your device may include metadata such as entity names (e.g., a character's name) or navigation paths, but <strong>never</strong> your actual writing content. These logs remain on your computer unless you choose to share them with us for support purposes.</p>
+      <p>Diagnostic logs generated on your device may include metadata such as entity names (e.g., a character's name), navigation paths, and error details. Logs do <strong>not</strong> contain a copy of your book, manuscript, or project database. However, certain user-initiated actions — such as searches, copy/paste operations, entity renames, or content edits — may cause small, incidental fragments of your writing or worldbuilding to appear in log entries as part of the diagnostic context. These fragments are limited in scope and are never a reproduction of your work.</p>
+      <p>Diagnostic logs are stored as plain-text files on your device and can be opened and reviewed in any text editor at any time. Logs remain on your computer unless you choose to share them with us for support purposes.</p>
 
       <h2>Optional Community Analytics</h2>
       <p>Penpoint includes an optional community analytics feature that helps us understand how writers use the app and powers aggregate community statistics (for example, "142 authors writing today"). This feature is <strong>disabled by default</strong> — it only activates if you explicitly opt in.</p>
-      <p>If you choose to enable it, Penpoint periodically sends a small anonymous usage report containing:</p>
+      <p>If you choose to enable it, Penpoint periodically sends a small pseudonymous usage report containing:</p>
       <ul>
-        <li>A randomly generated device identifier (UUID)</li>
+        <li>A pseudonymous device identifier (UUID) derived from your computer's system ID using a one-way cryptographic hash</li>
         <li>Date, platform, and app version</li>
-        <li>Session duration and time spent in each section of the app</li>
+        <li>Session duration, session count, and time spent in each section of the app</li>
         <li>Counts of entities created (characters, chapters, locations, etc.)</li>
         <li>Manuscript and worldbuilding word counts</li>
-        <li>Number of books, sessions started, and total days used</li>
+        <li>Number of books and total days used</li>
+        <li>Writing timer usage (total minutes and number of timer sessions)</li>
         <li>Export counts by format (e.g., "exported 1 DOCX" — no file names or content)</li>
         <li>General time-of-day activity patterns</li>
+        <li>Whether the app is running in trial or licensed mode</li>
       </ul>
-      <p>This data does not include your name, email address, IP address, or any writing content. The device identifier is a randomly generated number with no connection to your identity. Under certain privacy frameworks (such as the GDPR), a persistent pseudonymous identifier may be considered personal data — we treat it accordingly and process it only with your explicit consent.</p>
+      <p>This data does not include your name, email address, IP address, or any writing content. The device identifier is derived from your computer's system ID using a one-way cryptographic hash combined with a Penpoint-specific key. It cannot be reversed to identify your device or linked to other applications. Under certain privacy frameworks (such as the GDPR), a persistent pseudonymous identifier may be considered personal data — we treat it accordingly and process it only with your explicit consent.</p>
       <p>You can view exactly what data is being sent at any time in <strong>Settings &gt; Community &amp; Updates</strong>. You can disable analytics at any time — doing so immediately stops all data collection and <strong>deletes your historical data</strong> from our active systems. Infrastructure-level backups maintained by our hosting provider may retain residual copies for a limited period consistent with their retention policies, after which they are automatically purged.</p>
       <p>Aggregate community statistics derived from this data (such as total active authors or total words written) may appear within the app or on the Penpoint website. These statistics only ever represent broad totals and can never identify an individual user.</p>
 
@@ -218,7 +221,7 @@
       <p>We do not sell your data. We do not share it with third parties except as described below, where services process data on our behalf to operate Penpoint:</p>
       <ul>
         <li><strong>Lemon Squeezy</strong> — acts as Merchant of Record for purchases. When you buy Penpoint, Lemon Squeezy collects your name, email address, billing address, and payment information to process the transaction. Tophat Creative does not have access to your full payment details. <a href="https://www.lemonsqueezy.com/privacy" target="_blank" rel="noopener">Lemon Squeezy privacy policy</a>.</li>
-        <li><strong>Supabase</strong> — hosts anonymous community analytics data (if you opt in). <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase privacy policy</a>.</li>
+        <li><strong>Supabase</strong> — hosts pseudonymous community analytics data (if you opt in). <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase privacy policy</a>.</li>
         <li><strong>Google Analytics</strong> — collects anonymous visitor data on the Penpoint website. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google privacy policy</a>.</li>
         <li><strong>GitHub</strong> — serves app update checks. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub privacy statement</a>.</li>
         <li><strong>Discord</strong> — receives presence status via local IPC when Discord Rich Presence is enabled (opt-in). Communication occurs locally between Penpoint and the Discord desktop app on your device. <a href="https://discord.com/privacy" target="_blank" rel="noopener">Discord privacy policy</a>.</li>
@@ -233,7 +236,7 @@
         <li><strong>Request access to your data.</strong> You can contact us at <a href="mailto:support@penpoint.app">support@penpoint.app</a> to request a copy of any data we hold associated with your device.</li>
         <li><strong>Request deletion.</strong> You can contact us at <a href="mailto:support@penpoint.app">support@penpoint.app</a> to request deletion, or simply toggle off community analytics to delete your data automatically.</li>
       </ul>
-      <p>If you are located in the European Economic Area (EEA) or United Kingdom, you also have rights under the General Data Protection Regulation (GDPR), including the right to lodge a complaint with your local data protection authority. The legal basis for processing community analytics data is your explicit consent (opt-in).</p>
+      <p>If you are located in the European Economic Area (EEA) or United Kingdom, you also have rights under the General Data Protection Regulation (GDPR), including the right to lodge a complaint with your local data protection authority. For the purposes of the GDPR, the data controller is Tophat Creative, LLC, contactable at <a href="mailto:support@penpoint.app">support@penpoint.app</a>. The legal basis for processing community analytics data is your explicit consent (opt-in).</p>
 
       <h2>Children's Privacy</h2>
       <p>Penpoint is a general-purpose writing tool. It is not directed at children under the age of 13 (or 16 in jurisdictions where GDPR applies). We do not knowingly collect personal information from children. If a parent or guardian becomes aware that their child has opted into community analytics, they may contact us at <a href="mailto:support@penpoint.app">support@penpoint.app</a> to have the data deleted, or simply disable the feature in the app.</p>
