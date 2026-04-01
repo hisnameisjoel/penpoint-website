@@ -809,7 +809,7 @@ button {
 .testimonial__body {
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
-  color: rgb(var(--muted-foreground));
+  color: rgb(var(--foreground));
 }
 
 .testimonial__attribution {
