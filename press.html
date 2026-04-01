@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Penpoint — Press & Review Copies</title>
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* Constrain content width */
+    .press-narrow {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .press-hero {
+      text-align: center;
+      padding-top: var(--space-6);
+    }
+
+    .press-hero h1 {
+      margin-bottom: var(--space-5);
+    }
+
+    .press-hero p {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: var(--space-4);
+    }
+
+    /* Download area — reused from download.html */
+    .download-area {
+      text-align: center;
+      padding: var(--space-10) var(--space-8);
+      background: rgb(var(--background-accent));
+      border: 1px solid rgb(var(--border));
+      margin-top: var(--space-8);
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .download-area__version {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-sm);
+      color: rgb(var(--muted-foreground));
+      margin-bottom: var(--space-5);
+    }
+
+    .download-area__buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .download-area__also {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .download-area__also-label {
+      color: rgb(var(--muted-foreground));
+    }
+
+    .download-area__also-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+    }
+
+    /* Mac architecture selection */
+    .mac-arch-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .mac-arch-label {
+      color: rgb(var(--foreground));
+      font-weight: 500;
+    }
+
+    .mac-arch-options {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .mac-arch-options .btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-1);
+      min-width: 180px;
+      padding: var(--space-5) var(--space-6);
+    }
+
+    .mac-arch-hint {
+      font-size: var(--text-xs);
+      font-weight: 400;
+      opacity: 0.8;
+    }
+
+    .mac-arch-help {
+      color: rgb(var(--muted-foreground));
+      margin-top: var(--space-2);
+    }
+
+    /* App overview */
+    .press-overview h2 {
+      margin-bottom: var(--space-4);
+    }
+
+    .press-overview p {
+      margin-bottom: var(--space-3);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* Highlights grid */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+
+    .highlight-card {
+      padding: var(--space-6);
+      background: rgb(var(--background-accent));
+      border: 1px solid rgb(var(--border));
+    }
+
+    .highlight-card__icon {
+      font-size: var(--text-xl);
+      color: rgb(var(--cta));
+      margin-bottom: var(--space-3);
+    }
+
+    .highlight-card h3 {
+      margin-bottom: var(--space-2);
+    }
+
+    .highlight-card p {
+      color: rgb(var(--muted-foreground));
+      line-height: var(--leading-relaxed);
+    }
+
+    /* Quick facts */
+    .quick-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+      text-align: center;
+    }
+
+    .quick-fact {
+      padding: var(--space-3) var(--space-4);
+    }
+
+    .quick-fact__number {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: rgb(var(--cta));
+      margin-bottom: var(--space-2);
+    }
+
+    .quick-fact__label {
+      color: rgb(var(--muted-foreground));
+      line-height: var(--leading-relaxed);
+    }
+
+    /* Comparison snapshot */
+    .comparison-snapshot {
+      margin-top: var(--space-6);
+    }
+
+    .comparison-snapshot ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .comparison-snapshot li {
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid rgb(var(--border));
+      line-height: var(--leading-relaxed);
+    }
+
+    .comparison-snapshot li:last-child {
+      border-bottom: none;
+    }
+
+    /* What writers say */
+    .press-quotes {
+      margin-top: var(--space-6);
+    }
+
+    .press-quote {
+      padding: var(--space-6);
+      background: rgb(var(--background-accent));
+      border: 1px solid rgb(var(--border));
+      margin-bottom: var(--space-4);
+    }
+
+    .press-quote blockquote {
+      margin: 0;
+      font-style: italic;
+      line-height: var(--leading-relaxed);
+    }
+
+    .press-quote cite {
+      display: block;
+      margin-top: var(--space-3);
+      font-style: normal;
+      font-weight: 600;
+      color: rgb(var(--muted-foreground));
+      font-size: var(--text-sm);
+    }
+
+    /* Contact */
+    .contact-links {
+      display: flex;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+      margin-top: var(--space-5);
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-weight: 600;
+      color: rgb(var(--cta));
+      text-decoration: none;
+      font-size: var(--text-lg);
+    }
+
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile fallback */
+    .mobile-fallback {
+      text-align: center;
+      padding: var(--space-16) var(--space-6);
+    }
+
+    .mobile-fallback__icon {
+      font-size: 3rem;
+      color: rgb(var(--cta));
+      margin-bottom: var(--space-6);
+    }
+
+    .mobile-fallback h1 {
+      margin-bottom: var(--space-5);
+    }
+
+    .mobile-fallback p {
+      max-width: 480px;
+      margin: 0 auto var(--space-4);
+      color: rgb(var(--muted-foreground));
+      line-height: var(--leading-relaxed);
+    }
+
+    @media (max-width: 640px) {
+      .highlights-grid { grid-template-columns: 1fr; }
+      .quick-facts { grid-template-columns: 1fr; }
+      .contact-links { flex-direction: column; gap: var(--space-4); }
+      .download-area__also-buttons { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header (minimal — no nav links) -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+        </svg>
+        <span class="header__logo-text">Penpoint</span>
+        <span class="header__tagline">Where Your Story Comes Together</span>
+      </a>
+    </div>
+  </header>
+
+  <main style="padding-top: var(--header-height);">
+
+  <!-- =============================================
+       MOBILE FALLBACK
+       ============================================= -->
+  <div id="mobile-view" style="display: none;">
+    <section class="section">
+      <div class="container">
+        <div class="press-narrow mobile-fallback">
+          <div class="mobile-fallback__icon">
+            <i class="fa-solid fa-laptop"></i>
+          </div>
+          <h1 class="font-heading-lg">Penpoint is a desktop app.</h1>
+          <p class="font-body-lg">
+            To download Penpoint, open this page on a Windows, macOS, or Linux computer.
+          </p>
+          <p class="font-body">
+            You can still browse the app info below, but you'll need a desktop or laptop to install.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- =============================================
+       DESKTOP VIEW
+       ============================================= -->
+  <div id="desktop-view" style="display: none;">
+
+    <!-- Hero + Download -->
+    <section class="section">
+      <div class="container">
+        <div class="press-narrow press-hero">
+          <h1 class="font-heading-lg">Press & Review Copies</h1>
+          <div class="section-divider" aria-hidden="true" style="margin-bottom: var(--space-6);">
+            <span class="section-divider__line"></span>
+            <svg class="section-divider__quill" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+            </svg>
+            <span class="section-divider__line"></span>
+          </div>
+          <p class="font-body-lg">
+            Thanks for your interest in Penpoint. Below you'll find a complimentary full copy of the app, a quick overview, and how to reach me.
+          </p>
+          <p class="font-body" style="color: rgb(var(--muted-foreground));">
+            This is the full version, not a trial. No strings attached.
+          </p>
+        </div>
+        <div class="press-narrow">
+          <div class="download-area">
+            <div class="download-area__version" id="dl-version">Loading version...</div>
+            <div class="download-area__buttons">
+              <a id="dl-primary" class="btn btn-primary btn-xl btn-shadow" href="#">
+                Loading...
+              </a>
+              <div id="dl-also" class="download-area__also" style="display: none;">
+                <span class="download-area__also-label font-body-sm">Also available for</span>
+                <div class="download-area__also-buttons"></div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- What Is Penpoint -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="press-narrow press-overview">
+          <h2 class="font-heading-lg">What Is Penpoint?</h2>
+          <p class="font-body-lg">
+            Penpoint is a desktop app where fiction writers write their manuscript and organize their entire fictional world in one place.
+          </p>
+          <p class="font-body" style="color: rgb(var(--muted-foreground));">
+            Writers juggle Word for drafting, spreadsheets for characters, Notion for worldbuilding, and a whiteboard for timelines. Every time they need to check a detail, they leave their writing and lose their train of thought. Penpoint puts the manuscript editor, character profiles, relationship maps, arcs, locations, and search all in one place.
+          </p>
+
+          <!-- Quick facts -->
+          <div class="quick-facts">
+            <div class="quick-fact">
+              <div class="quick-fact__number">$40</div>
+              <div class="quick-fact__label font-body-sm">One-time purchase. No subscription.</div>
+            </div>
+            <div class="quick-fact">
+              <div class="quick-fact__number">100%</div>
+              <div class="quick-fact__label font-body-sm">Offline & local. No cloud, no AI.</div>
+            </div>
+            <div class="quick-fact">
+              <div class="quick-fact__number">3</div>
+              <div class="quick-fact__label font-body-sm">Platforms. Windows, macOS, Linux.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="section">
+      <div class="container">
+        <div class="press-narrow">
+          <h2 class="font-heading-lg text-center">Standout Features</h2>
+
+          <div class="highlights-grid">
+            <div class="highlight-card">
+              <div class="highlight-card__icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+              <h3 class="font-heading-sm">Chapter Scanner</h3>
+              <p class="font-body-sm">Import a manuscript from Word, EPUB, or plain text. Right-click a chapter and scan it. Penpoint reads the prose and finds every character, location, and item mentioned. Review the matches, click Apply, and the worldbuilding side populates in seconds. This is usually the "oh wow" moment.</p>
+            </div>
+
+            <div class="highlight-card">
+              <div class="highlight-card__icon">
+                <i class="fa-solid fa-search"></i>
+              </div>
+              <h3 class="font-heading-sm">Glorious Searchbar</h3>
+              <p class="font-body-sm">Hit Ctrl+K (or Cmd+K) and search across your manuscript, characters, locations, and notes at once. Find any detail in your entire book instantly without leaving what you're working on.</p>
+            </div>
+
+            <div class="highlight-card">
+              <div class="highlight-card__icon">
+                <i class="fa-solid fa-pen-nib"></i>
+              </div>
+              <h3 class="font-heading-sm">Manuscript Editor</h3>
+              <p class="font-body-sm">Clean editor with scene management, chapter groups, drafts and versions, and a 60-language offline spellchecker. Import from Word, EPUB, Markdown, or plain text. Export to any of those plus PDF and RTF.</p>
+            </div>
+
+            <div class="highlight-card">
+              <div class="highlight-card__icon">
+                <i class="fa-solid fa-diagram-project"></i>
+              </div>
+              <h3 class="font-heading-sm">Visual Worldbuilding</h3>
+              <p class="font-body-sm">Relationship maps, story arc visualizers, character fortune curves, nested locations, timelines, and tags. Customizable character profiles with blocks you add or remove. Everything is cross-referenced and searchable.</p>
+            </div>
+
+            <div class="highlight-card">
+              <div class="highlight-card__icon">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <h3 class="font-heading-sm">Flowstate</h3>
+              <p class="font-body-sm">A forward-only writing mode where sentences lock behind you as you write. Timed sprints with alternating writing and editing windows. Designed for writers who keep rewriting instead of moving forward.</p>
+            </div>
+
+            <div class="highlight-card">
+              <div class="highlight-card__icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3 class="font-heading-sm">Privacy-First</h3>
+              <p class="font-body-sm">All data stored locally on the writer's computer. No account, no cloud, no AI. Works completely offline. Auto-backup writes to the user's own cloud storage folder for safety.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Compares -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="press-narrow">
+          <h2 class="font-heading-lg text-center">How It Compares</h2>
+          <div class="comparison-snapshot">
+            <ul class="font-body">
+              <li><strong>vs. Scrivener</strong> ($59.99): Organizes manuscripts but has no worldbuilding tools. Penpoint does both, costs less, and one license covers all platforms.</li>
+              <li><strong>vs. Campfire</strong> (subscription / bundles): Has worldbuilding but no manuscript editor. Penpoint combines writing and worldbuilding in one app.</li>
+              <li><strong>vs. Dabble</strong> (up to $30/month): One beta tester switching from Dabble said Penpoint "out-featured it." Penpoint is a one-time $40 purchase.</li>
+              <li><strong>vs. Plottr</strong> ($14.99/month or $419 lifetime): Penpoint includes visual plotting, a full manuscript editor, and worldbuilding.</li>
+              <li><strong>vs. World Anvil</strong> (subscription): Data stays private and offline. No subscription tiers. Plus you can write your manuscript in Penpoint too.</li>
+            </ul>
+            <p class="font-body" style="margin-top: var(--space-5); text-align: center;">
+              <a href="/compare" style="color: rgb(var(--cta)); font-weight: 600;">Full feature-by-feature comparison &rarr;</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Writers Say -->
+    <section class="section">
+      <div class="container">
+        <div class="press-narrow">
+          <h2 class="font-heading-lg text-center">What Writers Say</h2>
+          <p class="font-body text-center" style="color: rgb(var(--muted-foreground)); margin-bottom: var(--space-6);">
+            Penpoint was beta tested by 100+ writers across multiple genres. These are direct quotes.
+          </p>
+
+          <div class="press-quotes">
+            <div class="press-quote">
+              <blockquote class="font-body">"Penpoint is THE writing app. If you want something that provides some structure for your planning, then acts as a quiet companion for the writing, this is it. From world building, to character creation, to helping you easily find things within your manuscript, to just sitting down and writing the damn thing... this is a writer's best friend."</blockquote>
+              <cite>L.M. Whiteley, author of the Hitmen of Ulysses series</cite>
+            </div>
+
+            <div class="press-quote">
+              <blockquote class="font-body">"It's everything you need, with a UI that doesn't distract from actually writing. It's better than everyone else because it's cleaner, easier, stronger, and actually written for authors, by authors."</blockquote>
+              <cite>Jesse Gerlach, author of Sound Shaper Series</cite>
+            </div>
+
+            <div class="press-quote">
+              <blockquote class="font-body">"The plan I'm on is $30 a month for Dabble and Penpoint has out-featured it."</blockquote>
+              <cite>WarMaiden, beta tester switching from Dabble</cite>
+            </div>
+
+            <div class="press-quote">
+              <blockquote class="font-body">"I've been looking for years for a story bible software that fit the way my brain works, one that I can write in and link back to the pages of information for the things I'm writing. And it's finally here!"</blockquote>
+              <cite>Beta tester</cite>
+            </div>
+
+            <div class="press-quote">
+              <blockquote class="font-body">"I didn't realize how much I needed Penpoint until I finally tried it. It has everything I need to keep my chaotic ideas organized in one place, and it's actually helping me improve my writing along the way. It's so easy to use and everything is so well structured that now I can spend my limited time doing <strong>what really matters: writing</strong>."</blockquote>
+              <cite>"Chaotic Writer"</cite>
+            </div>
+
+            <div class="press-quote">
+              <blockquote class="font-body">"I always had a difficult time managing all of the thoughts, ideas, and characters that were in my head. Using Penpoint made it so much easier to stay organized and make sure the story flows well and is cohesive. Even just a line or a character name I thought of can be saved and used when the time is right. Even for a novice writer such as myself, Penpoint <strong>makes you feel less like a noob, and more like a pro</strong>."</blockquote>
+              <cite>Tara Briana Barber</cite>
+            </div>
+
+            <div class="press-quote">
+              <blockquote class="font-body">"Penpoint lets me work the way I like and the tools are there waiting for me when I need them. The Flowstate aspect of Manuscript mode is a <strong>game changer</strong>!"</blockquote>
+              <cite>Jen Yocom</cite>
+            </div>
+
+            <div class="press-quote">
+              <blockquote class="font-body">"The most approachable writing tool, that <strong>cuts no corners</strong>!"</blockquote>
+              <cite>Alagar</cite>
+            </div>
+
+            <div class="press-quote">
+              <blockquote class="font-body">"It combines all the best features available elsewhere with interesting and new ideas. <strong>It's the perfect writer's companion</strong>."</blockquote>
+              <cite>Patrick O'Dell</cite>
+            </div>
+
+            <div class="press-quote">
+              <blockquote class="font-body">"Having a program that functions as an organization tool and a writing tool helps keep my writing on track. Being able to link significant places, relationships, character arcs and tie them in with the chapters I write is a <strong>huge time saver</strong>. I highly recommend."</blockquote>
+              <cite>Megan</cite>
+            </div>
+
+            <div class="press-quote">
+              <blockquote class="font-body">"Instead of ideas being scattered across Google Docs, notes on an iPad, and sticky notes, everything stays <strong>organized and centralized</strong>. The interface is clean, simple, and very easy to use, making it quick to focus on writing rather than figuring out complicated features."</blockquote>
+              <cite>Robert</cite>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <div style="text-align: center; margin-top: var(--space-10);">
+            <h2 class="font-heading-lg">Get In Touch</h2>
+            <p class="font-body" style="color: rgb(var(--muted-foreground));">
+              Questions, feedback, or just want to chat about the app? I read and respond to every message.
+            </p>
+            <div class="contact-links" style="justify-content: center;">
+              <a href="mailto:support@penpoint.app" class="contact-link">
+                <i class="fa-solid fa-envelope"></i> support@penpoint.app
+              </a>
+              <a href="https://discord.gg/q7yV3PXrGB" class="contact-link" target="_blank" rel="noopener">
+                <i class="fa-brands fa-discord"></i> Join the Discord
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /desktop-view -->
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <svg class="footer__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+            </svg>
+            <span class="footer__logo-text">Penpoint</span>
+          </div>
+          <p class="footer__tagline">Where Your Story Comes Together</p>
+        </div>
+
+        <nav class="footer__columns">
+          <div class="footer__column">
+            <h4 class="footer__column-title">Product</h4>
+            <a href="/#more-features" class="footer__link">Features</a>
+            <a href="/compare" class="footer__link">Compare</a>
+            <a href="/#faq" class="footer__link">FAQ</a>
+            <a href="/trial" class="footer__link">Free Trial</a>
+          </div>
+          <div class="footer__column">
+            <h4 class="footer__column-title">Community</h4>
+            <a href="https://discord.gg/q7yV3PXrGB" class="footer__link" target="_blank" rel="noopener">Discord</a>
+            <a href="mailto:support@penpoint.app" class="footer__link">Contact Support</a>
+          </div>
+          <div class="footer__column">
+            <h4 class="footer__column-title">Legal</h4>
+            <a href="/terms" class="footer__link">Terms of Service</a>
+            <a href="/privacy" class="footer__link">Privacy Policy</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span class="footer__copyright">&copy; 2026 Tophat Creative, LLC. All Rights Reserved.</span>
+        <div class="footer__platforms">
+          <i class="fa-brands fa-windows"></i>
+          <i class="fa-brands fa-apple"></i>
+          <i class="fa-brands fa-linux"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+(function () {
+  var LATEST_JSON_URL = 'https://updates.penpoint.app/latest.json';
+  var RELEASE_BASE = 'https://github.com/hisnameisjoel/penpoint-updates/releases/download';
+  var RELEASES_PAGE = 'https://github.com/hisnameisjoel/penpoint-updates/releases';
+
+  function isMobile() {
+    return /Android|iPhone|iPad|iPod|webOS|BlackBerry|Opera Mini|IEMobile/i.test(navigator.userAgent)
+      || (navigator.maxTouchPoints > 1 && window.innerWidth < 820);
+  }
+
+  if (isMobile()) {
+    document.getElementById('mobile-view').style.display = '';
+  } else {
+    document.getElementById('desktop-view').style.display = '';
+    initDownloads();
+  }
+
+  function detectOS() {
+    var ua = navigator.userAgent;
+    if (/Windows/.test(ua)) return 'windows';
+    if (/Mac/.test(ua)) return 'mac';
+    if (/Linux/.test(ua)) return 'linux';
+    return 'unknown';
+  }
+
+  function detectMacArch() {
+    try {
+      var canvas = document.createElement('canvas');
+      var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) return null;
+      var debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+      if (!debugInfo) return null;
+      var renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+      if (/Apple M\d|Apple GPU/i.test(renderer)) return 'mac-arm';
+      if (/Intel/i.test(renderer)) return 'mac-intel';
+      return null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function detectWindowsArm() {
+    if (!navigator.userAgentData || typeof navigator.userAgentData.getHighEntropyValues !== 'function') {
+      return Promise.resolve(false);
+    }
+    return navigator.userAgentData.getHighEntropyValues(['architecture', 'bitness'])
+      .then(function (ua) { return ua.architecture === 'arm' && ua.bitness === '64'; })
+      .catch(function () { return false; });
+  }
+
+  function buildInstallerUrl(version, platform) {
+    var tag = 'v' + version;
+    if (platform === 'windows') return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_x64-setup.exe';
+    if (platform === 'windows-arm') return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_arm64-setup.exe';
+    if (platform === 'mac-arm') return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_aarch64.dmg';
+    if (platform === 'mac-intel') return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_x64.dmg';
+    if (platform === 'linux') return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_amd64.AppImage';
+    return null;
+  }
+
+  function platformAvailable(data, platform) {
+    if (!data.platforms) return false;
+    if (platform === 'windows') return !!data.platforms['windows-x86_64'];
+    if (platform === 'windows-arm') return !!data.platforms['windows-aarch64'];
+    if (platform === 'mac-arm') return !!data.platforms['darwin-aarch64'];
+    if (platform === 'mac-intel') return !!data.platforms['darwin-x86_64'];
+    if (platform === 'linux') return !!data.platforms['linux-x86_64'];
+    return false;
+  }
+
+  function platformLabel(platform) {
+    if (platform === 'windows') return 'Windows';
+    if (platform === 'windows-arm') return 'Windows (ARM)';
+    if (platform === 'mac-arm') return 'macOS (Apple Silicon)';
+    if (platform === 'mac-intel') return 'macOS (Intel)';
+    if (platform === 'linux') return 'Linux';
+    return platform;
+  }
+
+  function platformIcon(platform) {
+    if (platform === 'windows' || platform === 'windows-arm') return 'fa-brands fa-windows';
+    if (platform === 'mac-arm' || platform === 'mac-intel') return 'fa-brands fa-apple';
+    if (platform === 'linux') return 'fa-brands fa-linux';
+    return '';
+  }
+
+  function initDownloads() {
+    var os = detectOS();
+    var primaryBtn = document.getElementById('dl-primary');
+    var alsoContainer = document.getElementById('dl-also');
+    var versionEl = document.getElementById('dl-version');
+
+    var isMac = os === 'mac';
+    var macArch = isMac ? detectMacArch() : null;
+    var isWindows = os === 'windows';
+
+    var armDetection = isWindows ? detectWindowsArm() : Promise.resolve(false);
+    armDetection.then(function (isWindowsArm) {
+      var primaryPlatform = isMac
+        ? (macArch || 'mac')
+        : isWindows
+          ? (isWindowsArm ? 'windows-arm' : 'windows')
+          : (os === 'linux' ? 'linux' : 'windows');
+
+      var otherPlatforms;
+      if (isMac && macArch) {
+        var otherMac = macArch === 'mac-arm' ? 'mac-intel' : 'mac-arm';
+        otherPlatforms = [otherMac, 'windows', 'windows-arm', 'linux'];
+      } else if (isMac) {
+        otherPlatforms = ['windows', 'linux'];
+      } else if (isWindows) {
+        var otherWin = isWindowsArm ? 'windows' : 'windows-arm';
+        otherPlatforms = [otherWin, 'mac-arm', 'mac-intel', 'linux'];
+      } else {
+        otherPlatforms = ['windows', 'windows-arm', 'mac-arm', 'mac-intel'];
+      }
+
+      fetch(LATEST_JSON_URL)
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          var version = data.version;
+          if (versionEl) versionEl.textContent = 'Penpoint v' + version;
+
+          if (primaryBtn) {
+            if (isMac && macArch) {
+              var detectedAvail = platformAvailable(data, macArch);
+              if (detectedAvail) {
+                primaryBtn.href = buildInstallerUrl(version, macArch);
+                primaryBtn.innerHTML = '<i class="fa-brands fa-apple"></i>&ensp;Download for ' + platformLabel(macArch);
+              } else {
+                primaryBtn.href = RELEASES_PAGE;
+                primaryBtn.textContent = 'View Downloads';
+              }
+            } else if (isMac) {
+              var macArmAvail = platformAvailable(data, 'mac-arm');
+              var macIntelAvail = platformAvailable(data, 'mac-intel');
+
+              if (macArmAvail || macIntelAvail) {
+                var buttonsHTML = '<div class="mac-arch-buttons">';
+                buttonsHTML += '<span class="mac-arch-label font-body">Choose your Mac type:</span>';
+                buttonsHTML += '<div class="mac-arch-options">';
+                if (macArmAvail) {
+                  buttonsHTML += '<a class="btn btn-primary btn-xl btn-shadow" href="' + buildInstallerUrl(version, 'mac-arm') + '">';
+                  buttonsHTML += '<i class="fa-brands fa-apple"></i>&ensp;Apple Silicon';
+                  buttonsHTML += '<span class="mac-arch-hint">M1, M2, M3, M4</span></a>';
+                }
+                if (macIntelAvail) {
+                  buttonsHTML += '<a class="btn btn-primary btn-xl btn-shadow" href="' + buildInstallerUrl(version, 'mac-intel') + '">';
+                  buttonsHTML += '<i class="fa-brands fa-apple"></i>&ensp;Intel';
+                  buttonsHTML += '<span class="mac-arch-hint">2019 and earlier</span></a>';
+                }
+                buttonsHTML += '</div>';
+                buttonsHTML += '<span class="mac-arch-help font-body-sm">Not sure? Click \uF8FF \u2192 About This Mac</span>';
+                buttonsHTML += '</div>';
+                primaryBtn.outerHTML = buttonsHTML;
+              }
+            } else {
+              var avail = platformAvailable(data, primaryPlatform);
+              if (avail) {
+                primaryBtn.href = buildInstallerUrl(version, primaryPlatform);
+                primaryBtn.innerHTML = '<i class="' + platformIcon(primaryPlatform) + '"></i>&ensp;Download for ' + platformLabel(primaryPlatform);
+              } else {
+                primaryBtn.href = RELEASES_PAGE;
+                primaryBtn.textContent = 'View Downloads';
+              }
+            }
+          }
+
+          // "Also available for" links
+          if (alsoContainer) {
+            var buttonsContainer = alsoContainer.querySelector('.download-area__also-buttons');
+            var available = otherPlatforms.filter(function (p) { return platformAvailable(data, p); });
+            if (available.length > 0) {
+              available.forEach(function (p) {
+                var btn = document.createElement('a');
+                btn.href = buildInstallerUrl(version, p);
+                btn.className = 'btn btn-outline';
+                btn.innerHTML = '<i class="' + platformIcon(p) + '"></i>&ensp;' + platformLabel(p);
+                buttonsContainer.appendChild(btn);
+              });
+              alsoContainer.style.display = '';
+            }
+          }
+        })
+        .catch(function () {
+          if (primaryBtn) {
+            primaryBtn.textContent = 'Download temporarily unavailable';
+            primaryBtn.removeAttribute('href');
+          }
+          if (versionEl) versionEl.textContent = '';
+        });
+    });
+  }
+})();
+</script>
+
+<!-- Click Tracking (anonymous aggregate counters, no PII) -->
+<script>
+(function() {
+  function trackClick(eventType) {
+    var key = 'pp_tracked_' + eventType;
+    if (sessionStorage.getItem(key)) return;
+    sessionStorage.setItem(key, '1');
+    fetch('https://lpgprxbwrkzxmbwzkisz.supabase.co/functions/v1/track-click', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ eventType: eventType }),
+      keepalive: true
+    }).catch(function() {});
+  }
+
+  // Press download buttons (dynamic — use event delegation on .download-area)
+  var dlArea = document.querySelector('.download-area');
+  if (dlArea) {
+    dlArea.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href]');
+      if (link && link.href && /\.(exe|dmg|AppImage|deb)/.test(link.href)) {
+        trackClick('press_download');
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
