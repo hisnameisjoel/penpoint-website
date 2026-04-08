@@ -180,6 +180,9 @@ A forward-only writing mode. Sentences lock behind you as you write, with timed 
 ### How much does Penpoint cost?
 $40, once. No subscription. Buy it, download it, and start writing.
 
+### Does Penpoint work with ProWritingAid or Grammarly?
+On Windows, yes. ProWritingAid Desktop Everywhere and Grammarly for Desktop can detect Penpoint's editor and provide grammar and style suggestions alongside your writing. On macOS, these tools currently have limited support for the type of editor Penpoint uses — this is a platform limitation on Apple's side, not something Penpoint can fix.
+
 ### What languages does Penpoint support?
 Penpoint's interface is English only. You can write your manuscript in any language — the text editor is fully Unicode-aware — and the spellchecker supports 60+ languages downloadable on demand. However, the Chapter Scanner (which auto-detects characters and locations in your prose) currently only works with English text. Multi-language interface support is planned for the future.
 
