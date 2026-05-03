@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    document.documentElement.classList.add('js-ready');
+  </script>
+  <title>Penpoint Changelog — Every Release, Every Fix</title>
+  <meta name="description" content="The complete release history of Penpoint. Every feature, improvement, and fix shipped since launch, organized by version.">
+  <meta name="keywords" content="penpoint changelog, penpoint release notes, penpoint updates, penpoint version history">
+  <link rel="canonical" href="https://penpoint.app/changelog">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://penpoint.app/changelog">
+  <meta property="og:title" content="Penpoint Changelog — Every Release, Every Fix">
+  <meta property="og:description" content="The complete release history of Penpoint. Every feature, improvement, and fix shipped since launch.">
+  <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Penpoint — Where Your Story Comes Together">
+  <meta property="og:site_name" content="Penpoint">
+  <meta property="og:locale" content="en_US">
+  <meta name="theme-color" content="#FFF7E6">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://penpoint.app/changelog">
+  <meta name="twitter:title" content="Penpoint Changelog — Every Release, Every Fix">
+  <meta name="twitter:description" content="The complete release history of Penpoint.">
+  <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
+
+  <!-- AI / LLM -->
+  <link rel="help" type="text/plain" href="/llms.txt" title="LLM information about Penpoint">
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Lemon Squeezy -->
+  <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-79JVXYBCTN');
+  </script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Penpoint Changelog",
+    "description": "The complete release history of Penpoint, organized by version.",
+    "url": "https://penpoint.app/changelog",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Penpoint",
+      "url": "https://penpoint.app/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Tophat Creative, LLC"
+    }
+  }
+  </script>
+
+  <style>
+    /* ===========================================
+       CHANGELOG PAGE STYLES
+       =========================================== */
+
+    /* Override the global smooth scroll on html — anchor jumps should be instant */
+    html {
+      scroll-behavior: auto;
+    }
+
+    .changelog-hero {
+      padding-top: calc(var(--header-height) + var(--space-16));
+      padding-bottom: var(--space-10);
+      text-align: center;
+    }
+
+    .changelog-hero__headline {
+      margin-bottom: var(--space-4);
+    }
+
+    .changelog-hero__sub {
+      max-width: 680px;
+      margin: 0 auto;
+      color: rgb(var(--muted-foreground));
+    }
+
+    /* ----- Two-column layout ----- */
+
+    .changelog-section {
+      padding: var(--space-8) 0 var(--space-16);
+    }
+
+    .changelog-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+
+    /* ----- Sidebar ----- */
+
+    .changelog-sidebar {
+      border-right: 1px solid rgb(var(--border));
+      padding-right: var(--space-6);
+    }
+
+    .changelog-sidebar__group {
+      margin-bottom: var(--space-6);
+    }
+
+    .changelog-sidebar__group-title {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgb(var(--muted-foreground));
+      margin: 0 0 var(--space-2) 0;
+      padding: 0 var(--space-3) var(--space-2);
+      border-bottom: 1px solid rgb(var(--border));
+    }
+
+    .changelog-sidebar__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .changelog-sidebar__link {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: var(--space-2) var(--space-3);
+      font-size: var(--text-sm);
+      color: rgb(var(--foreground));
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: background var(--duration-fast) var(--ease-out),
+                  border-color var(--duration-fast) var(--ease-out),
+                  color var(--duration-fast) var(--ease-out);
+    }
+
+    .changelog-sidebar__link:hover {
+      background: rgb(var(--muted));
+    }
+
+    .changelog-sidebar__link--active {
+      border-left-color: rgb(var(--cta));
+      color: rgb(var(--cta));
+      font-weight: 600;
+      background: rgba(205, 110, 44, 0.05);
+    }
+
+    .changelog-sidebar__date {
+      font-size: var(--text-xs);
+      color: rgb(var(--muted-foreground));
+    }
+
+    .changelog-sidebar__link--active .changelog-sidebar__date {
+      color: rgb(var(--cta));
+    }
+
+    /* ----- Mobile dropdown nav (hidden on desktop) ----- */
+
+    .changelog-mobile-nav {
+      display: none;
+    }
+
+    /* ----- Main content ----- */
+
+    .changelog-content {
+      min-width: 0;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .changelog-version {
+      margin-bottom: var(--space-16);
+      scroll-margin-top: calc(var(--header-height) + var(--space-4));
+    }
+
+    .changelog-version__header {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-2);
+    }
+
+    .changelog-version__number {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      color: rgb(var(--foreground));
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .changelog-version__date {
+      font-size: var(--text-base);
+      color: rgb(var(--muted-foreground));
+      font-weight: 400;
+    }
+
+    .changelog-version__divider {
+      border: none;
+      border-top: 2px solid rgb(var(--border));
+      margin: 0 0 var(--space-6) 0;
+    }
+
+    .changelog-version__intro {
+      font-size: var(--text-base);
+      color: rgb(var(--muted-foreground));
+      font-style: italic;
+      margin-bottom: var(--space-5);
+    }
+
+    .changelog-version h3 {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-xl);
+      font-weight: 600;
+      color: rgb(var(--foreground));
+      margin: var(--space-6) 0 var(--space-3) 0;
+      padding-bottom: var(--space-1);
+      border-bottom: 1px solid rgb(var(--border));
+    }
+
+    .changelog-version h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .changelog-version ul.changelog-entries {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    .changelog-version ul.changelog-entries > li {
+      position: relative;
+      padding-left: var(--space-5);
+      margin-bottom: var(--space-3);
+      line-height: var(--leading-relaxed);
+      font-size: var(--text-base);
+      color: rgb(var(--foreground));
+    }
+
+    .changelog-version ul.changelog-entries > li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 6px;
+      height: 6px;
+      background: rgb(var(--cta));
+      opacity: 0.65;
+    }
+
+    .changelog-version ul.changelog-entries strong {
+      font-weight: 600;
+      color: rgb(var(--foreground));
+    }
+
+    .changelog-version ul.changelog-entries em {
+      font-style: italic;
+    }
+
+    .changelog-version ul.changelog-entries code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.9em;
+      background: rgb(var(--muted));
+      padding: 0.1em 0.35em;
+    }
+
+    .changelog-version ul.changelog-entries a {
+      color: rgb(var(--cta));
+      text-decoration: underline;
+    }
+
+    /* Nested sub-bullets within entries */
+    .changelog-version ul.changelog-entries ul {
+      list-style: disc;
+      padding-left: var(--space-5);
+      margin: var(--space-2) 0 0 0;
+    }
+
+    .changelog-version ul.changelog-entries ul li {
+      margin-bottom: var(--space-1);
+      font-size: var(--text-sm);
+      color: rgb(var(--muted-foreground));
+      line-height: var(--leading-normal);
+    }
+
+    .changelog-version ul.changelog-entries ul li::before {
+      content: none;
+    }
+
+    /* ----- Footer note ----- */
+
+    .changelog-end-note {
+      margin-top: var(--space-12);
+      padding: var(--space-6);
+      background: rgb(var(--background-accent));
+      border: 1px solid rgb(var(--border));
+      font-size: var(--text-sm);
+      color: rgb(var(--muted-foreground));
+      line-height: var(--leading-relaxed);
+      text-align: center;
+    }
+
+    .changelog-end-note a {
+      color: rgb(var(--cta));
+      text-decoration: underline;
+    }
+
+    /* ----- Responsive ----- */
+
+    @media (max-width: 900px) {
+      .changelog-layout {
+        grid-template-columns: 180px 1fr;
+        gap: var(--space-8);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .changelog-hero {
+        padding-top: calc(var(--header-height) + var(--space-10));
+        padding-bottom: var(--space-6);
+      }
+
+      .changelog-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .changelog-sidebar {
+        display: none;
+      }
+
+      .changelog-mobile-nav {
+        display: block;
+        margin-bottom: var(--space-8);
+        padding: var(--space-4);
+        background: rgb(var(--paper));
+        border: 1px solid rgb(var(--border));
+      }
+
+      .changelog-mobile-nav__label {
+        display: block;
+        font-size: var(--text-xs);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgb(var(--muted-foreground));
+        margin-bottom: var(--space-2);
+      }
+
+      .changelog-mobile-nav__select {
+        width: 100%;
+        padding: var(--space-3);
+        font-size: var(--text-base);
+        font-family: inherit;
+        color: rgb(var(--foreground));
+        background: rgb(var(--background));
+        border: 1px solid rgb(var(--border));
+      }
+
+      .changelog-version {
+        margin-bottom: var(--space-12);
+      }
+
+      .changelog-version__number {
+        font-size: var(--text-2xl);
+      }
+
+      .changelog-version h3 {
+        font-size: var(--text-lg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only">Skip to main content</a>
+
+  <!-- SVG Sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite">
+    <symbol id="icon-quill" viewBox="0 0 24 24">
+      <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+    </symbol>
+  </svg>
+
+  <!-- ===========================================
+       HEADER
+       =========================================== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+        </svg>
+        <span class="header__logo-text">Penpoint</span>
+        <span class="header__tagline">Where Your Story Comes Together</span>
+      </a>
+
+      <nav class="header__nav" id="main-nav">
+        <a href="/#problem" class="header__nav-link">Overview</a>
+        <a href="/#more-features" class="header__nav-link header__nav-link--mobile-only">Features</a>
+        <a href="/compare" class="header__nav-link">Compare</a>
+        <a href="/changelog" class="header__nav-link" style="color: rgb(var(--cta));">Updates</a>
+        <a href="/#faq" class="header__nav-link">FAQ</a>
+        <a href="/#download" class="header__nav-link header__nav-link--mobile-only">Download</a>
+        <a href="/buy" class="header__nav-link" style="font-weight: 700;">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" class="header__discord" target="_blank" rel="noopener" aria-label="Join our Discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="/trial" class="btn btn-primary">Try Penpoint</a>
+      </nav>
+
+      <button type="button" class="header__menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="hamburger">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+  <!-- ===========================================
+       HERO
+       =========================================== -->
+  <section class="changelog-hero">
+    <div class="container">
+      <h1 class="changelog-hero__headline font-heading-lg" data-animate="fade-up">
+        Penpoint Changelog
+      </h1>
+      <p class="changelog-hero__sub font-body-lg" data-animate="fade-up" data-stagger="1">
+        Penpoint is being actively developed based on community feedback and an ever-growing list of features. Here's our changelog since launch!
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ===========================================
+       CHANGELOG BODY
+       =========================================== -->
+  <section class="changelog-section">
+    <div class="container">
+      <div class="changelog-layout">
+
+        <!-- Sidebar (desktop) -->
+        <aside class="changelog-sidebar" aria-label="Version navigation">
+          <div class="changelog-sidebar__group">
+  <h3 class="changelog-sidebar__group-title">1.2.x</h3>
+  <ul class="changelog-sidebar__list">
+    <li><a class="changelog-sidebar__link" href="#v1-2-0"><span>1.2.0</span><span class="changelog-sidebar__date">May 2, 2026</span></a></li>
+  </ul>
+</div>
+<div class="changelog-sidebar__group">
+  <h3 class="changelog-sidebar__group-title">1.1.x</h3>
+  <ul class="changelog-sidebar__list">
+    <li><a class="changelog-sidebar__link" href="#v1-1-2"><span>1.1.2</span><span class="changelog-sidebar__date">Mar 30, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-1-1"><span>1.1.1</span><span class="changelog-sidebar__date">Mar 27, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-1-0"><span>1.1.0</span><span class="changelog-sidebar__date">Mar 20, 2026</span></a></li>
+  </ul>
+</div>
+<div class="changelog-sidebar__group">
+  <h3 class="changelog-sidebar__group-title">1.0.x</h3>
+  <ul class="changelog-sidebar__list">
+    <li><a class="changelog-sidebar__link" href="#v1-0-26"><span>1.0.26</span><span class="changelog-sidebar__date">Mar 18, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-25"><span>1.0.25</span><span class="changelog-sidebar__date">Mar 16, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-24"><span>1.0.24</span><span class="changelog-sidebar__date">Mar 16, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-23"><span>1.0.23</span><span class="changelog-sidebar__date">Mar 15, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-22"><span>1.0.22</span><span class="changelog-sidebar__date">Mar 11, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-21"><span>1.0.21</span><span class="changelog-sidebar__date">Mar 6, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-20"><span>1.0.20</span><span class="changelog-sidebar__date">Mar 2, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-19"><span>1.0.19</span><span class="changelog-sidebar__date">Feb 22, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-18"><span>1.0.18</span><span class="changelog-sidebar__date">Feb 20, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-16"><span>1.0.16</span><span class="changelog-sidebar__date">Feb 14, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-15"><span>1.0.15</span><span class="changelog-sidebar__date">Feb 11, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-14"><span>1.0.14</span><span class="changelog-sidebar__date">Feb 11, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-13"><span>1.0.13</span><span class="changelog-sidebar__date">Feb 6, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-12"><span>1.0.12</span><span class="changelog-sidebar__date">Feb 1, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-11"><span>1.0.11</span><span class="changelog-sidebar__date">Jan 13, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-10"><span>1.0.10</span><span class="changelog-sidebar__date">Jan 2, 2026</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-9"><span>1.0.9</span><span class="changelog-sidebar__date">Dec 6, 2025</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-8"><span>1.0.8</span><span class="changelog-sidebar__date">Nov 20, 2025</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-7"><span>1.0.7</span><span class="changelog-sidebar__date">Nov 6, 2025</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-6"><span>1.0.6</span><span class="changelog-sidebar__date">Oct 26, 2025</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-5"><span>1.0.5</span><span class="changelog-sidebar__date">Oct 20, 2025</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-4"><span>1.0.4</span><span class="changelog-sidebar__date">Oct 18, 2025</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-3"><span>1.0.3</span><span class="changelog-sidebar__date">Oct 12, 2025</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-2"><span>1.0.2</span><span class="changelog-sidebar__date">Oct 9, 2025</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-1"><span>1.0.1</span><span class="changelog-sidebar__date">Oct 6, 2025</span></a></li>
+    <li><a class="changelog-sidebar__link" href="#v1-0-0"><span>1.0.0</span><span class="changelog-sidebar__date">Oct 2, 2025</span></a></li>
+  </ul>
+</div>
+        </aside>
+
+        <!-- Mobile dropdown nav -->
+        <div class="changelog-mobile-nav">
+          <label class="changelog-mobile-nav__label" for="changelog-version-select">Jump to version</label>
+          <select class="changelog-mobile-nav__select" id="changelog-version-select" onchange="if(this.value) window.location.hash = this.value;">
+            <option value="">Select a version&hellip;</option>
+              <option value="#v1-2-0">1.2.0 — May 2, 2026</option>
+              <option value="#v1-1-2">1.1.2 — Mar 30, 2026</option>
+              <option value="#v1-1-1">1.1.1 — Mar 27, 2026</option>
+              <option value="#v1-1-0">1.1.0 — Mar 20, 2026</option>
+              <option value="#v1-0-26">1.0.26 — Mar 18, 2026</option>
+              <option value="#v1-0-25">1.0.25 — Mar 16, 2026</option>
+              <option value="#v1-0-24">1.0.24 — Mar 16, 2026</option>
+              <option value="#v1-0-23">1.0.23 — Mar 15, 2026</option>
+              <option value="#v1-0-22">1.0.22 — Mar 11, 2026</option>
+              <option value="#v1-0-21">1.0.21 — Mar 6, 2026</option>
+              <option value="#v1-0-20">1.0.20 — Mar 2, 2026</option>
+              <option value="#v1-0-19">1.0.19 — Feb 22, 2026</option>
+              <option value="#v1-0-18">1.0.18 — Feb 20, 2026</option>
+              <option value="#v1-0-16">1.0.16 — Feb 14, 2026</option>
+              <option value="#v1-0-15">1.0.15 — Feb 11, 2026</option>
+              <option value="#v1-0-14">1.0.14 — Feb 11, 2026</option>
+              <option value="#v1-0-13">1.0.13 — Feb 6, 2026</option>
+              <option value="#v1-0-12">1.0.12 — Feb 1, 2026</option>
+              <option value="#v1-0-11">1.0.11 — Jan 13, 2026</option>
+              <option value="#v1-0-10">1.0.10 — Jan 2, 2026</option>
+              <option value="#v1-0-9">1.0.9 — Dec 6, 2025</option>
+              <option value="#v1-0-8">1.0.8 — Nov 20, 2025</option>
+              <option value="#v1-0-7">1.0.7 — Nov 6, 2025</option>
+              <option value="#v1-0-6">1.0.6 — Oct 26, 2025</option>
+              <option value="#v1-0-5">1.0.5 — Oct 20, 2025</option>
+              <option value="#v1-0-4">1.0.4 — Oct 18, 2025</option>
+              <option value="#v1-0-3">1.0.3 — Oct 12, 2025</option>
+              <option value="#v1-0-2">1.0.2 — Oct 9, 2025</option>
+              <option value="#v1-0-1">1.0.1 — Oct 6, 2025</option>
+              <option value="#v1-0-0">1.0.0 — Oct 2, 2025</option>
+          </select>
+        </div>
+
+        <!-- Main content -->
+        <div class="changelog-content">
+          <section id="v1-2-0" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.2.0</h2>
+    <span class="changelog-version__date">May 2, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>The Chapters Page, Reimagined</strong> - One of Penpoint's most-requested features is finally here. The Chapters page has been rebuilt from the ground up. Each chapter now has its own customizable block-based layout — just like Character Sheets — so you can design a chapter view that fits how <em>you</em> plan stories. Every scene now stands on its own with its own characters, locations, items, and POV (tags and arcs stay at the chapter level, where they belong). The new outliner sidebar mirrors Manuscript Mode, so navigating between chapters and scenes feels instantly familiar. Configure your default scene layout in Settings → Scene Layout. Your existing chapters carry over with their current view intact — nothing to redo.</li>
+    <li><strong>Build Your Own World's Calendar</strong> - Your book now has its own calendar system. Pick <strong>Standard (Gregorian)</strong> for real-world stories, <strong>Day Counter</strong> for stories told by day number ("Day 47" instead of "March 12"), or go wild with <strong>Custom</strong> and design a fantasy calendar from scratch: your own months, weekdays, festival periods, leap days, even BCE/CE-style epochs. Every scene and chapter date uses your chosen mode automatically. This also paves the way for a FUTURE rework of the Timeline view.</li>
+    <li><strong>Customize Your Character Arc View</strong> - The Character Arc page now has a gear icon in the visualizer header to control what's visible. Choose to show plot points for all characters, just the active one, or none at all. Toggle "Always show labels" off for a clean comparison view — you can still hover or click any keyframe to reveal its label. The active character's line is also a bit thicker now so it stands out from any overlays. <strong>Plus</strong>: you can now assign chapters (and specific scenes) to individual plot points on character arcs, just like story arcs. Open any plot point in edit mode to link chapters, or switch to view mode to see them as a read-only list. Linked chapters also show up in the compact list view on the arc block itself.</li>
+    <li><strong>Customize Your Book Covers</strong> - Your books on the shelf just got a lot more personal. Pick from 12 preset colors or mix your own with a built-in color picker. Layer on a texture like Grain, Linen, Leather, or Parchment for that hardcover feel. Or go all out and upload your own cover image, cropped to fit. If your image already has the title on it, you can hide Penpoint's text overlay so it doesn't compete. All your choices travel with your book through backups and restores.</li>
+    <li><strong>Search Works in Manuscript Mode</strong> — The Glorious Searchbar popup (Ctrl+K) now works while you're writing, not just in Worldbuilding. Search for a character, location, item, chapter, or anything else — clicking a result opens it in your Minipen sidebar without taking you away from your manuscript. Scene results jump you straight to that scene in the editor.</li>
+    <li><strong>See Where Your Locations Appear</strong> - Every location now shows which chapters it appears in, right on its detail page. Open "The Haunted Library" and see at a glance that it shows up in Chapters 3, 7, and 12. In edit mode, you can assign or remove chapter connections directly from the location itself.</li>
+    <li><strong>Version Protection for Your Books</strong> - If you open a book on one computer with a newer version of Penpoint, then try to open it on another running an older version, Penpoint will tell you exactly what's happening and ask you to update before opening the book.</li>
+    <li><strong>New "Alice" Theme</strong> - A soft cherry blossom pink theme for those who like their writing space a little more lovely. Find it in Settings → Interface alongside the other themes.</li>
+    <li><strong>Reset the Demo Book</strong> - The Sherlock Holmes demo book now has a Reset option in its right-click menu. Restore it to its original state any time you want a clean tour.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Find Characters by Their Nickname</strong> - Anywhere you add a character to something (a scene, a relationship, an item, a location, a chapter, or an arc), you can now search by their alias instead of their full name. Type "Lizzy" and Elizabeth Bennet shows up.</li>
+    <li><strong>Filter Items by Location</strong> - You can now filter your Items list by location. Select one or more locations in the filter sidebar and only items tied to those locations will show. Works the same as your other filters.</li>
+    <li><strong>Smoother Startup Experience</strong> - If you haven't opened Penpoint in a while, you might have a few things waiting: an update, a data upgrade, maybe an announcement. They now queue up and appear one at a time in a sensible order, so you're never overwhelmed by overlapping pop-ups. The analytics prompt also has a new "Not now" option.</li>
+    <li><strong>Refreshed Chapters Tutorial</strong> - The Chapters tutorial has been rewritten to walk you through the new block-based layout, with clearer steps and better example data.</li>
+    <li><strong>Tag Viewer for Multi-Scene Chapters</strong> - The Tag Viewer now works properly across chapters with multiple scenes, showing tags at the right level so you can see what's tagged where without confusion.</li>
+    <li><strong>Keyboard Navigation in Notebook and Items</strong> - Arrow keys now move to the visually adjacent card instead of jumping alphabetically, and Alt+Left/Alt+Right cleanly goes back or forward without also shifting your highlight. The Items page also picked up Up and Down arrow keys for jumping between rows.</li>
+    <li><strong>Every Word Counts</strong> - The community word count in your stats panel now shows every word written in Penpoint since launch, right down to the last one. We just crossed a million, and watching that number climb is a lot more fun when you can see it tick upward.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Chapter Descriptions Preserved Across Upgrades</strong> - Fixed an upgrade path where chapter descriptions could be lost when migrating to the new block-based chapter layout. Every upgrade path now preserves your chapter descriptions completely.</li>
+    <li><strong>Character Arc Overlays Lining Up</strong> - When comparing multiple character arcs, plot point markers on background arcs could drift out of alignment with the active character's, even when both arcs had the same number of points. They line up properly now.</li>
+    <li><strong>Crosslinks Now Show Scenes</strong> - Items, Locations, and Characters that appear in chapters now drill down to specific scenes, not just the chapter as a whole. Character chapter lists also show the correct scene numbers (instead of internal positions), and Story Arc plot points correctly filter to their assigned scenes in view mode.</li>
+    <li><strong>Arc Scene Assignment Clarity</strong> - Assigned scenes in your arc plot points now show a filled square so you can see at a glance what's linked. The Assign and Remove buttons are always visible, no hovering required.</li>
+    <li><strong>Right-Click Submenus Staying on Screen</strong> - Fixed several cases where right-click submenus could get cut off at the screen edge, especially near a corner. When a submenu flips to the opposite side to fit, it now sits flush against the parent menu instead of overlapping or leaving a gap.</li>
+    <li><strong>Cleaner Scene Names</strong> - Adding a second scene to a chapter no longer leaves you with two rows labeled "Empty Scene". New scenes are now named "Scene 1", "Scene 2", and so on. Scenes you've already named are left alone.</li>
+    <li><strong>Duplicate Scenes Under Rapid Clicking</strong> - Fixed a rare race condition where rapid clicks during scene creation could occasionally create duplicate or orphaned scenes. Scene creation is now reliable even under heavy clicking.</li>
+    <li><strong>Calendar and Chapter Card Polish</strong> - Several calendar UI improvements and chapter card display fixes, plus better submenu positioning throughout.</li>
+    <li><strong>Notebook Rename Fixes</strong> - Fixed two rename issues: renaming a folder in the sidebar could fail if that same folder was visible in the main grid at the same time (the rename box would flash and disappear before you could type), and renaming a note while it was open in the viewer didn't refresh the title inside the editor until you switched notes.</li>
+    <li><strong>Export Title Page Remembers Your Book</strong> - The Title field in the manuscript export dialog now always shows your current book's name, not whatever you last exported. If you've customized the title before, Penpoint remembers your custom version per book.</li>
+    <li><strong>Location Renames Now Update the List</strong> - Renaming a location in edit mode didn't update the name in the left-hand list until you reloaded the app. Now the list updates on its own right after you stop typing, and the title field feels snappier too.</li>
+    <li><strong>Faster Search Results After Editing</strong> - If you fixed a word in your manuscript and then searched for it, the old version could still show up in search results for several seconds. Now results update the moment you open the searchbar.</li>
+    <li><strong>Manuscript Cursor Hiding Behind Toolbar</strong> — The typing cursor could scroll up behind the formatting toolbar, letting you type text you couldn't see. Fixed.</li>
+    <li><strong>Domain URLs in Manuscripts</strong> - Fixed a rare bug where domain endings like .it could sneak into your manuscript as hidden links. Your text is now safe from sneaky URLs.</li>
+    <li><strong>Cutting Text No Longer Reduces Your Word Count</strong> — Using cut and paste to move text around no longer affects your daily word count.</li>
+    <li><strong>Word Count Stats After Midnight</strong> — If you were writing past midnight, the "Manuscript size (+X today)" line in your daily stats could show the wrong number. Fixed.</li>
+    <li><strong>Manuscript Folders Staying Put</strong> - If you made a few empty folders in Manuscript Mode's chapter outliner back to back and dragged them into order, they could quietly swap positions when you came back later. Now they stay exactly where you put them.</li>
+    <li><strong>Notebook Panel Widths Drifting</strong> — If you resized the folder tree or preview panel in the Notebook and then switched to another page and came back, the panels would shift slightly each time. Fixed.</li>
+    <li><strong>Back Button Not Clearing Item Selection</strong> - On the Items page, pressing Back right after selecting an item didn't actually deselect it, which threw off the back and forward history. Fixed.</li>
+    <li><strong>Search Result Highlights on Hover</strong> — When hovering over a search result, the matched search term could become hard to read. Fixed.</li>
+    <li><strong>Closing the App During the Welcome Tour</strong> - The X button now properly closes Penpoint during the first-run welcome tour. Before, you'd have to wait for the tour to finish (or force-quit) to get out.</li>
+    <li><strong>Historical / Non-fiction Template</strong> - Renamed the "Historical" New Book template to "Historical / Non-fiction" for better discoverability.</li>
+  </ul>
+</section>
+
+<section id="v1-1-2" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.1.2</h2>
+    <span class="changelog-version__date">March 30, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Chapter Drafts</strong> — Scene Drafts now work for chapters that haven't been split into multiple scenes. Right-click any single-scene chapter in the outline and you'll find "Chapter Drafts" — save a snapshot, view old versions, or restore a previous draft, same as always. If you later split the chapter into scenes, your saved drafts carry over automatically. Nothing is lost.</li>
+    <li><strong>Find &amp; Replace with Formatting</strong> — The Find &amp; Replace bar now has a collapsible "Advanced" section at the bottom. Use <strong>Match</strong> to narrow your search to only bold, italic, or underlined text — perfect for tracking down foreign words or specific styled passages. Use <strong>Apply</strong> to add formatting to your replacements, like swapping a nickname for an italicized foreign name in one operation. Works with Replace All and "Replace in rest of manuscript" too.</li>
+    <li><strong>Whole Word Matching in Find &amp; Replace</strong> — A new toggle in Find &amp; Replace lets you match whole words only — so searching for "Yes" won't accidentally catch "Yesterday" or "Yes-terday". It's on by default. Penpoint remembers all your Find &amp; Replace settings between sessions, so everything's exactly where you left it next time you open it.</li>
+    <li><strong>Find &amp; Replace Button in the Toolbar</strong> — There's now a magnifying glass button in the manuscript toolbar that opens and closes Find &amp; Replace. It stays highlighted while the panel is open, so you always know at a glance whether it's active.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Notebook Display Fixes</strong> — Fixed the note editor panel overflowing off-screen when the navigation sidebar was pinned, and fixed note titles in list view squishing to a few characters per line at high display scaling.</li>
+    <li><strong>Flowstate No Longer Forces Fullscreen</strong> — Starting a Flowstate session used to automatically push you into fullscreen mode, and ending it would pull you back out. Now the two are independent — run Flowstate in your normal view, or combine it with fullscreen. Your call.</li>
+    <li><strong>Find &amp; Replace Stays in Sync When Switching Chapters</strong> — If you had Find &amp; Replace open and switched to a different chapter or scene, the results would still show matches from the old chapter. Now it automatically re-searches the new content and clears any previous replace counts.</li>
+    <li><strong>Smart Quotes After Punctuation</strong> — Typing a quote mark after a period or other punctuation could produce a straight quote instead of a curly one. Fixed.</li>
+    <li><strong>Curly Quotes After Em Dashes</strong> — Quote marks after an em dash could face the wrong direction when ending interrupted dialogue. Fixed.</li>
+    <li><strong>Minipen Notes Sorting</strong> — Fixed sorting in the Minipen Notes sidebar: numbered folders now sort naturally (1, 2, 10 instead of 1, 10, 2), changing the sort order updates the list immediately, and the sort menu now matches the layout used elsewhere in the app.</li>
+  </ul>
+</section>
+
+<section id="v1-1-1" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.1.1</h2>
+    <span class="changelog-version__date">March 27, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Honoring Penpoint's First Purchase</strong> — The About page now recognizes Jendriel as Penpoint's Founding Supporter — the very first person to buy a license. Thank you!</li>
+    <li><strong>Zen Mode for Manuscripts</strong> — Press F11 or click "Fullscreen Mode" in the footer to fade away the toolbar, sidebars, and header over a smooth 2.5-second transition — just you and your words. Hover the screen edges to slide out the chapter outline or Minipen as overlays, or hover the top to drop down the formatting toolbar on demand. New Settings options under <strong>Fullscreen Mode</strong> let it activate automatically when you start typing and exit after 30 seconds idle — Flowstate also triggers it.</li>
+    <li><strong>The Worldbuilding Toolbar Guide</strong> — A new help article walks you through every icon and button in the toolbar — the save indicator, writing stats, help menu, announcements bell, clock, and more. Find it in the User Guide under "The Worldbuilding Toolbar."</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Restoring Backups Got a Big Upgrade</strong> — Backup history is now accessible from three places: the Book Selector, Settings &gt; Storage &amp; Backups, and the "Saved" dropdown in the toolbar. When you restore, you choose how: <strong>Overwrite Current Book</strong> (recommended — replaces your book in place) or <strong>Restore as New Book</strong> (creates a separate copy so nothing gets replaced). Either way, Penpoint automatically creates a safety backup first, so you can always undo a restore if you change your mind.</li>
+    <li><strong>Total Word Count in the Footer</strong> — The word count bar at the bottom of Manuscript Mode now shows your current scope alongside your total manuscript word count — so you can see "1,234 words (50,000 total)" at a glance without opening the stats panel. Click the word count to hide the total if you prefer a cleaner look. Penpoint remembers your preference.</li>
+    <li><strong>Right-Click Anywhere in Your Outline</strong> — You can now right-click on empty space in the Manuscript outline to quickly add a new chapter or group — no need to reach for the + button.</li>
+    <li><strong>Notebook Folder Drag-and-Drop</strong> — Improved drag-and-drop for folders in the Notebook — you can now drag folders between levels, out of subfolders, and into new positions with cleaner visual feedback.</li>
+    <li><strong>Faster Note Creation in the Notebook</strong> — Creating a new note now drops your cursor right into the title field so you can start typing immediately. Press Tab to jump straight into the writing area — no clicking required.</li>
+    <li><strong>User Guide on Smaller Screens</strong> — The Help Guide is now much more readable on smaller screens and narrower windows. The article index adjusts automatically so your help articles always have room to breathe.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Dragging Notes &amp; Folders to the Binder Deleted Them</strong> — Dragging a note or folder from the main area into the Binder (the root level of your Notebook) would make it vanish. Fixed.</li>
+    <li><strong>Undo in the Notebook</strong> — Pressing Ctrl+Z in a note when there was nothing left to undo could replace your entire note with whatever was in the previous note you had open. Fixed — undo now only applies to changes you made in the current note.</li>
+    <li><strong>Item Titles Overwriting Each Other</strong> — If you edited an item's title and quickly clicked another item before the save finished, the first item's new title would get written onto the second item instead. Fixed — saves now always go to the right item, no matter how fast you click.</li>
+    <li><strong>Character-Item Relationship Notes Disappearing</strong> — If you typed a note describing how a character relates to an item and switched to view mode too quickly, the note would vanish. Fixed — it now always saves before the switch.</li>
+    <li><strong>Editing a Trait Option Now Updates Your Characters</strong> — If you fixed a typo in a trait option (like correcting "Bule" to "Blue"), any character already assigned that value would be stuck showing the old one — and you couldn't clear it without a workaround. Now renaming a trait option updates all your characters automatically.</li>
+    <li><strong>Typing on macOS Sequoia</strong> — macOS Sequoia's autocorrect could silently rewrite words while you typed, causing cursor jumps and random duplicate text. Penpoint now disables system-level autocorrect within the editor to prevent this. Your smart quotes and dash settings still work exactly as before.</li>
+    <li><strong>@Mention Fixes</strong> — Fixed several @mention bugs: Escape now closes the suggestion popup without deleting what you typed, custom item types now show their real names instead of ID numbers, the Home key no longer jumps to the wrong line when a line starts with a mention, and punctuation right after a mention link (like a comma) no longer orphans to the next line. You can also now press Tab to confirm a suggestion.</li>
+    <li><strong>Items Uneditable After Filtering by Tags</strong> — If you filtered your Items list by specific tags and then created a new item, the item would immediately vanish from view and couldn't be edited — Ctrl+E did nothing, and the Edit button was unresponsive. Fixed — the detail panel now stays open so you can fill in the item's details before it shows up in your filtered view.</li>
+    <li><strong>Minipen Search Now Takes You to the Right Spot</strong> — Clicking a scene result in the Minipen search would open the right scene but drop you at the top instead of at the text you searched for. It now jumps straight to your match and highlights it.</li>
+    <li><strong>Daily Word Count Now Reflects Real Progress</strong> — Deleted words now subtract from your daily word count. If you rewrote a sentence, it no longer counts the original words <em>and</em> the rewrite — you see the actual net change for the day. This means your word count can go negative if you spent the day cutting, which is an honest look at a heavy editing session.</li>
+    <li><strong>Unnumbered Chapters Showing Wrong Numbers in @Mentions</strong> — If you marked a chapter as unnumbered (a prologue, interlude, or epilogue), @mentioning it would still display it as "Chapter 4: Prologue" or similar. It now shows just the chapter title, and numbered chapters that follow show the correct sequential number.</li>
+    <li><strong>Writing Stats Resetting at Midnight</strong> — If you write past midnight, your daily word count delta (the "+350 today" next to your manuscript size) would silently disappear until you restarted the app. It now resets automatically at midnight like it should.</li>
+    <li><strong>Writing Streak Showing Wrong Numbers</strong> — Your writing streak could get stuck showing the wrong count after opening the app. Fixed the underlying cause and made the streak calculation more resilient.</li>
+    <li><strong>Character List Scrolling Back Into Position</strong> — When you returned to your character list after visiting another page, Penpoint would scroll through the whole list to get back to where you were instead of jumping straight there. Fixed — it now snaps immediately to your last selected character.</li>
+    <li><strong>Item Type Dropdown Not Updating</strong> — Changing an item's type while in edit mode would tick the right checkbox but the label wouldn't update until you left edit mode. Fixed — it updates immediately.</li>
+    <li><strong>Empty Folders Now Stay Where You Put Them</strong> — Dragging an empty folder to a new spot in your outline would snap it right back the moment you let go. Fixed — empty folders now stay wherever you drop them.</li>
+    <li><strong>Smart Quotes &amp; Backspace</strong> — When smart quotes were on, backspace would first convert a curly quote back to a straight quote before deleting it — requiring two presses instead of one. Fixed.</li>
+    <li><strong>Relationships Block at Half-Width</strong> — Fixed relationship entries spreading apart with large gaps when the block is placed side-by-side with another block.</li>
+    <li><strong>Writing Stats Panel Getting Cut Off</strong> — On some screens, the writing stats dropdown could extend past the edge of the window, clipping the text and button. Fixed.</li>
+    <li><strong>Notebook Text Overflowing After Paste</strong> — Pasting text into a Notebook note could cause content to run off the right edge of the screen instead of wrapping properly. Fixed.</li>
+  </ul>
+</section>
+
+<section id="v1-1-0" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.1.0</h2>
+    <span class="changelog-version__date">March 20, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Right-Click Menus on Chapters, Items &amp; Locations</strong> — Chapters, Items, and Locations now all have full right-click menus. Right-click a chapter card to open it, jump to the Manuscript editor, reorder, insert a new chapter before or after, or delete. Right-click items or locations to add, delete, change importance, sort, and more. Detail panels have their own right-click menus too — quick access to edit mode, profile image, type changes, and other common actions without hunting through the UI.</li>
+    <li><strong>Writing Stats: Manuscript Size &amp; Last Writing Day</strong> — Your analytics dropdown (the chart icon in the toolbar) now shows your current manuscript word count with today's change — great for tracking editing progress toward a target — plus a quick look at how your last writing day went, so picking up after a break you can see at a glance what you accomplished last time you sat down.</li>
+    <li><strong>Sort Locations Ascending or Descending</strong> — The Locations sort menu now includes Ascending and Descending options, so you can flip any sort method — alphabetical Z to A, newest first, or reverse type order.</li>
+    <li><strong>Credit Where Credit Is Due</strong> — Check out Settings → About for a little something new. You know who you are.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Opening a Chapter in Manuscript Mode Now Goes to the Right Chapter</strong> — The first time you opened a chapter in Manuscript from the Chapters page, it would load whichever chapter you had open last instead of the one you clicked. Second click would work. Fixed — it goes to the right chapter every time now.</li>
+    <li><strong>Multi-Value Traits Lost on Import</strong> — If a character had a trait with multiple values selected (e.g., "Brave" and "Trustworthy"), importing that character would collapse them into a single combined value instead of two separate ones. Fixed.</li>
+    <li><strong>Typing Glitch on Mac</strong> — On some Macs, the cursor could suddenly jump to the start of a sentence and drag text along with it while you were typing. Fixed.</li>
+    <li><strong>Character List Expanding to Full Screen</strong> — When you clicked the arrow to expand your character list to fill the whole screen, it would stay in a single column instead of spreading out across the space. Fixed — it now fills the width with as many columns as will fit.</li>
+    <li><strong>Deleted Items Staying on Screen</strong> — Deleting an item would remove its card from the list, but the detail panel would stay open showing the deleted item as if it were still there. Now the panel closes cleanly when an item is deleted.</li>
+    <li><strong>Spellcheck Flagging Possessives of Character Names</strong> — Penpoint auto-whitelists your characters, locations, and items in the spellchecker — but writing "Charlye's" (possessive) would still get flagged as a spelling error even though "Charlye" was fine. Fixed.</li>
+  </ul>
+</section>
+
+<section id="v1-0-26" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.26</h2>
+    <span class="changelog-version__date">March 18, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Autocorrect Settings</strong> — New controls under Settings → Spellcheck &amp; Autocorrect let you choose your dash behavior (<strong>Standard</strong>: <code>--</code> → em dash, or <strong>Typographer</strong>: <code>--</code> → en dash, <code>---</code> → em dash) and toggle smart curly quotes on or off.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Chapter Titles Are Now Optional</strong> — Leave the title blank when creating a chapter and it shows up as "Chapter 1", "Chapter 2", etc. Add a title whenever you're ready — or never.</li>
+    <li><strong>Copy Text from the Compendium and Help Guide</strong> — You can now highlight and copy text in the Compendium and Help Guide. Help Guide navigation links are also now a distinct color so they're easier to spot at a glance.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Strikethrough in Manuscript</strong> — Strikethrough was missing from the Manuscript toolbar (and its keyboard shortcut didn't work either). It's now available alongside Bold, Italic, Underline, and Highlight. The text highlighter also now looks identical in both Manuscript and your worldbuilding notes — same shade, same size, visible on dark themes.</li>
+    <li><strong>Chapter Outline Changes Appearing Deleted</strong> — Editing a chapter outline and switching to another section could make your recent changes appear to vanish. Your work was saved the whole time — it was a display glitch. Fixed.</li>
+    <li><strong>Book Scanner Accuracy</strong> — The scanner was occasionally linking characters, locations, and items to the wrong chapters, and could show duplicate aliases in results. Matching is now more precise, and nicknames saved during import work correctly with @mentions.</li>
+    <li><strong>Tags Now Work in Quick Create</strong> — The Tags block in Quick Create (Ctrl+N) now shows your tags as selectable options when creating a new character. Click to add, click again to remove — all applied when you hit Create.</li>
+    <li><strong>Timeline Not Scrolling</strong> — If you had enough characters to fill the Timeline vertically, the rest were cut off with no way to reach them. The Timeline now scrolls.</li>
+    <li><strong>Scene Drafts Preserved After Versioning</strong> — Fixed scene drafts going missing after creating a manuscript version. Both features now stay completely independent.</li>
+    <li><strong>Spellcheck False Positives on Quoted Words</strong> — Words in single quotes (like 'this') were getting flagged by spellcheck even when spelled correctly. Fixed.</li>
+    <li><strong>Spellcheck Underlines Hidden in View Mode</strong> — Spellcheck squiggles now only appear when you're actively editing. In view mode, they stay out of the way.</li>
+    <li><strong>Novel View No Longer Indents Centered Text</strong> — The "Novel" paragraph setting adds a first-line indent to your prose, but was also indenting centered and right-aligned text. Those are now left alone.</li>
+    <li><strong>Tags Section Card Previews</strong> — Entity cards in the Tags section could show raw code for cleared fields, and @mentions in descriptions were dropped entirely. Both fixed.</li>
+    <li><strong>Discord Status Stuck on "Worldbuilding Mode"</strong> — Opening Penpoint directly into Manuscript Mode would show "Worldbuilding Mode" in your Discord status until you navigated somewhere. Your status now reflects where you actually are from the moment you open the app.</li>
+    <li><strong>Manuscript Tutorial Freezing at Step 3</strong> — On high-resolution or custom-scaled displays, the Manuscript Tutorial could get stuck at Step 3 when selecting a chapter. Fixed.</li>
+    <li><strong>Character List Scrolling on Return</strong> — Navigating back to the Characters section would trigger a scroll animation down to your selected character. Now it jumps there instantly.</li>
+    <li><strong>Notebook Back Button Now Returns to Root</strong> — The back button in the Notebook now treats the root level as a proper stop in navigation history, so you can always get back to where you started.</li>
+    <li><strong>Tutorial Polish</strong> — Thanks to great feedback from CovOp and Tapgiles on Discord, we've fixed a variety of bugs across many tutorial walkthroughs.</li>
+    <li><strong>Items Tutorial Restart Not Appearing</strong> — The "Restart Tutorial" option was missing from the Help menu on the Items page. Fixed.</li>
+    <li><strong>Manuscript Toolbar Button Spacing</strong> — Two toolbar buttons could end up jammed together at certain window widths. Fixed.</li>
+    <li><strong>Notebook Right-Click Menu Positioning</strong> — Right-clicking near screen edges could cause the context menu to flicker into place or appear far from your cursor. Fixed.</li>
+  </ul>
+</section>
+
+<section id="v1-0-25" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.25</h2>
+    <span class="changelog-version__date">March 16, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Relationship Block Swap Roles</strong> — Two-way relationships with different labels can now display in either order. By default, each name shows the role they play <em>for</em> the current character. Flip on "Swap Role Labels" in the Relationships block settings to pair each name with their own role instead.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Onboarding on Small Screens</strong> — The new-user walkthrough could look broken on smaller screens or at larger font sizes. The entire flow is now responsive, scaling from compact laptops to 4K displays.</li>
+    <li><strong>Profile Picture Cropping</strong> — The crop dialog for character, item, and location images wasn't working — overflow, unresponsive drag/zoom, and hidden buttons. Fixed, and the crop window now adapts to portrait and landscape images instead of a fixed square.</li>
+    <li><strong>Searchbar Overlapping Toolbar Buttons</strong> — At narrower window widths, the search bar would drift into the right-side toolbar buttons, covering the + button, the save indicator, and more. Now it slides left into the space near the navigation arrows to keep everything visible.</li>
+  </ul>
+</section>
+
+<section id="v1-0-24" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.24</h2>
+    <span class="changelog-version__date">March 16, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Character &amp; Notebook Images Not Displaying</strong> — Profile pictures, notebook images, and inline manuscript images could all appear broken after updating to v1.0.23. Your images were never lost — a security policy was blocking the app from displaying them. All images now load correctly again.</li>
+  </ul>
+</section>
+
+<section id="v1-0-23" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.23</h2>
+    <span class="changelog-version__date">March 15, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Import a Manuscript When Creating a Book</strong> — When creating a new book, you can now choose "Import a Manuscript" instead of starting from scratch. Pick your file, preview and customize your chapters, optionally scan the whole manuscript for characters, locations, and items, then name your book and go. Everything — your prose, your chapters, and any discovered story elements — lands in your new book ready to work with.</li>
+    <li><strong>Half-Width Blocks for Every Block Type</strong> — You can now place any block side-by-side on your character sheet layout — not just Traits and Numbers. Tags next to a Character Arc. Appearance paragraph next to Age. Whatever makes sense for your characters. Click the new split-column icon in a block's toolbar to toggle it half-width, and click again to expand it back.</li>
+    <li><strong>Spellcheck in Worldbuilding</strong> <em>(Beta)</em> — Spellcheck now works in your character, location, and item notes — not just in Manuscript Mode. Right-click an underlined word for suggestions or to add it to your dictionary, same as always.</li>
+    <li><strong>Character Page Right-Click Menus</strong> — Right-click anywhere on the Characters page for quick access to common actions. Right-click a character in the list to add, delete, or change sort/view options. Right-click a character's detail panel to toggle edit mode, change importance, swap the profile image, jump to the Relationship Map, edit their sheet layout, and more — all without hunting through menus.</li>
+    <li><strong>Manuscript Right-Click Menu</strong> — Undo, Redo, Select All, and Paste without Formatting are now in the right-click context menu. Paste also now correctly preserves bold, italic, and other formatting.</li>
+    <li><strong>Smarter Help Guide Search</strong> — The search bar in the Help Guide now searches the full content of every article — not just titles. Find what you're looking for even if you only remember a word or phrase from inside the article. Results show the article name, the section where the match was found, and a highlighted snippet so you can tell at a glance if it's the right one.</li>
+    <li><strong>Revamped Tutorials</strong> — Every interactive tutorial across Penpoint has been overhauled. Tooltips now point exactly where they should, example data is more realistic, and the Notebook page gets its own full walkthrough for the first time. No more stuck tooltips or empty panels during the tour.</li>
+    <li><strong>Expanded New User Walkthrough</strong> — The new author experience has been polished and expanded with new slides, smoother animations, and better guidance so you feel right at home from the start.</li>
+    <li><strong>Manuscript Import &amp; Export in Settings</strong> — You can now import and export your manuscript prose directly from the Import &amp; Export settings page — no need to open Manuscript Mode first. The page is also reorganized into Worldbuilding and Manuscript sections, so everything has its place.</li>
+    <li><strong>Em Dash Shortcut</strong> — Three dashes (<code>---</code>) now make an em dash automatically.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Content Scanner Crash on Older Macs</strong> — Fixed a crash that prevented the content scanner from running on macOS Monterey (12.x) and earlier.</li>
+    <li><strong>Manuscript Search Now Actually Works</strong> — Searching for text from your manuscript wasn't showing any results, even when the text was right there. Fixed. The Minipen sidebar search also now shows a preview of the matching passage so you can confirm it's the right scene before clicking.</li>
+    <li><strong>Custom Dictionary Words Not Sticking</strong> — Adding a word to your custom dictionary could appear to work (it showed up in the list) but the red underline wouldn't go away. Also fixed: custom words would vanish after a full restart — they'd still be in the list but spellcheck would ignore them until you switched languages and back.</li>
+    <li><strong>Character Import Losing Long-Text Content</strong> — When importing character files, fields like Backstory could come in empty if the content used bold section headings (like <strong>Early Life:</strong> or <strong>Blake's birth:</strong>). All that text is now imported correctly.</li>
+    <li><strong>Scanner Missing Names at Sentence Starts</strong> — The content scanner wasn't finding character names that appeared mostly at the beginning of sentences. It would only catch the name once you added enough mid-sentence uses. Now one mid-sentence mention is enough — the scanner correctly counts all occurrences.</li>
+    <li><strong>Minipen Location Dropdowns Not Updating</strong> — Changing a location's icon, importance, type, or parent ("Part of") in the Minipen sidebar would appear to snap back to the old value. Your change was actually saving — you just couldn't see it until you switched back to View mode. Fixed.</li>
+    <li><strong>Discord Status Haunting Your Profile</strong> — Closing Penpoint didn't always clear your Discord Rich Presence status, so your friends might think you're still writing at 3 AM. Penpoint now properly tells Discord "I'm done" on exit instead of ghosting the connection.</li>
+    <li><strong>Deleted Characters Staying in Spellcheck</strong> — Deleting a character, location, or item now properly clears their name from the spellcheck dictionary.</li>
+    <li><strong>Help Guide Not Knowing You're in Settings</strong> — The context-aware Help button now correctly shows the right guide when you're in a Settings subcategory. Before, it would send you to the guide for whatever page you were on <em>before</em> opening Settings.</li>
+    <li><strong>Manuscript Importer: Better Title Page Handling</strong> — When importing a Word document, content before the first chapter now shows the document's title (or "Title Page") rather than the filename.</li>
+  </ul>
+</section>
+
+<section id="v1-0-22" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.22</h2>
+    <span class="changelog-version__date">March 11, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Spellcheck</strong> <em>(Beta)</em> — Your manuscript now checks spelling as you write, with red underlines on unrecognized words. Right-click any underline for suggestions or to add the word to your personal dictionary. Characters, locations, and items are automatically whitelisted so your invented names are never flagged. Manage dictionaries and settings in Settings → Spellcheck.</li>
+    <li><strong>Discord Rich Presence</strong> — Optionally show your writing activity in your Discord status. Enable it in Settings → Community &amp; Updates and your friends will see what you're working on. Your writing content is never shared — only which section you're in. Requires the Discord desktop app to be running.</li>
+    <li><strong>Collapsible Sections Everywhere</strong> — The collapsible section headers from the Character Sheet are now on Items, Locations, and Chapters too — including their Minipen sidebars. Click any section header to tuck it away; preferences are remembered per page.</li>
+    <li><strong>Set Numbered/Unnumbered at Chapter Creation</strong> — You can now uncheck "Numbered chapter" right in the creation dialog — no need to create it first and hunt down the toggle. The chapter number preview updates live.</li>
+    <li><strong>Terms of Service &amp; Privacy Policy</strong> — You'll see a one-click agreement prompt the first time you launch after updating. Everything you write still belongs to you, always.</li>
+    <li><strong>Hardware Acceleration Toggle</strong> — If you're experiencing visual glitches, disable hardware acceleration in Settings → Advanced. Penpoint restarts in software rendering mode. Most useful on Windows with integrated graphics.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Content Scanner Upgrades</strong> — A new whole-manuscript scan reviews all your chapters at once — finding known characters, locations, and items, discovering new ones, and linking everything to the right chapters in one pass. No more chapter-by-chapter scanning. Trigger it by right-clicking your book title in the outline sidebar, or it runs automatically after a manuscript import. Location and item detection has also improved.</li>
+    <li><strong>Find &amp; Replace Upgrades</strong> — Both fields are now always visible (no toggle needed), and your last search and replacement text are remembered between sessions. After finishing in the current view, Penpoint offers to continue replacing across your whole manuscript. A new swap button flips find and replace values with one click, and pressing Enter in the Replace field searches and replaces in one step.</li>
+    <li><strong>Items System</strong> — Items can now be assigned to Locations, and you can add notes describing how a character connects to an item (e.g., "forged it," "stole it"). Cleaned up terminology, expanded the icon picker, and raised the item type cap from 10 to 50.</li>
+    <li><strong>Refreshed Book Templates</strong> — All genre templates now ask the right questions instead of pre-filling worldbuilding for you. New Romance template with fields for emotional wounds, character arcs, and trope-based tags. RPG renamed to D&amp;D 5e.</li>
+    <li><strong>Customizable Paragraph Line Spacing</strong> — Set Tight, Normal, or Relaxed paragraph spacing in Settings → Interface &amp; Manuscript. Applies throughout the app.</li>
+    <li><strong>Notebook Polish</strong> — Image viewer zoom now has a clickable presets menu and double-click-to-fit. Folders match the list view layout in list mode. Smart folders show the correct item count right away instead of displaying zero until you open them.</li>
+    <li><strong>New "Advanced" Settings Page</strong> — The hardware acceleration toggle and "Save Logs to Disk" troubleshooting tool now live in their own dedicated Advanced settings page.</li>
+    <li><strong>No More Accidental Text Selection</strong> — Buttons, toolbars, and interface elements can no longer be accidentally highlighted. Text in editors, detail panels, and modals is still selectable as expected.</li>
+    <li><strong>Calculate Block</strong> — You can now use a fixed number as the first input, not just the second. Useful for age calculations, time elapsed, or any formula with a constant first value.</li>
+    <li><strong>Find &amp; Replace Buttons Light Up Sooner</strong> — Replace and Replace All activate as soon as you type a search term, without needing to press Enter first.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Editor Crash on Some Macs</strong> — Fixed a crash that prevented opening notes, plot points, and manuscript scenes on certain macOS configurations.</li>
+    <li><strong>Words Written Not Counting After Edits</strong> — Deleting text and typing a shorter replacement no longer reports zero words written. Your word count now reflects what you actually typed, in both the Manuscript and worldbuilding fields.</li>
+    <li><strong>Arc Page Fixes</strong> — Fixed the character arc color picker showing the wrong color after creation, keyframe labels overlapping the arc title, losing your selected arc when switching pages, subplot collapse jumping to the wrong plot point, and nested subplot anchors not highlighting correctly.</li>
+    <li><strong>Notebook Fixes</strong> — Creating a new folder now asks for a name upfront and drops you straight into it. Note and folder colors can now be removed after being set, and the color picker opens on hover. Canceling smart folder creation no longer leaves an empty folder behind. Drag-and-drop now shows a drop indicator in Cards and Large Cards view. Duplicate shortcuts can no longer be created in the same folder.</li>
+    <li><strong>Minipen Polish</strong> — Fixed editors not responding to clicks below text content, toolbar content scrolling above the toolbar instead of behind it, plot point colors not inverting when selected, plot point type showing raw text instead of a dropdown, and browser-default checkboxes showing instead of Penpoint's styled ones.</li>
+    <li><strong>Search Dropdowns Getting Cut Off</strong> — Assignment dropdowns for characters, chapters, locations, and arcs now always float above the panel edge so all your options are visible.</li>
+    <li><strong>New Entities Not Appearing Until You Leave the Page</strong> — Creating a tag or character with Ctrl+N now refreshes the list immediately.</li>
+    <li><strong>Manuscript Import Numbering</strong> — Part dividers (Part I, Part II, etc.) and title pages are no longer incorrectly tagged as numbered chapters when importing.</li>
+    <li><strong>Em Dash Cursor Jump</strong> — Typing <code>--</code> in the manuscript editor no longer jumps your cursor to the beginning of the paragraph.</li>
+    <li><strong>Minipen Note Order</strong> — Notes in Minipen now respect the sort order set in your full Notebook, including manual drag-and-drop positioning.</li>
+    <li><strong>Tutorial Appearing After Disabling Tutorials</strong> — With tutorials disabled, none can sneak through. Disabled means disabled.</li>
+  </ul>
+</section>
+
+<section id="v1-0-21" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.21</h2>
+    <span class="changelog-version__date">March 6, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Notebook Revamp</strong> — The Notebook has been completely rebuilt into a full reference board. Store images alongside your notes with a built-in lightbox viewer. Add Shortcuts to jump to any character, location, or entity. Organize everything into nested folders up to five levels deep with a collapsible folder tree. The layout is resizable, and note card previews now show proper line breaks, list formatting, and @mentions.</li>
+    <li><strong>Draggable Relationship Map</strong> — Drag characters around on the Relationship Map to arrange them however makes sense for your story. Positions are saved per book and remembered between sessions. Right-click to unpin, or hit "Reset Positions" to start fresh.</li>
+    <li><strong>Writing Timer</strong> — A count-up stopwatch in the header bar for tracking your writing sessions. Works in both Worldbuilding and Manuscript modes. Start, pause, and reset from the clock dropdown. Auto-pauses when Flowstate is active and resumes when it ends. Optionally set it to auto-start when you open a book.</li>
+    <li><strong>Clock Widget</strong> — See the current time in the header bar. Click to toggle between 12-hour and 24-hour formats, show or hide seconds, or turn it off entirely.</li>
+    <li><strong>Quick Mode Switch (Ctrl+M)</strong> — Press Ctrl+M (Cmd+M on Mac) to instantly flip between Manuscript and Worldbuilding mode from anywhere.</li>
+    <li><strong>Outline Word Counts</strong> — Hover over any folder, chapter, or scene in the Manuscript Outline to see its word count at a glance.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Flowstate Focus Mode</strong> — Flowstate now collapses both the outline sidebar and the Minipen when you start a session for a cleaner writing canvas. Both panels restore when you stop.</li>
+    <li><strong>Export Preview Shows Your Full Manuscript</strong> — The export preview now renders all your scenes with accurate page counts and proper scene breaks from the moment it opens.</li>
+    <li><strong>Smarter Content Scanner</strong> — The scanner now predicts whether each discovery is a Character, Location, or Item based on grammatical context, so you spend less time sorting through results.</li>
+    <li><strong>Simpler Backup Settings</strong> — Set how often to back up and how many days to keep — that's it. Recent backups stay in full, older ones are thinned automatically.</li>
+    <li><strong>Smarter Help Guide</strong> — The Help Guide now knows what page you're on and links you directly to the most relevant article.</li>
+    <li><strong>Performance on Slower Machines</strong> — Reduced unnecessary background work for smoother typing and less visual stutter, especially on older hardware.</li>
+    <li><strong>Spellcheck Toggle in Manuscript Settings</strong> — Turn spellcheck on and off directly from the Manuscript settings panel.</li>
+    <li><strong>Richer Community Stats</strong> — Now tracks worldbuilding word counts, book count, export counts by format, and general time of day (same privacy rules as before).</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Manuscript Spacing &amp; Indentation</strong> — Reduced paragraph gaps in the editor so your prose reads more naturally. Tab now indents the entire paragraph as a block instead of only the first line.</li>
+    <li><strong>Traits Not Syncing With Character Sheets</strong> — Trait changes in Settings now take effect immediately on all character sheets. Deleting a trait cleanly removes its blocks from all characters.</li>
+    <li><strong>Story Arc Fixes</strong> — Fixed label overlaps, accidental text selection, missing anchor indicators on nested subplots, selection jumping, color picker mismatches in character arcs, and chapter/tag assignments silently unlinking when editing plot points.</li>
+    <li><strong>Text Disappearing When Clicking Buttons</strong> — Typing into a rich text field and quickly clicking a button no longer causes text to vanish.</li>
+    <li><strong>Page Crashes on macOS</strong> — Fixed a crash when navigating between pages or opening editors, especially on Apple Silicon Macs.</li>
+    <li><strong>Manuscript Sidebar Search</strong> — Tags, plot points, and keyframes now appear in sidebar search results. Clicking a scene navigates to it correctly, and "Open in Worldbuilding" takes you to the right entity.</li>
+    <li><strong>Phantom Backups When Idle</strong> — Backups no longer run when you haven't actually changed anything.</li>
+    <li><strong>More Accurate Writing Stats</strong> — Session time properly pauses when you alt-tab or step away. Pasting no longer inflates your word count.</li>
+    <li><strong>Back/Forward Navigation Fixes</strong> — Both directions now work correctly, including in the Notebook and when returning from the User Guide.</li>
+    <li><strong>@Mention Fixes</strong> — Deleted arcs/plot points no longer appear in results. Copy-pasting @mentions preserves links. Enter after Escape creates a new line.</li>
+    <li><strong>Paragraph Breaks After @Mentions</strong> — Editor upgrades no longer merge paragraphs around @mentions.</li>
+    <li><strong>Content Scanner + Nicknames</strong> — Merging in the scanner no longer replaces nicknames, highlighting works, and ignoring names no longer blocks related words.</li>
+    <li><strong>Relationship Character Picker</strong> — Clicking back to fix a pick now shows your full character list.</li>
+    <li><strong>Window Recovery on Disconnected Monitors</strong> — Penpoint detects off-screen windows and moves them back to your main display.</li>
+    <li><strong>Manuscript Folder Reordering</strong> — Folders now swap on contact, even with just two folders.</li>
+    <li><strong>Mini Penpoint Fixes</strong> — Long notes no longer push Pin/Archive buttons into the text. Location profile pictures now show in the sidebar.</li>
+    <li><strong>Searchbar Ghost Results</strong> — Deleted entities no longer linger. Clicking a plot point navigates correctly.</li>
+    <li><strong>Manuscript Export Preview</strong> — Changing options no longer resets to page 1.</li>
+    <li><strong>Item Icon Picker on Small Screens</strong> — The icon picker now scrolls and adapts to your screen size.</li>
+  </ul>
+</section>
+
+<section id="v1-0-20" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.20</h2>
+    <span class="changelog-version__date">March 2, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Quick Create (Ctrl+N)</strong> - Press Ctrl+N (or Cmd+N on Mac) from anywhere to instantly create a new Character, Item, Location, Chapter, Note, or Tag without leaving the page. Three ways to finish: <strong>Create</strong> keeps you where you were, <strong>Create &amp; Open</strong> takes you to the new entity, and <strong>Create + Mention</strong> drops an @mention into whatever you were writing. In Manuscript Mode, "Create &amp; Open" opens the entity in the Mini Penpoint sidebar so you never lose your place.</li>
+    <li><strong>Inline Images</strong> - Insert pictures directly into any rich text editor — character bios, location descriptions, chapter notes, arc details, notebook entries, and your manuscript. Click the image button in the toolbar, pick a file, and it drops in with a decorative frame. Right-click any image for "Save to Disk" or "Delete Image." Images live inside your book folder and travel with your backups automatically.</li>
+    <li><strong>Character Nicknames &amp; Aliases</strong> - Give each character a nickname or alias that shows up everywhere — on cards, in chapters, on the relationship map, in the timeline, and across the compendium. Search by alias using the searchbar or @mentions, and the Content Scanner recognizes aliases when scanning your manuscript.</li>
+    <li><strong>Spellcheck Enabled</strong> - Built-in OS-level spellcheck in the manuscript editor and rich text fields. Misspelled words get the familiar red underline, and right-click gives you suggestions. ProWritingAid and Grammarly desktop apps work too — no setup needed.</li>
+    <li><strong>Collapsible Character Blocks</strong> - Every block on your character sheet can now be collapsed by clicking its header. Your collapse preferences are remembered separately for the Characters page and the Minipen sidebar, so you can keep different views for different workflows.</li>
+    <li><strong>Create New from Any Assignment Dropdown</strong> - When assigning a relationship, location, item, or chapter, you can now create a brand new one right from the dropdown. Start typing a name that doesn't exist yet and a "Create New..." option appears — one step instead of two.</li>
+    <li><strong>Right-Click Menus</strong> - Right-click any book in the Book Library for quick access to Edit, Duplicate, Export, Backup, Restore, or Delete. Right-click inside any rich text field for Cut, Copy, Paste, Insert @Mention, and Insert Image.</li>
+    <li><strong>Quick Add in Content Scanner</strong> - Manually add entities directly from scanner results. Hit "Quick Add," pick the type, type the name, and it'll be created and linked to the chapter when you apply. You can also link it as an alias to an existing entity.</li>
+    <li><strong>Content Scanner Now Detects Tags</strong> - The scanner now matches your Tags alongside Characters, Locations, and Items. Tag matches show up with their color so you can spot them at a glance.</li>
+    <li><strong>Cloud Storage Warning</strong> - If your book is stored inside a cloud-synced folder (OneDrive, Dropbox, Google Drive, or iCloud), Penpoint now warns you and points you toward the safer alternative: Secondary Backups.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Smarter Automatic Backups</strong> - Backups now only run when you've actually made changes. No more identical backups rotating out older ones while you're away.</li>
+    <li><strong>Better Backup Defaults</strong> - Backups now run every 20 minutes (was 30), keep 12 hourly snapshots (was 8), and retain 10 days of daily backups (was 30). These kick in automatically when you update.</li>
+    <li><strong>Export Now Includes All Pictures</strong> - The "Include Pictures" toggle now exports profile pictures for characters, locations, <em>and</em> items, plus any images you've embedded in your writing.</li>
+    <li><strong>Transparent Images Stay Transparent</strong> - Profile pictures and inline images with transparency (like character art saved as PNG) now keep their transparent backgrounds intact.</li>
+    <li><strong>Manuscript Export Wizard Polish</strong> - Scene break style names are now in plain English, the preview panel is larger, chapter rows are fully clickable, and the step counter adapts to your export path.</li>
+    <li><strong>Spellcheck Toggle</strong> - Turn off spellcheck underlines in Settings → Interface → Spellcheck. Handy if you write in a language your system doesn't support or use lots of invented names.</li>
+    <li><strong>Add Character Button Always Visible</strong> - The "Add Character" button now lives above the character list instead of inside it — no more scrolling to the top.</li>
+    <li><strong>Mini Penpoint Character Names</strong> - Character names in the sidebar were oversized at larger font sizes. Now properly scaled to fit.</li>
+    <li><strong>Editor Shortcuts</strong> - Indent/Outdent shortcuts now show Tab and Shift+Tab, which work on every keyboard layout.</li>
+    <li><strong>Announcement Link Button</strong> - Announcements with a link now show a copy-link button next to the action button.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Manuscript Content Disappearing</strong> - Fixed a rare bug where clicking above the chapter header could cause your writing to silently disappear during autosave. Multiple safety nets added.</li>
+    <li><strong>Going Offline No Longer Empties Your Project</strong> - Disconnecting from the internet no longer makes the app appear completely empty until you reconnect.</li>
+    <li><strong>Paragraph Breaks Lost During Editor Migration</strong> - Upgrading your book to the new editor no longer merges separate paragraphs into one block of text.</li>
+    <li><strong>Mini Penpoint Showing Raw Data</strong> - Descriptions in the Mini Penpoint sidebar now display properly with all your formatting intact instead of raw code.</li>
+    <li><strong>Searchbar Crash on Special Characters</strong> - Searching with smart quotes, em dashes, or other typographic characters no longer crashes the app.</li>
+    <li><strong>Manuscript Export Improvements</strong> - Exports now include an optional title page, proper horizontal rules, correct paragraph spacing in DOCX/PDF, and centered text stays centered.</li>
+    <li><strong>Pasting Across Scene Breaks</strong> - Copying text across a scene boundary no longer inserts horizontal lines and stray icons.</li>
+    <li><strong>Manuscript Remembers Your Place Per Book</strong> - Each book now independently tracks where you left off in the manuscript.</li>
+    <li><strong>Clicking Tags in Edit Mode</strong> - Tags are now clickable even while editing — click the name to jump to the Tags viewer.</li>
+    <li><strong>Startup Soft-Lock</strong> - Multiple popups at startup no longer stack on top of each other.</li>
+    <li><strong>Restore from File on Book Selection Screen</strong> - The "Restore from File" option now only appears when you're inside a book.</li>
+    <li><strong>Negative Word Counts in Community Stats</strong> - Community stats no longer show negative word counts after deleting text.</li>
+    <li><strong>Searchbar Duplicate Labels</strong> - Search results no longer show the field name twice.</li>
+    <li><strong>Manuscript "Scroll to End" on Short Scenes</strong> - Short scenes no longer appear blank when "Open Page At" is set to "End."</li>
+    <li><strong>Manuscript Word Count &amp; Hard Line Breaks</strong> - Shift+Enter line breaks now correctly count as word separators.</li>
+    <li><strong>Content Scanner Short Word Detection</strong> - The scanner no longer flags two-letter words as potential character names.</li>
+    <li><strong>Content Scanner Ellipsis False Positives</strong> - Words after ellipses in dialogue are no longer flagged as character names.</li>
+    <li><strong>Dark Mode Paste Highlighting Formatted Text</strong> - Formatted text from dark-themed editors no longer arrives highlighted.</li>
+    <li><strong>Back Button After Clicking Tags</strong> - The back button now returns you where you came from instead of landing on the Tags page.</li>
+    <li><strong>Manual Update Not Showing Changelog</strong> - Checking for updates now shows the full changelog instead of a generic message.</li>
+  </ul>
+</section>
+
+<section id="v1-0-19" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.19</h2>
+    <span class="changelog-version__date">February 22, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Find &amp; Replace in Manuscripts</strong> - Hit Ctrl+F to search your manuscript, or Ctrl+H to open Find &amp; Replace. Type your search, press Enter, and Penpoint highlights every match — scrolling you right to the current one. Navigate with the arrow buttons or Enter/Shift+Enter. Replace one at a time or all at once. Works at whatever scope you're viewing — a single scene, a whole chapter, or the full book. Select text before pressing Ctrl+F and it auto-searches your selection.</li>
+    <li><strong>Your Manuscripts in the Searchbar</strong> - The Glorious Searchbar now searches your prose too. Find a line of dialogue, a description, a character's inner monologue — if you wrote it, the searchbar finds it. Click a manuscript result and Penpoint takes you straight to that scene, scrolls to the matching text, and highlights it. Works from anywhere in the app, and from the Mini Penpoint sidebar while you're already writing.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>@ Mention Selection Persistence</strong> - If you use the arrow keys or mouse to highlight a result in the @ mention dropdown, that selection now sticks as you backspace or refine your search — as long as the result is still a match. No more losing your place every keystroke.</li>
+    <li><strong>Plain Text Import</strong> - You can now import .txt files into your manuscript — including exports from Google Docs. Penpoint detects paragraph breaks, chapter headings, and horizontal rules automatically, so your text arrives ready to work with.</li>
+    <li><strong>Manuscript Toolbar Adapts to Your Window</strong> - The formatting toolbar now intelligently adjusts as your window gets narrower. Instead of buttons piling up and becoming unusable, they tuck themselves into a "More" menu one group at a time — starting with the least-used tools. Everything stays accessible, nothing overlaps.</li>
+    <li><strong>Smarter Content Scanner</strong> - The Content Scanner no longer flags common words like "castle," "shadow," or "village" when they're used as regular words in your prose. If you have a location called "Shadow Keep," the scanner will still catch "Shadow Keep" — but it won't flag every time a character steps into a shadow.</li>
+    <li><strong>Deleted Blocks Dialog</strong> - The Deleted Blocks panel now shows the correct icon and name for every block type — including Relationships, Items, Locations, Chapters, and Character Arc blocks. Selecting one of these blocks also explains that your underlying data is safe and won't be lost if the block is permanently removed.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Copy-Paste from External Editors</strong> - Text copied from Ellipsus, VSCodium, and other dark-themed editors no longer arrives fully highlighted in yellow. Also fixed pasting from LibreOffice Writer bringing in the wrong font and ignoring your paragraph style setting.</li>
+    <li><strong>Manuscript Word Count</strong> - Fixed an issue where the word count in Manuscripts was slightly off with longer texts.</li>
+    <li><strong>Ctrl+Home / Ctrl+End Not Scrolling</strong> - Now correctly scrolls all the way to the top or bottom of your manuscript.</li>
+    <li><strong>DOCX Import Fixes</strong> - Blank lines are no longer stripped, Heading 1 and Heading 2 styles are properly recognized (including non-English versions of Word), and soft line breaks (Shift+Enter) are handled correctly.</li>
+    <li><strong>Word Count Tracking Accuracy</strong> - The Activity Tracker was counting your entire manuscript's word count as "new words" every time you left manuscript mode or closed the app. Your daily word counts and writing streaks now reflect only the words you actually typed.</li>
+    <li><strong>@ Mentions in Arcs Showing "..."</strong> - Using @ mentions in any Arc rich text field (plot details, arc descriptions, character state notes) would show "..." instead of the actual name in view mode. Your mentions now display correctly.</li>
+    <li><strong>Flowstate Timer Overlapping Toolbar</strong> - On smaller screens, starting Flowstate would expand the timer controls right on top of your formatting buttons. The timer now drops into its own compact panel below the toolbar — click the Flowstate button to show or hide it anytime during a session.</li>
+    <li><strong>Blank Book Template Selector</strong> - The template dropdown when creating a new book could appear completely empty, with no presets to choose from. Now it shows a loading state while templates are fetched, and if something goes wrong, you'll see a clear message instead of a blank dropdown.</li>
+    <li><strong>Text Field Cursor Jumping</strong> - Typing in a plain-text block on the character sheet could cause your cursor to jump around, undo words you'd already typed, or skip to the middle of a word. Fixed.</li>
+    <li><strong>Character Edit Mode Sticking</strong> - If you created a character and then navigated to other pages, returning to the Characters page would always reopen that character in Edit mode — even if you'd already switched to View mode. Now it stays in View mode like you'd expect.</li>
+    <li><strong>Content Scanner &amp; Single-Quote Dialogue</strong> - If you use single quotes for inner thoughts or dialogue, the scanner no longer flags common words like "With" and "As" as character names. Also fixed dropdown menus in the scanner not matching your theme on darker color schemes.</li>
+    <li><strong>Content Scanner Fixes</strong> - Fixed scrolling issues, alias capitalization being lost, names merging across dialogue boundaries, italic/bold text confusing detection, and inconsistent multi-word name detection. Also added small UX touches like a pencil icon on editable names and a note about English-language optimization.</li>
+    <li><strong>Activity Tracker Timing</strong> - Your "time writing" could keep ticking when you switched to another app via Task View, Mission Control, or Win+D. Now it reliably pauses the moment you leave Penpoint.</li>
+    <li><strong>Manuscript Outliner Fixes</strong> - Creating a new chapter from inside a folder now keeps it in that folder instead of dumping it at the root. Folder drag handles are now visible (not hidden until hover), and dragging chapters or folders is smoother with less flickering. You can also drag a chapter to the empty space below your outline to pull it out of a folder.</li>
+  </ul>
+</section>
+
+<section id="v1-0-18" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.18</h2>
+    <span class="changelog-version__date">February 20, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Manuscript Mode</strong> - The biggest feature in Penpoint's history. You can now write your entire manuscript inside Penpoint — right alongside your characters, locations, arcs, and worldbuilding. No more bouncing between apps. One place for your story, start to finish. <strong>The Writing Experience</strong> - A clean, distraction-free writing canvas with a fixed toolbar for formatting (bold, italic, underline, highlight, headings, lists, alignment, indentation). Canvas width is adjustable — Narrow, Standard, or Wide. Smart quotes and em dashes convert automatically as you type. <strong>Scenes &amp; Structure</strong> - Your chapters are made up of scenes — the building blocks of your manuscript. Split any scene in two with Ctrl+Shift+Enter, or start a new chapter with Ctrl+Shift+Alt+Enter. Delete a divider to merge scenes back together. Drag and drop scenes and chapters in the outline sidebar to restructure your story. Choose from six scene divider styles. <strong>Chapter Groups</strong> - Organize your chapters into groups like "Part I," "Book Two," or "Act Three." Groups are collapsible, renamable, and show up in the outline sidebar to keep long manuscripts manageable. <strong>Outline Sidebar</strong> - A full chapter-and-scene navigation panel on the left. Click a chapter to read the whole thing, click a scene to focus on just that piece, or click "Full Book" to see your entire manuscript. Right-click for quick actions. The sidebar is collapsible and resizable. <strong>Flowstate for Manuscripts</strong> - Flowstate is now built directly into the manuscript editor. Start a timed writing session (Ctrl+Shift+F), and your existing text locks behind you — you can only write forward. When the timer ends, everything unlocks for revision. <strong>Manuscript Import</strong> - Bring your existing work into Penpoint. Import from <strong>.docx</strong>, <strong>.epub</strong>, <strong>.md</strong>, and <strong>.txt</strong> files. Penpoint detects chapter boundaries automatically, lets you preview the structure, and choose which chapters to bring in. Formatting is preserved. <strong>Manuscript Export</strong> - Export your manuscript as <strong>.docx</strong>, <strong>.pdf</strong>, <strong>.rtf</strong>, or <strong>.txt</strong> — a single scene, a chapter, or the full book. Choose your scene break style for the exported file independently of how they look in the editor. <strong>Manuscript Versions</strong> - Save named snapshots of your entire manuscript at any point. Browse old versions in a read-only viewer. Up to 10 versions per book. <strong>Scene Drafts</strong> - Try a different direction for a scene without losing the original. Create multiple drafts per scene, give each a description, and restore any draft when you're ready. <strong>Autosave</strong> - Every change saves automatically as you type. A footer indicator shows save status in real time, and your word count updates live. <strong>Full Keyboard Support</strong> - Scene breaks, chapter breaks, Flowstate toggle, all formatting — everything has a keyboard shortcut. Ctrl+S still works too (for peace of mind).</li>
+    <li><strong>Unnumbered Chapters</strong> - Not every chapter needs to be "Chapter 5." Toggle any chapter's numbering on or off — perfect for prologues, epilogues, interludes, or title pages. Numbered chapters still count up sequentially while unnumbered ones display just their title.</li>
+    <li><strong>Chapter Subtitles</strong> - Chapters now have an optional subtitle field — perfect for taglines, epigraphs, or setting the mood. Shows up on chapter cards, the detail view, and in exports.</li>
+    <li><strong>Manuscript Zoom</strong> - A Google Docs-style zoom control in the toolbar — type a custom percentage, pick a preset, or Ctrl+Scroll to adjust on the fly. Ranges from 75% to 200%, remembered between sessions.</li>
+    <li><strong>Tags on Arcs</strong> - You can now tag your Story Arcs and Character Arcs just like everything else. Add tags like "Romance," "Betrayal," or "Redemption" to track thematic threads across your plot. Tagged arcs show up in the Tags Viewer too.</li>
+    <li><strong>Activity Tracker</strong> - See your daily word count, session time, writing streaks, and personal bests — all tracked locally on your device. A fun way to watch your progress build up over time.</li>
+    <li><strong>Community Stats</strong> - Opt in to share anonymous writing stats and see live community numbers — how many authors are writing today, total words composed, and more. You can inspect exactly what gets sent, disable it any time, and request your data be deleted from our servers.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Smarter Chapter Content Scanner</strong> - The scanner got a major intelligence upgrade. Possessives and contractions are handled properly — "Lightsong's" matches "Lightsong" instead of creating gibberish entries. Multi-word names with connecting words are recognized ("God of Colors," "Tower of the Sun"), and words that consistently appear together are suggested as one name rather than fragments.</li>
+    <li><strong>Scanner Ignore List</strong> - Tired of "River" showing up as a character suggestion every time you scan? Click the eye icon to ignore any word or phrase. Ignored items are tucked into a collapsible section at the bottom, saved per book and remembered across scans.</li>
+    <li><strong>Scanner Knows When You're Done</strong> - When working through your manuscript with "Scan Next Chapter," the scanner tracks where you started and tells you when every chapter has been scanned instead of looping back to the beginning.</li>
+    <li><strong>Import Now Accepts .txt Files</strong> - No more renaming <code>.txt</code> to <code>.md</code> before importing. Both formats are recognized, and empty folders now show a clear message instead of silently failing.</li>
+    <li><strong>Chapter Detail Page Polish</strong> - Better spacing, subtler buttons, and long titles now wrap properly. You can also set a subtitle when creating a new chapter.</li>
+    <li><strong>Delete Your Main Story Arc</strong> - You can now delete the main story arc to start fresh. A confirmation dialog makes it clear this wipes all your arcs and subplots.</li>
+    <li><strong>Cleaner Delete Book Dialog</strong> - Streamlined the confirmation: delete the book and its backups, type the name to confirm, done. No more confusing backup checkboxes.</li>
+  </ul>
+  <h3>Changed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Standalone Flowstate Retired</strong> - Flowstate has graduated from its own page into Manuscript Mode — right where you actually write. The standalone page has been removed from the sidebar. Everything works exactly the same way, just in a better home.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Chapter Reordering Could Fail</strong> - Moving or deleting chapters would sometimes silently fail if chapters were internally out of order. Now it works every time.</li>
+    <li><strong>Import &amp; Export Fixes</strong> - Multi-file exports can now be re-imported without errors, folder imports no longer choke on the summary file, importing characters with existing chapters no longer fails, and empty fields no longer export as "(empty)".</li>
+    <li><strong>Context Menu Hover Invisible on Slate Theme</strong> - Right-click menus and hover highlights now have proper contrast on the Slate theme.</li>
+    <li><strong>Invisible Field Borders on Dark Themes</strong> - Dropdowns, text inputs, and textareas now have proper borders on darker themes.</li>
+    <li><strong>"What's New" Release Notes Not Loading</strong> - Now loads and displays the actual release notes for your version.</li>
+    <li><strong>Startup Setting Wrong Inside a Book</strong> - The "Startup Behavior" setting now displays your actual choice no matter where you open Settings.</li>
+    <li><strong>Profile Picture Not Updating When Replaced</strong> - Dragging a new photo onto an existing profile picture now refreshes the thumbnail immediately.</li>
+    <li><strong>Notebook Back/Forward Confusion</strong> - Using back/forward navigation while a note was open could silently swap it with a different note. Now it closes the open note first.</li>
+    <li><strong>Book Cover Titles Too Spread Out</strong> - Long titles on book cover cards now sit tighter and scale down so the full title is always visible.</li>
+    <li><strong>Character Layout Fixes</strong> - Number blocks now accept 0 as a min/max limit, removing a Calculate block properly archives it, and the confusing Edit Mode toggle has been removed from the layout preview.</li>
+    <li><strong>Arc Anchor Dropdowns Overflowing</strong> - Start/End Anchor dropdowns for subplots now cap at a reasonable height and scroll properly.</li>
+    <li><strong>Tags Viewer Not Scrolling</strong> - The Tags Viewer page now scrolls when you have enough tagged content.</li>
+    <li><strong>Jerky Scrolling on Character List</strong> - Scrolling through characters in Standard or Cards view now moves smoothly regardless of profile pictures.</li>
+    <li><strong>Manuscript Outline Not Scrolling</strong> - The outline sidebar now scrolls for longer chapter lists.</li>
+    <li><strong>Scene Divider Flash When Switching Styles</strong> - Divider style changes are now immediate instead of briefly flashing in.</li>
+    <li><strong>Shift+Tab Escaping the Editor</strong> - Tab and Shift+Tab now stay inside the editor instead of wandering into the toolbar.</li>
+    <li><strong>"Show Chapter Numbers" Now Hides Header Too</strong> - Turning off chapter numbers now also hides the heading above your chapter title in the editor.</li>
+    <li><strong>Notes Spacing Growing on Reopen</strong> - Blank lines in notes and rich text fields now stay the size you intended instead of growing each time you reopen.</li>
+    <li><strong>@Mention Trailing Space</strong> - Inserting an @mention no longer leaves an undeletable space after it.</li>
+    <li><strong>Cursor Jumping After Em Dash</strong> - Typing <code>--</code> to create an em dash no longer sends your cursor to the start of the paragraph.</li>
+    <li><strong>Item Chapter Titles Showing Twice</strong> - Unnumbered chapters assigned to an item no longer display the title twice.</li>
+    <li><strong>Escape Closing Notes Behind @Mention Popup</strong> - Pressing Escape now closes just the @mention popup, not the note behind it.</li>
+    <li><strong>@Mention Popup Showing Two Highlighted Items</strong> - Keyboard and mouse navigation in the @mention popup no longer highlight two items at once.</li>
+    <li><strong>Item Importance Dropdown Kicking You Out of Edit Mode</strong> - Changing an item's importance would sometimes close edit mode. Now it stays put.</li>
+    <li><strong>Item Symbol Picker Running Off the Screen</strong> - The icon picker in Item Settings could extend past the bottom of the screen with no way to scroll. Now it stays contained and scrollable.</li>
+    <li><strong>Candle and Flame Symbols Were Identical</strong> - The "Candle" icon was just another flame. It now has its own distinct look.</li>
+    <li><strong>Location Default Icon Couldn't Be Restored</strong> - The default icon for new locations wasn't available in the icon picker, so once you changed it, you couldn't go back. Fixed — the default is now part of the picker.</li>
+    <li><strong>Location Icons Missing in Dropdowns</strong> - When assigning locations to characters or chapters, the dropdown showed a generic pin for every location instead of the icon you picked. Now your chosen icons show up everywhere.</li>
+  </ul>
+</section>
+
+<section id="v1-0-16" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.16</h2>
+    <span class="changelog-version__date">February 14, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Pre-Update Backups</strong> - Penpoint now automatically backs up every book in your library before installing an update. You'll see a progress bar as each book is backed up, then the update installs as usual. If anything ever goes wrong, you'll have a safe copy of all your work.</li>
+    <li><strong>Horror Template</strong> - A new book template for horror fiction — complete with Creature Types, Threat Levels, Psychological Profiles, dark atmospheric location types, and 14 genre-specific tags.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Chapter Editing Redesigned</strong> - Chapter title, number, description, and type are now edited directly on the preview panel — what you see is what you get. No more bouncing between panels.</li>
+    <li><strong>Faster Performance</strong> - The character sidebar now only loads cards you can see, and pages load on demand instead of all at once. Big casts and book opens should feel noticeably snappier.</li>
+    <li><strong>View/Edit Mode Consistency</strong> - Toggling between View and Edit mode is now seamless across Chapters, Characters, Locations, and Arcs. Text no longer shifts sideways, and spacing matches in both modes.</li>
+    <li><strong>Faster @Mentions</strong> - The @mention popup now feels nearly instant. After the first character, every keystroke filters locally — no more waiting for the database on each letter.</li>
+    <li><strong>Export Backup from Anywhere</strong> - The "Saved" dropdown now has an "Export Backup" button to save a copy of your book anywhere on your computer — no need to dig through Settings.</li>
+    <li><strong>Character Arc Search</strong> - The character picker in "Create Character Arc" is now a searchable text field. Just start typing to find who you're looking for.</li>
+    <li><strong>Short Text Blocks</strong> - Short text blocks now start at three lines and grow with your content instead of cutting it off.</li>
+    <li><strong>Backup Stats</strong> - The Storage &amp; Backup settings page now shows how many backups you have, their total size, and when the last one was created.</li>
+    <li><strong>Location Hierarchy Drag Feedback</strong> - When dragging a location in Edit Mode, its children now visually dim so you can tell where you can and can't drop.</li>
+    <li><strong>Selected Keyframe Clarity</strong> - The active keyframe on arc visualizers no longer shows a clickable cursor, making it clear which one is selected.</li>
+    <li><strong>Settings Rename</strong> - "Character Setup" is now "Character Sheet Setup" to better describe what it does.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Edits Lost When Switching to View Mode</strong> - If you typed something and immediately switched to View mode, your most recent changes could silently vanish. Data is now guaranteed to save before the switch happens.</li>
+    <li><strong>Book Library Scrolling</strong> - If you had enough books to fill the page, you couldn't scroll to reach the "Create New Book" button. Now it scrolls properly.</li>
+    <li><strong>Large Font Size Fixes</strong> - Modals, dropdown menus, the keyboard shortcuts popup, the Notebook "Show Archived" button, and the tag selector popup all now scale properly with larger font sizes.</li>
+    <li><strong>Notebook Page Fixes</strong> - Fixed scrolling with many notes, card shifting when opening/closing a note, raw markdown symbols in auto-generated titles, and note titles restoring themselves after clearing.</li>
+    <li><strong>URL Hyperlink Popup Fixes</strong> - Create/Edit buttons are now visible, clicking the URL field no longer closes the popup, and it won't get stuck under the screen on smaller displays.</li>
+    <li><strong>Trait Fixes</strong> - Selecting many trait options no longer spills outside block borders, the block picker in Cards view shows current trait names, and multi-select traits display correctly.</li>
+    <li><strong>Arc Fixes</strong> - The Arcs page now remembers which tab you were on, keyframe labels no longer hide behind neighbors, and re-clicking a selected keyframe no longer resets your selection.</li>
+    <li><strong>Block Config Dropdowns</strong> - Dropdowns in block settings had low contrast and cramped spacing on darker themes. They now use proper themed dropdowns that match the rest of the app.</li>
+    <li><strong>Chapter Detail Scrolling</strong> - You can now scroll the chapter detail page with your mouse anywhere over the layout, not just the right panel.</li>
+    <li><strong>Compact View Spacing</strong> - Long character names no longer clip or leave the importance label floating awkwardly. Names and importance flow together naturally.</li>
+    <li><strong>Reciprocal Relationship Toggle</strong> - Removing a reciprocal relationship now actually removes it, instead of just hiding it from view.</li>
+    <li><strong>Startup Behavior Not Sticking</strong> - Setting "Show homepage" would reset to "Resume last book" after restarting. Your preference now persists properly.</li>
+    <li><strong>Book Library Sort Preference</strong> - Your "Sort by" choice on the Book Library screen now sticks between sessions.</li>
+    <li><strong>Note Color Not Saving</strong> - Setting a color while creating a new note now saves immediately instead of disappearing when you close it.</li>
+    <li><strong>Note Modal Scrollbar</strong> - The scrollbar in the note editor now hugs the right edge instead of floating in the middle.</li>
+    <li><strong>Character List Click</strong> - Clicking the already-selected character no longer deselects them and leaves the details view empty.</li>
+    <li><strong>Arc Keyframe Crossfade</strong> - Switching between keyframes in view mode now smoothly crossfades the plot details panel.</li>
+    <li><strong>Block Configuration Escape Key</strong> - Pressing Escape now closes the block configuration panel instead of having to click "Done."</li>
+    <li><strong>Compendium Links</strong> - Links in the Compendium now show the hand cursor so they look clickable.</li>
+    <li><strong>@Mention Popup Fixes</strong> - Various fixes for a smoother, more reliable experience.</li>
+    <li><strong>Demo Book Item Types</strong> - A few items in the Sherlock Holmes demo book now correctly show their type labels.</li>
+    <li><strong>Keyboard Shortcuts Popup</strong> - Fixed the section labeled "Speedwrite" (now correctly says "Flowstate").</li>
+  </ul>
+</section>
+
+<section id="v1-0-15" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.15</h2>
+    <span class="changelog-version__date">February 11, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Chapter Assignments Lost After Updating</strong> - A database migration bug in v1.0.14 could wipe chapter assignments (which characters, items, and locations belong to which chapters) when opening a book after updating. If you were affected and made a backup before updating, restoring that backup will recover everything. This is now fixed — updating to v1.0.15 is safe.</li>
+    <li><strong>Arc Color Not Updating on the Curve</strong> - Changing a character arc's color would update the sidebar but not the actual fortune curve line. Now the whole thing updates instantly.</li>
+  </ul>
+</section>
+
+<section id="v1-0-14" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.14</h2>
+    <span class="changelog-version__date">February 11, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Tags in the Searchbar</strong> - You can now search for tags by name in the searchbar. Tags appear as a single result with a count of how many things they're applied to — click one and you'll jump straight to it in the Tags Viewer.</li>
+    <li><strong>Drag &amp; Drop Profile Pictures</strong> - You can now drag an image straight from your file browser onto any Character, Item, or Location profile picture while in edit mode — no file picker required.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Drag to Reorder Chapters</strong> - You can now drag and drop chapter cards on the Chapters page to rearrange their order. A vertical line shows exactly where the card will land. No more opening each chapter individually to move it around.</li>
+    <li><strong>Arcs in the Compendium</strong> - Story Arcs and Character Arcs now appear in the Compendium with their key plot points and fortune shifts. Click any entry to jump to the Arcs page, and they're included in markdown exports too.</li>
+    <li><strong>Sort &amp; Reorder Subtraits</strong> - Subtraits now have a sort dropdown (A-Z, Date Added, Most Used, Custom Order) and you can drag and drop them into any arrangement. Adding multiples is faster too — click +1 to add rows and save them all at once.</li>
+    <li><strong>Revamped Import Wizard</strong> - The Import wizard now walks you through choosing what to import, explains how templates work, and tells you exactly what to do before you pick your files.</li>
+    <li><strong>Smarter Character Templates</strong> - Exported character templates now include instructions at the top, show your book's actual tags and trait options, and use a cleaner layout that's easier for both you and AI tools to fill out. No more cryptic bracket syntax.</li>
+    <li><strong>Quick Backup Access</strong> - The "Saved" indicator in the top-right corner is now a dropdown menu with a "Backup Now" button, so you can manually backup your work anytime without leaving your current page. Also shows when your last backup was created.</li>
+    <li><strong>Add Reciprocal Relationships While Editing</strong> - When editing a relationship, you can now toggle on the reciprocal button to add the reverse direction without creating a new relationship. Perfect for turning one-way connections into bidirectional pairs.</li>
+    <li><strong>Search Title Highlighting</strong> - Search results now highlight matching text in the title as you type, so you can instantly see why each result matched your query.</li>
+    <li><strong>Better Color Palette</strong> - The color picker across Tags, Arcs, Books, and everywhere else now shows 12 bold, distinct colors instead of the washed-out pastels some themes were showing. Colors stay recognizable no matter which theme you're using.</li>
+    <li><strong>More Control When Duplicating Books</strong> - Characters are no longer forced when duplicating a book — you can now choose to exclude them just like any other data type.</li>
+    <li><strong>Chapter Detail Page Scrolling</strong> - The left side of the Chapter Detail page (title, navigation buttons, and chapter details) now stays fixed while only the right side scrolls.</li>
+    <li><strong>Escape Key No Longer Navigates Back</strong> - Removed the Escape key shortcut for "go back" navigation. Now Escape just closes modals and dropdowns like you'd expect, without unexpectedly jumping you to a different page.</li>
+    <li><strong>Character Arcs Select All</strong> - Added button to view all character fortune curves simultaneously with one click, or deselect them all just as easily.</li>
+    <li><strong>Settings Pages Polish</strong> - Settings now fade in smoothly when you switch between pages, and we've organized them into two clear columns (Book Settings and Global Settings) so you can find what you need faster.</li>
+    <li><strong>Relationship Arrows Flipped</strong> - Arrow direction in relationships now points away from the character name toward the relationship type, making it clearer which direction the relationship flows.</li>
+    <li><strong>Item Visual Improvements</strong> - Profile pictures in Item details are now larger (matching Locations), cards show up to 3 lines of the title with type icons in the bottom corner, and the grid stays readable on all screens with a 4-column max on wide displays.</li>
+    <li><strong>Chapter Grid on Smaller Screens</strong> - The Chapters page would collapse to a single oversized column when your window got narrow. Now the chapter cards scale down gracefully so you always see at least two side by side.</li>
+    <li><strong>Divider Block Labels</strong> - "Color Intensity" is now just "Intensity," and removed the redundant "Divider Settings" heading.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Crash After Updating on Slower Machines</strong> - Penpoint could crash immediately after installing an update, especially on older or slower hardware. If you were one of the unlucky ones who had to keep retrying before Penpoint would open — this one's for you.</li>
+    <li><strong>Crash When Importing Character Templates</strong> - Importing a markdown file with a Tags section could crash the app entirely. Fixed, along with several other edge cases that could trip up the importer.</li>
+    <li><strong>Crash When Viewing Items in Chapters</strong> - If an item used certain icons for its type, opening a chapter that included that item would crash the app. All item icons now display correctly in chapter views.</li>
+    <li><strong>Search Crash with Non-English Characters</strong> - Searching for certain letter combinations using characters like ö, ä, or other accented letters could crash the app. Your Finnish murder mysteries are safe to search now.</li>
+    <li><strong>Flowstate Text Freezing on Scroll</strong> - Writing enough text in Flowstate could cause the visible text to freeze in place while your cursor kept moving, especially on smaller screens. Scrolling and highlighting would also behave strangely. Fixed.</li>
+    <li><strong>Back &amp; Forward Buttons Actually Work Now</strong> - Back and forward navigation buttons now track every page you visit, including sidebar pages like Compendium, Timeline, and Notebook — not just pages you opened by clicking a specific item.</li>
+    <li><strong>Text Reverting in Edit Fields</strong> - Fixed text reverting to old values when clicking away from chapter titles, chapter descriptions, and location names.</li>
+    <li><strong>Tag Merging Losing Assignments</strong> - Merging tags now preserves assignments across all entity types, not just characters. Previously, tags on locations, items, chapters, notes, and arc plot points were silently dropped.</li>
+    <li><strong>Relationship Block Fixes</strong> - Fixed Save button not working when editing relationships, deleting reciprocal pairs now removes both directions at once, and editing bidirectional relationships now lets you update both sides in one go.</li>
+    <li><strong>Update "Failed" on Mac &amp; Linux</strong> - After downloading an update, clicking "Restart to Install" would show a false "Download Failed" error on Mac and Linux — even though the update actually installed fine. Now you'll see a friendly "Update installed, please close and restart Penpoint" message instead.</li>
+    <li><strong>Click Overlay Arcs to Switch</strong> - When viewing multiple character fortune curves, you can now click directly on a background arc line to make it the primary arc. No more hunting through the sidebar.</li>
+    <li><strong>Ctrl+E on the Arcs Page</strong> - The Ctrl+E shortcut for toggling edit mode now works on the Arcs page, just like it does everywhere else.</li>
+    <li><strong>New Keyframe Auto-Selected</strong> - Adding a keyframe now automatically selects it, so you can start editing it right away instead of accidentally changing the wrong one.</li>
+    <li><strong>Invisible Dropdown Text on Dark Themes</strong> - Several dropdowns across the app (block settings, character traits, manuscript export) had white text on white backgrounds, making them unreadable on darker themes like Slate. They now follow your chosen theme properly.</li>
+    <li><strong>Trait Names Not Updating</strong> - Renaming a trait in Settings now updates its name on all character sheets immediately instead of keeping the old name.</li>
+    <li><strong>Arcs Tutorial Breaking on Character Arcs Tab</strong> - Starting the Arcs tutorial while viewing Character Arcs would skip through steps and show a "targets not found" error. The tutorial now resets to the Story Arcs tab before starting.</li>
+    <li><strong>Larger Font Sizes Overlapping UI</strong> - Buttons and filter sidebars now scale properly with larger font size settings instead of overlapping or spilling beyond their edges.</li>
+    <li><strong>Backslash Escape Character</strong> - Using <code>\</code> to escape markdown characters like <code>\_</code> would double the backslash in view mode instead of showing the literal character. Escapes now work as expected.</li>
+    <li><strong>Empty Traits Cluttering Exports</strong> - Exporting characters would include every trait definition even if it was blank. Now only traits with actual values are exported.</li>
+    <li><strong>Crash Logs Going Missing</strong> - Crash logs are now saved alongside your book files where the log exporter can find them, instead of a hidden system folder.</li>
+    <li><strong>Modals for Smaller Screens</strong> - All modals now fit properly on smaller screens, with content scrolling instead of extending beyond screen edges.</li>
+    <li><strong>Chapter Edit/View Toggle Glitch</strong> - Switching between edit and view mode on a chapter could briefly flash content outside the page. The transition is now clean.</li>
+    <li><strong>Backup Interval Settings</strong> - Fixed backup intervals not saving when set to values other than 15, 30, or 60 minutes.</li>
+    <li><strong>Item Importance</strong> - Fixed a bug where Item Importance wouldn't update unless you switched between edit and view mode.</li>
+    <li><strong>Cursor Jumping in Notes</strong> - Fixed cursor jumping from the note body to the title field while typing.</li>
+    <li><strong>User Guide Header at Large Font Sizes</strong> - The "User Guide" page title no longer gets squished into two lines when you're using larger fonts.</li>
+    <li><strong>Smarter Tutorials</strong> - Tutorials now skip themselves in empty books instead of showing blank screens.</li>
+    <li><strong>Sidebar Expand/Collapse Buttons</strong> - Fixed click area not matching the hover highlight on the divider arrows.</li>
+    <li><strong>Item Panel Width</strong> - Fixed panel shrinking on smaller screens.</li>
+    <li><strong>Minimum Window Size</strong> - Penpoint now enforces a minimum window size so the layout won't break if you shrink the window too small.</li>
+  </ul>
+</section>
+
+<section id="v1-0-13" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.13</h2>
+    <span class="changelog-version__date">February 6, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Automatic Backup System</strong> - Your work is now protected by automatic backups that run quietly in the background. Penpoint saves a backup every time you open a book, and optionally when you close it. You can also set it to save backups while you're writing (every 5-60 minutes). Recent backups are kept by the hour, older ones by the day — so you always have the version you need without cluttering your computer. Want extra protection? Save a second copy of your backups to Dropbox, OneDrive, or any cloud folder. Configure everything in Settings → Advanced, and rest easy knowing your stories are safe.</li>
+    <li><strong>Profile Pictures for Items and Locations</strong> - Now you can add pictures to items and locations just like characters! If you switch to Standard or Card view, those pictures show up in the list too.</li>
+    <li><strong>App Stability &amp; Auto-Recovery</strong> - If something goes wrong on a page, Penpoint now catches it before the whole app goes down. You'll see a friendly recovery screen with a "Copy Error" button to send details to support. We also log crashes and usage more accurately and make it easier to send your logs (preferably on our discord!)</li>
+    <li><strong>Restart Onboarding</strong> - Want to revisit the tutorial? Head to Settings → Advanced and click "Restart Onboarding." Your books and data stay safe.</li>
+    <li><strong>Self-Healing Book Library</strong> - Your books are now protected against data corruption. If Penpoint's internal book list ever gets damaged or goes missing, the app automatically scans your book folders and recovers everything — names, colors, descriptions, all of it. No more lost work from unexpected crashes or file issues.</li>
+    <li><strong>A Proper Goodbye</strong> - When you close Penpoint, it now smoothly exits with an elegant fade to black, confirming your work is safely backed up before the curtain falls. Until next time!</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Multiselect Traits</strong> - Trait dropdowns now support selecting multiple options. Your characters can be Handsome, Charming, <em>and</em> Mysterious — no more picking just one.</li>
+    <li><strong>Duplicate Book Now Copies Everything</strong> - Duplicating a book now includes Arcs, Traits, Tags, and Type settings. Perfect for turning a standalone into a series while keeping all your world-building intact.</li>
+    <li><strong>Character Layout Blocks</strong> - New blocks appear at the top of your layout instead of the bottom — no more dragging them all the way up. The block list also auto-scrolls when you drag near the edges, and blocks with custom names (like "Favorite Foods") now show that name prominently so you can tell them apart at a glance.</li>
+    <li><strong>Smarter Book Relocation</strong> - Moving your book storage to a new folder (like a cloud drive) is now a true move — all your data transfers completely, including profile pictures, and nothing gets left behind.</li>
+    <li><strong>Traits Settings Redesign</strong> - Traits now appear as compact cards in a grid instead of a tall accordion list. Click any trait to see its options and a live preview of how the dropdown will look on your character sheets.</li>
+    <li><strong>Profile Pictures in Lists</strong> - Character profile pictures now show up in Standard and Card view modes, making it easier to identify characters at a glance.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Item Type Icons Crashing the App</strong> - Certain Item Type icons (like Glasses, Dice, or Rocket) would crash the app. Now you can use the sunglasses icon in peace.</li>
+    <li><strong>Notes with Links Showing Blank</strong> - Notes containing web links would appear blank when reopened. Existing affected notes will self-heal.</li>
+    <li><strong>Duplicate Characters on Creation</strong> - Clicking "Add Character" could occasionally create two copies. You now always get exactly one.</li>
+    <li><strong>Character Layout Preview Crash</strong> - Toggling View/Edit mode in Character Layout settings no longer crashes.</li>
+    <li><strong>Profile Images Survive Book Moves</strong> - Moving your book to a new folder no longer breaks profile image links.</li>
+    <li><strong>Flowstate Content Stuck Between Books</strong> - Switching books could leave Flowstate content from your previous book onscreen. Properly wiped now.</li>
+    <li><strong>Tutorials Overhaul</strong> - Fixed tutorials pointing at wrong buttons, freezing between steps, and skipping slides on restart. A "Step X/Y" indicator now shows progress.</li>
+    <li><strong>Arcs Page Fixes</strong> - Fixed the sidebar misaligning on startup, the color picker hiding behind the toolbar, and slow tutorial transitions.</li>
+    <li><strong>First Location Creation</strong> - Creating your first location no longer shoves the input into the bottom corner.</li>
+    <li><strong>Delete Item Modal</strong> - The delete confirmation no longer stays open after deleting an item.</li>
+    <li><strong>Onboarding Book Creation</strong> - Books created during onboarding no longer fail to save.</li>
+    <li><strong>macOS App Icon</strong> - Fixed the app icon appearing garbled on newer Macs running Sequoia.</li>
+    <li><strong>Cards View Block Selection</strong> - Cards view now remembers which data block you selected.</li>
+    <li><strong>Type Names Losing Fast Edits</strong> - Typing quickly in Type names no longer loses your changes.</li>
+    <li><strong>Navigation Sidebar Scaling</strong> - The sidebar now scales to fit on smaller screens.</li>
+    <li><strong>Relationship Block Overlap</strong> - Fixed modifier icons overlapping the view mode switch.</li>
+    <li><strong>Intermittent Lag When Adding or Viewing Entities</strong> - Reduced occasional 1-2 second delays when creating characters/items/locations or toggling between view and edit mode.</li>
+  </ul>
+</section>
+
+<section id="v1-0-12" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.12</h2>
+    <span class="changelog-version__date">February 1, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Arcs — Story Structure &amp; Character Journeys</strong> - The biggest feature yet! The brand new Arcs page gives you a visual, interactive way to map out your entire narrative. There are two modes: <strong>Story Arcs</strong> let you plot your main storyline and subplots as sweeping arc curves. Add keyframes to mark major beats — Inciting Incident, Midpoint, Climax, and more — and watch your plot structure take shape. Subplots nest under your main arc and anchor to parent keyframes, so you can see exactly how your secondary storylines weave through the main plot. Hover over any arc in the sidebar to create subplots, drag to reorder keyframes, and click any diamond on the curve to jump to its details. <strong>Character Arcs</strong> track a character's emotional fortune over time as a rising-and-falling curve. Each keyframe gets a fortune modifier (Major Rise, Minor Fall, Reset, etc.) that shapes the curve, so you can literally see the highs and lows of your character's journey. Pick from arc templates like "Hero's Journey" or "Redemption" to get started, then customize from there. You can overlay multiple characters' arcs on the same visualizer to compare their emotional trajectories side by side — perfect for spotting where one character's triumph lines up with another's downfall. <strong>It shows up everywhere, too.</strong> The Chapters page now features a mini arc visualizer showing which story keyframes are assigned to each chapter. And on the Character Layout page, a new Character Arc block displays a compact fortune curve right on the character sheet, with both a visual curve view and a list view. Click any keyframe to jump straight to the full Arcs page. The new Arcs system are also indexed and searchable in the Glorious Searchbar so your Plot Points and Arc details can be found with a simple search. Check out the <strong>Help Guide</strong> for detailed walkthroughs of Story Arcs and Character Arcs, or run the built-in tutorial from the Help menu to get a guided tour.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Sherlock Demo Book Auto-Updates</strong> - When we add new features, the Sherlock Holmes demo book now automatically refreshes with new content so you can explore everything right away. If you deleted the demo book, it'll reappear when there's something new to see.</li>
+    <li><strong>Wider Character Sheets</strong> - Character detail panels now have more room to breathe on wider screens, so you're not staring at massive empty margins on either side.</li>
+    <li><strong>Character Layout Gear Icons</strong> - Added little gear icons to the layout blocks in the Settings--Character Layout page to make it easier to edit configurable settings for each block.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Character Name Input Jumping</strong> - Fixed an issue where the character name field would reset or delete your typing when editing an existing character. The cursor no longer jumps around mid-keystroke.</li>
+    <li><strong>Location Type/Importance Dropdowns</strong> - Fixed dropdown menus showing unnecessary scrollbars despite having plenty of room. "Country/Region" no longer gets cropped to "Country/Reg".</li>
+  </ul>
+</section>
+
+<section id="v1-0-11" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.11</h2>
+    <span class="changelog-version__date">January 13, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Character Profile Pictures</strong> - Give your characters a face! Add profile pictures from the Character page in edit mode — just click the portrait frame to upload an image, then crop it to perfection. In view mode, click the picture to see a beautiful full-size lightbox. When you export, you can choose to include profile pictures alongside your character data.</li>
+    <li><strong>Item Chapter Assignments</strong> - Items now show which chapters they appear in. You can also assign items to chapters directly from the Item page — no need to navigate to each chapter individually.</li>
+    <li><strong>New User Onboarding &amp; Tutorials</strong> - The New User experience is now complete with fancy starting animations and a proper flow. All major pages in the app now have complete tutorials to help guide you through the features and functions of the app.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Smarter Item Filters</strong> - Filter dropdowns on the Items page now grey out options that wouldn't return any results based on your other active filters. No more clicking through empty combinations to find what you're looking for.</li>
+    <li><strong>Sticky Detail Panels</strong> - The detail panel now stays put when scrolling through items or locations, so you can always see what you're looking at.</li>
+    <li><strong>Consolidated Types Settings</strong> - Item Types and Location Types are now on the same settings page, side by side. Less clicking around, easier to manage both at once.</li>
+    <li><strong>Clickable Chapter Assignments</strong> - Items and Locations listed on a chapter's detail page are now clickable links, just like Characters and POV. Click any assigned element to jump straight to its detail page.</li>
+    <li><strong>Faster Adding</strong> - Adding owners to items, and adding characters/locations/items to chapters now takes fewer clicks. The dropdown opens immediately and your selection is applied instantly — no extra confirmation button needed.</li>
+    <li><strong>Trait Settings Shortcut</strong> - Trait dropdowns in the Character Page now include a "Configure Traits" link at the bottom for quick access to customizing your trait options.</li>
+    <li><strong>Smart Dashes</strong> - Type <code>--</code> for an en dash (–) or <code>---</code> for an em dash (—) in Flowstate and all rich text fields. No more hunting for special characters.</li>
+    <li><strong>Clickable Tags</strong> - Tags are now clickable! When viewing any character, item, location, chapter, or note card, click on a tag to jump straight to the Tags page with that tag already selected. It's a faster way to find everything connected by a common theme — perfect for when you're thinking "show me everyone tagged 'villain'" without having to navigate and search manually.</li>
+    <li><strong>Window Memory</strong> - Penpoint now remembers exactly where you left it. Resize the window, move it to your second monitor, maximize it — next time you open the app, it'll be right where you want it. First-time users get a nicely sized window that adapts to their screen instead of a one-size-fits-all default.</li>
+    <li><strong>Prettier Search Dropdowns</strong> - Those autocomplete dropdowns when assigning items, characters, locations, and chapters now look a whole lot nicer. Each result shows an icon matching its type (characters get a little person, items show their archetype icon, etc.), plus a clear label underneath so you always know what you're picking. Search text gets highlighted as you type, matching the style of @mentions. No more squinting at a wall of plain text wondering "is this a sword or a character named Sword?"</li>
+    <li><strong>Browse Before You Search</strong> - When adding locations, items, chapters, or relationships to a character, the dropdown now shows your entire list sorted alphabetically — no typing required. Forgot the exact name of that tavern? Just scroll through and find it. Once you start typing, the list smartly narrows down to the top matches. It's the best of both worlds: browse when you're unsure, search when you know what you want.</li>
+    <li><strong>Richer Tags Cards</strong> - The Tags Viewer now has much better card displays! More information, visual formatting like Notes, and the @mention links are now preserved.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Relationship Map Overlapping Cards</strong> - In grouped layout, character cards could overlap each other when communities were placed close together. Now there's proper breathing room between everyone.</li>
+    <li><strong>Relationship Map Bubble Colors</strong> - Community bubbles were using too-similar colors (three shades of brown in a row, really?). Now adjacent communities get visually distinct colors.</li>
+    <li><strong>Locations Add Button Layout Shift</strong> - The "Add New Location" button no longer vanishes when you're creating a location. It now fades to half opacity while the entry form is visible, keeping everything in place.</li>
+    <li><strong>Flowstate Curly Quotes</strong> - Fixed quote marks sometimes facing the wrong direction when starting dialogue.</li>
+    <li><strong>Flowstate Autoscroll</strong> - The editor now automatically scrolls as you type, keeping your cursor comfortably visible instead of letting it disappear off the bottom of the screen. No more manual scrolling mid-sentence.</li>
+    <li><strong>Flowstate Cursor Alignment</strong> - Fixed a bug where the cursor would occasionally drift below the text it was supposed to be next to.</li>
+    <li><strong>New Items Open in Edit Mode</strong> - When you create a new Item, it now opens straight into Edit mode so you can start filling in details immediately. No more extra click to switch from View to Edit. Characters already did this — now Items do too.</li>
+    <li><strong>Cramped Dropdown Menus in Edit Mode</strong> - When assigning relationships, items, locations, or chapters to a character, the search dropdown was squished to fit the tiny input box. "Captain William Dangerfield the Third" doesn't like being truncated. The dropdown now has room to breathe, showing full names without cutting them off mid-syllable.</li>
+    <li><strong>Item Links from Characters</strong> - Clicking an item on a character's page would take you to the Items tab but show the wrong item — whatever you had open last time. Now it correctly opens the item you actually clicked.</li>
+  </ul>
+</section>
+
+<section id="v1-0-10" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.10</h2>
+    <span class="changelog-version__date">January 2, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Flowstate Writing Mode</strong> - Ever find yourself stuck in an endless loop of editing instead of writing? Flowstate is your escape. It's a distraction-free writing space with a twist: once you finish a sentence, it locks behind you. No going back, no second-guessing — just forward momentum. A built-in timer alternates between focused writing sprints and editing breaks, so you get the best of both worlds. When the timer runs, your words lock in; when it pauses, you're free to polish. Check out the Help Guide for the full rundown on how to use Flowstate.</li>
+    <li><strong>More Export Formats</strong> - The Export Wizard now supports way more than just markdown! Export your book data to Word documents (.docx), PDFs, Rich Text (.rtf), or plain text (.txt). Perfect for sharing with editors, printing, or importing into your favorite word processor. All formats work with both single-file and multi-file export modes, and we've updated the export status bar to let you know what the exact progress is of your export.</li>
+    <li><strong>Quick Page Navigation</strong> - Jump to any page instantly with Ctrl+1 through Ctrl+9 (Cmd on Mac). Characters is 1, Items is 2, all the way to Compendium at 9. No more clicking through the sidebar when you're in the zone — just hit a number and you're there. These shortcuts work with your back/forward navigation too, so you can always retrace your steps.</li>
+    <li><strong>Reset Demo Book</strong> - Made a mess of the Sherlock Holmes demo while exploring? You can now reset it to its original state from the book selector's options menu (the three dots). Your renamed or duplicated copies of the demo stay safe — only the original gets refreshed with the latest content.</li>
+    <li><strong>Keyboard Shortcuts Reference</strong> - Ever wonder what Ctrl+E does? Now you can find out! Click the Help icon (?) in the top-right corner and select "Keyboard Shortcuts" to see every shortcut in Penpoint, organized by category. The modal automatically shows the right keys for your system — ⌘ for Mac users, Ctrl for everyone else.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>@Mentions in Exports</strong> - When you export your book to markdown, @mentions are now converted to readable names instead of cryptic links. The export preview now includes a friendly note letting you know this will happen.</li>
+    <li><strong>Glorious Searchbar Fixes</strong> - Implemented a smarter search algorithm that can handle most English morphological variations (plurals, verb tenses, -ing/-ed/-tion suffixes) so now you can more intuitively search through your book.</li>
+    <li><strong>Better Color Pallette</strong> - Fixed many of the color themes to have more aesthetically pleasing colors that better fit the theme (and your eyeballs)</li>
+    <li><strong>Notebook Card Font Sizes</strong> - In the notebook, individual notes when in their small 'card' format used font sizes that made everything overwhelming. We're now using smaller, more preview-like fonts that play nice with each other.</li>
+    <li><strong>Book Names Now Expanded</strong> - Before you couldn't put in symbols like " - : ; and more into your books. Now you can. So you can finally write that book, Cat Burger II: "Even Burgier". And if you write a symobol we don't allow, Penpoint will now alert you instead of failing silently in the background.</li>
+    <li><strong>Note Title Length Limits</strong> - Note titles now have a 50 character limit to match other entity names. This prevents export hiccups where overly long titles could cause filesystem issues. Your novel-length note titles will be gently trimmed during export.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>@Mentions in Notebook Cards</strong> - Note preview cards were showing raw gobbledygook like <code><a href="cm://character/abc123" target="_blank" rel="noopener">@</a></code> instead of actual character names. Now @mentions display properly as bold text with the real name, making your note previews actually readable.</li>
+    <li><strong>"Untitled" Notes in Export</strong> - The export wizard was showing some notes as "(Untitled)" even when they clearly had content. If your note doesn't have a title, we now use the first line of content as the label — just like the notebook cards do.</li>
+    <li><strong>@Mentions in Multiple Text Fields</strong> - If you had multiple rich text boxes on the same page (like Bio and Notes on a character), @mentions would only work in the first one. Now they work everywhere, so @mention away.</li>
+    <li><strong>Clicking Note @Mentions</strong> - Clicking an @mention link to a note in view mode would show "Unable to navigate to note" instead of actually opening the note. Fixed!</li>
+    <li><strong>Export Spacing</strong> - Exported markdown files had missing line breaks between certain fields, making the output harder to read. We've tidied up the formatting so everything breathes a little better.</li>
+    <li><strong>Back Button Loop When Following Links</strong> - Clicking a link (like a note reference from a character page) and then using the back button would get you stuck in an endless loop of opening and closing the same note. Now the back button takes you back where you came from, as it should.</li>
+    <li><strong>Relationship Map Intro Animation</strong> - We were doing too much precomputing during the intro animation. We've trimmed things up a bit so it should be silky smooth.</li>
+    <li><strong>Relationship Map importance filter</strong> - Character importance now filters correctly</li>
+    <li><strong>Timeline Bugfix</strong> - Fixed an issue in the timeline where applying certain filters would remove the timeline interface entirely (whoops!)</li>
+    <li><strong>Access searchbar when editing text</strong> - The Glorious Searchbar can now be used when editing in the Rich Text boxes instead of inserting hyperlinks. Search while editing, nice!</li>
+    <li><strong>Fixed book color choices</strong> - Books would fail to be created if you picked certain colors. That's silly, so we fixed it.</li>
+    <li><strong>Fixed issues with duplicating books</strong> - Fixed issues where duplicating books weren't always appearing in the book selector screen. Also, we don't know why you would want to do it, but you can now duplicate the Adventures of Sherlock Holmes demo book without it failing. This one is for you, Sir Arthur.</li>
+  </ul>
+</section>
+
+<section id="v1-0-9" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.9</h2>
+    <span class="changelog-version__date">December 6, 2025</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Export from Book Selector</strong> - Export any book to markdown directly from the book selection screen without opening it; right-click a book and select "Export" to launch the export wizard</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Relationship Map Overhaul</strong> - Completely revamped the relationship map with smarter community detection that groups closely connected characters together, new sort options (by name, importance, or connection count), improved filter dropdowns that no longer cause layout shifts, and significantly faster rendering performance when navigating between characters</li>
+    <li><strong>Smarter Phrase Search</strong> - The Glorious Searchbar now understands when you're searching for phrases! Multi-word searches like "devoted to his wife" find exact phrase matches first, showing you the precise context where those words appear together rather than scattered occurrences</li>
+    <li><strong>Progressive Search Highlighting</strong> - Search results now highlight your query as you type, growing the highlight as you complete words; feels like the search is reading your mind and already knows what you're looking for</li>
+    <li><strong>Accurate Search Snippets</strong> - Search result snippets now always show content from the field where your match was actually found; no more seeing a "Notes" label but Bio content in the preview</li>
+    <li><strong>Faster startup</strong> - Optimized announcement system to prevent duplicate server requests during app launch</li>
+    <li><strong>Smoother Relationship Map loading</strong> - Eliminated stuttering during the initial animation when first opening the Relationship Map</li>
+    <li><strong>Faster text editing</strong> - Eliminated typing lag when editing characters, locations, or chapters with lots of content; search index updates now happen in the background instead of blocking each keystroke</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Trait option deletion</strong> - Fixed bug where deleting trait options in Traits Manager would show success message but options would remain; options now properly delete from the database</li>
+    <li><strong>Search with punctuation</strong> - Fixed search errors when queries contain periods, commas, or other punctuation; searching for "Dr. Watson" or "Holmes, Sherlock" now works correctly</li>
+    <li><strong>Search result stability</strong> - Fixed visual flickering in search results when typing; results no longer jump or resize as you add spaces between words</li>
+    <li><strong>Book selector state on refresh</strong> - Fixed issue where refreshing or restarting the app after returning to the book selector would incorrectly reopen the last book; app now correctly stays on the book selector when that was your last location</li>
+    <li><strong>Chapter details live updates</strong> - Fixed issue where adding or removing characters, locations, items, or POV selections in chapter edit mode wouldn't show in the UI until page refresh; changes now appear immediately</li>
+    <li><strong>Announcements bell dropdown</strong> - "View All Announcements" button now correctly navigates to Settings → Announcements</li>
+    <li><strong>Announcements cache handling</strong> - Fixed error that could occur on startup if the local announcements cache was empty or corrupted</li>
+    <li><strong>Note search results</strong> - Clicking on a note in search results now navigates directly to that note instead of just opening the Notebook page</li>
+  </ul>
+</section>
+
+<section id="v1-0-8" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.8</h2>
+    <span class="changelog-version__date">November 20, 2025</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Help &amp; User Guide</strong> - New Help menu in the top-right corner provides access to 25+ tutorial articles covering every feature in Penpoint; includes visual demos, hierarchical navigation, full-text search, and clickable links that take you directly to relevant pages and settings</li>
+    <li><strong>Sticky Paragraph Text Box Toolbars</strong> - Rich text toolbars now stay visible while scrolling through long character bios, location descriptions, and other text fields in edit mode, making formatting options always accessible without scrolling back to the top</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Chapter reorder controls</strong> - Changed chapter number controls from up/down arrows to left/right arrows (← →) that match the Previous/Next chapter navigation pattern; left arrow moves to earlier chapter, right arrow moves to later chapter, making reordering more intuitive</li>
+    <li><strong>Timeline zoom animation</strong> - Smooth, fluid zoom transitions with bell-curve easing; eliminated stuttering and background element lag when zooming in/out on the timeline</li>
+    <li><strong>Timeline text colors</strong> - Character names in timeline bars now use consistent color scheme matching dropdown menus for better visual harmony</li>
+  </ul>
+  <h3>Changed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Smoother Navigation Sidebar</strong> - Sidebar now smoothly expands and collapses with animations; content area gracefully shifts to make room when pinning/unpinning; faster, more responsive collapse timing when mouse leaves</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Windows installer persistence</strong> - Fixed issue where Penpoint would disappear from Windows Start Menu and "Apps &amp; Features" after restarting your computer; app now properly persists across reboots</li>
+    <li><strong>Chapter reordering</strong> - Fixed chapter numbers not updating in real-time when using the reorder buttons; chapter position now updates immediately in the UI without requiring a page refresh</li>
+    <li>Fixed formatting issue that could sometimes appear in rich text boxes</li>
+    <li>Fixed keyboard shortcuts (Ctrl/Cmd+Alt+0/1/2/3) for heading styles now preserve highlighted text instead of deleting it</li>
+    <li>Fixed Ctrl+V paste creating hyperlinks instead of pasting text when text is selected in rich text fields</li>
+    <li>Fixed page scrolling back to top when creating new items in character sheets; you now stay at the Items section after adding an item</li>
+    <li>Hyperlinks now always show underlines for better visibility in both view and edit modes</li>
+    <li>Removed brief flash of "Loading chapter..." and "Chapter not found" messages when opening chapters from the grid</li>
+    <li>Optimized layouts between view and edit mode for smoother transitions</li>
+  </ul>
+</section>
+
+<section id="v1-0-7" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.7</h2>
+    <span class="changelog-version__date">November 6, 2025</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Smooth Page Transitions</strong> - Pages now transition smoothly when navigating between Characters, Items, Locations, Chapters, and Notes, with content fully loaded before fading in. Extra flair for Notes that will zoom in and out when clicked!</li>
+    <li><strong>Relationship Map Customization</strong> - Personalize your relationship map with adjustable line arc strength, toggleable labels, and three color saturation modes (Grayscale, Normal, Full); includes improved hover behavior in the detail panel</li>
+    <li><strong>Items View Modes</strong> - Choose between Cards (multi-column grid), Compact (dense list), or Standard (comfortable list) layouts via the Settings gear icon; view preference persists across sessions</li>
+    <li><strong>Global Create Shortcut (Ctrl+N)</strong> - Quickly create new items on any page with Ctrl+N (Cmd+N on Mac)</li>
+    <li><strong>What's New Button</strong> - Review the complete changelog for your current version anytime from Settings → About</li>
+    <li><strong>Smooth Theme Transitions</strong> - Theme colors now fade smoothly when switching themes</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Enhanced Tag Color Palette</strong> - Expanded from 8 to 12 colors with 50%+ increased saturation for better visual distinction</li>
+    <li><strong>Locations expand/collapse animations</strong> - Added Expand All / Collapse All button with smooth slide animations</li>
+    <li><strong>Detail panel improvements</strong> - Consistent Edit/View toggles, removed redundant close buttons, improved Items panel space (63%/37% split)</li>
+    <li><strong>"Add New" buttons</strong> - Now appear as first list item for easier access without scrolling</li>
+    <li>Character creation defaults to the importance of your most recently created character</li>
+  </ul>
+  <h3>Changed</h3>
+  <ul class="changelog-entries">
+    <li>Reduced debug logging verbosity in production logs</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Multiple blank lines in rich text</strong> - Blank lines are now preserved in all rich text fields (bios, descriptions, notes, chapter details)</li>
+    <li><strong>@ mention system</strong> - Fixed search failures, insertion issues, dropdown positioning (now sits directly above cursor and scales with font size), clipping in modals, and Esc key behavior</li>
+    <li><strong>Back button navigation</strong> - Fixed back button skipping over "empty" page states (all tags, all locations, all items)</li>
+    <li>Fixed trait block dropdowns (like Alignment) causing page to jump and lose scroll position</li>
+    <li>Fixed book ID mismatch warning when importing backup files (.penpoint)</li>
+    <li>Fixed chapter numbers not updating after adding/deleting chapters</li>
+    <li>Fixed Ctrl+E shortcut not working on Items and Locations pages</li>
+    <li>Fixed Locations dropdown in character sheets not allowing typing</li>
+    <li>Fixed location descriptions not updating when switching in edit mode</li>
+    <li>Fixed checkbox checkmarks not adapting to theme colors</li>
+    <li>Fixed items jumping without animation when changing sort/filters</li>
+    <li>Fixed searchbar shifting horizontally between pages</li>
+    <li>Fixed dual column layout pushing add form to the right when empty</li>
+    <li>Improved page transition performance</li>
+  </ul>
+</section>
+
+<section id="v1-0-6" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.6</h2>
+    <span class="changelog-version__date">October 26, 2025</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Page Transitions</strong> - Navigation between pages now features smooth crossfade transitions for a more polished, app-like feel:
+      <ul>
+        <li>When switching between pages, the current page fades out while the new page fades in simultaneously</li>
+        <li>Pages wait until fully loaded before transitioning, so you never see half-rendered content or loading spinners</li>
+        <li>Data cascade animations (like character lists fading in row-by-row) only play once per page load, preventing jarring re-animations during navigation</li>
+        <li>Transitions are fast (400ms) and subtle, prioritizing usability over flashiness</li>
+        <li>Works seamlessly with browser back/forward buttons and all navigation methods</li>
+        <li>The old page stays static during the transition to prevent distracting refreshes or content shifts</li>
+      </ul>
+    </li>
+    <li><strong>Global Settings from Book Selector</strong> - Settings are now accessible from the book selection screen via a gear icon in the top-right corner; access Interface, Announcements, Advanced, and About settings without opening a book</li>
+    <li><strong>Restore Backup from Book Selector</strong> - Restore .penpoint backup files directly from the book selection screen without creating a placeholder book first; restored books are automatically named with "(Recovered)" suffix to avoid conflicts</li>
+    <li><strong>Customizable Text Line Height</strong> - New setting in Settings → Interface to adjust line spacing from Single (1.0) to Double (2.0); applies globally to all text including rich text fields and block list items (relationships, items, locations, chapters); defaults to Normal (1.15) for comfortable reading</li>
+    <li><strong>Interactive Relationship Map</strong> - Explore your character relationships in a stunning new visual format! Access the Relationship Map from the navigation sidebar to see all your character connections come to life:
+      <ul>
+        <li>Characters appear as interactive cards positioned by importance: highly connected characters cluster near the center, while isolated characters appear at the edges</li>
+        <li>Smooth animated entrance on first load: character cards emerge from the center and float to their positions with elegant staggered timing</li>
+        <li>Click any character to focus on them: the camera smoothly zooms and pans to center their relationship network, fading out unrelated characters for clarity</li>
+        <li>Relationship detail panel slides in from the right, showing all of the selected character's connections with directional arrows (outgoing →, incoming ←, or bidirectional ↔)</li>
+        <li>Navigate between characters by clicking names in the detail panel - the map smoothly transitions to show each new character's network</li>
+        <li>Hover over any character or relationship line to highlight it with smooth color transitions</li>
+        <li>Bidirectional relationships display as two gracefully curved arrows, each with its own relationship label</li>
+        <li>Relationship lines use color gradients that blend between the connected characters' theme colors</li>
+        <li>Filter your view by relationship direction (outgoing, incoming, reciprocal), specific character, or character importance level</li>
+        <li>Pan and zoom freely to explore your entire relationship web, or click the background to deselect and return to the full view</li>
+        <li>Perfect for writers managing complex character dynamics across large casts or series with interconnected storylines</li>
+      </ul>
+    </li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Faster Update Rollouts</strong> - Penpoint now checks for updates on every app launch (instead of once per day) and continues checking every 12 hours while running. Added "Automatic Update Checking" toggle in Settings → About for users who prefer to stay offline.</li>
+    <li><strong>Reduced Log File Size</strong> - Significantly reduced logging verbosity by removing repetitive autosave success logs and consolidating navigation logs; log files are now ~85-90% smaller while retaining all important error and diagnostic information</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Nested bullet point duplication</strong> - Fixed bug where nested bullet points in rich text fields (like character skills or traits) would duplicate in view mode, showing child items multiple times under parent entries; nested lists now render correctly with each item appearing only once</li>
+    <li><strong>Tag color updates</strong> - Fixed issue where changing tag colors after creation would fail silently with "Failed to update tag" error; tags can now be successfully updated with new colors and names</li>
+    <li><strong>Glorious Searchbar modal height</strong> - Fixed modal search (Ctrl+K) expanding to fill the screen when displaying results; modal now maintains a fixed height and uses scrolling for overflow results</li>
+    <li><strong>Glorious Searchbar fullscreen transition</strong> - Fixed visual overlap when clicking the fullscreen button in the navbar search; inline dropdown now closes smoothly before the modal opens, and your search text carries over automatically</li>
+  </ul>
+</section>
+
+<section id="v1-0-5" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.5</h2>
+    <span class="changelog-version__date">October 20, 2025</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Dynamic @ Mention Links</strong> - @ mentions are now truly dynamic! When you rename a character, location, item, or chapter, all @ mention links to that entity automatically update throughout your book to show the new name:
+      <ul>
+        <li>Previously, @ mentions captured the name at the time you created the link, so renaming "Sherlock Holmes" to "Enola Holmes" wouldn't update existing mentions</li>
+        <li>Now, @ mentions always display the current name of whatever you're linking to, making it safe to rename entities without worrying about outdated references</li>
+        <li>Works everywhere: character bios, location descriptions, item notes, chapter details, and all rich text fields</li>
+        <li>Your existing @ mentions continue to work exactly as before - this enhancement is fully backward compatible</li>
+        <li>Perfect for writers who evolve character names or locations as their story develops</li>
+      </ul>
+    </li>
+    <li><strong>Interface Settings Redesign</strong> - Simplified the Settings → Interface page for a cleaner, more focused experience:
+      <ul>
+        <li>Removed the busy "Live Preview" section that took up too much space</li>
+        <li>Reorganized all settings into a clean two-column layout</li>
+        <li>Left column groups appearance settings: Color Theme, Typography, and Font Size</li>
+        <li>Right column groups behavior settings: Animation Style and Startup Behavior</li>
+        <li>Settings are now easier to find and less overwhelming to navigate</li>
+      </ul>
+    </li>
+    <li><strong>Settings Navigation</strong> - Increased the width of the settings category list by 35% to reduce text wrapping and improve readability</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Critical Database Migration Fix</strong> - Fixed database migration issue that prevented books from opening after upgrading from v1.0.3 to v1.0.4; affected databases are automatically detected and repaired when opening a book, with no data loss</li>
+    <li><strong>Chapter grid layout</strong> - Fixed inconsistent card heights in chapter grid where alternate rows appeared smaller than others; all chapter cards now maintain uniform size across all rows using consistent grid row heights</li>
+  </ul>
+</section>
+
+<section id="v1-0-4" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.4</h2>
+    <span class="changelog-version__date">October 18, 2025</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Smart Quotes (Curly Quotes)</strong> - Penpoint now automatically converts straight quotes to proper typographic quotes as you type, giving your writing a professional, published look:
+      <ul>
+        <li>Straight double quotes (") become opening (") or closing (") curly quotes based on context</li>
+        <li>Straight apostrophes (') become opening (') or closing (') curly quotes</li>
+        <li>Apostrophes in contractions (like "don't" or "it's") automatically use the correct closing quote</li>
+        <li>Works everywhere: character names, location names, item names, chapter titles, text fields, notes, and all rich text areas</li>
+        <li>Smart enough to know when to use opening vs. closing quotes based on what comes before (after spaces, punctuation, or at the start of text)</li>
+        <li>Cross-platform support: works identically on Windows, macOS, and Linux</li>
+        <li>Example: typing <code>"Sherlock's room"</code> automatically becomes <code>"Sherlock's room"</code></li>
+      </ul>
+    </li>
+    <li><strong>Insert New Chapter</strong> - You can now insert chapters anywhere in your story! When viewing a chapter, click the "Insert New Chapter" button to choose whether to insert before or after the current chapter; all subsequent chapters automatically renumber themselves to make room for the new chapter</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>New Export &amp; Import Wizard</strong> - A brand new page in settings/import &amp; export will walk you through exporting all your Penpoint book data to markdown format and back again. Perfect for processing with LLM tools or for exporting to a word processor!</li>
+    <li><strong>Template Generation Wizard</strong> - The "Generate Templates" button in Import/Export now opens a step-by-step wizard similar to the Export feature, letting you choose exactly which template types you want (Characters, Locations, Items, Notes, or Chapters) instead of always generating all five; templates are saved as individual markdown files in a templates/ folder for easier organization and use with AI tools</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Settings navigation toggle</strong> - Fixed issue where clicking the Settings button while already in a settings subcategory (like Traits Manager or Character Layout) wouldn't take you back to the settings home page; now clicking Settings again properly returns you to the settings overview where you can choose a different category</li>
+    <li><strong>Glorious Searchbar modal (Ctrl+K)</strong> - Fixed critical bug where the fullscreen search modal wouldn't respond to typing or clicking on results; modal search now works identically to the inline navbar search, with full keyboard navigation support (arrow keys, Enter to select) and proper result expansion to fill available vertical space; modal mode now shows up to 100 results (up from 50) to take advantage of the larger display area</li>
+    <li><strong>Chapter navigation animations</strong> - Fixed jarring chapter transition animations where content would update too early; when navigating between chapters using arrow keys or clicking next/previous, the current chapter now smoothly slides out completely before the new chapter slides in, preventing the disorienting flash where new content appeared mid-animation; this applies to chapter titles, descriptions, chapter details, author notes, and all assignments (characters, locations, items)</li>
+  </ul>
+</section>
+
+<section id="v1-0-3" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.3</h2>
+    <span class="changelog-version__date">October 12, 2025</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Tags Viewer Page</strong> - New dedicated Tags page accessible from the navigation sidebar that lets you explore your entire book through the lens of your tags:
+      <ul>
+        <li>Browse all your tags in one place with three sorting options: by usage count (most-used first), alphabetically, or by date created</li>
+        <li>Click any tag to instantly see every character, item, location, chapter, and note that uses that tag, all organized in expandable sections</li>
+        <li>Filter results by entity type using the "Show:" buttons - quickly focus on just characters, just locations, or any combination you need</li>
+        <li>Each result shows a snippet of content (biography, description, or note preview) to help you understand the context at a glance</li>
+        <li>Click any result to jump directly to that character, item, location, chapter, or note for quick navigation across your book</li>
+        <li>Collapse and expand sections (Characters, Items, etc.) with smooth animations to focus on what matters</li>
+        <li>Your selected tag and view state persist across sessions - return to exactly where you left off, even after closing and reopening the app</li>
+        <li>Use browser back/forward buttons to navigate between different tag selections</li>
+        <li>Perfect for finding all characters with the "Antagonist" tag, all locations marked "Urban", or all chapters tagged "Climax"</li>
+      </ul>
+    </li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Tag display redesign</strong> - Completely refreshed tag displays across all entity types (Characters, Items, Locations, Chapters, and Notes) with a cleaner, more unified look:
+      <ul>
+        <li>Tags now display with thin borders and small colored squares instead of filled backgrounds, making them easier to scan at a glance</li>
+        <li>In edit mode, "Selected Tags:" and "Available Tags:" labels clearly distinguish between assigned and unassigned tags</li>
+        <li>Available tags now show usage counts (e.g., "Dangerous 30", "London 25") to help you understand how frequently each tag is used across your book</li>
+        <li>Sorting method selector moved to the right side for better visual separation</li>
+        <li>Consistent styling across all pages ensures tags look and behave the same everywhere</li>
+      </ul>
+    </li>
+    <li><strong>Announcement animations</strong> - Added smooth cascading fade-in animations to announcement overlays with clean transitions between multiple announcements</li>
+    <li><strong>Tag notifications</strong> - Tag creation and deletion notifications now appear centered at the top of the tag list instead of in the bottom-right corner, making them much easier to see; notifications fade in and out smoothly for a polished feel</li>
+    <li><strong>Locations "Add New Location" button</strong> - Added ghost card style "+ Add New Location" button at the bottom of the locations hierarchy list; clicking the button now shows the creation input at the bottom (where you clicked) instead of at the top, and new locations are created at the bottom of the root level for better visibility</li>
+    <li><strong>Number field click target</strong> - Added underline to number input fields in edit mode to make it clearer where to click to enter values</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Character selection persistence</strong> - Fixed issue where the app wouldn't remember which character you had selected when refreshing or reopening; now properly restores your selected character just like it does for items, locations, and chapters</li>
+    <li><strong>Tag deletion</strong> - Fixed bug where attempting to delete tags would fail with an error message; tags can now be deleted successfully whether deleting one tag at a time or multiple tags in bulk</li>
+    <li><strong>Tag dialog text overflow</strong> - Fixed tag deletion and merge confirmation dialogs to properly display all text when using larger font sizes; dialog boxes now expand to fit content instead of cutting off text or buttons</li>
+    <li><strong>Rich text zoom support in edit mode</strong> - Fixed issue where zooming in and out (using Ctrl+Plus/Ctrl+Minus or the font size controls in Settings) would not affect text size while editing rich text fields like character biographies, location descriptions, or item notes; text now properly scales in both View and Edit modes, making it easier to read and write at your preferred size</li>
+    <li><strong>Search bar responsiveness</strong> - Fixed search bar to shrink responsively with smaller window sizes instead of maintaining fixed width and overlapping with page titles and header elements; search bar now uses flexbox layout to naturally adapt to available space while maintaining its centered position</li>
+    <li><strong>Loading screen transitions</strong> - Fixed jarring content pop-in when refreshing or opening books; loading screen now intelligently pre-fetches page-specific data (locations, chapters, items, etc.) based on your last visited page, ensuring smooth fade-out transitions with content already loaded and ready to display</li>
+  </ul>
+</section>
+
+<section id="v1-0-2" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.2</h2>
+    <span class="changelog-version__date">October 9, 2025</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Hyperlinks in Rich Text Editor</strong> - Insert hyperlinks in character/location/item/chapter details and notes using the link button in the toolbar; links open in your default external browser and display a hover preview in view mode showing the URL with a copy-to-clipboard button</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Location hierarchy UI</strong> - Add button (+) now appears closer to location names instead of far to the right; new location input now visually aligns with where the child location will appear in the hierarchy</li>
+  </ul>
+  <h3>Changed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Locations character/item assignment</strong> - Unified the "Add Characters or Items" search in Location detail panels to use the same autocomplete dropup component as other blocks, providing consistent keyboard navigation and filtering behavior</li>
+    <li><strong>Spell-checking disabled</strong> - Browser spell-check has been disabled across all text inputs to prevent red underlines on fantasy names, fictional locations, and custom jargon; a more writer-friendly solution may be added in the future</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Book grid layout</strong> - Improved book card spacing on wide screens; when displaying one or two books, cards now group together naturally instead of stretching across the full screen width with awkward gaps</li>
+    <li><strong>Search system overhaul</strong> - Completely rebuilt the search indexing and query system to ensure reliable, accurate search results:
+      <ul>
+        <li><strong>Special character handling</strong>: Fixed FTS5 syntax errors when searching with apostrophes, semicolons, and other special characters (e.g., "The Mayor's Estate" no longer causes search errors); search now uses hybrid sanitization that removes problematic operators while maintaining natural word-level matching</li>
+        <li><strong>Search index maintenance</strong>: Search index now automatically stays synchronized with database changes; all entity create/update/delete operations immediately update the search index, ensuring newly created characters, locations, items, chapters, and notes are instantly searchable</li>
+        <li><strong>Smart index verification</strong>: On book open, the system verifies search index integrity by comparing entity counts and automatically rebuilds if mismatches are detected, ensuring search results are always complete and accurate</li>
+        <li><strong>Ctrl+K modal improvements</strong>: Fixed modal search (opened with Ctrl+K) to start with fresh, empty state on each open, auto-focus the search input for immediate typing, and automatically close after selecting a result</li>
+        <li><strong>Comprehensive logging</strong>: Added detailed backend logging for search queries, sanitization, results, index verification, and rebuild operations to aid in debugging</li>
+      </ul>
+    </li>
+    <li><strong>Tag color mismatch</strong> - Fixed critical bug where selected tag colors didn't match what was stored in the database; tags now store color IDs (1-8) instead of theme-specific hex values, ensuring selected colors are accurately represented and automatically adapt when switching themes (affects all tag displays across Characters, Items, Locations, Chapters, and Notes pages)</li>
+    <li><strong>Ctrl+E toggle reliability</strong> - Fixed issues where Ctrl+E would not properly toggle between View and Edit modes across all pages (Characters, Items, Locations, and Chapters); event listeners now use stable ID dependencies instead of object references, preventing missed keypresses during data refetches</li>
+    <li><strong>Multi-filter query bug</strong> - Fixed Chapters and Items filtering to correctly handle multiple filter types simultaneously (e.g., filtering chapters by both POV character and location now returns only chapters matching both criteria, instead of showing "No results found")</li>
+    <li><strong>Chapter details persistence in edit mode</strong> - Fixed issue where Chapter Details rich text content would persist from previous chapter when navigating between chapters in edit mode; content now correctly updates immediately when switching chapters</li>
+    <li><strong>Chapter details content duplication</strong> - Fixed race condition where Chapter Details content could be duplicated or corrupted when switching between view and edit modes or when navigating between chapters; added synchronization guards to prevent autosave from triggering during content updates</li>
+  </ul>
+</section>
+
+<section id="v1-0-1" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.1</h2>
+    <span class="changelog-version__date">October 6, 2025</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Pinnable Navigation Sidebar</strong> - Click the pin icon in the top-right corner to lock the sidebar in its expanded state, keeping all navigation labels visible and shifting content to accommodate the wider sidebar (pin state persists across sessions)</li>
+    <li><strong>Global Edit Mode Toggle</strong> - Press Ctrl+E (Cmd+E on Mac) to quickly toggle between View and Edit modes when viewing Characters, Items, Locations, or Chapters</li>
+    <li><strong>Chapter Edit Mode Visual Indicator</strong> - Chapters now display a dashed border outline and dimmed paper background when in Edit mode, matching the visual style of other detail panels</li>
+    <li><strong>Glorious Searchbar</strong> - Universal search with inline and fullscreen modes, search history (max 10 items with removable entries), smart suggestions, and one-click navigation to characters, locations, items, chapters, and notes</li>
+    <li><strong>Fuzzy Search</strong> - Search now tolerates typos and misspellings (e.g., "Shrlock" finds "Sherlock", "Watsen" finds "Watson") with transparent fallback that activates only when exact matches aren't found</li>
+    <li><strong>Search Dismissal</strong> - Click outside the search dropdown or press Esc to close it; Esc key now prioritizes closing search over back navigation when search is open</li>
+    <li><strong>Character Name Length Limit</strong> - Character names now limited to 45 characters with visual counter that appears when exceeding 25 characters, preventing performance issues with very long names</li>
+    <li><strong>Window State Persistence</strong> - App now launches maximized by default and remembers your preferred window size and position across sessions</li>
+  </ul>
+  <h3>Changed</h3>
+  <ul class="changelog-entries">
+    <li>Increased width of Items detail sidebar from 480px to 600px to prevent content truncation</li>
+    <li>Removed "tag updated" toast notifications for cleaner tag editing experience</li>
+    <li>Searchbar now centers to page width instead of container for better visual alignment</li>
+    <li>Increased modal searchbar width from 896px to 1024px for improved readability</li>
+    <li><strong>Improved search ranking</strong> - Character names now heavily prioritized in search results, with entity type boosting (characters &gt; locations &gt; items &gt; notes) and exact title match bonuses for more relevant results</li>
+    <li><strong>Navigation sidebar enhancements</strong> - Added subtle horizontal divider between logo and menu items, improved logo/text spacing with consistent vertical alignment across all states, and added 750ms collapse delay when mouse leaves unpinned navbar for smoother interaction</li>
+    <li>"Tags Manager" text in tag creation prompts is now a clickable link that navigates directly to Settings &gt; Tags</li>
+    <li><strong>Locations detail panel layout</strong> - Aligned spacing, font sizes, and styling with Items panel for consistent, tighter visual presentation across detail pages</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li>Rich text editor toolbar elements now properly adapt colors when switching between light and dark themes</li>
+    <li>Tag color picker now correctly displays theme-appropriate colors in preview</li>
+    <li>Removed misleading color tooltips that didn't match current theme</li>
+    <li>Fixed search navigation bug where clicking search results required two clicks to navigate correctly</li>
+    <li>Items detail panel now correctly displays "Delete Item" instead of "Delete Prop" in edit mode</li>
+    <li>Fixed "Single Owner Only" filter in Items page - unchecking the checkbox now properly clears the filter instead of inverting it</li>
+    <li>Timeline view now properly refreshes data when navigating to it, ensuring recently added character-chapter assignments appear immediately without requiring app restart</li>
+    <li><strong>Item deletion performance</strong> - Fixed 30-second freeze when deleting items by manually cleaning up timeline positions before cascading deletes; delete operation now completes in milliseconds</li>
+    <li><strong>Delete confirmation dialog</strong> - Fixed bug where item name didn't appear in "Delete permanently?" confirmation message, now correctly displays the item name</li>
+    <li><strong>Relationships block character creation</strong> - Added "Add New Character" option to relationship creation dropdown, opening the standard Add Character dialog for seamless character creation while adding relationships</li>
+    <li><strong>NumberBlock increment/decrement</strong> - Fixed race condition where number values would jump back to previous values when using arrow keys; optimistic cache updates now prevent CalculateBlock refetches from overwriting user input</li>
+    <li><strong>CalculateBlock divide-by-zero</strong> - Fixed bug where setting fixed number to 0 would reset to 1 when switching input types; zero values now properly preserved and division by zero correctly shows N/A</li>
+    <li><strong>Items Archetype filter</strong> - Fixed bug where archetype checkboxes didn't properly filter items; checkbox state now syncs correctly with filter state, allowing users to check/uncheck archetypes to narrow down items</li>
+  </ul>
+</section>
+
+<section id="v1-0-0" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.0.0</h2>
+    <span class="changelog-version__date">October 2, 2025</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <p class="changelog-version__intro">Initial beta release for early testers.</p>
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Auto-updater</strong> with announcement management system</li>
+    <li><strong>Multi-book support</strong> with book selection and management</li>
+    <li><strong>Universal search</strong> with full-text search (FTS5) across all content</li>
+    <li><strong>Character tracking</strong> with importance levels and customizable properties</li>
+    <li><strong>Locations system</strong> with drag-and-drop organization and timeline views</li>
+    <li><strong>Chapters</strong> with timeline visualization and vertical bars</li>
+    <li><strong>Notes</strong> with rich text editor, color coding, and markdown support</li>
+    <li><strong>Compendium</strong> with alphabetical sorting for quick reference</li>
+    <li><strong>Navigation system</strong> with back/forward history and skip-empty-states</li>
+    <li><strong>Onboarding flow</strong> with interactive slides and animations</li>
+    <li><strong>Custom keyboard shortcuts</strong> with indent/outdent support</li>
+    <li><strong>Mentions system</strong> (@-popup) for linking characters across notes</li>
+    <li><strong>Debug panel</strong> for diagnostics and logging tools</li>
+    <li><strong>Theme support</strong> with customizable character layout blocks</li>
+    <li><strong>Demo content</strong> including Sherlock Holmes sample data</li>
+  </ul>
+</section>
+
+          <div class="changelog-end-note">
+            That's everything since launch on October 2, 2025. Spotted something missing or wrong? <a href="mailto:support@penpoint.app">Let us know</a>.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+
+  <!-- ===========================================
+       FOOTER
+       =========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <svg class="footer__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+            </svg>
+            <span class="footer__logo-text">Penpoint</span>
+          </div>
+          <p class="footer__tagline">Where Your Story Comes Together</p>
+        </div>
+
+        <nav class="footer__columns">
+          <div class="footer__column">
+            <h4 class="footer__column-title">Product</h4>
+            <a href="/#more-features" class="footer__link">Features</a>
+            <a href="/compare" class="footer__link">Compare</a>
+            <a href="/changelog" class="footer__link">Updates</a>
+            <a href="/#faq" class="footer__link">FAQ</a>
+            <a href="/trial" class="footer__link">Free Trial</a>
+          </div>
+          <div class="footer__column">
+            <h4 class="footer__column-title">Community</h4>
+            <a href="https://discord.gg/q7yV3PXrGB" class="footer__link" target="_blank" rel="noopener">Discord</a>
+            <a href="mailto:support@penpoint.app" class="footer__link">Contact Support</a>
+          </div>
+          <div class="footer__column">
+            <h4 class="footer__column-title">Legal</h4>
+            <a href="/terms" class="footer__link">Terms of Service</a>
+            <a href="/privacy" class="footer__link">Privacy Policy</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span class="footer__copyright">&copy; 2026 Tophat Creative, LLC. All Rights Reserved.</span>
+        <div class="footer__platforms">
+          <i class="fa-brands fa-windows"></i>
+          <i class="fa-brands fa-apple"></i>
+          <i class="fa-brands fa-linux"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- JavaScript -->
+  <script src="js/scroll-animations.js"></script>
+
+  <!-- Sidebar active-link tracking via Intersection Observer -->
+  <script>
+    (function() {
+      const sidebarLinks = document.querySelectorAll('.changelog-sidebar__link');
+      if (!sidebarLinks.length || !('IntersectionObserver' in window)) return;
+
+      const linkById = new Map();
+      sidebarLinks.forEach(link => {
+        const id = link.getAttribute('href').replace(/^#/, '');
+        linkById.set(id, link);
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            sidebarLinks.forEach(l => l.classList.remove('changelog-sidebar__link--active'));
+            const link = linkById.get(entry.target.id);
+            if (link) link.classList.add('changelog-sidebar__link--active');
+          }
+        });
+      }, {
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0
+      });
+
+      document.querySelectorAll('.changelog-version').forEach(section => {
+        observer.observe(section);
+      });
+    })();
+  </script>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>

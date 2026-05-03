@@ -186,10 +186,15 @@
 
     .purchase-link {
       text-align: center;
-      margin-top: var(--space-8);
-      padding: var(--space-6);
-      border: 1px solid rgb(var(--border));
-      background: rgb(var(--background-accent));
+      margin-top: var(--space-12);
+    }
+
+    .purchase-link__heading {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-xl);
+      font-weight: 600;
+      color: rgb(var(--foreground));
+      margin-bottom: var(--space-5);
     }
 
     .contact-links {
@@ -444,10 +449,11 @@
         <a href="/#problem" class="header__nav-link">Overview</a>
         <a href="/#more-features" class="header__nav-link header__nav-link--mobile-only">Features</a>
         <a href="/compare" class="header__nav-link">Compare</a>
+        <a href="/changelog" class="header__nav-link">Updates</a>
         <a href="/#faq" class="header__nav-link">FAQ</a>
-        <a href="/trial" class="header__nav-link">Free Trial</a>
+        <a href="/buy" class="header__nav-link" style="font-weight: 700;">Buy</a>
         <a href="https://discord.gg/q7yV3PXrGB" class="header__discord" target="_blank" rel="noopener" aria-label="Join our Discord"><i class="fa-brands fa-discord"></i></a>
-        <a href="https://penpointapp.lemonsqueezy.com/checkout/buy/5576a809-44e7-4179-b5f6-69c145725060?embed=1" class="btn btn-primary lemonsqueezy-button">Buy Penpoint</a>
+        <a href="/trial" class="btn btn-primary">Try Penpoint</a>
       </nav>
 
       <button type="button" class="header__menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
@@ -650,8 +656,9 @@
           </div>
 
           <div class="purchase-link">
-            <p class="font-body">Ready to buy? <a href="https://penpoint.app/buy" style="color: rgb(var(--cta)); font-weight: 600;">Purchase Penpoint &mdash; $40</a></p>
-            <p class="font-body-sm" style="color: rgb(var(--muted-foreground)); margin-top: var(--space-2);">One-time purchase. No subscription. Free updates forever.</p>
+            <p class="purchase-link__heading">Ready to purchase Penpoint?</p>
+            <a href="/buy" class="btn btn-primary btn-lg btn-shadow">Buy for $40</a>
+            <p class="font-body-sm" style="color: rgb(var(--muted-foreground)); margin-top: var(--space-4);">One-time payment, lifetime license. No subscription. Free updates forever.</p>
           </div>
         </div>
       </div>
@@ -793,6 +800,7 @@
             <h4 class="footer__column-title">Product</h4>
             <a href="/#more-features" class="footer__link">Features</a>
             <a href="/compare" class="footer__link">Compare</a>
+            <a href="/changelog" class="footer__link">Updates</a>
             <a href="/#faq" class="footer__link">FAQ</a>
             <a href="/trial" class="footer__link">Free Trial</a>
           </div>
@@ -1041,8 +1049,8 @@
     }).catch(function() {});
   }
 
-  // "Purchase Penpoint" link
-  var purchaseLink = document.querySelector('.purchase-link a[href*="penpoint.app/buy"]');
+  // "Buy Penpoint" button in trial features section
+  var purchaseLink = document.querySelector('.purchase-link a');
   if (purchaseLink) {
     purchaseLink.addEventListener('click', function() { trackClick('buy_click'); });
   }
