@@ -1,14 +1,18 @@
 {
-  "generatedAt": "2026-05-04T04:26:28.743Z",
+  "generatedAt": "2026-05-04T19:09:12.791Z",
   "versions": [
     {
       "number": "1.2.0",
-      "date": "2026-05-02",
+      "date": "2026-05-04",
       "intro": "",
       "sections": [
         {
           "name": "Added",
           "entries": [
+            {
+              "text": "**Full Version History in the App** - Settings > About now has a \"See past versions\" button. Click it to browse every version's release notes without leaving Penpoint.",
+              "subBullets": []
+            },
             {
               "text": "**The Chapters Page, Reimagined** - One of Penpoint's most-requested features is finally here. The Chapters page has been rebuilt from the ground up. Each chapter now has its own customizable block-based layout — just like Character Sheets — so you can design a chapter view that fits how *you* plan stories. Every scene now stands on its own with its own characters, locations, items, and POV (tags and arcs stay at the chapter level, where they belong). The new outliner sidebar mirrors Manuscript Mode, so navigating between chapters and scenes feels instantly familiar. Configure your default scene layout in Settings → Scene Layout. Your existing chapters carry over with their current view intact — nothing to redo.",
               "subBullets": []
