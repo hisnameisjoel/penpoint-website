@@ -40,6 +40,7 @@ Penpoint puts the manuscript and the worldbuilding in the same app:
 - **Story Arcs**: Visualize your main storyline and subplots as layered curves with keyframes marking each turning point. Supports classic presets (Three-Act, Five-Act, Hero's Journey, Save The Cat!, Romance, Mystery, Simple Arc, Character Growth) or custom structures
 - **Character Arcs**: Track a character's emotional fortune as a curve that rises and falls through the story. Overlay multiple characters to compare journeys side by side
 - **Character Profiles**: Customizable character sheets — add blocks for what you need (text, traits, relationships), skip what you don't
+- **Chapter & Scene Layouts**: Each chapter has its own customizable block-based layout, just like Character Profiles. Every scene tracks its own characters, locations, items, and POV. Outliner sidebar mirrors Manuscript Mode for familiar navigation. Set a default scene layout in Settings
 - **Nested Locations**: Kingdom → City → Tavern → Secret Basement. Build your world's geography as an expandable tree
 - **Items & Props**: Track who owns what and where it is
 - **Universal Tags**: Tag anything — characters, locations, items, chapters, notes — then see everything with that tag in one view
@@ -167,6 +168,9 @@ Yes. Manuscript Mode gives you a clean, distraction-free editor with scene manag
 
 ### What is the Chapter Scanner?
 After importing or writing chapters, right-click any chapter in the outline and select "Scan Chapter for Content." Penpoint reads your prose and finds every character, location, and item mentioned. It discovers proper nouns that aren't in your worldbuilding yet. Review the results, check what to include, and click Apply. Your chapters and worldbuilding connect in seconds, not hours.
+
+### How does Penpoint organize chapters and scenes?
+The Chapters page gives every chapter its own customizable block-based layout — similar to Character Sheets. Add the blocks you need (descriptions, scenes, tags, arcs, and more), skip the ones you don't. Every scene within a chapter is tracked separately, with its own POV, characters, locations, and items. The outliner sidebar mirrors Manuscript Mode, so navigating between chapters and scenes feels instantly familiar. You can configure a default scene layout in Settings → Scene Layout so new scenes always start with the structure you prefer.
 
 ### Can I manage multiple books or a series?
 Yes. Penpoint includes a multi-book library. When duplicating a book, you can copy characters, locations, and items into the new book to maintain series consistency. Filter by book or view everything across your entire series at once.
