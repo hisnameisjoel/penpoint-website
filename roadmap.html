@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    document.documentElement.classList.add('js-ready');
+  </script>
+  <title>Roadmap: What's Next for Penpoint</title>
+  <meta name="description" content="See what features are being considered, planned, and actively built for Penpoint right now. Live roadmap from the Penpoint dev team.">
+  <meta name="keywords" content="penpoint roadmap, penpoint upcoming features, what's next penpoint, writing app roadmap">
+  <link rel="canonical" href="https://penpoint.app/roadmap">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://penpoint.app/roadmap">
+  <meta property="og:title" content="Roadmap: What's Next for Penpoint">
+  <meta property="og:description" content="See what features are being considered, planned, and actively built right now.">
+  <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Penpoint — Where Your Story Comes Together">
+  <meta property="og:site_name" content="Penpoint">
+  <meta property="og:locale" content="en_US">
+  <meta name="theme-color" content="#FFF7E6">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://penpoint.app/roadmap">
+  <meta name="twitter:title" content="Roadmap: What's Next for Penpoint">
+  <meta name="twitter:description" content="See what features are being considered, planned, and actively built right now.">
+  <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="twitter:image:alt" content="Penpoint — Where Your Story Comes Together">
+
+  <!-- AI / LLM -->
+  <link rel="help" type="text/plain" href="/llms.txt" title="LLM information about Penpoint">
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+
+  <!-- Lemon Squeezy -->
+  <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-79JVXYBCTN');
+  </script>
+
+  <style>
+    .roadmap-hero {
+      padding-top: calc(var(--header-height) + var(--space-16));
+      padding-bottom: var(--space-8);
+      text-align: center;
+    }
+
+    .roadmap-hero__headline { margin-bottom: var(--space-4); }
+    .roadmap-hero__sub {
+      max-width: 680px;
+      margin: 0 auto var(--space-6);
+      color: rgb(var(--muted-foreground));
+    }
+
+    .roadmap-hero__crumbs {
+      font-size: var(--text-sm);
+      color: rgb(var(--muted-foreground));
+    }
+
+    .roadmap-hero__crumbs a {
+      color: rgb(var(--cta));
+      text-decoration: none;
+    }
+
+    .roadmap-hero__crumbs a:hover { text-decoration: underline; }
+
+    .roadmap-status-bar {
+      max-width: 760px;
+      margin: var(--space-4) auto 0;
+      padding: var(--space-3) var(--space-4);
+      font-size: var(--text-xs);
+      color: rgb(var(--muted-foreground));
+      background: rgb(var(--background-accent));
+      border: 1px solid rgb(var(--border));
+      text-align: center;
+      display: none;
+    }
+
+    .roadmap-status-bar.show { display: block; }
+    .roadmap-status-bar--cached { color: rgb(var(--cta)); }
+
+    .roadmap-section {
+      padding: var(--space-8) 0;
+    }
+
+    .roadmap-section--in_progress {
+      background: rgb(var(--card));
+      padding: var(--space-12) 0;
+    }
+
+    .roadmap-section__inner {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .roadmap-section__header {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid rgb(var(--border));
+    }
+
+    .roadmap-section__title {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-2xl);
+      font-weight: 600;
+    }
+
+    .roadmap-section__icon {
+      width: 22px;
+      height: 22px;
+      color: rgb(var(--cta));
+    }
+
+    .roadmap-section__count {
+      font-size: var(--text-sm);
+      color: rgb(var(--muted-foreground));
+      margin-left: auto;
+    }
+
+    .roadmap-section__description {
+      font-size: var(--text-sm);
+      color: rgb(var(--muted-foreground));
+      margin-bottom: var(--space-5);
+      line-height: var(--leading-relaxed);
+    }
+
+    .roadmap-items {
+      display: grid;
+      gap: var(--space-3);
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .roadmap-section--in_progress .roadmap-items {
+      grid-template-columns: 1fr;
+    }
+
+    .roadmap-item {
+      background: rgb(var(--paper));
+      border: 1px solid rgb(var(--border));
+      padding: var(--space-5) var(--space-5);
+      transition: border-color 0.15s var(--ease-penpoint);
+    }
+
+    .roadmap-section--in_progress .roadmap-item {
+      background: rgb(var(--background));
+      border-left: 3px solid rgb(var(--cta));
+    }
+    .roadmap-item:hover { border-color: rgb(var(--cta)); }
+
+    .roadmap-item__header {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-2);
+    }
+
+    .roadmap-item__title {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-xl);
+      font-weight: 600;
+      flex: 1;
+      min-width: 200px;
+      color: rgb(var(--foreground));
+    }
+
+    .roadmap-item__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: var(--text-xs);
+      font-weight: 500;
+      padding: 2px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .roadmap-item__badge--version {
+      background: rgba(205, 110, 44, 0.12);
+      color: rgb(var(--cta));
+      border: 1px solid rgba(205, 110, 44, 0.25);
+    }
+
+    .roadmap-item__badge--shipped {
+      background: rgb(var(--background-accent));
+      color: rgb(var(--foreground));
+      border: 1px solid rgb(var(--border));
+      text-decoration: none;
+    }
+
+    .roadmap-item__badge--shipped:hover {
+      border-color: rgb(var(--cta));
+      color: rgb(var(--cta));
+    }
+
+    .roadmap-item__description {
+      color: rgb(var(--foreground));
+      font-size: var(--text-base);
+      line-height: var(--leading-relaxed);
+    }
+
+    .roadmap-item__description :first-child { margin-top: 0; }
+    .roadmap-item__description :last-child { margin-bottom: 0; }
+    .roadmap-item__description p { margin: var(--space-2) 0; }
+    .roadmap-item__description ul, .roadmap-item__description ol {
+      margin: var(--space-2) 0 var(--space-2) var(--space-5);
+    }
+    .roadmap-item__description li { margin-bottom: 4px; }
+    .roadmap-item__description code {
+      background: rgb(var(--background-accent));
+      padding: 1px 5px;
+      font-size: 0.92em;
+      border: 1px solid rgb(var(--border));
+    }
+    .roadmap-item__description a {
+      color: rgb(var(--cta));
+      text-decoration: underline;
+    }
+    .roadmap-item__description strong { font-weight: 600; }
+
+    .roadmap-item__vote {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      margin-top: var(--space-3);
+      padding: 6px 12px;
+      background: transparent;
+      border: 1px solid rgb(var(--border));
+      color: rgb(var(--muted-foreground));
+      font-size: var(--text-sm);
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s var(--ease-penpoint);
+    }
+
+    .roadmap-item__vote:hover {
+      border-color: rgb(var(--cta));
+      color: rgb(var(--cta));
+    }
+
+    .roadmap-item__vote[data-voting-enabled="true"] { display: inline-flex; }
+
+    .roadmap-empty {
+      padding: var(--space-6) var(--space-5);
+      background: rgb(var(--background-accent));
+      border: 1px dashed rgb(var(--border));
+      color: rgb(var(--muted-foreground));
+      font-size: var(--text-sm);
+      font-style: italic;
+      text-align: center;
+    }
+
+    .roadmap-skeleton { display: grid; gap: var(--space-3); }
+
+    .roadmap-skeleton__item {
+      height: 110px;
+      background: linear-gradient(90deg,
+        rgb(var(--paper)) 0%,
+        rgb(var(--background-accent)) 50%,
+        rgb(var(--paper)) 100%);
+      background-size: 200% 100%;
+      animation: skeleton-shimmer 1.5s infinite linear;
+      border: 1px solid rgb(var(--border));
+    }
+
+    @keyframes skeleton-shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .roadmap-error {
+      max-width: 600px;
+      margin: var(--space-12) auto;
+      padding: var(--space-6);
+      background: rgb(var(--background-accent));
+      border: 1px solid rgb(var(--border));
+      text-align: center;
+      color: rgb(var(--muted-foreground));
+    }
+
+    .roadmap-error__title {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-xl);
+      color: rgb(var(--foreground));
+      margin-bottom: var(--space-2);
+    }
+
+    .roadmap-error__retry { margin-top: var(--space-4); }
+
+    .roadmap-section--shipped .roadmap-item { padding: var(--space-3) var(--space-4); }
+    .roadmap-section--shipped .roadmap-item__title { font-size: var(--text-lg); }
+
+    .roadmap-shipped-cta {
+      text-align: center;
+      margin-top: var(--space-6);
+    }
+
+    .roadmap-shipped-cta a {
+      color: rgb(var(--cta));
+      font-weight: 600;
+      text-decoration: none;
+      font-size: var(--text-base);
+    }
+
+    .roadmap-shipped-cta a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .roadmap-hero { padding-top: calc(var(--header-height) + var(--space-10)); }
+      .roadmap-section { padding: var(--space-6) 0; }
+      .roadmap-section--in_progress { padding: var(--space-8) 0; }
+      .roadmap-items { grid-template-columns: 1fr; }
+      .roadmap-item { padding: var(--space-4); }
+      .roadmap-item__title { font-size: var(--text-lg); }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only">Skip to main content</a>
+
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite">
+    <symbol id="icon-quill" viewBox="0 0 24 24">
+      <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+    </symbol>
+  </svg>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+        </svg>
+        <span class="header__logo-text">Penpoint</span>
+        <span class="header__tagline">Where Your Story Comes Together</span>
+      </a>
+
+      <nav class="header__nav" id="main-nav">
+        <a href="/#problem" class="header__nav-link">Overview</a>
+        <a href="/#more-features" class="header__nav-link header__nav-link--mobile-only">Features</a>
+        <a href="/compare" class="header__nav-link">Compare</a>
+        <a href="/development" class="header__nav-link" style="color: rgb(var(--cta));">Development</a>
+        <a href="/#faq" class="header__nav-link">FAQ</a>
+        <a href="/#download" class="header__nav-link header__nav-link--mobile-only">Download</a>
+        <a href="/buy" class="header__nav-link" style="font-weight: 700;">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" class="header__discord" target="_blank" rel="noopener" aria-label="Join our Discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="/trial" class="btn btn-primary">Try Penpoint</a>
+      </nav>
+
+      <button type="button" class="header__menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="hamburger">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+  <section class="roadmap-hero">
+    <div class="container">
+      <h1 class="roadmap-hero__headline font-heading-lg" data-animate="fade-up">
+        Roadmap
+      </h1>
+      <p class="roadmap-hero__sub font-body-lg" data-animate="fade-up" data-stagger="1">
+        What's next for Penpoint: features being built right now, what's planned, and ideas still under consideration.
+      </p>
+      <p class="roadmap-hero__crumbs" data-animate="fade-up" data-stagger="2">
+        <a href="/development">← Development</a> &nbsp;·&nbsp; <a href="/changelog">See past releases</a>
+      </p>
+      <div id="status-bar" class="roadmap-status-bar"></div>
+    </div>
+  </section>
+
+  <div id="roadmap-root">
+    <section class="roadmap-section">
+      <div class="container">
+        <div class="roadmap-section__inner">
+          <div class="roadmap-section__header">
+            <span class="roadmap-section__title">Loading roadmap…</span>
+          </div>
+          <div class="roadmap-skeleton">
+            <div class="roadmap-skeleton__item"></div>
+            <div class="roadmap-skeleton__item"></div>
+            <div class="roadmap-skeleton__item"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <svg class="footer__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+            </svg>
+            <span class="footer__logo-text">Penpoint</span>
+          </div>
+          <p class="footer__tagline">Where Your Story Comes Together</p>
+        </div>
+
+        <nav class="footer__columns">
+          <div class="footer__column">
+            <h4 class="footer__column-title">Product</h4>
+            <a href="/#more-features" class="footer__link">Features</a>
+            <a href="/compare" class="footer__link">Compare</a>
+            <a href="/development" class="footer__link">Development</a>
+            <a href="/#faq" class="footer__link">FAQ</a>
+            <a href="/trial" class="footer__link">Free Trial</a>
+          </div>
+          <div class="footer__column">
+            <h4 class="footer__column-title">Community</h4>
+            <a href="https://discord.gg/q7yV3PXrGB" class="footer__link" target="_blank" rel="noopener">Discord</a>
+            <a href="mailto:support@penpoint.app" class="footer__link">Contact Support</a>
+          </div>
+          <div class="footer__column">
+            <h4 class="footer__column-title">Legal</h4>
+            <a href="/terms" class="footer__link">Terms of Service</a>
+            <a href="/privacy" class="footer__link">Privacy Policy</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span class="footer__copyright">&copy; 2026 Tophat Creative, LLC. All Rights Reserved.</span>
+        <div class="footer__platforms">
+          <i class="fa-brands fa-windows"></i>
+          <i class="fa-brands fa-apple"></i>
+          <i class="fa-brands fa-linux"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    marked.setOptions({ breaks: true, gfm: true });
+
+    // Sanitize markdown via DOMPurify, then mount the resulting DocumentFragment.
+    // No innerHTML assignment anywhere — we use Range.createContextualFragment
+    // on already-sanitized HTML.
+    function setSanitizedMarkdown(el, text) {
+      while (el.firstChild) el.removeChild(el.firstChild);
+      if (!text || !text.trim()) return;
+      const html = marked.parse(text);
+      const safe = DOMPurify.sanitize(html);
+      const range = document.createRange();
+      const fragment = range.createContextualFragment(safe);
+      el.appendChild(fragment);
+    }
+  </script>
+
+  <script>
+    const ENDPOINT = 'https://lpgprxbwrkzxmbwzkisz.supabase.co/functions/v1/roadmap-list?limit_shipped=5';
+    const CACHE_KEY = 'penpoint_roadmap_cache_v1';
+    const VOTING_ENABLED = false;
+
+    const SECTIONS = [
+      {
+        key: 'inProgress',
+        label: 'In Progress',
+        icon: 'hammer',
+        description: "Features actively being built right now. Likely to land in the next release or two.",
+        statusClass: 'in_progress',
+      },
+      {
+        key: 'planned',
+        label: 'Planned',
+        icon: 'calendar-clock',
+        description: "On the schedule. These features are committed and usually have a target version in mind.",
+        statusClass: 'planned',
+      },
+      {
+        key: 'considering',
+        label: 'Considering',
+        icon: 'lightbulb',
+        description: "Ideas under serious consideration for Penpoint. Reader feedback shapes which ones get promoted to Planned.",
+        statusClass: 'considering',
+      },
+      {
+        key: 'paused',
+        label: 'Paused',
+        icon: 'pause-circle',
+        description: "Started but on hold for now. They'll return when the timing is right.",
+        statusClass: 'paused',
+      },
+      {
+        key: 'shipped',
+        label: 'Recently Shipped',
+        icon: 'check-circle',
+        description: "Just landed in the latest releases. Click any version to jump to the changelog.",
+        statusClass: 'shipped',
+        showSeeAll: true,
+      },
+    ];
+
+    function showStatusBar(message, isCached) {
+      const bar = document.getElementById('status-bar');
+      bar.textContent = message;
+      bar.className = 'roadmap-status-bar show' + (isCached ? ' roadmap-status-bar--cached' : '');
+    }
+
+    function hideStatusBar() {
+      document.getElementById('status-bar').className = 'roadmap-status-bar';
+    }
+
+    function versionToAnchor(version) {
+      return '#v-' + version.replace(/\./g, '-');
+    }
+
+    function renderItem(item, sectionKey) {
+      const card = document.createElement('article');
+      card.className = 'roadmap-item';
+
+      const header = document.createElement('div');
+      header.className = 'roadmap-item__header';
+
+      const title = document.createElement('h3');
+      title.className = 'roadmap-item__title';
+      title.textContent = item.title;
+      header.appendChild(title);
+
+      if (sectionKey !== 'shipped' && item.targetVersion) {
+        const badge = document.createElement('span');
+        badge.className = 'roadmap-item__badge roadmap-item__badge--version';
+        badge.textContent = 'Coming in v' + item.targetVersion;
+        header.appendChild(badge);
+      }
+
+      if (sectionKey === 'shipped' && item.shippedInVersion) {
+        const link = document.createElement('a');
+        link.className = 'roadmap-item__badge roadmap-item__badge--shipped';
+        link.href = '/changelog' + versionToAnchor(item.shippedInVersion);
+        link.textContent = 'Shipped in v' + item.shippedInVersion;
+        header.appendChild(link);
+      }
+
+      card.appendChild(header);
+
+      if (item.description && item.description.trim()) {
+        const desc = document.createElement('div');
+        desc.className = 'roadmap-item__description';
+        setSanitizedMarkdown(desc, item.description);
+        card.appendChild(desc);
+      }
+
+      if (sectionKey !== 'shipped') {
+        const voteBtn = document.createElement('button');
+        voteBtn.className = 'roadmap-item__vote';
+        voteBtn.dataset.itemId = item.id;
+        voteBtn.dataset.votingEnabled = VOTING_ENABLED ? 'true' : 'false';
+        voteBtn.setAttribute('aria-label', 'Upvote ' + item.title);
+
+        const voteIcon = document.createElement('i');
+        voteIcon.setAttribute('data-lucide', 'arrow-up');
+        voteIcon.style.width = '14px';
+        voteIcon.style.height = '14px';
+        voteBtn.appendChild(voteIcon);
+
+        const voteCount = document.createElement('span');
+        voteCount.textContent = item.voteCount;
+        voteBtn.appendChild(voteCount);
+
+        card.appendChild(voteBtn);
+      }
+
+      return card;
+    }
+
+    function renderSection(sectionDef, items) {
+      if (sectionDef.key === 'paused' && (!items || items.length === 0)) {
+        return null;
+      }
+
+      const section = document.createElement('section');
+      section.className = `roadmap-section roadmap-section--${sectionDef.statusClass}`;
+
+      const container = document.createElement('div');
+      container.className = 'container';
+
+      const inner = document.createElement('div');
+      inner.className = 'roadmap-section__inner';
+
+      const header = document.createElement('div');
+      header.className = 'roadmap-section__header';
+
+      const icon = document.createElement('i');
+      icon.setAttribute('data-lucide', sectionDef.icon);
+      icon.className = 'roadmap-section__icon';
+      header.appendChild(icon);
+
+      const title = document.createElement('h2');
+      title.className = 'roadmap-section__title';
+      title.textContent = sectionDef.label;
+      header.appendChild(title);
+
+      const count = document.createElement('span');
+      count.className = 'roadmap-section__count';
+      count.textContent = `${items.length} item${items.length === 1 ? '' : 's'}`;
+      header.appendChild(count);
+
+      inner.appendChild(header);
+
+      const desc = document.createElement('p');
+      desc.className = 'roadmap-section__description';
+      desc.textContent = sectionDef.description;
+      inner.appendChild(desc);
+
+      const itemsWrap = document.createElement('div');
+      itemsWrap.className = 'roadmap-items';
+
+      if (items.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'roadmap-empty';
+        empty.textContent = sectionDef.key === 'inProgress'
+          ? "Currently between releases. The next batch is queued up and starting soon."
+          : `Nothing in ${sectionDef.label.toLowerCase()} at the moment.`;
+        itemsWrap.appendChild(empty);
+      } else {
+        items.forEach(item => {
+          itemsWrap.appendChild(renderItem(item, sectionDef.key));
+        });
+      }
+
+      inner.appendChild(itemsWrap);
+
+      if (sectionDef.showSeeAll) {
+        const cta = document.createElement('div');
+        cta.className = 'roadmap-shipped-cta';
+        const link = document.createElement('a');
+        link.href = '/changelog';
+        link.textContent = 'See all updates →';
+        cta.appendChild(link);
+        inner.appendChild(cta);
+      }
+
+      container.appendChild(inner);
+      section.appendChild(container);
+      return section;
+    }
+
+    function renderRoadmap(data) {
+      const root = document.getElementById('roadmap-root');
+      while (root.firstChild) root.removeChild(root.firstChild);
+
+      const totalItems = SECTIONS.reduce((sum, s) => sum + (data[s.key]?.length || 0), 0);
+
+      if (totalItems === 0) {
+        const section = document.createElement('section');
+        section.className = 'roadmap-section';
+        const container = document.createElement('div');
+        container.className = 'container';
+        const empty = document.createElement('div');
+        empty.className = 'roadmap-empty';
+        empty.style.maxWidth = '600px';
+        empty.style.margin = '0 auto';
+        empty.textContent = "Nothing on the roadmap just yet. Check back soon.";
+        container.appendChild(empty);
+        section.appendChild(container);
+        root.appendChild(section);
+        return;
+      }
+
+      SECTIONS.forEach(sectionDef => {
+        const items = data[sectionDef.key] || [];
+        const section = renderSection(sectionDef, items);
+        if (section) root.appendChild(section);
+      });
+
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    }
+
+    function showError(message, hasCached) {
+      const root = document.getElementById('roadmap-root');
+      while (root.firstChild) root.removeChild(root.firstChild);
+
+      const wrap = document.createElement('div');
+      wrap.className = 'container';
+
+      const err = document.createElement('div');
+      err.className = 'roadmap-error';
+
+      const title = document.createElement('h2');
+      title.className = 'roadmap-error__title';
+      title.textContent = "Couldn't load the roadmap";
+      err.appendChild(title);
+
+      const desc = document.createElement('p');
+      desc.textContent = message || "Something went wrong fetching the latest data.";
+      err.appendChild(desc);
+
+      if (!hasCached) {
+        const retryWrap = document.createElement('div');
+        retryWrap.className = 'roadmap-error__retry';
+        const retryBtn = document.createElement('button');
+        retryBtn.className = 'btn btn-outline';
+        retryBtn.textContent = 'Try again';
+        retryBtn.onclick = () => loadRoadmap();
+        retryWrap.appendChild(retryBtn);
+        err.appendChild(retryWrap);
+      }
+
+      wrap.appendChild(err);
+      root.appendChild(wrap);
+    }
+
+    async function loadRoadmap() {
+      hideStatusBar();
+      try {
+        const res = await fetch(ENDPOINT, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`Server returned ${res.status}`);
+        const data = await res.json();
+        // Guard against 200-with-error-body responses — treat as failure
+        if (data && data.error) throw new Error(String(data.error));
+
+        try {
+          localStorage.setItem(CACHE_KEY, JSON.stringify({ data, fetchedAt: Date.now() }));
+        } catch (e) {
+          // localStorage may be disabled — non-fatal
+        }
+
+        renderRoadmap(data);
+      } catch (err) {
+        console.error('Roadmap fetch failed:', err);
+
+        let cached = null;
+        try {
+          const raw = localStorage.getItem(CACHE_KEY);
+          if (raw) cached = JSON.parse(raw);
+        } catch (e) { /* ignore */ }
+
+        if (cached && cached.data) {
+          const ts = Number(cached.fetchedAt);
+          const ageMin = Number.isFinite(ts) ? Math.round((Date.now() - ts) / 60000) : null;
+          const ageNote = ageMin !== null && ageMin >= 0 ? ` (${ageMin} min old)` : '';
+          showStatusBar(`Showing the last saved version of the roadmap${ageNote}. Couldn't reach the live data.`, true);
+          renderRoadmap(cached.data);
+        } else {
+          showError(err.message, false);
+        }
+      }
+    }
+
+    loadRoadmap();
+  </script>
+
+  <script src="js/scroll-animations.js"></script>
+
+  <script>
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>

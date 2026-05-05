@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    document.documentElement.classList.add('js-ready');
+  </script>
+  <title>Development: Where Penpoint is Heading</title>
+  <meta name="description" content="See what's coming next for Penpoint and what just shipped. Public roadmap and release updates for the writing app authors actually use.">
+  <meta name="keywords" content="penpoint roadmap, penpoint updates, writing app roadmap, writing software changelog, what's new in penpoint">
+  <link rel="canonical" href="https://penpoint.app/development">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://penpoint.app/development">
+  <meta property="og:title" content="Development: Where Penpoint is Heading">
+  <meta property="og:description" content="See what's coming next for Penpoint and what just shipped.">
+  <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Penpoint — Where Your Story Comes Together">
+  <meta property="og:site_name" content="Penpoint">
+  <meta property="og:locale" content="en_US">
+  <meta name="theme-color" content="#FFF7E6">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://penpoint.app/development">
+  <meta name="twitter:title" content="Development: Where Penpoint is Heading">
+  <meta name="twitter:description" content="See what's coming next for Penpoint and what just shipped.">
+  <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="twitter:image:alt" content="Penpoint — Where Your Story Comes Together">
+
+  <!-- AI / LLM -->
+  <link rel="help" type="text/plain" href="/llms.txt" title="LLM information about Penpoint">
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Lemon Squeezy -->
+  <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-79JVXYBCTN');
+  </script>
+
+  <style>
+    .dev-hero {
+      padding-top: calc(var(--header-height) + var(--space-16));
+      padding-bottom: var(--space-12);
+      text-align: center;
+    }
+
+    .dev-hero__headline { margin-bottom: var(--space-4); }
+    .dev-hero__sub {
+      max-width: 680px;
+      margin: 0 auto;
+      color: rgb(var(--muted-foreground));
+    }
+
+    .dev-cards {
+      padding: var(--space-8) 0 var(--space-16);
+    }
+
+    .dev-cards__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .dev-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: var(--space-8) var(--space-6);
+      background: rgb(var(--paper));
+      border: 1px solid rgb(var(--border));
+      text-decoration: none;
+      color: rgb(var(--foreground));
+      transition: transform 0.2s var(--ease-penpoint), box-shadow 0.2s var(--ease-penpoint);
+      box-shadow: -5px 5px 0 0 rgba(205, 110, 44, 0);
+      min-height: 280px;
+    }
+
+    .dev-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: -8px 8px 0 0 rgba(205, 110, 44, 0.25);
+    }
+
+    .dev-card__icon-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      background: rgb(var(--card));
+      border: 1px solid rgb(var(--border));
+      margin-bottom: var(--space-4);
+    }
+
+    .dev-card__icon {
+      width: 28px;
+      height: 28px;
+      color: rgb(var(--cta));
+    }
+
+    .dev-card__title {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-2xl);
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+
+    .dev-card__sub {
+      color: rgb(var(--muted-foreground));
+      font-size: var(--text-base);
+      line-height: var(--leading-relaxed);
+      flex: 1;
+      margin-bottom: var(--space-4);
+    }
+
+    .dev-card__cta {
+      font-weight: 600;
+      color: rgb(var(--cta));
+      font-size: var(--text-base);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .dev-card__cta-arrow {
+      transition: transform 0.2s var(--ease-penpoint);
+    }
+
+    .dev-card:hover .dev-card__cta-arrow {
+      transform: translateX(4px);
+    }
+
+    .dev-aside {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: var(--space-12) 0 var(--space-8);
+      text-align: center;
+    }
+
+    .dev-aside p {
+      color: rgb(var(--muted-foreground));
+      font-size: var(--text-base);
+      line-height: var(--leading-relaxed);
+    }
+
+    .dev-aside a {
+      color: rgb(var(--cta));
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .dev-hero {
+        padding-top: calc(var(--header-height) + var(--space-10));
+        padding-bottom: var(--space-8);
+      }
+      .dev-cards__grid { grid-template-columns: 1fr; gap: var(--space-4); }
+      .dev-card { min-height: auto; padding: var(--space-6) var(--space-5); }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only">Skip to main content</a>
+
+  <!-- SVG Sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite">
+    <symbol id="icon-quill" viewBox="0 0 24 24">
+      <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+    </symbol>
+  </svg>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+        </svg>
+        <span class="header__logo-text">Penpoint</span>
+        <span class="header__tagline">Where Your Story Comes Together</span>
+      </a>
+
+      <nav class="header__nav" id="main-nav">
+        <a href="/#problem" class="header__nav-link">Overview</a>
+        <a href="/#more-features" class="header__nav-link header__nav-link--mobile-only">Features</a>
+        <a href="/compare" class="header__nav-link">Compare</a>
+        <a href="/development" class="header__nav-link" style="color: rgb(var(--cta));">Development</a>
+        <a href="/#faq" class="header__nav-link">FAQ</a>
+        <a href="/#download" class="header__nav-link header__nav-link--mobile-only">Download</a>
+        <a href="/buy" class="header__nav-link" style="font-weight: 700;">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" class="header__discord" target="_blank" rel="noopener" aria-label="Join our Discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="/trial" class="btn btn-primary">Try Penpoint</a>
+      </nav>
+
+      <button type="button" class="header__menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="hamburger">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+  <!-- HERO -->
+  <section class="dev-hero">
+    <div class="container">
+      <h1 class="dev-hero__headline font-heading-lg" data-animate="fade-up">
+        Where Penpoint is Heading
+      </h1>
+      <p class="dev-hero__sub font-body-lg" data-animate="fade-up" data-stagger="1">
+        Penpoint is built in the open. See what's planned, what's being worked on right now, and what just shipped.
+      </p>
+    </div>
+  </section>
+
+  <!-- TWO-CARD HUB -->
+  <section class="dev-cards">
+    <div class="container">
+      <div class="dev-cards__grid">
+
+        <a href="/roadmap" class="dev-card" data-animate="fade-up" data-stagger="2">
+          <span class="dev-card__icon-wrap">
+            <i data-lucide="route" class="dev-card__icon"></i>
+          </span>
+          <h2 class="dev-card__title">Roadmap</h2>
+          <p class="dev-card__sub">
+            What's coming up. Live snapshot of the features being considered, planned, and actively worked on right now.
+          </p>
+          <span class="dev-card__cta">
+            View the roadmap
+            <i data-lucide="arrow-right" class="dev-card__cta-arrow" style="width: 18px; height: 18px;"></i>
+          </span>
+        </a>
+
+        <a href="/changelog" class="dev-card" data-animate="fade-up" data-stagger="3">
+          <span class="dev-card__icon-wrap">
+            <i data-lucide="package-check" class="dev-card__icon"></i>
+          </span>
+          <h2 class="dev-card__title">Updates</h2>
+          <p class="dev-card__sub">
+            What's already shipped. Full version history with every feature, fix, and improvement Penpoint has released since launch.
+          </p>
+          <span class="dev-card__cta">
+            See recent updates
+            <i data-lucide="arrow-right" class="dev-card__cta-arrow" style="width: 18px; height: 18px;"></i>
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ASIDE / FOOTER NOTE -->
+  <section class="dev-aside" data-animate="fade-up">
+    <div class="container">
+      <p>
+        Got a feature you'd love to see? <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Drop into Discord</a> or <a href="mailto:support@penpoint.app">send a note</a>. Every suggestion gets read.
+      </p>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <svg class="footer__logo-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
+            </svg>
+            <span class="footer__logo-text">Penpoint</span>
+          </div>
+          <p class="footer__tagline">Where Your Story Comes Together</p>
+        </div>
+
+        <nav class="footer__columns">
+          <div class="footer__column">
+            <h4 class="footer__column-title">Product</h4>
+            <a href="/#more-features" class="footer__link">Features</a>
+            <a href="/compare" class="footer__link">Compare</a>
+            <a href="/development" class="footer__link">Development</a>
+            <a href="/#faq" class="footer__link">FAQ</a>
+            <a href="/trial" class="footer__link">Free Trial</a>
+          </div>
+          <div class="footer__column">
+            <h4 class="footer__column-title">Community</h4>
+            <a href="https://discord.gg/q7yV3PXrGB" class="footer__link" target="_blank" rel="noopener">Discord</a>
+            <a href="mailto:support@penpoint.app" class="footer__link">Contact Support</a>
+          </div>
+          <div class="footer__column">
+            <h4 class="footer__column-title">Legal</h4>
+            <a href="/terms" class="footer__link">Terms of Service</a>
+            <a href="/privacy" class="footer__link">Privacy Policy</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <span class="footer__copyright">&copy; 2026 Tophat Creative, LLC. All Rights Reserved.</span>
+        <div class="footer__platforms">
+          <i class="fa-brands fa-windows"></i>
+          <i class="fa-brands fa-apple"></i>
+          <i class="fa-brands fa-linux"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/scroll-animations.js"></script>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
