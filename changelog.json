@@ -1,6 +1,84 @@
 {
-  "generatedAt": "2026-05-04T19:09:12.791Z",
+  "generatedAt": "2026-05-11T02:49:00.241Z",
   "versions": [
+    {
+      "number": "1.2.1",
+      "date": "2026-05-10",
+      "intro": "",
+      "sections": [
+        {
+          "name": "Added",
+          "entries": [
+            {
+              "text": "**Pick Chapters by the Scene** - When adding a character, item, location, or plot point to a chapter, you can now see and pick exactly which scenes to assign. Chapters with multiple scenes expand in the picker — tick the whole chapter to add to everything at once, or pick individual scenes. Already-assigned entries are hidden, and the Manuscript Mode sidebars now also show which scenes you've tagged under each chapter.",
+              "subBullets": []
+            },
+            {
+              "text": "**Eras for Custom Calendars** - Custom calendars now support a full era system. In Calendar Settings, choose how dates display: plain years, a BCE/CE-style split with your own before/after labels, or named eras with their own start dates like \"Reign of King Valdris.\" Pick from four date phrasings and your dates use that style throughout the app. Gaps between eras fall back to a Base era automatically, so you don't need to account for every stretch of unrecorded time.",
+              "subBullets": []
+            },
+            {
+              "text": "**Copy Blocks Across Scenes** - Right-click any block in a multi-scene chapter — a date, character list, location, description, or anything else — and copy it to all other scenes at once. Or choose \"Copy all blocks to all scenes\" to sync your entire scene's data across every scene in the chapter. A confirmation dialog shows which scene you're copying from before anything changes.",
+              "subBullets": []
+            },
+            {
+              "text": "**Penpoint Startup Safety Net** - In the rare event Penpoint can't start, you'll see a clear screen confirming your books are safe, with buttons to restart, email support, or save a log file to attach to your message.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Improved",
+          "entries": [
+            {
+              "text": "**Arc Plot Point Rework** - Adding a plot point is now one searchable dropdown instead of two clicks. Type \"climax\" and every arc's climax shows up in a single list — tick more than one at a time. On the Chapters page, what used to be two competing Story Arcs sections is now one block with clear \"Whole chapter\" and per-scene sub-sections.",
+              "subBullets": []
+            },
+            {
+              "text": "**Chapter-Wide Plot Points** - Restored the ability to assign plot points to an entire chapter separately from individual scenes. Removing a chapter-level plot point no longer touches scene-level ones. Chapters and scenes can share the same plot points or have their own.",
+              "subBullets": []
+            },
+            {
+              "text": "**Cleaner Detail Pages** - On Location pages, \"Characters & Items\" is now split into separate Characters and Items sections, each with its own search. The Add buttons on Item and Location pages got a quieter look — a dashed row sitting at the bottom of each list.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Fixed",
+          "entries": [
+            {
+              "text": "**Scene Descriptions and Notes Could Disappear** - On rare occasions, the Description and Notes blocks on chapter scenes could go empty when interacting with arc assignments. Fixed at the source, with added safeguards so this can't happen again. If you've been affected, your text is safe in your automatic backups — message us on Discord and we'll walk you through restoring it.",
+              "subBullets": []
+            },
+            {
+              "text": "**Undo for Accidental Scene Merges** - Accidentally merged two scenes with Backspace? Ctrl+Z (Cmd+Z on Mac) now brings the absorbed scene back fully intact: title, color, status, custom fields, and assignments. Works for right-click merges too.",
+              "subBullets": []
+            },
+            {
+              "text": "**Deleting a Scene Now Refreshes Instantly** - Deleted scenes no longer linger in the Manuscript navigator and editor. They disappear right away everywhere, as they should.",
+              "subBullets": []
+            },
+            {
+              "text": "**Export From the Book Library** - Right-clicking a book and choosing \"Export\" wasn't working. Now it opens a save dialog so you can save your book as a `.penpoint` backup file wherever you like.",
+              "subBullets": []
+            },
+            {
+              "text": "**Enter Key in Chapter Picker** - Hitting Enter on a highlighted chapter or scene now adds it and closes the popup, as expected. Previously it required a separate tick first.",
+              "subBullets": []
+            },
+            {
+              "text": "**Editing Book Cover Could Lock the Save Button** - If you uploaded a cover image for the first time without changing anything else, the Save Changes button would stay grayed out. Fixed!",
+              "subBullets": []
+            },
+            {
+              "text": "**Backup Imports Could Show Outdated Book Settings** - Reimporting a `.penpoint` backup could occasionally restore an older book cover. Your most recent covers now always travel with the backup.",
+              "subBullets": []
+            }
+          ]
+        }
+      ]
+    },
     {
       "number": "1.2.0",
       "date": "2026-05-04",
