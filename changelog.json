@@ -1,6 +1,108 @@
 {
-  "generatedAt": "2026-05-11T02:49:00.241Z",
+  "generatedAt": "2026-05-16T20:19:48.355Z",
   "versions": [
+    {
+      "number": "1.2.2",
+      "date": "2026-05-16",
+      "intro": "",
+      "sections": [
+        {
+          "name": "Added",
+          "entries": [
+            {
+              "text": "**Image Blocks for Characters and Scenes** - Drop an Image block into your character or chapter layout to attach pictures to each character or scene. Portraits, maps, concept art, reference photos, anything visual that helps you write. Click any uploaded image to open a zoom-and-pan viewer, or right-click to export the original back to your computer with the character or scene name pre-filled. Each image has its own caption with flexible positioning (below, above, overlaid, or off); switch to Cover mode to crop every image to the same widescreen frame. Add one via Settings > Character Layout or Settings > Chapter Layout, then Add Block > Image.",
+              "subBullets": []
+            },
+            {
+              "text": "**Outline Your Scenes in the Block Layout** - There's a new Outline block for your chapter layouts. Drop it into a scene for a collapsible bullet list (or numbered, your call) to sketch beats and ideas before you write them out. Tab to indent, Shift+Tab to outdent, and fold nested items away with the chevron. Collapse state sticks with the scene, and Mentions work inside so you can drop character names straight into a beat. Add one via Settings > Chapter Layout.",
+              "subBullets": []
+            },
+            {
+              "text": "**Pick a Different Font for Just Your Manuscript** - Open the gear icon at the top of Manuscript Mode and pick a font from the new \"Editor Font\" option. It applies only to your prose, chapter titles, and chapter subtitles. Sidebars, toolbars, and settings stay on your main font. Great for writers who prefer a serif for prose but a clean sans-serif everywhere else. Pick \"Use Global Font\" to match the rest of the app again.",
+              "subBullets": []
+            },
+            {
+              "text": "**Live Book Cover Preview** - When creating or editing a book, a preview now appears right alongside the settings so you can see exactly how your cover will look on the shelf. Change the title, pick a color, swap a texture, or upload an image, and the preview updates instantly.",
+              "subBullets": []
+            },
+            {
+              "text": "**Highlight Your Current Line** - Turn on \"Highlight current line\" in the View settings (gear icon) to see a soft band follow your cursor as you write. The footer also shows your line number alongside the word count, and one toggle controls both. Great for finding your place after a distraction or keeping your eyes anchored during a careful reread.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Improved",
+          "entries": [
+            {
+              "text": "**Manuscript Sidebar Polish** - Items and locations now show their icons and pictures in the sidebar, matching how they look on the main pages. Notes now support archive view (gear icon, archived items at the bottom), note tags are clickable and jump to that tag's view, and the Back button returns you to the folder you were browsing.",
+              "subBullets": []
+            },
+            {
+              "text": "**Notebook Archive and Tagging Polish** - Archived notes now gather in their own \"Archived\" section at the bottom of each folder, and opening one shows an Unarchive banner with the content locked until you bring the note back. You can also create a new tag right from a note's tag picker without leaving the editor.",
+              "subBullets": []
+            },
+            {
+              "text": "**Build Consecutive Custom Calendar Eras Faster** - Each era in your Custom Calendar now has an \"Add next era\" button. If the era has a duration set, the new one starts right where the last one ends. No more calculating start years by hand.",
+              "subBullets": []
+            },
+            {
+              "text": "**Smoother Chapter Editing** - Switching between View and Edit mode on your Chapters page now animates smoothly instead of snapping instantly, matching the feel of Characters, Locations, and Items.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Fixed",
+          "entries": [
+            {
+              "text": "**Chapter Export Restored** - The \"Export Worldbuilding\" feature for chapters was broken after scenes were added to the Chapters page, showing almost nothing. Each scene now exports as its own labeled section with everything filled in: descriptions, notes, dates, characters (with POV markers), plot points, locations, items, and tags.",
+              "subBullets": []
+            },
+            {
+              "text": "**Picture Export in Single-File Mode** - When exporting a compendium as a single file, pictures (profile images and Image block contents) now export to a `<filename>-images/` folder alongside the document. Single-file mode was silently skipping the export-pictures toggle; both modes now export consistently.",
+              "subBullets": []
+            },
+            {
+              "text": "**\"Where I Left Off\" Now Saves Reliably** - If you closed Penpoint while writing without switching chapters first, your cursor position sometimes wasn't remembered. Now it saves as you go, so \"Where I Left Off\" always puts you back in the right spot.",
+              "subBullets": []
+            },
+            {
+              "text": "**Adding a Scene Renaming Your Other Scenes** - If you had scenes without custom titles and added a new scene via right-click in the Manuscript outline, Penpoint would rename all your untitled scenes to generic labels like \"Scene 4\", \"Scene 5\", etc. Those scenes now keep showing their opening lines as a preview.",
+              "subBullets": []
+            },
+            {
+              "text": "**Missing Cover Options When Importing a Manuscript** - The final setup screen in the manuscript import flow was missing texture, custom color, and cover image options. The import experience now matches creating a book from scratch, preview included.",
+              "subBullets": []
+            },
+            {
+              "text": "**Manuscript Import Duplicates** - When importing a manuscript, the scanner could list the same character or place twice if the only difference was capitalization (like \"the Briars\" and \"The Briars\"). They now merge into a single entry with the combined count.",
+              "subBullets": []
+            },
+            {
+              "text": "**Duplicating a Book Now Copies Everything** - When you duplicated a book with a cover image or custom color, those didn't carry over to the copy. Both now copy correctly.",
+              "subBullets": []
+            },
+            {
+              "text": "**Chapter Break Now Names Chapters Correctly** - Using the Chapter break button in the toolbar and leaving the title blank would stamp your new chapter with \"Untitled Chapter\" instead of a proper number. It now matches the behavior of creating a chapter from the left panel.",
+              "subBullets": []
+            },
+            {
+              "text": "**Notebook Note Fixes** - Creating a new tag from a note's tag picker now works in both the Notebook and the Manuscript sidebar. Long note titles wrap properly at larger text sizes instead of getting cut off. Tag pills in the note footer now match the bordered style used throughout the app.",
+              "subBullets": []
+            },
+            {
+              "text": "**Empty Trait Blocks** - Trait blocks for traits with no subtraits no longer hang on \"Loading...\"; they now show \"None\" in view mode and a shortcut link to configure that trait in edit mode.",
+              "subBullets": []
+            },
+            {
+              "text": "**Location Icon Now Visible Next to Type** - If a location had a profile picture, its icon would disappear from the detail panel. The icon now also appears next to the \"Type\" field, so you can always see it whether or not a picture is set.",
+              "subBullets": []
+            }
+          ]
+        }
+      ]
+    },
     {
       "number": "1.2.1",
       "date": "2026-05-10",
