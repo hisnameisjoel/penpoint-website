@@ -484,6 +484,7 @@
           <div class="changelog-sidebar__group">
   <h3 class="changelog-sidebar__group-title">1.2.x</h3>
   <ul class="changelog-sidebar__list">
+    <li><a class="changelog-sidebar__link" href="#v1-2-3"><span>1.2.3</span><span class="changelog-sidebar__date">May 23, 2026</span></a></li>
     <li><a class="changelog-sidebar__link" href="#v1-2-2"><span>1.2.2</span><span class="changelog-sidebar__date">May 16, 2026</span></a></li>
     <li><a class="changelog-sidebar__link" href="#v1-2-1"><span>1.2.1</span><span class="changelog-sidebar__date">May 10, 2026</span></a></li>
     <li><a class="changelog-sidebar__link" href="#v1-2-0"><span>1.2.0</span><span class="changelog-sidebar__date">May 4, 2026</span></a></li>
@@ -535,6 +536,7 @@
           <label class="changelog-mobile-nav__label" for="changelog-version-select">Jump to version</label>
           <select class="changelog-mobile-nav__select" id="changelog-version-select" onchange="if(this.value) window.location.hash = this.value;">
             <option value="">Select a version&hellip;</option>
+              <option value="#v1-2-3">1.2.3 — May 23, 2026</option>
               <option value="#v1-2-2">1.2.2 — May 16, 2026</option>
               <option value="#v1-2-1">1.2.1 — May 10, 2026</option>
               <option value="#v1-2-0">1.2.0 — May 4, 2026</option>
@@ -572,7 +574,45 @@
 
         <!-- Main content -->
         <div class="changelog-content">
-          <section id="v1-2-2" class="changelog-version">
+          <section id="v1-2-3" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.2.3</h2>
+    <span class="changelog-version__date">May 23, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Tables</strong> - You can now insert tables into any rich text area in Penpoint: notes, character and item descriptions, location pages, chapter author notes, arc details, and more. Click the grid icon in the formatting toolbar, drag to pick how many rows and columns you want (up to 6 wide and 20 tall), and click Insert Table. Each table gets a caption above it so you can name it something useful. Right-click any cell and hover over Table to add a row above or below, add a column to the left or right, or delete the row or column you're on. You can use bold, italic, bullet lists, and @mentions inside cells. One honest caveat: tables live inside Penpoint only. When you export to Word, PDF, or any other format, each table becomes a "Table: Name" placeholder, with a full list of all your tables at the end of the file.</li>
+    <li><strong>Pin Characters to the Top of Your List</strong> - Right-click any character and choose "Pin to top" to lock your protagonist, main antagonist, or any key character into a permanent Pinned Characters section at the top of the sidebar. Pinned characters stay put no matter how you sort the rest of your list, and are separated from the others by a divider. Right-click again to unpin and send them back. Works in all view modes and expands into a grid when you widen the sidebar.</li>
+    <li><strong>Horizontal Lines in Notes and Descriptions</strong> - You can now insert a horizontal line into any rich-text field in Penpoint: notes, character descriptions, location pages, chapter outlines, arc plot points, and more. Look for the new line icon in the toolbar. Lines export cleanly to all formats (Word, PDF, RTF, Markdown). Manuscript Mode's existing horizontal line button was also renamed to match, so the terminology is now consistent across the app.</li>
+    <li><strong>Type @ to Add Names in Your Manuscript</strong> - Type <code>@</code> while writing prose and a picker pops up with your characters, locations, items, and the rest of your worldbuilding. Pick one and the name drops in as plain text. Handy when you're juggling tricky spellings and tired of misspelling your protagonist for the fortieth time. Unlike the worldbuilding <code>@</code> picker, this one inserts the name as ordinary prose: no link, no auto-attaching anyone to your scene. Bold and italic formatting carry through, so an emphasized name stays emphasized.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Drag Text to Move It in Notes and Descriptions</strong> - You can now highlight text in any notebook field, character description, location page, or other worldbuilding area and drag it to a new spot, just like you've always been able to in Manuscript Mode. Hold Ctrl while dragging to copy instead of move.</li>
+    <li><strong>Same-Day Events on Calendar Blocks</strong> - When a scene starts and ends on the same day, the Calendar block now shows it as a single tidy entry instead of two stacked date blocks. If you have times set, it reads something like "April 24, 1891" with "8:57 AM - 2:04 PM" below it. Much cleaner for scenes that span just a few hours.</li>
+    <li><strong>Calendar Picker Layout</strong> - The month and year are now centered between the navigation arrows in the calendar picker, instead of sitting off to the left with a lot of empty space.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Mention Picker Stays Put</strong> - The <code>@</code> autocomplete popup used to drift sideways a bit when you stopped typing. It now stays anchored to the <code>@</code> you typed.</li>
+    <li><strong>Create New Tag Polish</strong> - Pressing Enter no longer overrides your color choice, the auto-suggested color now picks an unused one from your palette instead of always picking the first color.</li>
+    <li><strong>Quick Create (Ctrl+N) Polish</strong> - Fixed several rough edges in the quick-create popup. Nicknames you typed for a new character were being silently discarded instead of saved. Dropdowns like Importance and Type are now visibly highlighted when you navigate them with arrow keys, especially on lighter themes where it was nearly invisible before. The item type field is now consistently labeled "Type" everywhere, and chapter notes are now consistently labeled "Chapter Notes" throughout the app.</li>
+    <li><strong>Minipen Width When Switching Monitors</strong> - If you moved Penpoint from one monitor to another with a different size or resolution, the Minipen sidebar could shrink too narrow and cause your manuscript text to scroll sideways as you typed. It now snaps to the correct minimum width when you switch screens.</li>
+    <li><strong>Row Highlight After Pressing End</strong> - On a wrapped paragraph, pressing End would drop the highlight band to the next line even though your cursor stayed at the end of the current one. The band now stays where your cursor is.</li>
+    <li><strong>Minipen Scene Selector Font</strong> - The scene list in the Minipen Chapters tab was rendering in a smaller font than everything around it. It now matches the rest of the panel.</li>
+    <li><strong>Text Selection in Outline Blocks</strong> - When using Minipen, you couldn't select or copy text from Outline blocks. Now you can.</li>
+    <li><strong>Image Block: Minipen Display and Lightbox Captions</strong> - In the Minipen sidebar, images set to "Contain" were being cropped into a small fixed box, cutting off your artwork. Now they show at their natural proportions. Also fixed the image lightbox ignoring your caption position preference; captions now appear above, below, or overlaid exactly as you configured.</li>
+    <li><strong>Chapter Tags Now Visible in Chapter View</strong> - You can now assign tags directly to a chapter, not just to its individual scenes. The Tags block in chapter view shows a "Whole chapter" section at the top where you can manage chapter-level tags, with your scene tags still listed below as before. If no chapter tags are set, the section stays out of your way until you're in edit mode.</li>
+    <li><strong>Confirmation Dialogs Now Actually Wait for Your Answer</strong> - Clicking the trash icon on an image block could delete the image before the confirmation popup even appeared, making Cancel useless. All "are you sure?" prompts across the app now properly wait for your response before doing anything.</li>
+    <li><strong>Chapters Tutorial</strong> - Fixed the Chapters page tutorial failing to start and run properly in some cases.</li>
+    <li><strong>Story Arcs in Minipen</strong> - The arc visualizer was getting squished into the narrow Minipen sidebar and looking like a tangle. It's now hidden there, leaving the cleaner Whole Chapter and Scenes lists to do the job.</li>
+    <li><strong>Item Names No Longer Get Clipped in Cards</strong> - Items with longer names could get cut off mid-word in the Items grid, especially on cards with a photo. Names now wrap and hyphenate properly.</li>
+    <li><strong>Minipen Edit Mode Polish</strong> - Fixed the formatting toolbar pushing the Minipen sidebar wider and adding a horizontal scrollbar when editing a block. Also reworked the Character edit view so the profile picture, name, nickname, and importance fields fit comfortably in the narrow sidebar instead of getting clipped.</li>
+  </ul>
+</section>
+
+<section id="v1-2-2" class="changelog-version">
   <div class="changelog-version__header">
     <h2 class="changelog-version__number">1.2.2</h2>
     <span class="changelog-version__date">May 16, 2026</span>
