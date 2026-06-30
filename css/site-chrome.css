@@ -1,0 +1,67 @@
+/* =====================================================================
+   Penpoint shared site chrome — header + footer
+   Single source of truth for the nav bar and footer across ALL pages.
+   Colors are hardcoded (not CSS vars) so the chrome looks identical on
+   every page regardless of that page's own variables.css.
+   Requires fonts: Source Serif 4, Newsreader, IBM Plex Mono + Font Awesome.
+   ===================================================================== */
+
+/* ---- Skip link (a11y) ---- */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:100;background:#29241E;color:#FEF9F0;padding:10px 16px;font-family:'Source Serif 4',serif;font-size:15px;text-decoration:none;}
+.skip-link:focus{left:8px;top:8px;}
+
+/* ---- Header ---- */
+.pp-header{position:sticky;top:0;z-index:50;background:rgba(252,248,240,0.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid #E6DCCD;}
+.pp-header__inner{max-width:1180px;margin:0 auto;padding:13px clamp(20px,5vw,56px);display:flex;align-items:center;gap:18px;}
+.pp-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#29241E;margin-right:auto;}
+.pp-logo__icon{flex:none;}
+.pp-logo__text{font-family:'Source Serif 4',serif;font-weight:700;font-size:22px;line-height:1.375;letter-spacing:-0.025em;}
+
+.pp-nav{display:flex;align-items:center;gap:clamp(16px,2vw,28px);flex-wrap:wrap;justify-content:flex-end;font-family:'Source Serif 4',serif;font-size:15px;letter-spacing:0;}
+.pp-nav a{color:#7D5D35;text-decoration:none;transition:color .2s ease,background-color .2s ease;}
+.pp-nav a.pp-nav__buy,.pp-mobile a.pp-nav__buy{color:#29241E;font-weight:600;}
+.pp-nav a.pp-nav__discord{display:inline-flex;align-items:center;}
+.pp-nav a.pp-nav__discord i{font-size:16px;}
+.pp-nav a:not(.pp-cta):hover{color:#CD6E2C;}
+/* underline sweep on text links (exclude the CTA + the icon-only discord link) */
+.pp-nav a:not(.pp-cta):not(.pp-nav__discord){position:relative;}
+.pp-nav a:not(.pp-cta):not(.pp-nav__discord)::after{content:"";position:absolute;left:50%;right:50%;bottom:-2px;height:1px;background:#CD6E2C;transition:left .26s cubic-bezier(.4,0,.2,1),right .26s cubic-bezier(.4,0,.2,1);}
+.pp-nav a:not(.pp-cta):not(.pp-nav__discord):hover::after{left:0;right:0;}
+
+.pp-cta{font-family:'Source Serif 4',serif;font-weight:600;font-size:14px;letter-spacing:0;text-transform:none;background:#CD6E2C;color:#FFF7E6;padding:9px 18px;text-decoration:none;transition:background .2s ease;}
+.pp-nav a.pp-cta{color:#FFF7E6;}  /* beat .pp-nav a (0,1,1) so the CTA label stays light, not the muted link brown */
+.pp-cta:hover{background:#B46127;}
+
+/* ---- Mobile (condensed Try + hamburger + dropdown panel) ---- */
+.pp-try-m{display:none;font-family:'Source Serif 4',serif;font-weight:600;font-size:14px;background:#CD6E2C;color:#FFF7E6;padding:10px 16px;text-decoration:none;flex:none;}
+.pp-burger{display:none;width:42px;height:42px;border:1px solid #DDCBAE;background:#F3E7CE;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0;flex:none;}
+.pp-burger span{display:block;width:18px;height:1.6px;background:#29241E;transition:transform .28s cubic-bezier(.4,0,.2,1),opacity .18s ease;}
+.pp-burger.open span:nth-child(1){transform:translateY(5.6px) rotate(45deg);}
+.pp-burger.open span:nth-child(2){opacity:0;}
+.pp-burger.open span:nth-child(3){transform:translateY(-5.6px) rotate(-45deg);}
+.pp-mobile{overflow:hidden;max-height:0;transition:max-height .36s cubic-bezier(.4,0,.2,1);background:rgba(252,248,240,0.98);}
+.pp-mobile.open{max-height:440px;}
+.pp-mobile__inner{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,56px) 12px;}
+.pp-mobile a{display:block;font-family:'Source Serif 4',serif;font-size:17px;letter-spacing:0;color:#5C4A33;text-decoration:none;padding:15px 4px;border-top:1px solid #E6DCCD;}
+.pp-mobile a:first-child{border-top:none;}
+.pp-mobile a:active{color:#CD6E2C;}
+@media(max-width:880px){.pp-nav{display:none !important;}.pp-burger{display:flex;}.pp-try-m{display:inline-block;}}
+@media(min-width:881px){.pp-mobile{display:none;}}
+
+/* ---- Footer ---- */
+.pp-footer{background:#29241E;color:#9C8862;}
+.pp-footer__top{max-width:1180px;margin:0 auto;padding:clamp(48px,6vw,78px) clamp(20px,5vw,56px);display:flex;flex-wrap:wrap;gap:clamp(40px,5vw,72px);justify-content:space-between;}
+.pp-footer__brand{max-width:320px;}
+.pp-footer__brand-row{display:flex;align-items:center;gap:11px;margin:0 0 16px;}
+.pp-footer__brand-icon{flex:none;}
+.pp-footer__brand-name{font-family:'Newsreader',serif;font-weight:600;font-size:20px;color:#F3E7CE;}
+.pp-footer__tagline{font-family:'Source Serif 4',serif;font-size:15px;color:#9C8862;margin:0;}
+.pp-footer__cols{display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,68px);}
+.pp-footer__col{display:flex;flex-direction:column;gap:13px;}
+.pp-footer__col h4{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7A6647;margin:0 0 3px;}
+.foot-link{font-family:'Source Serif 4',serif;font-size:16px;color:#B8A079;text-decoration:none;transition:color .15s ease;}
+.foot-link:hover{color:#F3E7CE;}
+.pp-footer__bottom{border-top:1px solid #3A332A;}
+.pp-footer__bottom-inner{max-width:1180px;margin:0 auto;padding:18px clamp(20px,5vw,56px);display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;justify-content:space-between;}
+.pp-footer__copy{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#6B5A3F;}
+.pp-footer__platforms{display:flex;gap:16px;align-items:center;font-size:15px;color:#6B5A3F;}

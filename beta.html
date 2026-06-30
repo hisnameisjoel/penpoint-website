@@ -3,155 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <meta http-equiv="refresh" content="0;url=/trial">
-  <link rel="canonical" href="https://penpoint.app/trial">
-  <title>Penpoint Beta Has Launched</title>
-
-  <!-- Favicon & Icons -->
+  <meta name="robots" content="noindex, follow">
+  <title>Penpoint</title>
+  <link rel="canonical" href="https://penpoint.app/buy">
+  <!-- Soft redirect: the beta is over; send visitors to the purchase page. -->
+  <meta http-equiv="refresh" content="0; url=/buy">
+  <script>window.location.replace('/buy');</script>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
   <link rel="apple-touch-icon" href="images/icon-192.png">
-
-  <!-- Google Fonts - Source Serif 4 only -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/typography.css">
-  <link rel="stylesheet" href="css/main.css">
-
   <style>
-    .redirect-page {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: calc(100vh - var(--header-height) - 6rem);
-      text-align: center;
-      padding: var(--space-8) var(--container-padding);
-    }
-
-    .redirect-page__quill {
-      width: 5rem;
-      height: 5rem;
-      color: rgb(var(--foreground));
-      margin-bottom: var(--space-6);
-    }
-
-    .redirect-page__headline {
-      margin-bottom: var(--space-6);
-    }
-
-    .redirect-page__body {
-      max-width: 28rem;
-      margin: 0 auto var(--space-8);
-      color: rgb(var(--muted-foreground));
-    }
-
-    .redirect-page__body p {
-      margin-bottom: var(--space-4);
-    }
-
-    .redirect-page__cta {
-      display: inline-block;
-      padding: var(--space-3) var(--space-8);
-      background: rgb(var(--primary));
-      color: rgb(var(--primary-foreground));
-      text-decoration: none;
-      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
-      font-size: var(--text-base);
-      font-weight: 600;
-      transition: background var(--duration-normal) var(--ease-penpoint);
-    }
-
-    .redirect-page__cta:hover {
-      background: rgb(var(--cta));
-    }
+    html,body{margin:0;min-height:100vh;}
+    body{background:#FCF8F0;color:#3D2E1C;font-family:'Source Serif 4',Georgia,serif;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;line-height:1.6;}
+    a{color:#CD6E2C;}
   </style>
 </head>
 <body>
-
-  <!-- Header -->
-  <header class="header">
-    <div class="container header__inner">
-      <a href="/" class="header__logo">
-        <svg class="header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
-        </svg>
-        <span class="header__logo-text">Penpoint</span>
-        <span class="header__tagline">Where Your Story Comes Together</span>
-      </a>
-    </div>
-  </header>
-
-  <main>
-    <div class="redirect-page">
-
-      <svg class="redirect-page__quill" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
-      </svg>
-
-      <h1 class="redirect-page__headline font-heading-lg">The Beta Has Launched</h1>
-
-      <div class="redirect-page__body font-body">
-        <p>Penpoint is now available to everyone. Taking you to the download page...</p>
-        <p>If you aren't redirected automatically, click below.</p>
-      </div>
-
-      <a href="/trial" class="redirect-page__cta">Go to Downloads</a>
-
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__top">
-        <div class="footer__brand">
-          <div class="footer__logo">
-            <svg class="footer__logo-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
-            </svg>
-            <span class="footer__logo-text">Penpoint</span>
-          </div>
-          <p class="footer__tagline">Where Your Story Comes Together</p>
-        </div>
-
-        <nav class="footer__columns">
-          <div class="footer__column">
-            <h4 class="footer__column-title">Product</h4>
-            <a href="/#more-features" class="footer__link">Features</a>
-            <a href="/compare" class="footer__link">Compare</a>
-            <a href="/development" class="footer__link">Development</a>
-            <a href="/#faq" class="footer__link">FAQ</a>
-            <a href="/trial" class="footer__link">Free Trial</a>
-          </div>
-          <div class="footer__column">
-            <h4 class="footer__column-title">Community</h4>
-            <a href="https://discord.gg/q7yV3PXrGB" class="footer__link" target="_blank" rel="noopener">Discord</a>
-            <a href="mailto:support@penpoint.app" class="footer__link">Contact Support</a>
-          </div>
-          <div class="footer__column">
-            <h4 class="footer__column-title">Legal</h4>
-            <a href="/terms" class="footer__link">Terms of Service</a>
-            <a href="/privacy" class="footer__link">Privacy Policy</a>
-          </div>
-        </nav>
-      </div>
-
-      <div class="footer__bottom">
-        <span class="footer__copyright">&copy; 2026 Tophat Creative, LLC. All Rights Reserved.</span>
-        <div class="footer__platforms">
-          <i class="fa-brands fa-windows"></i>
-          <i class="fa-brands fa-apple"></i>
-          <i class="fa-brands fa-linux"></i>
-        </div>
-      </div>
-    </div>
-  </footer>
-
+  <p>Penpoint is available to everyone now &mdash; taking you to <a href="/buy">penpoint.app/buy</a>&hellip;</p>
 </body>
 </html>

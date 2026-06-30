@@ -19,12 +19,14 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/typography.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/site-chrome.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
@@ -138,19 +140,42 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="legal-header">
-    <div class="container legal-narrow legal-header__inner">
-      <a href="/" class="legal-header__logo">
-        <svg class="legal-header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
-        </svg>
-        <span class="legal-header__logo-text">Penpoint</span>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ===== Shared site header (see css/site-chrome.css) ===== -->
+  <header class="pp-header">
+    <div class="pp-header__inner">
+      <a href="/" class="pp-logo" aria-label="Penpoint home">
+        <svg class="pp-logo__icon" viewBox="0 0 24 24" width="22" height="22" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+        <span class="pp-logo__text">Penpoint</span>
       </a>
+      <nav class="pp-nav" aria-label="Primary">
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" aria-label="Join our Discord" class="pp-nav__discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="/trial" class="pp-cta">Try Penpoint</a>
+      </nav>
+      <a href="/trial" class="pp-try-m">Try</a>
+      <button type="button" class="pp-burger" data-burger="" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="pp-mobile" data-mobile-menu="">
+      <div class="pp-mobile__inner">
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>
+      </div>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <div class="container legal-narrow legal-content">
       <h1>Terms of Service</h1>
       <p class="legal-updated">Last updated: March 25, 2026</p>
@@ -249,11 +274,49 @@
     </div>
   </main>
 
-  <footer class="footer">
-    <div class="container legal-footer">
-      &copy; 2026 Tophat Creative, LLC. All Rights Reserved.
+  <!-- ===== Shared site footer (see css/site-chrome.css) ===== -->
+  <footer class="pp-footer">
+    <div class="pp-footer__top">
+      <div class="pp-footer__brand">
+        <div class="pp-footer__brand-row">
+          <svg class="pp-footer__brand-icon" viewBox="0 0 24 24" width="22" height="22" fill="#DDA964"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+          <span class="pp-footer__brand-name">Penpoint</span>
+        </div>
+        <p class="pp-footer__tagline">Where Your Story Comes Together</p>
+      </div>
+      <nav class="pp-footer__cols" aria-label="Footer">
+        <div class="pp-footer__col">
+          <h4>Product</h4>
+          <a href="/#features" class="foot-link">Features</a>
+          <a href="/compare" class="foot-link">Compare</a>
+          <a href="/development" class="foot-link">Development</a>
+          <a href="/#faq" class="foot-link">FAQ</a>
+          <a href="/trial" class="foot-link">Free Trial</a>
+        </div>
+        <div class="pp-footer__col">
+          <h4>Community</h4>
+          <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" class="foot-link">Discord</a>
+          <a href="mailto:support@penpoint.app" class="foot-link">Contact Support</a>
+        </div>
+        <div class="pp-footer__col">
+          <h4>Legal</h4>
+          <a href="/terms" class="foot-link">Terms of Service</a>
+          <a href="/privacy" class="foot-link">Privacy Policy</a>
+        </div>
+      </nav>
+    </div>
+    <div class="pp-footer__bottom">
+      <div class="pp-footer__bottom-inner">
+        <span class="pp-footer__copy">© 2026 Tophat Creative, LLC. All Rights Reserved.</span>
+        <div class="pp-footer__platforms">
+          <i class="fa-brands fa-windows"></i>
+          <i class="fa-brands fa-apple"></i>
+          <i class="fa-brands fa-linux"></i>
+        </div>
+      </div>
     </div>
   </footer>
 
+  <script src="js/site-chrome.js"></script>
 </body>
 </html>

@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>
-    document.documentElement.classList.add('js-ready');
-  </script>
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <meta name="robots" content="index, follow">
+  <title>Penpoint — Write Your Novel. Organize Your World.</title>
   <meta name="description" content="A desktop app where fiction writers draft their manuscript and organize their world in one place. Manuscript editor, visual relationship maps, story arc visualizers, instant search, and chapter scanning. Your data stays on your computer.">
   <meta name="keywords" content="novel writing software, manuscript writing app, character bible, story bible, scrivener alternative, character tracking software, story organization, writing app with worldbuilding">
   <link rel="canonical" href="https://penpoint.app/">
-
-  <!-- Open Graph / Social -->
+  <meta name="theme-color" content="#FFF7E6">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://penpoint.app/">
   <meta property="og:title" content="Penpoint — Where Your Story Comes Together">
@@ -21,1226 +20,841 @@
   <meta property="og:image:alt" content="Penpoint — Write your novel and organize your world in one app">
   <meta property="og:site_name" content="Penpoint">
   <meta property="og:locale" content="en_US">
-  <meta name="theme-color" content="#FFF7E6">
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://penpoint.app/">
   <meta name="twitter:title" content="Penpoint — Where Your Story Comes Together">
   <meta name="twitter:description" content="A desktop app where fiction writers draft their manuscript and organize their world in one place. Manuscript editor, visual relationship maps, story arc visualizers, instant search, and chapter scanning. Your data stays on your computer.">
   <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
   <meta name="twitter:image:alt" content="Penpoint — Write your novel and organize your world in one app">
-
-  <title>Penpoint — Write Your Novel. Organize Your World.</title>
-
-  <!-- AI / LLM -->
   <link rel="help" type="text/plain" href="/llms.txt" title="LLM information about Penpoint">
-
-  <!-- Favicon & Icons -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png">
   <link rel="apple-touch-icon" href="images/icon-192.png">
-
-  <!-- Google Fonts - Source Serif 4 only -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="images/CharacterArcs.webp" type="image/webp">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/typography.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/main.css">
-
-  <!-- Lucide Icons (same library as the app) -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-
-  <!-- Lemon Squeezy Checkout Overlay -->
-  <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
-
-  <!-- Font Awesome (for platform icons) -->
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- Google Analytics -->
+  <link rel="stylesheet" href="css/site-chrome.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-79JVXYBCTN');
-  </script>
-
-  <!-- Structured Data -->
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-79JVXYBCTN");</script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Penpoint",
-    "applicationCategory": "BusinessApplication",
-    "applicationSubCategory": "Writing Software",
-    "operatingSystem": "Windows, macOS, Linux",
-    "description": "A desktop app where fiction writers write their manuscript and organize their world in one place. Manuscript editor, visual relationship maps, story arc visualizers, instant search, and chapter scanning. All data stays on your computer.",
-    "url": "https://penpoint.app/",
-    "image": "https://penpoint.app/images/og-image.jpg",
-    "screenshot": [
-      "https://penpoint.app/images/ManuscriptMode.webp",
-      "https://penpoint.app/images/CharacterPage.webp",
-      "https://penpoint.app/images/RelationshipMap.webp",
-      "https://penpoint.app/images/GloriousSearchbar.webp",
-      "https://penpoint.app/images/ArcViewer.webp",
-      "https://penpoint.app/images/CharacterArcs.webp"
-    ],
-    "featureList": "Manuscript Editor, Manuscript Import (Word/EPUB/Markdown/TXT), Manuscript Export (Word/PDF/RTF/Markdown/TXT), Chapter Scanner, Offline Spellchecker (60 languages), Flowstate Writing Mode, Relationship Map, Story Arc Visualizer, Character Arc Visualizer, Glorious Searchbar (Ctrl+K), Custom Character Layouts, Custom Chapter Layouts, Per-Scene Worldbuilding, Nested Locations, Items & Possessions Tracking, Universal Tags, Timeline View, Compendium, Multi-Book Library, @Mention Linking, Notebook, Scene Drafts & Versions",
-    "releaseNotes": "Launched March 2026. Active development with regular updates.",
-    "datePublished": "2026-03-21",
-    "downloadUrl": "https://penpoint.app/trial",
-    "softwareRequirements": "Windows 10+, macOS 10.15+, or Linux (64-bit)",
-    "softwareHelp": {
-      "@type": "CreativeWork",
-      "url": "https://penpoint.app/#faq"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Tophat Creative, LLC",
-      "url": "https://penpoint.app/"
-    },
-    "offers": {
-      "@type": "Offer",
-      "url": "https://penpoint.app/buy",
-      "price": "40.00",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Penpoint",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Writing Software",
+  "operatingSystem": "Windows, macOS, Linux",
+  "description": "A desktop app where fiction writers draft their manuscript and organize their world in one place. Manuscript editor, visual relationship maps, story arc visualizers, instant search, and chapter scanning. Your data stays on your computer.",
+  "url": "https://penpoint.app/",
+  "image": "https://penpoint.app/images/og-image.jpg",
+  "screenshot": [
+    "https://penpoint.app/images/ManuscriptMode.webp",
+    "https://penpoint.app/images/CharacterPage.webp",
+    "https://penpoint.app/images/RelationshipMap.webp",
+    "https://penpoint.app/images/GloriousSearchbar.webp",
+    "https://penpoint.app/images/CharacterArcs.webp"
+  ],
+  "featureList": "Manuscript Editor, Manuscript Import (Word/EPUB/Markdown/TXT), Manuscript Export (Word/PDF/RTF/Markdown/TXT), Chapter Scanner, Offline Spellchecker (60 languages), Flowstate Writing Mode, Relationship Map, Story Arc Visualizer, Character Arc Visualizer, Glorious Searchbar (Ctrl+K), Custom Character Layouts, Custom Chapter Layouts, Per-Scene Worldbuilding, Nested Locations, Items & Possessions Tracking, Universal Tags, Timeline View, Compendium, Multi-Book Library, @Mention Linking, Notebook, Scene Drafts & Versions",
+  "releaseNotes": "Launched March 2026. Active development with regular updates.",
+  "datePublished": "2026-03-21",
+  "downloadUrl": "https://penpoint.app/trial",
+  "softwareRequirements": "Windows 10+, macOS 10.15+, or Linux (64-bit)",
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "url": "https://penpoint.app/#faq"
+  },
+  "publisher": {
     "@type": "Organization",
-    "name": "Penpoint",
-    "url": "https://penpoint.app/",
-    "logo": "https://penpoint.app/images/icon-512.png",
-    "description": "Writing software where authors write their manuscript and organize their world in one app",
-    "foundingDate": "2024",
-    "founder": {
-      "@type": "Organization",
-      "name": "Tophat Creative, LLC"
-    },
-    "sameAs": [
-      "https://discord.gg/q7yV3PXrGB"
-    ]
+    "name": "Tophat Creative, LLC",
+    "url": "https://penpoint.app/"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://penpoint.app/buy",
+    "price": "40.00",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
   }
-  </script>
-
+}
+</script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is Penpoint?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A desktop app where writers write their manuscript and organize their world in one place. Write your entire book in a clean editor, track characters, locations, and relationships with visual tools, and search everything instantly."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Who is Penpoint for?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Writers, mostly. Fiction authors are the core audience, but people also use it for nonfiction, historical research, and tabletop RPG campaigns. It works fine with a handful of characters or a cast of hundreds."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I import my existing work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Manuscripts: Yes. Import from Word (.docx), EPUB, Markdown, or plain text. Penpoint detects your chapter boundaries automatically and splits the manuscript for you. Then use the Chapter Scanner to auto-detect characters, locations, and items in your prose. Worldbuilding data: You can import worldbuilding from a Markdown file formatted for Penpoint. It may require some restructuring, but it works. Beyond that, the Chapter Scanner auto-detects proper nouns in your manuscript and offers to import them as characters, locations, or items, so your prose builds your worldbuilding for you."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What makes Penpoint different from Scrivener, Campfire, or Dabble?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Scrivener is great for organizing a manuscript but doesn't have worldbuilding tools. Campfire has worldbuilding, but no manuscript editor. Dabble lands somewhere in between with limited worldbuilding. Penpoint is the one that does both: write your book and organize your world in the same app."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does Penpoint work offline?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Completely. Everything lives on your computer. No internet, no account, no cloud, no AI. Your story details don't leave your machine unless you export them yourself."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is Flowstate?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A forward-only writing mode built right into the manuscript editor. Start a timed sprint and sentences lock behind you as you type. Timed cycles alternate between writing sprints and editing windows. It's designed for writers who keep rewriting the same paragraph instead of moving forward, forcing you to embrace imperfect first drafts."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I manage multiple books or a series?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, there's a multi-book library built in. Duplicate a book to start the next installment and choose what carries over: keep your locations but start fresh on characters, or bring everything with you. Filter by installment, or view everything across the whole series at once."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much does Penpoint cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "$40, once. No subscription. Your license covers Windows, macOS, and Linux — buy it once, use it everywhere."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does Penpoint work with ProWritingAid or Grammarly?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. On Windows and macOS, ProWritingAid Desktop Everywhere and Grammarly for Desktop can detect Penpoint's editor and provide grammar and style suggestions alongside your writing."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What languages does Penpoint support?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The interface is in English. You can write your manuscript in any language and the spellchecker supports 60+ languages you can download from Settings. The one caveat is the Chapter Scanner, which only works with English text right now. Everything else works in whatever language you write in. Multi-language interface support is planned."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What platforms does Penpoint support?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Windows, macOS (Intel and Apple Silicon), and Linux. It's a native desktop app, not a web app running in a browser. There are no plans for a web version or mobile apps for iOS or Android."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is a character bible or story bible?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A character bible is a reference sheet for every character in your story: names, traits, relationships, backstories, all of it. A story bible is the same idea but for your whole world: locations, timelines, plot threads, worldbuilding. Some people call them series bibles. Penpoint is both. Your characters and your world, organized and searchable in one place."
-        }
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Penpoint",
+  "url": "https://penpoint.app/",
+  "logo": "https://penpoint.app/images/icon-512.png",
+  "description": "Writing software where authors write their manuscript and organize their world in one app",
+  "foundingDate": "2024",
+  "founder": {
+    "@type": "Organization",
+    "name": "Tophat Creative, LLC"
+  },
+  "sameAs": [
+    "https://discord.gg/q7yV3PXrGB"
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Penpoint?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A desktop app where writers write their manuscript and organize their world in one place. Write your entire book in a clean editor, track characters, locations, and relationships with visual tools, and search everything instantly."
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "Question",
+      "name": "Who is Penpoint for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Writers, mostly. Fiction authors are the core audience, but people also use it for nonfiction, historical research, and tabletop RPG campaigns. It works fine with a handful of characters or a cast of hundreds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does Penpoint cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "$40, once. No subscription. Your license covers Windows, macOS, and Linux — buy it once, use it everywhere. Every update to the version you buy is free; if a major new version ever ships, it'd be an optional, discounted upgrade, and your copy keeps working regardless. And it's all backed by a 30-day money-back guarantee, no questions asked."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What platforms does Penpoint support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Windows, macOS (Intel and Apple Silicon), and Linux. It's a native desktop app, not a web app running in a browser. There are no plans for a web version or mobile apps for iOS or Android."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Penpoint work offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Completely. Everything lives on your computer. No internet, no account, no cloud, no AI. Your story details don't leave your machine unless you export them yourself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I import my existing work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Manuscripts: Yes. Import from Word (.docx), EPUB, Markdown, or plain text. Penpoint detects your chapter boundaries automatically and splits the manuscript for you. Then use the Chapter Scanner to auto-detect characters, locations, and items in your prose. Worldbuilding data: You can import worldbuilding from a Markdown file formatted for Penpoint. It may require some restructuring, but it works. Beyond that, the Chapter Scanner auto-detects proper nouns in your manuscript and offers to import them as characters, locations, or items, so your prose builds your worldbuilding for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes Penpoint different from Scrivener, Campfire, or Dabble?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Scrivener is great for organizing a manuscript but doesn't have worldbuilding tools. Campfire has worldbuilding, but no manuscript editor. Dabble lands somewhere in between with limited worldbuilding. Penpoint is the one that does both: write your book and organize your world in the same app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Penpoint have a spellchecker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it works completely offline. Penpoint ships with a spellchecker supporting 60 languages. Download whichever you need from Settings. Every character, location, and item name you create is automatically added to the dictionary, so your invented names never show up as misspelled."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Penpoint work with ProWritingAid or Grammarly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. On Windows and macOS, ProWritingAid Desktop Everywhere and Grammarly for Desktop can detect Penpoint's editor and provide grammar and style suggestions alongside your writing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What languages does Penpoint support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The interface is in English. You can write your manuscript in any language and the spellchecker supports 60+ languages you can download from Settings. The one caveat is the Chapter Scanner, which only works with English text right now. Everything else works in whatever language you write in. Multi-language interface support is planned."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Flowstate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A writing mode built right into the manuscript editor. Start a timed writing sprint and sentences lock behind you as you type. You literally can't go back and rewrite the same paragraph for the tenth time. Timed cycles alternate between forward-only writing and editing windows. It's not for everyone, but if you tend to edit too much and write too little, it might be exactly what you need."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I manage multiple books or a series?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, there's a multi-book library built in. Duplicate a book to start the next installment and choose what carries over: keep your locations but start fresh on characters, or bring everything with you. Filter by installment, or view everything across the whole series at once."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Penpoint actively developed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — Penpoint is built and maintained continuously, with new features and fixes shipping regularly based on community feedback. See the changelog for the full release history."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a character bible or story bible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A character bible is a reference sheet for every character in your story: names, traits, relationships, backstories, all of it. A story bible is the same idea but for your whole world: locations, timelines, plot threads, worldbuilding. Some people call them series bibles. Penpoint is both. Your characters and your world, organized and searchable in one place."
+      }
+    }
+  ]
+}
+</script>
+  <style>
+    /* Header + footer chrome lives in css/site-chrome.css (shared across all pages) */
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    section[id],footer[id]{scroll-margin-top:88px;}
+    body{background:var(--paper,#FCF8F0);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+    img{max-width:100%;}
+    ::selection{background:var(--accent-bright,#DDA964);color:#29241E;}
+    a{transition:opacity .2s ease, background .2s ease, color .2s ease;}
+    [data-faq] summary{list-style:none;}
+    [data-faq] summary::-webkit-details-marker{display:none;}
+    [data-faq] summary::marker{content:"";}
+    [data-faq-ic]::before{content:"+";display:inline-block;transition:transform .3s ease;}
+    [data-faq][open] [data-faq-ic]::before{content:"\2212";}
+    [data-faq-inner]{overflow:hidden;}
+    .faq-ans p{margin:0 0 14px;}
+    .faq-ans p:last-child{margin-bottom:0;}
+    .faq-ans a{color:#CD6E2C;text-decoration:underline;text-underline-offset:2px;}
+    .faq-ans strong{color:#29241E;font-weight:600;}
+    .twocol{display:grid;grid-template-columns:0.84fr 1.16fr;gap:clamp(36px,5vw,72px);align-items:start;}
+    @media(max-width:820px){.twocol{grid-template-columns:1fr;}.twocol__aside{position:static !important;}}
+    .brows{display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(rgba(221,203,174,.5),rgba(221,203,174,.5)) center top / 1px 100% no-repeat;}
+    .brows > div{position:relative;}
+    .brows > div::after{content:"";position:absolute;bottom:0;height:1px;width:54%;background:rgba(221,203,174,.5);}
+    .brows > div:nth-child(odd)::after{right:0;}
+    .brows > div:nth-child(even)::after{left:0;}
+    .brows > div:nth-last-child(-n+2)::after{display:none;}
+    @media(max-width:760px){.brows{grid-template-columns:1fr;background:none;}.brows > div::after{left:50%;right:auto;transform:translateX(-50%);width:56%;}.brows > div:nth-last-child(-n+2)::after{display:block;}.brows > div:last-child::after{display:none;}}
+    .morelist{display:block;}
+    .mgroup{margin-bottom:clamp(22px,2.6vw,30px);}
+    .mgroup-head{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+    .mgroup-head span:first-child{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#B0703A;white-space:nowrap;}
+    .mgroup-head span:last-child{flex:1;height:1px;background:#E2D4BC;}
+    .mgroup-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(28px,4vw,52px);}
+    .mrow{display:flex;gap:13px;padding:11px 0;}
+    .mrow > span{flex:none;width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:#C0772F;margin-top:1px;}
+    .mrow h4{font-family:'Source Serif 4',serif;font-weight:600;font-size:15px;color:#29241E;margin:0 0 2px;}
+    .mrow p{font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.48;color:#5C4332;margin:0;}
+    @media(max-width:680px){.mgroup-grid{grid-template-columns:1fr;}}
+    .brows [data-feature]{transition:background-color .3s ease;}
+    .brows [data-feature]:hover{background-color:rgba(205,110,44,0.07);}
+    .brows [data-feature] img{transition:scale .45s cubic-bezier(.4,0,.2,1);}
+    .brows [data-feature]:hover img{scale:1.05;}
+    [data-lightbox]{opacity:0;visibility:hidden;transition:opacity .28s ease,visibility .28s ease;}
+    [data-lightbox].lb-open{opacity:1;visibility:visible;}
+    [data-lightbox] > div{transform:scale(.93);transition:transform .32s cubic-bezier(.2,.7,.2,1);}
+    [data-lightbox].lb-open > div{transform:scale(1);}
+    /* ---- Feature blocks: lead with text on mobile ---- */
+    @media(max-width:680px){[data-feat-text]{order:-1 !important;}}
+    /* ---- Stats: stack cleanly on phones ---- */
+    @media(max-width:560px){.statcell{flex:1 1 100% !important;border-left:none !important;border-top:1px solid #DDCBAE;}.statcell:first-child{border-top:none;}}
+    /* ---- Browse feature cards: smaller thumb on tiny screens ---- */
+    @media(max-width:420px){.brows [data-feature]{gap:13px;}.brows [data-feature] > div:first-child{width:116px !important;height:80px !important;}}
+    @keyframes ppFadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes ppSlideL{from{opacity:0;transform:translateX(-34px);}to{opacity:1;transform:translateX(0);}}
+    @keyframes ppSlideR{from{opacity:0;transform:translateX(34px);}to{opacity:1;transform:translateX(0);}}
+    @keyframes ppScale{from{opacity:0;transform:scale(.92);}to{opacity:1;transform:scale(1);}}
+    @keyframes ppFade{from{opacity:0;}to{opacity:1;}}
+    @keyframes ppHeroLine{0%{opacity:0;transform:translateY(50px);filter:blur(14px);}55%{filter:blur(0);}100%{opacity:1;transform:translateY(0);filter:blur(0);}}
+    @keyframes ppHeroRise{from{opacity:0;transform:translateY(64px) scale(.965);}to{opacity:1;transform:translateY(0) scale(1);}}
+    @keyframes ppHeroLeft{0%{opacity:0;transform:translateX(-70px);filter:blur(8px);}60%{filter:blur(0);}100%{opacity:1;transform:translateX(0);filter:blur(0);}}
+    @keyframes ppHeroRight{0%{opacity:0;transform:translateX(70px);filter:blur(8px);}60%{filter:blur(0);}100%{opacity:1;transform:translateX(0);filter:blur(0);}}
+    .js-ready [data-animate]{opacity:0;}
+    [data-animate].animate-in{animation-duration:.72s;animation-timing-function:cubic-bezier(.4,0,.2,1);animation-fill-mode:both;}
+    [data-animate="fade-up"].animate-in{animation-name:ppFadeUp;}
+    [data-animate="fade-left"].animate-in{animation-name:ppSlideL;}
+    [data-animate="fade-right"].animate-in{animation-name:ppSlideR;}
+    [data-animate="scale"].animate-in{animation-name:ppScale;}
+    [data-animate="fade"].animate-in{animation-name:ppFade;}
+    [data-animate="hero-line"].animate-in{animation-name:ppHeroLine;animation-duration:1.05s;animation-timing-function:cubic-bezier(.2,.7,.2,1);}
+    [data-animate="hero-rise"].animate-in{animation-name:ppHeroRise;animation-duration:1.15s;animation-timing-function:cubic-bezier(.2,.7,.2,1);}
+    [data-animate="hero-left"].animate-in{animation-name:ppHeroLeft;animation-duration:1.1s;animation-timing-function:cubic-bezier(.16,.8,.24,1);}
+    [data-animate="hero-right"].animate-in{animation-name:ppHeroRight;animation-duration:1.1s;animation-timing-function:cubic-bezier(.16,.8,.24,1);}
+    [data-stagger="1"]{animation-delay:70ms;}
+    [data-stagger="2"]{animation-delay:140ms;}
+    [data-stagger="3"]{animation-delay:210ms;}
+    [data-stagger="4"]{animation-delay:280ms;}
+    [data-stagger="5"]{animation-delay:350ms;}
+    [data-stagger="6"]{animation-delay:420ms;}
+    @media(prefers-reduced-motion:reduce){.js-ready [data-animate]{opacity:1;}[data-animate].animate-in{animation:none;}}
+  
+  </style>
 </head>
 <body>
-  <a href="#main" class="sr-only focus:not-sr-only">Skip to main content</a>
+<div id="pp-root" style="font-family:'Source Serif 4',Georgia,serif;color:#3D2E1C;background:var(--paper,#FCF8F0);">
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- SVG Sprite (hidden) -->
-  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite">
-    <symbol id="icon-quill" viewBox="0 0 24 24">
-      <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
-    </symbol>
-  </svg>
-
-  <!-- ===========================================
-       HEADER
-       =========================================== -->
-  <header class="header">
-    <div class="container header__inner">
-      <a href="#" class="header__logo">
-        <svg class="header__logo-icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
-        </svg>
-        <span class="header__logo-text">Penpoint</span>
-        <span class="header__tagline">Where Your Story Comes Together</span>
+  <!-- ===== Shared site header (see css/site-chrome.css) ===== -->
+  <header class="pp-header">
+    <div class="pp-header__inner">
+      <a href="/" class="pp-logo" aria-label="Penpoint home">
+        <svg class="pp-logo__icon" viewBox="0 0 24 24" width="22" height="22" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+        <span class="pp-logo__text">Penpoint</span>
       </a>
-
-      <nav class="header__nav" id="main-nav">
-        <a href="#problem" class="header__nav-link">Overview</a>
-        <a href="#more-features" class="header__nav-link header__nav-link--mobile-only">Features</a>
-        <a href="/compare" class="header__nav-link">Compare</a>
-        <a href="/development" class="header__nav-link">Development</a>
-        <a href="#testimonials" class="header__nav-link">Testimonials</a>
-        <a href="#faq" class="header__nav-link">FAQ</a>
-        <a href="#download" class="header__nav-link header__nav-link--mobile-only">Download</a>
-        <a href="/buy" class="header__nav-link" style="font-weight: 700;">Buy</a>
-        <a href="https://discord.gg/q7yV3PXrGB" class="header__discord" target="_blank" rel="noopener" aria-label="Join our Discord"><i class="fa-brands fa-discord"></i></a>
-        <a href="/trial" class="btn btn-primary">Try Penpoint</a>
+      <nav class="pp-nav" aria-label="Primary">
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" aria-label="Join our Discord" class="pp-nav__discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="/trial" class="pp-cta">Try Penpoint</a>
       </nav>
-
-      <button type="button" class="header__menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
-        <span class="hamburger">
-          <span class="hamburger__line"></span>
-          <span class="hamburger__line"></span>
-          <span class="hamburger__line"></span>
-        </span>
+      <a href="/trial" class="pp-try-m">Try</a>
+      <button type="button" class="pp-burger" data-burger="" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
     </div>
+    <div class="pp-mobile" data-mobile-menu="">
+      <div class="pp-mobile__inner">
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
   </header>
-
   <main id="main">
-  <!-- ===========================================
-       HERO SECTION
-       =========================================== -->
-  <section class="hero section">
-    <div class="container hero__inner">
-      <div class="hero__content">
-        <h1 class="hero__headline font-heading-lg" data-animate="fade-up">
-          Write Your Novel.<br>Organize Your World.
-        </h1>
-        <p class="hero__quote font-display" data-animate="fade-left" data-stagger="1">
-          &ldquo;Was his name Aldric or Aldrick?&rdquo;
-        </p>
-        <p class="hero__subheadline font-body-lg" data-animate="fade-up" data-stagger="2">
-          Your manuscript and your worldbuilding live in one app. Write, search, visualize, and never lose track of your story again.
-        </p>
-        <div class="hero__cta" data-animate="fade-up" data-stagger="3">
-          <a href="/trial" class="btn btn-primary btn-xl btn-shadow">
-            Try Penpoint Free
-          </a>
-          <p class="font-body-sm" style="margin-top: var(--space-3); color: rgb(var(--muted-foreground));">
-            Already decided? <a href="https://penpointapp.lemonsqueezy.com/checkout/buy/5576a809-44e7-4179-b5f6-69c145725060?embed=1" class="lemonsqueezy-button" style="color: rgb(var(--cta)); font-weight: 600;">Buy Penpoint &mdash; $40</a>
-          </p>
-        </div>
-      </div>
-      <div class="hero__visual hero__visual--desktop" data-animate="fade-right" data-stagger="1" style="perspective: 1200px;">
-        <div class="screenshot-frame featured" style="transform: rotateZ(0deg) rotateX(3deg) rotateY(-5deg) translateX(37px) scale(1.25); transform-style: preserve-3d;">
-          <img src="images/CharacterArcs.webp" alt="Story arc visualization showing plot progression and character fortune curves" class="feature__image" width="3816" height="2337" loading="eager" fetchpriority="high" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-        </div>
-      </div>
-      <div class="hero__visual hero__visual--mobile" data-animate="fade-up" data-stagger="1">
-        <div class="screenshot-frame featured">
-          <img src="images/CharacterArcs.webp" alt="Story arc visualization showing plot progression and character fortune curves" class="feature__image" width="3816" height="2337" loading="eager" fetchpriority="high">
-        </div>
-      </div>
-    </div>
-  </section>
 
-
-  <!-- ===========================================
-       PAIN POINTS SECTION
-       =========================================== -->
-  <section class="pain-points section" id="problem">
-    <div class="container">
-      <h2 class="font-heading-lg text-center section-heading" data-animate="fade-up">
-        The problems every writer faces:
-      </h2>
-      <div class="pain-points__grid" data-stagger-group data-stagger-delay="120">
-
-        <div class="pain-point-line" data-animate="fade-up">
-          <p class="pain-point-line__quote font-heading">&ldquo;I write in one app and plan in another.&rdquo;</p>
-          <p class="pain-point-line__context font-body-sm">Switching between your manuscript editor and your worldbuilding notes, every single session.</p>
-        </div>
-
-        <div class="pain-point-line" data-animate="fade-up">
-          <p class="pain-point-line__quote font-heading">&ldquo;Wait &mdash; what was his name? And who has the sword?&rdquo;</p>
-          <p class="pain-point-line__context font-body-sm">Forgetting character details and losing track of possessions buried chapters ago.</p>
-        </div>
-
-        <div class="pain-point-line" data-animate="fade-up">
-          <p class="pain-point-line__quote font-heading">&ldquo;I can&rsquo;t visualize how everyone connects.&rdquo;</p>
-          <p class="pain-point-line__context font-body-sm">Complex character webs that won't fit in your head.</p>
-        </div>
-
-        <div class="pain-point-line" data-animate="fade-up">
-          <p class="pain-point-line__quote font-heading">&ldquo;My notes are everywhere.&rdquo;</p>
-          <p class="pain-point-line__context font-body-sm">Scattered across apps, spreadsheets, and sticky notes.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <div class="pain-to-solution-arrow" data-animate="fade-up">
-    <i data-lucide="chevron-down"></i>
-  </div>
-
-  <!-- ===========================================
-       STRUCTURE BRIDGE
-       =========================================== -->
-  <section class="structure-bridge section">
-    <div class="container">
-      <h2 class="structure-bridge__intro font-heading" data-animate="fade-up">
-        Penpoint organizes your story into five simple categories:
-      </h2>
-
-      <div class="structure-bridge__categories" data-stagger-group data-stagger-delay="100">
-        <div class="category-card card-hover" data-animate="fade-left">
-          <i data-lucide="users" class="category-card__icon"></i>
-          <span class="category-card__label font-heading-sm">Characters</span>
-        </div>
-
-        <div class="category-card card-hover" data-animate="fade-left">
-          <i data-lucide="package" class="category-card__icon"></i>
-          <span class="category-card__label font-heading-sm">Items</span>
-        </div>
-
-        <div class="category-card card-hover" data-animate="fade-left">
-          <i data-lucide="map-pin" class="category-card__icon"></i>
-          <span class="category-card__label font-heading-sm">Locations</span>
-        </div>
-
-        <div class="category-card card-hover" data-animate="fade-left">
-          <i data-lucide="file-text" class="category-card__icon"></i>
-          <span class="category-card__label font-heading-sm">Chapters</span>
-        </div>
-
-        <div class="category-card card-hover" data-animate="fade-left">
-          <i data-lucide="spline" class="category-card__icon" style="transform: rotate(45deg);"></i>
-          <span class="category-card__label font-heading-sm">Arcs</span>
+  <section data-screen-label="Hero" style="background:var(--paper,#FCF8F0);">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(26px,5vw,56px) clamp(20px,5vw,56px) clamp(40px,6vw,84px);">
+      <div style="text-align:center;padding:clamp(20px,5vw,72px) 0 clamp(26px,5vw,48px);">
+        <h1 style="font-family:'Newsreader',serif;font-weight:var(--hl-weight,500);font-size:clamp(46px,9.2vw,112px);line-height:1.1;letter-spacing:-0.022em;margin:0;color:#29241E;"><span data-animate="hero-left" style="display:block;animation-delay:100ms;">Build your world.</span><span data-animate="hero-right" style="display:block;font-style:var(--hl-emph-style,italic);font-weight:var(--hl-emph-weight,400);animation-delay:420ms;">Write the book.</span></h1>
+        <p data-animate="fade-up" style="font-family:'Source Serif 4',serif;font-size:clamp(16px,1.9vw,21px);line-height:1.62;color:#5C4A33;max-width:560px;margin:clamp(26px,4vw,40px) auto 0;animation-delay:700ms;">Your manuscript <span style="font-style:italic;">and</span> your worldbuilding live in one desktop app. Draft your novel, map every character, and never lose the thread of your own story again.</p>
+        <div data-animate="scale" style="display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:clamp(26px,4vw,42px);animation-delay:980ms;">
+          <a href="/trial" style="font-family:'Source Serif 4',serif;font-weight:600;font-size:17px;background:var(--accent,#CD6E2C);color:#FFF7E6;padding:15px 30px;text-decoration:none;box-shadow:0 12px 24px -12px rgba(205,110,44,.7);">Try Penpoint free</a>
+          <p style="font-family:'Source Serif 4',serif;font-size:14px;color:#7D5D35;margin:0;">14 days free · no account · no credit card</p>
         </div>
       </div>
 
-      <p class="structure-bridge__transition font-heading" data-animate="fade-up">
-        And then connects them—<em>so renaming your protagonist doesn't break fifty pages of notes.</em>
-      </p>
-    </div>
-  </section>
-
-  <!-- Section Divider -->
-  <div class="section-divider" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <svg class="section-divider__quill"><use href="#icon-quill"/></svg>
-    <span class="section-divider__line"></span>
-  </div>
-
-  <!-- ===========================================
-       FEATURE: MANUSCRIPT MODE
-       =========================================== -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="feature">
-        <div class="feature__content">
-          <h2 class="feature__headline font-heading-lg" data-animate="fade-left">
-            Write your book. Know your world. One app.          </h2>
-          <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
-            Your manuscript lives alongside your characters, locations, and worldbuilding. Write a chapter, check a character's eye color, keep writing, without leaving Penpoint. Import existing manuscripts from Word, EPUB, Markdown, or plain text with automatic chapter detection. Then scan your chapters to auto-detect every character, location, and item in your prose.
-          </p>
-          <div class="feature__shortcut" data-animate="fade-up" data-stagger="2">
-            <span class="font-body-sm">Switch between</span>
-            <kbd class="font-kbd">Manuscript</kbd>
-            <span class="font-body-sm">and</span>
-            <kbd class="font-kbd">Worldbuilding</kbd>
-            <span class="font-body-sm">with one click</span>
-          </div>
+      <figure data-animate="hero-rise" style="margin:0;animation-delay:1240ms;">
+        <div style="border:1px solid #E0D2BC;background:#fff;box-shadow:0 36px 70px -34px rgba(61,46,28,.42);overflow:hidden;aspect-ratio:3076/2000;">
+          <img loading="eager" fetchpriority="high" src="images/CharacterArcs.webp" alt="Penpoint Arc Visualizer showing character fortune curves" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
         </div>
-        <div class="feature__visual" data-animate="fade-right">
-          <button type="button" class="feature__image-btn screenshot-frame featured"
-                  data-lightbox="manuscript-mode"
-                  data-lightbox-title="Manuscript Mode"
-                  data-lightbox-desc="Write your entire novel in a clean, focused editor. Scenes split and merge with keyboard shortcuts. Chapter groups organize your structure. Import existing manuscripts from Word, EPUB, Markdown, or plain text. Penpoint detects chapter boundaries automatically. Then scan your chapters to find every character, location, and item mentioned in your prose. Your manuscript and your worldbuilding, finally in one place."
-                  data-lightbox-image="images/ManuscriptMode.webp">
-            <img src="images/ManuscriptMode.webp" alt="Manuscript Mode showing the writing editor with outline sidebar" class="feature__image" width="3834" height="2349" loading="lazy">
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===========================================
-       FEATURE: CROSS-REFERENCED WORLD
-       =========================================== -->
-  <section class="section">
-    <div class="container">
-      <div class="feature feature--reversed">
-        <div class="feature__content">
-          <h2 class="feature__headline font-heading-lg" data-animate="fade-right">
-            It's all coming together.          </h2>
-          <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
-            Characters link to chapters. Items belong to owners. Locations nest inside each other. As you fill in the details, Penpoint weaves them into a single cross-referenced world.
-          </p>
-          <div class="feature__shortcut" data-animate="fade-up" data-stagger="2">
-            <span class="font-body-sm">See every connection on the</span>
-            <kbd class="font-kbd">Character Page</kbd>
-          </div>
-        </div>
-        <div class="feature__visual" data-animate="fade-left">
-          <button type="button" class="feature__image-btn screenshot-frame featured"
-                  data-lightbox="cross-reference"
-                  data-lightbox-title="Cross-Referenced World"
-                  data-lightbox-desc="See the full picture. Items, relationships, chapters, locations. Everything about your character, connected and ready when you need it."
-                  data-lightbox-image="images/CharacterPage.webp">
-            <img src="images/CharacterPage.webp" alt="Character page showing cross-referenced connections" class="feature__image" width="3789" height="2318" loading="lazy">
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===========================================
-       FEATURE: THE GLORIOUS SEARCHBAR
-       =========================================== -->
-  <section class="section section-alt" id="features">
-    <div class="container">
-      <div class="feature">
-        <div class="feature__content">
-          <h2 class="feature__headline font-heading-lg" data-animate="fade-left">
-            Your ideas will find you.          </h2>
-          <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
-            Introducing the Glorious Searchbar. Instantly search every character, location, item, chapter, and note in your project. Stop scrolling through documents. Just start typing and the Glorious Searchbar works its magic.
-          </p>
-          <div class="feature__shortcut" data-animate="fade-up" data-stagger="2">
-            <kbd class="font-kbd">Ctrl</kbd>
-            <span>+</span>
-            <kbd class="font-kbd">K</kbd>
-            <span class="font-body-sm">from anywhere to activate the searchbar</span>
-          </div>
-        </div>
-        <div class="feature__visual" data-animate="fade-right">
-          <button type="button" class="feature__image-btn screenshot-frame featured"
-                  data-lightbox="searchbar"
-                  data-lightbox-title="The Glorious Searchbar"
-                  data-lightbox-desc="Type a name and instantly see the character, their home, their belongings, and every note that mentions them."
-                  data-lightbox-image="images/GloriousSearchbar.webp">
-            <img src="images/GloriousSearchbar.webp" alt="The Glorious Searchbar showing instant search results" class="feature__image" width="1988" height="1308" loading="lazy">
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===========================================
-       FEATURE: RELATIONSHIP MAP
-       =========================================== -->
-  <section class="section">
-    <div class="container">
-      <div class="feature feature--reversed">
-        <div class="feature__content">
-          <h2 class="feature__headline font-heading-lg" data-animate="fade-right">
-            Visualize how they all connect.          </h2>
-          <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
-            Complex character webs refuse to stay in your head. See who's connected to whom with visual relationship mapping.
-          </p>
-          <div class="feature__shortcut" data-animate="fade-up" data-stagger="2">
-            <span class="font-body-sm">View relationship connections in the</span>
-            <kbd class="font-kbd">Relationship Map</kbd>
-          </div>
-        </div>
-        <div class="feature__visual" data-animate="fade-left">
-          <button type="button" class="feature__image-btn screenshot-frame featured"
-                  data-lightbox="relationship-map"
-                  data-lightbox-title="The Relationship Map"
-                  data-lightbox-desc="You know how your characters connect—but can you see it? The Relationship Map turns your character web into an interactive visual, revealing alliances and rivalries you might have missed."
-                  data-lightbox-image="images/RelationshipMap.webp">
-            <img src="images/RelationshipMap.webp" alt="Interactive relationship map showing character connections" class="feature__image" width="3815" height="2346" loading="lazy">
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===========================================
-       FEATURE: UNIVERSAL TAGS
-       =========================================== -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="feature">
-        <div class="feature__content">
-          <h2 class="feature__headline font-heading-lg" data-animate="fade-left">
-            One click to see it all.          </h2>
-          <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
-            Tags are your power tools. Tag anything: characters, locations, items, chapters, notes. Click a tag and see everything connected to it in one place. Your factions, your plotlines, your plot twists, organized.
-          </p>
-          <div class="feature__shortcut" data-animate="fade-up" data-stagger="2">
-            <span class="font-body-sm">Browse by tag in the</span>
-            <kbd class="font-kbd">Tags Viewer</kbd>
-          </div>
-        </div>
-        <div class="feature__visual" data-animate="fade-right">
-          <button type="button" class="feature__image-btn screenshot-frame featured"
-                  data-lightbox="tags-viewer"
-                  data-lightbox-title="The Tags Viewer"
-                  data-lightbox-desc="One tag. Every connection. Mark anything in your book: characters, places, items, chapters, notes. Then instantly pull them together in one convenient view."
-                  data-lightbox-image="images/TagsViewer.webp">
-            <img src="images/TagsViewer.webp" alt="Tags viewer showing all items connected to a tag" class="feature__image" width="3810" height="2352" loading="lazy">
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===========================================
-       FEATURE: ARC VISUALIZER
-       =========================================== -->
-  <section class="section">
-    <div class="container">
-      <div class="feature feature--reversed">
-        <div class="feature__content">
-          <h2 class="feature__headline font-heading-lg" data-animate="fade-right">
-            Let your story arcs be arcs.          </h2>
-          <p class="feature__desc font-body-lg" data-animate="fade-up" data-stagger="1">
-            Plot structure lives in your head until you see it. Penpoint turns your narrative into visual curves; main arcs, subplots, and character fortunes. See where your story rises and where it falls.
-          </p>
-          <div class="feature__shortcut" data-animate="fade-up" data-stagger="2">
-            <span class="font-body-sm">Plan your plot in the</span>
-            <kbd class="font-kbd">Arc Visualizer</kbd>
-          </div>
-        </div>
-        <div class="feature__visual" data-animate="fade-left">
-          <button type="button" class="feature__image-btn screenshot-frame featured"
-                  data-lightbox="arc-visualizer"
-                  data-lightbox-title="Story & Character Arcs"
-                  data-lightbox-desc="Your plot isn't a list&mdash;it's a shape. See your main story arc as a visual curve with keyframe markers for each major moment. Nest subplots that branch off at exactly the right beats. Track how each character's fortune rises and falls across the narrative. Start with proven frameworks like Save the Cat, Hero's Journey, or Three-Act Structure, or build your own. When you can see your story's shape, you can feel when something's off."
-                  data-lightbox-image="images/ArcViewer.webp">
-            <img src="images/ArcViewer.webp" alt="Arc visualizer showing story arcs and character fortune curves" class="feature__image" width="3811" height="2339" loading="lazy">
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Section Divider -->
-  <div class="section-divider" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <svg class="section-divider__quill"><use href="#icon-quill"/></svg>
-    <span class="section-divider__line"></span>
-  </div>
-
-  <!-- ===========================================
-       TRUST BLOCK
-       =========================================== -->
-  <section class="trust-block section" id="privacy">
-    <div class="container">
-      <h2 class="font-heading-lg text-center section-heading" data-animate="fade-up">
-        Your stories are yours, forever.
-      </h2>
-      <p class="trust-block__desc font-body text-center" data-animate="fade-up" data-stagger="1">
-        Your work belongs to you, not us. No subscriptions, no cloud outages stopping your work, no accounts, no AI touching your prose, no lock-in, ever. Export everything to document form whenever you want.
-      </p>
-      <div class="trust-block__grid" data-stagger-group data-stagger-delay="100">
-
-        <div class="trust-point" data-animate="scale">
-          <i class="fa-solid fa-hard-drive trust-point__icon"></i>
-          <span class="trust-point__label font-ui">Your data stays on your computer</span>
-        </div>
-
-        <div class="trust-point" data-animate="scale">
-          <i class="fa-solid fa-user-xmark trust-point__icon"></i>
-          <span class="trust-point__label font-ui">No account or sign-up required</span>
-        </div>
-
-        <div class="trust-point" data-animate="scale">
-          <i class="fa-solid fa-infinity trust-point__icon"></i>
-          <span class="trust-point__label font-ui">No subscriptions.<br>One license, every platform.</span>
-        </div>
-
-        <div class="trust-point" data-animate="scale">
-          <i class="fa-solid fa-desktop trust-point__icon"></i>
-          <span class="trust-point__label font-ui">Works entirely offline</span>
-        </div>
-
-        <div class="trust-point" data-animate="scale">
-          <i class="fa-solid fa-file-arrow-down trust-point__icon"></i>
-          <span class="trust-point__label font-ui">Export to Word / PDF / Markdown anytime</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===========================================
-       TESTIMONIAL: L.M. WHITELEY
-       =========================================== -->
-  <section class="testimonial section" id="testimonials">
-    <div class="container">
-      <figure class="testimonial__figure">
-        <div class="testimonial__columns testimonial__columns--reversed">
-          <div class="testimonial__content" data-animate="fade-right">
-            <p class="testimonial__body font-body">
-              <strong>Penpoint</strong> is THE writing app. If you want something that provides some structure for your planning, then acts as a quiet companion for the writing, this is it. From world building, to character creation, to helping you easily find things within your manuscript, to just sitting down and writing the damn thing&hellip; this is a writer's best friend.
-            </p>
-          </div>
-          <div class="testimonial__divider" aria-hidden="true"></div>
-          <blockquote class="testimonial__quote" data-animate="fade-left">
-            <p class="testimonial__pullquote font-display">
-              &ldquo;This is a writer&rsquo;s best friend.&rdquo;
-            </p>
-          </blockquote>
-        </div>
-        <figcaption class="testimonial__attribution font-ui">
-          <span class="testimonial__author">— L.M. Whiteley</span>
-          <span class="testimonial__credits">Author, <a href="https://lmwhiteley.com/" target="_blank" rel="noopener"><em>Hitmen of Ulysses</em> series</a></span>
+        <figcaption style="display:flex;align-items:baseline;gap:14px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7D5D35;">
+          <span style="color:#3D2E1C;font-weight:600;white-space:nowrap;">The Arc Visualizer</span><span style="flex:1;height:1px;background:#E6DCCD;position:relative;top:-3px;"></span>
         </figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- ===========================================
-       TESTIMONIAL BLURB GRID
-       =========================================== -->
-  <section class="testimonial section">
-    <div class="container">
-      <div class="blurb-grid" data-stagger-group data-stagger-delay="100">
-
-        <blockquote class="blurb" data-animate="fade-up">
-          <p class="blurb__quote font-body">
-            &ldquo;I didn&rsquo;t realize how much I needed Penpoint until I finally tried it. It has everything I need to keep my chaotic ideas organized in one place, and it&rsquo;s actually helping me improve my writing along the way. It&rsquo;s so easy to use and everything is so well structured that now I can spend my limited time doing <strong>what really matters: writing</strong>.&rdquo;
-          </p>
-          <footer class="blurb__attribution font-ui">
-            <span class="blurb__author">— &ldquo;Chaotic Writer&rdquo;</span>
-          </footer>
-        </blockquote>
-
-        <blockquote class="blurb" data-animate="fade-up">
-          <p class="blurb__quote font-body">
-            &ldquo;I always had a difficult time managing all of the thoughts, ideas, and characters that were in my head. Using Penpoint made it so much easier to stay organized and make sure the story flows well and is cohesive. Even just a line or a character name I thought of can be saved and used when the time is right. Even for a novice writer such as myself, Penpoint <strong>makes you feel less like a noob, and more like a pro</strong>.&rdquo;
-          </p>
-          <footer class="blurb__attribution font-ui">
-            <span class="blurb__author">— Tara Briana Barber</span>
-          </footer>
-        </blockquote>
-
-        <blockquote class="blurb" data-animate="fade-up">
-          <p class="blurb__quote font-body">
-            &ldquo;It&rsquo;s everything you need, with a UI that doesn&rsquo;t distract from actually writing. It&rsquo;s better than everyone else because it&rsquo;s cleaner, easier, stronger, and actually <strong>written for authors, by authors</strong>.&rdquo;
-          </p>
-          <footer class="blurb__attribution font-ui">
-            <span class="blurb__author">— Jesse Gerlach</span>
-            <span class="blurb__credits">Author, <em>Sound Shaper Series</em>, <em>Rickleford</em>, <em>Orion Division</em></span>
-          </footer>
-        </blockquote>
-
-        <blockquote class="blurb" data-animate="fade-up">
-          <p class="blurb__quote font-body">
-            &ldquo;Penpoint lets me work the way I like and the tools are there waiting for me when I need them. The Flowstate aspect of Manuscript mode is a <strong>game changer</strong>!&rdquo;
-          </p>
-          <footer class="blurb__attribution font-ui">
-            <span class="blurb__author">— Jen Yocom</span>
-          </footer>
-        </blockquote>
-
-        <blockquote class="blurb" data-animate="fade-up">
-          <p class="blurb__quote font-body">
-            &ldquo;The most approachable writing tool, that <strong>cuts no corners</strong>!&rdquo;
-          </p>
-          <footer class="blurb__attribution font-ui">
-            <span class="blurb__author">— Alagar</span>
-          </footer>
-        </blockquote>
-
-        <blockquote class="blurb" data-animate="fade-up">
-          <p class="blurb__quote font-body">
-            &ldquo;It combines all the best features available elsewhere with interesting and new ideas. <strong>It&rsquo;s the perfect writer&rsquo;s companion</strong>.&rdquo;
-          </p>
-          <footer class="blurb__attribution font-ui">
-            <span class="blurb__author">— Patrick O'Dell</span>
-          </footer>
-        </blockquote>
-
-        <blockquote class="blurb" data-animate="fade-up">
-          <p class="blurb__quote font-body">
-            &ldquo;Having a program that functions as an organization tool and a writing tool helps keep my writing on track. Being able to link significant places, relationships, character arcs and tie them in with the chapters I write is a <strong>huge time saver</strong>. I highly recommend.&rdquo;
-          </p>
-          <footer class="blurb__attribution font-ui">
-            <span class="blurb__author">— Megan</span>
-          </footer>
-        </blockquote>
-
-        <blockquote class="blurb" data-animate="fade-up">
-          <p class="blurb__quote font-body">
-            &ldquo;Instead of ideas being scattered across Google Docs, notes on an iPad, and sticky notes, everything stays <strong>organized and centralized</strong>. The interface is clean, simple, and very easy to use, making it quick to focus on writing rather than figuring out complicated features.&rdquo;
-          </p>
-          <footer class="blurb__attribution font-ui">
-            <span class="blurb__author">— Robert</span>
-          </footer>
-        </blockquote>
-
+  <section data-screen-label="Problem" id="system" style="background:var(--paper-alt,#F4EBD8);border-top:1px solid #E6DCCD;border-bottom:1px solid #E6DCCD;">
+    <div style="max-width:860px;margin:0 auto;padding:clamp(54px,9vw,112px) clamp(20px,5vw,56px);">
+      <p data-animate="fade-up" style="font-family:'Source Serif 4',serif;font-size:clamp(18px,2vw,23px);line-height:1.62;color:#3D2E1C;margin:0;">
+        <span style="float:left;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(66px,11vw,104px);line-height:.7;padding:9px 14px 0 0;color:var(--accent,#CD6E2C);">W</span><strong style="font-weight:700;">as his name Aldric or Aldrick?</strong> You write in one app and plan in another. The sword changed hands three chapters ago and you can't recall to whom. Your notes are scattered across documents, spreadsheets, and the backs of envelopes, and the story keeps slipping through the gaps.
+      </p>
+      <div style="clear:both;text-align:center;margin-top:clamp(34px,5vw,52px);">
+        <p style="font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:clamp(23px,3vw,36px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;margin:0 0 clamp(26px,4vw,38px);">Penpoint keeps your whole story in one place:</p>
+        <div data-stagger-group="" data-stagger-delay="80" style="display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(10px,1.3vw,13px);">
+        <div data-animate="scale" style="display:inline-flex;align-items:center;gap:10px;background:#FDEACC;border:1px solid #EAD6B4;padding:11px 19px;">
+          <i data-lucide="users" style="width:19px;height:19px;color:var(--accent,#CD6E2C);stroke-width:1.7;flex:none;"></i>
+          <span style="font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(15px,1.6vw,18px);color:#3D2E1C;">Characters</span>
+        </div>
+        <div data-animate="scale" style="display:inline-flex;align-items:center;gap:10px;background:#FDEACC;border:1px solid #EAD6B4;padding:11px 19px;">
+          <i data-lucide="package" style="width:19px;height:19px;color:var(--accent,#CD6E2C);stroke-width:1.7;flex:none;"></i>
+          <span style="font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(15px,1.6vw,18px);color:#3D2E1C;">Items</span>
+        </div>
+        <div data-animate="scale" style="display:inline-flex;align-items:center;gap:10px;background:#FDEACC;border:1px solid #EAD6B4;padding:11px 19px;">
+          <i data-lucide="map-pin" style="width:19px;height:19px;color:var(--accent,#CD6E2C);stroke-width:1.7;flex:none;"></i>
+          <span style="font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(15px,1.6vw,18px);color:#3D2E1C;">Locations</span>
+        </div>
+        <div data-animate="scale" style="display:inline-flex;align-items:center;gap:10px;background:#FDEACC;border:1px solid #EAD6B4;padding:11px 19px;">
+          <i data-lucide="file-text" style="width:19px;height:19px;color:var(--accent,#CD6E2C);stroke-width:1.7;flex:none;"></i>
+          <span style="font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(15px,1.6vw,18px);color:#3D2E1C;">Chapters</span>
+        </div>
+        <div data-animate="scale" style="display:inline-flex;align-items:center;gap:10px;background:#FDEACC;border:1px solid #EAD6B4;padding:11px 19px;">
+          <i data-lucide="spline" style="width:19px;height:19px;color:var(--accent,#CD6E2C);stroke-width:1.7;flex:none;transform:rotate(45deg);"></i>
+          <span style="font-family:'Source Serif 4',serif;font-weight:600;font-size:clamp(15px,1.6vw,18px);color:#3D2E1C;">Arcs</span>
+        </div>
+        </div>
+        <p data-animate="fade-up" data-stagger="2" style="font-family:'Source Serif 4',serif;font-size:clamp(15px,1.8vw,18px);line-height:1.6;color:#5C4A33;margin:clamp(26px,4vw,36px) auto 0;max-width:560px;">All of it linked — so renaming your protagonist doesn't break fifty pages of notes.</p>
       </div>
     </div>
   </section>
 
-  <!-- Section Divider -->
-  <div class="section-divider" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <svg class="section-divider__quill"><use href="#icon-quill"/></svg>
-    <span class="section-divider__line"></span>
-  </div>
-
-  <!-- ===========================================
-       QUICK FEATURES
-       =========================================== -->
-  <section class="section" id="more-features">
-    <div class="container">
-      <h2 class="font-heading-lg text-center section-heading" data-animate="fade-up">
-        The features you actually need
-      </h2>
-      <p class="section-subheading font-body-sm text-center" data-animate="fade-up">
-        Click any feature to explore
-      </p>
-      <div class="quick-features__grid" data-stagger-group data-stagger-delay="100">
-
-        <!-- 1. Link Anything with @Mentions -->
-        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
-                data-lightbox="mentions"
-                data-lightbox-title="Link Anything with @Mentions"
-                data-lightbox-desc="Type @ and connect anything. Mention characters, locations, items, chapters, notes. Autocomplete finds them as you type, and every mention becomes a clickable link. Build your web of connections without leaving the page you're on. And if you update the title of your linked item, it automatically updates in your text, too."
-                data-lightbox-image="images/mentionsystem.webp">
-          <div class="quick-feature__image-wrapper">
-            <img src="images/mentionsystem.webp" alt="@mention autocomplete showing characters, locations, and items" class="quick-feature__image quick-feature__image--center-zoom" width="1792" height="1114" loading="lazy">
+  <section data-screen-label="Manuscript" id="features" data-mw-section="" style="background:var(--paper,#FCF8F0);">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,9vw,116px) clamp(20px,5vw,56px);display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);align-items:center;">
+      <div style="flex:1 1 380px;min-width:300px;">
+        <p data-animate="fade-up" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent,#CD6E2C);margin:0 0 20px;">Manuscript &amp; Worldbuilding</p>
+        <h2 data-animate="fade-left" style="font-family:'Newsreader',serif;font-weight:var(--hl-weight,500);font-size:clamp(30px,4.6vw,54px);line-height:1.02;letter-spacing:-0.02em;margin:0 0 22px;color:#29241E;">Write your book.<br><span style="font-style:var(--hl-emph-style,italic);font-weight:var(--hl-emph-weight,400);">Know your world.</span></h2>
+        <p data-animate="fade-up" data-stagger="1" style="font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,19px);line-height:1.62;color:#5C4A33;margin:0 0 28px;max-width:440px;">Your manuscript lives alongside your characters, locations, and worldbuilding. Write a chapter, check a character's eye colour, keep writing, without ever leaving Penpoint.</p>
+        <div data-mw-toggle="" data-animate="fade-up" data-stagger="2" style="display:inline-flex;border:1px solid #DDCBAE;background:#F3E7CE;padding:3px;">
+          <span data-mw="manuscript" style="font-family:'Source Serif 4',serif;font-weight:600;font-size:14px;background:#29241E;color:#FEF9F0;padding:9px 17px;transition:background .35s ease,color .35s ease;">Manuscript</span>
+          <span data-mw="worldbuilding" style="font-family:'Source Serif 4',serif;font-weight:600;font-size:14px;background:transparent;color:#7D5D35;padding:9px 17px;transition:background .35s ease,color .35s ease;">Worldbuilding</span>
+        </div>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#7D5D35;margin:12px 0 0;">Switch between the two with one click.</p>
+      </div>
+      <div style="flex:1 1 360px;min-width:300px;">
+        <figure data-animate="fade-right" style="margin:0;">
+          <div style="border:1px solid #E0D2BC;background:#fff;box-shadow:0 30px 58px -32px rgba(61,46,28,.45);overflow:hidden;aspect-ratio:3834/2349;">
+            <img loading="lazy" data-mw-img="" src="images/ManuscriptMode.webp" alt="Penpoint Manuscript Mode editor" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:opacity .4s ease;">
           </div>
-          <h3 class="quick-feature__title">Link Anything with @Mentions</h3>
-          <p class="quick-feature__desc font-body-sm">Type @ and connect to any character, location, or item. Links stay updated even when you rename things.</p>
-        </button>
+          <figcaption style="display:flex;align-items:baseline;gap:14px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7D5D35;">
+            <span data-mw-cap="" style="color:#3D2E1C;font-weight:600;white-space:nowrap;">Manuscript Mode</span><span style="flex:1;height:1px;background:#E6DCCD;position:relative;top:-3px;"></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-        <!-- 2. Chapter Scanner -->
-        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
-                data-lightbox="chapter-scanner"
-                data-lightbox-title="Chapter Scanner"
-                data-lightbox-desc="After importing your manuscript, or after writing new chapters, right-click any chapter and scan it. Penpoint reads your prose and finds every character, location, and item mentioned. It even discovers new proper nouns you haven't added to your worldbuilding yet. Review the results, check what to include, and click Apply. Your chapters and your worldbuilding are connected in seconds, not hours."
-                data-lightbox-image="images/ChapterScanner.webp">
-          <div class="quick-feature__image-wrapper">
-            <img src="images/ChapterScanner.webp" alt="Chapter Scanner showing detected characters, locations, and items" class="quick-feature__image quick-feature__image--upper-center" width="1758" height="1661" loading="lazy">
+  <section data-screen-label="Searchbar" style="background:var(--paper-alt,#F4EBD8);border-top:1px solid #E6DCCD;border-bottom:1px solid #E6DCCD;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,9vw,116px) clamp(20px,5vw,56px);display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);align-items:center;">
+      <div data-feat-text="" style="flex:1 1 360px;min-width:300px;order:2;">
+        <p data-animate="fade-up" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent,#CD6E2C);margin:0 0 20px;">Instant search</p>
+        <h2 data-animate="fade-right" style="font-family:'Newsreader',serif;font-weight:var(--hl-weight,500);font-size:clamp(30px,4.6vw,54px);line-height:1.02;letter-spacing:-0.02em;margin:0 0 22px;color:#29241E;">Your ideas<br><span style="font-style:var(--hl-emph-style,italic);font-weight:var(--hl-emph-weight,400);">will find you.</span></h2>
+        <p data-animate="fade-up" data-stagger="1" style="font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,19px);line-height:1.62;color:#5C4A33;margin:0 0 26px;max-width:440px;">Every character, location, item, chapter, and note is one keystroke away. Stop scrolling through documents. Just start typing.</p>
+        <div data-animate="fade-up" data-stagger="2" style="display:flex;align-items:center;gap:12px;background:var(--paper,#FCF8F0);border:1px solid #DDCBAE;padding:13px 15px;box-shadow:0 10px 22px -14px rgba(61,46,28,.35);max-width:430px;">
+          <i data-lucide="search" style="width:18px;height:18px;color:#7D5D35;flex:none;"></i>
+          <span style="flex:1;font-family:'Source Serif 4',serif;font-size:15px;color:#7D5D35;">Glorious Searchbar</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5C4A33;border:1px solid #DDCBAE;background:#F1E6D2;padding:3px 8px;flex:none;">Ctrl K</span>
+        </div>
+      </div>
+      <div style="flex:1 1 360px;min-width:300px;order:1;">
+        <figure data-animate="fade-left" style="margin:0;">
+          <div style="border:1px solid #E0D2BC;background:#fff;box-shadow:0 30px 58px -32px rgba(61,46,28,.45);overflow:hidden;aspect-ratio:1988/1308;">
+            <img loading="lazy" src="images/GloriousSearchbar.webp" alt="The Glorious Searchbar showing instant search results" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
           </div>
-          <h3 class="quick-feature__title">Scan Chapters for Content</h3>
-          <p class="quick-feature__desc font-body-sm">Right-click a chapter and Penpoint scans your prose for characters, locations, and items. Review matches, click Apply, and everything connects.</p>
-        </button>
+          <figcaption style="display:flex;align-items:baseline;gap:14px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7D5D35;">
+            <span style="color:#3D2E1C;font-weight:600;white-space:nowrap;">The Glorious Searchbar</span><span style="flex:1;height:1px;background:#D9C9AE;position:relative;top:-3px;"></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-        <!-- 3. Flowstate -->
-        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
-                data-lightbox="flowstate"
-                data-lightbox-title="Flowstate"
-                data-lightbox-desc="You've rewritten the same paragraph six times. The cursor blinks at the same spot it did an hour ago. Flowstate breaks the loop, right inside your manuscript editor. Start a timed sprint and sentences lock behind you as you write, freeing you from the urge to endlessly revise. Timed cycles alternate between forward-only writing and editing windows. When you can't go back, you have no choice but to go forward."
-                data-lightbox-image="images/Flowstate.webp">
-          <div class="quick-feature__image-wrapper">
-            <img src="images/Flowstate.webp" alt="Flowstate writing mode with locked sentences" class="quick-feature__image quick-feature__image--top-right" width="2632" height="1504" loading="lazy">
+  <section data-screen-label="Relationship Map" style="background:var(--paper,#FCF8F0);">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,9vw,116px) clamp(20px,5vw,56px);display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);align-items:center;">
+      <div style="flex:1 1 360px;min-width:300px;">
+        <p data-animate="fade-up" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent,#CD6E2C);margin:0 0 20px;">Relationship mapping</p>
+        <h2 data-animate="fade-left" style="font-family:'Newsreader',serif;font-weight:var(--hl-weight,500);font-size:clamp(30px,4.6vw,54px);line-height:1.02;letter-spacing:-0.02em;margin:0 0 22px;color:#29241E;">See how they<br><span style="font-style:var(--hl-emph-style,italic);font-weight:var(--hl-emph-weight,400);">all connect.</span></h2>
+        <p data-animate="fade-up" data-stagger="1" style="font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,19px);line-height:1.62;color:#5C4A33;margin:0 0 26px;max-width:440px;">Complex character webs refuse to stay in your head. Allies, rivals, and bloodlines, drawn as an interactive map you can actually read.</p>
+        <div data-animate="fade-up" data-stagger="2" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
+          <span style="font-family:'Source Serif 4',serif;font-size:15px;color:#7D5D35;">View relationship connections in the</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5C4A33;border:1px solid #DDCBAE;background:#F1E6D2;padding:4px 11px;white-space:nowrap;">Relationship Map</span>
+        </div>
+      </div>
+      <div style="flex:1 1 360px;min-width:300px;">
+        <figure data-animate="fade-right" style="margin:0;">
+          <div style="border:1px solid #E0D2BC;background:#fff;box-shadow:0 30px 58px -32px rgba(61,46,28,.45);overflow:hidden;aspect-ratio:3815/2346;">
+            <img loading="lazy" src="images/RelationshipMap.webp" alt="Interactive relationship map of characters" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
           </div>
-          <h3 class="quick-feature__title">Get in a Flowstate</h3>
-          <p class="quick-feature__desc font-body-sm">Stop editing, start writing. Sentences lock behind you as you type, breaking the revision loop that keeps you stuck.</p>
-        </button>
+          <figcaption style="display:flex;align-items:baseline;gap:14px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7D5D35;">
+            <span style="color:#3D2E1C;font-weight:600;white-space:nowrap;">The Relationship Map</span><span style="flex:1;height:1px;background:#E6DCCD;position:relative;top:-3px;"></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-        <!-- 3. Custom Character Layouts -->
-        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
-                data-lightbox="layouts"
-                data-lightbox-title="Custom Character Layouts"
-                data-lightbox-desc="Your characters, your layout. Drag and drop the blocks you need, configure how they display, and see the result immediately in your character page. Every story is different, and your character sheets should be too."
-                data-lightbox-image="images/CharacterLayout.webp">
-          <div class="quick-feature__image-wrapper">
-            <img src="images/CharacterLayout.webp" alt="Character layout customization with drag-and-drop blocks" class="quick-feature__image quick-feature__image--right-panel" width="3817" height="2350" loading="lazy">
+  <section data-screen-label="Import &amp; Scan" style="background:var(--paper-alt,#F4EBD8);border-top:1px solid #E6DCCD;border-bottom:1px solid #E6DCCD;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,9vw,116px) clamp(20px,5vw,56px);display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);align-items:center;">
+      <div data-feat-text="" style="flex:1 1 360px;min-width:300px;order:2;">
+        <p data-animate="fade-up" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent,#CD6E2C);margin:0 0 20px;">Import &amp; Scan</p>
+        <h2 data-animate="fade-right" style="font-family:'Newsreader',serif;font-weight:var(--hl-weight,500);font-size:clamp(30px,4.6vw,54px);line-height:1.02;letter-spacing:-0.02em;margin:0 0 22px;color:#29241E;">Your prose builds<br><span style="font-style:var(--hl-emph-style,italic);font-weight:var(--hl-emph-weight,400);">your world.</span></h2>
+        
+        <p data-animate="fade-up" data-stagger="1" style="font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,19px);line-height:1.62;color:#5C4A33;margin:0 0 26px;max-width:440px;">Bring in an existing manuscript from Word, EPUB, or Markdown, and Penpoint reads your prose as it imports, surfacing every character, location, and item you've already written. You've already done the work, let Penpoint create those entries for you.</p><div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
+          <span style="font-family:'Source Serif 4',serif;font-size:15px;color:#7D5D35;">Available on import and on demand in the</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5C4A33;border:1px solid #DDCBAE;background:#F1E6D2;padding:4px 11px;white-space:nowrap;">Chapter Scanner</span>
+        </div>
+      </div>
+      <div style="flex:1 1 360px;min-width:300px;order:1;">
+        <figure data-animate="fade-left" style="margin:0;">
+          <div style="border:1px solid #E0D2BC;background:#fff;box-shadow:0 30px 58px -32px rgba(61,46,28,.45);overflow:hidden;aspect-ratio:2229/1539;">
+            <img loading="lazy" src="images/ChapterImport.webp" alt="Penpoint detecting characters, locations, and items from an imported manuscript" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
           </div>
-          <h3 class="quick-feature__title">Custom Character Layouts</h3>
-          <p class="quick-feature__desc font-body-sm">Your world is complex. Track what matters to your story. Build your own character sheets from scratch.</p>
-        </button>
+          <figcaption style="display:flex;align-items:baseline;gap:14px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7D5D35;">
+            <span style="color:#3D2E1C;font-weight:600;white-space:nowrap;">Import Your Manuscript</span><span style="flex:1;height:1px;background:#D9C9AE;position:relative;top:-3px;"></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-        <!-- 3. Track Character Possessions -->
-        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
-                data-lightbox="items"
-                data-lightbox-title="Track Your Character's Possessions"
-                data-lightbox-desc="Who's carrying the ancient sword? Where did the stolen letter end up? Track every meaningful object in your story. Link items to their owners, note their locations, and never lose track of that plot-critical artifact again."
-                data-lightbox-image="images/ItemsPage.webp">
-          <div class="quick-feature__image-wrapper">
-            <img src="images/ItemsPage.webp" alt="Items page showing character possessions and their owners" class="quick-feature__image quick-feature__image--items-detail" width="3817" height="2339" loading="lazy">
-          </div>
-          <h3 class="quick-feature__title">Track Your Character's Possessions</h3>
-          <p class="quick-feature__desc font-body-sm">Who owns what? Where is it now? Link items to characters and locations so you always know who's carrying the MacGuffin</p>
-        </button>
+  <section id="trust" data-screen-label="Privacy" style="background:var(--paper,#FCF8F0);border-top:1px solid #E6DCCD;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,9vw,116px) clamp(20px,5vw,56px);display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);align-items:center;">
+      <div style="flex:1 1 360px;min-width:300px;">
+        <p data-animate="fade-up" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent,#CD6E2C);margin:0 0 20px;">Ownership</p>
+        <h2 data-animate="fade-left" style="font-family:'Newsreader',serif;font-weight:var(--hl-weight,500);font-size:clamp(30px,4vw,52px);line-height:1.03;letter-spacing:-0.02em;margin:0 0 20px;color:#29241E;">Your stories are <span style="font-style:var(--hl-emph-style,italic);font-weight:var(--hl-emph-weight,400);">yours,</span> forever.</h2>
+        <p data-animate="fade-up" data-stagger="1" style="font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,19px);line-height:1.62;color:#5C4332;margin:0;max-width:420px;">Your work belongs to you, not us. No subscriptions, no cloud, no accounts, no AI touching your prose. It all lives on your computer, and leaves only when you export it.</p>
+      </div>
+      <div data-stagger-group="" data-stagger-delay="90" style="flex:1 1 380px;min-width:300px;">
+        <div data-animate="fade-up" style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-top:1px solid #E0D2BC;">
+          <i data-lucide="hard-drive" style="width:22px;height:22px;color:var(--accent,#CD6E2C);stroke-width:1.6;flex:none;margin-top:2px;"></i>
+          <div><div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#3D2E1C;">Stays on your computer</div><div style="font-family:'Source Serif 4',serif;font-size:14px;color:#7C5236;margin-top:2px;">Your data never leaves your machine.</div></div>
+        </div>
+        <div data-animate="fade-up" style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-top:1px solid #E0D2BC;">
+          <i data-lucide="wifi-off" style="width:22px;height:22px;color:var(--accent,#CD6E2C);stroke-width:1.6;flex:none;margin-top:2px;"></i>
+          <div><div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#3D2E1C;">Works entirely offline</div><div style="font-family:'Source Serif 4',serif;font-size:14px;color:#7C5236;margin-top:2px;">No internet, no account, no cloud.</div></div>
+        </div>
+        <div data-animate="fade-up" style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-top:1px solid #E0D2BC;">
+          <i data-lucide="infinity" style="width:22px;height:22px;color:var(--accent,#CD6E2C);stroke-width:1.6;flex:none;margin-top:2px;"></i>
+          <div><div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#3D2E1C;">One license, every platform</div><div style="font-family:'Source Serif 4',serif;font-size:14px;color:#7C5236;margin-top:2px;">Buy once. No subscription. Own it forever.</div></div>
+        </div>
+        <div data-animate="fade-up" style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-top:1px solid #E0D2BC;border-bottom:1px solid #E0D2BC;">
+          <i data-lucide="file-down" style="width:22px;height:22px;color:var(--accent,#CD6E2C);stroke-width:1.6;flex:none;margin-top:2px;"></i>
+          <div><div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#3D2E1C;">Export anytime, any format</div><div style="font-family:'Source Serif 4',serif;font-size:14px;color:#7C5236;margin-top:2px;">Word, PDF, or Markdown on demand.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- 4. Map Locations -->
-        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
-                data-lightbox="locations"
-                data-lightbox-title="Nested Locations"
-                data-lightbox-desc="From continent to country to city to room. See your entire world in one expandable tree. Click any location to see its description, the characters who live there, the items inside, and watch as all that information gets cross-referenced throughout the app."
-                data-lightbox-image="images/Locations.webp">
-          <div class="quick-feature__image-wrapper">
-            <img src="images/Locations.webp" alt="Nested locations tree with expandable hierarchy" class="quick-feature__image quick-feature__image--location-tree" width="3818" height="2348" loading="lazy">
-          </div>
-          <h3 class="quick-feature__title">Map your Locations</h3>
-          <p class="quick-feature__desc font-body-sm">Kingdom &rarr; City &rarr; Tavern &rarr; Secret Basement. It's all there, with every detail saved for each of your book's settings.</p>
-        </button>
-
-        <!-- 5. Customize Chapters -->
-        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
-                data-lightbox="chapters"
-                data-lightbox-title="Customize Your Chapters"
-                data-lightbox-desc="Each chapter has its own customizable block-based layout, just like your Character Sheets. Every scene stands on its own with its own characters, locations, items, POV, and dates from your book's calendar — real-world Gregorian, day-counter, or a custom fantasy calendar you design. The outliner sidebar mirrors Manuscript Mode, so navigating between chapters and scenes feels instantly familiar. Design a chapter view that fits how you plan stories."
-                data-lightbox-image="images/Chapters.webp">
-          <div class="quick-feature__image-wrapper">
-            <img src="images/Chapters.webp" alt="Chapters page with customizable per-scene blocks" class="quick-feature__image quick-feature__image--chapter-detail" width="3811" height="2344" loading="lazy">
-          </div>
-          <h3 class="quick-feature__title">Customize Your Chapters</h3>
-          <p class="quick-feature__desc font-body-sm">Design a chapter view that fits how you plan stories. Block-based layouts let each scene track its own POV, characters, locations, and items.</p>
-        </button>
-
-        <!-- 6. Notes for Everything Else -->
-        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
-                data-lightbox="notes"
-                data-lightbox-title="Notes for Everything Else"
-                data-lightbox-desc="Plot threads to resolve. Dialogue snippets to use. Research to remember. Worldbuilding details you'll need later. Organize everything into folders, embed images, and tag your notes so you can pull related ideas together in one click. Your Notebook is a complete workspace for all the thinking that happens between the lines."
-                data-lightbox-image="images/Notebook.webp">
-          <div class="quick-feature__image-wrapper">
-            <img src="images/Notebook.webp" alt="Notebook with formatted notes and tags" class="quick-feature__image quick-feature__image--notebook-zoom" width="3824" height="2340" loading="lazy">
-          </div>
-          <h3 class="quick-feature__title">Notes, for everything else</h3>
-          <p class="quick-feature__desc font-body-sm">Organize your research into folders, embed images, tag your notes, and link to anything in your world.</p>
-        </button>
-
-        <!-- 7. Timeline View -->
-        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
-                data-lightbox="timeline"
-                data-lightbox-title="Timeline View"
-                data-lightbox-desc="See every character across every chapter. Spot unintended absences and catch pacing problems before they reach your readers."
-                data-lightbox-image="images/TimelineView.webp">
-          <div class="quick-feature__image-wrapper">
-            <img src="images/TimelineView.webp" alt="Timeline view showing character appearances across chapters" class="quick-feature__image quick-feature__image--timeline-grid" width="3819" height="2346" loading="lazy">
-          </div>
-          <h3 class="quick-feature__title">Timeline View</h3>
-          <p class="quick-feature__desc font-body-sm">Visually see where your characters appear across chapters, then fill in the holes.</p>
-        </button>
-
-        <!-- 8. Compendium -->
-        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
-                data-lightbox="compendium"
-                data-lightbox-title="The Compendium"
-                data-lightbox-desc="Your story's encyclopedia, built automatically. Every character, location, and item are indexed alphabetically as you write. Find anything fast, catch accidental duplicates, and export to a single document for publishers to reference."
-                data-lightbox-image="images/Compendium.webp">
-          <div class="quick-feature__image-wrapper">
-            <img src="images/Compendium.webp" alt="Compendium showing alphabetical index of story elements" class="quick-feature__image quick-feature__image--compendium" width="3812" height="2352" loading="lazy">
-          </div>
-          <h3 class="quick-feature__title">The Compendium</h3>
-          <p class="quick-feature__desc font-body-sm">View an alphabetical index of everything in your world that's always up to date.</p>
-        </button>
-
-        <!-- 9. Multi-Book Library -->
-        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
-                data-lightbox="library"
-                data-lightbox-title="Multi-Book Library"
-                data-lightbox-desc="Writing book two? Don't start from scratch. Penpoint lets you transfer characters to your next book, keeping your series consistent without juggling files or re-entering details you've already written."
-                data-lightbox-image="images/BookSelector.webp">
-          <div class="quick-feature__image-wrapper">
-            <img src="images/BookSelector.webp" alt="Book library showing multiple books in a series" class="quick-feature__image quick-feature__image--top" width="3807" height="2341" loading="lazy">
-          </div>
-          <h3 class="quick-feature__title">Multi-Book Library</h3>
-          <p class="quick-feature__desc font-body-sm">Manage your entire series from one place; copy over characters, items, locations, and notes from one book to another</p>
-        </button>
-
-        <!-- 11. Export -->
-        <button type="button" class="quick-feature card-hover" data-animate="fade-up"
-                data-lightbox="export"
-                data-lightbox-title="Export at any time"
-                data-lightbox-desc="Your data is yours. Export characters, locations, items, notes, and chapters to PDF, Word, RTF, plain text, or Markdown at any time. No lock-in, no &quot;please don't leave us&quot; hoops you have to jump through just to get your data out of the app."
-                data-lightbox-image="images/exportsystem.webp">
-          <div class="quick-feature__image-wrapper">
-            <img src="images/exportsystem.webp" alt="Export system showing PDF export progress" class="quick-feature__image quick-feature__image--export" width="3811" height="2333" loading="lazy">
-          </div>
-          <h3 class="quick-feature__title">Export at any time</h3>
-          <p class="quick-feature__desc font-body-sm">Export your book content to a variety of document formats at any time. No lock-in, ever.</p>
-        </button>
-
+  <section id="testimonials" data-screen-label="Testimonial" style="background:var(--paper-alt,#F4EBD8);border-top:1px solid #E6DCCD;border-bottom:1px solid #E6DCCD;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,9vw,112px) clamp(20px,5vw,56px);">
+      <div data-animate="fade-up" style="max-width:1000px;margin:0 auto clamp(48px,6vw,76px);text-align:center;">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent,#CD6E2C);margin:0 0 22px;">By The Numbers</p>
+        <h2 style="font-family:'Newsreader',serif;font-weight:var(--hl-weight,500);font-size:clamp(28px,4.4vw,52px);line-height:1.16;letter-spacing:-0.018em;color:#29241E;margin:0 0 clamp(36px,4.5vw,52px);">Writers have written <span data-stat="words" style="font-style:var(--hl-emph-style,italic);font-weight:700;color:var(--accent,#CD6E2C);font-variant-numeric:tabular-nums;padding-right:0.12em;">1,697,478</span>&nbsp;words<br>in Penpoint so far.</h2>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0;border-top:1px solid #DDCBAE;border-bottom:1px solid #DDCBAE;">
+          <div class="statcell" style="flex:1 1 160px;padding:clamp(22px,3vw,30px) 16px;"><div data-stat="chapters" style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(26px,3.4vw,38px);line-height:1;color:#29241E;font-variant-numeric:tabular-nums;">1,592</div><p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7C5236;margin:10px 0 0;">Chapters</p></div>
+          <div class="statcell" style="flex:1 1 160px;padding:clamp(22px,3vw,30px) 16px;border-left:1px solid #DDCBAE;"><div data-stat="hours" style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(26px,3.4vw,38px);line-height:1;color:#29241E;font-variant-numeric:tabular-nums;">2,066</div><p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7C5236;margin:10px 0 0;">Hours writing</p></div>
+          <div class="statcell" style="flex:1 1 160px;padding:clamp(22px,3vw,30px) 16px;border-left:1px solid #DDCBAE;"><div data-stat="writers" style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(26px,3.4vw,38px);line-height:1;color:#29241E;font-variant-numeric:tabular-nums;">151</div><p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7C5236;margin:10px 0 0;">Writers</p></div>
+        </div>
+        <p style="font-family:'Source Serif 4',serif;font-style:italic;font-size:13px;color:#9A7B4F;margin:clamp(24px,3vw,32px) 0 0;">This data is live from writers who opted in to share anonymous analytics.</p>
+      </div>
+      <div data-animate="fade-up" style="text-align:center;max-width:780px;margin:0 auto clamp(40px,5vw,58px);">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="var(--accent-bright,#DDA964)" style="display:block;margin:0 auto 14px;"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent,#CD6E2C);margin:0 0 30px;">Loved by writers</p>
+        <p style="font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:clamp(26px,4vw,46px);line-height:1.22;letter-spacing:-0.015em;color:#29241E;margin:0 0 18px;">“This is a writer’s best friend.”</p>
+        <p style="font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,18px);line-height:1.62;color:#5C4332;max-width:720px;margin:0 auto;">Penpoint is THE writing app. If you want something that provides structure for your planning, then acts as a quiet companion for the writing, this is it. From worldbuilding, to character creation, to helping you easily find things within your manuscript, to just sitting down and writing the damn thing.</p>
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#7C5236;margin:18px 0 0;">L.M. Whiteley · Author, Hitmen of Ulysses series</p>
+      </div>
+      <div data-stagger-group="" data-stagger-delay="80" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;background:#E0D2BC;border:1px solid #E0D2BC;">
+        <div data-animate="fade-up" style="background:var(--paper-alt,#F4EBD8);padding:clamp(26px,3vw,38px) clamp(20px,2.4vw,32px);">
+          <div style="font-family:'Newsreader',serif;font-size:44px;line-height:.7;color:var(--accent-bright,#DDA964);height:26px;">“</div>
+          <p style="font-family:'Source Serif 4',serif;font-size:16px;line-height:1.58;color:#3D2E1C;margin:0 0 14px;">It’s everything you need, with a UI that doesn’t distract from actually writing. Cleaner, easier, stronger, and actually <strong style="font-weight:600;color:#29241E;">written for authors, by authors</strong>.</p>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7C5236;margin:0;">Jesse Gerlach</p>
+        </div>
+        <div data-animate="fade-up" style="background:var(--paper-alt,#F4EBD8);padding:clamp(26px,3vw,38px) clamp(20px,2.4vw,32px);">
+          <div style="font-family:'Newsreader',serif;font-size:44px;line-height:.7;color:var(--accent-bright,#DDA964);height:26px;">“</div>
+          <p style="font-family:'Source Serif 4',serif;font-size:16px;line-height:1.58;color:#3D2E1C;margin:0 0 14px;"><strong style="font-weight:600;color:#29241E;">Penpoint lets me work the way I like</strong>, and the tools are there waiting for me when I need them. The Flowstate aspect of Manuscript mode is a game changer.</p>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7C5236;margin:0;">Jen Yocom</p>
+        </div>
+        <div data-animate="fade-up" style="background:var(--paper-alt,#F4EBD8);padding:clamp(26px,3vw,38px) clamp(20px,2.4vw,32px);">
+          <div style="font-family:'Newsreader',serif;font-size:44px;line-height:.7;color:var(--accent-bright,#DDA964);height:26px;">“</div>
+          <p style="font-family:'Source Serif 4',serif;font-size:16px;line-height:1.58;color:#3D2E1C;margin:0 0 14px;">I always had a hard time managing the thoughts, ideas, and characters in my head. Penpoint <strong style="font-weight:600;color:#29241E;">makes you feel less like a noob, and more like a pro</strong>.</p>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7C5236;margin:0;">Tara Briana Barber</p>
+        </div>
+        <div data-animate="fade-up" style="background:var(--paper-alt,#F4EBD8);padding:clamp(26px,3vw,38px) clamp(20px,2.4vw,32px);">
+          <div style="font-family:'Newsreader',serif;font-size:44px;line-height:.7;color:var(--accent-bright,#DDA964);height:26px;">“</div>
+          <p style="font-family:'Source Serif 4',serif;font-size:16px;line-height:1.58;color:#3D2E1C;margin:0 0 14px;"><strong style="font-weight:600;color:#29241E;">I didn’t realize how much I needed Penpoint until I tried it.</strong> Everything I need to keep my chaotic ideas organized, so I can spend my time on what matters: writing.</p>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7C5236;margin:0;">Chaotic Writer</p>
+        </div>
+        <div data-animate="fade-up" style="background:var(--paper-alt,#F4EBD8);padding:clamp(26px,3vw,38px) clamp(20px,2.4vw,32px);">
+          <div style="font-family:'Newsreader',serif;font-size:44px;line-height:.7;color:var(--accent-bright,#DDA964);height:26px;">“</div>
+          <p style="font-family:'Source Serif 4',serif;font-size:16px;line-height:1.58;color:#3D2E1C;margin:0 0 14px;">Being able to link significant places, relationships, and character arcs, and tie them into the chapters I write, is a huge time saver. <strong style="font-weight:600;color:#29241E;">I highly recommend it.</strong></p>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7C5236;margin:0;">Megan</p>
+        </div>
+        <div data-animate="fade-up" style="background:var(--paper-alt,#F4EBD8);padding:clamp(26px,3vw,38px) clamp(20px,2.4vw,32px);">
+          <div style="font-family:'Newsreader',serif;font-size:44px;line-height:.7;color:var(--accent-bright,#DDA964);height:26px;">“</div>
+          <p style="font-family:'Source Serif 4',serif;font-size:16px;line-height:1.58;color:#3D2E1C;margin:0 0 14px;">Instead of ideas scattered across Docs, iPad notes, and sticky notes, everything stays <strong style="font-weight:600;color:#29241E;">organized and centralized</strong>. Clean, simple, easy to focus.</p>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7C5236;margin:0;">Robert</p>
+        </div>
       </div>
     </div>
   </section>
 
 
-  <!-- ===========================================
-       COMPARE CALLOUT
-       =========================================== -->
-  <section class="section" style="padding-bottom: 0;">
-    <div class="container" style="text-align: center;">
-      <svg class="section-divider__quill" style="display: block; margin: 0 auto 1.25rem;" aria-hidden="true"><use href="#icon-quill"/></svg>
-      <p class="font-heading" data-animate="fade-up" style="margin-bottom: 1.25rem;">
-        Wondering how Penpoint stacks up against Scrivener, Campfire, or Dabble?
-      </p>
-      <a href="/compare" class="btn btn-primary" data-animate="fade-up" data-stagger="1">
-        See the full comparison &rarr;
-      </a>
-    </div>
-  </section>
-
-  <!-- ===========================================
-       FAQ SECTION
-       =========================================== -->
-  <section class="faq section" id="faq">
-    <div class="container">
-      <h2 class="font-heading-lg text-center section-heading" data-animate="fade-up">
-        Frequently Asked Questions
-      </h2>
-
-      <div class="faq__list">
-
-        <details class="faq__item" data-animate="fade-up" data-stagger="1">
-          <summary class="faq__question font-heading-sm">
-            What is Penpoint?
-          </summary>
-          <div class="faq__answer-wrapper">
-            <div class="faq__answer font-body">
-              <div class="faq__answer-inner">
-                <p>A desktop app where writers write their manuscript and organize their world in one place. Write your entire book in a clean editor, track characters, locations, and relationships with visual tools, and search everything instantly.</p>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq__item" data-animate="fade-up" data-stagger="2">
-          <summary class="faq__question font-heading-sm">
-            Who is Penpoint for?
-          </summary>
-          <div class="faq__answer-wrapper">
-            <div class="faq__answer font-body">
-              <div class="faq__answer-inner">
-                <p>Writers, mostly. Fiction authors are the core audience, but people also use it for nonfiction, historical research, and tabletop RPG campaigns. It works fine with a handful of characters or a cast of hundreds.</p>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq__item" data-animate="fade-up" data-stagger="3">
-          <summary class="faq__question font-heading-sm">
-            Can I import my existing work?
-          </summary>
-          <div class="faq__answer-wrapper">
-            <div class="faq__answer font-body">
-              <div class="faq__answer-inner">
-                <p><strong>Manuscripts:</strong> Yes. Import from Word (.docx), EPUB, Markdown, or plain text. Penpoint detects your chapter boundaries automatically and splits the manuscript for you. Then use the Chapter Scanner to auto-detect characters, locations, and items in your prose.</p>
-                <p><strong>Worldbuilding data:</strong> You can import worldbuilding from a Markdown file formatted for Penpoint. It may require some restructuring, but it works. Beyond that, the Chapter Scanner auto-detects proper nouns in your manuscript and offers to import them as characters, locations, or items, so your prose builds your worldbuilding for you.</p>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq__item" data-animate="fade-up" data-stagger="4">
-          <summary class="faq__question font-heading-sm">
-            What makes Penpoint different from Scrivener, Campfire, or Dabble?
-          </summary>
-          <div class="faq__answer-wrapper">
-            <div class="faq__answer font-body">
-              <div class="faq__answer-inner">
-                <p>Scrivener is great for organizing a manuscript but doesn't have worldbuilding tools. Campfire has worldbuilding, but no manuscript editor. Dabble lands somewhere in between with limited worldbuilding. Penpoint is the one that does both: write your book and organize your world in the same app. <a href="/compare" style="color: rgb(var(--cta)); text-decoration: underline;">See the full comparison &rarr;</a></p>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq__item" data-animate="fade-up" data-stagger="5">
-          <summary class="faq__question font-heading-sm">
-            Does Penpoint work offline?
-          </summary>
-          <div class="faq__answer-wrapper">
-            <div class="faq__answer font-body">
-              <div class="faq__answer-inner">
-                <p>Completely. Everything lives on your computer. No internet, no account, no cloud, no AI. Your story details don't leave your machine unless you export them yourself.</p>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq__item" data-animate="fade-up" data-stagger="6">
-          <summary class="faq__question font-heading-sm">
-            Does Penpoint have a spellchecker?
-          </summary>
-          <div class="faq__answer-wrapper">
-            <div class="faq__answer font-body">
-              <div class="faq__answer-inner">
-                <p>Yes, and it works completely offline. Penpoint ships with a spellchecker supporting 60 languages. Download whichever you need from Settings. Every character, location, and item name you create is automatically added to the dictionary, so your invented names never show up as misspelled.</p>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq__item" data-animate="fade-up" data-stagger="7">
-          <summary class="faq__question font-heading-sm">
-            Does Penpoint work with ProWritingAid or Grammarly?
-          </summary>
-          <div class="faq__answer-wrapper">
-            <div class="faq__answer font-body">
-              <div class="faq__answer-inner">
-                <p>Yes. On Windows and macOS, ProWritingAid Desktop Everywhere and Grammarly for Desktop can detect Penpoint's editor and provide grammar and style suggestions alongside your writing.</p>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq__item" data-animate="fade-up" data-stagger="8">
-          <summary class="faq__question font-heading-sm">
-            What languages does Penpoint support?
-          </summary>
-          <div class="faq__answer-wrapper">
-            <div class="faq__answer font-body">
-              <div class="faq__answer-inner">
-                <p>The interface is in English. You can write your manuscript in any language and the spellchecker supports 60+ languages you can download from Settings. The one caveat is the Chapter Scanner, which only works with English text right now. Everything else works in whatever language you write in. Multi-language interface support is planned.</p>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq__item" data-animate="fade-up" data-stagger="9">
-          <summary class="faq__question font-heading-sm">
-            What is Flowstate?
-          </summary>
-          <div class="faq__answer-wrapper">
-            <div class="faq__answer font-body">
-              <div class="faq__answer-inner">
-                <p>A writing mode built right into the manuscript editor. Start a timed writing sprint and sentences lock behind you as you type. You literally can't go back and rewrite the same paragraph for the tenth time. Timed cycles alternate between forward-only writing and editing windows. It's not for everyone, but if you tend to edit too much and write too little, it might be exactly what you need.</p>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq__item" data-animate="fade-up" data-stagger="10">
-          <summary class="faq__question font-heading-sm">
-            Can I manage multiple books or a series?
-          </summary>
-          <div class="faq__answer-wrapper">
-            <div class="faq__answer font-body">
-              <div class="faq__answer-inner">
-                <p>Yes, there's a multi-book library built in. Duplicate a book to start the next installment and choose what carries over: keep your locations but start fresh on characters, or bring everything with you. Filter by installment, or view everything across the whole series at once.</p>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq__item" data-animate="fade-up" data-stagger="11">
-          <summary class="faq__question font-heading-sm">
-            How much does Penpoint cost?
-          </summary>
-          <div class="faq__answer-wrapper">
-            <div class="faq__answer font-body">
-              <div class="faq__answer-inner">
-                <p>$40, once. No subscription. Your license covers Windows, macOS, and Linux — buy it once, use it everywhere.</p>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq__item" data-animate="fade-up" data-stagger="12">
-          <summary class="faq__question font-heading-sm">
-            Is Penpoint actively developed?
-          </summary>
-          <div class="faq__answer-wrapper">
-            <div class="faq__answer font-body">
-              <div class="faq__answer-inner">
-                <p>Yes &mdash; Penpoint is built and maintained continuously, with new features and fixes shipping regularly based on community feedback. See the <a href="/changelog" style="color: rgb(var(--cta)); text-decoration: underline;">changelog</a> for the full release history.</p>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq__item" data-animate="fade-up" data-stagger="13">
-          <summary class="faq__question font-heading-sm">
-            What platforms does Penpoint support?
-          </summary>
-          <div class="faq__answer-wrapper">
-            <div class="faq__answer font-body">
-              <div class="faq__answer-inner">
-                <p>Windows, macOS (Intel and Apple Silicon), and Linux. It's a native desktop app, not a web app running in a browser. There are no plans for a web version or mobile apps for iOS or Android.</p>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <details class="faq__item" data-animate="fade-up" data-stagger="14">
-          <summary class="faq__question font-heading-sm">
-            What is a character bible or story bible?
-          </summary>
-          <div class="faq__answer-wrapper">
-            <div class="faq__answer font-body">
-              <div class="faq__answer-inner">
-                <p>A character bible is a reference sheet for every character in your story: names, traits, relationships, backstories, all of it. A story bible is the same idea but for your whole world: locations, timelines, plot threads, worldbuilding. Some people call them series bibles. Penpoint is both. Your characters and your world, organized and searchable in one place.</p>
-              </div>
-            </div>
-          </div>
-        </details>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===========================================
-       FINAL CTA
-       =========================================== -->
-  <section class="final-cta section" id="download">
-    <div class="container">
-      <h2 class="final-cta__headline font-heading-lg" data-animate="fade-up">
-        Ready to write your story?
-      </h2>
-      <p class="final-cta__subtext font-body-lg" data-animate="fade-up" data-stagger="1">
-        No account needed. Your data stays on your computer.
-      </p>
-      <a href="/trial" class="btn btn-primary btn-xl btn-shadow" data-animate="scale" data-stagger="2">
-        Try Penpoint Free
-      </a>
-      <p class="font-body-sm" data-animate="fade-up" data-stagger="2" style="margin-top: var(--space-3); color: rgb(var(--muted-foreground));">
-        Already decided? <a href="https://penpointapp.lemonsqueezy.com/checkout/buy/5576a809-44e7-4179-b5f6-69c145725060?embed=1" class="lemonsqueezy-button" style="color: rgb(var(--cta)); font-weight: 600;">Buy Penpoint &mdash; $40</a>
-      </p>
-      <p class="font-body-sm" data-animate="fade-up" data-stagger="3" style="margin-top: var(--space-2); color: rgb(var(--muted-foreground));">
-        Actively developed &mdash; <a href="/changelog" style="color: rgb(var(--cta)); font-weight: 600;">see what's new</a>
-      </p>
-      <a href="https://discord.gg/q7yV3PXrGB" class="final-cta__discord font-body-sm" data-animate="fade-up" data-stagger="4" target="_blank" rel="noopener">
-        <i class="fa-brands fa-discord"></i> Join our Discord
-      </a>
-      <div class="final-cta__platforms" data-animate="fade-up" data-stagger="5">
-        <span class="final-cta__platform">
-          <i class="fa-brands fa-windows final-cta__platform-icon"></i>
-          Windows
-        </span>
-        <span class="final-cta__platform">
-          <i class="fa-brands fa-apple final-cta__platform-icon"></i>
-          macOS
-        </span>
-        <span class="final-cta__platform">
-          <i class="fa-brands fa-linux final-cta__platform-icon"></i>
-          Linux
-        </span>
-      </div>
-    </div>
-  </section>
-  </main>
-
-  <!-- ===========================================
-       FOOTER
-       =========================================== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__top">
-        <div class="footer__brand">
-          <div class="footer__logo">
-            <svg class="footer__logo-icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
-            </svg>
-            <span class="footer__logo-text">Penpoint</span>
-          </div>
-          <p class="footer__tagline">Where Your Story Comes Together</p>
+  <section data-screen-label="More Features" style="background:var(--paper,#FCF8F0);border-bottom:1px solid #E6DCCD;">
+    <div style="max-width:1120px;margin:0 auto;padding:clamp(56px,9vw,116px) clamp(20px,5vw,56px);">
+<div data-animate="fade-up" style="text-align:center;max-width:640px;margin:0 auto clamp(40px,5vw,56px);">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#CD6E2C;margin:0 0 18px;">And there’s more</p>
+          <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.05;letter-spacing:-0.02em;color:#29241E;margin:0 0 14px;">Everything else <span style="font-style:italic;font-weight:400;">Penpoint does.</span></h2>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9A7B4F;margin:0;">Click any feature to explore</p>
         </div>
 
-        <nav class="footer__columns">
-          <div class="footer__column">
-            <h4 class="footer__column-title">Product</h4>
-            <a href="#more-features" class="footer__link">Features</a>
-            <a href="/compare" class="footer__link">Compare</a>
-            <a href="/development" class="footer__link">Development</a>
-            <a href="#faq" class="footer__link">FAQ</a>
-            <a href="/trial" class="footer__link">Free Trial</a>
+        <div class="brows" data-stagger-group data-stagger-delay="80">
+          <div data-feature="" data-animate="fade-up" data-img="images/mentionsystem.webp" data-title="Link Anything with @Mentions" data-desc="Type @ and connect anything. Mention characters, locations, items, chapters, notes. Autocomplete finds them as you type, and every mention becomes a clickable link. Build your web of connections without leaving the page you're on. And if you update the title of your linked item, it automatically updates in your text, too." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
+            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/mentionsystem.webp" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transform: translate(0px, -64px) scale(3.3); transform-origin: 43% 46%"></div>
+            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">Link Anything with @Mentions</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">Type @ and connect to any character, location, or item. Links stay updated even when you rename things.</p></div>
           </div>
-          <div class="footer__column">
-            <h4 class="footer__column-title">Community</h4>
-            <a href="https://discord.gg/q7yV3PXrGB" class="footer__link" target="_blank" rel="noopener">Discord</a>
-            <a href="mailto:support@penpoint.app" class="footer__link">Contact Support</a>
+          <div data-feature="" data-animate="fade-up" data-img="images/ChapterScanner.webp" data-title="Chapter Scanner" data-desc="After importing your manuscript, or after writing new chapters, right-click any chapter and scan it. Penpoint reads your prose and finds every character, location, and item mentioned. It even discovers new proper nouns you haven't added to your worldbuilding yet. Review the results, check what to include, and click Apply. Your chapters and your worldbuilding are connected in seconds, not hours." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
+            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/ChapterScanner.webp" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;transform:scale(3.7);transform-origin:14% 30%;"></div>
+            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">Scan Chapters for Content</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">Right-click a chapter and Penpoint scans your prose for characters, locations, and items. Review matches, click Apply, and everything connects.</p></div>
           </div>
-          <div class="footer__column">
-            <h4 class="footer__column-title">Legal</h4>
-            <a href="/terms" class="footer__link">Terms of Service</a>
-            <a href="/privacy" class="footer__link">Privacy Policy</a>
+          <div data-feature="" data-animate="fade-up" data-img="images/Flowstate.webp" data-title="Flowstate" data-desc="You've rewritten the same paragraph six times. The cursor blinks at the same spot it did an hour ago. Flowstate breaks the loop, right inside your manuscript editor. Start a timed sprint and sentences lock behind you as you write, freeing you from the urge to endlessly revise. Timed cycles alternate between forward-only writing and editing windows. When you can't go back, you have no choice but to go forward." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
+            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/Flowstate.webp" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top right;transform:scale(3.8);transform-origin:100% 0%;"></div>
+            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">Get in a Flowstate</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">Stop editing, start writing. Sentences lock behind you as you type, breaking the revision loop that keeps you stuck.</p></div>
           </div>
-        </nav>
-      </div>
+          <div data-feature="" data-animate="fade-up" data-img="images/CharacterLayout.webp" data-title="Custom Character Layouts" data-desc="Your characters, your layout. Drag and drop the blocks you need, configure how they display, and see the result immediately in your character page. Every story is different, and your character sheets should be too." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
+            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/CharacterLayout.webp" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;transform:scale(4.3);transform-origin:62% 18%;"></div>
+            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">Custom Character Layouts</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">Your world is complex. Track what matters to your story. Build your own character sheets from scratch.</p></div>
+          </div>
+          <div data-feature="" data-animate="fade-up" data-img="images/ItemsPage.webp" data-title="Track Your Character's Possessions" data-desc="Who's carrying the ancient sword? Where did the stolen letter end up? Track every meaningful object in your story. Link items to their owners, note their locations, and never lose track of that plot-critical artifact again." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
+            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/ItemsPage.webp" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top right; transform: translate(18px, -2px) scale(4.3); transform-origin: 84% 6%"></div>
+            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">Track Your Character's Possessions</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">Who owns what? Where is it now? Link items to characters and locations so you always know who's carrying the MacGuffin</p></div>
+          </div>
+          <div data-feature="" data-animate="fade-up" data-img="images/Locations.webp" data-title="Nested Locations" data-desc="From continent to country to city to room. See your entire world in one expandable tree. Click any location to see its description, the characters who live there, the items inside, and watch as all that information gets cross-referenced throughout the app." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
+            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/Locations.webp" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; transform: translate(11px, -14px) scale(4.8); transform-origin: 8% 12%"></div>
+            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">Map your Locations</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">Kingdom → City → Tavern → Secret Basement. It's all there, with every detail saved for each of your book's settings.</p></div>
+          </div>
+          <div data-feature="" data-animate="fade-up" data-img="images/Chapters.webp" data-title="Customize Your Chapters" data-desc="Each chapter has its own customizable block-based layout, just like your Character Sheets. Every scene stands on its own with its own characters, locations, items, POV, and dates from your book's calendar — real-world Gregorian, day-counter, or a custom fantasy calendar you design. The outliner sidebar mirrors Manuscript Mode, so navigating between chapters and scenes feels instantly familiar. Design a chapter view that fits how you plan stories." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
+            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/Chapters.webp" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top right; transform: translate(14px, -101px) scale(4.5); transform-origin: 28% 9%"></div>
+            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">Customize Your Chapters</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">Design a chapter view that fits how you plan stories. Block-based layouts let each scene track its own POV, characters, locations, and items.</p></div>
+          </div>
+          <div data-feature="" data-animate="fade-up" data-img="images/Notebook.webp" data-title="Notes for Everything Else" data-desc="Plot threads to resolve. Dialogue snippets to use. Research to remember. Worldbuilding details you'll need later. Organize everything into folders, embed images, and tag your notes so you can pull related ideas together in one click. Your Notebook is a complete workspace for all the thinking that happens between the lines." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
+            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/Notebook.webp" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; transform: translate(8px, -168px) scale(6); transform-origin: 22% 14%"></div>
+            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">Notes, for everything else</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">Organize your research into folders, embed images, tag your notes, and link to anything in your world.</p></div>
+          </div>
+          <div data-feature="" data-animate="fade-up" data-img="images/TimelineView.webp" data-title="Timeline View" data-desc="See every character across every chapter. Spot unintended absences and catch pacing problems before they reach your readers." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
+            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/TimelineView.webp" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; transform: translate(-158px, 24px) scale(3.9); transform-origin: 5% 22%"></div>
+            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">Timeline View</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">Visually see where your characters appear across chapters, then fill in the holes.</p></div>
+          </div>
+          <div data-feature="" data-animate="fade-up" data-img="images/Compendium.webp" data-title="The Compendium" data-desc="Your story's encyclopedia, built automatically. Every character, location, and item are indexed alphabetically as you write. Find anything fast, catch accidental duplicates, and export to a single document for publishers to reference." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
+            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/Compendium.webp" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; transform: translate(-8px, 0px) scale(5.4); transform-origin: 4% 7%"></div>
+            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">The Compendium</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">View an alphabetical index of everything in your world that's always up to date.</p></div>
+          </div>
+          <div data-feature="" data-animate="fade-up" data-img="images/BookSelector.webp" data-title="Multi-Book Library" data-desc="Writing book two? Don't start from scratch. Penpoint lets you transfer characters to your next book, keeping your series consistent without juggling files or re-entering details you've already written." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
+            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/BookSelector.webp" alt="" style="position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:cover;object-position:top center;transform:translate(-50%,-50%) scale(1.2);"></div>
+            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">Multi-Book Library</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">Manage your entire series from one place; copy over characters, items, locations, and notes from one book to another</p></div>
+          </div>
+          <div data-feature="" data-animate="fade-up" data-img="images/exportsystem.webp" data-title="Export at any time" data-desc="Your data is yours. Export characters, locations, items, notes, and chapters to PDF, Word, RTF, plain text, or Markdown at any time. No lock-in, no &quot;please don't leave us&quot; hoops you have to jump through just to get your data out of the app." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
+            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/exportsystem.webp" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; transform: translate(40px, -33px) scale(5); transform-origin: 45% 24%"></div>
+            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">Export at any time</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">Export your book content to a variety of document formats at any time. No lock-in, ever.</p></div>
+          </div>
+        </div>
 
-      <div class="footer__bottom">
-        <span class="footer__copyright">&copy; 2026 Tophat Creative, LLC. All Rights Reserved.</span>
-        <div class="footer__platforms">
+        <div data-animate="fade-up" style="max-width:880px;margin:clamp(56px,7vw,84px) auto 0;padding-top:clamp(44px,5vw,60px);border-top:1px solid #DDCBAE;">
+          <h3 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(20px,2.4vw,28px);text-align:center;color:#29241E;margin:0 0 clamp(30px,4vw,44px);">And even more features you won’t want to live without…</h3>
+          <div class="morelist" data-animate="fade-up" data-stagger="1">
+            <div class="mgroup">
+              <div class="mgroup-head"><span>Build your world</span><span></span></div>
+              <div class="mgroup-grid">
+                <div class="mrow"><span><i data-lucide="calendar-days" style="width:18px;height:18px;"></i></span><div><h4>Design your own calendar</h4><p>Invent months, weekdays, leap days, eras, even up to eight moons.</p></div></div>
+                <div class="mrow"><span><i data-lucide="image" style="width:18px;height:18px;"></i></span><div><h4>Embedded Images</h4><p>Import portraits, concept art, maps, and more into any text block. Images are stored with your book.</p></div></div>
+                <div class="mrow"><span><i data-lucide="panel-right" style="width:18px;height:18px;"></i></span><div><h4>The Minipen</h4><p>Your whole worldbuilding in a sidebar, right beside your manuscript.</p></div></div>
+                <div class="mrow"><span><i data-lucide="layout-template" style="width:18px;height:18px;"></i></span><div><h4>Genre book templates</h4><p>Fantasy, Sci-Fi, RPG, Historical, Romance and more — fully customizable.</p></div></div>
+                <div class="mrow"><span><i data-lucide="book-image" style="width:18px;height:18px;"></i></span><div><h4>Custom book covers</h4><p>Pick colors and textures, or upload your own art.</p></div></div>
+              </div>
+            </div>
+            <div class="mgroup">
+              <div class="mgroup-head"><span>Write &amp; focus</span><span></span></div>
+              <div class="mgroup-grid">
+                <div class="mrow"><span><i data-lucide="spell-check" style="width:18px;height:18px;"></i></span><div><h4>Spellcheck that knows your world</h4><p>Offline, 60+ languages, and it never flags the names you invent.</p></div></div>
+                <div class="mrow"><span><i data-lucide="maximize" style="width:18px;height:18px;"></i></span><div><h4>Fullscreen Zen mode</h4><p>The interface fades away; just you and the page.</p></div></div>
+                <div class="mrow"><span><i data-lucide="type" style="width:18px;height:18px;"></i></span><div><h4>A font just for your prose</h4><p>Want serif where you write, sans-serif everywhere else? Easy.</p></div></div>
+                <div class="mrow"><span><i data-lucide="highlighter" style="width:18px;height:18px;"></i></span><div><h4>Highlight in any color</h4><p>Build a palette and mark passages to revisit.</p></div></div>
+                <div class="mrow"><span><i data-lucide="replace" style="width:18px;height:18px;"></i></span><div><h4>Find &amp; Replace with formatting</h4><p>Match only bold text, or apply italics to replacements.</p></div></div>
+              </div>
+            </div>
+            <div class="mgroup">
+              <div class="mgroup-head"><span>Organize your cast</span><span></span></div>
+              <div class="mgroup-grid">
+                <div class="mrow"><span><i data-lucide="pin" style="width:18px;height:18px;"></i></span><div><h4>Pin your main cast</h4><p>Keep key characters at the top of the list.</p></div></div>
+                <div class="mrow"><span><i data-lucide="list-tree" style="width:18px;height:18px;"></i></span><div><h4>Calculate &amp; outline blocks</h4><p>Auto-math fields and collapsible beat sheets in your layouts.</p></div></div>
+                <div class="mrow"><span><i data-lucide="table" style="width:18px;height:18px;"></i></span><div><h4>Tables</h4><p>Magic systems, faction grids, and stat blocks in any rich-text field.</p></div></div>
+                <div class="mrow"><span><i data-lucide="zap" style="width:18px;height:18px;"></i></span><div><h4>Quick Create (Ctrl+N)</h4><p>Feel inspired? Make a new entry from anywhere, without losing your place.</p></div></div>
+                <div class="mrow"><span><i data-lucide="history" style="width:18px;height:18px;"></i></span><div><h4>Snapshots &amp; scene drafts</h4><p>Save versions of a scene or the whole book, and restore safely.</p></div></div>
+              </div>
+            </div>
+            <div class="mgroup">
+              <div class="mgroup-head"><span>Safe &amp; portable</span><span></span></div>
+              <div class="mgroup-grid">
+                <div class="mrow"><span><i data-lucide="hard-drive-download" style="width:18px;height:18px;"></i></span><div><h4>Automatic backups</h4><p>Saved locally as you write, with optional cloud-safe offsite copies.</p></div></div>
+                <div class="mrow"><span><i data-lucide="refresh-cw" style="width:18px;height:18px;"></i></span><div><h4>Share &amp; sync books</h4><p>Export your entire book as a .penpoint file, or sync via your cloud drive.</p></div></div>
+                <div class="mrow"><span><i data-lucide="target" style="width:18px;height:18px;"></i></span><div><h4>Word-count goals &amp; “Where I Left Off”</h4><p>Daily targets, and pick up exactly where you stopped.</p></div></div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:clamp(40px,5vw,56px);">
+            <p style="font-family:'Source Serif 4',serif;font-size:15px;color:#5C4332;margin:0 0 20px;">New features are continually being added — Penpoint is built in the open with feedback from authors like you.</p>
+            <a href="/development" style="font-family:'Source Serif 4',serif;font-weight:600;font-size:15px;color:#29241E;text-decoration:none;border:1px solid #29241E;padding:11px 24px;display:inline-block;">See our development process →</a>
+          </div>
+        </div>
+    </div>
+  </section>
+
+
+  <section id="faq" data-screen-label="FAQ" style="background:var(--paper-alt,#F4EBD8);border-top:1px solid #E6DCCD;border-bottom:1px solid #E6DCCD;">
+    <div style="max-width:1120px;margin:0 auto;padding:clamp(56px,9vw,116px) clamp(20px,5vw,56px);">
+      <div class="twocol">
+          <div class="twocol__aside" data-animate="fade-left" style="position:sticky;top:104px;">
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#CD6E2C;margin:0 0 18px;">Questions &amp; answers</p>
+            <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(28px,3.6vw,42px);line-height:1.08;letter-spacing:-0.02em;color:#29241E;margin:0 0 20px;">Wondering how Penpoint stacks up?</h2>
+            <p style="font-family:'Source Serif 4',serif;font-size:15px;line-height:1.6;color:#5C4332;margin:0 0 26px;max-width:340px;">See exactly how it compares to Scrivener, Campfire, and Dabble, or read through the questions writers ask most.</p>
+            <a href="/compare" style="display:inline-flex;align-items:center;gap:8px;border:1px solid #29241E;color:#29241E;font-family:'Source Serif 4',serif;font-weight:600;font-size:14px;padding:11px 22px;text-decoration:none;">See the full comparison →</a>
+          </div>
+          <div data-faq-list="b" data-animate="fade-up" data-stagger="1">
+          <details data-faq="" name="faqB" style="border-bottom:1px solid #DDCBAE;">
+            <summary data-faq-sum="" style="display:flex;align-items:flex-start;gap:18px;cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 2px;">
+              <span style="flex:1;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(17px,1.9vw,21px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;">What is Penpoint?</span>
+              <span data-faq-ic="" style="flex:none;font-family:'Source Serif 4',serif;font-size:22px;line-height:1;color:#CD6E2C;padding-top:2px;"></span>
+            </summary>
+            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p>A desktop app where writers write their manuscript and organize their world in one place. Write your entire book in a clean editor, track characters, locations, and relationships with visual tools, and search everything instantly.</p></div>
+          </details>
+          <details data-faq="" name="faqB" style="border-bottom:1px solid #DDCBAE;">
+            <summary data-faq-sum="" style="display:flex;align-items:flex-start;gap:18px;cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 2px;">
+              <span style="flex:1;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(17px,1.9vw,21px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;">Who is Penpoint for?</span>
+              <span data-faq-ic="" style="flex:none;font-family:'Source Serif 4',serif;font-size:22px;line-height:1;color:#CD6E2C;padding-top:2px;"></span>
+            </summary>
+            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p>Writers, mostly. Fiction authors are the core audience, but people also use it for nonfiction, historical research, and tabletop RPG campaigns. It works fine with a handful of characters or a cast of hundreds.</p></div>
+          </details>
+          <details data-faq="" name="faqB" style="border-bottom:1px solid #DDCBAE;">
+            <summary data-faq-sum="" style="display:flex;align-items:flex-start;gap:18px;cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 2px;">
+              <span style="flex:1;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(17px,1.9vw,21px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;">How much does Penpoint cost?</span>
+              <span data-faq-ic="" style="flex:none;font-family:'Source Serif 4',serif;font-size:22px;line-height:1;color:#CD6E2C;padding-top:2px;"></span>
+            </summary>
+            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p>$40, once. No subscription. Your license covers Windows, macOS, and Linux — buy it once, use it everywhere. Every update to the version you buy is free; if a major new version ever ships, it'd be an optional, discounted upgrade, and your copy keeps working regardless. And it's all backed by a 30-day money-back guarantee, no questions asked.</p></div>
+          </details>
+          <details data-faq="" name="faqB" style="border-bottom:1px solid #DDCBAE;">
+            <summary data-faq-sum="" style="display:flex;align-items:flex-start;gap:18px;cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 2px;">
+              <span style="flex:1;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(17px,1.9vw,21px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;">What platforms does Penpoint support?</span>
+              <span data-faq-ic="" style="flex:none;font-family:'Source Serif 4',serif;font-size:22px;line-height:1;color:#CD6E2C;padding-top:2px;"></span>
+            </summary>
+            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p>Windows, macOS (Intel and Apple Silicon), and Linux. It's a native desktop app, not a web app running in a browser. There are no plans for a web version or mobile apps for iOS or Android.</p></div>
+          </details>
+          <details data-faq="" name="faqB" style="border-bottom:1px solid #DDCBAE;">
+            <summary data-faq-sum="" style="display:flex;align-items:flex-start;gap:18px;cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 2px;">
+              <span style="flex:1;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(17px,1.9vw,21px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;">Does Penpoint work offline?</span>
+              <span data-faq-ic="" style="flex:none;font-family:'Source Serif 4',serif;font-size:22px;line-height:1;color:#CD6E2C;padding-top:2px;"></span>
+            </summary>
+            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p>Completely. Everything lives on your computer. No internet, no account, no cloud, no AI. Your story details don't leave your machine unless you export them yourself.</p></div>
+          </details>
+          <details data-faq="" name="faqB" style="border-bottom:1px solid #DDCBAE;">
+            <summary data-faq-sum="" style="display:flex;align-items:flex-start;gap:18px;cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 2px;">
+              <span style="flex:1;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(17px,1.9vw,21px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;">Can I import my existing work?</span>
+              <span data-faq-ic="" style="flex:none;font-family:'Source Serif 4',serif;font-size:22px;line-height:1;color:#CD6E2C;padding-top:2px;"></span>
+            </summary>
+            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p><strong>Manuscripts:</strong> Yes. Import from Word (.docx), EPUB, Markdown, or plain text. Penpoint detects your chapter boundaries automatically and splits the manuscript for you. Then use the Chapter Scanner to auto-detect characters, locations, and items in your prose.</p><p><strong>Worldbuilding data:</strong> You can import worldbuilding from a Markdown file formatted for Penpoint. It may require some restructuring, but it works. Beyond that, the Chapter Scanner auto-detects proper nouns in your manuscript and offers to import them as characters, locations, or items, so your prose builds your worldbuilding for you.</p></div>
+          </details>
+          <details data-faq="" name="faqB" style="border-bottom:1px solid #DDCBAE;">
+            <summary data-faq-sum="" style="display:flex;align-items:flex-start;gap:18px;cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 2px;">
+              <span style="flex:1;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(17px,1.9vw,21px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;">What makes Penpoint different from Scrivener, Campfire, or Dabble?</span>
+              <span data-faq-ic="" style="flex:none;font-family:'Source Serif 4',serif;font-size:22px;line-height:1;color:#CD6E2C;padding-top:2px;"></span>
+            </summary>
+            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p>Scrivener is great for organizing a manuscript but doesn't have worldbuilding tools. Campfire has worldbuilding, but no manuscript editor. Dabble lands somewhere in between with limited worldbuilding. Penpoint is the one that does both: write your book and organize your world in the same app. <a href="/compare">See the full comparison →</a></p></div>
+          </details>
+          <details data-faq="" name="faqB" style="border-bottom:1px solid #DDCBAE;">
+            <summary data-faq-sum="" style="display:flex;align-items:flex-start;gap:18px;cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 2px;">
+              <span style="flex:1;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(17px,1.9vw,21px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;">Does Penpoint have a spellchecker?</span>
+              <span data-faq-ic="" style="flex:none;font-family:'Source Serif 4',serif;font-size:22px;line-height:1;color:#CD6E2C;padding-top:2px;"></span>
+            </summary>
+            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p>Yes, and it works completely offline. Penpoint ships with a spellchecker supporting 60 languages. Download whichever you need from Settings. Every character, location, and item name you create is automatically added to the dictionary, so your invented names never show up as misspelled.</p></div>
+          </details>
+          <details data-faq="" name="faqB" style="border-bottom:1px solid #DDCBAE;">
+            <summary data-faq-sum="" style="display:flex;align-items:flex-start;gap:18px;cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 2px;">
+              <span style="flex:1;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(17px,1.9vw,21px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;">Does Penpoint work with ProWritingAid or Grammarly?</span>
+              <span data-faq-ic="" style="flex:none;font-family:'Source Serif 4',serif;font-size:22px;line-height:1;color:#CD6E2C;padding-top:2px;"></span>
+            </summary>
+            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p>Yes. On Windows and macOS, ProWritingAid Desktop Everywhere and Grammarly for Desktop can detect Penpoint's editor and provide grammar and style suggestions alongside your writing.</p></div>
+          </details>
+          <details data-faq="" name="faqB" style="border-bottom:1px solid #DDCBAE;">
+            <summary data-faq-sum="" style="display:flex;align-items:flex-start;gap:18px;cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 2px;">
+              <span style="flex:1;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(17px,1.9vw,21px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;">What languages does Penpoint support?</span>
+              <span data-faq-ic="" style="flex:none;font-family:'Source Serif 4',serif;font-size:22px;line-height:1;color:#CD6E2C;padding-top:2px;"></span>
+            </summary>
+            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p>The interface is in English. You can write your manuscript in any language and the spellchecker supports 60+ languages you can download from Settings. The one caveat is the Chapter Scanner, which only works with English text right now. Everything else works in whatever language you write in. Multi-language interface support is planned.</p></div>
+          </details>
+          <details data-faq="" name="faqB" style="border-bottom:1px solid #DDCBAE;">
+            <summary data-faq-sum="" style="display:flex;align-items:flex-start;gap:18px;cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 2px;">
+              <span style="flex:1;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(17px,1.9vw,21px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;">What is Flowstate?</span>
+              <span data-faq-ic="" style="flex:none;font-family:'Source Serif 4',serif;font-size:22px;line-height:1;color:#CD6E2C;padding-top:2px;"></span>
+            </summary>
+            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p>A writing mode built right into the manuscript editor. Start a timed writing sprint and sentences lock behind you as you type. You literally can't go back and rewrite the same paragraph for the tenth time. Timed cycles alternate between forward-only writing and editing windows. It's not for everyone, but if you tend to edit too much and write too little, it might be exactly what you need.</p></div>
+          </details>
+          <details data-faq="" name="faqB" style="border-bottom:1px solid #DDCBAE;">
+            <summary data-faq-sum="" style="display:flex;align-items:flex-start;gap:18px;cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 2px;">
+              <span style="flex:1;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(17px,1.9vw,21px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;">Can I manage multiple books or a series?</span>
+              <span data-faq-ic="" style="flex:none;font-family:'Source Serif 4',serif;font-size:22px;line-height:1;color:#CD6E2C;padding-top:2px;"></span>
+            </summary>
+            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p>Yes, there's a multi-book library built in. Duplicate a book to start the next installment and choose what carries over: keep your locations but start fresh on characters, or bring everything with you. Filter by installment, or view everything across the whole series at once.</p></div>
+          </details>
+          <details data-faq="" name="faqB" style="border-bottom:1px solid #DDCBAE;">
+            <summary data-faq-sum="" style="display:flex;align-items:flex-start;gap:18px;cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 2px;">
+              <span style="flex:1;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(17px,1.9vw,21px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;">Is Penpoint actively developed?</span>
+              <span data-faq-ic="" style="flex:none;font-family:'Source Serif 4',serif;font-size:22px;line-height:1;color:#CD6E2C;padding-top:2px;"></span>
+            </summary>
+            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p>Yes — Penpoint is built and maintained continuously, with new features and fixes shipping regularly based on community feedback. See the <a href="/changelog">changelog</a> for the full release history.</p></div>
+          </details>
+          <details data-faq="" name="faqB" style="border-bottom:1px solid #DDCBAE;">
+            <summary data-faq-sum="" style="display:flex;align-items:flex-start;gap:18px;cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 2px;">
+              <span style="flex:1;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(17px,1.9vw,21px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;">What is a character bible or story bible?</span>
+              <span data-faq-ic="" style="flex:none;font-family:'Source Serif 4',serif;font-size:22px;line-height:1;color:#CD6E2C;padding-top:2px;"></span>
+            </summary>
+            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p>A character bible is a reference sheet for every character in your story: names, traits, relationships, backstories, all of it. A story bible is the same idea but for your whole world: locations, timelines, plot threads, worldbuilding. Some people call them series bibles. Penpoint is both. Your characters and your world, organized and searchable in one place.</p></div>
+          </details>
+        </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="buy" data-screen-label="Buy" style="background:var(--paper,#FCF8F0);">
+    <div data-animate="fade-up" style="max-width:760px;margin:0 auto;padding:clamp(60px,10vw,138px) clamp(20px,5vw,56px);text-align:center;">
+      <h2 style="font-family:'Newsreader',serif;font-weight:var(--hl-weight,500);font-size:clamp(34px,6vw,68px);line-height:1.04;letter-spacing:-0.02em;margin:0 0 clamp(18px,3vw,26px);color:#29241E;">Ready to write <br><span style="font-style:var(--hl-emph-style,italic);font-weight:var(--hl-emph-weight,400);">your story?</span></h2>
+      <p style="font-family:'Source Serif 4',serif;font-size:clamp(17px,2vw,21px);line-height:1.5;color:#5C4332;margin:0 0 clamp(34px,5vw,44px);">No account needed. Your data stays on your computer.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center;justify-content:center;">
+        <a href="/trial" style="display:inline-block;font-family:'Source Serif 4',serif;font-weight:600;font-size:19px;background:var(--accent,#CD6E2C);color:#FFF7E6;padding:17px 40px;text-decoration:none;box-shadow:0 16px 32px -16px rgba(61,46,28,.5);">Try Penpoint Free</a>
+        <a href="/buy" style="display:inline-block;font-family:'Source Serif 4',serif;font-weight:600;font-size:19px;background:transparent;color:#29241E;padding:17px 34px;text-decoration:none;border:1px solid #C9B79A;">Buy — $40</a>
+      </div>
+      <p style="font-family:'Source Serif 4',serif;font-size:15px;color:#7C5236;margin:clamp(20px,3vw,26px) 0 0;">Backed by a 30-day money-back guarantee — no questions asked.</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(24px,4vw,40px);max-width:520px;margin:clamp(40px,5vw,56px) auto 0;padding-top:clamp(28px,4vw,36px);border-top:1px solid #E0D2BC;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9A7B4F;">
+        <span style="display:inline-flex;align-items:center;gap:9px;"><i class="fa-brands fa-windows" style="font-size:15px;color:#7C5236;"></i> Windows</span>
+        <span style="display:inline-flex;align-items:center;gap:9px;"><i class="fa-brands fa-apple" style="font-size:17px;color:#7C5236;"></i> macOS</span>
+        <span style="display:inline-flex;align-items:center;gap:9px;"><i class="fa-brands fa-linux" style="font-size:16px;color:#7C5236;"></i> Linux</span>
+      </div>
+    </div>
+  </section>
+
+  </main>
+  <!-- ===== Shared site footer (see css/site-chrome.css) ===== -->
+  <footer class="pp-footer">
+    <div class="pp-footer__top">
+      <div class="pp-footer__brand">
+        <div class="pp-footer__brand-row">
+          <svg class="pp-footer__brand-icon" viewBox="0 0 24 24" width="22" height="22" fill="#DDA964"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+          <span class="pp-footer__brand-name">Penpoint</span>
+        </div>
+        <p class="pp-footer__tagline">Where Your Story Comes Together</p>
+      </div>
+      <nav class="pp-footer__cols" aria-label="Footer">
+        <div class="pp-footer__col">
+          <h4>Product</h4>
+          <a href="/#features" class="foot-link">Features</a>
+          <a href="/compare" class="foot-link">Compare</a>
+          <a href="/development" class="foot-link">Development</a>
+          <a href="/#faq" class="foot-link">FAQ</a>
+          <a href="/trial" class="foot-link">Free Trial</a>
+        </div>
+        <div class="pp-footer__col">
+          <h4>Community</h4>
+          <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" class="foot-link">Discord</a>
+          <a href="mailto:support@penpoint.app" class="foot-link">Contact Support</a>
+        </div>
+        <div class="pp-footer__col">
+          <h4>Legal</h4>
+          <a href="/terms" class="foot-link">Terms of Service</a>
+          <a href="/privacy" class="foot-link">Privacy Policy</a>
+        </div>
+      </nav>
+    </div>
+    <div class="pp-footer__bottom">
+      <div class="pp-footer__bottom-inner">
+        <span class="pp-footer__copy">© 2026 Tophat Creative, LLC. All Rights Reserved.</span>
+        <div class="pp-footer__platforms">
           <i class="fa-brands fa-windows"></i>
           <i class="fa-brands fa-apple"></i>
           <i class="fa-brands fa-linux"></i>
@@ -1249,131 +863,96 @@
     </div>
   </footer>
 
-
-  <!-- ===========================================
-       LIGHTBOX MODAL
-       =========================================== -->
-  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" aria-describedby="lightbox-desc">
-    <div class="lightbox__overlay"></div>
-    <div class="lightbox__container">
-      <button type="button" class="lightbox__close" aria-label="Close lightbox">
-        <i data-lucide="x"></i>
-      </button>
-      <div class="lightbox__content">
-        <div class="lightbox__image-wrapper">
-          <!-- Placeholder for now - will be replaced with actual images -->
-          <div class="lightbox__image-placeholder">
-            <i data-lucide="image" class="lightbox__placeholder-icon"></i>
-            <span class="lightbox__placeholder-text font-caption">Screenshot coming soon</span>
-          </div>
-        </div>
-        <div class="lightbox__info">
-          <h3 class="lightbox__title font-heading" id="lightbox-title"></h3>
-          <p class="lightbox__desc font-body" id="lightbox-desc"></p>
-        </div>
+  <div data-lightbox="" style="display:flex;position:fixed;inset:0;z-index:60;background:rgba(28,22,14,.74);align-items:center;justify-content:center;padding:clamp(16px,4vw,56px);">
+    <div style="background:#FCF8F0;border:1px solid #C9B796;box-shadow:0 50px 90px -30px rgba(0,0,0,.6);max-width:1040px;width:100%;max-height:92vh;overflow:auto;">
+      <div style="position:relative;background:#1C160E;border-bottom:1px solid #C9B796;">
+        <img loading="lazy" data-lightbox-img="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" style="width:100%;max-height:64vh;object-fit:contain;display:block;">
+        <button data-lightbox-close="" type="button" aria-label="Close" style="position:absolute;top:12px;right:12px;width:36px;height:36px;border:none;background:rgba(252,248,240,.92);color:#29241E;font-family:'Source Serif 4',serif;font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">×</button>
+      </div>
+      <div style="padding:clamp(24px,3vw,38px) clamp(24px,4vw,48px);">
+        <h3 data-lightbox-title="" style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(22px,3vw,32px);letter-spacing:-0.01em;color:#29241E;margin:0 0 14px;"></h3>
+        <p data-lightbox-desc="" style="font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;margin:0;max-width:720px;"></p>
       </div>
     </div>
   </div>
 
-
-  <!-- JavaScript -->
-  <script src="js/scroll-animations.js"></script>
-  <script src="js/lightbox.js"></script>
-  <script src="js/hero-rotate.js"></script>
-  <script src="js/launch-countdown.js"></script>
-
-  <!-- FAQ Accordion -->
-  <script>
-  (function() {
-    var items = document.querySelectorAll('.faq__item');
-
-    function animateOpen(detail) {
-      detail.open = true;
-      var wrapper = detail.querySelector('.faq__answer-wrapper');
-      // Measure full height while wrapper is unstyled (includes child margin/padding/border)
-      var targetHeight = wrapper.scrollHeight;
-      wrapper.style.height = '0px';
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-          detail.classList.add('faq--open');
-          wrapper.style.height = targetHeight + 'px';
-          wrapper.addEventListener('transitionend', function handler(e) {
-            if (e.propertyName !== 'height') return;
-            wrapper.style.height = 'auto';
-            wrapper.removeEventListener('transitionend', handler);
-          });
-        });
-      });
-    }
-
-    function animateClose(detail) {
-      detail.classList.remove('faq--open');
-      var wrapper = detail.querySelector('.faq__answer-wrapper');
-      wrapper.style.height = wrapper.scrollHeight + 'px';
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-          wrapper.style.height = '0px';
-          wrapper.addEventListener('transitionend', function handler(e) {
-            if (e.propertyName !== 'height') return;
-            detail.open = false;
-            wrapper.removeEventListener('transitionend', handler);
-          });
-        });
-      });
-    }
-
-    items.forEach(function(item) {
-      item.querySelector('.faq__question').addEventListener('click', function(e) {
-        e.preventDefault();
-        if (item.open) {
-          animateClose(item);
-        } else {
-          items.forEach(function(other) {
-            if (other !== item && other.open) animateClose(other);
-          });
-          animateOpen(item);
-        }
-      });
-    });
-  })();
-  </script>
-
-  <!-- Initialize Lucide Icons -->
-  <script>
-    if (typeof lucide !== 'undefined') {
-      lucide.createIcons();
-    } else {
-      console.warn('Lucide icons failed to load');
-    }
-  </script>
-
-  <!-- Click Tracking (anonymous aggregate counters, no PII) -->
-  <script>
-  (function() {
-    function trackClick(eventType) {
-      var key = 'pp_tracked_' + eventType;
-      if (sessionStorage.getItem(key)) return;
-      sessionStorage.setItem(key, '1');
-      fetch('https://lpgprxbwrkzxmbwzkisz.supabase.co/functions/v1/track-click', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ eventType: eventType }),
-        keepalive: true
-      }).catch(function() {});
-    }
-
-    // Buy buttons (header + inline links) — all have .lemonsqueezy-button
-    document.querySelectorAll('.lemonsqueezy-button').forEach(function(el) {
-      el.addEventListener('click', function() { trackClick('buy_click'); });
-    });
-
-    // "Try Penpoint Free" CTA buttons — both hero and final-cta
-    document.querySelectorAll('a.btn[href="/trial"]').forEach(function(el) {
-      el.addEventListener('click', function() { trackClick('trial_click'); });
-    });
-  })();
-  </script>
-
-
+</div>
+<script>
+(function(){
+function ready(fn){ if(document.readyState!=='loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+ready(function(){
+var root = document.getElementById('pp-root') || document.body;
+function drawIcons(){ if(window.lucide){ try{ window.lucide.createIcons(); }catch(e){} } }
+drawIcons(); setTimeout(drawIcons,400); setTimeout(drawIcons,1200);
+(function(){ var all=[].slice.call(root.querySelectorAll('[data-animate]')); if(!all.length) return; root.classList.add('js-ready');
+  var groups=[].slice.call(root.querySelectorAll('[data-stagger-group]')); var grouped=[];
+  groups.forEach(function(group){ var delay=parseInt(group.getAttribute('data-stagger-delay'),10)||100; [].slice.call(group.querySelectorAll('[data-animate]')).forEach(function(child,i){ if(!child.style.animationDelay) child.style.animationDelay=(i*delay)+'ms'; grouped.push(child); }); });
+  function reveal(el){ el.classList.add('animate-in'); }
+  function revealGroup(group){ if(group.hasAttribute('data-animate')) reveal(group); [].slice.call(group.querySelectorAll('[data-animate]')).forEach(reveal); }
+  function vh(){ return window.innerHeight||document.documentElement.clientHeight; }
+  function inView(el){ var r=el.getBoundingClientRect(); return r.top < vh()*0.72 && r.bottom > 0; }
+  /* elements not inside a stagger group reveal individually; whole groups fire as one unit when the container hits the trigger line */
+  var standalone=all.filter(function(el){ return grouped.indexOf(el)===-1 && !el.hasAttribute('data-stagger-group'); });
+  if(!('IntersectionObserver' in window)){ all.forEach(reveal); return; }
+  var rmBottom=(window.innerWidth<=768)?'-10%':'-30%';  /* mobile: trigger sooner, less is hidden before the reveal */
+  var io=new IntersectionObserver(function(entries,obs){ entries.forEach(function(en){ if(en.isIntersecting){ if(en.target.hasAttribute('data-stagger-group')) revealGroup(en.target); else reveal(en.target); obs.unobserve(en.target); } }); },{ threshold:0.05, rootMargin:'0px 0px '+rmBottom+' 0px' });
+  groups.forEach(function(g){ if(inView(g)) revealGroup(g); else io.observe(g); });
+  standalone.forEach(function(el){ if(inView(el)) reveal(el); else io.observe(el); }); })();
+(function(){ var burger=root.querySelector('[data-burger]'); var panel=root.querySelector('[data-mobile-menu]'); if(!burger||!panel) return;
+  function setOpen(open){ burger.classList.toggle('open',open); panel.classList.toggle('open',open); burger.setAttribute('aria-expanded', open?'true':'false'); }
+  burger.addEventListener('click', function(){ setOpen(!panel.classList.contains('open')); });
+  panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); }); })();
+(function(){ function trackClick(t){ try{ var k='pp_tracked_'+t; if(sessionStorage.getItem(k)) return; sessionStorage.setItem(k,'1'); }catch(e){} try{ if(window.gtag) window.gtag('event',t); }catch(e){} fetch('https://lpgprxbwrkzxmbwzkisz.supabase.co/functions/v1/track-click',{ method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({eventType:t}), keepalive:true }).catch(function(){}); }
+  root.querySelectorAll('a[href="/buy"]').forEach(function(el){ el.addEventListener('click', function(){ trackClick('buy_click'); }); });
+  root.querySelectorAll('a[href="/trial"]').forEach(function(el){ el.addEventListener('click', function(){ trackClick('trial_click'); }); }); })();
+(function(){ var nodes=[].slice.call(root.querySelectorAll('[data-stat]')); if(!nodes.length) return;
+  function fmt(n){ return Number(n).toLocaleString(); } function parseNum(t){ return parseInt(String(t).replace(/[^0-9]/g,''),10)||0; }
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches; var counted=false; var DUR=1600;
+  function ease(t){ return 1-Math.pow(1-t,3); }
+  function reserve(el){ var s=fmt(parseInt(el.getAttribute('data-target'),10)||0); var prev=el.textContent; el.style.display='inline-block'; el.style.textAlign='center'; el.style.minWidth='0'; el.textContent=s; var w=Math.ceil(el.getBoundingClientRect().width); el.textContent=prev; el.style.minWidth=w+'px'; }  /* reserve the final number's exact rendered width: snug box, no reflow during count-up and no extra slack */
+  function reserveAll(){ nodes.forEach(reserve); }
+  function setFinal(){ nodes.forEach(function(el){ el.textContent=fmt(parseInt(el.getAttribute('data-target'),10)||0); }); }
+  function countUp(){ if(counted) return; counted=true; if(reduce){ setFinal(); return; }
+    nodes.forEach(function(el){ var start=null; function step(ts){ if(start===null) start=ts; var target=parseInt(el.getAttribute('data-target'),10)||0; var p=Math.min((ts-start)/DUR,1); el.textContent=fmt(Math.round(target*ease(p))); if(p<1) requestAnimationFrame(step); else el.textContent=fmt(parseInt(el.getAttribute('data-target'),10)||0); } requestAnimationFrame(step); }); }
+  nodes.forEach(function(el){ el.setAttribute('data-target', parseNum(el.textContent)); }); reserveAll();
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(reserveAll);   /* re-measure once the webfont swaps in */
+  var rT; window.addEventListener('resize', function(){ clearTimeout(rT); rT=setTimeout(reserveAll,150); });   /* font-size is responsive (clamp), so re-measure on resize */
+  fetch('https://lpgprxbwrkzxmbwzkisz.supabase.co/functions/v1/community-stats-public').then(function(res){ return res.json(); }).then(function(d){ nodes.forEach(function(el){ var v=d[el.getAttribute('data-stat')]; if(typeof v==='number'&&v>0){ el.setAttribute('data-target', v); if(counted&&!reduce) el.textContent=fmt(v); } }); reserveAll(); if(reduce&&counted) setFinal(); }).catch(function(){});
+  if(reduce){ countUp(); return; }                                  /* no motion: show final numbers, no count-up */
+  /* start the count-up only when the stats block fades in, so the effect is actually seen */
+  var trigger=(nodes[0].closest&&nodes[0].closest('[data-animate]'))||nodes[0];
+  if(trigger.classList.contains('animate-in')) countUp();           /* already revealed (in view on load) */
+  else trigger.addEventListener('animationstart', countUp); })();
+(function(){ var overlay=root.querySelector('[data-lightbox]'); if(!overlay) return; var img=root.querySelector('[data-lightbox-img]'); var title=root.querySelector('[data-lightbox-title]'); var desc=root.querySelector('[data-lightbox-desc]'); var closeBtn=root.querySelector('[data-lightbox-close]'); var opener=null;
+  overlay.setAttribute('role','dialog'); overlay.setAttribute('aria-modal','true'); if(title){ if(!title.id) title.id='lb-title'; overlay.setAttribute('aria-labelledby',title.id); }
+  function open(el){ opener=el; title.textContent=el.getAttribute('data-title'); desc.textContent=el.getAttribute('data-desc'); var s=el.getAttribute('data-img'); var pre=new Image(); function reveal(){ img.src=s; overlay.classList.add('lb-open'); if(closeBtn) closeBtn.focus(); } pre.onload=reveal; pre.onerror=reveal; pre.src=s; if(pre.complete) reveal(); }
+  function close(){ overlay.classList.remove('lb-open'); if(opener&&opener.focus) opener.focus(); opener=null; }
+  root.querySelectorAll('[data-feature]').forEach(function(el){ el.setAttribute('role','button'); el.setAttribute('tabindex','0'); var t=el.getAttribute('data-title'); if(t&&!el.getAttribute('aria-label')) el.setAttribute('aria-label','Learn more: '+t); el.addEventListener('click', function(){ open(el); }); el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){ e.preventDefault(); open(el); } }); });
+  overlay.addEventListener('click', function(e){ if(e.target===overlay) close(); }); if(closeBtn) closeBtn.addEventListener('click', close); document.addEventListener('keydown', function(e){ if(e.key==='Escape'&&overlay.classList.contains('lb-open')) close(); }); })();
+(function(){ var section=root.querySelector('[data-mw-section]'); var img=root.querySelector('[data-mw-img]'); var cap=root.querySelector('[data-mw-cap]'); var tabM=root.querySelector('[data-mw="manuscript"]'); var tabW=root.querySelector('[data-mw="worldbuilding"]'); if(!section||!img||!tabM||!tabW) return;
+  var states={ manuscript:{src:'images/ManuscriptMode.webp',alt:'Penpoint Manuscript Mode editor',cap:'Manuscript Mode'}, worldbuilding:{src:'images/CharacterPage.webp',alt:'Penpoint character page with cross-referenced connections',cap:'The Character Page'} };
+  [states.manuscript.src,states.worldbuilding.src].forEach(function(s){ var p=new Image(); p.src=s; });
+  var cur='manuscript', target='manuscript', anim=false, gen=0, started=false, tSwap,tFade,tFirst,loopId,pollId;
+  function paintTabs(){ var m=target==='manuscript'; tabM.style.background=m?'#29241E':'transparent'; tabM.style.color=m?'#FEF9F0':'#7C5236'; tabW.style.background=m?'transparent':'#29241E'; tabW.style.color=m?'#7C5236':'#FEF9F0'; tabM.setAttribute('aria-pressed', m?'true':'false'); tabW.setAttribute('aria-pressed', m?'false':'true'); }
+  function run(){ if(target===cur){ anim=false; return; } anim=true; var g=++gen; clearTimeout(tSwap); clearTimeout(tFade); img.style.opacity='0';
+    tSwap=setTimeout(function(){ if(g!==gen) return; var dest=target, st=states[dest]; function reveal(){ if(g!==gen) return; cur=dest; img.src=st.src; img.alt=st.alt; if(cap) cap.textContent=st.cap; function fadeIn(){ if(g!==gen) return; img.style.opacity='1'; anim=false; paintTabs(); if(target!==cur) run(); } requestAnimationFrame(function(){ requestAnimationFrame(fadeIn); }); tFade=setTimeout(fadeIn,90); } var pre=new Image(); pre.onload=reveal; pre.onerror=reveal; pre.src=st.src; if(pre.complete) reveal(); },460); }
+  function request(t){ target=t; paintTabs(); if(!anim) run(); } function flip(){ request(target==='manuscript'?'worldbuilding':'manuscript'); }
+  function stopAuto(){ started=true; clearTimeout(tFirst); clearInterval(loopId); clearInterval(pollId); window.removeEventListener('scroll',onScroll,true); }
+  tabM.style.cursor='pointer'; tabW.style.cursor='pointer';
+  [tabM,tabW].forEach(function(t){ t.setAttribute('role','button'); t.setAttribute('tabindex','0'); }); tabM.setAttribute('aria-label','Show Manuscript Mode'); tabW.setAttribute('aria-label','Show Worldbuilding');
+  function actM(){ stopAuto(); request('manuscript'); } function actW(){ stopAuto(); request('worldbuilding'); }
+  function key(fn){ return function(e){ if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){ e.preventDefault(); fn(); } }; }
+  tabM.addEventListener('click', actM); tabW.addEventListener('click', actW); tabM.addEventListener('keydown', key(actM)); tabW.addEventListener('keydown', key(actW)); paintTabs();
+  function inView(){ var r=section.getBoundingClientRect(); var v=window.innerHeight||document.documentElement.clientHeight; return r.top < v*0.75 && r.bottom > v*0.25; }
+  function start(){ if(started) return; started=true; clearInterval(pollId); window.removeEventListener('scroll',onScroll,true); tFirst=setTimeout(function(){ flip(); loopId=setInterval(flip,5200); },10000); }
+  function onScroll(){ if(inView()) start(); } window.addEventListener('scroll',onScroll,true); pollId=setInterval(onScroll,600); onScroll(); })();
+(function(){ var faqs=[].slice.call(root.querySelectorAll('[data-faq]')); if(!faqs.length) return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches; var EASE='height .36s cubic-bezier(.4,0,.2,1)';
+  function inner(d){ return d.querySelector('[data-faq-inner]'); }
+  function openD(d){ var el=inner(d); d.open=true; if(!el||reduce){ if(el) el.style.height='auto'; return; } var h=el.scrollHeight; el.style.transition='none'; el.style.height='0px'; requestAnimationFrame(function(){ requestAnimationFrame(function(){ el.style.transition=EASE; el.style.height=h+'px'; el.addEventListener('transitionend', function te(e){ if(e.propertyName!=='height') return; el.style.height='auto'; el.style.transition=''; el.removeEventListener('transitionend',te); }); }); }); }
+  function closeD(d){ var el=inner(d); if(!el||reduce){ d.open=false; if(el) el.style.height=''; return; } var h=el.scrollHeight; el.style.transition='none'; el.style.height=h+'px'; requestAnimationFrame(function(){ requestAnimationFrame(function(){ el.style.transition=EASE; el.style.height='0px'; el.addEventListener('transitionend', function te(e){ if(e.propertyName!=='height') return; d.open=false; el.style.height=''; el.style.transition=''; el.removeEventListener('transitionend',te); }); }); }); }
+  faqs.forEach(function(d){ d.removeAttribute('name'); var sum=d.querySelector('summary'); if(!sum) return; sum.addEventListener('click', function(e){ e.preventDefault(); if(d.open){ closeD(d); } else { faqs.forEach(function(o){ if(o!==d&&o.open) closeD(o); }); openD(d); } }); }); })();
+}); })();
+</script>
 </body>
 </html>

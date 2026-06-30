@@ -729,8 +729,8 @@ button {
 
 .trust-block__grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--space-4);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8) var(--space-4);
   width: 100%;
 }
 
