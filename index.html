@@ -272,8 +272,11 @@
     @media(max-width:680px){[data-feat-text]{order:-1 !important;}}
     /* ---- Stats: stay 3 compact columns on phones (don't stack) ---- */
     @media(max-width:560px){.statcell{padding:clamp(18px,4.5vw,26px) 6px !important;}.statcell [data-stat]{font-size:clamp(19px,6vw,30px) !important;}.statcell p{font-size:9px !important;letter-spacing:.05em !important;}}
-    /* ---- Browse feature cards: smaller thumb on tiny screens ---- */
-    @media(max-width:420px){.brows [data-feature]{gap:13px;}.brows [data-feature] > div:first-child{width:116px !important;height:80px !important;}}
+    /* ---- Testimonial cards: condense the stack on phones (less scrolling) ---- */
+    @media(max-width:560px){.tcards > div{padding:16px 18px !important;}.tcards > div > div:first-child{font-size:30px !important;height:14px !important;margin-bottom:2px !important;}.tcards > div > p:first-of-type{font-size:14.5px !important;line-height:1.42 !important;margin:0 0 9px !important;}}
+    /* ---- Browse feature cards: smaller thumb + tighter padding on phones (more room for text) ---- */
+    @media(max-width:600px){.brows-sec{padding-left:14px !important;padding-right:14px !important;}.brows [data-feature]{gap:12px !important;padding:18px 8px !important;}.brows [data-feature] > div:first-child{width:114px !important;height:76px !important;}}
+    @media(max-width:380px){.brows [data-feature] > div:first-child{width:96px !important;height:64px !important;}}
     @keyframes ppFadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
     @keyframes ppSlideL{from{opacity:0;transform:translateX(-34px);}to{opacity:1;transform:translateX(0);}}
     @keyframes ppSlideR{from{opacity:0;transform:translateX(34px);}to{opacity:1;transform:translateX(0);}}
@@ -543,7 +546,7 @@
         <p style="font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,18px);line-height:1.62;color:#5C4332;max-width:720px;margin:0 auto;">Penpoint is THE writing app. If you want something that provides structure for your planning, then acts as a quiet companion for the writing, this is it. From worldbuilding, to character creation, to helping you easily find things within your manuscript, to just sitting down and writing the damn thing.</p>
         <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#7C5236;margin:18px 0 0;">L.M. Whiteley · Author, Hitmen of Ulysses series</p>
       </div>
-      <div data-stagger-group="" data-stagger-delay="80" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;background:#E0D2BC;border:1px solid #E0D2BC;">
+      <div class="tcards" data-stagger-group="" data-stagger-delay="80" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;background:#E0D2BC;border:1px solid #E0D2BC;">
         <div data-animate="fade-up" style="background:var(--paper-alt,#F4EBD8);padding:clamp(26px,3vw,38px) clamp(20px,2.4vw,32px);">
           <div style="font-family:'Newsreader',serif;font-size:44px;line-height:.7;color:var(--accent-bright,#DDA964);height:26px;">“</div>
           <p style="font-family:'Source Serif 4',serif;font-size:16px;line-height:1.58;color:#3D2E1C;margin:0 0 14px;">It’s everything you need, with a UI that doesn’t distract from actually writing. Cleaner, easier, stronger, and actually <strong style="font-weight:600;color:#29241E;">written for authors, by authors</strong>.</p>
@@ -580,7 +583,7 @@
 
 
   <section data-screen-label="More Features" style="background:var(--paper,#FCF8F0);border-bottom:1px solid #E6DCCD;">
-    <div style="max-width:1120px;margin:0 auto;padding:clamp(56px,9vw,116px) clamp(20px,5vw,56px);">
+    <div class="brows-sec" style="max-width:1120px;margin:0 auto;padding:clamp(56px,9vw,116px) clamp(20px,5vw,56px);">
 <div data-animate="fade-up" style="text-align:center;max-width:640px;margin:0 auto clamp(40px,5vw,56px);">
           <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#CD6E2C;margin:0 0 18px;">And there’s more</p>
           <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.05;letter-spacing:-0.02em;color:#29241E;margin:0 0 14px;">Everything else <span style="font-style:italic;font-weight:400;">Penpoint does.</span></h2>
