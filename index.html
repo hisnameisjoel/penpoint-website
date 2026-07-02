@@ -357,11 +357,17 @@
       </div>
 
       <figure data-animate="hero-rise" style="margin:0;animation-delay:1240ms;">
-        <div style="border:1px solid #E0D2BC;background:#fff;box-shadow:0 36px 70px -34px rgba(61,46,28,.42);overflow:hidden;aspect-ratio:3076/2000;">
-          <img loading="eager" fetchpriority="high" src="images/CharacterArcs.webp" alt="Penpoint Arc Visualizer showing character fortune curves" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+        <!-- Rotating feature showcase. Slide 1 is the eager/high-priority LCP image; slides 2-5 carry only data-src
+             and are fetched after window.load (see the [data-hero-shots] script) so they never compete above the fold. -->
+        <div data-hero-shots style="position:relative;border:1px solid #E0D2BC;background:#fff;box-shadow:0 36px 70px -34px rgba(61,46,28,.42);overflow:hidden;aspect-ratio:3076/2000;">
+          <img data-hero-shot loading="eager" fetchpriority="high" src="images/CharacterPage.webp" data-caption="Characters" alt="Penpoint Characters — a character profile with bio, chapters, relationships, and locations" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;opacity:1;transition:opacity 600ms cubic-bezier(.4,0,.2,1);">
+          <img data-hero-shot data-src="images/ManuscriptMode.webp" data-caption="The Manuscript" alt="Penpoint Manuscript editor — writing prose on a clean, distraction-free page" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;opacity:0;transition:opacity 600ms cubic-bezier(.4,0,.2,1);">
+          <img data-hero-shot data-src="images/Chapters.webp" data-caption="Chapters &amp; Scenes" alt="Penpoint Chapters — book structure with scenes, summaries, and per-scene detail" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;opacity:0;transition:opacity 600ms cubic-bezier(.4,0,.2,1);">
+          <img data-hero-shot data-src="images/TimelineView.webp" data-caption="The Timeline" alt="Penpoint Timeline — story events laid out chronologically" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;opacity:0;transition:opacity 600ms cubic-bezier(.4,0,.2,1);">
+          <img data-hero-shot data-src="images/CharacterArcs.webp" data-caption="The Arc Visualizer" alt="Penpoint Arc Visualizer showing character fortune curves" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;opacity:0;transition:opacity 600ms cubic-bezier(.4,0,.2,1);">
         </div>
         <figcaption style="display:flex;align-items:baseline;gap:14px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7D5D35;">
-          <span style="color:#3D2E1C;font-weight:600;white-space:nowrap;">The Arc Visualizer</span><span style="flex:1;height:1px;background:#E6DCCD;position:relative;top:-3px;"></span>
+          <span data-hero-caption style="color:#3D2E1C;font-weight:600;white-space:nowrap;transition:opacity 400ms ease;">Characters</span><span style="flex:1;height:1px;background:#E6DCCD;position:relative;top:-3px;"></span>
         </figcaption>
       </figure>
     </div>
@@ -901,6 +907,27 @@ drawIcons(); setTimeout(drawIcons,400); setTimeout(drawIcons,1200);
   var io=new IntersectionObserver(function(entries,obs){ entries.forEach(function(en){ if(en.isIntersecting){ if(en.target.hasAttribute('data-stagger-group')) revealGroup(en.target); else reveal(en.target); obs.unobserve(en.target); } }); },{ threshold:0.05, rootMargin:'0px 0px '+rmBottom+' 0px' });
   groups.forEach(function(g){ if(inView(g)) revealGroup(g); else io.observe(g); });
   standalone.forEach(function(el){ if(inView(el)) reveal(el); else io.observe(el); }); })();
+(function(){ /* Hero feature showcase: crossfade the stacked screenshots and keep the caption in sync. */
+  var box=root.querySelector('[data-hero-shots]'); if(!box) return;
+  var shots=[].slice.call(box.querySelectorAll('[data-hero-shot]')); if(shots.length<2) return;
+  var cap=root.querySelector('[data-hero-caption]');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;   /* static hero: slide 1 only, and we never fetch the deferred slides */
+  var idle=window.requestIdleCallback||function(f){ return setTimeout(f,1); };
+  /* Fetch slides 2..N only once the page has finished loading, so they never compete with the LCP hero image. */
+  function warm(){ shots.forEach(function(img){ var s=img.getAttribute('data-src'); if(s&&!img.getAttribute('src')) img.setAttribute('src',s); }); }
+  if(document.readyState==='complete') idle(warm); else window.addEventListener('load', function(){ idle(warm); }, {once:true});
+  var i=0, timer=null, HOLD=2800, LEAD=3600;
+  function go(){ var next=shots[(i+1)%shots.length];
+    if(!next.complete||!next.naturalWidth) return;   /* deferred slide not decoded yet — hold and retry next tick */
+    var prev=shots[i]; i=(i+1)%shots.length;
+    prev.style.opacity='0'; next.style.opacity='1';
+    if(cap){ cap.style.opacity='0'; setTimeout(function(){ cap.textContent=next.getAttribute('data-caption')||''; cap.style.opacity='1'; }, 240); } }
+  function play(){ if(!timer) timer=setInterval(go, HOLD); }
+  function pause(){ if(timer){ clearInterval(timer); timer=null; } }
+  setTimeout(function(){ go(); play(); }, LEAD);   /* first flip early so scrollers see it rotate, then settle into the steady cadence */
+  document.addEventListener('visibilitychange', function(){ if(document.hidden) pause(); else play(); });
+  box.addEventListener('mouseenter', pause); box.addEventListener('mouseleave', play); })();
 (function(){ var burger=root.querySelector('[data-burger]'); var panel=root.querySelector('[data-mobile-menu]'); if(!burger||!panel) return;
   function setOpen(open){ burger.classList.toggle('open',open); panel.classList.toggle('open',open); burger.setAttribute('aria-expanded', open?'true':'false'); }
   burger.addEventListener('click', function(){ setOpen(!panel.classList.contains('open')); });
