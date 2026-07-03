@@ -107,6 +107,10 @@
    This ensures content is visible if JS fails to load */
 .js-ready [data-animate] {
   opacity: 0;
+  /* Prevent black repaint tiles when the opacity/transform animation promotes
+     these to GPU compositing layers mid-scroll (Android Chrome artifact) */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* Triggered state - when element enters viewport */

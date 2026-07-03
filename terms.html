@@ -74,7 +74,9 @@
     }
 
     .legal-content {
-      padding: var(--space-10) 0 var(--space-16);
+      /* Vertical only — horizontal gutters come from .container so mobile keeps its side margins */
+      padding-top: var(--space-10);
+      padding-bottom: var(--space-16);
     }
 
     .legal-content h1 {
