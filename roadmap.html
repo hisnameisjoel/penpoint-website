@@ -549,6 +549,33 @@
       return '#v-' + version.replace(/\./g, '-');
     }
 
+    // Parse a version string like "1.4.1" into [1, 4, 1] for numeric compare.
+    // Returns null when there's no usable version so those items sort last.
+    function parseVersionParts(v) {
+      if (!v) return null;
+      const cleaned = String(v).trim().replace(/^v/i, '');
+      if (!cleaned) return null;
+      return cleaned.split('.').map(n => parseInt(n, 10) || 0);
+    }
+
+    // Ascending compare by version: soonest release first, un-versioned last.
+    // Segment-by-segment so 1.9.0 sorts before 1.10.0 (a string compare wouldn't).
+    // Returns 0 on a tie so the stable sort preserves the server's order.
+    function compareByVersion(a, b) {
+      const pa = parseVersionParts(a);
+      const pb = parseVersionParts(b);
+      if (pa === null && pb === null) return 0;
+      if (pa === null) return 1;
+      if (pb === null) return -1;
+      const len = Math.max(pa.length, pb.length);
+      for (let i = 0; i < len; i++) {
+        const na = pa[i] || 0;
+        const nb = pb[i] || 0;
+        if (na !== nb) return na - nb;
+      }
+      return 0;
+    }
+
     function renderItem(item, sectionKey) {
       const card = document.createElement('article');
       card.className = 'roadmap-item';
@@ -611,6 +638,12 @@
     function renderSection(sectionDef, items) {
       if (sectionDef.key === 'paused' && (!items || items.length === 0)) {
         return null;
+      }
+
+      // Forward-looking sections sort by target version ascending (soonest on
+      // top); Shipped keeps the server's recency order.
+      if (sectionDef.key !== 'shipped') {
+        items = [...items].sort((a, b) => compareByVersion(a.targetVersion, b.targetVersion));
       }
 
       const section = document.createElement('section');
