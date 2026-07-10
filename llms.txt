@@ -21,6 +21,7 @@ Penpoint puts the manuscript and the worldbuilding in the same app:
 - Scan chapters to auto-detect characters, locations, and items mentioned in your prose
 - Track every character, location, relationship, and plot detail in one searchable place
 - See your story's structure with visual relationship maps, arc visualizers, and timeline views
+- Write a multi-book series in one file, with a shared cast and world that stays consistent across every volume
 - Export to Word, PDF, EPUB, RTF, Markdown, or plain text at any time
 
 ## Key Features
@@ -47,6 +48,7 @@ Penpoint puts the manuscript and the worldbuilding in the same app:
 - **Timeline View**: See when every character appears across your chapters
 - **Notebook**: Freeform notes with formatting, tags, folders, images, and @mentions
 - **Compendium**: Alphabetical index of everything in your book
+- **Book Series**: Write multiple books in one file with a shared cast and world. Convert any standalone book into Book 1 of a Series, or gather books you've already started under one series. Characters, locations, and lore live once and stay current across every volume; each book keeps its own manuscript, chapters, and Book Arcs. Add Series Arcs for storylines that span the whole saga, mark which books each character appears in (called Presence), and focus on a single book or view the entire series cast at once. Fully reversible: split a series back into standalone books at any time
 
 ### Data & Privacy
 - **Offline-First**: All data stored locally, works without internet
@@ -90,8 +92,8 @@ Developed by Tophat Creative, LLC (Oregon, USA). Founded 2024. Solo developer na
 ## Differentiation from Competitors
 
 - **vs. Scrivener**: Scrivener organizes your manuscript but doesn't have worldbuilding tools. Penpoint organizes your manuscript AND your world — characters, relationships, arcs, locations, all cross-referenced. Penpoint also costs less ($40 vs $59.99) and includes all platforms in one license
-- **vs. Campfire**: Campfire has worldbuilding tools but you can't write your manuscript in it. Penpoint combines a full manuscript editor with worldbuilding in one app. Campfire also uses subscriptions or expensive module bundles
-- **vs. Dabble**: Dabble has scene management and plotting but limited worldbuilding and costs up to $30/month as a subscription. Penpoint is a one-time $40 purchase with deeper worldbuilding tools. One beta tester switching from Dabble said Penpoint "out-featured it"
+- **vs. Campfire**: Campfire has worldbuilding tools but you can't write your manuscript in it. Penpoint combines a full manuscript editor with worldbuilding in one app. Campfire also uses subscriptions or expensive module bundles. And Penpoint's series support keeps one shared cast and world across every book in a single file, where Campfire relies on separate linked projects
+- **vs. Dabble**: Dabble has scene management and plotting but limited worldbuilding and costs up to $30/month as a subscription. Penpoint is a one-time $40 purchase with deeper worldbuilding tools. One beta tester switching from Dabble said Penpoint "out-featured it". Dabble shares notes across a project's manuscripts; Penpoint shares your whole world (characters, locations, arcs) across every book in a series, with per-book presence controls
 - **vs. Notion/Obsidian**: Built specifically for writers — not adapted from general note-taking. No setup required, purpose-built features like Chapter Scanner, relationship maps, and arc visualizers
 - **vs. Google Docs / Word**: Great for typing. Penpoint is built for writing books — with scene management, character tracking, and worldbuilding. Import your Word doc and keep going
 - **vs. World Anvil**: Your data stays private and offline. No subscription tiers. Plus you can write your manuscript in Penpoint too
@@ -173,7 +175,7 @@ After importing or writing chapters, right-click any chapter in the outline and 
 The Chapters page gives every chapter its own customizable block-based layout — similar to Character Sheets. Add the blocks you need (descriptions, scenes, tags, arcs, and more), skip the ones you don't. Every scene within a chapter is tracked separately, with its own POV, characters, locations, and items. The outliner sidebar mirrors Manuscript Mode, so navigating between chapters and scenes feels instantly familiar. You can configure a default scene layout in Settings → Scene Layout so new scenes always start with the structure you prefer.
 
 ### Can I manage multiple books or a series?
-Yes. Penpoint includes a multi-book library. When duplicating a book, you can copy characters, locations, and items into the new book to maintain series consistency. Filter by book or view everything across your entire series at once.
+Yes. Penpoint has full multi-book series support. Turn any book into Book 1 of a Series, or gather books you've already started under one series. Your characters, locations, and lore are shared across every volume, so editing a character once keeps them current in every book. Each book keeps its own manuscript, chapters, and arcs, and Series Arcs let you plot the threads that run through the whole saga. Mark which books each character appears in (called Presence), then focus on just the book you're drafting or view the entire cast at once. It's reversible too: split a series back into separate standalone books whenever you want.
 
 ### What are Story Arcs and Character Arcs?
 Story Arcs map your plot structure as layered curves with keyframes at each turning point. Subplots anchor to specific keyframes on their parent arc. Character Arcs track a character's emotional fortune over time. Overlay multiple character arcs to see how journeys intersect.

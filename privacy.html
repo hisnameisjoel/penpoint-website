@@ -180,7 +180,7 @@
   <main id="main">
     <div class="container privacy-narrow privacy-content">
       <h1>Privacy Policy</h1>
-      <p class="privacy-updated">Last updated: April 18, 2026</p>
+      <p class="privacy-updated">Last updated: July 9, 2026</p>
 
       <p>Penpoint is built by Tophat Creative, LLC. We believe your writing is yours, and so is your data. This policy explains what we collect, why, and how you stay in control. By using Penpoint, you also agree to our <a href="/terms">Terms of Service</a>.</p>
 
@@ -207,6 +207,10 @@
       <p>This data does not include your name, email address, IP address, or any writing content. The device identifier is derived from your computer's system ID using a one-way cryptographic hash combined with a Penpoint-specific key. It cannot be reversed to identify your device or linked to other applications. Under certain privacy frameworks (such as the GDPR), a persistent pseudonymous identifier may be considered personal data. We treat it accordingly and process it only with your explicit consent.</p>
       <p>You can view exactly what data is being sent at any time in <strong>Settings &gt; Community &amp; Updates</strong>. You can disable analytics at any time. Doing so immediately stops all data collection and <strong>deletes your historical data</strong> from our active systems. Infrastructure-level backups maintained by our hosting provider may retain residual copies for a limited period consistent with their retention policies, after which they are automatically purged.</p>
       <p>Aggregate community statistics derived from this data (such as total active authors or total words written) may appear within the app or on the Penpoint website. These statistics only ever represent broad totals and can never identify an individual user.</p>
+
+      <h2>Anonymous Activation Count</h2>
+      <p>Separately from the optional analytics above, the app sends a single anonymous signal that an installation exists, along with whether you are using the free trial or a purchased copy. This happens once per installation: when you first install Penpoint and accept these Terms, or, if you already had Penpoint installed, automatically the first time you open the update that introduced this. The signal contains no device identifier, no account, no name, and no writing content. Like the update check described below, it contacts our server directly, so the connection carries your device's IP address; the count we keep records only a date and a running total, with no IP address stored. It increments an aggregate daily total (for example, "8 installs today") and is never tied to a specific person, device, or session.</p>
+      <p>We use this only to understand how many people install Penpoint and how installations trend over time. Because it carries no identifier, it creates no per-device record and is not part of, or linked to, the opt-in community analytics described above. It is the same kind of anonymous, aggregate count we keep for website buttons (described below), and it is sent only once per installation. Because it records nothing about you as an individual, there is no separate on/off setting for it: in the same way the app's routine check for updates simply contacts a server, there is nothing here to collect about you and so nothing to turn off.</p>
 
       <h2>Website Analytics</h2>
       <p>Our marketing website (penpoint.app) uses Google Analytics to understand how visitors find and use the site. Google Analytics sets cookies on your device to measure page visits and session activity. This collects:</p>
@@ -247,7 +251,7 @@
       <p>We do not sell your data. We do not share it with third parties except as described below, where services process data on our behalf to operate Penpoint:</p>
       <ul>
         <li><strong>Lemon Squeezy</strong>: acts as Merchant of Record for purchases. When you buy Penpoint, Lemon Squeezy collects your name, email address, billing address, and payment information to process the transaction. Tophat Creative does not have access to your full payment details. <a href="https://www.lemonsqueezy.com/privacy" target="_blank" rel="noopener">Lemon Squeezy privacy policy</a>.</li>
-        <li><strong>Supabase</strong>: hosts pseudonymous community analytics data (if you opt in). <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase privacy policy</a>.</li>
+        <li><strong>Supabase</strong>: hosts pseudonymous community analytics data (if you opt in) and the anonymous activation count described above. <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase privacy policy</a>.</li>
         <li><strong>Google Analytics</strong>: collects anonymous visitor data on the Penpoint website. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google privacy policy</a>.</li>
         <li><strong>GitHub</strong>: serves app update checks. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub privacy statement</a>.</li>
         <li><strong>Discord</strong>: receives presence status via local IPC when Discord Rich Presence is enabled (opt-in). Communication occurs locally between Penpoint and the Discord desktop app on your device. <a href="https://discord.com/privacy" target="_blank" rel="noopener">Discord privacy policy</a>.</li>

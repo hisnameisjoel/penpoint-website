@@ -59,7 +59,7 @@
     "https://penpoint.app/images/GloriousSearchbar.webp",
     "https://penpoint.app/images/CharacterArcs.webp"
   ],
-  "featureList": "Manuscript Editor, Manuscript Import (Word/EPUB/Markdown/TXT), Manuscript Export (Word/PDF/RTF/Markdown/TXT), Chapter Scanner, Offline Spellchecker (60 languages), Flowstate Writing Mode, Relationship Map, Story Arc Visualizer, Character Arc Visualizer, Glorious Searchbar (Ctrl+K), Custom Character Layouts, Custom Chapter Layouts, Per-Scene Worldbuilding, Nested Locations, Items & Possessions Tracking, Universal Tags, Timeline View, Compendium, Multi-Book Library, @Mention Linking, Notebook, Scene Drafts & Versions",
+  "featureList": "Manuscript Editor, Manuscript Import (Word/EPUB/Markdown/TXT), Manuscript Export (Word/PDF/RTF/Markdown/TXT), Chapter Scanner, Offline Spellchecker (60 languages), Flowstate Writing Mode, Relationship Map, Story Arc Visualizer, Character Arc Visualizer, Glorious Searchbar (Ctrl+K), Custom Character Layouts, Custom Chapter Layouts, Per-Scene Worldbuilding, Nested Locations, Items & Possessions Tracking, Universal Tags, Timeline View, Compendium, Multi-Book Library, Book Series (shared cast & worldbuilding across volumes), @Mention Linking, Notebook, Scene Drafts & Versions",
   "releaseNotes": "Launched March 2026. Active development with regular updates.",
   "datePublished": "2026-03-21",
   "downloadUrl": "https://penpoint.app/trial",
@@ -198,7 +198,7 @@
       "name": "Can I manage multiple books or a series?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, there's a multi-book library built in. Duplicate a book to start the next installment and choose what carries over: keep your locations but start fresh on characters, or bring everything with you. Filter by installment, or view everything across the whole series at once."
+        "text": "Yes, and it goes beyond a shared folder. Turn any book into Book 1 of a Series (or gather books you've already started under one series) and your characters, locations, and lore are shared across every volume: edit a character once and they stay current in every book. Each book keeps its own manuscript, chapters, and arcs, while a Series Arc view plots the threads that span the whole saga. Focus on just the book you're drafting, or see your whole cast at once."
       }
     },
     {
@@ -279,6 +279,10 @@
     @media(max-width:380px){.brows [data-feature] > div:first-child{width:96px !important;height:64px !important;}}
     /* ---- Entity chips: aligned 2-col grid on phones; odd fifth centered below at column width ---- */
     @media(max-width:560px){.entity-chips{display:grid;grid-template-columns:1fr 1fr;}.entity-chips > div{width:auto;justify-content:center;}.entity-chips > div:last-child{grid-column:1 / -1;justify-self:center;width:calc(50% - clamp(5px,0.65vw,6.5px));}}
+    .trustgrid{display:grid;grid-template-columns:repeat(4,1fr);}
+    .trustcell{display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(28px,3.5vw,42px) clamp(14px,2vw,24px);}
+    .trustcell:not(:first-child){border-left:1px solid #E6DCCD;}
+    @media(max-width:820px){.trustgrid{grid-template-columns:repeat(2,1fr);}.trustcell:not(:first-child){border-left:none;}.trustcell:nth-child(even){border-left:1px solid #E6DCCD;}.trustcell:nth-child(n+3){border-top:1px solid #E6DCCD;}}
     @keyframes ppFadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
     @keyframes ppSlideL{from{opacity:0;transform:translateX(-34px);}to{opacity:1;transform:translateX(0);}}
     @keyframes ppSlideR{from{opacity:0;transform:translateX(34px);}to{opacity:1;transform:translateX(0);}}
@@ -359,10 +363,11 @@
       </div>
 
       <figure data-animate="hero-rise" style="margin:0;animation-delay:1240ms;">
-        <!-- Rotating feature showcase. Slide 1 is the eager/high-priority LCP image; slides 2-5 carry only data-src
+        <!-- Rotating feature showcase. Slide 1 is the eager/high-priority LCP image; slides 2-6 carry only data-src
              and are fetched after window.load (see the [data-hero-shots] script) so they never compete above the fold. -->
         <div data-hero-shots style="position:relative;border:1px solid #E0D2BC;background:#fff;box-shadow:0 36px 70px -34px rgba(61,46,28,.42);overflow:hidden;aspect-ratio:3076/2000;">
           <img data-hero-shot loading="eager" fetchpriority="high" src="images/CharacterPage.webp" data-caption="Characters" alt="Penpoint Characters — a character profile with bio, chapters, relationships, and locations" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;opacity:1;transition:opacity 600ms cubic-bezier(.4,0,.2,1);">
+          <img data-hero-shot data-src="images/SeriesShelf.webp" data-caption="Book Series" alt="Penpoint Book Series: every book in the series shown as its own card on a shared shelf" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;opacity:0;transition:opacity 600ms cubic-bezier(.4,0,.2,1);">
           <img data-hero-shot data-src="images/ManuscriptMode.webp" data-caption="The Manuscript" alt="Penpoint Manuscript editor — writing prose on a clean, distraction-free page" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;opacity:0;transition:opacity 600ms cubic-bezier(.4,0,.2,1);">
           <img data-hero-shot data-src="images/Chapters.webp" data-caption="Chapters &amp; Scenes" alt="Penpoint Chapters — book structure with scenes, summaries, and per-scene detail" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;opacity:0;transition:opacity 600ms cubic-bezier(.4,0,.2,1);">
           <img data-hero-shot data-src="images/TimelineView.webp" data-caption="The Timeline" alt="Penpoint Timeline — story events laid out chronologically" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;opacity:0;transition:opacity 600ms cubic-bezier(.4,0,.2,1);">
@@ -424,7 +429,7 @@
       <div style="flex:1 1 360px;min-width:300px;">
         <figure data-animate="fade-right" style="margin:0;">
           <div style="border:1px solid #E0D2BC;background:#fff;box-shadow:0 30px 58px -32px rgba(61,46,28,.45);overflow:hidden;aspect-ratio:3834/2349;">
-            <img loading="lazy" data-mw-img="" src="images/ManuscriptMode.webp" alt="Penpoint Manuscript Mode editor" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:opacity .4s ease;">
+            <img loading="lazy" data-mw-img="" src="images/ManuscriptMode-sm.webp" alt="Penpoint Manuscript Mode editor" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:opacity .4s ease;">
           </div>
           <figcaption style="display:flex;align-items:baseline;gap:14px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7D5D35;">
             <span data-mw-cap="" style="color:#3D2E1C;font-weight:600;white-space:nowrap;">Manuscript Mode</span><span style="flex:1;height:1px;background:#E6DCCD;position:relative;top:-3px;"></span>
@@ -507,29 +512,57 @@
     </div>
   </section>
 
-  <section id="trust" data-screen-label="Privacy" style="background:var(--paper,#FCF8F0);border-top:1px solid #E6DCCD;">
+  <section data-screen-label="Series" style="background:var(--paper,#FCF8F0);border-top:1px solid #E6DCCD;">
     <div style="max-width:1180px;margin:0 auto;padding:clamp(56px,9vw,116px) clamp(20px,5vw,56px);display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);align-items:center;">
       <div style="flex:1 1 360px;min-width:300px;">
-        <p data-animate="fade-up" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent,#CD6E2C);margin:0 0 20px;">Ownership</p>
-        <h2 data-animate="fade-left" style="font-family:'Newsreader',serif;font-weight:var(--hl-weight,500);font-size:clamp(30px,4vw,52px);line-height:1.03;letter-spacing:-0.02em;margin:0 0 20px;color:#29241E;">Your stories are <span style="font-style:var(--hl-emph-style,italic);font-weight:var(--hl-emph-weight,400);">yours,</span> forever.</h2>
-        <p data-animate="fade-up" data-stagger="1" style="font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,19px);line-height:1.62;color:#5C4332;margin:0;max-width:420px;">Your work belongs to you, not us. No subscriptions, no cloud, no accounts, no AI touching your prose. It all lives on your computer, and leaves only when you export it.</p>
+        <p data-animate="fade-up" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent,#CD6E2C);margin:0 0 20px;">Write a series</p>
+        <h2 data-animate="fade-left" style="font-family:'Newsreader',serif;font-weight:var(--hl-weight,500);font-size:clamp(30px,4.6vw,54px);line-height:1.02;letter-spacing:-0.02em;margin:0 0 22px;color:#29241E;">One world.<br><span style="font-style:var(--hl-emph-style,italic);font-weight:var(--hl-emph-weight,400);">Every book.</span></h2>
+        <p data-animate="fade-up" data-stagger="1" style="font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,19px);line-height:1.62;color:#5C4A33;margin:0 0 26px;max-width:440px;">Write a trilogy or a ten-book saga in one place. Your cast, locations, and lore live once and stay current across every volume, so Book 3 never quietly contradicts Book 1. Plot each book on its own, then chart the threads that run through the whole saga.</p>
+        <div data-animate="fade-up" data-stagger="2" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
+          <span style="font-family:'Source Serif 4',serif;font-size:15px;color:#7D5D35;">Turn any book into a series from your</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5C4A33;border:1px solid #DDCBAE;background:#F1E6D2;padding:4px 11px;white-space:nowrap;">Book Library</span>
+        </div>
       </div>
-      <div data-stagger-group="" data-stagger-delay="90" style="flex:1 1 380px;min-width:300px;">
-        <div data-animate="fade-up" style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-top:1px solid #E0D2BC;">
-          <i data-lucide="hard-drive" style="width:22px;height:22px;color:var(--accent,#CD6E2C);stroke-width:1.6;flex:none;margin-top:2px;"></i>
-          <div><div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#3D2E1C;">Stays on your computer</div><div style="font-family:'Source Serif 4',serif;font-size:14px;color:#7C5236;margin-top:2px;">Your data never leaves your machine.</div></div>
+      <div style="flex:1 1 360px;min-width:300px;">
+        <figure data-animate="fade-right" style="margin:0;">
+          <div style="border:1px solid #E0D2BC;background:#fff;box-shadow:0 30px 58px -32px rgba(61,46,28,.45);overflow:hidden;aspect-ratio:3834/2349;">
+            <img loading="lazy" src="images/SeriesShelf-sm.webp" alt="A Penpoint series shelf showing each book in the series as its own card, with an Add Book to Series card" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+          </div>
+          <figcaption style="display:flex;align-items:baseline;gap:14px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7D5D35;">
+            <span style="color:#3D2E1C;font-weight:600;white-space:nowrap;">Your Series Shelf</span><span style="flex:1;height:1px;background:#E6DCCD;position:relative;top:-3px;"></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="trust" data-screen-label="Privacy" style="background:var(--paper,#FCF8F0);border-top:1px solid #E6DCCD;">
+    <div style="max-width:1120px;margin:0 auto;padding:clamp(56px,9vw,116px) clamp(20px,5vw,56px);">
+      <div data-animate="fade-up" style="text-align:center;max-width:900px;margin:0 auto clamp(44px,6vw,68px);">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent,#CD6E2C);margin:0 0 20px;">Ownership</p>
+        <h2 style="font-family:'Newsreader',serif;font-weight:var(--hl-weight,500);font-size:clamp(30px,4.4vw,52px);line-height:1.08;letter-spacing:-0.02em;margin:0 0 20px;color:#29241E;">Your stories are <span style="font-style:var(--hl-emph-style,italic);font-weight:var(--hl-emph-weight,400);">yours,</span> forever.</h2>
+        <p style="font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,19px);line-height:1.62;color:#5C4332;margin:0 auto;max-width:540px;">Your work belongs to you, not us. No subscriptions, no cloud, no accounts, no AI touching your prose. It all lives on your computer, and leaves only when you export it.</p>
+      </div>
+      <div class="trustgrid" data-stagger-group="" data-stagger-delay="90" style="border-top:1px solid #DDCBAE;border-bottom:1px solid #DDCBAE;">
+        <div class="trustcell" data-animate="fade-up">
+          <i data-lucide="hard-drive" style="width:26px;height:26px;color:var(--accent,#CD6E2C);stroke-width:1.6;"></i>
+          <div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#3D2E1C;margin-top:14px;">Stays on your computer</div>
+          <div style="font-family:'Source Serif 4',serif;font-size:14px;line-height:1.5;color:#7C5236;margin-top:5px;">Your data never leaves your machine.</div>
         </div>
-        <div data-animate="fade-up" style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-top:1px solid #E0D2BC;">
-          <i data-lucide="wifi-off" style="width:22px;height:22px;color:var(--accent,#CD6E2C);stroke-width:1.6;flex:none;margin-top:2px;"></i>
-          <div><div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#3D2E1C;">Works entirely offline</div><div style="font-family:'Source Serif 4',serif;font-size:14px;color:#7C5236;margin-top:2px;">No internet, no account, no cloud.</div></div>
+        <div class="trustcell" data-animate="fade-up">
+          <i data-lucide="wifi-off" style="width:26px;height:26px;color:var(--accent,#CD6E2C);stroke-width:1.6;"></i>
+          <div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#3D2E1C;margin-top:14px;">Works entirely offline</div>
+          <div style="font-family:'Source Serif 4',serif;font-size:14px;line-height:1.5;color:#7C5236;margin-top:5px;">No internet, no account, no cloud.</div>
         </div>
-        <div data-animate="fade-up" style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-top:1px solid #E0D2BC;">
-          <i data-lucide="infinity" style="width:22px;height:22px;color:var(--accent,#CD6E2C);stroke-width:1.6;flex:none;margin-top:2px;"></i>
-          <div><div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#3D2E1C;">One license, every platform</div><div style="font-family:'Source Serif 4',serif;font-size:14px;color:#7C5236;margin-top:2px;">Buy once. No subscription. Own it forever.</div></div>
+        <div class="trustcell" data-animate="fade-up">
+          <i data-lucide="infinity" style="width:26px;height:26px;color:var(--accent,#CD6E2C);stroke-width:1.6;"></i>
+          <div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#3D2E1C;margin-top:14px;">One license, every platform</div>
+          <div style="font-family:'Source Serif 4',serif;font-size:14px;line-height:1.5;color:#7C5236;margin-top:5px;">Buy once. No subscription. Own it forever.</div>
         </div>
-        <div data-animate="fade-up" style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-top:1px solid #E0D2BC;border-bottom:1px solid #E0D2BC;">
-          <i data-lucide="file-down" style="width:22px;height:22px;color:var(--accent,#CD6E2C);stroke-width:1.6;flex:none;margin-top:2px;"></i>
-          <div><div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#3D2E1C;">Export anytime, any format</div><div style="font-family:'Source Serif 4',serif;font-size:14px;color:#7C5236;margin-top:2px;">Word, PDF, or Markdown on demand.</div></div>
+        <div class="trustcell" data-animate="fade-up">
+          <i data-lucide="file-down" style="width:26px;height:26px;color:var(--accent,#CD6E2C);stroke-width:1.6;"></i>
+          <div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#3D2E1C;margin-top:14px;">Export anytime, any format</div>
+          <div style="font-family:'Source Serif 4',serif;font-size:14px;line-height:1.5;color:#7C5236;margin-top:5px;">Word, PDF, or Markdown on demand.</div>
         </div>
       </div>
     </div>
@@ -599,9 +632,9 @@
         </div>
 
         <div class="brows" data-stagger-group data-stagger-delay="80">
-          <div data-feature="" data-animate="fade-up" data-img="images/mentionsystem.webp" data-title="Link Anything with @Mentions" data-desc="Type @ and connect anything. Mention characters, locations, items, chapters, notes. Autocomplete finds them as you type, and every mention becomes a clickable link. Build your web of connections without leaving the page you're on. And if you update the title of your linked item, it automatically updates in your text, too." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
-            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/mentionsystem.webp" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transform: translate(0px, -64px) scale(3.3); transform-origin: 43% 46%"></div>
-            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">Link Anything with @Mentions</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">Type @ and connect to any character, location, or item. Links stay updated even when you rename things.</p></div>
+          <div data-feature="" data-animate="fade-up" data-img="images/Minipen.webp" data-title="The Minipen" data-desc="Writing a scene and need to check a detail? The Minipen puts your entire worldbuilding in a sidebar, right beside the manuscript. Browse characters, locations, and items, open any entry, and keep the thread of your prose without ever leaving the page. In a series, it narrows to just the book you're drafting, or shows your whole cast at once." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
+            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/Minipen.webp" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;"></div>
+            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">The Minipen</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">Your whole worldbuilding in a sidebar, right beside your manuscript. Check a name or a detail without leaving the page you're writing on.</p></div>
           </div>
           <div data-feature="" data-animate="fade-up" data-img="images/ChapterScanner.webp" data-title="Chapter Scanner" data-desc="After importing your manuscript, or after writing new chapters, right-click any chapter and scan it. Penpoint reads your prose and finds every character, location, and item mentioned. It even discovers new proper nouns you haven't added to your worldbuilding yet. Review the results, check what to include, and click Apply. Your chapters and your worldbuilding are connected in seconds, not hours." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
             <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/ChapterScanner.webp" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top center;transform:scale(3.7);transform-origin:14% 30%;"></div>
@@ -639,9 +672,9 @@
             <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/Compendium.webp" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; transform: translate(-8px, 0px) scale(5.4); transform-origin: 4% 7%"></div>
             <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">The Compendium</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">View an alphabetical index of everything in your world that's always up to date.</p></div>
           </div>
-          <div data-feature="" data-animate="fade-up" data-img="images/BookSelector.webp" data-title="Multi-Book Library" data-desc="Writing book two? Don't start from scratch. Penpoint lets you transfer characters to your next book, keeping your series consistent without juggling files or re-entering details you've already written." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
-            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/BookSelector.webp" alt="" style="position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:cover;object-position:top center;transform:translate(-50%,-50%) scale(1.2);"></div>
-            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">Multi-Book Library</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">Manage your entire series from one place; copy over characters, items, locations, and notes from one book to another</p></div>
+          <div data-feature="" data-animate="fade-up" data-img="images/mentionsystem.webp" data-title="Link Anything with @Mentions" data-desc="Type @ and connect anything. Mention characters, locations, items, chapters, notes. Autocomplete finds them as you type, and every mention becomes a clickable link. Build your web of connections without leaving the page you're on. And if you update the title of your linked item, it automatically updates in your text, too." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
+            <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/mentionsystem.webp" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transform: translate(0px, -64px) scale(3.3); transform-origin: 43% 46%"></div>
+            <div style="flex:1;min-width:0;"><h3 style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;margin:2px 0 6px;">Link Anything with @Mentions</h3><p style="font-family:'Source Serif 4',serif;font-size:13.5px;line-height:1.5;color:#5C4332;margin:0;">Type @ and connect to any character, location, or item. Links stay updated even when you rename things.</p></div>
           </div>
           <div data-feature="" data-animate="fade-up" data-img="images/exportsystem.webp" data-title="Export at any time" data-desc="Your data is yours. Export characters, locations, items, notes, and chapters to PDF, Word, RTF, plain text, or Markdown at any time. No lock-in, no &quot;please don't leave us&quot; hoops you have to jump through just to get your data out of the app." style="cursor:pointer;display:flex;gap:18px;align-items:flex-start;padding:clamp(20px,2.4vw,30px);transition:background .15s;">
             <div style="flex:none;width:158px;height:106px;border:1px solid #E0D2BC;overflow:hidden;position:relative;background:#fff;"><img loading="lazy" src="images/exportsystem.webp" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; transform: translate(40px, -33px) scale(5); transform-origin: 45% 24%"></div>
@@ -657,7 +690,6 @@
               <div class="mgroup-grid">
                 <div class="mrow"><span><i data-lucide="calendar-days" style="width:18px;height:18px;"></i></span><div><h4>Design your own calendar</h4><p>Invent months, weekdays, leap days, eras, even up to eight moons.</p></div></div>
                 <div class="mrow"><span><i data-lucide="image" style="width:18px;height:18px;"></i></span><div><h4>Embedded Images</h4><p>Import portraits, concept art, maps, and more into any text block. Images are stored with your book.</p></div></div>
-                <div class="mrow"><span><i data-lucide="panel-right" style="width:18px;height:18px;"></i></span><div><h4>The Minipen</h4><p>Your whole worldbuilding in a sidebar, right beside your manuscript.</p></div></div>
                 <div class="mrow"><span><i data-lucide="layout-template" style="width:18px;height:18px;"></i></span><div><h4>Genre book templates</h4><p>Fantasy, Sci-Fi, RPG, Historical, Romance and more — fully customizable.</p></div></div>
                 <div class="mrow"><span><i data-lucide="book-image" style="width:18px;height:18px;"></i></span><div><h4>Custom book covers</h4><p>Pick colors and textures, or upload your own art.</p></div></div>
               </div>
@@ -792,7 +824,7 @@
               <span style="flex:1;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(17px,1.9vw,21px);line-height:1.3;letter-spacing:-0.01em;color:#29241E;">Can I manage multiple books or a series?</span>
               <span data-faq-ic="" style="flex:none;font-family:'Source Serif 4',serif;font-size:22px;line-height:1;color:#CD6E2C;padding-top:2px;"></span>
             </summary>
-            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p>Yes, there's a multi-book library built in. Duplicate a book to start the next installment and choose what carries over: keep your locations but start fresh on characters, or bring everything with you. Filter by installment, or view everything across the whole series at once.</p></div>
+            <div data-faq-inner="" class="faq-ans" style="padding:0 2px clamp(22px,2.4vw,28px);font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.62;color:#5C4332;max-width:560px;"><p>Yes, and it goes beyond a shared folder. Turn any book into Book 1 of a Series (or gather books you've already started under one series) and your characters, locations, and lore are shared across every volume: edit a character once and they stay current in every book. Each book keeps its own manuscript, chapters, and arcs, while a Series Arc view plots the threads that span the whole saga. Focus on just the book you're drafting, or see your whole cast at once.</p></div>
           </details>
           <details data-faq="" name="faqB" style="border-bottom:1px solid #DDCBAE;">
             <summary data-faq-sum="" style="display:flex;align-items:flex-start;gap:18px;cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 2px;">
@@ -962,7 +994,7 @@ drawIcons(); setTimeout(drawIcons,400); setTimeout(drawIcons,1200);
   root.querySelectorAll('[data-feature]').forEach(function(el){ el.setAttribute('role','button'); el.setAttribute('tabindex','0'); var t=el.getAttribute('data-title'); if(t&&!el.getAttribute('aria-label')) el.setAttribute('aria-label','Learn more: '+t); el.addEventListener('click', function(){ open(el); }); el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){ e.preventDefault(); open(el); } }); });
   overlay.addEventListener('click', function(e){ if(e.target===overlay) close(); }); if(closeBtn) closeBtn.addEventListener('click', close); document.addEventListener('keydown', function(e){ if(e.key==='Escape'&&overlay.classList.contains('lb-open')) close(); }); })();
 (function(){ var section=root.querySelector('[data-mw-section]'); var img=root.querySelector('[data-mw-img]'); var cap=root.querySelector('[data-mw-cap]'); var tabM=root.querySelector('[data-mw="manuscript"]'); var tabW=root.querySelector('[data-mw="worldbuilding"]'); if(!section||!img||!tabM||!tabW) return;
-  var states={ manuscript:{src:'images/ManuscriptMode.webp',alt:'Penpoint Manuscript Mode editor',cap:'Manuscript Mode'}, worldbuilding:{src:'images/CharacterPage.webp',alt:'Penpoint character page with cross-referenced connections',cap:'The Character Page'} };
+  var states={ manuscript:{src:'images/ManuscriptMode-sm.webp',alt:'Penpoint Manuscript Mode editor',cap:'Manuscript Mode'}, worldbuilding:{src:'images/CharacterPage-sm.webp',alt:'Penpoint character page with cross-referenced connections',cap:'The Character Page'} };
   [states.manuscript.src,states.worldbuilding.src].forEach(function(s){ var p=new Image(); p.src=s; });
   var cur='manuscript', target='manuscript', anim=false, gen=0, started=false, tSwap,tFade,tFirst,loopId,pollId;
   function paintTabs(){ var m=target==='manuscript'; tabM.style.background=m?'#29241E':'transparent'; tabM.style.color=m?'#FEF9F0':'#7C5236'; tabW.style.background=m?'transparent':'#29241E'; tabW.style.color=m?'#7C5236':'#FEF9F0'; tabM.setAttribute('aria-pressed', m?'true':'false'); tabW.setAttribute('aria-pressed', m?'false':'true'); }
