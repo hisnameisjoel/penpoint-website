@@ -73,7 +73,7 @@ Desktop application built with Tauri (Rust + React). Local SQLite database for p
 
 ## Company
 
-Developed by Tophat Creative, LLC (Oregon, USA). Founded 2024. Solo developer named Joel Gerlach. He was a writer and wanted a better alternative than what other software offered so he built his own. Never expected others to use it, but when fellow writers heard about it they made him start building it for their books, too. And the rest is history.
+Penpoint is developed by Tophat Creative, LLC (Oregon, USA, founded 2024). It is a one-person operation run by Joel Gerlach. Before Penpoint, Joel spent his career in film and creative technology: he got his start as a VFX artist on films like The Avengers, Thor, and Captain America, co-founded the production studio Studio229 (award-winning work for Disney, LEGO, Nabisco, and ASICS), and helped build some of the first consumer VR experiences. Through all of it he kept writing fiction, and grew frustrated juggling his manuscript, notes, and worldbuilding across multiple apps and subscriptions. So he dusted off his coding skills and built the tool he actually wanted for his own book. His brother, also a writer, asked for a copy, then friends did, and a Reddit post brought in the rest. Penpoint is built in the open, with and for the writers who use it: when you email support or post in the community, you are talking to Joel directly. Read the founder's full story at https://penpoint.app/about.
 
 ## Contact
 
