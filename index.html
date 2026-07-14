@@ -6,7 +6,7 @@
   <script>document.documentElement.classList.add('js-ready');</script>
   <meta name="robots" content="index, follow">
   <title>Penpoint — Write Your Novel. Organize Your World.</title>
-  <meta name="description" content="A desktop app where fiction writers draft their manuscript and organize their world in one place. Manuscript editor, visual relationship maps, story arc visualizers, instant search, and chapter scanning. Your data stays on your computer.">
+  <meta name="description" content="Write your novel and organize your world in one offline desktop app: manuscript editor, relationship maps, story arcs, chapter scanner, and instant search.">
   <meta name="keywords" content="novel writing software, manuscript writing app, character bible, story bible, scrivener alternative, character tracking software, story organization, writing app with worldbuilding">
   <link rel="canonical" href="https://penpoint.app/">
   <meta name="theme-color" content="#FFF7E6">
@@ -33,11 +33,11 @@
   <link rel="apple-touch-icon" href="images/icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="images/CharacterArcs.webp" type="image/webp">
+  <link rel="preload" as="image" href="images/CharacterPage.webp" type="image/webp" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/site-chrome.css">
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-79JVXYBCTN");</script>
@@ -59,7 +59,7 @@
     "https://penpoint.app/images/GloriousSearchbar.webp",
     "https://penpoint.app/images/CharacterArcs.webp"
   ],
-  "featureList": "Manuscript Editor, Manuscript Import (Word/EPUB/Markdown/TXT), Manuscript Export (Word/PDF/RTF/Markdown/TXT), Chapter Scanner, Offline Spellchecker (60 languages), Flowstate Writing Mode, Relationship Map, Story Arc Visualizer, Character Arc Visualizer, Glorious Searchbar (Ctrl+K), Custom Character Layouts, Custom Chapter Layouts, Per-Scene Worldbuilding, Nested Locations, Items & Possessions Tracking, Universal Tags, Timeline View, Compendium, Multi-Book Library, Book Series (shared cast & worldbuilding across volumes), @Mention Linking, Notebook, Scene Drafts & Versions",
+  "featureList": "Manuscript Editor, Manuscript Import (Word/EPUB/Markdown/TXT), Manuscript Export (Word/PDF/EPUB/RTF/Markdown/TXT), Chapter Scanner, Offline Spellchecker (60 languages), Flowstate Writing Mode, Relationship Map, Story Arc Visualizer, Character Arc Visualizer, Glorious Searchbar (Ctrl+K), Custom Character Layouts, Custom Chapter Layouts, Per-Scene Worldbuilding, Nested Locations, Items & Possessions Tracking, Universal Tags, Timeline View, Compendium, Multi-Book Library, Book Series (shared cast & worldbuilding across volumes), @Mention Linking, Notebook, Scene Drafts & Versions",
   "releaseNotes": "Launched March 2026. Active development with regular updates.",
   "datePublished": "2026-03-21",
   "downloadUrl": "https://penpoint.app/trial",
@@ -91,9 +91,12 @@
   "logo": "https://penpoint.app/images/icon-512.png",
   "description": "Writing software where authors write their manuscript and organize their world in one app",
   "foundingDate": "2024",
+  "legalName": "Tophat Creative, LLC",
+  "email": "support@penpoint.app",
   "founder": {
-    "@type": "Organization",
-    "name": "Tophat Creative, LLC"
+    "@type": "Person",
+    "name": "Joel Gerlach",
+    "sameAs": "https://www.hisnameisjoel.com"
   },
   "sameAs": [
     "https://discord.gg/q7yV3PXrGB"
@@ -564,7 +567,7 @@
         <div class="trustcell" data-animate="fade-up">
           <i data-lucide="file-down" style="width:26px;height:26px;color:var(--accent,#CD6E2C);stroke-width:1.6;"></i>
           <div style="font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#3D2E1C;margin-top:14px;">Export anytime, any format</div>
-          <div style="font-family:'Source Serif 4',serif;font-size:14px;line-height:1.5;color:#7C5236;margin-top:5px;">Word, PDF, or Markdown on demand.</div>
+          <div style="font-family:'Source Serif 4',serif;font-size:14px;line-height:1.5;color:#7C5236;margin-top:5px;">Word, PDF, EPUB, Markdown, and more.</div>
         </div>
       </div>
     </div>
