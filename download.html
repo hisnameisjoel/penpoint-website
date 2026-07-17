@@ -1018,6 +1018,12 @@
               primaryBtn.textContent = 'View Downloads';
             }
           } else {
+            // Windows ARM builds are paused. The x64 build runs on ARM Windows via Prism emulation
+            // (WebView2 renders natively), so serve ARM visitors the x64 installer when no native
+            // ARM build is published. Reverts to native ARM automatically once ARM builds resume.
+            if (primaryPlatform === 'windows-arm' && !platformAvailable(data, 'windows-arm')) {
+              primaryPlatform = 'windows';
+            }
             var primaryAvail = platformAvailable(data, primaryPlatform);
             if (primaryAvail) {
               primaryBtn.href = buildInstallerUrl(version, primaryPlatform);
