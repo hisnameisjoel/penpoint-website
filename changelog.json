@@ -1,6 +1,220 @@
 {
-  "generatedAt": "2026-05-23T22:46:01.384Z",
+  "generatedAt": "2026-07-17T21:57:39.582Z",
   "versions": [
+    {
+      "number": "1.3.0",
+      "date": "2026-07-17",
+      "intro": "",
+      "sections": [
+        {
+          "name": "Added",
+          "entries": [
+            {
+              "text": "**Introducing Series** - Your trilogy, saga, or seven-book epic can now live together as one Series with a shared cast and world. Turn a book you've already written into Book 1 (nothing is lost), then add as many new or existing books as your story needs. Characters, locations, and items are shared across every book, so you write Sherlock once and he stays current in Book 1, Book 2, and Book 3 at once, no more re-typing your entire cast for each volume. A new Series Arc view charts the threads that run through the whole saga, and a Presence setting on each character, item, and location marks which books it belongs to. Your series shows up as a single stacked card in your library that opens onto its own shelf of covers, and you can split back into standalone books anytime.",
+              "subBullets": []
+            },
+            {
+              "text": "**Import Locations, Notes, and Everything Else** - The import wizard now handles all six kinds of worldbuilding: characters, locations, items, notes, chapters, and arcs. Exports round-trip cleanly too: every field, trait, image, and @mention lands back exactly where it was, whether the file was hand-written or AI-generated. The review screen shows what's found in each file and what's new before anything is written. One note: files exported by older Penpoint versions use the old format, so re-export from this version first.",
+              "subBullets": []
+            },
+            {
+              "text": "**Introducing Events** - The big moments in your story finally have a home. Create an Event like \"The Duel at Dawn,\" link it to the characters, items, and locations involved, and it shows up on every one of their pages, shared not copied, so editing it once updates it everywhere. Jot one down with just a title, or pin it to a date and chapter once the details firm up. Events keep a single shared order across your book and lay the groundwork for the upcoming Timeline, where your whole story comes together in one view.",
+              "subBullets": []
+            },
+            {
+              "text": "**Archive Notes from the Editor** - You can now archive a note directly from the note editor, using the Archive button at the bottom. No need to right-click the note in your list.",
+              "subBullets": []
+            },
+            {
+              "text": "**Export a Whole Notes Folder at Once** - When exporting your notes, they're now grouped by folder so you can select an entire folder with one click instead of checking each note individually. Great for exporting a specific batch of research, chapter notes, or worldbuilding references without touching everything else.",
+              "subBullets": []
+            },
+            {
+              "text": "**Open .penpoint Books by Double-Clicking** - Your computer now recognizes .penpoint files, so double-clicking one opens it straight into your library. Great for sharing a book with a friend or syncing through a cloud drive. If it's a book you already have, Penpoint asks whether to update your copy (saving a backup first, so you can undo) or keep both, and tells you which version is newer. You'll also find \"Export Book\" and \"Import Book…\" in the book library's right-click menu.",
+              "subBullets": []
+            },
+            {
+              "text": "**Import an Existing Book From the New Book Menu** - Starting a new book now offers a third choice alongside \"Start from Scratch\" and \"Import a Manuscript\": Import existing Penpoint book. Pick a .penpoint file and Penpoint shows you its cover and title to confirm before adding it to your library.",
+              "subBullets": []
+            },
+            {
+              "text": "**Highlight in Any Color** - Manuscript Mode's highlighter used to paint one shade of yellow. Now you can pick from a full palette, mix a custom color, or stick with classic yellow, from the highlighter pen's arrow menu (recent colors included). Palette colors adjust to your theme while custom colors stay exactly as set, and you can right-click text to add or remove a highlight on the spot. Existing highlights stay yellow until you recolor them.",
+              "subBullets": []
+            },
+            {
+              "text": "**Quote Marks for Every Language** - Smart Quotes now speaks more than English. Head to Settings under Autocorrect and choose how your quote marks curl: English, Finnish and Swedish, German, Polish, or French guillemets, set separately for double and single quotes. If you use guillemets, you can add spacing inside them too: « like this ». Prefer things simple? Turn Smart Quotes off entirely from the same menu.",
+              "subBullets": []
+            },
+            {
+              "text": "**OpenDyslexic Accessibility Font** - There's a new Accessibility section in Settings under Interface, with one switch: Use OpenDyslexic Font. Turn it on and both the interface and your manuscript editor switch to OpenDyslexic, a typeface designed to reduce common reading errors for people with dyslexia. It overrides your regular font choices while enabled, and remembers what you had set before, so turning it off restores everything exactly as it was. Word and EPUB exports pick up the font too; PDF exports keep your regular font for now.",
+              "subBullets": []
+            },
+            {
+              "text": "**EB Garamond Font** - A new font option: EB Garamond, a classic serif with an old-style, literary feel. Pick it from Settings under Interface, where the font list now previews every option in its own typeface so you can see what you're choosing. Carries over cleanly to your PDF, Word, and EPUB exports too.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Improved",
+          "entries": [
+            {
+              "text": "**Chapters Show Their Events** - Chapters now list the Events tied to them right in the chapter header, alongside POV and status, whether the event is anchored to the whole chapter or a specific scene within it.",
+              "subBullets": []
+            },
+            {
+              "text": "**Smarter Series Merge Conflict Reporting** - Merging a book into a Series now shows you exactly which fields conflicted (like Name, Importance, Type, or Number blocks) instead of silently dropping them, so you can resolve them yourself.",
+              "subBullets": []
+            },
+            {
+              "text": "**Timeline Gets Series-Aware** - In a Series book, the Timeline's Focus toggle now scopes to the active book, chapter columns follow your book's own chapter order, and color-coded bands mark which chapters belong to which book. You can also grab and pan across the timeline.",
+              "subBullets": []
+            },
+            {
+              "text": "**Color Your Current Line** - The current-line highlight in Manuscript Mode isn't stuck on plain gray. Turn on \"Highlight current line\" and you can now tint the band one of twelve theme-matched colors or a custom shade of your own, and set how strong it looks: Subtle, Medium, or Bold. Prefer the original look? Leave it on Default.",
+              "subBullets": []
+            },
+            {
+              "text": "**Tidier Character and Item Lists** - When some of your characters or items have a picture and others don't, the empty ones now show a matching framed placeholder instead of a blank gap, so your list stays lined up. It's on by default; turn it off anytime from the gear menu at the top of the Characters or Items list.",
+              "subBullets": []
+            },
+            {
+              "text": "**More Room on Big Screens** - The character page now stretches wider on large displays, giving your blocks more room to spread out instead of crowding into the middle.",
+              "subBullets": []
+            },
+            {
+              "text": "**Keyboard Shortcuts Reference Tidied Up** - Cleaned up the keyboard shortcuts list under the Help menu so it's easier to scan, with neater columns and clearer section headings.",
+              "subBullets": []
+            },
+            {
+              "text": "**A More Welcoming First-Time Setup** - First-time setup now offers two more ways to begin: bring in an existing book from a .penpoint file (with a cover preview before you commit), or skip the walkthrough and go straight to your library. Both are handy if you already use Penpoint and you're just setting up on another computer.",
+              "subBullets": []
+            },
+            {
+              "text": "**Clearer Backup Storage Numbers** - Your backup stats now spell out exactly what they're counting: the backups for the book you're in, plus a running total across all your books on this device. If you use a Secondary Backup folder, you'll see its total too.",
+              "subBullets": []
+            },
+            {
+              "text": "**Snappier Book Transitions** - Opening a book and returning to your library now happens a little faster, with a smoother fade in and out instead of a cut.",
+              "subBullets": []
+            },
+            {
+              "text": "**A More Communicative \"Saved\" Menu** - Your backups already run automatically in the background and the \"Saved\" indicator shows when it runs. Penpoint now also speaks up in the rare case a backup can't complete (like a cloud folder where you store your backups is disconnected), with a friendly heads-up instead of staying silent. Covers both Primary Backups and your Secondary Backup folder.",
+              "subBullets": []
+            },
+            {
+              "text": "**Accurate \"Last Backup\" Time** - Leave Penpoint open a long while and the \"Last Backup\" time could lag behind reality, even though backups were running right on schedule. It now refreshes the instant each backup finishes.",
+              "subBullets": []
+            },
+            {
+              "text": "**Smart Quotes in More Places** - Smart quotes now kick in consistently when you type names, labels, and descriptions for story arcs, plot points, items, locations, and notes, matching how they already work everywhere else. These fields also respect your Smart Quotes on/off setting, so if you prefer straight quotes you'll get them here too.",
+              "subBullets": []
+            },
+            {
+              "text": "**Demeanor is Back** - New books now include a Demeanor trait for tracking personality, in the Standard template and every genre template. You can pick more than one when it fits, like Confident and Charming at once.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Fixed",
+          "entries": [
+            {
+              "text": "**Library Help Menu** - The \"Books Guide\" help option on the Library screen was renamed to \"Library Guide\" and now opens the guide reliably.",
+              "subBullets": []
+            },
+            {
+              "text": "**Long Tag Names Getting Cut Off** - In the Tags Manager and Tags Viewer, a longer tag name would get truncated with \"...\". Now it wraps onto multiple lines so you can read the whole thing.",
+              "subBullets": []
+            },
+            {
+              "text": "**Windows Smart App Control** - Some Windows 11 PCs were blocking Penpoint from opening. Every part of the app is now signed, so it launches normally.",
+              "subBullets": []
+            },
+            {
+              "text": "**Sideways Cursor Near Horizontal Lines** - The text cursor would sometimes flip to a short horizontal bar when positioned just above a horizontal line in your notes or character descriptions. It now stays a normal vertical cursor.",
+              "subBullets": []
+            },
+            {
+              "text": "**Book Covers Surviving a Move Between Computers** - Pictures in a .penpoint file exported on Windows (cover art, portraits, inline images) could go missing when opened on a Mac or Linux machine. They now carry over correctly on every system. Your words were never affected.",
+              "subBullets": []
+            },
+            {
+              "text": "**Nickname @Mentions** - Giving a character several nicknames (like \"Holmes/Detective\") and linking to one with an @mention used to insert the whole list instead of the nickname you picked. Now it shows exactly the one you chose, and falls back to the character's full name on its own if you later remove that nickname.",
+              "subBullets": []
+            },
+            {
+              "text": "**Archived Notes Vanishing in New Folders** - Archiving a note inside a folder you'd never shown archived items in before would make it disappear with no way to find it again. Now the archived section opens automatically so you can see exactly where your note went.",
+              "subBullets": []
+            },
+            {
+              "text": "**Cut and Enter in Chapter & Book View** - In full-chapter or whole-book view, cutting text (Ctrl+X) or pressing Enter on a selection that crossed a scene divider used to do nothing. Both work now, and your scene and chapter dividers stay put.",
+              "subBullets": []
+            },
+            {
+              "text": "**Manuscript Toolbar Scroll Jump** - Clicking a formatting button (bold, lists, alignment, and others) while scrolled down in your manuscript no longer lurches the page upward. It stays exactly where you are.",
+              "subBullets": []
+            },
+            {
+              "text": "**Apostrophes Now Work in Search** - Searching for a possessive like \"Sarah's\" used to come back empty in both the manuscript Find bar and the main search bar, since Penpoint stores curly apostrophes but search boxes expected a plain one. Both now match either kind you type, and manuscript replacements keep your curly-quote formatting instead of swapping in plain straight quotes.",
+              "subBullets": []
+            },
+            {
+              "text": "**Secondary Backups No Longer Nest Inside Themselves** - If you set your Secondary Backup location to a folder that was already called \"Penpoint Backups,\" Penpoint would tuck another \"Penpoint Backups\" folder inside it. It now notices and saves straight into the folder you picked.",
+              "subBullets": []
+            },
+            {
+              "text": "**Character Arc Editing Broken Without Story Arcs** - If you hadn't created any Story Arcs yet, the Edit button and Ctrl+E on the Character Arcs tab did nothing at all. They now work whether or not you have Story Arcs.",
+              "subBullets": []
+            },
+            {
+              "text": "**Minipen Table View Polish** - Fixed some visual glitches in the table editing popup. It also now respects view/edit mode, so you can't edit a table unless you're actually in edit mode.",
+              "subBullets": []
+            },
+            {
+              "text": "**Trait Dropdown Fixes** - Archived subtraits were still showing up as options on character sheets, and the dropdown order didn't match what you'd set in Settings. Both are fixed. Archived subtraits are now hidden from the picker, and the order matches your sort preference. If a character already has an archived subtrait selected, it stays visible in their dropdown (labeled \"archived\") so you can clear it when you're ready.",
+              "subBullets": []
+            },
+            {
+              "text": "**Dragging Blocks into Half-Width Slots** - In the Character Sheet Layout editor, dragging a full-width block into an open half-width slot would move it there but leave it full-width instead of settling into place beside its neighbor. It now resizes correctly and lands on the side you dropped it.",
+              "subBullets": []
+            },
+            {
+              "text": "**Getting Stuck During the Welcome Tour** - On some dual-monitor setups, the welcome tour could freeze on the \"Manuscript Mode\" step with no way forward or back. It now recovers on its own and carries on.",
+              "subBullets": []
+            },
+            {
+              "text": "**Demo Book Keeps Coming Back** - If you deleted the Sherlock Holmes demo book, it would reappear every time you updated Penpoint. Now if you delete it, it stays gone. You can always bring it back through the three-dot menu in your book library.",
+              "subBullets": []
+            },
+            {
+              "text": "**Line Counter Going Wrong While Typing** - The \"Line N of M\" counter in Manuscript Mode could drift during a long typing stretch and show something impossible like \"Line 806 of 781.\" It now stays accurate no matter how much you type.",
+              "subBullets": []
+            },
+            {
+              "text": "**Spell-Check Corrections Keep Curly Apostrophes** - Choosing a spelling correction for a word with an apostrophe used to swap your curly apostrophe for a plain straight one. Corrections now keep your curly style, and the suggestion list shows the exact quote mark it's going to insert.",
+              "subBullets": []
+            },
+            {
+              "text": "**Shortcuts vs. Caps Lock** - Ctrl+K, Ctrl+N, and several other keyboard shortcuts would quietly stop responding if Caps Lock was on, in both Manuscript and Worldbuilding. Fixed across every shortcut in the app, so Caps Lock no longer gets in your way.",
+              "subBullets": []
+            },
+            {
+              "text": "**Notebook Right-Click Menu Near Screen Edges** - Right-click menus in the Notebook could squeeze into a tiny sliver of space when opened near the edge of the window; they now flip to the other side so nothing gets cut off.",
+              "subBullets": []
+            },
+            {
+              "text": "**Notebook Folder Colors** - Coloring a folder used to just tint a faint outline instead of the whole icon. Folders now show up fully colored, you can mix a custom shade instead of only picking from presets, and choosing \"No color\" finally clears it instead of doing nothing.",
+              "subBullets": []
+            },
+            {
+              "text": "**Backspace and Indented Paragraphs in Manuscript Mode** - Fixed indenting a paragraph with Tab spreading that indent to every paragraph you typed after it, and Backspace needing two presses to join lines instead of one.",
+              "subBullets": []
+            }
+          ]
+        }
+      ]
+    },
     {
       "number": "1.2.3",
       "date": "2026-05-23",
@@ -64,7 +278,7 @@
               "subBullets": []
             },
             {
-              "text": "**Row Highlight After Pressing End** - On a wrapped paragraph, pressing End would drop the highlight band to the next line even though your cursor stayed at the end of the current one. The band now stays where your cursor is.",
+              "text": "**Row Highlight on Wrapped Paragraphs** - On long paragraphs that wrap to multiple lines, the highlight band could drift to the wrong line in two situations: pressing End at the end of a wrapped line, and clicking right before the first letter of a wrapped line. Both now stay put where your cursor actually is.",
               "subBullets": []
             },
             {

@@ -429,7 +429,6 @@
         <span class="pp-logo__text">Penpoint</span>
       </a>
       <nav class="pp-nav" aria-label="Primary">
-        <a href="/about">About</a>
         <a href="/compare">Compare</a>
         <a href="/development">Development</a>
         <a href="/#testimonials">Testimonials</a>
@@ -445,7 +444,6 @@
     </div>
     <div class="pp-mobile" data-mobile-menu="">
       <div class="pp-mobile__inner">
-        <a href="/about">About</a>
         <a href="/compare">Compare</a>
         <a href="/development">Development</a>
         <a href="/#testimonials">Testimonials</a>
@@ -483,6 +481,12 @@
         <!-- Sidebar (desktop) -->
         <aside class="changelog-sidebar" aria-label="Version navigation">
           <div class="changelog-sidebar__group">
+  <h3 class="changelog-sidebar__group-title">1.3.x</h3>
+  <ul class="changelog-sidebar__list">
+    <li><a class="changelog-sidebar__link" href="#v1-3-0"><span>1.3.0</span><span class="changelog-sidebar__date">Jul 17, 2026</span></a></li>
+  </ul>
+</div>
+<div class="changelog-sidebar__group">
   <h3 class="changelog-sidebar__group-title">1.2.x</h3>
   <ul class="changelog-sidebar__list">
     <li><a class="changelog-sidebar__link" href="#v1-2-3"><span>1.2.3</span><span class="changelog-sidebar__date">May 23, 2026</span></a></li>
@@ -537,6 +541,7 @@
           <label class="changelog-mobile-nav__label" for="changelog-version-select">Jump to version</label>
           <select class="changelog-mobile-nav__select" id="changelog-version-select" onchange="if(this.value) window.location.hash = this.value;">
             <option value="">Select a version&hellip;</option>
+              <option value="#v1-3-0">1.3.0 — Jul 17, 2026</option>
               <option value="#v1-2-3">1.2.3 — May 23, 2026</option>
               <option value="#v1-2-2">1.2.2 — May 16, 2026</option>
               <option value="#v1-2-1">1.2.1 — May 10, 2026</option>
@@ -575,7 +580,72 @@
 
         <!-- Main content -->
         <div class="changelog-content">
-          <section id="v1-2-3" class="changelog-version">
+          <section id="v1-3-0" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.3.0</h2>
+    <span class="changelog-version__date">July 17, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Introducing Series</strong> - Your trilogy, saga, or seven-book epic can now live together as one Series with a shared cast and world. Turn a book you've already written into Book 1 (nothing is lost), then add as many new or existing books as your story needs. Characters, locations, and items are shared across every book, so you write Sherlock once and he stays current in Book 1, Book 2, and Book 3 at once, no more re-typing your entire cast for each volume. A new Series Arc view charts the threads that run through the whole saga, and a Presence setting on each character, item, and location marks which books it belongs to. Your series shows up as a single stacked card in your library that opens onto its own shelf of covers, and you can split back into standalone books anytime.</li>
+    <li><strong>Import Locations, Notes, and Everything Else</strong> - The import wizard now handles all six kinds of worldbuilding: characters, locations, items, notes, chapters, and arcs. Exports round-trip cleanly too: every field, trait, image, and @mention lands back exactly where it was, whether the file was hand-written or AI-generated. The review screen shows what's found in each file and what's new before anything is written. One note: files exported by older Penpoint versions use the old format, so re-export from this version first.</li>
+    <li><strong>Introducing Events</strong> - The big moments in your story finally have a home. Create an Event like "The Duel at Dawn," link it to the characters, items, and locations involved, and it shows up on every one of their pages, shared not copied, so editing it once updates it everywhere. Jot one down with just a title, or pin it to a date and chapter once the details firm up. Events keep a single shared order across your book and lay the groundwork for the upcoming Timeline, where your whole story comes together in one view.</li>
+    <li><strong>Archive Notes from the Editor</strong> - You can now archive a note directly from the note editor, using the Archive button at the bottom. No need to right-click the note in your list.</li>
+    <li><strong>Export a Whole Notes Folder at Once</strong> - When exporting your notes, they're now grouped by folder so you can select an entire folder with one click instead of checking each note individually. Great for exporting a specific batch of research, chapter notes, or worldbuilding references without touching everything else.</li>
+    <li><strong>Open .penpoint Books by Double-Clicking</strong> - Your computer now recognizes .penpoint files, so double-clicking one opens it straight into your library. Great for sharing a book with a friend or syncing through a cloud drive. If it's a book you already have, Penpoint asks whether to update your copy (saving a backup first, so you can undo) or keep both, and tells you which version is newer. You'll also find "Export Book" and "Import Book…" in the book library's right-click menu.</li>
+    <li><strong>Import an Existing Book From the New Book Menu</strong> - Starting a new book now offers a third choice alongside "Start from Scratch" and "Import a Manuscript": Import existing Penpoint book. Pick a .penpoint file and Penpoint shows you its cover and title to confirm before adding it to your library.</li>
+    <li><strong>Highlight in Any Color</strong> - Manuscript Mode's highlighter used to paint one shade of yellow. Now you can pick from a full palette, mix a custom color, or stick with classic yellow, from the highlighter pen's arrow menu (recent colors included). Palette colors adjust to your theme while custom colors stay exactly as set, and you can right-click text to add or remove a highlight on the spot. Existing highlights stay yellow until you recolor them.</li>
+    <li><strong>Quote Marks for Every Language</strong> - Smart Quotes now speaks more than English. Head to Settings under Autocorrect and choose how your quote marks curl: English, Finnish and Swedish, German, Polish, or French guillemets, set separately for double and single quotes. If you use guillemets, you can add spacing inside them too: « like this ». Prefer things simple? Turn Smart Quotes off entirely from the same menu.</li>
+    <li><strong>OpenDyslexic Accessibility Font</strong> - There's a new Accessibility section in Settings under Interface, with one switch: Use OpenDyslexic Font. Turn it on and both the interface and your manuscript editor switch to OpenDyslexic, a typeface designed to reduce common reading errors for people with dyslexia. It overrides your regular font choices while enabled, and remembers what you had set before, so turning it off restores everything exactly as it was. Word and EPUB exports pick up the font too; PDF exports keep your regular font for now.</li>
+    <li><strong>EB Garamond Font</strong> - A new font option: EB Garamond, a classic serif with an old-style, literary feel. Pick it from Settings under Interface, where the font list now previews every option in its own typeface so you can see what you're choosing. Carries over cleanly to your PDF, Word, and EPUB exports too.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Chapters Show Their Events</strong> - Chapters now list the Events tied to them right in the chapter header, alongside POV and status, whether the event is anchored to the whole chapter or a specific scene within it.</li>
+    <li><strong>Smarter Series Merge Conflict Reporting</strong> - Merging a book into a Series now shows you exactly which fields conflicted (like Name, Importance, Type, or Number blocks) instead of silently dropping them, so you can resolve them yourself.</li>
+    <li><strong>Timeline Gets Series-Aware</strong> - In a Series book, the Timeline's Focus toggle now scopes to the active book, chapter columns follow your book's own chapter order, and color-coded bands mark which chapters belong to which book. You can also grab and pan across the timeline.</li>
+    <li><strong>Color Your Current Line</strong> - The current-line highlight in Manuscript Mode isn't stuck on plain gray. Turn on "Highlight current line" and you can now tint the band one of twelve theme-matched colors or a custom shade of your own, and set how strong it looks: Subtle, Medium, or Bold. Prefer the original look? Leave it on Default.</li>
+    <li><strong>Tidier Character and Item Lists</strong> - When some of your characters or items have a picture and others don't, the empty ones now show a matching framed placeholder instead of a blank gap, so your list stays lined up. It's on by default; turn it off anytime from the gear menu at the top of the Characters or Items list.</li>
+    <li><strong>More Room on Big Screens</strong> - The character page now stretches wider on large displays, giving your blocks more room to spread out instead of crowding into the middle.</li>
+    <li><strong>Keyboard Shortcuts Reference Tidied Up</strong> - Cleaned up the keyboard shortcuts list under the Help menu so it's easier to scan, with neater columns and clearer section headings.</li>
+    <li><strong>A More Welcoming First-Time Setup</strong> - First-time setup now offers two more ways to begin: bring in an existing book from a .penpoint file (with a cover preview before you commit), or skip the walkthrough and go straight to your library. Both are handy if you already use Penpoint and you're just setting up on another computer.</li>
+    <li><strong>Clearer Backup Storage Numbers</strong> - Your backup stats now spell out exactly what they're counting: the backups for the book you're in, plus a running total across all your books on this device. If you use a Secondary Backup folder, you'll see its total too.</li>
+    <li><strong>Snappier Book Transitions</strong> - Opening a book and returning to your library now happens a little faster, with a smoother fade in and out instead of a cut.</li>
+    <li><strong>A More Communicative "Saved" Menu</strong> - Your backups already run automatically in the background and the "Saved" indicator shows when it runs. Penpoint now also speaks up in the rare case a backup can't complete (like a cloud folder where you store your backups is disconnected), with a friendly heads-up instead of staying silent. Covers both Primary Backups and your Secondary Backup folder.</li>
+    <li><strong>Accurate "Last Backup" Time</strong> - Leave Penpoint open a long while and the "Last Backup" time could lag behind reality, even though backups were running right on schedule. It now refreshes the instant each backup finishes.</li>
+    <li><strong>Smart Quotes in More Places</strong> - Smart quotes now kick in consistently when you type names, labels, and descriptions for story arcs, plot points, items, locations, and notes, matching how they already work everywhere else. These fields also respect your Smart Quotes on/off setting, so if you prefer straight quotes you'll get them here too.</li>
+    <li><strong>Demeanor is Back</strong> - New books now include a Demeanor trait for tracking personality, in the Standard template and every genre template. You can pick more than one when it fits, like Confident and Charming at once.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Library Help Menu</strong> - The "Books Guide" help option on the Library screen was renamed to "Library Guide" and now opens the guide reliably.</li>
+    <li><strong>Long Tag Names Getting Cut Off</strong> - In the Tags Manager and Tags Viewer, a longer tag name would get truncated with "...". Now it wraps onto multiple lines so you can read the whole thing.</li>
+    <li><strong>Windows Smart App Control</strong> - Some Windows 11 PCs were blocking Penpoint from opening. Every part of the app is now signed, so it launches normally.</li>
+    <li><strong>Sideways Cursor Near Horizontal Lines</strong> - The text cursor would sometimes flip to a short horizontal bar when positioned just above a horizontal line in your notes or character descriptions. It now stays a normal vertical cursor.</li>
+    <li><strong>Book Covers Surviving a Move Between Computers</strong> - Pictures in a .penpoint file exported on Windows (cover art, portraits, inline images) could go missing when opened on a Mac or Linux machine. They now carry over correctly on every system. Your words were never affected.</li>
+    <li><strong>Nickname @Mentions</strong> - Giving a character several nicknames (like "Holmes/Detective") and linking to one with an @mention used to insert the whole list instead of the nickname you picked. Now it shows exactly the one you chose, and falls back to the character's full name on its own if you later remove that nickname.</li>
+    <li><strong>Archived Notes Vanishing in New Folders</strong> - Archiving a note inside a folder you'd never shown archived items in before would make it disappear with no way to find it again. Now the archived section opens automatically so you can see exactly where your note went.</li>
+    <li><strong>Cut and Enter in Chapter &amp; Book View</strong> - In full-chapter or whole-book view, cutting text (Ctrl+X) or pressing Enter on a selection that crossed a scene divider used to do nothing. Both work now, and your scene and chapter dividers stay put.</li>
+    <li><strong>Manuscript Toolbar Scroll Jump</strong> - Clicking a formatting button (bold, lists, alignment, and others) while scrolled down in your manuscript no longer lurches the page upward. It stays exactly where you are.</li>
+    <li><strong>Apostrophes Now Work in Search</strong> - Searching for a possessive like "Sarah's" used to come back empty in both the manuscript Find bar and the main search bar, since Penpoint stores curly apostrophes but search boxes expected a plain one. Both now match either kind you type, and manuscript replacements keep your curly-quote formatting instead of swapping in plain straight quotes.</li>
+    <li><strong>Secondary Backups No Longer Nest Inside Themselves</strong> - If you set your Secondary Backup location to a folder that was already called "Penpoint Backups," Penpoint would tuck another "Penpoint Backups" folder inside it. It now notices and saves straight into the folder you picked.</li>
+    <li><strong>Character Arc Editing Broken Without Story Arcs</strong> - If you hadn't created any Story Arcs yet, the Edit button and Ctrl+E on the Character Arcs tab did nothing at all. They now work whether or not you have Story Arcs.</li>
+    <li><strong>Minipen Table View Polish</strong> - Fixed some visual glitches in the table editing popup. It also now respects view/edit mode, so you can't edit a table unless you're actually in edit mode.</li>
+    <li><strong>Trait Dropdown Fixes</strong> - Archived subtraits were still showing up as options on character sheets, and the dropdown order didn't match what you'd set in Settings. Both are fixed. Archived subtraits are now hidden from the picker, and the order matches your sort preference. If a character already has an archived subtrait selected, it stays visible in their dropdown (labeled "archived") so you can clear it when you're ready.</li>
+    <li><strong>Dragging Blocks into Half-Width Slots</strong> - In the Character Sheet Layout editor, dragging a full-width block into an open half-width slot would move it there but leave it full-width instead of settling into place beside its neighbor. It now resizes correctly and lands on the side you dropped it.</li>
+    <li><strong>Getting Stuck During the Welcome Tour</strong> - On some dual-monitor setups, the welcome tour could freeze on the "Manuscript Mode" step with no way forward or back. It now recovers on its own and carries on.</li>
+    <li><strong>Demo Book Keeps Coming Back</strong> - If you deleted the Sherlock Holmes demo book, it would reappear every time you updated Penpoint. Now if you delete it, it stays gone. You can always bring it back through the three-dot menu in your book library.</li>
+    <li><strong>Line Counter Going Wrong While Typing</strong> - The "Line N of M" counter in Manuscript Mode could drift during a long typing stretch and show something impossible like "Line 806 of 781." It now stays accurate no matter how much you type.</li>
+    <li><strong>Spell-Check Corrections Keep Curly Apostrophes</strong> - Choosing a spelling correction for a word with an apostrophe used to swap your curly apostrophe for a plain straight one. Corrections now keep your curly style, and the suggestion list shows the exact quote mark it's going to insert.</li>
+    <li><strong>Shortcuts vs. Caps Lock</strong> - Ctrl+K, Ctrl+N, and several other keyboard shortcuts would quietly stop responding if Caps Lock was on, in both Manuscript and Worldbuilding. Fixed across every shortcut in the app, so Caps Lock no longer gets in your way.</li>
+    <li><strong>Notebook Right-Click Menu Near Screen Edges</strong> - Right-click menus in the Notebook could squeeze into a tiny sliver of space when opened near the edge of the window; they now flip to the other side so nothing gets cut off.</li>
+    <li><strong>Notebook Folder Colors</strong> - Coloring a folder used to just tint a faint outline instead of the whole icon. Folders now show up fully colored, you can mix a custom shade instead of only picking from presets, and choosing "No color" finally clears it instead of doing nothing.</li>
+    <li><strong>Backspace and Indented Paragraphs in Manuscript Mode</strong> - Fixed indenting a paragraph with Tab spreading that indent to every paragraph you typed after it, and Backspace needing two presses to join lines instead of one.</li>
+  </ul>
+</section>
+
+<section id="v1-2-3" class="changelog-version">
   <div class="changelog-version__header">
     <h2 class="changelog-version__number">1.2.3</h2>
     <span class="changelog-version__date">May 23, 2026</span>
@@ -1894,8 +1964,7 @@
           <a href="/trial" class="foot-link">Free Trial</a>
         </div>
         <div class="pp-footer__col">
-          <h4>Company</h4>
-          <a href="/about" class="foot-link">About</a>
+          <h4>Community</h4>
           <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" class="foot-link">Discord</a>
           <a href="mailto:support@penpoint.app" class="foot-link">Contact Support</a>
         </div>
