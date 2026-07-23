@@ -76,16 +76,42 @@
 
   <style>
     .roadmap-hero {
-      padding-top: calc(var(--header-height) + var(--space-16));
+      padding-top: var(--space-16);
       padding-bottom: var(--space-8);
       text-align: center;
     }
 
-    .roadmap-hero__headline { margin-bottom: var(--space-4); }
+    .roadmap-hero__kicker {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgb(var(--cta));
+      margin-bottom: var(--space-5);
+    }
+
+    .roadmap-hero__headline {
+      font-family: 'Newsreader', ui-serif, Georgia, serif;
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: rgb(var(--foreground));
+      margin-bottom: var(--space-5);
+    }
+
+    .roadmap-hero__headline em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
     .roadmap-hero__sub {
-      max-width: 680px;
+      max-width: 600px;
       margin: 0 auto var(--space-6);
       color: rgb(var(--muted-foreground));
+      line-height: 1.6;
     }
 
     .roadmap-hero__crumbs {
@@ -173,11 +199,22 @@
       grid-template-columns: 1fr;
     }
 
+    @keyframes roadmapItemIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
     .roadmap-item {
       background: rgb(var(--paper));
       border: 1px solid rgb(var(--border));
       padding: var(--space-5) var(--space-5);
       transition: border-color 0.15s var(--ease-penpoint);
+      opacity: 0;
+      animation: roadmapItemIn 0.5s var(--ease-penpoint) both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .roadmap-item { opacity: 1; animation: none; }
     }
 
     .roadmap-section--in_progress .roadmap-item {
@@ -344,7 +381,7 @@
     .roadmap-shipped-cta a:hover { text-decoration: underline; }
 
     @media (max-width: 768px) {
-      .roadmap-hero { padding-top: calc(var(--header-height) + var(--space-10)); }
+      .roadmap-hero { padding-top: var(--space-10); }
       .roadmap-section { padding: var(--space-6) 0; }
       .roadmap-section--in_progress { padding: var(--space-8) 0; }
       .roadmap-items { grid-template-columns: 1fr; }
@@ -401,13 +438,14 @@
 
   <section class="roadmap-hero">
     <div class="container">
-      <h1 class="roadmap-hero__headline font-heading-lg" data-animate="fade-up">
-        Roadmap
+      <p class="roadmap-hero__kicker" data-animate="fade-up">What's Next</p>
+      <h1 class="roadmap-hero__headline" data-animate="fade-up" data-stagger="1">
+        <em>Roadmap</em>
       </h1>
-      <p class="roadmap-hero__sub font-body-lg" data-animate="fade-up" data-stagger="1">
+      <p class="roadmap-hero__sub font-body-lg" data-animate="fade-up" data-stagger="2">
         What's next for Penpoint: features being built right now, what's planned, and ideas still under consideration.
       </p>
-      <p class="roadmap-hero__crumbs" data-animate="fade-up" data-stagger="2">
+      <p class="roadmap-hero__crumbs" data-animate="fade-up" data-stagger="3">
         <a href="/development">← Development</a> &nbsp;·&nbsp; <a href="/changelog">See past releases</a>
       </p>
       <div id="status-bar" class="roadmap-status-bar"></div>
@@ -694,8 +732,11 @@
           : `Nothing in ${sectionDef.label.toLowerCase()} at the moment.`;
         itemsWrap.appendChild(empty);
       } else {
-        items.forEach(item => {
-          itemsWrap.appendChild(renderItem(item, sectionDef.key));
+        items.forEach((item, i) => {
+          const el = renderItem(item, sectionDef.key);
+          // Cascade each server-delivered item in, capped so long lists don't drag.
+          el.style.animationDelay = Math.min(i, 8) * 60 + 'ms';
+          itemsWrap.appendChild(el);
         });
       }
 

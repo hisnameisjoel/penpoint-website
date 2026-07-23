@@ -72,16 +72,43 @@
 
   <style>
     .dev-hero {
-      padding-top: calc(var(--header-height) + var(--space-16));
+      padding-top: var(--space-16);
       padding-bottom: var(--space-12);
       text-align: center;
     }
 
-    .dev-hero__headline { margin-bottom: var(--space-4); }
+    .dev-hero__kicker {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgb(var(--cta));
+      margin-bottom: var(--space-5);
+    }
+
+    .dev-hero__headline {
+      font-family: 'Newsreader', ui-serif, Georgia, serif;
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: rgb(var(--foreground));
+      margin-bottom: var(--space-5);
+    }
+
+    .dev-hero__headline em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
     .dev-hero__sub {
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto;
       color: rgb(var(--muted-foreground));
+      line-height: 1.6;
+      text-wrap: pretty;
     }
 
     .dev-cards {
@@ -184,7 +211,7 @@
 
     @media (max-width: 768px) {
       .dev-hero {
-        padding-top: calc(var(--header-height) + var(--space-10));
+        padding-top: var(--space-10);
         padding-bottom: var(--space-8);
       }
       .dev-cards__grid { grid-template-columns: 1fr; gap: var(--space-4); }
@@ -242,11 +269,12 @@
   <!-- HERO -->
   <section class="dev-hero">
     <div class="container">
-      <h1 class="dev-hero__headline font-heading-lg" data-animate="fade-up">
-        Where Penpoint is Heading
+      <p class="dev-hero__kicker" data-animate="fade-up">Built in the Open</p>
+      <h1 class="dev-hero__headline" data-animate="fade-up" data-stagger="1">
+        Where Penpoint is <em>Heading</em>
       </h1>
-      <p class="dev-hero__sub font-body-lg" data-animate="fade-up" data-stagger="1">
-        Penpoint is built in the open. See what's planned, what's being worked on right now, and what just shipped.
+      <p class="dev-hero__sub font-body-lg" data-animate="fade-up" data-stagger="2">
+        See what's planned, what's being worked on right now, and what just shipped.
       </p>
     </div>
   </section>

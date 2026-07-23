@@ -96,19 +96,43 @@
        =========================================== */
 
     .compare-hero {
-      padding-top: calc(var(--header-height) + var(--space-16));
+      padding-top: var(--space-16);
       padding-bottom: var(--space-12);
       text-align: center;
     }
 
+    .compare-hero__kicker {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgb(var(--cta));
+      margin-bottom: var(--space-5);
+    }
+
     .compare-hero__headline {
-      margin-bottom: var(--space-4);
+      font-family: 'Newsreader', ui-serif, Georgia, serif;
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: rgb(var(--foreground));
+      margin-bottom: var(--space-5);
+    }
+
+    .compare-hero__headline em {
+      font-style: italic;
+      font-weight: 400;
     }
 
     .compare-hero__sub {
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto;
       color: rgb(var(--muted-foreground));
+      line-height: 1.6;
+      text-wrap: pretty;
     }
 
     /* ----- Price Cards ----- */
@@ -378,7 +402,7 @@
 
     @media (max-width: 768px) {
       .compare-hero {
-        padding-top: calc(var(--header-height) + var(--space-10));
+        padding-top: var(--space-10);
         padding-bottom: var(--space-8);
       }
 
@@ -606,10 +630,11 @@
        =========================================== -->
   <section class="compare-hero">
     <div class="container">
-      <h1 class="compare-hero__headline font-heading-lg" data-animate="fade-up">
-        How Penpoint Compares
+      <p class="compare-hero__kicker" data-animate="fade-up">Side by Side</p>
+      <h1 class="compare-hero__headline" data-animate="fade-up" data-stagger="1">
+        How Penpoint <em>Compares</em>
       </h1>
-      <p class="compare-hero__sub font-body-lg" data-animate="fade-up" data-stagger="1">
+      <p class="compare-hero__sub font-body-lg" data-animate="fade-up" data-stagger="2">
         We put Penpoint next to four popular writing tools and compared features, pricing, and what you get for your money. The table below has the details.
       </p>
     </div>
@@ -678,7 +703,7 @@
           <thead>
             <tr>
               <th></th>
-              <th class="cmp-penpoint-head">Penpoint<span class="cmp-detail">$40 once</span></th>
+              <th class="cmp-penpoint-head">Penpoint<span class="cmp-detail">$40 lifetime</span></th>
               <th>Scrivener<span class="cmp-detail">$60/platform</span></th>
               <th>Campfire<span class="cmp-detail">$420 lifetime</span></th>
               <th>World Anvil<span class="cmp-detail">$650 lifetime</span></th>
@@ -816,7 +841,7 @@
 
             <tr>
               <td>Multi-Book / Series</td>
-              <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">One-file series: one shared cast &amp; world across every book, each with its own manuscript &amp; arcs</span></td>
+              <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Automatic one-file series: shared cast &amp; world, a book switcher, and a This Book / All Books focus; each book keeps its own manuscript &amp; arcs</span></td>
               <td data-label="Scrivener" class="cmp-partial">Manual<span class="cmp-detail">Multiple books in folders, no entity sharing</span></td>
               <td data-label="Campfire" class="cmp-yes">&#10003;<span class="cmp-detail">Linked projects &amp; series pages</span></td>
               <td data-label="World Anvil" class="cmp-partial">Multi-world<span class="cmp-detail">Not series-specific</span></td>
@@ -885,13 +910,24 @@
           Worldbuilding in Dabble is only available on the $19/month plan. You get story notes and a Plot Grid, but there's no relationship map, timeline, or item tracking, and no way to link your notes to characters by name.
         </p>
         <p>
-          Campfire comes closest on worldbuilding. They have structured character profiles, timelines, a relationship web, and modules for species, magic systems, and languages. Each module is a separate purchase, though. The manuscript editor is basic, locations can't be placed inside other locations, and there's no chapter scanning or character name suggestions as you type. Campfire does have linked projects for series. Dabble takes a different approach: multiple manuscript files live inside a single project and share the same notes, so you don't need to copy anything between books. Scrivener handles this through folders.
+          Campfire comes closest on worldbuilding. They have structured character profiles, timelines, a relationship web, and modules for species, magic systems, and languages. Each module is a separate purchase, though. The manuscript editor is basic, locations can't be placed inside other locations, and there's no chapter scanning or character name suggestions as you type.
         </p>
         <p>
           World Anvil is a wiki-style tool built for tabletop RPG worldbuilding, with 25+ worldbuilding templates and locations inside other locations. The manuscript editor is basic, and you can only export as a web file. Paid plans do include co-author slots, but real-time collaboration and manuscript tools are thin.
         </p>
         <p>
-          Penpoint comes with relationship maps, story & character arc visualizers, dynamic @ name linking, chapter timelines, item tracking, locations inside other locations, customizable per-chapter block layouts with per-scene character, location, item, and POV tracking, a fully featured note editor with image and folder storage, and the "Minipen" - a miniature version of your worldbuilding that goes alongside the Manuscript editor. And when one book becomes many, convert it into a Series: one shared cast and world across every installment, each book keeping its own manuscript, chapters, and arcs, plus Series Arcs for the threads that span the whole saga. All of it, $40.
+          Penpoint comes with relationship maps, story & character arc visualizers, dynamic @ name linking, chapter timelines, item tracking, locations inside other locations, customizable per-chapter block layouts with per-scene character, location, item, and POV tracking, a fully featured note editor with image and folder storage, and the "Minipen," a miniature version of your worldbuilding that goes alongside the Manuscript editor. And when one book becomes many, convert it into a Series: one shared cast and world across every installment, each book keeping its own manuscript, chapters, and arcs, plus Series Arcs for the threads that span the whole saga. All of it, $40.
+        </p>
+
+        <h2>Writing a whole series</h2>
+        <p>
+          Most writing tools treat a series as a filing problem. In Scrivener you build it by hand: a folder per book, with every character re-created or copied between files. Campfire uses separate linked projects, World Anvil spreads it across multiple worlds, and Dabble shares a project's notes but not your actual worldbuilding. In all of them a series is something you assemble and maintain yourself, rebuilding your cast in a new file for each installment.
+        </p>
+        <p>
+          Penpoint does it automatically. Turn what you've already written into Book 1 without losing a word, then keep going: a trilogy, a saga, a seven-book world, all in one project with a single shared cast and map. Write a character once and they stay current across every book, no matter which one you're editing. A built-in book switcher moves you between installments in a click, and a "This Book / All Books" toggle reads each character's Presence to either narrow the whole app down to just the book you're drafting or show the entire series cast at once.
+        </p>
+        <p>
+          We don't know of another writing app built to worldbuild across a series this way. And it's fully reversible: split a series back into standalone books whenever you want.
         </p>
 
         <h2>Writing and manuscript tools</h2>
@@ -899,12 +935,12 @@
           Penpoint imports manuscripts from Word, EPUB, Markdown, and plain text with automatic chapter detection. Campfire matches this on Word and EPUB. Scrivener imports Word and several other formats, splitting into chapters automatically or at break points you define. Dabble and World Anvil don't support file import at all; you're copy-pasting.
         </p>
         <p>
-          Penpoint also has an industry-first Chapter Scanner that none of the others offer: scan a chapter and it finds your characters, locations, and items mentioned in your prose and auto creates entries in the Worldbuilding side, assigning each new element to the chapter it appears in. This cuts your manual data entry down by a huge margin. Simply import and get straight to work.</p>
+          Penpoint also has an industry-first Chapter Scanner that none of the others offer: scan a chapter and it finds your characters, locations, and items mentioned in your prose and auto creates entries in the Worldbuilding side, assigning each new element to the chapter it appears in. This cuts your manual data entry down by a huge margin. Import and get straight to work.</p>
         <p>
           For export: Penpoint, Scrivener, and Campfire all handle Word, PDF, and more. Dabble does Word only, no PDF. World Anvil exports as a web file that you'd need to convert before sending anything to an agent. 
         </p>
         <p>
-          Penpoint includes a fully offline spellchecker supporting 60 languages with a custom dictionary you control — on Windows, macOS, and Linux. Every character, location, and item name in your book is automatically recognized, so invented names and fantasy words stop showing up as errors the minute you create them. On Windows and macOS, third-party writing tools like ProWritingAid and Grammarly can also work alongside Penpoint via their desktop apps. Scrivener also has a real offline spell-checker, but no Linux version. Campfire and World Anvil have no spell-checker of their own; they rely on your browser's native spellcheck. Dabble's grammar checking uses ProWritingAid, a separate paid service that requires an internet connection. It's not built in.
+          Penpoint includes a fully offline spellchecker supporting 60 languages with a custom dictionary you control, on Windows, macOS, and Linux. Every character, location, and item name in your book is automatically recognized, so invented names and fantasy words stop showing up as errors the minute you create them. On Windows and macOS, third-party writing tools like ProWritingAid and Grammarly can also work alongside Penpoint via their desktop apps. Scrivener also has a real offline spell-checker, but no Linux version. Campfire and World Anvil have no spell-checker of their own; they rely on your browser's native spellcheck. Dabble's grammar checking uses ProWritingAid, a separate paid service that requires an internet connection. It's not built in.
         </p>
 
         <h2>Privacy, ownership, and offline access</h2>
@@ -926,7 +962,7 @@
           Scrivener runs $60 per platform with no worldbuilding. Dabble's lifetime plan is $699, cloud-based, with basic worldbuilding. Campfire's full module set runs $420 but comes with a basic manuscript editor and no chapter scanner. World Anvil's Grandmaster lifetime is $650 (web-only, web-file export only). Their top Sage tier is around $1,350.
         </p>
         <p>
-          We think we built something pretty cool. But don't take our word for it. Try Penpoint for yourself. Free trial, no lock in. What do you have to lose?
+          We think we built something pretty cool. But don't take our word for it. Try Penpoint for yourself. Free trial, no lock-in. What do you have to lose?
         </p>
 
         <!-- Methodology -->
@@ -951,7 +987,7 @@
         Buy it once and it's yours. No account required.
       </p>
       <a href="https://penpointapp.lemonsqueezy.com/checkout/buy/5576a809-44e7-4179-b5f6-69c145725060?embed=1" class="btn btn-primary btn-xl btn-shadow lemonsqueezy-button" data-animate="scale" data-stagger="2">
-        Buy Penpoint &mdash; $40
+        Buy Penpoint for $40
       </a>
       <a href="https://discord.gg/q7yV3PXrGB" class="final-cta__discord font-body-sm" data-animate="fade-up" data-stagger="3" target="_blank" rel="noopener">
         <i class="fa-brands fa-discord"></i> Join our Discord
