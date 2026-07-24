@@ -1,6 +1,92 @@
 {
-  "generatedAt": "2026-07-17T21:57:39.582Z",
+  "generatedAt": "2026-07-24T00:29:32.399Z",
   "versions": [
+    {
+      "number": "1.3.1",
+      "date": "2026-07-23",
+      "intro": "",
+      "sections": [
+        {
+          "name": "Added",
+          "entries": [
+            {
+              "text": "**The Corkboard** - Your chapters, laid out as index cards you can spread across the screen and rearrange by dragging. Write a one-line summary straight onto a card, pick which details each card shows, and open up a chapter's scenes right there on the board. A button at the top of the Chapters page switches between the Corkboard and the usual view, and Penpoint remembers which one you were in.",
+              "subBullets": []
+            },
+            {
+              "text": "**Placeholder Cards** - You know something happens between Chapter 4 and Chapter 5, you just don't know what yet. Drop a placeholder there: a sticky note that holds the spot on your Corkboard and in your outline without claiming a chapter number, and without ever showing up in your manuscript, your exports, or your search results. Jot the idea down, and when it firms up, promote it into a real chapter with everything you wrote already filled in.",
+              "subBullets": []
+            },
+            {
+              "text": "**Notebook Block** - A new block for character sheets and chapters that shows notes from your Notebook right on the page. Link a single note to keep a backstory or beat sheet in view while you write, or link a folder or a group of tags to pull in everything related, updating automatically as your Notebook grows.",
+              "subBullets": []
+            },
+            {
+              "text": "**Per-Book Word Counts in a Series** - The stats dropdown now breaks your word count down by book when you're writing a Series, and the word count in Manuscript Mode's bottom bar shows only the book you're currently in instead of adding every book together.",
+              "subBullets": []
+            },
+            {
+              "text": "**Hide a Chapter's Header** - Right-click a chapter's header in Manuscript Mode and choose \"Hide Chapter Header\" to make it read as blank: no number, title, or subtitle, just your prose. Perfect for a prologue or interlude. Bring it back anytime by right-clicking the chapter in the outline sidebar and re-checking \"Show Chapter Header.\"",
+              "subBullets": []
+            },
+            {
+              "text": "**Hide All Subtitles at Once** - A new \"Show subtitles\" switch in Manuscript Mode's Settings menu hides every chapter subtitle and the \"Add subtitle...\" prompt in one go. Nothing is deleted, so turning it back on brings every subtitle right back.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Improved",
+          "entries": [
+            {
+              "text": "**Minipen Polish** - The Minipen sidebar in Manuscript Mode got a look and feel pass, borrowing the cleaner layout coming to the upcoming Mobile App. Lists sit better on the page, characters and items without a photo now line up neatly, and the Chapters tab expands to show your scenes right where you can jump to them.",
+              "subBullets": []
+            },
+            {
+              "text": "**Named Leap Days Are Easier to Read** - On an invented calendar, a leap day like \"Stargazing Night\" shows in the date grid as a small star instead of a number. Their names now appear in a \"Leap days in view\" line beneath the grid, so you can tell your festivals apart at a glance instead of hovering each star to read it. A star borrowed from the month on either side is labelled with which month it belongs to, like \"Stargazing Night (from Emberwane)\".",
+              "subBullets": []
+            },
+            {
+              "text": "**Clearer \"Add End Date\" Button** - The button that turns a single scene date into a date range used to say \"Add End Time\", which was misleading: it adds a whole end date, not just a time, and on most pickers there was no time field on screen at all. It now reads \"Add End Date\" on every calendar, and \"Add End Day\" on the Day counter, where the value really is a day number rather than a date.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Fixed",
+          "entries": [
+            {
+              "text": "**@Mentions Now Find Every Nickname** - When a character had more than one nickname, typing @ and reaching for a later one (not the first in the list) could come up empty. Now every nickname finds its character, no matter which one you reach for or how many you've given them.",
+              "subBullets": []
+            },
+            {
+              "text": "**Long Custom Weeks Getting Cut Off** - On an invented calendar with a very long week, the last few days of a special month could spill off the edge of the date picker where you couldn't reach them. The grid now scrolls sideways so every day stays within reach.",
+              "subBullets": []
+            },
+            {
+              "text": "**Series Manuscript Export Including Every Book** - Exporting your manuscript from inside a Series pulled in chapters from every book instead of just the one you were writing, with chapter numbers running together instead of starting over at Chapter 1. Exports now stay with your current book, and the export wizard names which book it's exporting so it's never mistaken for your whole Series.",
+              "subBullets": []
+            },
+            {
+              "text": "**Smart Folders Breaking When You Merge or Delete Tags** - Merging or deleting a tag could quietly break any Smart Folder linked to it, leaving it empty even though your notes were always safe elsewhere. Smart Folders now follow along when you merge a tag, and gracefully become a regular folder if you delete one.",
+              "subBullets": []
+            },
+            {
+              "text": "**Sideways Phone Photos** - Photos taken on phones could save rotated and cropped from the wrong spot, whether it was a profile picture or a book cover. They now come out right side up.",
+              "subBullets": []
+            },
+            {
+              "text": "**Item Types Doubling Up in a Series** - After copying a book into a Series, your item types (like \"Personal Items\" or \"Weapons\") could pile up as duplicates, and an item might show a jumble of letters and numbers where its type name belongs. Penpoint now keeps just one of each type when importing, and quietly tidies up any book that already got tangled.",
+              "subBullets": []
+            },
+            {
+              "text": "**Strikethrough Shortcut in Manuscript Mode** - Ctrl+Shift+X (or Cmd+Shift+X) now toggles strikethrough while writing prose, matching the rest of Penpoint.",
+              "subBullets": []
+            }
+          ]
+        }
+      ]
+    },
     {
       "number": "1.3.0",
       "date": "2026-07-17",

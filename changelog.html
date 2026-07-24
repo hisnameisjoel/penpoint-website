@@ -105,38 +105,14 @@
       text-align: center;
     }
 
-    .changelog-hero__kicker {
-      display: inline-block;
-      font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
-      font-size: var(--text-xs);
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgb(var(--cta));
-      margin-bottom: var(--space-5);
-    }
-
     .changelog-hero__headline {
-      font-family: 'Newsreader', ui-serif, Georgia, serif;
-      font-size: clamp(2.5rem, 5.5vw, 4rem);
-      font-weight: 500;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-      color: rgb(var(--foreground));
-      margin-bottom: var(--space-5);
-    }
-
-    .changelog-hero__headline em {
-      font-style: italic;
-      font-weight: 400;
+      margin-bottom: var(--space-4);
     }
 
     .changelog-hero__sub {
-      max-width: 720px;
+      max-width: 680px;
       margin: 0 auto;
       color: rgb(var(--muted-foreground));
-      line-height: 1.6;
-      text-wrap: pretty;
     }
 
     /* ----- Two-column layout ----- */
@@ -485,11 +461,10 @@
        =========================================== -->
   <section class="changelog-hero">
     <div class="container">
-      <p class="changelog-hero__kicker" data-animate="fade-up">Release History</p>
-      <h1 class="changelog-hero__headline" data-animate="fade-up" data-stagger="1">
-        Penpoint <em>Changelog</em>
+      <h1 class="changelog-hero__headline font-heading-lg" data-animate="fade-up">
+        Penpoint Changelog
       </h1>
-      <p class="changelog-hero__sub font-body-lg" data-animate="fade-up" data-stagger="2">
+      <p class="changelog-hero__sub font-body-lg" data-animate="fade-up" data-stagger="1">
         Penpoint is being actively developed based on community feedback and an ever-growing list of features. Here's our changelog since launch!
       </p>
     </div>
@@ -508,6 +483,7 @@
           <div class="changelog-sidebar__group">
   <h3 class="changelog-sidebar__group-title">1.3.x</h3>
   <ul class="changelog-sidebar__list">
+    <li><a class="changelog-sidebar__link" href="#v1-3-1"><span>1.3.1</span><span class="changelog-sidebar__date">Jul 23, 2026</span></a></li>
     <li><a class="changelog-sidebar__link" href="#v1-3-0"><span>1.3.0</span><span class="changelog-sidebar__date">Jul 17, 2026</span></a></li>
   </ul>
 </div>
@@ -566,6 +542,7 @@
           <label class="changelog-mobile-nav__label" for="changelog-version-select">Jump to version</label>
           <select class="changelog-mobile-nav__select" id="changelog-version-select" onchange="if(this.value) window.location.hash = this.value;">
             <option value="">Select a version&hellip;</option>
+              <option value="#v1-3-1">1.3.1 — Jul 23, 2026</option>
               <option value="#v1-3-0">1.3.0 — Jul 17, 2026</option>
               <option value="#v1-2-3">1.2.3 — May 23, 2026</option>
               <option value="#v1-2-2">1.2.2 — May 16, 2026</option>
@@ -605,7 +582,40 @@
 
         <!-- Main content -->
         <div class="changelog-content">
-          <section id="v1-3-0" class="changelog-version">
+          <section id="v1-3-1" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.3.1</h2>
+    <span class="changelog-version__date">July 23, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>The Corkboard</strong> - Your chapters, laid out as index cards you can spread across the screen and rearrange by dragging. Write a one-line summary straight onto a card, pick which details each card shows, and open up a chapter's scenes right there on the board. A button at the top of the Chapters page switches between the Corkboard and the usual view, and Penpoint remembers which one you were in.</li>
+    <li><strong>Placeholder Cards</strong> - You know something happens between Chapter 4 and Chapter 5, you just don't know what yet. Drop a placeholder there: a sticky note that holds the spot on your Corkboard and in your outline without claiming a chapter number, and without ever showing up in your manuscript, your exports, or your search results. Jot the idea down, and when it firms up, promote it into a real chapter with everything you wrote already filled in.</li>
+    <li><strong>Notebook Block</strong> - A new block for character sheets and chapters that shows notes from your Notebook right on the page. Link a single note to keep a backstory or beat sheet in view while you write, or link a folder or a group of tags to pull in everything related, updating automatically as your Notebook grows.</li>
+    <li><strong>Per-Book Word Counts in a Series</strong> - The stats dropdown now breaks your word count down by book when you're writing a Series, and the word count in Manuscript Mode's bottom bar shows only the book you're currently in instead of adding every book together.</li>
+    <li><strong>Hide a Chapter's Header</strong> - Right-click a chapter's header in Manuscript Mode and choose "Hide Chapter Header" to make it read as blank: no number, title, or subtitle, just your prose. Perfect for a prologue or interlude. Bring it back anytime by right-clicking the chapter in the outline sidebar and re-checking "Show Chapter Header."</li>
+    <li><strong>Hide All Subtitles at Once</strong> - A new "Show subtitles" switch in Manuscript Mode's Settings menu hides every chapter subtitle and the "Add subtitle..." prompt in one go. Nothing is deleted, so turning it back on brings every subtitle right back.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Minipen Polish</strong> - The Minipen sidebar in Manuscript Mode got a look and feel pass, borrowing the cleaner layout coming to the upcoming Mobile App. Lists sit better on the page, characters and items without a photo now line up neatly, and the Chapters tab expands to show your scenes right where you can jump to them.</li>
+    <li><strong>Named Leap Days Are Easier to Read</strong> - On an invented calendar, a leap day like "Stargazing Night" shows in the date grid as a small star instead of a number. Their names now appear in a "Leap days in view" line beneath the grid, so you can tell your festivals apart at a glance instead of hovering each star to read it. A star borrowed from the month on either side is labelled with which month it belongs to, like "Stargazing Night (from Emberwane)".</li>
+    <li><strong>Clearer "Add End Date" Button</strong> - The button that turns a single scene date into a date range used to say "Add End Time", which was misleading: it adds a whole end date, not just a time, and on most pickers there was no time field on screen at all. It now reads "Add End Date" on every calendar, and "Add End Day" on the Day counter, where the value really is a day number rather than a date.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>@Mentions Now Find Every Nickname</strong> - When a character had more than one nickname, typing @ and reaching for a later one (not the first in the list) could come up empty. Now every nickname finds its character, no matter which one you reach for or how many you've given them.</li>
+    <li><strong>Long Custom Weeks Getting Cut Off</strong> - On an invented calendar with a very long week, the last few days of a special month could spill off the edge of the date picker where you couldn't reach them. The grid now scrolls sideways so every day stays within reach.</li>
+    <li><strong>Series Manuscript Export Including Every Book</strong> - Exporting your manuscript from inside a Series pulled in chapters from every book instead of just the one you were writing, with chapter numbers running together instead of starting over at Chapter 1. Exports now stay with your current book, and the export wizard names which book it's exporting so it's never mistaken for your whole Series.</li>
+    <li><strong>Smart Folders Breaking When You Merge or Delete Tags</strong> - Merging or deleting a tag could quietly break any Smart Folder linked to it, leaving it empty even though your notes were always safe elsewhere. Smart Folders now follow along when you merge a tag, and gracefully become a regular folder if you delete one.</li>
+    <li><strong>Sideways Phone Photos</strong> - Photos taken on phones could save rotated and cropped from the wrong spot, whether it was a profile picture or a book cover. They now come out right side up.</li>
+    <li><strong>Item Types Doubling Up in a Series</strong> - After copying a book into a Series, your item types (like "Personal Items" or "Weapons") could pile up as duplicates, and an item might show a jumble of letters and numbers where its type name belongs. Penpoint now keeps just one of each type when importing, and quietly tidies up any book that already got tangled.</li>
+    <li><strong>Strikethrough Shortcut in Manuscript Mode</strong> - Ctrl+Shift+X (or Cmd+Shift+X) now toggles strikethrough while writing prose, matching the rest of Penpoint.</li>
+  </ul>
+</section>
+
+<section id="v1-3-0" class="changelog-version">
   <div class="changelog-version__header">
     <h2 class="changelog-version__number">1.3.0</h2>
     <span class="changelog-version__date">July 17, 2026</span>
