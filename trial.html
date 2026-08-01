@@ -56,9 +56,6 @@
   <!-- Font Awesome (platform + feature icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Lemon Squeezy Checkout Overlay -->
-  <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
-
   <style>
     *{box-sizing:border-box;}
     html,body{margin:0;padding:0;}
@@ -633,9 +630,9 @@
               primaryBtn.outerHTML = html;
             }
           } else {
-            // Windows ARM builds are paused. The x64 trial runs on ARM Windows via Prism emulation
-            // (WebView2 renders natively), so serve ARM visitors the x64 installer when no native
-            // ARM build is published. Reverts to native ARM automatically once ARM builds resume.
+            // Safety net for trial releases built without a native Windows ARM64 binary: the x64
+            // trial runs on ARM Windows via Prism emulation (WebView2 renders natively), so serve
+            // ARM visitors x64 rather than a dead link. Uses native ARM whenever it was published.
             if (primaryPlatform === 'windows-arm' && !getUrl('windows-arm')) {
               primaryPlatform = 'windows';
             }

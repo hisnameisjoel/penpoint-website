@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /beta
 Disallow: /download.html
+Disallow: /progress-preview.html
 
 # AI Crawlers — explicitly welcomed
 User-agent: GPTBot

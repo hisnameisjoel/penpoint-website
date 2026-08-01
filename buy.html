@@ -59,9 +59,6 @@
   <!-- Lucide line icons -->
   <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
-  <!-- Lemon Squeezy Checkout Overlay -->
-  <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
-
   <style>
     *{box-sizing:border-box;}
     html,body{margin:0;padding:0;}
@@ -152,7 +149,7 @@
             <p data-animate="fade-up" style="font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,19px);line-height:1.58;color:#5C4A33;margin:0 0 clamp(26px,3.4vw,34px);max-width:440px;animation-delay:200ms;">Your manuscript <span style="font-style:italic;">and</span> your worldbuilding in one desktop app. One payment, yours to keep, with every update to your version free.</p>
 
             <div data-animate="fade-up" style="animation-delay:300ms;">
-              <a id="buy-button" href="https://penpointapp.lemonsqueezy.com/checkout/buy/5576a809-44e7-4179-b5f6-69c145725060?embed=1" class="lemonsqueezy-button buy-btn" style="font-size:17px;padding:14px 34px;">Buy Penpoint — $40</a>
+              <a id="buy-button" href="https://penpointapp.lemonsqueezy.com/checkout/buy/5576a809-44e7-4179-b5f6-69c145725060" class="buy-btn" style="font-size:17px;padding:14px 34px;">Buy Penpoint — $40</a>
               <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:#7C5236;margin:22px 0 0;">One-time purchase · No subscription · 30-day guarantee</p>
             </div>
 
@@ -282,7 +279,7 @@ drawIcons(); setTimeout(drawIcons,400); setTimeout(drawIcons,1200);
 
 /* Buy-click tracking (anonymous aggregate counter, deduped per session) */
 (function(){ function trackClick(t){ try{ var k='pp_tracked_'+t; if(sessionStorage.getItem(k)) return; sessionStorage.setItem(k,'1'); }catch(e){} try{ if(window.gtag) window.gtag('event',t); }catch(e){} fetch('https://lpgprxbwrkzxmbwzkisz.supabase.co/functions/v1/track-click',{ method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({eventType:t}), keepalive:true }).catch(function(){}); }
-  root.querySelectorAll('.lemonsqueezy-button').forEach(function(el){ el.addEventListener('click', function(){ trackClick('buy_click'); }); }); })();
+  root.querySelectorAll('.buy-btn').forEach(function(el){ el.addEventListener('click', function(){ trackClick('buy_click'); }); }); })();
 
 /* Live community word stat with count-up (falls back to the static baseline on any failure) */
 (function(){ var nodes=[].slice.call(root.querySelectorAll('[data-stat]')); if(!nodes.length) return;

@@ -1,6 +1,120 @@
 {
-  "generatedAt": "2026-07-24T00:29:32.399Z",
+  "generatedAt": "2026-08-01T15:29:08.588Z",
   "versions": [
+    {
+      "number": "1.3.2",
+      "date": "2026-08-01",
+      "intro": "",
+      "sections": [
+        {
+          "name": "Added",
+          "entries": [
+            {
+              "text": "**Importance That Changes Book to Book** - One of Penpoint's most-requested features since Series arrived. A character who carries your first book can fade into the background by the third, and their Importance can now say so: set it per book while viewing \"This Book,\" and \"All Books\" shows you the whole picture at a glance. Items and locations work the same way, and standalone books are unchanged.",
+              "subBullets": []
+            },
+            {
+              "text": "**A Second Way to Read a Chapter: By Scene** - The Chapters page has always grouped a chapter's content by block, description, cast, and so on, all at once across the whole chapter. A new View Mode button flips you to By Scene instead, stacking each scene in turn with your layout repeated inside it, so the chapter reads as a scene-by-scene outline. Penpoint remembers your choice, and By Group stays the default.",
+              "subBullets": []
+            },
+            {
+              "text": "**Placeholder Cards Inside Folders** - Placeholders can now live inside a chapter group, even one that holds no chapters yet, so you can rough out a whole section as a stack of cards before a word of it is written. Promoting one now creates the chapter right inside that folder.",
+              "subBullets": []
+            },
+            {
+              "text": "**Corkboard Card Size** - The Corkboard's cog menu now lets you pick how big your index cards are: Compact fits more of your book on screen at once, Large gives you room to read your summaries, and Standard is what you've been using. Compact drops the subtitle and first line of prose to save space; switch to a bigger card to see them again.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Improved",
+          "entries": [
+            {
+              "text": "**Merging Scenes Now Asks First** - Pressing Backspace at the start of a scene (or Delete at the end of the one above) used to join the two scenes instantly, with nothing on screen to say it had happened. Penpoint now asks first, naming both scenes and what becomes of them. Tick \"Don't ask again\" if you do this on purpose; the switch to bring the prompt back lives in manuscript settings.",
+              "subBullets": []
+            },
+            {
+              "text": "**Profile Pictures Show Up in More Places** - Wherever a character, item, or location appears in a list, its profile picture now shows instead of a plain icon: character sheet blocks, chapter cast and setting lists, item and location pages, the Minipen sidebar, and search results. Anything without a picture keeps its familiar icon.",
+              "subBullets": []
+            },
+            {
+              "text": "**Colored Highlighting Everywhere** - The colored highlighter from Manuscript Mode now works in character, location, item, and chapter description fields too. Pick a palette color or a custom one, right-click a selection to highlight it, and your existing yellow highlights are untouched.",
+              "subBullets": []
+            },
+            {
+              "text": "**Chapter Notes on Your Index Cards** - The Corkboard's cards can now show your Chapter Notes (the chapter page's Notes field, renamed for clarity), and you can write them right on the card, with bold and italic on their usual keyboard shortcuts. Cards also size themselves to what you've chosen to show, so hiding a detail tightens the board instead of leaving blank paper. The one-line \"in which\" summary now keeps to 100 characters; the notes are the place for longer thinking.",
+              "subBullets": []
+            },
+            {
+              "text": "**Read a Note Without Leaving the Page** - Clicking a note linked to a Notebook Block used to throw you over to the Notebook, losing your place on the character or scene you were working on. The note now opens right inside the block with a Back button, and Penpoint remembers which note you had open. An \"Open notes in\" switch in Edit Mode brings back the old behavior if you'd rather.",
+              "subBullets": []
+            },
+            {
+              "text": "**Hide Empty Blocks** - A new cog menu option on the chapter page can tuck away any block you haven't filled in yet, handy when a long layout has a handful of blocks you only reach for now and then. Empty blocks always come back the moment you switch to Edit, so there's never one you can't get at to fill in.",
+              "subBullets": []
+            },
+            {
+              "text": "**Clearing a Notebook Block** - A Notebook Block used to be a one-way door: once you pointed it at a folder, tag, or note, you could swap it but never get back to empty. A trash icon now clears it for that character or scene, and picking a new one takes one click instead of two.",
+              "subBullets": []
+            },
+            {
+              "text": "**Longer Location Names** - Location names can now be up to 45 characters, matching your characters, so \"The Kingdom of the Northern Reaches\" fits without getting cut short.",
+              "subBullets": []
+            },
+            {
+              "text": "**Corkboard Cards at Larger Text Sizes** - The chapter number badge and the PLACEHOLDER label now grow along with everything else when you scale Penpoint's text up, instead of staying put while the card around them grew.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Fixed",
+          "entries": [
+            {
+              "text": "**Empty Folders Wouldn't Stay Where You Dropped Them** - Dragging an empty chapter folder around your outline, including in a Series, could drop it somewhere other than where you put it, and a folder emptied by deleting its last chapter would jump back to an old position. Folders now land, and stay, exactly where you put them. If one of yours is sitting in the wrong spot, drag it once and it'll settle for good.",
+              "subBullets": []
+            },
+            {
+              "text": "**Updates Failed on Windows ARM Laptops** - Windows ARM builds were quietly dropped a couple of releases back on the assumption nobody needed them. Some of you did, and had nothing to update to. ARM builds are back for good, starting with this release.",
+              "subBullets": []
+            },
+            {
+              "text": "**Character, Location, and Item Names Weren't Clickable** - In the Chapters view, including the Minipen sidebar, these names looked like links but didn't do anything when clicked. They now take you straight to that character, location, or item's page.",
+              "subBullets": []
+            },
+            {
+              "text": "**Clearing a Subtitle or Summary Now Sticks** - Clearing a chapter's subtitle or its \"in which\" summary looked like it worked, but the old text quietly returned the next time the book loaded. Cleared now means cleared.",
+              "subBullets": []
+            },
+            {
+              "text": "**Search Turned Up Characters That Didn't Match** - Searching for words like \"notebook\" or \"folder\" listed characters that had nothing to do with them. Any character carrying a Notebook Block was matching on the block's internal bookkeeping rather than on anything you'd written. Those results are gone.",
+              "subBullets": []
+            },
+            {
+              "text": "**Location Nesting** - Fixed sub-locations showing at the wrong nesting level, and dragging one somewhere it can't go now shows you instead of silently doing nothing.",
+              "subBullets": []
+            },
+            {
+              "text": "**Placeholder Cards Were Lost When Copying a Book Into a Series** - Corkboard placeholder cards vanished when a book was copied into a Series, with no warning. They now come across with the book, still sitting where you left them.",
+              "subBullets": []
+            },
+            {
+              "text": "**Location Types No Longer Duplicate on Series Import** - Copying a book into a Series could pile up duplicate location types. Penpoint now merges them correctly, and quietly cleans up any book already affected.",
+              "subBullets": []
+            },
+            {
+              "text": "**Promoting a Placeholder Left the Folder Behind** - Promoting a card that sat inside a chapter group created the new chapter outside that group. The chapter now stays in the folder the card was in.",
+              "subBullets": []
+            },
+            {
+              "text": "**Corkboard Texture on Long Boards** - On books with lots of chapters, the Corkboard's paper grain stopped partway down the page and looked stretched out. It now covers the whole board evenly, however many chapters you have.",
+              "subBullets": []
+            }
+          ]
+        }
+      ]
+    },
     {
       "number": "1.3.1",
       "date": "2026-07-23",
