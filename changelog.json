@@ -1,6 +1,80 @@
 {
-  "generatedAt": "2026-08-01T15:29:08.588Z",
+  "generatedAt": "2026-08-08T15:32:11.829Z",
   "versions": [
+    {
+      "number": "1.3.3",
+      "date": "2026-08-08",
+      "intro": "",
+      "sections": [
+        {
+          "name": "Added",
+          "entries": [
+            {
+              "text": "**Tag Groups** - If your tag list has grown past a hundred and you've started numbering them by hand to keep them in order, this one's for you. Tags can now live in named groups that collapse and expand everywhere tags appear, so a long list reads as a few tidy sections instead of one endless wall. Give a group a color and every tag inside takes it on, pick a writing-themed icon, and drag tags in or out; your existing tags all start out ungrouped, right where you left them.",
+              "subBullets": []
+            },
+            {
+              "text": "**Nickname Tags** - Give a character several nicknames by typing a comma after each one: \"Holmes, Sherlock, Sigerson\" becomes three little tags, each with an X to remove it and a grip to drag them into whatever order you like (arrow keys work too). Order matters: the first nickname is the one Penpoint shows where space is tight, like a scene's POV label. Every nickname now works on its own across Penpoint: @ mentions, search, the Chapter Scanner, and spellcheck, which no longer underlines a nickname just because the character has more than one.",
+              "subBullets": []
+            },
+            {
+              "text": "**Images That Fit Your Page** - Pictures in your manuscript, notes, and description fields used to sit at one size, full width, with your text stacked above and below. Now your text wraps around them, there's an optional caption line under every picture, and clicking one while editing brings up a small toolbar to resize it or move it left, center, or right. It's a writing aid rather than export formatting, so the layout stays inside Penpoint.",
+              "subBullets": []
+            },
+            {
+              "text": "**Word Counts in the Outliner** - The cog at the top of the outliner now has a \"Show word counts\" switch, so you can see how long every chapter is at a glance instead of hovering over them one at a time. A chapter with several scenes shows the total, with each scene's own count listed underneath, and folders show the total for everything inside. Long chapter titles wrap onto a second line while counts are showing, so nothing gets cut short.",
+              "subBullets": []
+            },
+            {
+              "text": "**Jump Straight to Your Chapter's Notes** - The Minipen sidebar could always send you to whatever chapter it was showing, but there was no way to go the other direction. Right-click any chapter or scene in the manuscript outliner and pick \"Open in Minipen\" to pull up its notes, or press Ctrl+Shift+N for wherever you're writing right now. There's a matching button at the top of the sidebar's chapter list.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Improved",
+          "entries": [
+            {
+              "text": "**Tags, Tidied Up** - Creating a tag now happens in its own window where you set the name, color, and group at once, instead of a card appearing partway down your list. Choosing a tag to merge into is searchable and no longer runs off the bottom of the screen, and tag cards stopped flashing a thick outline every time your pointer touched them.",
+              "subBullets": []
+            },
+            {
+              "text": "**Hide Empty Blocks Now Covers Story Arcs** - Story Arcs was the one block the option skipped, so a chapter with no plot points still showed an empty panel. It now tucks away like the rest, and a block you clear out disappears as soon as you leave Edit Mode instead of waiting until you come back.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Fixed",
+          "entries": [
+            {
+              "text": "**Quotes Inside Quotes** - Closing a quote inside another quote left the outer quote facing the wrong way. Fixed everywhere you type, including name fields and Find and Replace.",
+              "subBullets": []
+            },
+            {
+              "text": "**Bullet Points Missing From Exports** - Bulleted and numbered lists could disappear completely from your exported manuscript in every format, taking indented items and anything inside a quote block with them. Nothing was lost from your book itself, only from the file it wrote, so export again for a complete copy.",
+              "subBullets": []
+            },
+            {
+              "text": "**Importing Markdown Files** - Checkbox lists now come back as real checkboxes instead of literal \"[x]\" text, and a code block in an imported file no longer leaves that field blank when you open it.",
+              "subBullets": []
+            },
+            {
+              "text": "**Story Arcs on the Chapter Page** - Plot points pinned to a chapter's only scene now show under \"Whole chapter\" instead of vanishing, plot points belonging to another Book or a Series Arc now appear in the list and can be removed instead of being replaced by a message, and removing one takes a single click.",
+              "subBullets": []
+            },
+            {
+              "text": "**Minipen Sidebar Icons** - Entities without profile pictures now display type-specific icons instead of generic placeholders, matching worldbuilding mode. Chapter rows also show the scroll icon instead of a bare dash.",
+              "subBullets": []
+            },
+            {
+              "text": "**Minipen Chapter Text Size** - Chapter names in the sidebar were noticeably smaller than everywhere else in Penpoint. They now match the other sidebar pages, and a stray sideways scrollbar in the chapter view is gone too.",
+              "subBullets": []
+            }
+          ]
+        }
+      ]
+    },
     {
       "number": "1.3.2",
       "date": "2026-08-01",

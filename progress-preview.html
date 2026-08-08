@@ -1001,6 +1001,12 @@
     font-weight: 600;
     line-height: 1.1;
   }
+  
+  .pp-num-md {
+    font-size: calc(1.5rem * var(--font-size-multiplier, 1));
+    font-weight: 600;
+    line-height: 1.1;
+  }
   .pp-num-mono {
     font-family: "JetBrains Mono", ui-monospace, monospace;
     font-size: calc(2.9rem * var(--font-size-multiplier, 1));
@@ -1273,6 +1279,48 @@
   .pp-cols > div.pp-col-lit > i { opacity: 1; }
 
   
+  .pp-cols-sprint > div > i { background: var(--pp-c2); opacity: 0.7; }
+  .pp-cols-sprint > div:hover > i { opacity: 0.9; }
+  
+  .pp-cols-sprint > div > i.pp-col-none {
+    height: 2px; background: rgb(var(--muted-foreground)); opacity: 0.3;
+  }
+  .pp-cols-sprint > div:hover > i.pp-col-none { opacity: 0.5; }
+
+  
+  .pp-chart {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    column-gap: calc(0.5rem * var(--font-size-multiplier, 1));
+  }
+  
+  .pp-yaxis {
+    display: flex; flex-direction: column; justify-content: space-between;
+    text-align: right; white-space: nowrap;
+    margin-top: -0.5em; margin-bottom: -0.5em;
+  }
+  .pp-plot { position: relative; border-bottom: 1px solid rgb(var(--border)); }
+  .pp-gridline {
+    position: absolute; left: 0; right: 0;
+    border-top: 1px solid rgb(var(--border));
+  }
+  
+  .pp-daylabels { display: flex; gap: 3px; margin-top: 0.45rem; }
+  .pp-daylabels > span { flex: 1 1 0; min-width: 0; text-align: center; }
+
+  
+  .pp-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem 0.9rem; }
+  .pp-legend > span { display: inline-flex; align-items: center; gap: 0.35rem; }
+  .pp-legend i { display: block; flex: none; }
+  .pp-legend i.pp-lg-box { width: 9px; height: 9px; }
+  .pp-legend i.pp-lg-dash {
+    width: 15px;
+    border-top: 1px dashed rgb(var(--foreground));
+    opacity: 0.45;
+  }
+
+  
   .pp-cols-words > div > i {
     display: flex; flex-direction: column;
     background: var(--pp-manuscript);
@@ -1296,23 +1344,47 @@
   .pp-hbar > i { display: block; height: 100%; background: var(--pp-fill, rgb(var(--primary))); opacity: 0.85; }
 
   
-  .pp-heat {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-rows: repeat(7, var(--cell, 11px));
-    gap: 3px;
+  .pp-wa { position: relative; --wa-gut: 4.6em; }
+  .pp-wa-plot { position: absolute; left: var(--wa-gut); right: 0; top: 0; bottom: 0; }
+  .pp-wa-ytick {
+    position: absolute; left: 0; width: calc(var(--wa-gut) - 0.9em);
+    text-align: right; white-space: nowrap; transform: translateY(-50%);
   }
-  .pp-heat b {
-    width: var(--cell, 11px); height: var(--cell, 11px); display: block;
-    background: var(--pp-heat);
-    opacity: var(--o, 0.14);
-  }
-  .pp-heat b[data-empty] { background: rgb(var(--muted-foreground)); opacity: 0.16; }
   
-  [data-theme="midnight"] .pp-heat b { opacity: calc(0.26 + var(--o, 0.14) * 0.74); }
-  [data-theme="midnight"] .pp-heat b[data-empty] { background: rgb(var(--muted)); opacity: 1; }
-  .pp-heat-days { margin-bottom: -3px; }
-  .pp-heat-days > div { height: calc(var(--cell, 11px) + 3px); }
+  .pp-wa .pp-gridline { left: var(--wa-gut); }
+  
+  .pp-wa-zero { position: absolute; left: var(--wa-gut); right: 0; height: 1px;
+    background: rgb(var(--muted-foreground)); opacity: 0.5; }
+  .pp-wa-bar { position: absolute; }
+  .pp-wa-ms  { background: var(--pp-manuscript); }
+  .pp-wa-wb  { background: var(--pp-worldbuilding); }
+  .pp-wa-cut { background: rgb(var(--muted-foreground)); opacity: 0.55; }
+  .pp-wa-bar.pp-wa-on { background: rgb(var(--primary)); opacity: 1; }
+  
+  .pp-wa-today { position: absolute; top: 0; bottom: 0;
+    border-left: 1px dashed rgb(var(--foreground)); opacity: 0.45; }
+  .pp-wa-todaytag { position: absolute; transform: translateY(-50%);
+    background: rgb(var(--card)); padding: 0.2rem 0; white-space: nowrap; }
+  .pp-wa-months { position: relative; }
+  .pp-wa-mtick { position: absolute; top: 0; padding-left: 0.4em;
+    border-left: 1px solid rgb(var(--border)); white-space: nowrap; }
+  
+  .pp-wa-tip {
+    position: absolute; display: flex; align-items: baseline; gap: 0.6em;
+    background: rgb(var(--foreground)); color: rgb(var(--background));
+    padding: 0.5em 0.8em; white-space: nowrap; pointer-events: none; z-index: 3;
+  }
+  .pp-wa-tip .pp-wa-tipsub { color: rgb(var(--background) / 0.72); }
+  .pp-wa-cross { position: absolute; top: 0; bottom: 0; width: 1px;
+    background: rgb(var(--primary)); pointer-events: none; }
+  .pp-wa-ring { position: absolute; width: 1.1em; height: 1.1em; margin: -0.55em 0 0 -0.55em;
+    border: 1px solid rgb(var(--primary)); border-radius: 50%; pointer-events: none; }
+  .pp-wa-dot { position: absolute; width: 0.45em; height: 0.45em; margin: -0.225em 0 0 -0.225em;
+    background: rgb(var(--primary)); border-radius: 50%; pointer-events: none; }
+  
+  .pp-wa-hit { position: absolute; inset: 0 0 0 var(--wa-gut); cursor: crosshair; z-index: 2; }
+
+  
 
   
   .pp-check {
@@ -1325,6 +1397,62 @@
     background: rgb(var(--primary));
     border-color: rgb(var(--primary));
     color: rgb(var(--primary-foreground));
+  }
+  
+  .pp-check[data-on] {
+    background: rgb(var(--primary));
+    border-color: rgb(var(--primary));
+    color: rgb(var(--primary-foreground));
+  }
+
+  
+  .pp-career-grid {
+    display: grid;
+    gap: calc(1.5rem * var(--font-size-multiplier, 1));
+    grid-template-columns: repeat(auto-fit, minmax(calc(9rem * var(--font-size-multiplier, 1)), 1fr));
+  }
+
+  
+  .pp-ow-drop {
+    flex: none; display: inline-flex; align-items: center; justify-content: center;
+    width: calc(1.25rem * var(--font-size-multiplier, 1));
+    height: calc(1.25rem * var(--font-size-multiplier, 1));
+    padding: 0; background: none; border: 0; cursor: pointer;
+    color: rgb(var(--muted-foreground));
+    opacity: 0;
+    transition: opacity 120ms ease-out, color 120ms ease-out;
+  }
+  .pp-ow-row:hover .pp-ow-drop { opacity: 0.55; }
+  .pp-ow-drop:hover { opacity: 1; color: rgb(var(--foreground)); }
+  .pp-ow-drop:focus-visible { opacity: 1; color: rgb(var(--foreground)); }
+
+  
+  .pp-pin {
+    display: inline-flex; align-items: center; justify-content: center;
+    vertical-align: baseline; flex: none; cursor: pointer;
+    margin-left: calc(0.4rem * var(--font-size-multiplier, 1));
+    padding: 0; background: none; border: 0;
+    color: rgb(var(--muted-foreground)); opacity: 0.45;
+    transition: opacity 120ms ease-out, color 120ms ease-out;
+  }
+  .pp-pin:hover { opacity: 1; color: rgb(var(--foreground)); }
+  .pp-pin[aria-pressed="true"] { opacity: 1; color: rgb(var(--primary)); }
+  
+  .pp-pin[data-fixed] { cursor: default; opacity: 0.35; }
+  .pp-pin[data-fixed]:hover { opacity: 0.35; color: rgb(var(--muted-foreground)); }
+
+  
+  .pp-vm-row {
+    display: flex; align-items: center; width: 100%; text-align: left;
+    gap: calc(0.6rem * var(--font-size-multiplier, 1));
+    background: none; border: 0; cursor: pointer;
+    padding: calc(0.45rem * var(--font-size-multiplier, 1)) 0;
+  }
+  .pp-vm-row:hover { background: rgb(var(--muted) / .45); }
+  .pp-vm-row[data-fixed] { cursor: default; }
+  .pp-vm-group {
+    display: grid; gap: 0 calc(2rem * var(--font-size-multiplier, 1));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   }
 
   
@@ -1405,7 +1533,8 @@
   }
   .pp-th-new:hover { border-color: rgb(var(--muted-foreground)); }
   
-  .pp-glpreset:hover { border-color: rgb(var(--muted-foreground)); }
+  .pp-glpreset:hover,
+  .pp-pick:hover { border-color: rgb(var(--muted-foreground)); }
   .pp-th-newinput {
     flex: 1; min-width: 0; background: transparent; border: 0; outline: none;
     font-family: inherit; color: rgb(var(--foreground));
@@ -1933,6 +2062,59 @@
       </span>
     </div>
 
+    
+    <div class="px-8 pt-4 flex justify-end">
+      <button type="button" class="flex items-center gap-2 cursor-pointer text-muted-foreground hover:text-foreground"
+              data-collapse="viewmodel" aria-label="Dashboard settings">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+        <span class="font-body-sm" data-vm-label>Balanced</span>
+      </button>
+    </div>
+
+    <div class="px-8 pt-4" data-collapse-body="viewmodel" hidden>
+      <section class="bg-card border border-border pp-pad" data-vm-panel>
+        <p class="pp-title"><span>How much do you want to see?</span></p>
+
+        
+        <div class="flex flex-wrap items-center gap-3 mt-4">
+          <div class="flex items-center gap-1 bg-muted rounded-lg p-1" data-segment="viewpreset">
+            <button type="button" data-segment-value="quiet" aria-selected="false"
+              class="px-6 py-1.5 rounded-md text-sm font-semibold transition-all cursor-pointer">Quiet</button>
+            <button type="button" data-segment-value="balanced" aria-selected="true"
+              class="px-6 py-1.5 rounded-md text-sm font-semibold transition-all cursor-pointer">Balanced</button>
+            <button type="button" data-segment-value="full" aria-selected="false"
+              class="px-6 py-1.5 rounded-md text-sm font-semibold transition-all cursor-pointer">Full</button>
+          </div>
+        </div>
+
+        <p class="font-body-sm text-muted-foreground mt-3" data-vm-blurb></p>
+
+        
+        <p class="font-body-sm text-muted-foreground mt-1">
+          This sets how much the Stats page shows you. It won&rsquo;t change what&rsquo;s pinned below.
+        </p>
+
+        <div class="border-t border-border mt-5 pt-5">
+          <p class="font-body-med text-foreground">On your Dashboard</p>
+          <p class="font-body-sm text-muted-foreground mt-1.5">
+            Every card lives on its own tab. This is which of them also greet you here.
+          </p>
+          
+          <div class="mt-4" data-vm-list></div>
+        </div>
+
+        
+        <p class="font-body-sm text-muted-foreground border-t border-border mt-5 pt-4">
+          Cards appear as they fill up. On your first day most of these have nothing to say yet,
+          so they wait until they do.
+        </p>
+      </section>
+    </div>
+
    <div data-dash-state="rich">
     <div class="px-8 pt-4 pb-6 space-y-6">
 
@@ -1941,7 +2123,9 @@
 
         
         
-        <section class="cascade-block pp-today bg-card border border-border min-w-0" style="animation-delay:0ms">
+        
+        <section class="cascade-block pp-today bg-card border border-border min-w-0"
+                 data-card="today" data-card-name="Today" data-card-fixed style="animation-delay:0ms">
 
           
           <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
@@ -1984,7 +2168,8 @@
         </section>
 
         
-        <div class="flex flex-col gap-6 min-w-0">
+        
+        <div class="flex flex-col gap-6 min-w-0" data-card="quicksprint" data-card-name="Quick sprint">
 
           
           <section class="cascade-block bg-card border border-border flex flex-col min-w-0" style="animation-delay:40ms; flex:1 1 0"
@@ -2128,6 +2313,7 @@
         <div class="grid gap-6" data-dash-row2 style="grid-column:1 / -1">
           
           <section class="cascade-block bg-card border border-border flex flex-col min-w-0"
+                   data-card="deadline" data-card-name="Your Deadline"
                    data-dl-summary style="animation-delay:20ms">
 
             
@@ -2193,7 +2379,9 @@
 
           
           
+          
           <section class="cascade-block bg-card border border-border flex flex-col min-w-0 overflow-hidden"
+                   data-card="goals" data-card-name="Active goals"
                    style="animation-delay:90ms" data-dashgoals>
 
             
@@ -2202,7 +2390,11 @@
         </div>
 
         
+        <div class="grid gap-6" data-dash-row3 style="grid-column:1 / -1">
+
+        
         <section class="cascade-block bg-card border border-border pp-pad flex flex-col min-w-0"
+                 data-card="hours" data-card-name="The hours you keep"
                  data-hk style="animation-delay:120ms">
           
           <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1" style="margin-bottom:calc(0.5rem * var(--font-size-multiplier, 1))">
@@ -2236,9 +2428,54 @@
         </section>
 
         
-        <section class="cascade-block bg-card border border-border flex flex-col min-w-0" style="animation-delay:150ms">
+        <section class="cascade-block bg-card border border-border flex flex-col min-w-0"
+                 data-card="threads" data-card-name="Threads" style="animation-delay:150ms">
           <div class="pp-in pp-int pb-5 flex flex-col" style="flex:1 1 0" data-dash-threads></div>
         </section>
+        </div>
+
+        
+        <div class="grid gap-6" data-dash-row4 style="grid-column:1 / -1">
+
+          <section class="cascade-block bg-card border border-border pp-pad flex flex-col min-w-0"
+                   data-card="words" data-card-name="Words" style="animation-delay:180ms">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <p class="pp-title"><span>Words</span></p>
+              <a href="#" class="font-body-sm text-primary hover:underline shrink-0" data-goto-tab="stats">All stats &rarr;</a>
+            </div>
+            <p class="pp-num-lg text-foreground tabular-nums" style="margin-top:calc(0.9rem * var(--font-size-multiplier, 1))"
+               data-period-value data-day="1,284" data-week="10,274" data-month="34,180" data-all="212,900" data-scope-set-book="1,284|10,274|34,180|212,900" data-scope-set-all="1,540|12,180|41,600|486,240">10,274</p>
+            <p class="font-body-sm text-muted-foreground mt-1" data-period-note
+               data-day="today" data-week="this week" data-month="July, so far" data-all="in this book"
+               data-scope-set-book="today|this week|July, so far|in this book"
+               data-scope-set-all="today|this week|July, so far|written, all time">this week</p>
+          </section>
+
+          <section class="cascade-block bg-card border border-border pp-pad flex flex-col min-w-0"
+                   data-card="timewriting" data-card-name="Time writing" style="animation-delay:210ms">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <p class="pp-title"><span>Time writing</span></p>
+              <a href="#" class="font-body-sm text-primary hover:underline shrink-0" data-goto-tab="stats">All stats &rarr;</a>
+            </div>
+            <p class="pp-num-lg text-foreground tabular-nums" style="margin-top:calc(0.9rem * var(--font-size-multiplier, 1))"
+               data-period-value data-day="1h 47m" data-week="12h 40m" data-month="51h 20m" data-all="268h" data-scope-set-book="1h 47m|12h 40m|51h 20m|268h" data-scope-set-all="2h 10m|15h 05m|62h 10m|612h">12h 40m</p>
+            <p class="font-body-sm text-muted-foreground mt-1">present and working</p>
+          </section>
+
+          <section class="cascade-block bg-card border border-border pp-pad flex flex-col min-w-0"
+                   data-card="streak" data-card-name="Streak" style="animation-delay:240ms">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+              <p class="pp-title"><span>Streak</span></p>
+              <a href="#" class="font-body-sm text-primary hover:underline shrink-0" data-goto-tab="stats">All stats &rarr;</a>
+            </div>
+            
+            <p class="pp-num-lg text-foreground tabular-nums" style="margin-top:calc(0.9rem * var(--font-size-multiplier, 1))"
+               data-scope-value data-book="23 days" data-all="23 days">23 days</p>
+            <p class="font-body-sm text-muted-foreground mt-1"
+               data-scope-value data-book="in this book" data-all="across everything you've written">across everything you&rsquo;ve written</p>
+          </section>
+
+        </div>
       </div>
     </div>
    </div>
@@ -2251,7 +2488,8 @@
 
         
         
-        <section class="cascade-block pp-today bg-card border border-border min-w-0" style="animation-delay:0ms">
+        <section class="cascade-block pp-today bg-card border border-border min-w-0"
+                 data-card="today" data-card-name="Today" data-card-fixed style="animation-delay:0ms">
 
           <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
             <p class="pp-title"><span>Today &middot; Monday, July 27</span></p>
@@ -2289,7 +2527,7 @@
           </div>
         </section>
 
-        <div class="flex flex-col gap-6 min-w-0">
+        <div class="flex flex-col gap-6 min-w-0" data-card="quicksprint" data-card-name="Quick sprint">
 
           
           <section class="cascade-block bg-card border border-border flex flex-col min-w-0" style="animation-delay:40ms; flex:1 1 0"
@@ -2429,41 +2667,60 @@
       <div class="grid gap-6" data-dash-grid>
 
         
-        <section class="cascade-block bg-card border border-border flex flex-col min-w-0 overflow-hidden" style="animation-delay:60ms">
+        <div class="grid gap-6" data-dash-row2 style="grid-column:1 / -1">
+
+        
+        
+        <section class="cascade-block bg-card border border-border flex flex-col min-w-0 overflow-hidden"
+                 data-card="deadline" data-card-name="Your Deadline" style="animation-delay:60ms">
           <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 pp-in pp-int pb-3 border-b border-border">
             <p class="pp-title"><span>Start here</span></p>
             <a href="#" class="font-body-sm text-primary hover:underline shrink-0" data-goto-tab="goals">All twelve &rarr;</a>
           </div>
+          
           <div class="pp-cardscroll" style="flex:1 1 0">
-            
-            <a href="#" data-goto-tab="goals" data-dl-edit
-               class="block pp-in py-4 border-b border-border hover:bg-muted">
-              <span class="font-body-sm block" style="color:var(--pp-c2)">Deadline</span>
-              <span class="font-heading-sm text-foreground block mt-0.5">What are you finishing, and by when?</span>
-              <span class="font-body-sm text-muted-foreground block mt-1.5">
-                A finish date, and the daily pace that gets you there. Works from your first day.
-              </span>
-            </a>
+            <div class="pp-in py-4 space-y-3">
+              
+              <a href="#" data-goto-tab="goals" data-dl-edit
+                 class="pp-pick block border border-border bg-muted p-5 cursor-pointer" data-startpick>
+                <span class="flex items-center gap-2.5">
+                  <i class="block shrink-0" style="width:9px; height:9px; background:var(--pp-c2)"></i>
+                  <span class="font-body-med text-foreground">Set a deadline</span>
+                  <span class="font-body-sm text-primary ml-auto shrink-0" aria-hidden="true">&rarr;</span>
+                </span>
+                <span class="font-body-sm text-muted-foreground block mt-1.5">
+                  What are you working on, and when do you want to finish? Works from your first day.
+                </span>
+              </a>
 
-            <div class="pp-title-sub pp-in pt-4 pb-2">Or start with a goal</div>
-            <a href="#" data-goto-tab="goals" class="flex items-start gap-3 pp-in py-3 border-t border-border hover:bg-muted">
-              <i class="block shrink-0" style="width:9px; height:9px; margin-top:.45rem; background:var(--pp-c3)"></i>
-              <span class="min-w-0">
-                <span class="font-body-sm text-foreground block">A daily word goal</span>
-                <span class="font-body-sm text-muted-foreground block mt-0.5">A number to reach before bed. Starts working tonight.</span>
-              </span>
-            </a>
+              <a href="#" data-goto-tab="goals"
+                 class="pp-pick block border border-border bg-muted p-5 cursor-pointer" data-startpick>
+                <span class="flex items-center gap-2.5">
+                  <i class="block shrink-0" style="width:9px; height:9px; background:var(--pp-c3)"></i>
+                  <span class="font-body-med text-foreground">Set a daily word goal</span>
+                  <span class="font-body-sm text-primary ml-auto shrink-0" aria-hidden="true">&rarr;</span>
+                </span>
+                <span class="font-body-sm text-muted-foreground block mt-1.5">
+                  A number to reach before bed. Starts working tonight.
+                </span>
+              </a>
+            </div>
             
           </div>
         </section>
 
         
-        <section class="cascade-block bg-card border border-border flex flex-col min-w-0" style="animation-delay:90ms">
+        <section class="cascade-block bg-card border border-border flex flex-col min-w-0"
+                 data-card="threads" data-card-name="Threads" style="animation-delay:90ms">
           <div class="pp-in pp-int pb-5 flex flex-col" style="flex:1 1 0" data-dash-threads-empty></div>
         </section>
+        </div>
+
+        <div class="grid gap-6" data-dash-row3 style="grid-column:1 / -1">
 
         
-        <section class="cascade-block bg-card border border-border pp-pad flex flex-col min-w-0" style="animation-delay:120ms">
+        <section class="cascade-block bg-card border border-border pp-pad flex flex-col min-w-0"
+                 data-card="fillsin" data-card-name="What fills in as you write" style="animation-delay:120ms">
           <p class="pp-title pp-titlegap"><span>What fills in as you write</span></p>
 
           
@@ -2496,7 +2753,8 @@
         </section>
 
         
-        <section class="cascade-block bg-card border border-border flex flex-col min-w-0" style="animation-delay:150ms">
+        <section class="cascade-block bg-card border border-border flex flex-col min-w-0"
+                 data-card="booknow" data-card-name="Your book right now" style="animation-delay:150ms">
           <div class="pp-in pp-int pb-3 border-b border-border">
             <p class="pp-title"><span>Your book right now</span></p>
             <p class="font-body-sm text-muted-foreground mt-0.5">Counted from the book, not from your history</p>
@@ -2524,6 +2782,7 @@
             </div>
           </div>
         </section>
+        </div>
       </div>
     </div>
    </div>
@@ -2535,14 +2794,28 @@
 
       
       <div class="flex flex-wrap items-center justify-between gap-4">
-        <div class="flex items-center gap-1 bg-muted rounded-lg p-1" data-segment="statsmode">
-          <button type="button" data-segment-value="basic" aria-selected="true"
-            class="px-4 py-1.5 rounded-md text-sm font-semibold transition-all cursor-pointer">Basic</button>
-          <button type="button" data-segment-value="advanced" aria-selected="false"
-            class="px-4 py-1.5 rounded-md text-sm font-semibold transition-all cursor-pointer">Advanced</button>
+        
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="font-body-sm text-muted-foreground">Showing</span>
+          <div class="flex items-center gap-1 bg-muted rounded-lg p-1" data-segment="viewpreset">
+            <button type="button" data-segment-value="quiet" aria-selected="false"
+              class="px-4 py-1.5 rounded-md text-sm font-semibold transition-all cursor-pointer">Quiet</button>
+            <button type="button" data-segment-value="balanced" aria-selected="true"
+              class="px-4 py-1.5 rounded-md text-sm font-semibold transition-all cursor-pointer">Balanced</button>
+            <button type="button" data-segment-value="full" aria-selected="false"
+              class="px-4 py-1.5 rounded-md text-sm font-semibold transition-all cursor-pointer">Full</button>
+          </div>
         </div>
 
         <div class="flex flex-wrap items-center gap-3">
+          
+          <span class="font-body-sm text-muted-foreground">Counting</span>
+          <div class="flex items-center gap-1 bg-muted rounded-lg p-1" data-segment="scope">
+            <button type="button" data-segment-value="book" aria-selected="true"
+              class="px-3 py-1.5 rounded-md text-sm font-semibold transition-all cursor-pointer">Just this book</button>
+            <button type="button" data-segment-value="all" aria-selected="false"
+              class="px-3 py-1.5 rounded-md text-sm font-semibold transition-all cursor-pointer">Everything I&rsquo;ve written</button>
+          </div>
           <span class="font-body-sm text-muted-foreground" data-period-label>Tuesday the 21st to Monday the 27th</span>
           <div class="flex items-center gap-1 bg-muted rounded-lg p-1" data-segment="period">
             <button type="button" data-segment-value="day" aria-selected="false"
@@ -2558,19 +2831,24 @@
       </div>
 
       
-      <div data-segment-panel="statsmode:basic">
+      <div>
         <div class="space-y-6">
 
           <div class="grid gap-6" data-stats-grid>
 
             
-            <section class="cascade-block bg-card border border-border pp-pad" style="animation-delay:0ms">
+            <section data-tier="quiet" data-card="words" data-card-name="Words" class="cascade-block bg-card border border-border pp-pad" style="animation-delay:0ms">
               <p class="pp-title" style="margin-bottom:calc(1.1rem * var(--font-size-multiplier, 1))"><span>Words</span></p>
+              
               <p class="pp-num-lg text-foreground tabular-nums"
-                 data-period-value data-day="1,284" data-week="10,274" data-month="34,180" data-all="486,240">10,274</p>
+                 data-period-value data-day="1,284" data-week="10,274" data-month="34,180" data-all="212,900"
+                 data-scope-set-book="1,284|10,274|34,180|212,900"
+                 data-scope-set-all="1,540|12,180|41,600|486,240">10,274</p>
               <p class="font-body-sm text-muted-foreground mt-1 mb-4"
                  data-period-note data-day="written today" data-week="written this week"
-                 data-month="written this month" data-all="written, all time">written this week</p>
+                 data-month="written this month" data-all="written in this book"
+                 data-scope-set-book="written today|written this week|written this month|written in this book"
+                 data-scope-set-all="written today|written this week|written this month|written, all time">written this week</p>
 
               <div class="pp-split mb-3">
                 <i style="width:83%; background:var(--pp-manuscript)"></i>
@@ -2583,7 +2861,9 @@
                     Manuscript
                   </span>
                   <span class="font-body-sm text-foreground tabular-nums"
-                    data-period-value data-day="1,102" data-week="8,530" data-month="28,410" data-all="402,180">8,530</span>
+                    data-period-value data-day="1,102" data-week="8,530" data-month="28,410" data-all="176,700"
+                    data-scope-set-book="1,102|8,530|28,410|176,700"
+                    data-scope-set-all="1,318|10,120|34,550|402,180">8,530</span>
                 </div>
                 <div class="flex items-baseline justify-between gap-3">
                   <span class="font-body-sm text-muted-foreground flex items-center gap-2">
@@ -2591,8 +2871,21 @@
                     Worldbuilding
                   </span>
                   <span class="font-body-sm text-foreground tabular-nums"
-                    data-period-value data-day="182" data-week="1,744" data-month="5,770" data-all="84,060">1,744</span>
+                    data-period-value data-day="182" data-week="1,744" data-month="5,770" data-all="36,200"
+                    data-scope-set-book="182|1,744|5,770|36,200"
+                    data-scope-set-all="222|2,060|7,050|84,060">1,744</span>
                 </div>
+              </div>
+
+              
+              <div class="flex items-baseline justify-between gap-3 border-t border-border mt-4 pt-3"
+                   data-period-thin="week month all">
+                <span class="font-body-sm text-muted-foreground shrink-0">Best day</span>
+                <span class="font-body-sm text-foreground tabular-nums text-right"
+                      data-period-value
+                      data-week="1,840 on Saturday" data-month="2,910 on the 12th" data-all="3,140 on June 14th"
+                      data-scope-set-book="—|1,840 on Saturday|2,910 on the 12th|3,140 on June 14th"
+                      data-scope-set-all="—|2,060 on Saturday, in Book Two|3,410 on the 9th, in Book Two|3,860 on June 2nd, in Book One">1,840 on Saturday</span>
               </div>
 
               
@@ -2624,27 +2917,27 @@
             </section>
 
             
-            <section class="cascade-block bg-card border border-border pp-pad" style="animation-delay:60ms">
+            <section data-tier="balanced" data-card="timewriting" data-card-name="Time writing" class="cascade-block bg-card border border-border pp-pad" style="animation-delay:60ms">
               <p class="pp-title" style="margin-bottom:calc(1.1rem * var(--font-size-multiplier, 1))"><span>Time writing</span></p>
               <p class="pp-num-lg text-foreground tabular-nums"
-                 data-period-value data-day="1h 47m" data-week="12h 40m" data-month="51h 20m" data-all="612h">12h 40m</p>
+                 data-period-value data-day="1h 47m" data-week="12h 40m" data-month="51h 20m" data-all="268h" data-scope-set-book="1h 47m|12h 40m|51h 20m|268h" data-scope-set-all="2h 10m|15h 05m|62h 10m|612h">12h 40m</p>
               <p class="font-body-sm text-muted-foreground mt-1 mb-4">present and working</p>
 
               <div class="space-y-2">
                 <div class="flex items-baseline justify-between gap-3">
                   <span class="font-body-sm text-muted-foreground">Flowstate</span>
                   <span class="font-body-sm text-foreground tabular-nums"
-                        data-period-value data-day="35m" data-week="4h 55m" data-month="19h 30m" data-all="232h">4h 55m</span>
+                        data-period-value data-day="35m" data-week="4h 55m" data-month="19h 30m" data-all="101h" data-scope-set-book="35m|4h 55m|19h 30m|101h" data-scope-set-all="42m|5h 50m|23h 40m|232h">4h 55m</span>
                 </div>
                 <div class="flex items-baseline justify-between gap-3">
                   <span class="font-body-sm text-muted-foreground">Timer and sprints</span>
                   <span class="font-body-sm text-foreground tabular-nums"
-                        data-period-value data-day="40m" data-week="2h 05m" data-month="5h 50m" data-all="61h">2h 05m</span>
+                        data-period-value data-day="40m" data-week="2h 05m" data-month="5h 50m" data-all="27h" data-scope-set-book="40m|2h 05m|5h 50m|27h" data-scope-set-all="48m|2h 30m|7h 05m|61h">2h 05m</span>
                 </div>
                 <div class="flex items-baseline justify-between gap-3">
                   <span class="font-body-sm text-muted-foreground">Sessions</span>
                   <span class="font-body-sm text-foreground tabular-nums"
-                        data-period-value data-day="3" data-week="11" data-month="44" data-all="486">11</span>
+                        data-period-value data-day="3" data-week="11" data-month="44" data-all="212" data-scope-set-book="3|11|44|212" data-scope-set-all="4|13|53|486">11</span>
                 </div>
               </div>
                 <div class="flex items-baseline justify-between gap-3 border-t border-border mt-3 pt-3">
@@ -2655,10 +2948,11 @@
             </section>
 
             
-            <section class="cascade-block bg-card border border-border pp-pad" style="animation-delay:120ms">
+            <section data-tier="quiet" data-card="streak" data-card-name="Streak" class="cascade-block bg-card border border-border pp-pad" style="animation-delay:120ms">
               <p class="pp-title" style="margin-bottom:calc(1.1rem * var(--font-size-multiplier, 1))"><span>Streak</span></p>
               <p class="pp-num-lg text-foreground tabular-nums">23 days</p>
-              <p class="font-body-sm text-muted-foreground mt-1 mb-4">unbroken since July 5th</p>
+              
+              <p class="font-body-sm text-muted-foreground mt-1 mb-4">unbroken since July 5th, across everything you&rsquo;ve written</p>
 
               
               <div class="flex items-end gap-1.5 mb-4">
@@ -2671,9 +2965,13 @@
                 <div class="flex-1"><div style="height:1.6rem; background:var(--pp-heat)"></div><div class="font-caption text-foreground text-center mt-1.5">M</div></div>
               </div>
 
-              <div class="flex items-baseline justify-between gap-3 border-t border-border pt-3 mb-4">
+              <div class="flex items-baseline justify-between gap-3 border-t border-border pt-3">
                 <span class="font-body-sm text-muted-foreground">Longest ever</span>
                 <span class="font-body-sm text-foreground tabular-nums">41 days</span>
+              </div>
+              <div class="flex items-baseline justify-between gap-3 pt-3 mb-4">
+                <span class="font-body-sm text-muted-foreground">In this book alone</span>
+                <span class="font-body-sm text-foreground tabular-nums">12 days</span>
               </div>
 
               <p class="pp-obs font-body-sm text-foreground">
@@ -2683,27 +2981,131 @@
           </div>
 
           
-          <section class="cascade-block bg-card border border-border pp-pad flex flex-col min-w-0"
-                   style="animation-delay:150ms" data-fortnight>
-            <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
-              <div>
-                <p class="pp-title"><span>The last fourteen days</span></p>
-                <p class="font-caption text-muted-foreground mt-0.5">Dashed line: your 1,500 word daily goal</p>
+          <div class="mt-6" data-scope-only="all" hidden>
+            <section class="cascade-block bg-card border border-border pp-pad" style="animation-delay:150ms" data-tier="balanced" data-career>
+              <div class="flex flex-wrap items-start justify-between gap-4 mb-1">
+                <p class="pp-title"><span>What you&rsquo;ve written</span></p>
+                <span class="font-caption text-muted-foreground shrink-0">everything, since November 2024</span>
               </div>
-              <div class="flex items-center gap-4 shrink-0">
-                <span class="font-body-sm text-muted-foreground flex items-center gap-2">
-                  <i class="block shrink-0" style="width:9px; height:9px; background:var(--pp-manuscript)"></i>
-                  Manuscript
-                </span>
-                <span class="font-body-sm text-muted-foreground flex items-center gap-2">
-                  <i class="block shrink-0" style="width:9px; height:9px; background:var(--pp-worldbuilding)"></i>
-                  Worldbuilding
-                </span>
+
+              <div class="pp-career-grid mt-5">
+                <div>
+                  <p class="pp-num-md text-foreground tabular-nums">5</p>
+                  <p class="font-body-sm text-muted-foreground mt-1">books started</p>
+                </div>
+                <div>
+                  <p class="pp-num-md text-foreground tabular-nums">3</p>
+                  <p class="font-body-sm text-muted-foreground mt-1">books finished</p>
+                </div>
+                <div>
+                  <p class="pp-num-md text-foreground tabular-nums">88,600</p>
+                  <p class="font-body-sm text-muted-foreground mt-1">average finished length</p>
+                </div>
+                <div>
+                  <p class="pp-num-md text-foreground tabular-nums">3,180</p>
+                  <p class="font-body-sm text-muted-foreground mt-1">average chapter</p>
+                </div>
+              </div>
+
+              
+              <p class="font-body-sm text-muted-foreground mt-5 pt-4 border-t border-border">
+                Your average chapter is where Penpoint&rsquo;s suggested chapter targets come from.
+              </p>
+
+              
+              <p class="pp-obs font-body-sm text-foreground mt-4">
+                Two of these are books you no longer keep in Penpoint. The words still count.
+              </p>
+            </section>
+          </div>
+
+          
+          
+          <div class="grid gap-6" data-fortnight-row
+               style="grid-template-columns:repeat(2, minmax(0, 1fr))">
+
+            
+            <section class="cascade-block bg-card border border-border pp-pad flex flex-col min-w-0"
+                     style="animation-delay:180ms" data-tier="balanced" data-sprintchart>
+              <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                <div class="min-w-0">
+                  <p class="pp-title"><span>Inside sprints</span></p>
+                  <div class="pp-legend font-caption text-muted-foreground mt-0.5" data-sprint-legend>
+                    <span><i class="pp-lg-dash"></i>Average sprint day
+                      <span class="text-foreground tabular-nums">976</span></span>
+                  </div>
+                </div>
+                
+                <span class="font-body-sm text-muted-foreground shrink-0 tabular-nums"
+                      data-sprint-fortnight-count>12 sprints over 9 days</span>
+              </div>
+
+              
+              <div class="pp-chart" style="flex:1 1 0" data-sprint-axis="2000">
+                <div class="pp-yaxis font-caption text-muted-foreground tabular-nums">
+                  <span>2,000</span><span>1,000</span><span>0</span>
+                </div>
+                <div class="pp-plot" style="min-height:12rem">
+                  
+                  
+                  <div class="pp-goalline" style="bottom:48.8%" data-sprint-avg="976"></div>
+                  <div class="pp-cols pp-cols-sprint" style="height:100%" data-sprint-cols>
+                    <div title="Tuesday the 14th &middot; no sprint"><i class="pp-col-none"></i></div>
+                    <div title="Wednesday the 15th &middot; 620 words in 1 sprint"><i style="height:31%"></i></div>
+                    <div title="Thursday the 16th &middot; 880 words in 1 sprint"><i style="height:44%"></i></div>
+                    <div title="Friday the 17th &middot; 1,450 words in 2 sprints"><i style="height:72.5%"></i></div>
+                    <div title="Saturday the 18th &middot; no sprint"><i class="pp-col-none"></i></div>
+                    <div title="Sunday the 19th &middot; no sprint"><i class="pp-col-none"></i></div>
+                    <div title="Monday the 20th &middot; 700 words in 1 sprint"><i style="height:35%"></i></div>
+                    <div title="Tuesday the 21st &middot; 1,120 words in 1 sprint"><i style="height:56%"></i></div>
+                    <div title="Wednesday the 22nd &middot; no sprint"><i class="pp-col-none"></i></div>
+                    <div title="Thursday the 23rd &middot; 1,380 words in 2 sprints"><i style="height:69%"></i></div>
+                    <div title="Friday the 24th &middot; 430 words in 1 sprint"><i style="height:21.5%"></i></div>
+                    <div title="Saturday the 25th &middot; no sprint"><i class="pp-col-none"></i></div>
+                    <div title="Sunday the 26th &middot; 1,204 words in 1 sprint"><i style="height:60.2%"></i></div>
+                    <div class="pp-col-lit" title="Today &middot; 1,000 words in 2 sprints"><i style="height:50%"></i></div>
+                  </div>
+                </div>
+                <div></div>
+                
+                <div class="pp-daylabels font-caption text-muted-foreground" data-sprint-days>
+                  <span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span><span class="text-foreground">M</span>
+                </div>
+              </div>
+
+              <div class="flex items-baseline justify-between gap-4 mt-3 font-body-sm text-muted-foreground">
+                <span>July 14th</span>
+                <span><span class="text-foreground tabular-nums" data-sprint-fortnight>8,784</span> words in sprints</span>
+                <span>Today</span>
+              </div>
+              
+            </section>
+
+            
+            <section class="cascade-block bg-card border border-border pp-pad flex flex-col min-w-0"
+                     style="animation-delay:240ms" data-tier="balanced" data-fortnight>
+            <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+              <div class="min-w-0">
+                <p class="pp-title"><span>The last fourteen days</span></p>
+                
+                <div class="pp-legend font-caption text-muted-foreground mt-0.5" data-fortnight-legend>
+                  <span><i class="pp-lg-box" style="background:var(--pp-manuscript)"></i>Manuscript</span>
+                  <span><i class="pp-lg-box" style="background:var(--pp-worldbuilding)"></i>Worldbuilding</span>
+                  <span><i class="pp-lg-dash"></i>Daily goal
+                    <span class="text-foreground tabular-nums">1,500</span></span>
+                </div>
               </div>
             </div>
 
-            <div class="relative" style="flex:1 1 0; min-height:9rem">
-              <div class="pp-goalline" style="bottom:62.5%"></div>
+            
+            <div class="pp-chart" style="flex:1 1 0" data-fortnight-axis="2400">
+              <div class="pp-yaxis font-caption text-muted-foreground tabular-nums">
+                <span>2,400</span><span>1,200</span><span>0</span>
+              </div>
+              <div class="pp-plot" style="min-height:12rem">
+              <div class="pp-gridline" style="bottom:50%"></div>
+              
+              <div class="pp-goalline" style="bottom:62.5%" data-fortnight-goal="1500"></div>
               <div class="pp-cols pp-cols-words" style="height:100%">
                 <div title="Tuesday the 14th &middot; 1,180 words (140 worldbuilding)"><i style="height:49%"><u style="height:12%"></u></i></div>
                 <div title="Wednesday the 15th &middot; 1,540 words (180 worldbuilding)"><i style="height:64%"><u style="height:12%"></u></i></div>
@@ -2720,6 +3122,11 @@
                 <div title="Sunday the 26th &middot; 1,940 words (262 worldbuilding)"><i style="height:81%"><u style="height:14%"></u></i></div>
                 <div class="pp-col-lit" title="Today &middot; 1,284 words (182 worldbuilding)"><i style="height:54%"><u style="height:14%"></u></i></div>
               </div>
+              </div>
+              <div></div>
+              <div class="pp-daylabels font-caption text-muted-foreground" data-fortnight-days>
+                <span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span><span class="text-foreground">M</span>
+              </div>
             </div>
 
             
@@ -2728,49 +3135,127 @@
               <span><span class="text-foreground tabular-nums" data-fortnight-total>19,484</span> words in fourteen days</span>
               <span>Today</span>
             </div>
-            <p class="font-caption text-muted-foreground mt-2" data-fortnight-scope>This week is the last seven columns.</p>
-          </section>
+            </section>
+          </div>
 
           
-          <section class="cascade-block bg-card border border-border pp-pad" style="animation-delay:180ms">
-            <div class="flex flex-wrap items-start justify-between gap-4 mb-5">
-              <div>
-                <p class="pp-title"><span>Writing activity</span></p>
-                <p class="font-body-sm text-muted-foreground mt-0.5">The last twelve months, every book you own</p>
-              </div>
-              <div class="flex items-center gap-2 shrink-0">
-                <span class="font-caption text-muted-foreground">Quiet</span>
-                <span class="pp-heat" style="grid-template-rows:repeat(1,11px)">
-                  <b style="--o:.14"></b><b style="--o:.32"></b><b style="--o:.55"></b><b style="--o:.78"></b><b style="--o:1"></b>
-                </span>
-                <span class="font-caption text-muted-foreground">Busy</span>
-              </div>
-            </div>
+          <div class="space-y-6" data-wa-root>
 
-            <div class="overflow-x-auto" style="scrollbar-gutter:auto">
-              <div class="flex items-start gap-2" data-heat-row>
-                <div class="pp-heat-days font-caption text-muted-foreground shrink-0" style="width:2rem">
-                  <div>&nbsp;</div>
-                  <div>Mon</div>
-                  <div>&nbsp;</div>
-                  <div>Wed</div>
-                  <div>&nbsp;</div>
-                  <div>Fri</div>
-                  <div>&nbsp;</div>
+            
+            <section class="cascade-block bg-card border border-border pp-pad" style="animation-delay:300ms" data-tier="balanced" data-wa-day>
+              <div class="flex flex-wrap items-start justify-between gap-4 mb-1">
+                <div class="min-w-0">
+                  <p class="pp-title"><span>Words a day</span></p>
+                  <div class="pp-legend font-caption text-muted-foreground mt-0.5">
+                    <span><i class="pp-lg-box" style="background:var(--pp-manuscript)"></i>Manuscript</span>
+                    <span><i class="pp-lg-box" style="background:var(--pp-worldbuilding)"></i>Worldbuilding</span>
+                    <span><i class="pp-lg-box" style="background:rgb(var(--muted-foreground)); opacity:.55"></i>Below the line, cutting</span>
+                  </div>
                 </div>
-                <div>
-                  <div class="pp-heat" data-heatmap></div>
-                  <div class="flex mt-2 font-caption text-muted-foreground" data-heat-months></div>
-                </div>
+                <span class="font-caption text-muted-foreground shrink-0" data-wa-daywin>Twelve months</span>
               </div>
-            </div>
 
-          </section>
+              <p class="font-body text-foreground mt-4" data-wa-dayline></p>
+              <div class="pp-wa mt-6" data-wa-daychart></div>
+              <div class="pp-wa-months font-caption text-muted-foreground mt-2" data-wa-daymonths></div>
+              <p class="font-body-sm text-muted-foreground mt-4" data-wa-dayfoot></p>
+            </section>
+
+            
+            <section class="cascade-block bg-card border border-border pp-pad" style="animation-delay:330ms" data-tier="balanced" data-wa-cum>
+              <div class="flex flex-wrap items-start justify-between gap-4 mb-1">
+                <p class="pp-title"><span>How long the book got</span></p>
+                <span class="font-caption text-muted-foreground shrink-0" data-wa-cumwin>Twelve months &middot; all books</span>
+              </div>
+
+              <p class="font-body text-foreground mt-4" data-wa-cumline></p>
+              <div class="pp-wa mt-6" data-wa-cumchart></div>
+              <div class="pp-wa-months font-caption text-muted-foreground mt-2" data-wa-cummonths></div>
+              <div class="flex flex-wrap items-baseline justify-between gap-4 mt-4">
+                <p class="font-body-sm text-muted-foreground" data-wa-cumfoot></p>
+                <span class="font-caption text-muted-foreground shrink-0" data-wa-cumstep></span>
+              </div>
+            </section>
+
+            
+            
+          </div>
+
+          
+          <div class="grid gap-6 mt-6" data-newcards-row>
+
+            
+            <section class="cascade-block bg-card border border-border pp-pad flex flex-col min-w-0"
+                     data-tier="balanced" data-ct style="animation-delay:360ms">
+              <div class="flex flex-wrap items-start justify-between gap-4 mb-1">
+                <p class="pp-title"><span>Chapter targets</span></p>
+                <span class="font-caption text-muted-foreground shrink-0" data-ct-win></span>
+              </div>
+
+              <p class="font-body text-foreground mt-4" data-ct-line></p>
+
+              
+              <div class="pp-cardscroll mt-4" style="max-height:15rem" data-ct-list></div>
+
+              <p class="font-body-sm text-muted-foreground mt-4" data-ct-foot></p>
+            </section>
+
+            
+            <section class="cascade-block bg-card border border-border pp-pad flex flex-col min-w-0"
+                     data-tier="full" data-ow style="animation-delay:390ms">
+              <div class="flex flex-wrap items-start justify-between gap-4 mb-1">
+                <p class="pp-title"><span>Words you lean on</span></p>
+                <span class="font-caption text-muted-foreground shrink-0" data-ow-win></span>
+              </div>
+
+              <p class="font-body text-foreground mt-4" data-ow-line></p>
+
+              <div class="flex flex-wrap items-center gap-y-2 mt-4" style="column-gap:calc(1.25rem * var(--font-size-multiplier, 1))">
+                <button type="button" class="flex items-center gap-2 cursor-pointer shrink-0" data-ow-opt="stop">
+                  <span class="pp-check" data-on>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <span class="font-body-sm text-muted-foreground">Skip common words</span>
+                </button>
+                <button type="button" class="flex items-center gap-2 cursor-pointer shrink-0" data-ow-opt="names">
+                  <span class="pp-check" data-on>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <span class="font-body-sm text-muted-foreground">Skip names from your book</span>
+                </button>
+              </div>
+
+              
+              <p class="font-caption text-muted-foreground mt-2" data-ow-lang>
+                The common-word and name lists are English for now.
+              </p>
+
+              <div class="pp-cardscroll mt-4" style="max-height:13.5rem" data-ow-list></div>
+
+              <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mt-4" data-ow-back hidden>
+                <span class="font-body-sm text-muted-foreground" data-ow-backlabel></span>
+                <button type="button" class="font-body-sm text-primary cursor-pointer underline underline-offset-2"
+                        data-ow-restore>Count them again</button>
+              </div>
+
+              <p class="font-body-sm text-muted-foreground mt-4" data-ow-foot></p>
+            </section>
+
+          </div>
+
+          
+          
         </div>
       </div>
 
       
-      <div data-segment-panel="statsmode:advanced" hidden>
+      <div data-tier="full" hidden>
+        <div class="border-t border-border pt-6 mb-6">
+          <p class="pp-title"><span>Patterns in how you work</span></p>
+          <p class="font-body-sm text-muted-foreground mt-1">
+            Across everything you&rsquo;ve written. These don&rsquo;t follow the Counting switch.
+          </p>
+        </div>
         <div class="grid gap-6" data-adv-grid>
 
           
@@ -2878,7 +3363,7 @@
                     data-when-focus="all" hidden>Whole series</span>
             </div>
             <p class="font-body-sm text-muted-foreground mb-5">
-              <span data-when-focus="this">Across 48 scenes in the Hound</span>
+              <span data-when-focus="this" class="truncate block">Across 48 scenes in The Hound of the Baskervilles</span>
               <span data-when-focus="all" hidden>Across 130 scenes in the series</span>
             </p>
 
@@ -2970,15 +3455,15 @@
               <div class="flex flex-wrap items-center gap-x-4 gap-y-1 pt-1">
                 <span class="font-caption text-muted-foreground flex items-center gap-2">
                   <i class="block shrink-0" style="width:9px; height:9px; background:var(--pp-book1)"></i>
-                  The Adventures
+                  <span class="truncate">The Adventures of Sherlock Holmes</span>
                 </span>
                 <span class="font-caption text-muted-foreground flex items-center gap-2">
                   <i class="block shrink-0" style="width:9px; height:9px; background:var(--pp-book2)"></i>
-                  The Hound
+                  <span class="truncate">The Hound of the Baskervilles</span>
                 </span>
                 <span class="font-caption text-muted-foreground flex items-center gap-2">
                   <i class="block shrink-0" style="width:9px; height:9px; background:var(--pp-book3)"></i>
-                  The Final Problem
+                  <span class="truncate">The Final Problem</span>
                 </span>
               </div>
             </div>
@@ -2986,14 +3471,14 @@
             
             <p class="pp-obs font-body-sm text-foreground border-t border-border mt-5 pt-4">
               <span data-when-focus="this">Dr. Mortimer&rsquo;s last viewpoint scene is chapter five, and nineteen chapters follow it.</span>
-              <span data-when-focus="all" hidden>Holmes carries over a third of The Adventures and none of The Final Problem.</span>
+              <span data-when-focus="all" hidden>Holmes carries over a third of The Adventures of Sherlock Holmes and none of The Final Problem.</span>
             </p>
 
             
             <div class="mt-auto pt-5">
               
               <p class="font-body-sm text-muted-foreground">
-                <span data-when-focus="this">13 of the Hound&rsquo;s 61 scenes have no viewpoint set.</span>
+                <span data-when-focus="this">13 of this book&rsquo;s 61 scenes have no viewpoint set.</span>
                 <span data-when-focus="all" hidden>21 of the series&rsquo; 151 scenes have no viewpoint set.</span>
               </p>
             </div>
@@ -3923,10 +4408,21 @@
                                  'calc(21.5rem * ' + M + ') calc(21rem * ' + M + ')'],
     ['[data-stats-grid]',   980, 'repeat(3, minmax(0,1fr))', ''],
     ['[data-adv-grid]',    1100, 'repeat(2, minmax(0,1fr))', ''],
+    // Chapter targets beside the word finder. Same breakpoint as the fortnight
+    // row above them: both hold a list that becomes a smear in a third.
+    ['[data-newcards-row]', 1100, 'repeat(2, minmax(0,1fr))', ''],
     // Row two of the dashboard, and only row two. See the note on the wrapper:
     // the deadline card does not need 65% for one number and a sentence, and
     // Active goals could not do its job in the 35% that left.
     ['[data-dash-row2]', 1180, 'repeat(2, minmax(0,1fr))', ''],
+    // Row three, wrapped 2026-08-06 so the pin model can collapse it without
+    // moving anything (§7.9). 1.9fr / 1fr is exactly the ratio these two cards
+    // already had as direct children of [data-dash-grid] — the wrapper changes
+    // who owns the template, not what it says.
+    ['[data-dash-row3]', 1180, 'minmax(0,1.9fr) minmax(0,1fr)', ''],
+    // Three compact readings pinned across from Stats. Even thirds, and the
+    // collapse rule takes it to one column when only one survives.
+    ['[data-dash-row4]', 1180, 'repeat(3, minmax(0,1fr))', ''],
     ['[data-goals-grid]',  1180, 'minmax(0,1.9fr) minmax(0,1fr)', ''],
     // A goal card puts its READING beside its sentence while there is room for
     // both, and underneath it when there is not. Two selectors, one rule: the
@@ -3941,6 +4437,92 @@
     ['[data-goalsel-grid]',  900, 'minmax(0,1fr) calc(15.5rem * ' + M + ')', ''],
     ['[data-threads-grid]', 980, 'minmax(0, calc(24rem * ' + M + ')) minmax(0,1fr)', '']
   ];
+  // ── Rows collapse, cards never move (§7.9) ─────────────────────────────
+  // Runs after GRIDS has written the full-strength templates, and overrides
+  // them for any row that has lost a card.
+  //
+  // THE RULE: a row re-templates itself from its OWN visible children. One card
+  // left goes full width; an empty row hides itself; an empty [data-dash-grid]
+  // hides too. Nothing is ever re-parented and no card changes column, which is
+  // the entire point — placement on these grids is implicit auto-flow, so
+  // without this, switching off one card silently redraws a card designed wide
+  // into the narrow column.
+  //
+  // [data-dash-grid]'s two row heights are index-based, so a grid showing only
+  // its second row must be told to use the SECOND height. Handing it the first
+  // would give row three the deadline row's 21.5rem and reintroduce the
+  // day-one overflow the explicit heights exist to prevent.
+  function visibleKids(el) {
+    return Array.prototype.filter.call(el.children, function (k) {
+      return !k.hidden && k.style.display !== 'none';
+    });
+  }
+  // A row's height belongs to the ROW, not to its position in the grid. Keyed
+  // by position, a grid showing only rows three and four would hand row three
+  // the deadline row's 21.5rem and reintroduce the day-one overflow the
+  // explicit heights exist to prevent.
+  var ROW_H = {
+    'data-dash-row2': 'calc(21.5rem * ' + M + ')',
+    'data-dash-row3': 'calc(21rem * ' + M + ')',
+    // The pinned-from-Stats row is three short figure cards. Fixing its height
+    // would only donate slack, and nothing in it scrolls.
+    'data-dash-row4': 'auto'
+  };
+  function collapseDashRows(w) {
+    if (w < 1180) return;   // stacked already; every row is one column
+    document.querySelectorAll('[data-dash-state]').forEach(function (state) {
+      if (state.hidden) return;
+      var grid = state.querySelector('[data-dash-grid]');
+      var heights = [];
+      state.querySelectorAll('[data-dash-row2], [data-dash-row3], [data-dash-row4]')
+        .forEach(function (row) {
+          var kids = visibleKids(row);
+          row.hidden = kids.length === 0;
+          if (row.hidden) return;
+          // Fewer cards than the row was built for: give it exactly as many
+          // equal columns as it has cards. A survivor never sits in a slot
+          // sized for the card that left.
+          if (kids.length < row.children.length) {
+            row.style.gridTemplateColumns = 'repeat(' + kids.length + ', minmax(0,1fr))';
+          }
+          for (var k in ROW_H) {
+            if (row.hasAttribute(k)) { heights.push(ROW_H[k]); break; }
+          }
+        });
+      if (grid) {
+        grid.hidden = heights.length === 0;
+        grid.style.gridTemplateRows = heights.join(' ');
+      }
+      // The top row is a grid in its own right, not a wrapper, so it collapses
+      // by the same rule applied to its own cells.
+      var top = state.querySelector('[data-dash-top]');
+      if (top && visibleKids(top).length === 1) {
+        top.style.gridTemplateColumns = 'minmax(0,1fr)';
+      }
+    });
+  }
+
+  // The Stats half of §7.9.8, added 2026-08-07 when the view level began hiding
+  // cards on this page too.
+  //
+  // IT MUST RUN INSIDE layout(), AFTER the GRIDS loop, for the same reason
+  // collapseDashRows does. GRIDS re-applies each row's authored template on
+  // every relayout, so a collapse written before it is silently overwritten:
+  // the first build set two columns for two cards and then got three back, and
+  // the Quiet view showed a card-sized hole where the third card had been.
+  var STATS_ROWS = '[data-stats-grid], [data-fortnight-row], [data-newcards-row], [data-adv-grid]';
+  function collapseStatsRows(w) {
+    if (w < 980) return;   // already stacked to one column by GRIDS
+    document.querySelectorAll(STATS_ROWS).forEach(function (row) {
+      var kids = visibleKids(row);
+      row.hidden = kids.length === 0;
+      if (row.hidden) return;
+      if (kids.length < row.children.length) {
+        row.style.gridTemplateColumns = 'repeat(' + kids.length + ', minmax(0,1fr))';
+      }
+    });
+  }
+
   function layout() {
     var w = document.documentElement.clientWidth;
     GRIDS.forEach(function (g) {
@@ -3951,6 +4533,8 @@
         el.style.gridTemplateRows = (wide && g[3]) ? g[3] : '';
       });
     });
+    collapseDashRows(w);
+    collapseStatsRows(w);
     // Below ~1150 the centered tab bar and the Focus toggle would collide, so
     // the toggle drops out of its absolute slot and the bar spaces them apart.
     var tabbarEl = document.querySelector('[data-tabbar]');
@@ -3990,48 +4574,8 @@
     attributes: true, attributeFilter: ['style', 'data-theme']
   });
 
-  // ── Heatmap cells (52 weeks) ───────────────────────────────────────────
-  // Deterministic pseudo-random so the picture is stable between rebuilds.
-  var heat = document.querySelector('[data-heatmap]');
-  if (heat) {
-    var seed = 20260727;
-    var rnd = function () { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; };
-    var OP = [0.14, 0.32, 0.55, 0.78, 1];
-    var DAYS = 52 * 7;
-    for (var i = 0; i < DAYS; i++) {
-      var dow = i % 7;                            // row 0 = Sunday
-      var weekend = (dow === 0 || dow === 6);
-      var recent = i > DAYS - 24;                 // the current 23 day streak
-      var early = i < 90;                         // thinner before the writer got going
-      var r = rnd();
-      var b = document.createElement('b');
-      var blankOdds = weekend ? 0.45 : 0.18;
-      if (early) blankOdds += 0.22;
-      var blank = recent ? false : r < blankOdds;
-      if (blank) {
-        b.setAttribute('data-empty', '');
-      } else {
-        var lvl = Math.floor(rnd() * (weekend ? 3 : 5));
-        if (recent && lvl < 1) lvl = 1;
-        if (early && lvl > 2) lvl = 2;
-        b.style.setProperty('--o', OP[lvl]);
-      }
-      heat.appendChild(b);
-    }
-    // Month labels, evenly divided across the same width as the grid.
-    var months = document.querySelector('[data-heat-months]');
-    if (months) {
-      // Ends on July, so the window opens the August before.
-      var NAMES = ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
-      NAMES.forEach(function (n) {
-        var s = document.createElement('span');
-        s.textContent = n;
-        s.style.flex = '1 1 0';
-        s.style.minWidth = '0';
-        months.appendChild(s);
-      });
-    }
-  }
+  // The contribution heatmap and its generator were retired 2026-08-05 (§9.6.11).
+  // "Writing activity" is now two cards, rendered by prototype.js.
 
   // ── Generic segmented controls ─────────────────────────────────────────
   // [data-segment="name"] wraps [data-segment-value="x"] buttons.
@@ -4083,7 +4627,14 @@
     layout();
     if (name === 'focus') applyFocus(value);
     if (name === 'period') applyPeriod(value);
+    if (name === 'scope') applyScope(value);
   });
+
+  // scopeVisibility() lived here until 2026-08-07. It hid the Counting control
+  // whenever the Advanced panel was showing, because those six cards tie to
+  // career-wide numbers and are not scope-aware. With the mode toggle gone
+  // there is no panel to leave, so the six say so in their own section heading
+  // instead — see "Patterns in how you work" in the Stats markup.
 
   // ── Typed sprint length ────────────────────────────────────────────────
   // "Other" is a button that becomes a field. Swapping in place (rather than
@@ -4140,6 +4691,49 @@
   // `data-period-*` swaps text; `data-period-width` / `data-period-height` swap
   // a bar's size using the same day/week/month/all attributes, so a chart is
   // repainted by the same pass that repaints its labels.
+  // ── This book, or everything I've written (§9.8) ───────────────────────
+  // Same shape as applyPeriod: elements state both readings and this copies
+  // the live one across. Deliberately NOT a re-render — a card that changes
+  // meaning has to change its own words at the same instant its number moves,
+  // and two passes would let them disagree for a frame.
+  //
+  // [data-scope-only] is the escape hatch for a whole card or row that has no
+  // honest reading in one scope at all. A lifetime "average number of
+  // characters" is a fact about nothing, so those elements leave rather than
+  // print a number nobody asked for.
+  function applyScope(v) {
+    // Plain text that states both readings. `data-sbook` / `data-sall` rather
+    // than `data-book` / `data-all`, because `data-all` is already the period
+    // control's "All time" slot and one attribute cannot answer two questions.
+    document.querySelectorAll('[data-scope-value]').forEach(function (el) {
+      var t = el.getAttribute('data-s' + v);
+      if (t) el.textContent = t;
+    });
+    document.querySelectorAll('[data-scope-only]').forEach(function (el) {
+      var show = el.getAttribute('data-scope-only') === v;
+      var appearing = show && el.hidden;
+      el.hidden = !show;
+      // .cascade-block is opacity:0 at rest with fill-mode:forwards, so a card
+      // that comes back without replaying its animation comes back INVISIBLE.
+      // The same trap the Dashboard pins hit (§7.9.8), and the same fix.
+      if (appearing) restartCascade(el);
+    });
+    // Figures that answer BOTH controls. A card like Words has eight readings,
+    // not two, and the two handlers writing the same element in whatever order
+    // they fired would leave it showing one control's answer to the other
+    // control's question. So scope rewrites the PERIOD dataset and hands back
+    // to applyPeriod, which stays the only thing that ever paints the figure.
+    document.querySelectorAll('[data-scope-set-book]').forEach(function (el) {
+      var set = (el.getAttribute('data-scope-set-' + v) || '').split('|');
+      if (set.length !== 4) return;
+      ['day', 'week', 'month', 'all'].forEach(function (p, i) {
+        el.setAttribute('data-' + p, set[i]);
+      });
+    });
+    var pbtn = document.querySelector('[data-segment="period"] [data-segment-value][aria-selected="true"]');
+    applyPeriod(pbtn ? pbtn.getAttribute('data-segment-value') : 'week');
+  }
+
   function applyPeriod(p) {
     document.querySelectorAll('[data-period-value], [data-period-note]').forEach(function (el) {
       var v = el.getAttribute('data-' + p);
@@ -4194,11 +4788,9 @@
       cols.forEach(function (c, i) {
         c.classList.toggle('pp-col-out', i < cols.length - lit);
       });
-      var scope = fort.querySelector('[data-fortnight-scope]');
-      if (scope) {
-        scope.textContent = p === 'day' ? 'Today is the last column.'
-          : (p === 'week' ? 'This week is the last seven columns.' : '');
-      }
+      // The caption that narrated this dimming was cut 2026-08-03, and the code
+      // that wrote it went with it rather than being left guarded against an
+      // element that no longer exists.
     }
 
     tkPeriod = p;
@@ -4214,7 +4806,7 @@
     proximity: ["You're 216 words from today's goal, and 1,800 from 60,000.", 'var(--pp-c5)'],
     streak:    ['23 days. Your longest was 41.',                      'var(--pp-c3)'],
     return:    ['Welcome back. You left off in Chapter 19, mid-scene.', 'var(--pp-c7)'],
-    revision:  ["You've cut 5,140 words. The Adventures is four percent tighter.", 'var(--pp-c9)'],
+    revision:  ["You've cut 5,140 words. The Adventures of Sherlock Holmes is four percent tighter.", 'var(--pp-c9)'],
     world:     ["Six characters don't appear in any chapter yet.",    'var(--pp-c6)']
   };
   document.addEventListener('click', function (e) {
@@ -4367,11 +4959,36 @@
   });
 
   // ── Card entrance cascade, replayed on tab change ──────────────────────
+  // .cascade-block is opacity:0 at rest with animation-fill-mode:forwards, so a
+  // card that becomes visible WITHOUT replaying its animation is invisible. Any
+  // change to what is showing has to come back through here.
   function restartCascade(scope) {
     scope.querySelectorAll('.cascade-block').forEach(function (el) {
       el.style.animation = 'none';
       void el.offsetWidth;
       el.style.animation = '';
+    });
+    // The Dashboard's delays are hand-authored inline and were already out of
+    // DOM order (0, 40, 20, 90, 120, 150). That was harmless while the card set
+    // was fixed; with pinning (§7.9) every hidden card leaves a visible hole in
+    // the stagger and the whole run reads as stuttering. So the Dashboard alone
+    // gets its delays computed over the cards still SHOWING. Stats and Goals
+    // keep their authored values — nothing hides there.
+    // scope is sometimes the [data-dash-state] element itself (the state
+    // switcher passes the panel it just revealed) and sometimes an ancestor
+    // (the tab switcher passes the whole panel), so match both.
+    var states = Array.prototype.slice.call(
+      scope.querySelectorAll('[data-dash-state]:not([hidden])'));
+    if (scope.matches && scope.matches('[data-dash-state]')) states.push(scope);
+    states.forEach(function (state) {
+      var n = 0;
+      state.querySelectorAll('[data-card]').forEach(function (card) {
+        if (card.hidden) return;
+        var block = card.classList.contains('cascade-block')
+          ? card : card.querySelector('.cascade-block');
+        if (block) block.style.animationDelay = (n * 30) + 'ms';
+        n++;
+      });
     });
   }
   document.addEventListener('click', function (e) {
@@ -4401,6 +5018,11 @@
   window.PP_PAGE = {
     layout: layout,
     restartCascade: restartCascade,
+    // The view model can deselect a segment group entirely — picking Custom
+    // means no preset is chosen — and only this function knows how to repaint
+    // the Tailwind active/idle classes. Without it the previously-picked chip
+    // stays lit while aria-selected says otherwise.
+    paintSegment: paintSegment,
     observations: OBS,
     // The hosted shell mirrors this onto the navbar: a single-book file has no
     // series row, so the header is 3.75rem rather than 5.75rem.
@@ -4822,6 +5444,17 @@
   // The Book that Focus means when it is not 'all'.
   var FOCUS_BOOK = 'Book Two: The Hound of the Baskervilles';
 
+  /** The Book's own name — what the writer typed — with the mockup's ordering
+   *  prefix taken off. In the app these are two separate things: `Book.name` is
+   *  the title, and "Book Two" is its position in the Series. Anything shown to
+   *  a reader is the NAME; a short form the page invents is a title the writer
+   *  never chose (Joel, 2026-08-02). */
+  function bookName(full) { return String(full || '').replace(/^Book [A-Za-z]+: /, ''); }
+
+  /** And the ordering label on its own, for the places that want the position
+   *  rather than the title: the thread footer, the out-of-Focus note. */
+  function bookOrder(full) { return String(full || '').replace(/:.*$/, ''); }
+
   /** Is this thread filed under some OTHER Book than the one Focus is on? */
   function outOfFocus(t) {
     return currentFocus() !== 'all' && !!t.book && t.book !== FOCUS_BOOK;
@@ -5069,7 +5702,7 @@
       + '<span class="font-caption text-muted-foreground">'
       + 'Noted ' + shortMonth(created) + ' ' + created.getDate()
       + ' &middot; edited ' + esc(t.edited)
-      + (t.book ? ' &middot; ' + esc(t.book.replace(/:.*$/, '')) : '')
+      + (t.book ? ' &middot; ' + esc(bookOrder(t.book)) : '')
       + '</span>'
       // Two different footers, not one footer with things greyed out.
       //
@@ -5114,7 +5747,7 @@
     var scopeNote = outOfFocus(t)
       ? '<p class="font-body-sm text-muted-foreground"'
         + ' style="margin-top:calc(1rem * var(--font-size-multiplier, 1))">'
-        + 'Filed under ' + esc(t.book.replace(/:.*$/, ''))
+        + 'Filed under ' + esc(bookOrder(t.book))
         + '. Focus is on this book, so it leaves the list when you close it.</p>'
       : '';
 
@@ -5244,7 +5877,7 @@
     var scope = qs('[data-thread-scope]');
     if (scope) {
       scope.textContent = currentFocus() === 'all'
-        ? 'across three books' : 'in the Hound';
+        ? 'across three books' : 'in ' + bookName(FOCUS_BOOK);
     }
   }
 
@@ -8175,6 +8808,1051 @@
     });
   });
 
+
+  // ════════════════════════════════════════════════════════════════════════
+  // WRITING ACTIVITY  (§9.6.11)
+  // ════════════════════════════════════════════════════════════════════════
+  // Two cards over one shared window. Replaces the contribution heatmap.
+  //
+  // THE SERIES IS DATA, NOT A SEED. Every other generated picture on this page
+  // is pseudo-random from a seed, because nothing outside it depended on the
+  // values. This one does: the last fourteen days ARE the fourteen-day chart,
+  // the last seven sum to the Words card's week, July sums to its month, and
+  // the whole thing has to leave the book at the length DL_BOOKS states. A
+  // generator cannot be checked by check-numbers.mjs, which reads source and
+  // never runs it — an explicit array can, and §10.6 does.
+  //
+  // "ms:wb" per day, oldest first, 366 days ending today (Mon 27 Jul 2026).
+  // ms is SIGNED: negative is a day that ended shorter than it started.
+  var WA_RAW = '0:0,0:0,0:0,460:170,860:340,930:170,0:0,0:0,0:0,780:250,710:190,0:0,680:210,0:0,0:0,0:0,660:160,0:0,610:130,800:150,610:150,0:0,0:0,550:230,870:280,410:170,570:230,0:0,0:0,560:130,0:0,870:110,0:0,0:0,490:170,0:0,0:0,380:100,450:170,0:0,900:200,0:0,0:0,0:0,0:0,0:0,780:240,470:190,0:0,0:0,540:90,500:140,900:120,560:190,0:0,440:110,0:0,320:80,930:230,0:0,500:180,850:230,0:0,0:0,-1020:0,-580:0,-570:0,0:0,-730:0,0:0,0:0,0:0,-420:0,-1000:0,700:240,0:0,0:0,0:0,330:50,0:0,-440:0,-510:0,-310:0,-960:0,-390:0,-580:0,790:160,0:0,-320:0,660:110,0:0,0:0,0:0,0:0,-840:0,-380:0,-450:0,0:0,0:0,0:0,-720:0,-950:0,-940:0,0:0,0:0,0:0,550:70,-760:0,0:0,-410:0,0:0,-740:0,-410:0,-790:0,-900:0,-690:0,-640:0,-800:0,-480:0,0:0,0:0,-670:0,-740:0,990:230,0:0,0:0,0:0,0:0,520:100,500:120,340:90,0:0,360:90,0:0,790:280,910:130,0:0,0:0,470:180,770:130,0:0,970:290,760:110,970:350,610:160,700:230,920:170,0:0,430:160,780:190,600:130,820:290,320:110,0:0,0:0,0:0,0:0,620:100,880:240,910:290,650:140,0:0,490:120,0:0,660:170,0:0,390:150,660:180,0:0,910:280,400:140,330:120,650:190,0:0,0:0,370:150,340:70,510:160,460:120,780:110,0:0,1020:180,0:0,0:0,530:120,420:60,0:0,-580:0,0:0,0:0,0:0,0:0,0:0,-590:0,-960:0,-990:0,0:0,-840:0,0:0,-480:0,-850:0,-540:0,0:0,0:0,320:50,-630:0,370:130,0:0,-720:0,0:0,-390:0,610:250,940:250,-450:0,-610:0,-930:0,0:0,0:0,-740:0,550:210,520:80,0:0,0:0,790:280,0:0,730:120,1010:190,650:130,590:200,0:0,0:0,0:0,330:100,0:0,410:160,550:200,800:300,0:0,0:0,870:360,0:0,560:110,940:310,340:60,0:0,0:0,890:350,690:170,990:410,390:100,900:270,360:140,0:0,0:0,440:160,910:290,720:280,0:0,740:170,0:0,0:0,740:270,970:380,790:310,920:330,390:150,0:0,920:280,0:0,0:0,-1020:0,-580:0,0:0,0:0,600:190,-1030:0,0:0,-760:0,-390:0,-390:0,0:0,0:0,-930:0,-750:0,-350:0,0:0,0:0,0:0,-500:0,0:0,0:0,-880:0,0:0,0:0,0:0,0:0,-980:0,820:210,-630:0,0:0,-770:0,0:0,600:100,630:190,620:190,460:90,0:0,0:0,0:0,760:250,320:50,870:180,580:230,660:200,0:0,0:0,420:100,770:290,650:200,500:70,860:210,0:0,0:0,610:160,730:180,410:170,550:210,350:140,840:270,0:0,0:0,0:0,400:130,390:130,480:90,870:200,0:0,0:0,920:280,1352:198,1418:222,698:102,0:0,776:144,1406:270,660:130,808:152,1392:248,1342:258,666:74,1130:170,962:118,1040:140,1360:180,1520:120,2050:260,330:90,460:150,1310:200,1610:350,800:280,1930:210,1010:320,400:140,1678:262,1102:182';
+
+  var WA_DAYS = WA_RAW.split(',').map(function (p) {
+    var b = p.split(':');
+    return { ms: +b[0], wb: +b[1] };
+  });
+
+  // Book length today, from DL_BOOKS. The window opens at whatever it was a
+  // year ago, which is NOT zero: the writer is 632 days in (the period control
+  // says "Since November 3rd, 2024") and only 366 of them are on screen.
+  var WA_BOOK_NOW = 173600;
+  // ...except on day one, which previews a writer who has none of it.
+  function waBookNow() { return waVol === 0 ? 0 : WA_BOOK_NOW; }
+
+  // [window days, ideal slot px]. The card picks the smallest window its
+  // history fits inside with headroom, then draws the whole window.
+  var WA_WINDOWS = [31, 92, 183, 366];
+  var WA_MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
+                'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var WA_STEPS = [100, 250, 500, 1000, 2000, 2500, 5000, 10000,
+                  20000, 25000, 50000, 100000, 200000];
+  var WA_TODAY = new Date(2026, 6, 27);
+  var waVol = 366;
+  var waHover = { day: null, cum: null };
+
+  function waNum(n) { return Math.round(Math.abs(n)).toLocaleString('en-US'); }
+  function waSigned(n) { return (n < 0 ? '\u2212' : '') + waNum(n); }
+  function waDateAt(back) {
+    var d = new Date(WA_TODAY); d.setDate(d.getDate() - back); return d;
+  }
+
+  // Everything both cards need, derived from the slice. Nothing here is stored
+  // on the series: change a day and every figure follows.
+  function waFacts() {
+    var n = Math.min(waVol, WA_DAYS.length);
+    var slice = n === 0 ? [] : WA_DAYS.slice(WA_DAYS.length - n);
+    var win = WA_WINDOWS[WA_WINDOWS.length - 1];
+    for (var w = 0; w < WA_WINDOWS.length; w++) {
+      if (n <= WA_WINDOWS[w] * 0.82 || WA_WINDOWS[w] === 366) { win = WA_WINDOWS[w]; break; }
+    }
+    var added = 0, removed = 0, wbTotal = 0, activeDays = 0, best = 0;
+    slice.forEach(function (d) {
+      if (d.ms > 0) added += d.ms; else removed += -d.ms;
+      wbTotal += d.wb;
+      if (d.ms !== 0 || d.wb !== 0) activeDays++;
+      if (d.ms + d.wb > best) best = d.ms + d.wb;
+    });
+    // Book length is added minus removed. Worldbuilding is writing but it is
+    // not book, so it never moves this line.
+    var growth = added - removed;
+    var openAt = waBookNow() - growth;
+    var run = [], cum = openAt;
+    slice.forEach(function (d) { cum += d.ms; run.push(cum); });
+    return {
+      n: n, win: win, slice: slice, added: added, removed: removed,
+      wbTotal: wbTotal, written: added + wbTotal, activeDays: activeDays,
+      best: best, growth: growth, openAt: openAt, run: run,
+      windowLabel: win === 31 ? 'Last 31 days' : win === 92 ? 'Three months'
+        : win === 183 ? 'Six months' : 'Twelve months'
+    };
+  }
+
+  function waStep(v, over) {
+    for (var i = 0; i < WA_STEPS.length; i++) {
+      if (WA_STEPS[i] >= Math.max(v, 900) / over) return WA_STEPS[i];
+    }
+    return WA_STEPS[WA_STEPS.length - 1];
+  }
+
+  // ── Card one: words a day ──────────────────────────────────────────────
+  function waRenderDay(f) {
+    var host = qs('[data-wa-daychart]');
+    if (!host) return;
+    var gut = waGutter(host);
+    var plotW = host.clientWidth - gut;
+    if (plotW <= 0) return;
+    var slot = plotW / f.win;
+    var barW = Math.max(1, Math.min(16, Math.floor(slot * 0.7)));
+
+    var maxDay = 0, maxCut = 0;
+    f.slice.forEach(function (d) {
+      if (d.ms > 0) maxDay = Math.max(maxDay, d.ms + d.wb);
+      if (d.ms < 0) maxCut = Math.max(maxCut, -d.ms);
+    });
+    var step = waStep(maxDay, 3);
+    var top = Math.max(step, Math.ceil(maxDay / step) * step);
+    var UP = 150, ppw = UP / top;
+    var negTop = maxCut > 0 ? Math.ceil(maxCut / step) * step : 0;
+    var down = negTop * ppw;
+    var H = UP + 1 + down;
+    host.style.height = H + 'px';
+
+    var h = [];
+    for (var v = step; v <= top + 1; v += step) {
+      h.push('<div class="pp-gridline" style="top:' + (UP - v * ppw).toFixed(1) + 'px"></div>');
+      h.push('<div class="pp-wa-ytick font-caption" style="top:' + (UP - v * ppw).toFixed(1) + 'px">' + waNum(v) + '</div>');
+    }
+    if (negTop > 0) {
+      h.push('<div class="pp-wa-ytick font-caption" style="top:' + (UP + 1 + down).toFixed(1)
+        + 'px">\u2212' + waNum(negTop) + '</div>');
+    }
+    h.push('<div class="pp-wa-zero" style="top:' + UP + 'px"></div>');
+    h.push('<div class="pp-wa-ytick font-caption" style="top:' + UP + 'px">0</div>');
+    h.push('<div class="pp-wa-plot" data-wa-daybars></div>');
+    // Tag near the TOP of the daily plot, not its middle: on the year
+    // window today sits hard right, the tag flips left over the data, and its
+    // knock-out background was hiding the busiest bars on the card.
+    h.push(waTodayMark(f, slot, barW, 12, gut));
+    h.push('<div class="pp-wa-hit" data-wa-dayhit></div>');
+    host.innerHTML = h.join('');
+
+    var bars = qs('[data-wa-daybars]', host), out = [];
+    f.slice.forEach(function (d, i) {
+      var x = (i * slot).toFixed(1);
+      if (d.ms > 0) {
+        var bh = Math.max(1.5, d.ms * ppw), wh = d.wb * ppw;
+        out.push('<i class="pp-wa-bar pp-wa-ms" data-wa-i="' + i + '" style="left:' + x
+          + 'px; width:' + barW + 'px; top:' + (UP - bh).toFixed(1) + 'px; height:' + bh.toFixed(1) + 'px"></i>');
+        if (wh > 0.6) {
+          out.push('<i class="pp-wa-bar pp-wa-wb" data-wa-i="' + i + '" style="left:' + x
+            + 'px; width:' + barW + 'px; top:' + (UP - bh - wh).toFixed(1) + 'px; height:' + wh.toFixed(1) + 'px"></i>');
+        }
+      } else if (d.ms < 0) {
+        var ch = Math.max(1.5, -d.ms * ppw);
+        out.push('<i class="pp-wa-bar pp-wa-cut" data-wa-i="' + i + '" style="left:' + x
+          + 'px; width:' + barW + 'px; top:' + (UP + 1) + 'px; height:' + ch.toFixed(1) + 'px"></i>');
+      }
+    });
+    bars.innerHTML = out.join('');
+    // Geometry the hover handler needs, kept off the DOM read path.
+    bars._wa = { slot: slot, barW: barW, ppw: ppw, UP: UP, down: down, n: f.n };
+
+    waMonths(qs('[data-wa-daymonths]'), f, slot, host);
+    var win = qs('[data-wa-daywin]');
+    if (win) win.textContent = f.windowLabel;
+
+    var line = qs('[data-wa-dayline]'), foot = qs('[data-wa-dayfoot]');
+    if (f.n === 0) {
+      line.textContent = 'Nothing written yet. A bar appears here for every day you write.';
+      foot.textContent = 'Bars above the line are words you added. Bars below are days you spent cutting, which count as work.';
+    } else {
+      var span = f.n <= 31 ? f.n + ' days' : f.n <= 130 ? Math.round(f.n / 7) + ' weeks' : 'twelve months';
+      line.textContent = waNum(f.written) + ' words written in ' + span + ', on '
+        + waNum(f.activeDays) + (f.n <= 31 ? ' of them' : ' days') + '. Your best day was ' + waNum(f.best) + '.';
+      foot.textContent = f.removed > 0
+        ? 'Bars below the line are days you spent cutting. ' + waNum(f.removed)
+          + ' words came out, which is why the book grew by less than you wrote.'
+        : 'Every bar is one day. Gaps are days you did not write.';
+    }
+  }
+
+  // ── Card two: how long the book got ────────────────────────────────────
+  function waRenderCum(f) {
+    var host = qs('[data-wa-cumchart]');
+    if (!host) return;
+    var gut = waGutter(host);
+    var plotW = host.clientWidth - gut;
+    if (plotW <= 0) return;
+    var slot = plotW / f.win;
+    var H = 200;
+    host.style.height = H + 'px';
+
+    var lo = f.run.length ? Math.min.apply(null, f.run) : waBookNow();
+    var hi = f.run.length ? Math.max.apply(null, f.run) : waBookNow();
+    var step = waStep(Math.max(hi - lo, 900), 4);
+    var floorV = Math.max(0, Math.floor(lo / step) * step);
+    var top = Math.max(floorV + step, Math.ceil(hi / step) * step);
+    var y = function (v) { return H - 1 - ((v - floorV) / (top - floorV)) * (H - 12); };
+
+    var h = [];
+    for (var v = floorV; v <= top + 1; v += step) {
+      // No gridline on the floor: .pp-wa-zero already rules that line, and
+      // two rules on one pixel drew a strikethrough across the label.
+      if (v > floorV) h.push('<div class="pp-gridline" style="top:' + y(v).toFixed(1) + 'px"></div>');
+      h.push('<div class="pp-wa-ytick font-caption" style="top:' + y(v).toFixed(1) + 'px">' + waNum(v) + '</div>');
+    }
+    var pts = f.run.map(function (v, i) { return [(i * slot), y(v)]; });
+    if (pts.length) {
+      var d = pts.map(function (p) { return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' ');
+      h.push('<div class="pp-wa-plot"><svg width="100%" height="' + H
+        + '" viewBox="0 0 ' + plotW.toFixed(1) + ' ' + H + '" preserveAspectRatio="none" aria-hidden="true"'
+        + ' style="display:block; overflow:visible">'
+        + '<path d="M0,' + (H - 1) + ' L' + pts.map(function (p) { return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' L')
+        + ' L' + pts[pts.length - 1][0].toFixed(1) + ',' + (H - 1) + ' Z" fill="var(--pp-manuscript)" opacity="0.18"></path>'
+        + '<polyline points="' + d + '" fill="none" stroke="rgb(var(--foreground))" stroke-width="2"'
+        + ' vector-effect="non-scaling-stroke" stroke-linejoin="round"></polyline>'
+        + '</svg></div>');
+    }
+    h.push('<div class="pp-wa-zero" style="top:' + (H - 1) + 'px"></div>');
+    h.push(waTodayMark(f, slot, 0, H / 2, gut));
+    h.push('<div class="pp-wa-hit" data-wa-cumhit></div>');
+    host.innerHTML = h.join('');
+    host._wa = { slot: slot, n: f.n, y: y, H: H };
+
+    waMonths(qs('[data-wa-cummonths]'), f, slot, host);
+    var win = qs('[data-wa-cumwin]');
+    if (win) win.textContent = f.windowLabel + ' \u00b7 all books';
+
+    var line = qs('[data-wa-cumline]'), foot = qs('[data-wa-cumfoot]'), st = qs('[data-wa-cumstep]');
+    if (st) st.textContent = 'Scale steps of ' + waNum(step);
+    if (f.n === 0) {
+      line.textContent = 'Your book starts at zero. This line climbs as the manuscript grows.';
+      foot.textContent = 'The scale finds its own numbers once there are a few days in it.';
+    } else {
+      var ago = f.n <= 31 ? f.n + ' days ago' : f.n <= 130 ? Math.round(f.n / 30) + ' months ago'
+        : 'a year ago';
+      line.textContent = waNum(waBookNow()) + ' words long, up from ' + waNum(f.openAt) + ' ' + ago + '.';
+      foot.textContent = f.removed > 0
+        ? 'The dips are the passes you spent cutting. The line only moves on days you wrote.'
+        : 'The line only moves on days you wrote.';
+    }
+  }
+
+  // ── Shared bits ────────────────────────────────────────────────────────
+  function waGutter(host) {
+    // .pp-wa sets --wa-gut in em, so it tracks the font multiplier. Read it
+    // back in px rather than assuming, or the plot and the ticks disagree at
+    // 0.85 and 1.20.
+    var probe = document.createElement('div');
+    probe.style.cssText = 'position:absolute;width:var(--wa-gut);visibility:hidden';
+    host.appendChild(probe);
+    var w = probe.offsetWidth;
+    host.removeChild(probe);
+    return w;
+  }
+
+  function waTodayMark(f, slot, barW, tagY, gut) {
+    var x = gut + Math.max(0, f.n - 1) * slot + barW / 2;
+    var atEnd = x > gut + (f.win - 3) * slot;
+    return '<div class="pp-wa-today" style="left:' + x.toFixed(1) + 'px"></div>'
+      + '<div class="pp-wa-todaytag font-caption" style="left:' + (atEnd ? x - 4 : x + 6).toFixed(1) + 'px; top:' + tagY
+      + 'px; transform:translateY(-50%)' + (atEnd ? ' translateX(-100%)' : '') + '">Today</div>';
+  }
+
+  function waMonths(host, f, slot, chart) {
+    if (!host) return;
+    var gut = waGutter(chart);
+    var out = [];
+    // Index 0 is the writer's first day in view, so the whole strip is
+    // dated from there. For a full year that IS today minus 365.
+    var back = Math.max(0, f.n - 1);
+    for (var i = 0; i < f.win; i++) {
+      var d = waDateAt(back - i);
+      if ((i === 0 && f.win <= 92) || d.getDate() === 1) {
+        var x = gut + i * slot;
+        if (x <= gut + (f.win * slot) - 34) {
+          out.push('<span class="pp-wa-mtick" style="left:' + x.toFixed(1) + 'px">'
+            + WA_MON[d.getMonth()] + '</span>');
+        }
+      }
+    }
+    host.style.height = '1.4em';
+    host.innerHTML = out.join('');
+  }
+
+  // ── Hover ──────────────────────────────────────────────────────────────
+  // Three behaviours, from the design: the pointer snaps to the nearest day
+  // and states it, that day takes the accent, and its bar grows 18% with a
+  // Gaussian falloff either side. Bars never change WIDTH, so nothing reflows.
+  var WA_SIG = 3.4, WA_REACH = 12, WA_LIFT = 0.18;
+
+  // `host` is the hit layer, which is inset by the gutter so that its left edge
+  // IS the plot's left edge — x below is already a plot coordinate. Snapping is
+  // to the bar's CENTRE (i * slot + barW / 2), not to the slot boundary: on the
+  // 31-day window a bar is 16px wide in a 43px slot, so boundary-snapping
+  // handed over to the next day 8px early. The line card passes barW 0 because
+  // its point sits on the slot edge.
+  function waPick(e, host, slot, n, barW) {
+    var r = host.getBoundingClientRect();
+    var x = e.clientX - r.left - (barW || 0) / 2;
+    // Off the data entirely: no readout. The frame can be wider than the
+    // history — a five-day book still draws a 31-day window — and clamping to
+    // the last day made the tooltip chase the pointer from across the card.
+    // One slot of grace at each end so the first and last bars stay hoverable.
+    if (x < -slot || x > (n - 1) * slot + slot) return null;
+    var i = Math.round(x / slot);
+    return i < 0 ? 0 : i > n - 1 ? n - 1 : i;
+  }
+
+  function waPaintDay(f) {
+    var bars = qs('[data-wa-daybars]');
+    if (!bars || !bars._wa) return;
+    var g = bars._wa, sel = waHover.day;
+    qsa('.pp-wa-bar', bars).forEach(function (el) {
+      var i = +el.getAttribute('data-wa-i');
+      var d = f.slice[i];
+      var sc = 1;
+      if (sel != null) {
+        var dist = Math.abs(i - sel);
+        if (dist <= WA_REACH) sc = 1 + WA_LIFT * Math.exp(-(dist * dist) / (2 * WA_SIG * WA_SIG));
+      }
+      el.classList.toggle('pp-wa-on', sel === i);
+      if (d.ms > 0) {
+        var bh = Math.max(1.5, d.ms * g.ppw) * sc, wh = d.wb * g.ppw * sc;
+        if (el.classList.contains('pp-wa-wb')) {
+          el.style.top = (g.UP - bh - wh).toFixed(1) + 'px';
+          el.style.height = wh.toFixed(1) + 'px';
+        } else {
+          el.style.top = (g.UP - bh).toFixed(1) + 'px';
+          el.style.height = bh.toFixed(1) + 'px';
+        }
+      } else if (d.ms < 0) {
+        el.style.height = (Math.max(1.5, -d.ms * g.ppw) * sc).toFixed(1) + 'px';
+      }
+    });
+    waTip(qs('[data-wa-daychart]'), sel == null ? null : (function () {
+      var d = f.slice[sel], t = d.ms + d.wb;
+      var when = waDateAt(f.n - 1 - sel);
+      var date = WA_MON[when.getMonth()] + ' ' + when.getDate();
+      return {
+        x: sel * g.slot + g.barW / 2,
+        big: d.ms === 0 && d.wb === 0 ? '\u2014' : waSigned(t),
+        sub: d.ms === 0 && d.wb === 0 ? 'no writing on ' + date
+          : d.ms < 0 ? 'words cut on ' + date : 'words on ' + date
+      };
+    })());
+  }
+
+  function waPaintCum(f) {
+    var host = qs('[data-wa-cumchart]');
+    if (!host || !host._wa) return;
+    var g = host._wa, sel = waHover.cum;
+    qsa('.pp-wa-cross, .pp-wa-ring, .pp-wa-dot', host).forEach(function (el) { el.remove(); });
+    if (sel != null) {
+      var gut = waGutter(host);
+      var x = gut + sel * g.slot, yy = g.y(f.run[sel]);
+      host.insertAdjacentHTML('beforeend',
+        '<div class="pp-wa-cross" style="left:' + x.toFixed(1) + 'px"></div>'
+        + '<div class="pp-wa-ring" style="left:' + x.toFixed(1) + 'px; top:' + yy.toFixed(1) + 'px"></div>'
+        + '<div class="pp-wa-dot" style="left:' + x.toFixed(1) + 'px; top:' + yy.toFixed(1) + 'px"></div>');
+    }
+    waTip(host, sel == null ? null : (function () {
+      var when = waDateAt(f.n - 1 - sel);
+      return {
+        x: sel * g.slot,
+        big: waNum(f.run[sel]),
+        sub: 'words long on ' + WA_MON[when.getMonth()] + ' ' + when.getDate()
+      };
+    })());
+  }
+
+  function waTip(host, t) {
+    var old = qs('.pp-wa-tip', host);
+    if (old) old.remove();
+    if (!t) return;
+    var gut = waGutter(host);
+    var x = gut + t.x;
+    var w = host.clientWidth;
+    var shift = x < gut + 90 ? '0' : x > w - 90 ? '-100%' : '-50%';
+    host.insertAdjacentHTML('beforeend',
+      '<div class="pp-wa-tip" style="left:' + x.toFixed(1) + 'px; top:-2.6em; transform:translateX(' + shift + ')">'
+      + '<span class="font-body tabular-nums" style="font-weight:600">' + esc(t.big) + '</span>'
+      + '<span class="font-caption pp-wa-tipsub">' + esc(t.sub) + '</span></div>');
+  }
+
+  function waRender() {
+    var root = qs('[data-wa-root]');
+    if (!root) return;
+    var f = waFacts();
+    waRenderDay(f);
+    waRenderCum(f);
+    waPaintDay(f);
+    waPaintCum(f);
+    qsa('[data-wa-vol]', root).forEach(function (b) {
+      b.setAttribute('aria-selected', String(+b.getAttribute('data-wa-vol') === waVol));
+    });
+  }
+
+  document.addEventListener('mousemove', function (e) {
+    var dayHit = e.target.closest ? e.target.closest('[data-wa-dayhit]') : null;
+    var cumHit = e.target.closest ? e.target.closest('[data-wa-cumhit]') : null;
+    if (!dayHit && !cumHit) return;
+    var f = waFacts();
+    if (f.n === 0) return;
+    if (dayHit) {
+      var bars = qs('[data-wa-daybars]');
+      if (!bars || !bars._wa) return;
+      var i = waPick(e, dayHit, bars._wa.slot, f.n, bars._wa.barW);
+      if (waHover.day !== i) { waHover.day = i; waPaintDay(f); }
+    } else {
+      var host = qs('[data-wa-cumchart]');
+      if (!host || !host._wa) return;
+      var j = waPick(e, cumHit, host._wa.slot, f.n, 0);
+      if (waHover.cum !== j) { waHover.cum = j; waPaintCum(f); }
+    }
+  });
+
+  document.addEventListener('mouseout', function (e) {
+    if (e.target.closest && e.target.closest('[data-wa-dayhit]')
+        && !(e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest('[data-wa-dayhit]'))) {
+      waHover.day = null; waPaintDay(waFacts());
+    }
+    if (e.target.closest && e.target.closest('[data-wa-cumhit]')
+        && !(e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest('[data-wa-cumhit]'))) {
+      waHover.cum = null; waPaintCum(waFacts());
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('[data-wa-vol]') : null;
+    if (!b) return;
+    e.preventDefault();
+    waVol = +b.getAttribute('data-wa-vol');
+    waHover.day = null; waHover.cum = null;
+    waRender();
+  });
+
+  var waRO = null;
+  function waWatch() {
+    var root = qs('[data-wa-root]');
+    if (!root || waRO || typeof ResizeObserver === 'undefined') return;
+    var t = null;
+    waRO = new ResizeObserver(function () {
+      clearTimeout(t);
+      t = setTimeout(function () { waHover.day = null; waHover.cum = null; waRender(); }, 60);
+    });
+    waRO.observe(root);
+  }
+
+  // ════════════════════════════════════════════════════════════════════════
+  // CHAPTER TARGETS  (§9.9, and the dateless finish date in §9.9.5)
+  // ════════════════════════════════════════════════════════════════════════
+  // A tester budgets each chapter while outlining so the book lands at a normal
+  // published length, then watches the over/under while writing. Penpoint has
+  // nowhere to put that today: `chapters` has no target column.
+  //
+  // The second half is the more interesting one. The page projects in ONE
+  // direction — target plus a date gives you the pace — so a writer who never
+  // sets a deadline gets no projection at all. The sum of the chapter targets
+  // IS an estimated book length with no date attached, which is exactly the
+  // missing input.
+
+  // Book Two, and the numbers are not free-standing: the written column sums to
+  // its 58,200 in DL_BOOKS, and the counts match its 19 done / 24 existing / 28
+  // planned. A budget sheet that disagreed with the book it budgets would be
+  // the one thing this card cannot afford.
+  var CT_RAW = '2500:3300,3040:3300,2560:3300,3180:3300,2940:3300,3350:3300,'
+    + '2620:3300,3110:3300,2880:3300,3260:3300,2790:3300,3020:3300,2950:3300,'
+    + '3140:3300,2680:3300,3220:3300,2830:3300,3070:3300,2900:3300,'
+    + '1000:3300,600:3300,300:3300,190:3300,70:3300,'
+    + '0:3300,0:3300,0:3300,0:3300';
+  var CT_TITLES = [
+    'The Yew Alley', 'A Warning', 'The Problem', 'Sir Henry Baskerville',
+    'Three Broken Threads', 'Baskerville Hall', 'The Stapletons',
+    'The Light on the Moor', 'The Convict', 'The Man on the Tor',
+    'Death on the Moor', 'Fixing the Nets', 'The Hound', 'A Retrospection',
+    'The Letter', 'The Portrait', 'The Trap', 'The Fog', 'The Reckoning',
+    'The Return', 'Loose Ends', 'The Inquest', 'Devon, After',
+    'A Quiet House', 'Untitled', 'Untitled', 'Untitled', 'Untitled'
+  ];
+  var ctState = 'deadline';
+
+  function ctChapters() {
+    return CT_RAW.split(',').map(function (p, i) {
+      var b = p.split(':');
+      return { n: i + 1, title: CT_TITLES[i] || 'Untitled', written: +b[0], target: +b[1] };
+    });
+  }
+
+  // §5.4's window, and the whole reason it is stated once: trailing 28 days,
+  // ZERO DAYS COUNTED. Excluding them projects as if the writer works every
+  // day, which always over-promises. A writer who writes hard two days a week
+  // is a two-day-a-week writer and the date has to say so.
+  function ctPace() {
+    var days = WA_RAW.split(',').slice(-28).map(function (p) {
+      var b = p.split(':');
+      return +b[0];
+    });
+    var net = days.reduce(function (a, v) { return a + v; }, 0);
+    return net / days.length;
+  }
+
+  // The writer's own pace across everything they have written, which is a
+  // DIFFERENT and usually higher number: they had two books open for part of
+  // this window. Derived from the ratio the Words card already states between
+  // its two scopes rather than invented here, so the card cannot drift away
+  // from the figure the writer can read two cards up.
+  function ctLifePace() {
+    return ctPace() * (12180 / 10274);
+  }
+
+  function ctFacts() {
+    var ch = ctChapters();
+    // §9.8.3, the cold start. A projection needs 14 days of history in the
+    // ACTIVE book, so day one of book two shows nothing — even for a writer
+    // with three finished novels behind them. That is the wrong answer and the
+    // data to fix it is already held.
+    if (ctState === 'newbook') {
+      var seed = [2500, 1180, 340];
+      ch.forEach(function (c, i) { c.written = seed[i] || 0; });
+    }
+    // Half-targeted is the state that earns guard one: twelve chapters out of
+    // twenty-eight sums to a fraction of the book and would project a finish
+    // date months early with total confidence.
+    if (ctState === 'partial') {
+      ch.forEach(function (c, i) { if (i >= 12) c.target = 0; });
+    }
+    var written = ch.reduce(function (a, c) { return a + c.written; }, 0);
+    var targeted = ch.filter(function (c) { return c.target > 0; });
+    var sum = targeted.reduce(function (a, c) { return a + c.target; }, 0);
+    var covered = targeted.length === ch.length;
+    // Guard two: an explicit book target is a STATEMENT of intended length;
+    // the chapter sum is an inference from one. The statement wins.
+    var bookTarget = ctState === 'booktarget' ? 95000 : null;
+    // Guard four. "At your usual pace" and "at this book's pace" are DIFFERENT
+    // CLAIMS about different windows, and interchanging them tells the writer
+    // something untrue about where the date came from. The source travels with
+    // the number so no caller can pick the wrong sentence.
+    var young = ctState === 'newbook';
+    var pace = ctState === 'revision' ? -640 : young ? ctLifePace() : ctPace();
+    var goal = bookTarget || sum;
+    var left = goal - written;
+    return {
+      ch: ch, written: written, sum: sum, covered: covered, targeted: targeted.length,
+      bookTarget: bookTarget, pace: pace, paceSource: young ? 'lifetime' : 'book',
+      left: left, hasDeadline: ctState === 'deadline'
+    };
+  }
+
+  // Every reason the date is withheld, in one place, so no caller can forget
+  // one. Each returns a REASON rather than a boolean: the card says different
+  // things about a half-targeted outline and a writer mid-revision, and one of
+  // them it must say nothing about at all.
+  function ctDateReason(f) {
+    if (f.hasDeadline) return 'deadline';   // Your Deadline already projects
+    if (!f.covered && !f.bookTarget) return 'partial';
+    if (f.left <= 0) return 'done';
+    if (f.pace <= 0) return 'silent';       // mid-revision: say NOTHING
+    return null;
+  }
+
+  function ctRender() {
+    var host = qs('[data-ct]');
+    if (!host) return;
+    var f = ctFacts();
+
+    var win = qs('[data-ct-win]');
+    if (win) {
+      win.textContent = (ctState === 'newbook' ? 'A book you just started' : 'Book Two')
+        + ' · ' + f.ch.length + ' chapters';
+    }
+
+    var list = qs('[data-ct-list]');
+    if (list) {
+      list.innerHTML = f.ch.map(function (c) {
+        var diff = c.target ? c.written - c.target : 0;
+        // ARITHMETIC, NEVER JUDGMENT (§9.9.4). A chapter over its target is a
+        // fact about a word count. No red, no icon, no "over budget".
+        var right = !c.target
+          ? '<span class="font-body-sm text-muted-foreground">no target</span>'
+          : '<span class="font-body-sm text-foreground tabular-nums">' + waNum(c.written)
+            + ' <span class="text-muted-foreground">/ ' + waNum(c.target) + '</span></span>';
+        var note = (c.target && c.written > 0)
+          ? '<span class="font-caption text-muted-foreground tabular-nums" style="min-width:3.4em; text-align:right">'
+            + (diff > 0 ? '+' + waNum(diff) : diff < 0 ? waNum(diff) : 'level') + '</span>'
+          : '<span style="min-width:3.4em"></span>';
+        return '<div class="flex items-baseline justify-between gap-3 py-2 border-b border-border">'
+          + '<span class="font-body-sm text-muted-foreground min-w-0" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap">'
+          + c.n + '. ' + esc(c.title) + '</span>'
+          + '<span class="flex items-baseline gap-3 shrink-0">' + right + note + '</span></div>';
+      }).join('');
+    }
+
+    var line = qs('[data-ct-line]'), foot = qs('[data-ct-foot]');
+    var reason = ctDateReason(f);
+    var head;
+    if (f.bookTarget) {
+      head = 'Aiming at ' + waNum(f.bookTarget) + ' words. You’ve written ' + waNum(f.written) + '.';
+    } else if (!f.covered) {
+      // Guard one. State the sum for what it actually IS — a part of the book,
+      // not the book — because the bare pair of numbers invites a comparison
+      // that is meaningless: a writer can easily have written more than their
+      // targeted chapters add up to, and read that as being finished.
+      head = f.targeted + ' of your ' + f.ch.length + ' chapters have a target, adding up to '
+        + waNum(f.sum) + '. The rest of the book is still unbudgeted.';
+    } else {
+      head = 'Targets sum to ' + waNum(f.sum) + '. You’ve written ' + waNum(f.written) + '.';
+    }
+    if (reason === null) {
+      var days = Math.ceil(f.left / f.pace);
+      head += (f.paceSource === 'lifetime' ? ' At your usual pace, around ' : ' At this book’s pace, around ')
+        + ctWhen(days) + '.';
+    }
+    if (line) line.textContent = head;
+
+    if (foot) {
+      foot.textContent =
+        reason === 'deadline'
+          // Guard three. Two finish dates on one page, from different windows,
+          // is the §9.6.3 failure repeated with something a writer cares about
+          // far more. The other card owns it, so this one points there.
+          ? 'Your Deadline card has the finish date for this book.'
+        : reason === 'partial'
+          ? 'Give every chapter a target and Penpoint can work out when you’ll finish.'
+        : reason === 'silent'
+          // Guard five, and the most important line on this card is the one
+          // that is not here. "Never, at this rate" is the single most
+          // discouraging sentence this page could produce (§3.3), so the
+          // absence is never explained.
+          ? 'The dips are the passes you spent cutting.'
+        : reason === 'done'
+          ? 'You’re past what you set out to write.'
+        : f.paceSource === 'lifetime'
+          // Not method-narration (§9.6.5): it states a fact about the BOOK, not
+          // about how the arithmetic was done. Without it "your usual" reads as
+          // an arbitrary choice of window rather than the only honest one
+          // available on a book with nine days behind it.
+          ? 'This book is too new to have a pace of its own. That is your pace across everything you’ve written.'
+          : 'Chapters run long and short. The sum is what matters.';
+    }
+  }
+
+  function ctWhen(days) {
+    var d = new Date(TODAY.getTime() + days * 86400000);
+    return MONTHS[d.getMonth()] + ' ' + ordinal(d.getDate());
+  }
+
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('[data-ct-state]') : null;
+    if (!b) return;
+    e.preventDefault();
+    ctState = b.getAttribute('data-ct-state');
+    qsa('[data-ct-state]').forEach(function (x) {
+      x.setAttribute('aria-selected', String(x === b));
+    });
+    ctRender();
+  });
+
+  // ════════════════════════════════════════════════════════════════════════
+  // WORDS YOU LEAN ON  (§9.10)
+  // ════════════════════════════════════════════════════════════════════════
+  // A revision tool, not a progress stat, and the distinction is what brought
+  // it back after "Your vocabulary" was cut. That card needed per-word HISTORY
+  // ("34 used for the first time this week"), which does not exist and is not
+  // planned. A frequency count of the current draft needs none — in the real
+  // app it reads the plain prose the search index already stores.
+  //
+  // The counts are from the Sherlock demo book, which is what the rest of this
+  // page is built on.
+  var OW_WORDS = [
+    // word, count, kind: '' ordinary, 'stop' common, 'name' from the book
+    ['the', 4820, 'stop'], ['and', 2610, 'stop'], ['of', 2180, 'stop'],
+    ['to', 2040, 'stop'], ['a', 1970, 'stop'], ['I', 1640, 'stop'],
+    ['Holmes', 612, 'name'], ['Watson', 388, 'name'],
+    ['Baskerville', 274, 'name'], ['Mortimer', 141, 'name'],
+    ['Stapleton', 130, 'name'], ['moor', 214, ''], ['said', 198, ''],
+    ['just', 176, ''], ['very', 168, ''], ['little', 155, ''],
+    ['seemed', 149, ''], ['upon', 141, ''], ['suddenly', 118, ''],
+    ['looked', 112, ''], ['darkness', 96, ''], ['perhaps', 91, ''],
+    ['certainly', 84, ''], ['turned', 79, ''], ['quite', 74, ''],
+    ['nodded', 68, ''], ['merely', 61, ''], ['glanced', 57, ''],
+    ['presently', 52, ''], ['indeed', 48, '']
+  ];
+  // Keys match the buttons' data-ow-opt values exactly. They did not at first —
+  // the switch said `names` and the state said `name` — and the filter silently
+  // did nothing while the checkbox animated perfectly.
+  var owSkip = { stop: true, names: true };
+
+  // The third filter §9.10.2 asks for, and the one the two switches cannot
+  // replace. "moor" is not a stopword and not a character; it is a word this
+  // particular book is allowed to lean on because it is set on one. Without a
+  // per-word dismissal the writer has no way to say so, and the list keeps
+  // handing back the same answer they already considered and accepted.
+  //
+  // Per BOOK, not global: "darkness" is a tic in one manuscript and the subject
+  // of another.
+  var owIgnored = {};
+
+  function owList() {
+    return OW_WORDS.filter(function (w) {
+      return !(owSkip.stop && w[2] === 'stop')
+        && !(owSkip.names && w[2] === 'name')
+        && !owIgnored[w[0]];
+    });
+  }
+
+  function owIgnoredCount() {
+    return Object.keys(owIgnored).length;
+  }
+
+  function owRender() {
+    var host = qs('[data-ow]');
+    if (!host) return;
+    var rows = owList();
+    var top = rows.length ? rows[0][1] : 1;
+
+    var win = qs('[data-ow-win]');
+    if (win) win.textContent = 'Manuscript only · Book Two';
+
+    var line = qs('[data-ow-line]');
+    if (line) {
+      line.textContent = rows.length
+        ? '“' + rows[0][0] + '” appears ' + waNum(rows[0][1])
+          + ' times. That is the one to look at first.'
+        : 'Nothing left to show. Turn a filter back on.';
+    }
+
+    var list = qs('[data-ow-list]');
+    if (list) {
+      list.innerHTML = rows.map(function (w) {
+        var pct = Math.max(2, Math.round((w[1] / top) * 100));
+        return '<div class="pp-ow-row flex items-center gap-3 py-1.5">'
+          + '<span class="font-body-sm text-foreground" style="min-width:7.5em">' + esc(w[0]) + '</span>'
+          + '<span style="flex:1 1 0; height:7px; background:rgb(var(--muted))">'
+          + '<i class="block" style="width:' + pct + '%; height:100%; background:var(--pp-manuscript)"></i></span>'
+          + '<span class="font-body-sm text-muted-foreground tabular-nums" style="min-width:3.2em; text-align:right">'
+          + waNum(w[1]) + '</span>'
+          // Dismissal is a fact about the word, so it sits ON the word. A
+          // second list of exceptions somewhere in settings would be a place
+          // the writer has to remember, and they are here holding the word.
+          + '<button type="button" class="pp-ow-drop" data-ow-drop="' + esc(w[0]) + '"'
+          + ' title="Stop counting &ldquo;' + esc(w[0]) + '&rdquo;"'
+          + ' aria-label="Stop counting ' + esc(w[0]) + '">'
+          + '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"'
+          + ' stroke-width="2.5" stroke-linecap="round" aria-hidden="true">'
+          + '<path d="M18 6 6 18M6 6l12 12"/></svg></button>'
+          + '</div>';
+      }).join('');
+    }
+
+    qsa('[data-ow-opt]').forEach(function (b) {
+      var on = owSkip[b.getAttribute('data-ow-opt')];
+      var box = qs('.pp-check', b);
+      if (box) { if (on) box.setAttribute('data-on', ''); else box.removeAttribute('data-on'); }
+    });
+
+    // Anything the writer dismissed is recoverable in one click and the count
+    // is stated plainly. A filter you cannot see the extent of is a filter you
+    // stop trusting, and this one is the only one that hides a word the page
+    // never names again.
+    var back = qs('[data-ow-back]');
+    if (back) {
+      var n = owIgnoredCount();
+      back.hidden = n === 0;
+      var label = qs('[data-ow-backlabel]', back);
+      if (label) {
+        label.textContent = n === 1
+          ? 'You told Penpoint to stop counting one word.'
+          : 'You told Penpoint to stop counting ' + waNum(n) + ' words.';
+      }
+    }
+
+    var foot = qs('[data-ow-foot]');
+    if (foot) {
+      foot.textContent = owSkip.stop
+        ? 'Worldbuilding notes are left out. This is your prose.'
+        : 'Common words are in the list. They will always win it.';
+    }
+  }
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest) return;
+    var b = e.target.closest('[data-ow-opt]');
+    if (b) {
+      e.preventDefault();
+      var k = b.getAttribute('data-ow-opt');
+      owSkip[k] = !owSkip[k];
+      owRender();
+      return;
+    }
+    var d = e.target.closest('[data-ow-drop]');
+    if (d) {
+      e.preventDefault();
+      owIgnored[d.getAttribute('data-ow-drop')] = true;
+      owRender();
+      return;
+    }
+    if (e.target.closest('[data-ow-restore]')) {
+      e.preventDefault();
+      owIgnored = {};
+      owRender();
+    }
+  });
+
+  // ════════════════════════════════════════════════════════════════════════
+  // VIEW MODEL — presets and pinning  (§7.9)
+  // ════════════════════════════════════════════════════════════════════════
+  // From the beta round, 2026-08-02 to 08-04. All four testers asked for the
+  // same thing in different words: let me turn things off. psimana supplied the
+  // reason — the same "1,200 words behind" is fuel to one writer and dread to
+  // another, so there is no single correct page — and also the answer to the
+  // obvious trap of handing everyone a blank canvas: templatize it.
+  //
+  // Stats holds every card; the Dashboard shows the ones you pinned. Nothing is
+  // duplicated, it is pinned.
+
+  // The tiers. Deliberately data, one line each, so retuning which card belongs
+  // in which is a one-word edit rather than a rewrite.
+  var VM_TIERS = {
+    quiet:    ['today', 'deadline'],
+    balanced: ['today', 'deadline', 'quicksprint', 'hours', 'fillsin', 'booknow'],
+    full:     ['today', 'deadline', 'quicksprint', 'hours', 'goals', 'threads',
+               'fillsin', 'booknow', 'words', 'timewriting', 'streak']
+  };
+  var VM_BLURB = {
+    quiet:    'Today’s count, your streak, and what you’re working toward.',
+    balanced: 'Adds your writing rhythm, sprints, and the last thing you did.',
+    full:     'Every card Penpoint can draw for you.'
+  };
+  // The view level is a ladder, so a card at Quiet is also at Balanced and Full.
+  // Stored as a rank rather than three lists: three lists let a card be at Quiet
+  // and not at Full, which is not a state anything should be able to express.
+  var VM_RANK = { quiet: 0, balanced: 1, full: 2 };
+  var VM_ORDER = ['stats', 'goals', 'todos'];
+  var VM_HOME = {
+    today: 'stats', deadline: 'goals', quicksprint: 'goals', goals: 'goals',
+    hours: 'stats', threads: 'todos', fillsin: 'stats', booknow: 'stats',
+    words: 'stats', timewriting: 'stats', streak: 'stats'
+  };
+  var VM_HOMENAME = { stats: 'Stats', goals: 'Goals & Sprints', todos: 'Threads' };
+
+  // §7.9.2: Balanced is the default for a brand-new writer. Quiet risks nobody
+  // discovering the page has depth; Full is the wall the beta round described.
+  var vmPreset = 'balanced';
+  var vmPinned = null;
+
+  // ── The two surfaces, and why nothing here overwrites anything ──────────
+  // REVISED 2026-08-07. The first build had the preset WRITE the pins, which
+  // made picking one destructive and needed a confirmation step in front of it.
+  // That was solving a problem the model created.
+  //
+  // The preset now owns STATS: how much of the library you meet. Pins own the
+  // DASHBOARD: which of it greets you. Two surfaces, one owner each, and
+  // switching Quiet to Full can never cost the writer an arrangement because it
+  // never touches one. The Custom chip, the pending tier and the "Replace it /
+  // Keep mine" warning all left with the coupling — there is nothing left to
+  // warn about.
+  //
+  // Consequence worth stating: a pinned card whose tier is above the current
+  // view still shows on the Dashboard. That is correct. You pinned it, and the
+  // Dashboard is your favorites; the view level is how deep you browse.
+
+  var PIN_SVG = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"'
+    + ' stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+    + '<path d="M12 17v5"></path>'
+    + '<path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1'
+    + ' 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0'
+    + ' 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"></path></svg>';
+
+  // Every card the page actually contains, deduped by id. Read from the DOM
+  // rather than listed here, so the panel can never disagree with the page
+  // about what exists — the two Dashboard states hold different card sets and a
+  // hand-written list would go stale the first time either changed.
+  function vmCards() {
+    var seen = {}, out = [];
+    qsa('[data-card]').forEach(function (el) {
+      var id = el.getAttribute('data-card');
+      if (seen[id]) return;
+      seen[id] = 1;
+      out.push({
+        id: id,
+        name: el.getAttribute('data-card-name') || id,
+        fixed: el.hasAttribute('data-card-fixed'),
+        home: VM_HOME[id] || 'stats'
+      });
+    });
+    return out;
+  }
+
+  // The pins a writer starts with, seeded ONCE from the tier they chose at
+  // setup (§7.9.5). After that the two are independent: this is a starting
+  // arrangement, not a binding, and nothing re-runs it when the view changes.
+  function vmSeedPins(tier) {
+    var on = VM_TIERS[tier] || VM_TIERS.balanced;
+    vmPinned = {};
+    vmCards().forEach(function (c) {
+      vmPinned[c.id] = c.fixed || on.indexOf(c.id) >= 0;
+    });
+  }
+
+  // §7.9.1, the half of the model that lives on Stats: the view level decides
+  // how much of the library you meet. Full is everything, and no card is ever
+  // unreachable — switching to Full is the one gesture that finds anything.
+  function vmApplyStats() {
+    var rank = VM_RANK[vmPreset];
+    if (rank === undefined) rank = VM_RANK.balanced;
+    qsa('[data-tier]').forEach(function (el) {
+      el.hidden = VM_RANK[el.getAttribute('data-tier')] > rank;
+    });
+    // The row collapse itself lives in the page's own layout(), which runs on
+    // the relayout() at the end of vmRender. It has to: GRIDS re-applies every
+    // authored template on each pass, so a collapse written from out here is
+    // overwritten a few milliseconds later and the row keeps a column for the
+    // card that left.
+  }
+
+  function vmRender() {
+    if (!qs('[data-card]')) return;
+    if (!vmPinned) vmSeedPins(vmPreset);
+
+    // Cards that exist only in one Dashboard state still get their pin honored
+    // in the other; the state switcher decides which copy is on screen.
+    qsa('[data-dash-state] [data-card]').forEach(function (el) {
+      el.hidden = !vmPinned[el.getAttribute('data-card')];
+    });
+
+    vmApplyStats();
+    vmPaintPins();
+    vmPaintPanel();
+
+    // Order matters and neither call is optional. The delays are recomputed
+    // over what is visible, and .cascade-block is opacity:0 at rest — a card
+    // revealed without replaying its animation stays invisible.
+    var live = qs('[data-dash-state]:not([hidden])');
+    if (live && window.PP_PAGE && window.PP_PAGE.restartCascade) {
+      window.PP_PAGE.restartCascade(live);
+    }
+    var stats = qs('[data-tab-panel="stats"]');
+    if (stats && !stats.hidden && window.PP_PAGE && window.PP_PAGE.restartCascade) {
+      window.PP_PAGE.restartCascade(stats);
+    }
+    relayout();
+  }
+
+  // The pin itself, injected after each card's title text. Cards whose title is
+  // painted by a renderer (Active goals, Threads) have no .pp-title in the
+  // markup at all and simply get no inline pin — the panel checklist is their
+  // route, which is why data-card-name is mandatory.
+  function vmPaintPins() {
+    qsa('[data-card]').forEach(function (el) {
+      var id = el.getAttribute('data-card');
+      var fixed = el.hasAttribute('data-card-fixed');
+      var title = qs('.pp-title', el);
+      if (!title) return;
+      var btn = qs('.pp-pin', title);
+      if (!btn) {
+        title.insertAdjacentHTML('beforeend',
+          '<button type="button" class="pp-pin" data-pin="' + esc(id) + '"'
+          + (fixed ? ' data-fixed' : '') + '>' + PIN_SVG + '</button>');
+        btn = qs('.pp-pin', title);
+      }
+      btn.setAttribute('aria-pressed', String(!!vmPinned[id]));
+      btn.setAttribute('title', fixed
+        ? 'Always on your Dashboard'
+        : (vmPinned[id] ? 'Showing on your Dashboard' : 'Show on your Dashboard'));
+    });
+  }
+
+  function vmPaintPanel() {
+    // EVERY group, not the first. The same setting is offered twice — the gear
+    // on the Dashboard and the control on Stats — and the page's own segment
+    // handler only repaints the group that was clicked. Painting one would let
+    // the two chips disagree about a single global preference.
+    qsa('[data-segment="viewpreset"]').forEach(function (group) {
+      qsa('[data-segment-value]', group).forEach(function (b) {
+        b.setAttribute('aria-selected', String(b.getAttribute('data-segment-value') === vmPreset));
+      });
+      if (window.PP_PAGE && window.PP_PAGE.paintSegment) window.PP_PAGE.paintSegment(group);
+    });
+    var label = qs('[data-vm-label]');
+    if (label) label.textContent = vmPreset.charAt(0).toUpperCase() + vmPreset.slice(1);
+    var blurb = qs('[data-vm-blurb]');
+    if (blurb) blurb.textContent = VM_BLURB[vmPreset] || '';
+
+    var host = qs('[data-vm-list]');
+    if (!host) return;
+    var cards = vmCards();
+
+    // Update in place when the list is already built. Rebuilding the innerHTML
+    // on every toggle replaces the row under the pointer mid-click and throws
+    // keyboard focus back to the top of the panel — a settings list is the one
+    // place a writer flips several switches in a row, so it is exactly the
+    // wrong surface to redraw wholesale.
+    var rows = qsa('[data-pin]', host);
+    if (rows.length === cards.length) {
+      rows.forEach(function (row) {
+        var box = qs('.pp-check', row);
+        if (!box) return;
+        if (vmPinned[row.getAttribute('data-pin')]) box.setAttribute('data-on', '');
+        else box.removeAttribute('data-on');
+      });
+      return;
+    }
+
+    var out = [];
+    VM_ORDER.forEach(function (home) {
+      var mine = cards.filter(function (c) { return c.home === home; });
+      if (!mine.length) return;
+      out.push('<p class="font-caption text-muted-foreground mt-4" style="letter-spacing:.06em">'
+        + esc(VM_HOMENAME[home]) + '</p><div class="pp-vm-group">');
+      mine.forEach(function (c) {
+        out.push('<button type="button" class="pp-vm-row" data-pin="' + esc(c.id) + '"'
+          + (c.fixed ? ' data-fixed' : '') + '>'
+          + '<span class="pp-check"' + (vmPinned[c.id] ? ' data-on' : '') + '>' + CHECK_SVG + '</span>'
+          + '<span class="font-body-sm ' + (c.fixed ? 'text-muted-foreground' : 'text-foreground') + '">'
+          + esc(c.name) + '</span>'
+          + (c.fixed
+            ? '<span class="font-caption text-muted-foreground ml-auto">always</span>' : '')
+          + '</button>');
+      });
+      out.push('</div>');
+    });
+    host.innerHTML = out.join('');
+  }
+
+  // One handler for both surfaces: the inline pin and the panel checklist are
+  // the same switch drawn twice, so they must not be able to disagree.
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('[data-pin]') : null;
+    if (!b) return;
+    e.preventDefault();
+    if (b.hasAttribute('data-fixed')) return;
+    var id = b.getAttribute('data-pin');
+    vmPinned[id] = !vmPinned[id];
+    // The view level is NOT touched. Pinning changes the Dashboard and says
+    // nothing about how much of Stats the writer wants to browse.
+    vmRender();
+  });
+
+  // Picking a view level. Nothing is confirmed, because nothing is lost: it
+  // changes what Stats shows and leaves every pin exactly where the writer put
+  // it.
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest
+      ? e.target.closest('[data-segment="viewpreset"] [data-segment-value]') : null;
+    if (!b) return;
+    vmPreset = b.getAttribute('data-segment-value');
+    vmRender();
+  });
+
+  // The two Dashboard states hold different cards, so the state switcher has to
+  // re-apply pins to whichever copy just appeared. Deferred so the page's own
+  // handler (which flips [hidden] and replays the cascade) wins first.
+  document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('[data-dash-preview]')) {
+      setTimeout(vmRender, 0);
+    }
+  });
+
   // ════════════════════════════════════════════════════════════════════════
   // PAGE GLUE
   // ════════════════════════════════════════════════════════════════════════
@@ -8266,6 +9944,13 @@
     // the hand-written figures and the derived ones can never drift apart.
     renderDeadline();
     hkRender();
+    waRender();
+    waWatch();
+    ctRender();
+    owRender();
+    // Last of the renderers: it hides cards and replays the cascade, so it has
+    // to run after everything that paints into them.
+    vmRender();
     obsIndex = 1;  // the markup already shows the first line
   }
   if (document.readyState === 'loading') {

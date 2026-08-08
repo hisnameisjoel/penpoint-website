@@ -483,6 +483,7 @@
           <div class="changelog-sidebar__group">
   <h3 class="changelog-sidebar__group-title">1.3.x</h3>
   <ul class="changelog-sidebar__list">
+    <li><a class="changelog-sidebar__link" href="#v1-3-3"><span>1.3.3</span><span class="changelog-sidebar__date">Aug 8, 2026</span></a></li>
     <li><a class="changelog-sidebar__link" href="#v1-3-2"><span>1.3.2</span><span class="changelog-sidebar__date">Aug 1, 2026</span></a></li>
     <li><a class="changelog-sidebar__link" href="#v1-3-1"><span>1.3.1</span><span class="changelog-sidebar__date">Jul 23, 2026</span></a></li>
     <li><a class="changelog-sidebar__link" href="#v1-3-0"><span>1.3.0</span><span class="changelog-sidebar__date">Jul 17, 2026</span></a></li>
@@ -543,6 +544,7 @@
           <label class="changelog-mobile-nav__label" for="changelog-version-select">Jump to version</label>
           <select class="changelog-mobile-nav__select" id="changelog-version-select" onchange="if(this.value) window.location.hash = this.value;">
             <option value="">Select a version&hellip;</option>
+              <option value="#v1-3-3">1.3.3 — Aug 8, 2026</option>
               <option value="#v1-3-2">1.3.2 — Aug 1, 2026</option>
               <option value="#v1-3-1">1.3.1 — Jul 23, 2026</option>
               <option value="#v1-3-0">1.3.0 — Jul 17, 2026</option>
@@ -584,7 +586,37 @@
 
         <!-- Main content -->
         <div class="changelog-content">
-          <section id="v1-3-2" class="changelog-version">
+          <section id="v1-3-3" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.3.3</h2>
+    <span class="changelog-version__date">August 8, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Tag Groups</strong> - If your tag list has grown past a hundred and you've started numbering them by hand to keep them in order, this one's for you. Tags can now live in named groups that collapse and expand everywhere tags appear, so a long list reads as a few tidy sections instead of one endless wall. Give a group a color and every tag inside takes it on, pick a writing-themed icon, and drag tags in or out; your existing tags all start out ungrouped, right where you left them.</li>
+    <li><strong>Nickname Tags</strong> - Give a character several nicknames by typing a comma after each one: "Holmes, Sherlock, Sigerson" becomes three little tags, each with an X to remove it and a grip to drag them into whatever order you like (arrow keys work too). Order matters: the first nickname is the one Penpoint shows where space is tight, like a scene's POV label. Every nickname now works on its own across Penpoint: @ mentions, search, the Chapter Scanner, and spellcheck, which no longer underlines a nickname just because the character has more than one.</li>
+    <li><strong>Images That Fit Your Page</strong> - Pictures in your manuscript, notes, and description fields used to sit at one size, full width, with your text stacked above and below. Now your text wraps around them, there's an optional caption line under every picture, and clicking one while editing brings up a small toolbar to resize it or move it left, center, or right. It's a writing aid rather than export formatting, so the layout stays inside Penpoint.</li>
+    <li><strong>Word Counts in the Outliner</strong> - The cog at the top of the outliner now has a "Show word counts" switch, so you can see how long every chapter is at a glance instead of hovering over them one at a time. A chapter with several scenes shows the total, with each scene's own count listed underneath, and folders show the total for everything inside. Long chapter titles wrap onto a second line while counts are showing, so nothing gets cut short.</li>
+    <li><strong>Jump Straight to Your Chapter's Notes</strong> - The Minipen sidebar could always send you to whatever chapter it was showing, but there was no way to go the other direction. Right-click any chapter or scene in the manuscript outliner and pick "Open in Minipen" to pull up its notes, or press Ctrl+Shift+N for wherever you're writing right now. There's a matching button at the top of the sidebar's chapter list.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Tags, Tidied Up</strong> - Creating a tag now happens in its own window where you set the name, color, and group at once, instead of a card appearing partway down your list. Choosing a tag to merge into is searchable and no longer runs off the bottom of the screen, and tag cards stopped flashing a thick outline every time your pointer touched them.</li>
+    <li><strong>Hide Empty Blocks Now Covers Story Arcs</strong> - Story Arcs was the one block the option skipped, so a chapter with no plot points still showed an empty panel. It now tucks away like the rest, and a block you clear out disappears as soon as you leave Edit Mode instead of waiting until you come back.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Quotes Inside Quotes</strong> - Closing a quote inside another quote left the outer quote facing the wrong way. Fixed everywhere you type, including name fields and Find and Replace.</li>
+    <li><strong>Bullet Points Missing From Exports</strong> - Bulleted and numbered lists could disappear completely from your exported manuscript in every format, taking indented items and anything inside a quote block with them. Nothing was lost from your book itself, only from the file it wrote, so export again for a complete copy.</li>
+    <li><strong>Importing Markdown Files</strong> - Checkbox lists now come back as real checkboxes instead of literal "[x]" text, and a code block in an imported file no longer leaves that field blank when you open it.</li>
+    <li><strong>Story Arcs on the Chapter Page</strong> - Plot points pinned to a chapter's only scene now show under "Whole chapter" instead of vanishing, plot points belonging to another Book or a Series Arc now appear in the list and can be removed instead of being replaced by a message, and removing one takes a single click.</li>
+    <li><strong>Minipen Sidebar Icons</strong> - Entities without profile pictures now display type-specific icons instead of generic placeholders, matching worldbuilding mode. Chapter rows also show the scroll icon instead of a bare dash.</li>
+    <li><strong>Minipen Chapter Text Size</strong> - Chapter names in the sidebar were noticeably smaller than everywhere else in Penpoint. They now match the other sidebar pages, and a stray sideways scrollbar in the chapter view is gone too.</li>
+  </ul>
+</section>
+
+<section id="v1-3-2" class="changelog-version">
   <div class="changelog-version__header">
     <h2 class="changelog-version__number">1.3.2</h2>
     <span class="changelog-version__date">August 1, 2026</span>
