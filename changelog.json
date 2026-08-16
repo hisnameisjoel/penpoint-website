@@ -1,6 +1,92 @@
 {
-  "generatedAt": "2026-08-08T15:32:11.829Z",
+  "generatedAt": "2026-08-16T15:11:21.706Z",
   "versions": [
+    {
+      "number": "1.3.4",
+      "date": "2026-08-16",
+      "intro": "",
+      "sections": [
+        {
+          "name": "Added",
+          "entries": [
+            {
+              "text": "**Comments in Your Manuscript** - Leave yourself notes in the page margin, right beside the line they belong to. Select some text and press Ctrl+Alt+M (or right-click and choose Add Comment), then reply to extend a thought, resolve it when it's handled, or delete it. A small floating button filters the margin to open or resolved comments, or hides them down to little dots. Comments are for you, not your readers: they never appear in your exports.",
+              "subBullets": []
+            },
+            {
+              "text": "**Pin Notes to Your Prose** - Right-click a selection and choose \"Pin a Note\" to keep a Notebook note in the margin beside a passage, with a live preview and a jump straight to the note. It works both ways: the note lists every place it's pinned, and clicking one takes you back to that exact spot in your manuscript.",
+              "subBullets": []
+            },
+            {
+              "text": "**Page Setup for Exports** - Exporting to Word, PDF, or RTF now lets you choose a paper size (Letter, A4, or 6\" x 9\" book trim) and adjust the margins and first-line indent. The export preview shows your actual page shape and margins as you change them, and the three formats finally agree with each other on how your pages look.",
+              "subBullets": []
+            },
+            {
+              "text": "**Auto-Capitalize Sentences** - Turn it on in Settings and Penpoint capitalizes the first letter of every sentence as you type, so a long session never breaks stride on the Shift key. It knows that \"Mr.\", \"e.g.\", decimals, and ellipses aren't sentence breaks, and if it ever guesses wrong, Backspace right afterward puts your lowercase letter back. Off by default.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Improved",
+          "entries": [
+            {
+              "text": "**Longer Flowstate Sessions** - Write and edit stretches can now run up to 120 minutes instead of stopping at 99. The timer bar also stays on screen after you hit Stop, so you can adjust your times or start another session without summoning it back; it tucks away when you click the Flowstate button.",
+              "subBullets": []
+            },
+            {
+              "text": "**Empty Notes Clean Up After Themselves** - A note you make in the Minipen sidebar and leave without writing anything is now discarded, instead of sitting in your notebook as an \"Untitled\". A line at the top says so while that's true, and your cursor starts in the title now so you can just start writing.",
+              "subBullets": []
+            },
+            {
+              "text": "**Removing a Tag From a Note** - Tags on a note in the Minipen sidebar now have a small X to take them back off. Removal was always possible, but it was tucked inside the \"add tags\" button, so it looked like a tag was permanent once you'd added it.",
+              "subBullets": []
+            },
+            {
+              "text": "**Sidebar Fits Your Screen Better** - The side navigation bar now makes better use of the vertical space it has, meaning less scrunching and better visibility on smaller screens.",
+              "subBullets": []
+            },
+            {
+              "text": "**Tag Controls Stay Put While You Scroll** - The buttons and bulk edit bar at the top of the Tags page now stay in place while your tag groups scroll underneath, so a long list never puts them out of reach.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Fixed",
+          "entries": [
+            {
+              "text": "**Chapter Titles Are Now Real Headings** - Exported chapter titles looked like headings without actually being them. Word's navigation pane, tables of contents, and tools like Vellum and Atticus now recognize every chapter in your Word and RTF files, and e-readers now show your real chapter titles instead of just \"Chapter 2\".",
+              "subBullets": []
+            },
+            {
+              "text": "**Indented Paragraphs in EPUB** - Paragraphs indented in the editor now read like normal book paragraphs on e-readers, instead of the whole paragraph being pushed sideways.",
+              "subBullets": []
+            },
+            {
+              "text": "**Image Captions and Controls** - Captions longer than the picture is wide now wrap onto a new line instead of getting cut off, and the toolbar for resizing and moving a picture no longer hides behind the formatting toolbar or runs off the edge of a narrow panel.",
+              "subBullets": []
+            },
+            {
+              "text": "**Pictures in the Minipen Sidebar** - Pictures in the sidebar now wrap your text and sit against the margin you chose, instead of jumping to the left and pushing your text underneath. Captions there are smaller too, so they read as labels rather than competing with your writing.",
+              "subBullets": []
+            },
+            {
+              "text": "**Import and Export Fixes** - A batch of fixes to what actually reaches your exported files. Your timeline events, tags on your notes, and picture blocks now export (and note tags come back on import), heading levels and block quotes keep their shape instead of flattening, fields you've cleared no longer appear as empty headings, and the fill-in templates stopped tagging every new character with every tag in your book.",
+              "subBullets": []
+            },
+            {
+              "text": "**Bold Inside a Heading** - Bolding a word inside a heading made it look lighter instead of heavier. Headings and bold text now sit at sensible weights, so bold reads as bold wherever you use it.",
+              "subBullets": []
+            },
+            {
+              "text": "**Commas After Linked Names** - A comma or period right after a character or place link no longer slides onto the next line by itself.",
+              "subBullets": []
+            }
+          ]
+        }
+      ]
+    },
     {
       "number": "1.3.3",
       "date": "2026-08-08",
