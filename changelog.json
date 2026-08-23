@@ -1,6 +1,72 @@
 {
-  "generatedAt": "2026-08-16T15:11:21.706Z",
+  "generatedAt": "2026-08-23T22:10:10.859Z",
   "versions": [
+    {
+      "number": "1.3.5",
+      "date": "2026-08-23",
+      "intro": "",
+      "sections": [
+        {
+          "name": "Added",
+          "entries": [
+            {
+              "text": "**Chapter Drafts** - Save a snapshot of a whole chapter, every scene at once (or just the one), and come back to it whenever you like. Preview an old draft exactly as it was, deleted scenes and all, copy anything you want out of it, or restore the entire chapter to that moment in one click. Restoring tucks your current version away as a fresh draft first, so looking back is always safe.",
+              "subBullets": []
+            },
+            {
+              "text": "**Authors Dictionary** - Penpoint now adds a curated set of fiction-writing words to your English spellcheck across every book, so fewer genre terms get flagged as misspelled. If a word you use is still missing, you can send it in to be considered for a future list, and the dictionary refreshes itself automatically so new words arrive without you doing anything. On by default; adjust it in Settings under Spellcheck and Autocorrect.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Improved",
+          "entries": [
+            {
+              "text": "**Long Comments Stay Tidy** - A long comment in the margin now collapses to a comfortable size with a \"Show more\" link, so one big note doesn't take over the page. Any follow-ups you add do the same.",
+              "subBullets": []
+            },
+            {
+              "text": "**Tidier Character Lists on Chapter Pages** - Names now sit above their nicknames, the point-of-view eye is a single neatly aligned toggle, and chapters without a POV now say \"None\" with a hint on how to set one.",
+              "subBullets": []
+            }
+          ]
+        },
+        {
+          "name": "Fixed",
+          "entries": [
+            {
+              "text": "**Your saved snapshots now follow your book** - Copying or moving a book into a series used to leave its saved manuscript snapshots behind, and on a move they were gone for good. Snapshots now travel with the book, and every Book in a series keeps its own separate history with its own 10 slots. Splitting a series back apart, and duplicating a Book inside one, carry the right snapshots too. Duplicating a Book inside a series now also brings its scene drafts. If you already had a series, snapshots you took before this update captured the whole series at once, so they are all kept together under your first Book.",
+              "subBullets": []
+            },
+            {
+              "text": "**Switching Books with the Number Pad** - Ctrl+Shift+1 through 9 switches Books in a series, but it only worked from the number row above your letters. It now works from the number pad too.",
+              "subBullets": []
+            },
+            {
+              "text": "**Editing Comment Follow-Ups** - When you used \"Add more\" to extend a comment, that extra text was stuck with no way to fix a typo or take it back. Now each follow-up has its own menu to edit or delete it.",
+              "subBullets": []
+            },
+            {
+              "text": "**Linking Names After Escape** - Typing @ to link a character or place, pressing Escape, then trying again used to leave @ as a plain symbol with no picker. It brings the name picker back now.",
+              "subBullets": []
+            },
+            {
+              "text": "**Find and Replace Comes to the Front** - The Find and Replace box no longer hides behind the comment button, and your writing can't peek through the gap above it.",
+              "subBullets": []
+            },
+            {
+              "text": "**Clearer Comment Margins** - Comments in the margin no longer get washed out by the current-line highlight when your cursor is on the same row.",
+              "subBullets": []
+            },
+            {
+              "text": "**Clicking Above Your Scene** - Clicking the empty space above the first line of a scene used to jump your cursor down to the very end. Now it leaves your place alone.",
+              "subBullets": []
+            }
+          ]
+        }
+      ]
+    },
     {
       "number": "1.3.4",
       "date": "2026-08-16",
