@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — Penpoint</title>
-  <meta name="description" content="Penpoint's privacy policy. Your data stays on your computer. No cloud, no accounts, no tracking of your writing. Learn how we handle analytics and support data.">
+  <meta name="description" content="Penpoint's privacy policy. Your writing stays on your computer. Penpoint Cloud adds optional encrypted backup. Full details on what we collect and what we don't.">
   <link rel="canonical" href="https://penpoint.app/privacy">
   <meta name="theme-color" content="#FFF7E6">
 
@@ -182,12 +182,12 @@
   <main id="main">
     <div class="container privacy-narrow privacy-content">
       <h1>Privacy Policy</h1>
-      <p class="privacy-updated">Last updated: July 9, 2026</p>
+      <p class="privacy-updated">Last updated: August 21, 2026</p>
 
       <p>Penpoint is built by Tophat Creative, LLC. We believe your writing is yours, and so is your data. This policy explains what we collect, why, and how you stay in control. By using Penpoint, you also agree to our <a href="/terms">Terms of Service</a>.</p>
 
       <h2>Your Writing Data</h2>
-      <p>Penpoint is a desktop application. All of your projects, characters, notes, and other content are stored locally on your computer. We do not have access to your writing data. No prose, manuscripts, or project files are ever transmitted to our servers.</p>
+      <p>Penpoint is a desktop application. All of your projects, characters, notes, and other content are stored locally on your computer. We do not have access to your writing data. If you use Penpoint only as a desktop application, no prose, manuscripts, or project files are ever transmitted to our servers. If you subscribe to Penpoint Cloud, your content is encrypted on your device and the encrypted copy is transmitted as described in the <a href="#sync">Penpoint Cloud</a> section below.</p>
       <p>Diagnostic logs generated on your device may include metadata such as entity names (e.g., a character's name), navigation paths, and error details. Logs do <strong>not</strong> contain a copy of your book, manuscript, or project database. However, certain user-initiated actions (such as searches, copy/paste operations, entity renames, or content edits) may cause small, incidental fragments of your writing or worldbuilding to appear in log entries as part of the diagnostic context. These fragments are limited in scope and are never a reproduction of your work.</p>
       <p>Diagnostic logs are stored as plain-text files on your device and can be opened and reviewed in any text editor at any time. Logs remain on your computer unless you choose to share them with us for support purposes.</p>
 
@@ -205,6 +205,7 @@
         <li>Export counts by format, such as "exported 1 DOCX" (no file names or content)</li>
         <li>General time-of-day activity patterns</li>
         <li>Whether the app is running in trial or licensed mode</li>
+        <li>Whether you subscribe to Penpoint Cloud and which tier (Backup or Sync), as a coarse indicator with no account identifier, email, or billing details</li>
       </ul>
       <p>This data does not include your name, email address, IP address, or any writing content. The device identifier is derived from your computer's system ID using a one-way cryptographic hash combined with a Penpoint-specific key. It cannot be reversed to identify your device or linked to other applications. Under certain privacy frameworks (such as the GDPR), a persistent pseudonymous identifier may be considered personal data. We treat it accordingly and process it only with your explicit consent.</p>
       <p>You can view exactly what data is being sent at any time in <strong>Settings &gt; Community &amp; Updates</strong>. You can disable analytics at any time. Doing so immediately stops all data collection and <strong>deletes your historical data</strong> from our active systems. Infrastructure-level backups maintained by our hosting provider may retain residual copies for a limited period consistent with their retention policies, after which they are automatically purged.</p>
@@ -213,6 +214,11 @@
       <h2>Anonymous Activation Count</h2>
       <p>Separately from the optional analytics above, the app sends a single anonymous signal that an installation exists, along with whether you are using the free trial or a purchased copy. This happens once per installation: when you first install Penpoint and accept these Terms, or, if you already had Penpoint installed, automatically the first time you open the update that introduced this. The signal contains no device identifier, no account, no name, and no writing content. Like the update check described below, it contacts our server directly, so the connection carries your device's IP address; the count we keep records only a date and a running total, with no IP address stored. It increments an aggregate daily total (for example, "8 installs today") and is never tied to a specific person, device, or session.</p>
       <p>We use this only to understand how many people install Penpoint and how installations trend over time. Because it carries no identifier, it creates no per-device record and is not part of, or linked to, the opt-in community analytics described above. It is the same kind of anonymous, aggregate count we keep for website buttons (described below), and it is sent only once per installation. Because it records nothing about you as an individual, there is no separate on/off setting for it: in the same way the app's routine check for updates simply contacts a server, there is nothing here to collect about you and so nothing to turn off.</p>
+
+      <h2>Community Dictionary Submissions</h2>
+      <p>Penpoint includes a curated community spelling dictionary (the "Authors Dictionary") that helps writers' spellcheck recognize genre and fiction vocabulary. When you choose to submit a word to it (for example, by clicking the submit button next to a word in your custom dictionary), that single word is sent to us for review, together with an optional note you write, the word's language, and your app version and platform.</p>
+      <p>Submitting a word is a deliberate and voluntary action that you initiate. This feature is separate from the opt-in community analytics described above, and it has no additional setting to enable or disable, because no data is collected unless and until you choose to submit a word. Each submission is stored with a pseudonymous device identifier (the same one-way hashed identifier described above, and never your name, email address, or any content from your books) so that you can later view your own contributions. The information collected is limited to the individual word you submit and the optional note you attach to it; nothing else about your writing or your use of the app is collected by this feature.</p>
+      <p>Submitted words may be reviewed by us and, if suitable, added to the shared Authors Dictionary that ships to all writers. Please do not submit words that are private, sensitive, or that you do not wish to contribute to a public community resource. You can request deletion of your submissions at any time by contacting <a href="mailto:support@penpoint.app">support@penpoint.app</a>.</p>
 
       <h2>Website Analytics</h2>
       <p>Our marketing website (penpoint.app) uses Google Analytics to understand how visitors find and use the site. Google Analytics sets cookies on your device to measure page visits and session activity. This collects:</p>
@@ -239,6 +245,69 @@
       <p><strong>No writing content, character names, project titles, or personal information is ever shared.</strong> The communication happens entirely on your device between Penpoint and the Discord desktop app, so no data is sent to Penpoint's servers. Discord's own privacy policy governs how Discord handles your presence status once it is displayed.</p>
       <p>You can disable this feature at any time in Settings, which immediately stops all presence updates. The Discord desktop app must be running for this feature to work.</p>
 
+      <h2 id="sync">Penpoint Cloud</h2>
+      <p>This section applies only if you subscribe to Penpoint Cloud (either Penpoint Backup or Penpoint Sync). <strong>If you use Penpoint only as a local desktop application, none of the data described in this section is collected, and nothing in your privacy experience changes.</strong></p>
+
+      <h2>What Penpoint Cloud Cannot Read</h2>
+      <p>Penpoint Cloud uses zero-knowledge encryption. All of your book content (manuscripts, characters, locations, items, notes, arcs, and all other project data) is <strong>encrypted on your device before it ever leaves your computer</strong>. Tophat Creative stores the encrypted data but cannot decrypt or read it. Neither can anyone else, including our hosting providers.</p>
+      <p>When you delete a book from the cloud or erase your cloud data, the encryption keys are permanently destroyed (crypto-shredded), making all associated ciphertext unrecoverable even if residual copies exist in infrastructure backups.</p>
+
+      <h2>What Penpoint Cloud Does Collect</h2>
+      <p>While your writing content is encrypted, Penpoint Cloud necessarily processes certain <strong>clear-text metadata</strong> to operate the service:</p>
+      <ul>
+        <li><strong>Account email address</strong>: used for sign-in codes, subscription notifications, and support.</li>
+        <li><strong>Device names</strong>: a display name you choose for each device (e.g., "My Laptop"), visible only to you in the app.</li>
+        <li><strong>Book identifiers</strong>: internal UUIDs that identify your books in the cloud. <strong>Book titles are NOT stored in clear text</strong>; they live inside the encrypted blob.</li>
+        <li><strong>Version metadata</strong>: version numbers, timestamps, and file sizes associated with each backup, used to manage version history and syncing.</li>
+        <li><strong>Subscription status and history</strong>: your current plan, billing period, and entitlement state, plus a record of subscription lifecycle changes over time (for example subscribe, cancel, or resubscribe events) used for aggregate service and retention analytics.</li>
+        <li><strong>IP addresses</strong>: recorded in server logs by Supabase and Resend as part of normal HTTPS request processing. We do not use IP addresses for tracking or profiling.</li>
+        <li><strong>Operational service data</strong>: anonymized usage patterns (such as sync frequency, backup sizes, and connection timing) used to ensure the service is working correctly. Because your content is encrypted, we see operational patterns, not your data.</li>
+      </ul>
+
+      <h2>How We Use Cloud Data</h2>
+      <p>We use the metadata described above to:</p>
+      <ul>
+        <li>Provide and operate the sync and backup service (deliver your encrypted books to your devices, manage version history, handle device registration).</li>
+        <li>Send you transactional emails: sign-in codes, subscription confirmations, payment failure notices, and pre-purge warnings. These are service emails, not marketing; no separate consent or unsubscribe is required.</li>
+        <li>Monitor for abuse and ensure fair use (egress logging, usage diagnostics).</li>
+        <li>Respond to support requests related to your cloud account.</li>
+      </ul>
+      <p>The legal basis for processing this data is <strong>contract</strong> (to provide the sync service you subscribed to) and <strong>legitimate interest</strong> (abuse prevention and service reliability).</p>
+
+      <h2>Cloud Data Retention</h2>
+      <p>Penpoint Cloud retains data according to the following schedule:</p>
+      <ul>
+        <li><strong>Book version history</strong>: retained according to your plan's version-history policy for as long as your subscription is active.</li>
+        <li><strong>After subscription lapses</strong>: all cloud data (encrypted books, metadata, version history) is kept for <strong>30 days</strong>, then permanently deleted (crypto-shredded). Warning emails are sent before deletion.</li>
+        <li><strong>Account deletion (full erasure)</strong>: all cloud data is crypto-shredded immediately. The account email and authentication record are deleted. A non-personal tombstone (an opaque identifier containing no email or personal data) is retained to prevent account-ID reuse.</li>
+        <li><strong>Account email after cancellation</strong>: if you cancel your subscription but do not request full account deletion, we retain your account email so you can resume without re-registering. You can request full account deletion at any time.</li>
+        <li><strong>Server logs</strong> (Supabase infrastructure): retained according to Supabase's standard log retention policies.</li>
+        <li><strong>Email delivery logs</strong> (Resend): retained according to Resend's standard retention policies.</li>
+      </ul>
+      <p>Infrastructure-level backups maintained by our hosting provider may retain residual encrypted copies for a limited period consistent with their retention policies, after which they are automatically purged. Because the encryption keys have been destroyed, these copies are unreadable.</p>
+
+      <h2>Cloud Data Location &amp; Transfer</h2>
+      <p>Penpoint Cloud data is hosted on <strong>Supabase infrastructure in the European Union</strong>. Your encrypted book content and account metadata are stored in the EU. Some metadata (such as email addresses for transactional email delivery and payment data for billing) is processed by subprocessors that may operate in the United States. These transfers are governed by <strong>Standard Contractual Clauses (SCCs)</strong>.</p>
+
+      <h2>Cloud Subprocessors</h2>
+      <p>The following services process data on our behalf to operate Penpoint Cloud:</p>
+      <ul>
+        <li><strong>Supabase</strong> (EU hosting): stores encrypted book data, account metadata, and authentication records. <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase privacy policy</a>.</li>
+        <li><strong>Lemon Squeezy</strong> (Merchant of Record): processes subscription payments and handles tax compliance. Lemon Squeezy acts as an <strong>independent data controller</strong> for payment and tax data. <a href="https://www.lemonsqueezy.com/privacy" target="_blank" rel="noopener">Lemon Squeezy privacy policy</a>.</li>
+        <li><strong>Resend</strong>: delivers transactional emails (sign-in codes, subscription notifications). <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener">Resend privacy policy</a>.</li>
+      </ul>
+      <p>We will notify Cloud subscribers before adding or replacing a subprocessor.</p>
+
+      <h2>Your Cloud Data Rights</h2>
+      <p>In addition to the rights described in the "Your Rights" section below, Penpoint Cloud subscribers have the following rights:</p>
+      <ul>
+        <li><strong>Access (DSAR)</strong>: you can request a copy of all data we hold about your cloud account by contacting <a href="mailto:support@penpoint.app">support@penpoint.app</a>. We will respond within <strong>one month</strong>.</li>
+        <li><strong>Portability</strong>: your books are always available as local <code>.penpoint</code> files on your computer. You can export them at any time without contacting us.</li>
+        <li><strong>Rectification</strong>: you can update your device names in the app. To change your account email, use the email-change feature in Settings.</li>
+        <li><strong>Erasure</strong>: you can erase all cloud data by using the "Permanently erase all cloud backups" option in Settings, which crypto-shreds your encryption keys and deletes all cloud data. For full account erasure (including your email and authentication record), contact <a href="mailto:support@penpoint.app">support@penpoint.app</a>. Note that Lemon Squeezy retains billing records under its own legal obligation as Merchant of Record.</li>
+        <li><strong>Restriction &amp; objection</strong>: you can contact us to request restriction of processing or to object to specific processing activities. We will respond within one month.</li>
+      </ul>
+
       <h2>Email &amp; Support</h2>
       <p>If you contact us at <a href="mailto:support@penpoint.app">support@penpoint.app</a>, we'll have your email address and whatever you include in your message. We use this only to respond to you and won't share it with anyone.</p>
 
@@ -250,10 +319,11 @@
       <p>Community analytics data is transmitted over HTTPS (TLS) and stored on Supabase infrastructure hosted in the United States. The underlying database uses AES-256 encryption at rest. For users in the EEA or United Kingdom, data is transferred to the United States under Standard Contractual Clauses.</p>
 
       <h2>Third Parties</h2>
-      <p>We do not sell your data. We do not share it with third parties except as described below, where services process data on our behalf to operate Penpoint:</p>
+      <p>We do not sell your data. We do not share it with third parties except as described below, where services process data on our behalf to operate Penpoint (except where noted as an independent controller):</p>
       <ul>
         <li><strong>Lemon Squeezy</strong>: acts as Merchant of Record for purchases. When you buy Penpoint, Lemon Squeezy collects your name, email address, billing address, and payment information to process the transaction. Tophat Creative does not have access to your full payment details. <a href="https://www.lemonsqueezy.com/privacy" target="_blank" rel="noopener">Lemon Squeezy privacy policy</a>.</li>
-        <li><strong>Supabase</strong>: hosts pseudonymous community analytics data (if you opt in) and the anonymous activation count described above. <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase privacy policy</a>.</li>
+        <li><strong>Supabase</strong>: hosts pseudonymous community analytics data (if you opt in), the anonymous activation count described above, community dictionary submissions, and Penpoint Cloud account and encrypted book data (if subscribed). <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase privacy policy</a>.</li>
+        <li><strong>Resend</strong>: delivers transactional emails for Penpoint Cloud (sign-in codes, subscription notifications), if subscribed. <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener">Resend privacy policy</a>.</li>
         <li><strong>Google Analytics</strong>: collects anonymous visitor data on the Penpoint website. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google privacy policy</a>.</li>
         <li><strong>GitHub</strong>: serves app update checks. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub privacy statement</a>.</li>
         <li><strong>Discord</strong>: receives presence status via local IPC when Discord Rich Presence is enabled (opt-in). Communication occurs locally between Penpoint and the Discord desktop app on your device. <a href="https://discord.com/privacy" target="_blank" rel="noopener">Discord privacy policy</a>.</li>
@@ -272,12 +342,13 @@
 
       <h2>Children's Privacy</h2>
       <p>Penpoint is a general-purpose writing tool. It is not directed at children under the age of 13 (or 16 in jurisdictions where GDPR applies). We do not knowingly collect personal information from children. If a parent or guardian becomes aware that their child has opted into community analytics, they may contact us at <a href="mailto:support@penpoint.app">support@penpoint.app</a> to have the data deleted, or simply disable the feature in the app.</p>
+      <p>Penpoint Cloud requires you to be at least <strong>13 years old</strong> (or 16 in jurisdictions where GDPR applies) to subscribe. If you are between 13 and 18 (or the age of majority in your jurisdiction), you must have permission from a parent or guardian.</p>
 
       <h2>Business Transfers</h2>
-      <p>In the event that Tophat Creative, LLC or Penpoint is acquired, merged, or sold, anonymous community analytics data may be transferred to the successor entity. Any such transfer will remain subject to the commitments made in this privacy policy. If a new owner materially changes how your data is handled, we will notify users through the app or this policy before those changes take effect.</p>
+      <p>In the event that Tophat Creative, LLC or Penpoint is acquired, merged, or sold, anonymous community analytics data and Penpoint Cloud account data (including encrypted book data) may be transferred to the successor entity. Any such transfer will remain subject to the commitments made in this privacy policy, including the zero-knowledge encryption guarantee. If a new owner materially changes how your data is handled, we will notify users through the app or this policy before those changes take effect.</p>
 
       <h2>Changes</h2>
-      <p>If this policy changes, we'll update the date at the top and, for material changes, notify users within the app. For any questions, reach us at <a href="mailto:support@penpoint.app">support@penpoint.app</a>.</p>
+      <p>We may update this policy from time to time. When we do, we'll update the date at the top. For material changes (such as changes to what data is collected, how it is used, or who it is shared with), we will notify you within the app and provide at least <strong>30 days' notice</strong> before the changes take effect. For any questions, reach us at <a href="mailto:support@penpoint.app">support@penpoint.app</a>.</p>
     </div>
   </main>
 

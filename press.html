@@ -380,27 +380,21 @@
             <span class="section-divider__line"></span>
           </div>
           <p class="font-body-lg">
-            Thanks for your interest in Penpoint. Below you'll find a complimentary full copy of the app, a quick overview, and how to reach me.
+            Thanks for your interest in Penpoint. Here's a quick overview of the app and how to request a review copy.
           </p>
           <p class="font-body" style="color: rgb(var(--muted-foreground));">
-            This is the full version, not a trial. No strings attached.
+            Reviewers get a full, no-strings copy. Email me and I'll send a private download link.
           </p>
         </div>
         <div class="press-narrow">
           <div class="download-area">
-            <div class="download-area__version" id="dl-version">Loading version...</div>
-            <div class="download-area__buttons">
-              <a id="dl-primary" class="btn btn-primary btn-xl btn-shadow" href="#">
-                Loading...
-              </a>
-              <div id="dl-also" class="download-area__also" style="display: none;">
-                <span class="download-area__also-label font-body-sm">Also available for</span>
-                <div class="download-area__also-buttons"></div>
-              </div>
-            </div>
+            <a class="btn btn-primary btn-xl btn-shadow" href="mailto:support@penpoint.app?subject=Penpoint%20review%20copy%20request">
+              <i class="fa-solid fa-envelope"></i>&ensp;Request a review copy
+            </a>
+            <p class="font-body-sm" style="color: rgb(var(--muted-foreground)); margin-top: var(--space-4);">
+              I'll reply with a private download link for the full version.
+            </p>
           </div>
-
-
         </div>
       </div>
     </section>
@@ -666,7 +660,6 @@
     document.getElementById('mobile-view').style.display = '';
   } else {
     document.getElementById('desktop-view').style.display = '';
-    initDownloads();
   }
 
   function detectOS() {
