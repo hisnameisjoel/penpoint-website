@@ -415,14 +415,21 @@
         <div class="install-panel" data-install-panel="linux" hidden>
           <p><strong>.AppImage</strong> (recommended: works on any distro and updates itself)</p>
           <ol style="margin-bottom:22px;">
-            <li>Make the AppImage executable. Open a terminal and run:<br><code>chmod +x Penpoint_*.AppImage</code></li>
-            <li>Double-click the <code>.AppImage</code> file to launch Penpoint, or run it from the terminal:<br><code>./Penpoint_*.AppImage</code></li>
+            <li>Make the AppImage executable. Open a terminal and run:<br><code>chmod +x Penpoint*.AppImage</code></li>
+            <li>Double-click the <code>.AppImage</code> file to launch Penpoint, or run it from the terminal:<br><code>./Penpoint*.AppImage</code></li>
           </ol>
           <p><strong>.deb package</strong> (Ubuntu, Debian, Pop!_OS, Mint). Installs through your package manager, but you update it manually each release; the AppImage updates itself.</p>
-          <ol>
+          <ol style="margin-bottom:22px;">
             <li>Double-click the downloaded <code>.deb</code> file. Your package manager will handle the rest.</li>
             <li>Find Penpoint in your app launcher and open it.</li>
           </ol>
+          <p><strong>On a Chromebook (ChromeOS)</strong>. Chromebooks run Linux apps in a container that can't launch an AppImage by double-clicking, so you start it from the Linux terminal instead.</p>
+          <ol>
+            <li>Turn on Linux under <strong>Settings, Advanced, Developers, Linux development environment</strong>, then move the downloaded <code>.AppImage</code> into your <strong>Linux files</strong> folder.</li>
+            <li>Open the <strong>Terminal</strong> app and run these one at a time:<br><code>chmod +x ./*.AppImage</code><br><code>./*.AppImage --appimage-extract</code><br><code>sudo apt update &amp;&amp; sudo apt install -y libgles2</code><br><code>./squashfs-root/AppRun</code></li>
+            <li>To reopen Penpoint later, just run <code>./squashfs-root/AppRun</code> again.</li>
+          </ol>
+          <p style="font-size:14px;color:#7C5236;">If the graphics-library step reports the package can't be found, run <code>sudo apt install -y libgles2-mesa</code> instead.</p>
         </div>
       </div>
     </section>
