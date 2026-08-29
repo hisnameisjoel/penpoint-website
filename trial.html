@@ -423,13 +423,18 @@
             <li>Double-click the downloaded <code>.deb</code> file. Your package manager will handle the rest.</li>
             <li>Find Penpoint in your app launcher and open it.</li>
           </ol>
-          <p><strong>On a Chromebook (ChromeOS)</strong>. Chromebooks run Linux apps in a container that can't launch an AppImage by double-clicking, so you start it from the Linux terminal instead.</p>
-          <ol>
-            <li>Turn on Linux under <strong>Settings, Advanced, Developers, Linux development environment</strong>, then move the downloaded <code>.AppImage</code> into your <strong>Linux files</strong> folder.</li>
-            <li>Open the <strong>Terminal</strong> app and run these one at a time:<br><code>chmod +x ./*.AppImage</code><br><code>./*.AppImage --appimage-extract</code><br><code>sudo apt update &amp;&amp; sudo apt install -y libgles2</code><br><code>./squashfs-root/AppRun</code></li>
-            <li>To reopen Penpoint later, just run <code>./squashfs-root/AppRun</code> again.</li>
+          <p style="margin-top:22px;"><strong>On a Chromebook (ChromeOS)</strong>. Chromebooks run Linux apps in a container. The easy path is the <strong>.deb</strong>: it installs in a couple of clicks and gives you a real app icon you can pin. Skip the AppImage here; it needs terminal work on a Chromebook.</p>
+          <p><strong>Recommended: install the .deb</strong></p>
+          <ol style="margin-bottom:22px;">
+            <li>Turn on Linux (one time only). Click the clock, then open <strong>Settings, About ChromeOS, Developers</strong>, and next to "Linux development environment" click <strong>Turn on</strong>. Follow the prompts.</li>
+            <li>Download the <strong>.deb package</strong> above (choose Linux, then the .deb option).</li>
+            <li>Open the <strong>Files</strong> app, right-click the downloaded <code>.deb</code> file, and choose <strong>Install with Linux</strong>.</li>
+            <li>Click <strong>Install</strong> and wait. ChromeOS adds everything Penpoint needs automatically.</li>
+            <li>Open the launcher, find <strong>Penpoint</strong>, right-click it, and choose <strong>Pin to shelf</strong>. One click opens it from now on.</li>
           </ol>
-          <p style="font-size:14px;color:#7C5236;">If the graphics-library step reports the package can't be found, run <code>sudo apt install -y libgles2-mesa</code> instead.</p>
+          <p>If Penpoint opens to a <strong>blank white window</strong>, open the <strong>Terminal</strong> app and run:<br><code>WEBKIT_DISABLE_COMPOSITING_MODE=1 penpoint</code></p>
+          <p style="margin-top:22px;"><strong>Fallback: the AppImage</strong> (only if the .deb won't install). In the <strong>Files</strong> app, move the downloaded <code>.AppImage</code> into your <strong>Linux files</strong> folder, then open the <strong>Terminal</strong> app and run these one at a time:<br><code>chmod +x ~/Penpoint*.AppImage</code><br><code>~/Penpoint*.AppImage --appimage-extract</code><br><code>sudo apt install -y libgles2</code><br><code>./squashfs-root/AppRun</code><br>Note: the AppImage runs from a terminal window that has to stay open, and it does not create an app icon.</p>
+          <p style="font-size:14px;color:#7C5236;"><strong>ARM Chromebooks:</strong> if the install fails with a "wrong architecture" message, your Chromebook uses an ARM chip. Penpoint's Linux build is 64-bit Intel only and can't run on ARM Chromebooks; please use a Windows or Mac computer instead.</p>
         </div>
       </div>
     </section>
