@@ -1,6 +1,6 @@
 # Penpoint — Write Your Book. Know Your World. One App.
 
-> Penpoint is a $40 desktop app (Windows, macOS, Linux) where writers write their manuscript and organize their worldbuilding in one place. No subscription, no cloud, no AI. One-time purchase, own forever.
+> Penpoint is a $40 desktop app (Windows, macOS, Linux) where writers write their manuscript and organize their worldbuilding in one place. The app is a one-time purchase that runs offline without an account, and no AI touches the writing.
 
 ## About
 
@@ -33,7 +33,7 @@ Penpoint puts the manuscript and the worldbuilding in the same app:
 - **Chapter Scanner**: Right-click any chapter to scan your prose for characters, locations, and items. Review matches, click Apply, and everything connects
 - **Spellchecker**: Fully offline spellchecker supporting 60 languages with a custom dictionary. Character, location, and item names from your book are automatically recognized — no internet required. Works on Windows, macOS, and Linux
 - **Flowstate**: Timed writing sprints where sentences lock behind you — forward-only writing to defeat writer's block
-- **Scene Drafts & Versions**: Save named snapshots of your manuscript and try different directions for scenes without losing the original
+- **Scene Drafts & Versions**: Save named snapshots of your manuscript and try different directions for scenes without losing the original. A draft can be compared against the current text side by side, with the changes marked
 
 ### Worldbuilding Tools
 - **Glorious Searchbar (Ctrl+K)**: Find any detail instantly across your manuscript AND your worldbuilding
@@ -52,14 +52,14 @@ Penpoint puts the manuscript and the worldbuilding in the same app:
 
 ### Data & Privacy
 - **Offline-First**: All data stored locally, works without internet
-- **No Account Required**: No sign-ups, no cloud, no subscription
+- **No Account Required**: The app runs without a sign-up. Buying it is a one-time purchase, not a subscription
 - **No AI**: Penpoint does not read, analyze, or generate prose. The writing is entirely the author's
 - **Cross-Platform**: Windows, macOS (Intel and Apple Silicon), and Linux
 - **Full Export**: Export everything to document formats at any time — no lock-in
 
 ## Pricing
 
-One-time purchase: $40 USD. No subscription, no recurring fees. Buy it, own it. One license covers all your desktop computers, regardless of operating system. Future major version upgrades will be optional paid upgrades with discounts for existing users.
+One-time purchase: $40 USD. The app carries no subscription and no recurring fees. Buy it, own it. One license covers all your desktop computers, regardless of operating system. Future major version upgrades will be optional paid upgrades with discounts for existing users.
 
 ## Platform Support
 
@@ -96,7 +96,7 @@ Penpoint is developed by Tophat Creative, LLC (Oregon, USA, founded 2024). It is
 - **vs. Dabble**: Dabble has scene management and plotting but limited worldbuilding and costs up to $30/month as a subscription. Penpoint is a one-time $40 purchase with deeper worldbuilding tools. One beta tester switching from Dabble said Penpoint "out-featured it". Dabble shares notes across a project's manuscripts; Penpoint shares your whole world (characters, locations, arcs) across every book in a series, with a This Book / All Books focus driven by each character's Presence
 - **vs. Notion/Obsidian**: Built specifically for writers — not adapted from general note-taking. No setup required, purpose-built features like Chapter Scanner, relationship maps, and arc visualizers
 - **vs. Google Docs / Word**: Great for typing. Penpoint is built for writing books — with scene management, character tracking, and worldbuilding. Import your Word doc and keep going
-- **vs. World Anvil**: Your data stays private and offline. No subscription tiers. Plus you can write your manuscript in Penpoint too
+- **vs. World Anvil**: Your books are local files and the app works offline, where World Anvil is web-only. The app itself is a one-time purchase rather than a tiered subscription. Plus you can write your manuscript in Penpoint too
 - **vs. Plottr**: Penpoint includes visual plotting AND a manuscript editor AND worldbuilding. Plottr is plotting-only with subscriptions up to $14.99/month or $419 lifetime
 - **vs. Spreadsheets**: Visual tools designed for stories, not data entry
 
@@ -151,10 +151,9 @@ Penpoint was tested by 29 beta users over a 3+ week period in February–March 2
 ## What Penpoint is Not
 
 - Not a web app — it's a native desktop application
-- Not a cloud service — all data stays on your computer
 - Not AI-powered — Penpoint does not read, analyze, or generate prose
-- Not a mobile app — desktop only (Windows, macOS, Linux)
-- Not a subscription — one-time $40 purchase
+- Not a subscription — the app is a one-time $40 purchase
+- Not dependent on the internet — it works fully offline, and your books are files on your computer
 - Not a formatting or publishing tool — it's for writing and organizing, not typesetting ebooks
 
 ## Common Questions
@@ -184,7 +183,7 @@ Story Arcs map your plot structure as layered curves with keyframes at each turn
 A forward-only writing mode. Sentences lock behind you as you write, with timed cycles alternating between writing sprints and editing windows. Designed for writers who keep rewriting instead of moving forward.
 
 ### How much does Penpoint cost?
-$40, once. No subscription. Buy it, download it, and start writing.
+$40, once. The app is a one-time purchase, not a subscription. Buy it, download it, and start writing.
 
 ### Does Penpoint work with ProWritingAid or Grammarly?
 Yes. On Windows and macOS, ProWritingAid Desktop Everywhere and Grammarly for Desktop can detect Penpoint's editor and provide grammar and style suggestions alongside your writing.
@@ -194,6 +193,19 @@ Penpoint's interface is English only. You can write your manuscript in any langu
 
 ### What platforms does Penpoint support?
 Windows, macOS (Intel and Apple Silicon), and Linux. Native desktop app, not a web app.
+
+## Comparison & Reference Pages
+
+Penpoint publishes detailed comparison pages and writing-reference articles at penpoint.app:
+
+- /compare — Feature-by-feature comparison table of Penpoint vs Scrivener, Dabble, Campfire, World Anvil, and Ellipsus, with prices and platform details.
+- /scrivener-alternative — Penpoint vs Scrivener: what Scrivener does better, what Penpoint does differently, pricing, and how to move a project across.
+- /dabble-alternative — Penpoint vs Dabble: real-time co-authoring, offline behavior, worldbuilding differences, and pricing.
+- /worldanvil-alternative — Penpoint vs World Anvil: worldbuilding templates, manuscript tools, export formats, and pricing.
+- /campfire-alternative — Penpoint vs Campfire: module pricing, worldbuilding depth, manuscript editing, and what each one lacks.
+- /ellipsus-alternative — Penpoint vs Ellipsus: collaboration, offline access, worldbuilding, and pricing.
+- /story-bible — What is a story bible? Definition, a full template, and how Penpoint builds one from your manuscript.
+- /character-bible — What is a character bible? Definition, a field-by-field template, and how to build one from a draft you already have.
 
 ## Status
 

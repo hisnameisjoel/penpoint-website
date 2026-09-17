@@ -3,123 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 404: Page Not Found &mdash; Penpoint</title>
-  <meta name="description" content="This page seems to have wandered off the manuscript. Let's get you back to Penpoint.">
+  <title>Penpoint Won't Open on Windows? Repair WebView2</title>
+  <meta name="description" content="Fix Microsoft WebView2 when Penpoint cannot open on Windows 10 or Windows 11, including the 'already installed' error.">
+  <link rel="canonical" href="https://penpoint.app/windows-help">
   <meta name="theme-color" content="#FFF7E6">
 
-  <!-- AI / LLM -->
   <link rel="help" type="text/plain" href="/llms.txt" title="LLM information about Penpoint">
-
-  <!-- Favicon & Icons -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
   <link rel="apple-touch-icon" href="images/icon-192.png">
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
-  <!-- Stylesheets -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/typography.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/site-chrome.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <style>
-    .page-404 {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: calc(100vh - var(--header-height) - 6rem);
-      text-align: center;
-      padding: var(--space-8) var(--container-padding);
-    }
-
-    .page-404__quill {
-      width: 5rem;
-      height: 5rem;
+    body {
+      background: rgb(var(--background));
       color: rgb(var(--foreground));
-      margin-bottom: var(--space-6);
     }
 
-    .page-404__code {
+    .help-main {
+      padding-top: clamp(48px, 8vw, 88px);
+      padding-bottom: clamp(64px, 10vw, 112px);
+    }
+
+    .help-narrow {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .help-kicker {
+      margin-bottom: var(--space-4);
+      color: rgb(var(--cta));
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .help-title {
+      margin-bottom: var(--space-5);
+      font-family: 'Newsreader', ui-serif, Georgia, serif;
+      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+
+    .help-lead {
+      max-width: 650px;
+      color: rgb(var(--muted-foreground));
       font-family: 'Source Serif 4', ui-serif, Georgia, serif;
-      font-size: 6rem;
-      font-weight: 700;
-      line-height: 1;
-      color: rgb(var(--foreground));
-      letter-spacing: var(--tracking-tighter);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      line-height: 1.65;
+    }
+
+    .help-section {
+      margin-top: var(--space-10);
+      padding: clamp(24px, 5vw, 38px);
+      border: 1px solid rgb(var(--border));
+      background: rgb(var(--paper));
+    }
+
+    .help-section--important {
+      border-left: 4px solid rgb(var(--cta));
+    }
+
+    .help-section h2 {
+      margin-bottom: var(--space-4);
+      font-family: 'Newsreader', ui-serif, Georgia, serif;
+      font-size: clamp(1.65rem, 4vw, 2.25rem);
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .help-section p,
+    .help-section li {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-base);
+      line-height: 1.7;
+      text-wrap: pretty;
+    }
+
+    .help-section p {
       margin-bottom: var(--space-4);
     }
 
-    .page-404__headline {
-      margin-bottom: var(--space-6);
+    .help-section ol,
+    .help-section ul {
+      margin: 0 0 var(--space-5);
+      padding-left: var(--space-6);
     }
 
-    .page-404__manuscript {
-      max-width: 32rem;
-      margin: 0 auto var(--space-10);
-      padding: var(--space-8) var(--space-6);
-      background: rgb(var(--paper));
-      border: 1px solid rgb(var(--border));
-      position: relative;
+    .help-section li {
+      margin-bottom: var(--space-3);
     }
 
+    .help-section a:not(.help-button) {
+      color: rgb(var(--cta));
+      font-weight: 600;
+    }
 
-    .page-404__prose {
-      text-align: left;
+    .help-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 22px;
+      background: rgb(var(--cta));
+      color: rgb(var(--accent-foreground));
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background var(--duration-normal) var(--ease-penpoint), transform var(--duration-normal) var(--ease-penpoint);
+    }
+
+    .help-button:hover {
+      background: rgb(var(--cta-hover));
+      transform: translateY(-1px);
+    }
+
+    .help-note {
+      margin: var(--space-6) 0 0;
+      padding-top: var(--space-5);
+      border-top: 1px solid rgb(var(--border));
       color: rgb(var(--muted-foreground));
     }
 
-    .page-404__prose p {
-      margin-bottom: var(--space-4);
-      padding-left: var(--space-4);
-    }
-
-    .page-404__prose p:last-child {
-      margin-bottom: 0;
-    }
-
-    .page-404__prose .strikethrough {
-      text-decoration: line-through;
-      opacity: 0.5;
-    }
-
-    .page-404__prose .note {
-      font-style: italic;
-      color: rgb(var(--cta));
-    }
-
-    .page-404__cta {
-      display: inline-block;
-      padding: var(--space-3) var(--space-8);
-      background: rgb(var(--primary));
-      color: rgb(var(--primary-foreground));
-      text-decoration: none;
-      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
-      font-size: var(--text-base);
-      font-weight: 600;
-      transition: background var(--duration-normal) var(--ease-penpoint);
-    }
-
-    .page-404__cta:hover {
-      background: rgb(var(--cta));
-    }
-
-    @media (max-width: 768px) {
-      .page-404__code {
-        font-size: 4rem;
+    @media (max-width: 600px) {
+      .help-section {
+        padding: var(--space-6) var(--space-5);
       }
 
-      .page-404__manuscript {
-        padding: var(--space-6) var(--space-4);
+      .help-title {
+        font-size: 2rem;
       }
 
-      .page-404__manuscript::before {
-        left: 2rem;
+      .help-button {
+        width: 100%;
       }
     }
   </style>
@@ -162,33 +193,50 @@
     </div>
   </header>
 
-  <main id="main">
-    <div class="page-404">
+  <main id="main" class="help-main">
+    <div class="container">
+      <div class="help-narrow">
+        <p class="help-kicker">Windows startup help</p>
+        <h1 class="help-title">Penpoint needs Microsoft WebView2.</h1>
+        <p class="help-lead">WebView2 is the Windows component Penpoint uses to display the app. It is already included on most Windows 10 and Windows 11 computers. If Penpoint cannot find it, the component may be missing or damaged.</p>
 
-      <svg class="page-404__quill" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/>
-      </svg>
+        <section class="help-section">
+          <h2>If WebView2 is missing</h2>
+          <ol>
+            <li>Download Microsoft's small WebView2 installer.</li>
+            <li>Run the downloaded installer and let it finish.</li>
+            <li>Restart Windows, then open Penpoint again.</li>
+          </ol>
+          <a class="help-button" href="https://go.microsoft.com/fwlink/p/?LinkId=2124703">Download WebView2 from Microsoft</a>
+        </section>
 
-      <div class="page-404__code">404</div>
+        <section class="help-section help-section--important">
+          <h2>If Microsoft says WebView2 is already installed</h2>
+          <p>Windows has recorded WebView2 as installed, but the runtime may be damaged or unavailable to your account.</p>
+          <ol>
+            <li>Restart your computer.</li>
+            <li>Close Microsoft Edge, Teams, Outlook, Widgets, and any other open apps.</li>
+            <li>Open <strong>Windows Settings &gt; Apps &gt; Apps &amp; features</strong>.</li>
+            <li>Find <strong>Microsoft Edge WebView2 Runtime</strong>. Select <strong>Modify</strong>, then <strong>Repair</strong>.</li>
+            <li>Restart Windows and open Penpoint again.</li>
+          </ol>
+          <p>If Repair is unavailable or does not work, uninstall WebView2 from Apps if Windows offers that option. Restart, then download the <strong>Evergreen Standalone Installer</strong> from Microsoft and run it as administrator to reinstall WebView2.</p>
+          <a class="help-button" href="https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section">Open Microsoft's WebView2 downloads</a>
+          <p class="help-note"><strong>Do not manually delete Microsoft folders or edit the Windows registry.</strong> Those changes can affect every application that uses WebView2.</p>
+        </section>
 
-      <h1 class="page-404__headline font-heading-lg">Chapter 404: Page Not Found</h1>
-
-      <div class="page-404__manuscript">
-        <div class="page-404__prose font-body">
-          <p>
-            <span class="strikethrough">The hero turned the corner and found exactly what they were looking for.</span>
-          </p>
-          <p>
-            The hero turned the corner and found&hellip; nothing. The page had been ripped out. Whether by a rival author or a rogue editor, no one could say.
-          </p>
-          <p>
-            <span class="note">[Note to self: rewrite this scene. The reader is lost. &mdash;Ed.]</span>
-          </p>
-        </div>
+        <section class="help-section">
+          <h2>Still cannot open Penpoint?</h2>
+          <p>Email <a href="mailto:support@penpoint.app">support@penpoint.app</a> with:</p>
+          <ul>
+            <li>A photo or screenshot of the error.</li>
+            <li>Your Windows version. Press <strong>Windows key + R</strong>, enter <strong>winver</strong>, and take a screenshot.</li>
+            <li>Whether the laptop is managed by your workplace or school.</li>
+          </ul>
+          <p>Repairing WebView2 does not remove or change your Penpoint books.</p>
+          <p><a href="https://learn.microsoft.com/en-us/troubleshoot/microsoft-edge/manageability/update-install-rollback-failures">Microsoft's complete WebView2 troubleshooting guide</a></p>
+        </section>
       </div>
-
-      <a href="/" class="page-404__cta">Back to Chapter One</a>
-
     </div>
   </main>
 

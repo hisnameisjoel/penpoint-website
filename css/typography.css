@@ -131,6 +131,50 @@
 }
 
 /* ===========================================
+   ORPHAN CONTROL
+   ===========================================
+
+   A single word stranded on its own last line reads as careless
+   typesetting. `text-wrap: pretty` tells the browser to avoid a short
+   final line by rebalancing the breaks above it; `balance` evens out
+   line lengths across a whole heading.
+
+   Two things worth knowing before editing this:
+
+   - `text-wrap` only ACTS on the block container that lays out the
+     line. Putting it on an inline <span> silently does nothing, so it
+     belongs on the <p>, <li> or block-level <a>.
+   - Orphans are width-dependent. A page clean at 1400px can strand a
+     word at 560px.
+
+   Verify with `npm run website:orphans` rather than by eye.
+   Policy: docs/technical/WritingPromotionalArticles.md § 5.
+   Degrades to ordinary wrapping where unsupported. */
+
+p,
+li,
+dd,
+figcaption,
+blockquote,
+.font-body,
+.font-body-lg,
+.font-body-med,
+.font-body-sm {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display,
+.font-heading-lg,
+.font-heading,
+.font-heading-sm {
+  text-wrap: balance;
+}
+
+/* ===========================================
    RESPONSIVE TYPOGRAPHY
    =========================================== */
 

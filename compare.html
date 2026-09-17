@@ -6,15 +6,15 @@
   <script>
     document.documentElement.classList.add('js-ready');
   </script>
-  <title>Penpoint vs Scrivener, Dabble, Campfire & World Anvil — Feature & Price Comparison</title>
-  <meta name="description" content="Compare Penpoint to Scrivener, Dabble, Campfire, and World Anvil on writing features, worldbuilding tools, pricing, and privacy. Full breakdown with prices.">
-  <meta name="keywords" content="penpoint vs scrivener, dabble alternative, campfire writing comparison, world anvil alternative, writing software comparison, novel writing app, worldbuilding software, scrivener alternative">
+  <title>Penpoint vs 5 Writing &amp; Worldbuilding Apps Compared (2026)</title>
+  <meta name="description" content="Compare Penpoint to Scrivener, Dabble, Campfire, World Anvil, and Ellipsus on writing features, worldbuilding tools, pricing, and privacy. Full breakdown with prices.">
+  <meta name="keywords" content="penpoint vs scrivener, dabble alternative, campfire writing comparison, world anvil alternative, ellipsus alternative, writing software comparison, novel writing app, worldbuilding software, scrivener alternative">
   <link rel="canonical" href="https://penpoint.app/compare">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://penpoint.app/compare">
-  <meta property="og:title" content="Penpoint vs Scrivener, Dabble, Campfire & World Anvil">
+  <meta property="og:title" content="Penpoint vs Scrivener, Dabble, Campfire, World Anvil & Ellipsus">
   <meta property="og:description" content="Side-by-side comparison of writing and worldbuilding tools, with real prices.">
   <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -27,7 +27,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://penpoint.app/compare">
-  <meta name="twitter:title" content="Penpoint vs Scrivener, Dabble, Campfire & World Anvil">
+  <meta name="twitter:title" content="Penpoint vs Scrivener, Dabble, Campfire, World Anvil & Ellipsus">
   <meta name="twitter:description" content="Side-by-side comparison of writing and worldbuilding tools, with real prices.">
   <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
   <meta name="twitter:image:alt" content="Penpoint — Write your novel and organize your world in one app">
@@ -75,8 +75,8 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Penpoint vs Scrivener, Dabble, Campfire & World Anvil — Feature Comparison",
-    "description": "Feature-by-feature comparison of Penpoint with popular writing and worldbuilding tools including Scrivener, Dabble Writer, Campfire Writing, and World Anvil.",
+    "name": "Penpoint vs Scrivener, Dabble, Campfire, World Anvil & Ellipsus: Feature Comparison",
+    "description": "Feature-by-feature comparison of Penpoint with popular writing and worldbuilding tools including Scrivener, Dabble Writer, Campfire Writing, World Anvil, and Ellipsus.",
     "url": "https://penpoint.app/compare",
     "isPartOf": {
       "@type": "WebSite",
@@ -94,6 +94,42 @@
     /* ===========================================
        COMPARE PAGE STYLES
        =========================================== */
+
+    /* ----- No orphans, page-wide -----
+       Mirrors the block at the top of css/comparison.css so this hub reads as
+       part of the same family as the per-competitor pages.
+
+       `text-wrap: pretty` rebalances the breaks above a short final line;
+       headings get `balance`, which evens out every line instead of only the
+       last. Both degrade silently where unsupported.
+
+       NOTE: `text-wrap` is inherited but only ACTS on the block container that
+       lays out the line. Setting it on an inline <span> does nothing. */
+    .compare-details__inner p,
+    .compare-details__inner li,
+    .compare-hero__sub,
+    .compare-note,
+    .final-cta__subtext {
+      text-wrap: pretty;
+    }
+
+    .compare-hero__headline,
+    .compare-details__inner h2,
+    .compare-details__inner h3,
+    .final-cta__headline {
+      text-wrap: balance;
+    }
+
+    /* "How Penpoint Compares" is three words, so at phone widths it always
+       wraps to two lines and `balance` has no better split to find than the one
+       that strands "Compares" alone. Gluing the last two words moves the break
+       to "How /". Scoped to >=360px on purpose: below that the glued pair is
+       wider than the box and would spill out of the viewport instead. */
+    @media (min-width: 360px) {
+      .compare-hero__tail {
+        white-space: nowrap;
+      }
+    }
 
     .compare-hero {
       padding-top: var(--space-16);
@@ -143,9 +179,12 @@
 
     .price-cards__grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      /* Six products since Ellipsus joined. At 900px the sixth card wrapped to
+         a row of its own; 1120px keeps all six on one line and still sits
+         inside the 1200px container. */
+      grid-template-columns: repeat(6, 1fr);
       gap: var(--space-4);
-      max-width: 900px;
+      max-width: 1120px;
       margin: 0 auto;
       overflow: visible;
       padding-top: 14px; /* Room for badge */
@@ -388,6 +427,19 @@
       color: rgb(var(--foreground));
     }
 
+    /* Trial first, purchase beside it. Section 6d of
+       WritingPromotionalArticles.md: a page that spends a section conceding
+       what the competition does better should not close on "Buy for $40" as
+       its only ask. The five per-competitor pages get this rule from
+       css/comparison.css, which this page does not load. */
+    .final-cta__actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
     /* ----- Responsive ----- */
 
     @media (max-width: 900px) {
@@ -538,6 +590,9 @@
     }
 
     @media (max-width: 480px) {
+      .final-cta__actions { flex-direction: column; }
+      .final-cta__actions .btn { width: 100%; }
+
       .price-cards__grid {
         grid-template-columns: 1fr;
       }
@@ -632,10 +687,10 @@
     <div class="container">
       <p class="compare-hero__kicker" data-animate="fade-up">Side by Side</p>
       <h1 class="compare-hero__headline" data-animate="fade-up" data-stagger="1">
-        How Penpoint <em>Compares</em>
+        How <span class="compare-hero__tail">Penpoint <em>Compares</em></span>
       </h1>
       <p class="compare-hero__sub font-body-lg" data-animate="fade-up" data-stagger="2">
-        We put Penpoint next to four popular writing tools and compared features, pricing, and what you get for your money. The table below has the details.
+        We put Penpoint next to five popular writing tools and compared features, pricing, and what you get for your money. The table below has the details.
       </p>
     </div>
   </section>
@@ -657,7 +712,7 @@
 
         <div class="price-card">
           <span class="price-card__name">Scrivener</span>
-          <span class="price-card__price">$60</span>
+          <span class="price-card__price">$59.99</span>
           <span class="price-card__note">Per platform. No worldbuilding.</span>
         </div>
 
@@ -677,6 +732,12 @@
           <span class="price-card__name">Dabble</span>
           <span class="price-card__price">$699</span>
           <span class="price-card__note">Lifetime. Cloud-based.</span>
+        </div>
+
+        <div class="price-card">
+          <span class="price-card__name">Ellipsus</span>
+          <span class="price-card__price">Free</span>
+          <span class="price-card__note">Or $99 once for Plus. Browser only.</span>
         </div>
 
       </div>
@@ -699,22 +760,24 @@
             <col class="col-app">
             <col class="col-app">
             <col class="col-app">
+            <col class="col-app">
           </colgroup>
           <thead>
             <tr>
               <th></th>
-              <th class="cmp-penpoint-head">Penpoint<span class="cmp-detail">$40 lifetime</span></th>
-              <th>Scrivener<span class="cmp-detail">$60/platform</span></th>
-              <th>Campfire<span class="cmp-detail">$420 lifetime</span></th>
-              <th>World Anvil<span class="cmp-detail">$650 lifetime</span></th>
-              <th>Dabble<span class="cmp-detail">$699 lifetime</span></th>
+              <th scope="col" class="cmp-penpoint-head">Penpoint<span class="cmp-detail">$40 lifetime</span></th>
+              <th scope="col">Scrivener<span class="cmp-detail">$59.99/platform</span></th>
+              <th scope="col">Campfire<span class="cmp-detail">$420 lifetime</span></th>
+              <th scope="col">World Anvil<span class="cmp-detail">$650 lifetime</span></th>
+              <th scope="col">Dabble<span class="cmp-detail">$699 lifetime</span></th>
+              <th scope="col">Ellipsus<span class="cmp-detail">Free / $99 Plus</span></th>
             </tr>
           </thead>
           <tbody>
 
             <!-- ===== WRITING & IMPORT/EXPORT ===== -->
             <tr class="cmp-category">
-              <td colspan="6">Writing &amp; Import / Export</td>
+              <td colspan="7">Writing &amp; Import / Export</td>
             </tr>
 
             <tr>
@@ -723,16 +786,18 @@
               <td data-label="Scrivener" class="cmp-yes">&#10003;<span class="cmp-detail">Word, RTF, TXT, &amp; more. Auto-split at headings</span></td>
               <td data-label="Campfire" class="cmp-yes">&#10003;<span class="cmp-detail">Auto chapter detection</span></td>
               <td data-label="World Anvil" class="cmp-no">&#10007;<span class="cmp-detail">Copy/paste only</span></td>
-              <td data-label="Dabble" class="cmp-no">&#10007;<span class="cmp-detail">Copy/paste only</span></td>
+              <td data-label="Dabble" class="cmp-yes">&#10003;<span class="cmp-detail">Word, RTF, Markdown, HTML up to 50&nbsp;MB. Splits on headings</span></td>
+              <td data-label="Ellipsus" class="cmp-partial">Import<span class="cmp-detail">Accepted formats not publicly listed; organizes into folders</span></td>
             </tr>
 
             <tr>
               <td>Export Options</td>
-              <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Word, PDF, RTF, MD, TXT</span></td>
+              <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Word, PDF, EPUB, RTF, Markdown, TXT</span></td>
               <td data-label="Scrivener" class="cmp-yes">&#10003;<span class="cmp-detail">Word, PDF, EPUB, &amp; more</span></td>
-              <td data-label="Campfire" class="cmp-yes">&#10003;<span class="cmp-detail">Word, PDF, EPUB, HTML, RTF</span></td>
+              <td data-label="Campfire" class="cmp-yes">&#10003;<span class="cmp-detail">EPUB and PDF for a compiled manuscript; Word only per single element</span></td>
               <td data-label="World Anvil" class="cmp-no">&#10007;<span class="cmp-detail">HTML only</span></td>
-              <td data-label="Dabble" class="cmp-partial">Word, TXT, Web<span class="cmp-detail">No PDF or EPUB</span></td>
+              <td data-label="Dabble" class="cmp-partial">Word, Docs, Markdown, web page<span class="cmp-detail">PDF via browser Print. No EPUB</span></td>
+              <td data-label="Ellipsus" class="cmp-yes">&#10003;<span class="cmp-detail">.docx, PDF, Markdown; also a direct Export to AO3</span></td>
             </tr>
 
             <tr>
@@ -742,56 +807,62 @@
               <td data-label="Campfire" class="cmp-no">&#10007;</td>
               <td data-label="World Anvil" class="cmp-no">&#10007;</td>
               <td data-label="Dabble" class="cmp-no">&#10007;</td>
+              <td data-label="Ellipsus" class="cmp-no">&#10007;</td>
             </tr>
 
             <tr>
               <td>Built-in Spellchecker</td>
-              <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Offline, 60 languages, custom dictionary. ProWritingAid &amp; Grammarly work on Windows and macOS.</span></td>
+              <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Offline, 60 languages (English bundled, the rest download once), custom dictionary. ProWritingAid &amp; Grammarly work on Windows and macOS.</span></td>
               <td data-label="Scrivener" class="cmp-yes">&#10003;<span class="cmp-detail">Offline, requires manual download. No Linux.</span></td>
-              <td data-label="Campfire" class="cmp-partial">Browser<span class="cmp-detail">Default OS Spellcheck</span></td>
-              <td data-label="World Anvil" class="cmp-partial">Browser<span class="cmp-detail">Default OS Spellcheck</span></td>
-              <td data-label="Dabble" class="cmp-partial">ProWritingAid<span class="cmp-detail">Online only, third-party add-on</span></td>
+              <td data-label="Campfire" class="cmp-partial">Not documented.</td>
+              <td data-label="World Anvil" class="cmp-partial">None built in<span class="cmp-detail">Uses your OS or browser spellcheck</span></td>
+              <td data-label="Dabble" class="cmp-partial">ProWritingAid<span class="cmp-detail">Spell check free; grammar and style on paid plans</span></td>
+              <td data-label="Ellipsus" class="cmp-yes">&#10003;<span class="cmp-detail">18 languages, off by default; each downloads per document</span></td>
             </tr>
 
             <tr>
               <td>Manuscript Snapshots &amp; Versions</td>
-              <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Whole-manuscript snapshots + per-scene drafts; undo-safe restore. No side-by-side diff.</span></td>
-              <td data-label="Scrivener" class="cmp-yes">&#10003;<span class="cmp-detail">Snapshots with change overlay</span></td>
+              <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Whole-manuscript snapshots + per-scene drafts; undo-safe restore, with side-by-side draft comparison.</span></td>
+              <td data-label="Scrivener" class="cmp-yes">&#10003;<span class="cmp-detail">Snapshots compared by paragraph, clause, or word</span></td>
               <td data-label="Campfire" class="cmp-yes">&#10003;<span class="cmp-detail">Limited version history, no compare</span></td>
               <td data-label="World Anvil" class="cmp-partial">Manual<span class="cmp-detail">Duplicate scenes, no compare</span></td>
-              <td data-label="Dabble" class="cmp-no">&#10007;<span class="cmp-detail">Manual backup only</span></td>
+              <td data-label="Dabble" class="cmp-yes">&#10003;<span class="cmp-detail">Version history with a Time Machine slider you drag through. Paid plans</span></td>
+              <td data-label="Ellipsus" class="cmp-yes">&#10003;<span class="cmp-detail">30 days automatic version history on free; compare drafts side by side</span></td>
             </tr>
 
             <!-- ===== WORLDBUILDING ===== -->
             <tr class="cmp-category">
-              <td colspan="6">Worldbuilding</td>
+              <td colspan="7">Worldbuilding</td>
             </tr>
 
             <tr>
               <td>Customizable Chapter Layouts</td>
-              <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Block-based, like Character Sheets</span></td>
-              <td data-label="Scrivener" class="cmp-no">&#10007;<span class="cmp-detail">Compile-time templates only</span></td>
+              <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Custom sections, like Character Sheets</span></td>
+              <td data-label="Scrivener" class="cmp-no">&#10007;<span class="cmp-detail">Templates only, and only when you export</span></td>
               <td data-label="Campfire" class="cmp-no">&#10007;<span class="cmp-detail">Panels not supported on Manuscript</span></td>
-              <td data-label="World Anvil" class="cmp-no">&#10007;<span class="cmp-detail">Fixed chapter/scene UI</span></td>
+              <td data-label="World Anvil" class="cmp-no">&#10007;<span class="cmp-detail">Fixed chapter and scene layout</span></td>
               <td data-label="Dabble" class="cmp-no">&#10007;</td>
+              <td data-label="Ellipsus" class="cmp-no">&#10007;<span class="cmp-detail">No real chapters, only documents</span></td>
             </tr>
 
             <tr>
               <td>Per-Scene Worldbuilding</td>
               <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Characters, locations, items, POV per scene</span></td>
-              <td data-label="Scrivener" class="cmp-partial">Text only<span class="cmp-detail">Custom metadata, no entity links</span></td>
+              <td data-label="Scrivener" class="cmp-partial">Text only<span class="cmp-detail">Custom fields, but nothing to link them to</span></td>
               <td data-label="Campfire" class="cmp-no">&#10007;<span class="cmp-detail">Inline @mentions only</span></td>
               <td data-label="World Anvil" class="cmp-no">&#10007;<span class="cmp-detail">Synopsis &amp; notes only</span></td>
-              <td data-label="Dabble" class="cmp-no">&#10007;<span class="cmp-detail">No entity links, freeform notes</span></td>
+              <td data-label="Dabble" class="cmp-no">&#10007;<span class="cmp-detail">@mentions link documents, but no cast, POV or location per scene</span></td>
+              <td data-label="Ellipsus" class="cmp-no">&#10007;</td>
             </tr>
 
             <tr>
               <td>Relationship Map</td>
               <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Visual, interactive</span></td>
               <td data-label="Scrivener" class="cmp-no">&#10007;<span class="cmp-detail">Scapple is separate ~$21</span></td>
-              <td data-label="Campfire" class="cmp-partial">Paid module<span class="cmp-detail">$15 lifetime, directional only</span></td>
+              <td data-label="Campfire" class="cmp-partial">Paid module<span class="cmp-detail">$15 lifetime; arrows or plain lines, toggled per relationship type</span></td>
               <td data-label="World Anvil" class="cmp-partial">Limited<span class="cmp-detail">Family trees &amp; diplomacy only</span></td>
               <td data-label="Dabble" class="cmp-no">&#10007;</td>
+              <td data-label="Ellipsus" class="cmp-no">&#10007;</td>
             </tr>
 
             <tr>
@@ -801,15 +872,17 @@
               <td data-label="Campfire" class="cmp-partial">Paid module<span class="cmp-detail">Graphical arcs, requires other modules</span></td>
               <td data-label="World Anvil" class="cmp-no">&#10007;</td>
               <td data-label="Dabble" class="cmp-no">&#10007;</td>
+              <td data-label="Ellipsus" class="cmp-no">&#10007;</td>
             </tr>
 
             <tr>
               <td>@Mention Cross-Linking</td>
-              <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Autocomplete, bidirectional, auto-updating</span></td>
+              <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Autocomplete, links go both ways in worldbuilding, and they follow a rename. Prose inserts plain text on purpose</span></td>
               <td data-label="Scrivener" class="cmp-partial">Manual<span class="cmp-detail">Wiki links, no autocomplete</span></td>
-              <td data-label="Campfire" class="cmp-partial">Auto-tag<span class="cmp-detail">Recognizes element names, one-directional</span></td>
-              <td data-label="World Anvil" class="cmp-partial">Article linking<span class="cmp-detail">@ or [ to link articles; auto-linker on premium</span></td>
-              <td data-label="Dabble" class="cmp-yes">&#10003;<span class="cmp-detail">Notes &amp; manuscript</span></td>
+              <td data-label="Campfire" class="cmp-partial">Auto-tag<span class="cmp-detail">Recognizes element names, but the link only points one way</span></td>
+              <td data-label="World Anvil" class="cmp-partial">Article linking<span class="cmp-detail">@ links one article free for everyone; [ bracket links and the Autolinker need a paid Guild membership</span></td>
+              <td data-label="Dabble" class="cmp-yes">&#10003;<span class="cmp-detail">Notes and manuscript, and mentions follow a rename</span></td>
+              <td data-label="Ellipsus" class="cmp-no">&#10007;<span class="cmp-detail">Nothing to link to; internal links are a Planned roadmap item</span></td>
             </tr>
 
             <tr>
@@ -817,49 +890,64 @@
               <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Characters &times; chapters grid</span></td>
               <td data-label="Scrivener" class="cmp-no">&#10007;</td>
               <td data-label="Campfire" class="cmp-yes">&#10003;<span class="cmp-detail">Paid module, $30 lifetime</span></td>
-              <td data-label="World Anvil" class="cmp-yes">&#10003;<span class="cmp-detail">11 parallel lanes</span></td>
+              <td data-label="World Anvil" class="cmp-yes">&#10003;<span class="cmp-detail">4 parallel lanes</span></td>
               <td data-label="Dabble" class="cmp-no">&#10007;</td>
+              <td data-label="Ellipsus" class="cmp-no">&#10007;</td>
             </tr>
 
             <tr>
               <td>Item / Possession Tracking</td>
               <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Linked to owners &amp; locations</span></td>
               <td data-label="Scrivener" class="cmp-no">&#10007;</td>
-              <td data-label="Campfire" class="cmp-partial">Paid module<span class="cmp-detail">$15 lifetime, static owner field</span></td>
+              <td data-label="Campfire" class="cmp-partial">Paid module<span class="cmp-detail">$15 lifetime; ownership via a customizable Links panel, not a single owner field</span></td>
               <td data-label="World Anvil" class="cmp-partial">Template<span class="cmp-detail">Owner field, not dynamic</span></td>
               <td data-label="Dabble" class="cmp-no">&#10007;</td>
+              <td data-label="Ellipsus" class="cmp-no">&#10007;</td>
             </tr>
 
             <tr>
               <td>Nested Locations</td>
               <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Continent &rarr; city &rarr; room</span></td>
               <td data-label="Scrivener" class="cmp-partial">Folders<span class="cmp-detail">Generic, not location-specific</span></td>
-              <td data-label="Campfire" class="cmp-no">&#10007;<span class="cmp-detail">Not supported per their docs</span></td>
+              <td data-label="Campfire" class="cmp-no">&#10007;<span class="cmp-detail">Flat list; no way to put one location inside another</span></td>
               <td data-label="World Anvil" class="cmp-yes">&#10003;<span class="cmp-detail">Auto-generated hierarchy</span></td>
-              <td data-label="Dabble" class="cmp-partial">Folders<span class="cmp-detail">Generic, not location-specific</span></td>
+              <td data-label="Dabble" class="cmp-partial">Free-form pages<span class="cmp-detail">Notebook pages you write about locations, not a folder hierarchy</span></td>
+              <td data-label="Ellipsus" class="cmp-no">&#10007;</td>
             </tr>
 
             <tr>
               <td>Multi-Book / Series</td>
               <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Automatic one-file series: shared cast &amp; world, a book switcher, and a This Book / All Books focus; each book keeps its own manuscript &amp; arcs</span></td>
-              <td data-label="Scrivener" class="cmp-partial">Manual<span class="cmp-detail">Multiple books in folders, no entity sharing</span></td>
-              <td data-label="Campfire" class="cmp-yes">&#10003;<span class="cmp-detail">Linked projects &amp; series pages</span></td>
+              <td data-label="Scrivener" class="cmp-partial">Manual<span class="cmp-detail">Multiple books in folders, nothing shared between them</span></td>
+              <td data-label="Campfire" class="cmp-yes">&#10003;<span class="cmp-detail">Linked Projects share elements across book projects; separate Series Pages are publishing/storefront only</span></td>
               <td data-label="World Anvil" class="cmp-partial">Multi-world<span class="cmp-detail">Not series-specific</span></td>
-              <td data-label="Dabble" class="cmp-partial">Shared notes<span class="cmp-detail">Multiple manuscripts per project, notes shared across all</span></td>
+              <td data-label="Dabble" class="cmp-yes">&#10003;<span class="cmp-detail">Several books per project; characters, notebook and plot grids shared</span></td>
+              <td data-label="Ellipsus" class="cmp-no">&#10007;<span class="cmp-detail">Folders only</span></td>
             </tr>
 
             <!-- ===== PLATFORM & PRIVACY ===== -->
             <tr class="cmp-category">
-              <td colspan="6">Platform &amp; Privacy</td>
+              <td colspan="7">Platform &amp; Privacy</td>
+            </tr>
+
+            <tr>
+              <td>Writing with Someone Else</td>
+              <td data-label="Penpoint" class="cmp-pp cmp-no">&#10007;<span class="cmp-detail">Single writer. Inline comments are notes to yourself</span></td>
+              <td data-label="Scrivener" class="cmp-no">&#10007;<span class="cmp-detail">Share the file by Dropbox sync or export</span></td>
+              <td data-label="Campfire" class="cmp-yes">&#10003;<span class="cmp-detail">Invite collaborators to view, comment, or edit</span></td>
+              <td data-label="World Anvil" class="cmp-no">&#10007;<span class="cmp-detail">Co-authors on the world, not on a manuscript</span></td>
+              <td data-label="Dabble" class="cmp-yes">&#10003;<span class="cmp-detail">Real-time co-authoring, track changes, four roles</span></td>
+              <td data-label="Ellipsus" class="cmp-yes">&#10003;<span class="cmp-detail">Real-time, unlimited collaborators on the free plan; five roles</span></td>
             </tr>
 
             <tr>
               <td>Works Fully Offline</td>
               <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Always. No internet needed.</span></td>
               <td data-label="Scrivener" class="cmp-yes">&#10003;</td>
-              <td data-label="Campfire" class="cmp-partial">Desktop app only<span class="cmp-detail">Requires periodic login</span></td>
+              <td data-label="Campfire" class="cmp-partial">Desktop app only<span class="cmp-detail">Periodically re-verifies subscriptions online; lifetime-only purchases can stay offline</span></td>
               <td data-label="World Anvil" class="cmp-no">&#10007;<span class="cmp-detail">Web browser only</span></td>
-              <td data-label="Dabble" class="cmp-partial">Limited<span class="cmp-detail">Must open online; can't reopen if closed offline</span></td>
+              <td data-label="Dabble" class="cmp-partial">Saves locally first<span class="cmp-detail">Then syncs later. Your work still lives on their servers</span></td>
+              <td data-label="Ellipsus" class="cmp-no">&#10007;<span class="cmp-detail">Requires an active connection; offline support is "In progress" on their roadmap</span></td>
             </tr>
 
             <tr>
@@ -869,15 +957,17 @@
               <td data-label="Campfire" class="cmp-no">&#10007;<span class="cmp-detail">Cloud servers</span></td>
               <td data-label="World Anvil" class="cmp-no">&#10007;<span class="cmp-detail">Cloud-only</span></td>
               <td data-label="Dabble" class="cmp-no">&#10007;<span class="cmp-detail">Cloud-only</span></td>
+              <td data-label="Ellipsus" class="cmp-no">&#10007;<span class="cmp-detail">On their servers, encrypted while stored, held in Ireland; no bulk download</span></td>
             </tr>
 
             <tr>
               <td>One License, All Platforms</td>
-              <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Windows, macOS, Linux, <br> no mobile app</span></td>
-              <td data-label="Scrivener" class="cmp-no">&#10007;<span class="cmp-detail">$60 per platform</span></td>
-              <td data-label="Campfire" class="cmp-partial">Web + desktop<span class="cmp-detail">Module pricing</span></td>
+              <td data-label="Penpoint" class="cmp-pp cmp-yes">&#10003;<span class="cmp-detail">Windows, macOS, Linux</span></td>
+              <td data-label="Scrivener" class="cmp-no">&#10007;<span class="cmp-detail">$59.99 per platform</span></td>
+              <td data-label="Campfire" class="cmp-partial">Web, desktop &amp; mobile<span class="cmp-detail">Browser, Mac, Windows, iOS, Android. Module pricing</span></td>
               <td data-label="World Anvil" class="cmp-partial">Web only<span class="cmp-detail">No desktop or mobile app</span></td>
-              <td data-label="Dabble" class="cmp-partial">Desktop &amp; web<span class="cmp-detail">Subscription or $699</span></td>
+              <td data-label="Dabble" class="cmp-partial">Desktop, web &amp; phone<span class="cmp-detail">Subscription or $699</span></td>
+              <td data-label="Ellipsus" class="cmp-yes">&#10003;<span class="cmp-detail">Any browser, any device; Plus is account-bound, non-transferable</span></td>
             </tr>
 
           </tbody>
@@ -904,27 +994,30 @@
 
         <h2>Worldbuilding and story organization</h2>
         <p>
-          Scrivener doesn't do worldbuilding. There's an outliner and index cards, but nothing built for tracking characters or story arcs. Their mind-mapping app Scapple is ~$21 extra and connects to Scrivener in only a basic way.
+          Scrivener doesn't do worldbuilding, and Penpoint is built around it. There's an outliner and index cards, but nothing built for tracking characters or story arcs, where Penpoint gives you real character, location, and item entries as part of the $40. Their mind-mapping app Scapple is ~$21 extra and connects to Scrivener in only a basic way. <a href="/scrivener-alternative" style="text-decoration: underline;">Our full Penpoint vs Scrivener comparison</a> covers what Scrivener still does better and how to move a project across.
         </p>
         <p>
-          Worldbuilding in Dabble is only available on the $19/month plan. You get story notes and a Plot Grid, but there's no relationship map, timeline, or item tracking, and no way to link your notes to characters by name.
+          Penpoint and Dabble both give you a place to keep your cast, but Dabble's starts on the $19/month Writer plan and stops sooner. You get character profiles, a free-form Notebook, a Plot Grid, and @mentions that follow a rename. What there isn't is a relationship map, a timeline, a calendar, or item tracking, and locations and items are notes you write rather than entries the app understands. All five of those are in Penpoint, and they are entries the app reads. There's more in <a href="/dabble-alternative" style="text-decoration: underline;">the full Penpoint vs Dabble comparison</a>, including real-time co-authoring and what happens when a subscription lapses.
         </p>
         <p>
-          Campfire comes closest on worldbuilding. They have structured character profiles, timelines, a relationship web, and modules for species, magic systems, and languages. Each module is a separate purchase, though. The manuscript editor is basic, locations can't be placed inside other locations, and there's no chapter scanning or character name suggestions as you type.
+          Campfire comes closest to Penpoint on worldbuilding. They have structured character profiles, timelines, a relationship web, and modules for species, magic systems, and languages. Each module is a separate purchase, though there's a free tier that lets you try all of them with limits. Where they part company is the writing side: Campfire's manuscript editor is basic, locations can't be placed inside other locations, and there's no chapter scanning or character name suggestions as you type. See <a href="/campfire-alternative" style="text-decoration: underline;">the full Penpoint vs Campfire comparison</a> for which modules you actually need and what they add up to.
         </p>
         <p>
-          World Anvil is a wiki-style tool built for tabletop RPG worldbuilding, with 25+ worldbuilding templates and locations inside other locations. The manuscript editor is basic, and you can only export as a web file. Paid plans do include co-author slots, but real-time collaboration and manuscript tools are thin.
+          World Anvil is a wiki-style tool built for tabletop RPG worldbuilding, with 28 worldbuilding templates and locations inside other locations; Penpoint is built for novelists and puts the manuscript beside the world rather than behind it. World Anvil's manuscript editor is basic, and you can only export as a web file, where Penpoint exports Word, PDF, EPUB, and Markdown. Paid plans do include co-author slots, but real-time collaboration and manuscript tools are thin. <a href="/worldanvil-alternative" style="text-decoration: underline;">Our full Penpoint vs World Anvil comparison</a> covers what their templates do better and where the manuscript side stops.
         </p>
         <p>
-          Penpoint comes with relationship maps, story & character arc visualizers, dynamic @ name linking, chapter timelines, item tracking, locations inside other locations, customizable per-chapter block layouts with per-scene character, location, item, and POV tracking, a fully featured note editor with image and folder storage, and the "Minipen," a miniature version of your worldbuilding that goes alongside the Manuscript editor. And when one book becomes many, convert it into a Series: one shared cast and world across every installment, each book keeping its own manuscript, chapters, and arcs, plus Series Arcs for the threads that span the whole saga. All of it, $40.
+          Ellipsus doesn't aim at worldbuilding at all, and Penpoint is mostly worldbuilding. Documents, drafts, and folders are the entire hierarchy, so characters, locations, timelines, and invented calendars end up as more documents that nothing in the app can read back to you. Penpoint makes each of those its own entry instead, linked to the chapters it appears in. Their public roadmap files Charts and Maps under Unlikely. For the rest, including their real-time co-authoring and what it takes to get a whole library out, read <a href="/ellipsus-alternative" style="text-decoration: underline;">the full Penpoint vs Ellipsus comparison</a>.
+        </p>
+        <p>
+          Penpoint comes with <strong>relationship maps</strong>, story &amp; character <strong>arc visualizers</strong>, dynamic @ name linking, chapter <strong>timelines</strong>, <strong>item tracking</strong>, locations inside other locations, customizable per-chapter layouts with per-scene character, location, item, and POV tracking, a fully featured note editor with image and folder storage, and the <strong>Minipen</strong>, a miniature version of your worldbuilding that goes alongside the Manuscript editor. And when one book becomes many, convert it into a <strong>Series</strong>: one shared cast and world across every installment, each book keeping its own manuscript, chapters, and arcs, plus <strong>Series Arcs</strong> for the threads that span the whole saga. All of it, $40.
         </p>
 
         <h2>Writing a whole series</h2>
         <p>
-          Most writing tools treat a series as a filing problem. In Scrivener you build it by hand: a folder per book, with every character re-created or copied between files. Campfire uses separate linked projects, World Anvil spreads it across multiple worlds, and Dabble shares a project's notes but not your actual worldbuilding. In all of them a series is something you assemble and maintain yourself, rebuilding your cast in a new file for each installment.
+          Most writing tools leave a series for you to organize. In Scrivener you build it by hand: a folder per book, with every character re-created or copied between files. World Anvil spreads it across multiple worlds, which is not series-specific, so your cast gets rebuilt for each installment. Ellipsus has no real chapters, let alone books, so a series there is folders of documents and a running order nothing in the app tracks. Campfire and Dabble are the exceptions: Campfire's Linked Projects share elements between separate book projects, and one Dabble project holds several books with characters, notebook, and plot grids shared across all of them.
         </p>
         <p>
-          Penpoint does it automatically. Turn what you've already written into Book 1 without losing a word, then keep going: a trilogy, a saga, a seven-book world, all in one project with a single shared cast and map. Write a character once and they stay current across every book, no matter which one you're editing. A built-in book switcher moves you between installments in a click, and a "This Book / All Books" toggle reads each character's Presence to either narrow the whole app down to just the book you're drafting or show the entire series cast at once.
+          Penpoint does it automatically. Turn what you've already written into Book 1 without losing a word, then keep going: a trilogy, a saga, a seven-book world, all in one project with a single shared cast and map. Write a character once and they stay current across every book, no matter which one you're editing. A built-in book switcher moves you between installments in a click, and a <strong>This Book / All Books</strong> toggle reads each character's <strong>Presence</strong> to either narrow the whole app down to just the book you're drafting or show the entire series cast at once.
         </p>
         <p>
           We don't know of another writing app built to worldbuild across a series this way. And it's fully reversible: split a series back into standalone books whenever you want.
@@ -932,26 +1025,30 @@
 
         <h2>Writing and manuscript tools</h2>
         <p>
-          Penpoint imports manuscripts from Word, EPUB, Markdown, and plain text with automatic chapter detection. Campfire matches this on Word and EPUB. Scrivener imports Word and several other formats, splitting into chapters automatically or at break points you define. Dabble and World Anvil don't support file import at all; you're copy-pasting.
+          Penpoint imports manuscripts from Word, EPUB, Markdown, and plain text with automatic chapter detection. Campfire matches this on Word and EPUB. Scrivener imports Word and several other formats, splitting into chapters automatically or at break points you define. Dabble imports Word, RTF, Markdown, and HTML up to 50&nbsp;MB, splitting on headings as it goes. Ellipsus takes documents in and files them into folders, but doesn't publish the list of formats it accepts. World Anvil has no file import at all; you're&nbsp;copy-pasting.
         </p>
         <p>
-          Penpoint also has an industry-first Chapter Scanner that none of the others offer: scan a chapter and it finds your characters, locations, and items mentioned in your prose and auto creates entries in the Worldbuilding side, assigning each new element to the chapter it appears in. This cuts your manual data entry down by a huge margin. Import and get straight to work.</p>
+          Penpoint also has a <strong>Chapter Scanner</strong> that none of the other five offer: scan a chapter and it finds the characters, locations, and items in your prose and proposes them as worldbuilding entries, sorted by how confident it is. You review the list and apply the ones you want, and each one you keep is linked to the chapter it appeared in. Import and get straight to work.</p>
         <p>
-          For export: Penpoint, Scrivener, and Campfire all handle Word, PDF, and more. Dabble does Word only, no PDF. World Anvil exports as a web file that you'd need to convert before sending anything to an agent. 
+          For export: Penpoint, Scrivener, and Campfire all handle Word, PDF, and more. Dabble sends a book to Word, Google Docs, Markdown, or a shareable web page, and has no PDF button of its own; their docs point you at Print, then Save as PDF. World Anvil exports as a web file that you'd need to convert before sending anything to an agent. Ellipsus gives you .docx, PDF, or Markdown one document at a time, plus a direct Export to AO3 button for fan writers; its help center says bulk downloads aren't possible, so a trilogy spread across forty documents is forty separate exports.
         </p>
         <p>
-          Penpoint includes a fully offline spellchecker supporting 60 languages with a custom dictionary you control, on Windows, macOS, and Linux. Every character, location, and item name in your book is automatically recognized, so invented names and fantasy words stop showing up as errors the minute you create them. On Windows and macOS, third-party writing tools like ProWritingAid and Grammarly can also work alongside Penpoint via their desktop apps. Scrivener also has a real offline spell-checker, but no Linux version. Campfire and World Anvil have no spell-checker of their own; they rely on your browser's native spellcheck. Dabble's grammar checking uses ProWritingAid, a separate paid service that requires an internet connection. It's not built in.
+          Penpoint includes a fully offline spellchecker with a custom dictionary you control, on Windows, macOS, and Linux. English is built into the app and the other 59 languages download once, after which they work with no connection. Every character, location, and item name in your book is automatically recognized, so invented names and fantasy words stop showing up as errors the minute you create them. On Windows and macOS, third-party writing tools like ProWritingAid and Grammarly can also work alongside Penpoint via their desktop apps. Scrivener also has a real offline spell-checker, but no Linux version. World Anvil has none of its own and leans on your OS or browser; Campfire documents none anywhere. Ellipsus does have one, covering 18 languages, but it's off until you switch it on and each language downloads into the document you're in rather than into your account. Dabble's checking is powered by ProWritingAid and runs inside Dabble: spell check is free on every plan, while grammar and style are a paid feature.
+        </p>
+
+        <p>
+          One thing Penpoint does not do is let you write with someone else. Dabble rebuilt around collaboration in 2026 and now has real-time co-authoring, track changes, and separate roles for editors, reviewers, and beta readers. Campfire lets you invite collaborators to view, comment on, or edit. Ellipsus goes furthest of the three: real-time co-writing, five permission levels from Owner down to Viewer, and an unlimited number of collaborators without paying anything. Penpoint is a single-writer desktop app, and its inline comments are notes to yourself rather than a conversation. If your book is a two-person job, that is a real reason to pick one of them over us.
         </p>
 
         <h2>Privacy, ownership, and offline access</h2>
         <p>
-          Penpoint is a desktop app. Your books are saved as files on your hard drive; open them, back them up, or move them like any other file. No account, no cloud, no subscription. Your writing never leaves your device. AI never touches your writing, and Penpoint's team never has access to your data.
+          Penpoint is a desktop app. Your books are saved as files on your hard drive; open them, back them up, or move them like any other file. No account needed, and the app is a one-time purchase rather than a subscription. Your writing stays on your device unless you turn on <strong>Penpoint Cloud</strong>, the optional paid backup and sync service. AI never touches your writing, and if you turn Penpoint Cloud on, your writing is end-to-end encrypted, so we cannot read it.
         </p>
         <p>
-          Scrivener is also fully local and offline. Dabble can work offline, but you have to open the app online first, and closing the window offline means you need internet again to reopen it. (<a href="https://help.dabblewriter.com/en/articles/5491370-how-does-dabble-work-offline" target="_blank" rel="noopener" style="text-decoration: underline;">They recommend</a> manually doing Word backups while offline via copy/paste.) Campfire stores your writing on their servers. World Anvil is web-only with no desktop app and no offline mode. If their servers go down, your worldbuilding is unavailable until they come back.
+          Scrivener is also fully local and offline. Dabble rebuilt this in 2026: it now saves every change to your device before the server sees it, then catches up when you reconnect (<a href="https://www.dabblewriter.com/docs/apps-sync-offline/working-offline" target="_blank" rel="noopener" style="text-decoration: underline;">their docs</a>). The difference that remains is where the book lives, because your account and your projects are still on their servers. Campfire has desktop and mobile apps, but your writing lives on their servers. World Anvil is web-only with no desktop app and no offline mode. If their servers go down, your worldbuilding is unavailable until they come back. Ellipsus is browser-only too, and its help center is explicit that the app needs a live connection to reach its services. They are working on it: in September 2026 their public roadmap marked offline support, a desktop app, and a native mobile app all in progress. Penpoint is desktop-only today: a mobile companion app entered beta testing in July 2026, but it is not on the public app stores and it needs a Penpoint Cloud subscription, so it is not covered by the one-time desktop license.
         </p>
         <p>
-          Penpoint's $40 covers Windows, macOS, and Linux. Scrivener charges per OS. The cloud tools (Dabble, Campfire, World Anvil) keep your work on their servers, and access depends on your subscription staying active. And if they jack prices, you have to pay or lose access to your data.
+          Penpoint's $40 covers Windows, macOS, and Linux. Scrivener charges per OS. The cloud tools all keep your work on their servers. Dabble, Campfire, and World Anvil each sell a lifetime option; Ellipsus charges nothing at all unless you want Plus, which is $99 once and tied to the account that bought it. What a lapsed subscription costs you varies, so check before you rely on it: Dabble's pricing page states you keep read and export access forever and lose only the ability to write new words.
         </p>
 
         <h2>Pricing and value</h2>
@@ -959,7 +1056,7 @@
           Penpoint costs $40, once. Full app, all platforms. Updates are free for the major version you purchase.
         </p>
         <p>
-          Scrivener runs $60 per platform with no worldbuilding. Dabble's lifetime plan is $699, cloud-based, with basic worldbuilding. Campfire's full module set runs $420 but comes with a basic manuscript editor and no chapter scanner. World Anvil's Grandmaster lifetime is $650 (web-only, web-file export only). Their top Sage tier is around $1,350.
+          Scrivener runs $59.99 per platform with no worldbuilding. Dabble's lifetime plan is $699, cloud-based, with basic worldbuilding. Campfire's full module set runs $420 but comes with a basic manuscript editor and no chapter scanner. World Anvil's Grandmaster lifetime is $650 (web-only, web-file export only). Their top Sage tier is around $1,350. Ellipsus undercuts everyone including us: the free plan has unlimited documents and 30 days of version history, and Plus is $99 once. What the money isn't buying there is a place to keep your world or a copy of your book on your own machine.
         </p>
         <p>
           We think we built something pretty cool. But don't take our word for it. Try Penpoint for yourself. Free trial, no lock-in. What do you have to lose?
@@ -967,7 +1064,7 @@
 
         <!-- Methodology -->
         <div class="compare-note" style="margin-top: 2.5rem;">
-          <strong>How we built this comparison.</strong> We checked each competitor's official website, help docs, and public feature pages in March 2026. If something's out of date, <a href="mailto:support@penpoint.app" style="color: rgb(var(--cta)); text-decoration: underline;">let us know</a> and we'll fix it. Competitor names and trademarks belong to their respective owners.
+          <strong>How we built this comparison.</strong> We checked each competitor's official website, help docs, and public feature pages in September 2026. If something's out of date, <a href="mailto:support@penpoint.app" style="color: rgb(var(--cta)); text-decoration: underline;">let us know</a> and we'll fix it. Competitor names and trademarks belong to their respective owners.
         </div>
 
       </div>
@@ -984,11 +1081,16 @@
         The whole app for $40.
       </h2>
       <p class="final-cta__subtext font-body-lg" data-animate="fade-up" data-stagger="1">
-        Buy it once and it's yours. No account required.
+        Every feature for 14 days, with no account and no card. Buy it once after that and it's yours.
       </p>
-      <a href="https://penpointapp.lemonsqueezy.com/checkout/buy/5576a809-44e7-4179-b5f6-69c145725060?embed=1" class="btn btn-primary btn-xl btn-shadow lemonsqueezy-button" data-animate="scale" data-stagger="2">
-        Buy Penpoint for $40
-      </a>
+      <div class="final-cta__actions" data-animate="scale" data-stagger="2">
+        <a href="/trial" class="btn btn-primary btn-xl btn-shadow">
+          Start the free trial
+        </a>
+        <a href="https://penpointapp.lemonsqueezy.com/checkout/buy/5576a809-44e7-4179-b5f6-69c145725060?embed=1" class="btn btn-outline btn-xl lemonsqueezy-button">
+          Buy for $40
+        </a>
+      </div>
       <a href="https://discord.gg/q7yV3PXrGB" class="final-cta__discord font-body-sm" data-animate="fade-up" data-stagger="3" target="_blank" rel="noopener">
         <i class="fa-brands fa-discord"></i> Join our Discord
       </a>
@@ -1024,10 +1126,20 @@
         <div class="pp-footer__col">
           <h4>Product</h4>
           <a href="/#features" class="foot-link">Features</a>
-          <a href="/compare" class="foot-link">Compare</a>
           <a href="/development" class="foot-link">Development</a>
           <a href="/#faq" class="foot-link">FAQ</a>
           <a href="/trial" class="foot-link">Free Trial</a>
+        </div>
+        <div class="pp-footer__col">
+          <h4>Compare</h4>
+          <a href="/compare" class="foot-link">Compare All</a>
+          <a href="/scrivener-alternative" class="foot-link">vs Scrivener</a>
+          <a href="/dabble-alternative" class="foot-link">vs Dabble</a>
+          <a href="/campfire-alternative" class="foot-link">vs Campfire</a>
+          <a href="/worldanvil-alternative" class="foot-link">vs World Anvil</a>
+          <a href="/ellipsus-alternative" class="foot-link">vs Ellipsus</a>
+          <a href="/story-bible" class="foot-link">Story Bible</a>
+          <a href="/character-bible" class="foot-link">Character Bible</a>
         </div>
         <div class="pp-footer__col">
           <h4>Company</h4>
