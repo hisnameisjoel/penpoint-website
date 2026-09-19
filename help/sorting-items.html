@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="linen">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <title>Sorting Items | Penpoint Help</title>
+  <meta name="description" content="Control how your items are ordered using the sort menu in the Items page toolbar.">
+  <link rel="canonical" href="https://penpoint.app/help/sorting-items">
+  <meta name="robots" content="noindex, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://penpoint.app/help/sorting-items">
+  <meta property="og:title" content="Sorting Items | Penpoint Help">
+  <meta property="og:description" content="Control how your items are ordered using the sort menu in the Items page toolbar.">
+  <meta property="og:site_name" content="Penpoint">
+  <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://penpoint.app/help/sorting-items">
+  <meta name="twitter:title" content="Sorting Items | Penpoint Help">
+  <meta name="twitter:description" content="Control how your items are ordered using the sort menu in the Items page toolbar.">
+  <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="theme-color" content="#FFF7E6">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/site-chrome.css">
+  <link rel="stylesheet" href="help-articles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Sorting Items","item":"https://penpoint.app/help/sorting-items"}]}</script>
+  <style>
+    /* The article body is the app's design system; the chrome is the website's.
+       These rules are the seam between them, and they follow the site's spacing
+       variables rather than inventing a second scale. */
+    .help-article { padding: var(--space-10) 0 var(--space-16); }
+    /* Sidebar + article. The reading measure stays 760px; the sidebar sits beside it
+       rather than eating into it. */
+    .help-layout {
+      display: grid; grid-template-columns: 240px minmax(0, 760px);
+      gap: clamp(28px, 5vw, 64px); justify-content: center;
+      padding: 0 clamp(20px, 5vw, 52px);
+    }
+    .help-article__inner { min-width: 0; }
+
+    /* ----- Sidebar -----
+       Mirrors the in-app hierarchy. <details> gives the collapse with no JavaScript, so
+       it works for a crawler and for a reader with scripts off. Content inside a closed
+       <details> is still in the DOM, unlike the app's Collapsible. */
+    .help-nav {
+      position: sticky; top: 84px; align-self: start;
+      max-height: calc(100vh - 110px); overflow-y: auto;
+      font-family: 'Source Serif 4', serif; font-size: 14px; line-height: 1.45;
+      padding-right: 8px;
+    }
+    .help-nav__home {
+      display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+      letter-spacing: .14em; text-transform: uppercase; color: #7C5236;
+      text-decoration: none; margin: 0 0 16px; padding-bottom: 10px;
+      border-bottom: 1px solid #E0D2BC;
+    }
+    .help-nav__home:hover { color: #CD6E2C; }
+    .help-nav__sec { margin: 0 0 4px; }
+    .help-nav__sec > summary {
+      cursor: pointer; list-style: none; padding: 6px 0;
+      font-weight: 600; color: #29241E;
+    }
+    .help-nav__sec > summary::-webkit-details-marker { display: none; }
+    .help-nav__sec > summary::before {
+      content: '›'; display: inline-block; width: 14px;
+      color: #A8906D; transition: transform .15s ease;
+    }
+    .help-nav__sec[open] > summary::before { transform: rotate(90deg); }
+    .help-nav__sec > summary:hover { color: #CD6E2C; }
+    .help-nav__list { list-style: none; margin: 0; padding: 0 0 0 14px; }
+    .help-nav__list--1 { padding-left: 12px; }
+    .help-nav__list a {
+      display: block; padding: 4px 8px; color: #5C4332; text-decoration: none;
+      border-left: 2px solid transparent; text-wrap: pretty;
+    }
+    .help-nav__list a:hover { color: #CD6E2C; background: #F4EBD8; }
+    .help-nav__list a.is-current {
+      color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
+    }
+
+    @media (max-width: 960px) {
+      /* The sidebar becomes a collapsed block above the article rather than disappearing,
+         so the whole guide is still reachable on a phone. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav {
+        position: static; max-height: none; overflow: visible;
+        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
+      }
+    }
+    .help-crumbs {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: rgb(var(--muted-foreground)); margin: 0 0 var(--space-6);
+    }
+    .help-crumbs a { color: inherit; text-decoration: none; }
+    .help-crumbs a:hover { color: #CD6E2C; }
+    .help-body { color: rgb(var(--foreground)); }
+    .help-body :is(h1, h2, h3) { text-wrap: balance; }
+    .help-body p, .help-body li { text-wrap: pretty; }
+    /* Strong is font-body-bold in the app, a class the website's typography.css
+       does not carry. Without this, bold runs fall back to the browser default face. */
+    .help-body .font-body-bold { font-weight: 700; }
+    .help-footer {
+      margin-top: var(--space-12); padding-top: var(--space-6);
+      border-top: 1px solid rgb(var(--border));
+      color: rgb(var(--muted-foreground)); font-size: var(--text-sm);
+    }
+    .help-footer a { color: rgb(var(--link)); }
+    @media (max-width: 720px) {
+      /* Floated figures have no room to float on a phone. */
+      .help-body figure { float: none !important; margin: var(--space-6) auto !important; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<header class="pp-header">
+    <div class="pp-header__inner">
+      <a href="/" class="pp-logo" aria-label="Penpoint home">
+        <svg class="pp-logo__icon" viewBox="0 0 24 24" width="22" height="22" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+        <span class="pp-logo__text">Penpoint</span>
+      </a>
+      <nav class="pp-nav" aria-label="Primary">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" aria-label="Join our Discord" class="pp-nav__discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="/trial" class="pp-cta">Try Penpoint</a>
+      </nav>
+      <a href="/trial" class="pp-try-m">Try</a>
+      <button type="button" class="pp-burger" data-burger="" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="pp-mobile" data-mobile-menu="">
+      <div class="pp-mobile__inner">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </header>
+  <main class="help-article">
+    <div class="help-layout">
+      <nav class="help-nav" aria-label="All guides">
+        <a class="help-nav__home" href="/help/">All guides</a>
+        <details class="help-nav__sec">
+          <summary>Getting Started</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/getting-started-with-penpoint">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/how-to-start-a-novel">Creating Your First Book</a></li><li><a href="/help/novel-outline-templates">Understanding Book Template Types</a></li><li><a href="/help/organize-multiple-writing-projects">Managing Your Books</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/editing-book-details">Editing Book Details</a></li><li><a href="/help/duplicating-books">Duplicating Books</a></li><li><a href="/help/deleting-books">Deleting Books</a></li><li><a href="/help/importing-a-book">Importing a Book</a></li><li><a href="/help/exporting-a-book">Exporting a Book</a></li></ul></li><li><a href="/help/tracking-your-time">Tracking Your Time</a></li></ul>
+        </details>
+        <details class="help-nav__sec" open>
+          <summary>Building Your World</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/worldbuilding-for-writers">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/the-worldbuilding-toolbar">The Worldbuilding Toolbar</a></li><li><a href="/help/character-profile-software">Characters</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-write-a-character-profile">Working with Characters</a></li><li><a href="/help/character-views">Character Views</a></li><li><a href="/help/view-edit-modes">View Mode vs Edit Mode</a></li><li><a href="/help/sidebar-navigation">Sidebar &amp; Navigation</a></li><li><a href="/help/block-types">Block Types</a><ul class="help-nav__list help-nav__list--2"><li><a href="/help/text-block">Text Block</a></li><li><a href="/help/paragraph-block">Paragraph Block</a></li><li><a href="/help/number-block">Number Block</a></li><li><a href="/help/divider-block">Divider Block</a></li><li><a href="/help/calculate-block">Calculate Block</a></li><li><a href="/help/trait-block">Trait Block</a></li><li><a href="/help/tags-block">Tags Block</a></li><li><a href="/help/relationships-block">Relationships Block</a></li><li><a href="/help/items-block">Items Block</a></li><li><a href="/help/locations-block">Locations Block</a></li><li><a href="/help/chapters-block">Chapters Block</a></li><li><a href="/help/character-arc-block">Character Arc Block</a></li><li><a href="/help/image-block">Image Block</a></li><li><a href="/help/events-block">Events Block</a></li><li><a href="/help/notebook-block">Notebook Block</a></li></ul></li></ul></li><li><a href="/help/story-item-tracker">Items</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/working-with-items">Working with Items</a></li><li><a href="/help/item-views">Item Views</a></li><li><a href="/help/filtering-items">Filtering Items</a></li><li><a href="/help/sorting-items" aria-current="page" class="is-current">Sorting Items</a></li><li><a href="/help/item-detail-panel">Item Detail Panel</a></li><li><a href="/help/editing-item-details">Editing Item Details</a></li><li><a href="/help/managing-item-types">Managing Item Types</a></li></ul></li><li><a href="/help/fictional-location-tracker">Locations</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/working-with-locations">Working with Locations</a></li><li><a href="/help/how-to-organize-fictional-locations">Location Hierarchy</a></li><li><a href="/help/organizing-locations">Organizing Locations</a></li><li><a href="/help/fictional-location-profile">Location Detail View</a></li><li><a href="/help/location-icons">Location Icons</a></li></ul></li><li><a href="/help/chapter-planning-software">Chapters</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-outline-a-novel">The Chapter Outline</a></li><li><a href="/help/chapter-view-modes">Chapter View Modes: By Group or By Scene</a></li><li><a href="/help/index-card-outlining">The Corkboard</a></li><li><a href="/help/placeholder-cards">Placeholder Cards</a></li><li><a href="/help/creating-chapters-and-scenes">Creating Chapters and Scenes</a></li><li><a href="/help/editing-chapter-and-scene-details">Editing Chapter and Scene Details</a></li><li><a href="/help/reordering-chapters">Reordering and Organizing Chapters</a></li><li><a href="/help/how-to-organize-a-novel-into-parts">Chapter Groups (Folders)</a></li><li><a href="/help/merging-and-deleting-chapters">Merging and Deleting</a></li><li><a href="/help/customizing-chapter-layout">Customizing Chapter Layout</a></li><li><a href="/help/chapter-block-types">Chapter Block Types</a><ul class="help-nav__list help-nav__list--2"><li><a href="/help/calendar-block">Calendar Block</a></li><li><a href="/help/outline-block">Outline Block</a></li><li><a href="/help/assigning-things-to-scenes">Assigning Things to Scenes</a></li></ul></li><li><a href="/help/chapters-open-in-manuscript">Open in Manuscript</a></li></ul></li><li><a href="/help/how-to-track-character-arcs">Arcs</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-plot-subplots">Story Arcs</a></li><li><a href="/help/how-to-write-a-character-arc">Character Arcs</a></li></ul></li><li><a href="/help/story-timeline-software">Timeline</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/story-event-tracker">Events</a></li></ul></li><li><a href="/help/character-relationship-map">Relationship Map</a></li><li><a href="/help/how-to-track-themes-in-a-novel">Tags Overview</a></li><li><a href="/help/notes-app-for-novelists">Notebook</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/organize-novel-research-notes">Working with Notes</a></li><li><a href="/help/smart-folders-for-writing-notes">Folders and Smart Folders</a></li><li><a href="/help/notebook-images">Images in the Notebook</a></li><li><a href="/help/notebook-tables">Tables</a></li><li><a href="/help/notebook-shortcuts">Shortcuts</a></li><li><a href="/help/views-and-sorting">Views and Sorting</a></li><li><a href="/help/archiving-notes">Archiving Notes</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Manuscript Mode</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/distraction-free-writing-software">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/scenes-vs-chapters">Chapters &amp; Scenes</a></li><li><a href="/help/novel-outliner-sidebar">The Outliner</a></li><li><a href="/help/manuscript-breaks">Scene &amp; Chapter Breaks</a></li><li><a href="/help/manuscript-toolbar">The Toolbar</a></li><li><a href="/help/manuscript-version-history">Manuscript Snapshots</a></li><li><a href="/help/alternate-scene-drafts">Scene Drafts</a></li><li><a href="/help/manuscript-chapter-drafts">Chapter Drafts</a></li><li><a href="/help/compare-manuscript-drafts">Comparing Your Manuscript Drafts</a></li><li><a href="/help/manuscript-comments-and-notes">Comments &amp; Pinned Notes</a></li><li><a href="/help/manuscript-settings">Manuscript Settings</a></li><li><a href="/help/find-character-names-in-a-manuscript">Chapter Scanner</a></li><li><a href="/help/worldbuilding-while-you-write">Minipen</a></li><li><a href="/help/stop-editing-while-you-draft">Flowstate</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Searching &amp; Connecting</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/search-your-novel-notes">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/search-across-your-novel">Search</a></li><li><a href="/help/link-characters-in-your-manuscript">@Mentions</a></li><li><a href="/help/quick-add-menu">Quick Add Menu</a></li><li><a href="/help/story-glossary-generator">Compendium</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Writing a Series</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/how-to-write-a-book-series">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/combine-books-into-a-series">Converting a Book to a Series</a></li><li><a href="/help/series-library">Your Series in the Library</a></li><li><a href="/help/switching-books">Switching Between Books</a></li><li><a href="/help/presence">Presence: Which Books a Character Is In</a></li><li><a href="/help/importance-across-books">Importance Across Books</a></li><li><a href="/help/series-focus">This Book vs All Books</a></li><li><a href="/help/series-arcs-vs-book-arcs">Book Arcs and Series Arcs</a></li><li><a href="/help/book-notes-folders">Using Dedicated Book Folders</a></li><li><a href="/help/how-to-split-a-book-series">Splitting a Series into Separate Books</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Import &amp; Export</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/import-and-export-your-manuscript">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/exporting">Exporting Your Data</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/export-your-worldbuilding">Exporting Worldbuilding Data</a></li><li><a href="/help/generating-templates">Generating Templates</a></li><li><a href="/help/export-your-novel-to-word">Exporting Manuscripts</a></li></ul></li><li><a href="/help/importing-exporting">Importing Your Data</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/import-your-manuscript">Importing Data</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Settings</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/settings">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/customizing-character-layout">Customizing Character Layout</a></li><li><a href="/help/location-types">Managing Location Types</a></li><li><a href="/help/managing-traits">Managing Traits</a></li><li><a href="/help/tags">Managing Tags</a></li><li><a href="/help/interface-settings">Interface Settings</a></li><li><a href="/help/announcements">Community &amp; Updates</a></li><li><a href="/help/advanced-settings">Advanced Settings</a></li><li><a href="/help/automatic-novel-backup">Backup &amp; Restore</a></li><li><a href="/help/spellcheck-for-character-names">Spellcheck &amp; Autocorrect</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/contributing-authors-dictionary">Contributing to the Authors Dictionary</a></li></ul></li><li><a href="/help/calendar-settings">Calendar Settings</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/fantasy-calendar-generator">Custom Calendar</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Penpoint Cloud</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/cloud-backup-for-writers">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/set-up-cloud-backup-for-your-novel">Setting Up Penpoint Cloud</a></li><li><a href="/help/encrypted-novel-backup">Your Password and Recovery Kit</a></li><li><a href="/help/penpoint-cloud-plans">Managing Your Subscription</a></li><li><a href="/help/write-on-multiple-computers">Managing Your Devices</a></li><li><a href="/help/sync-your-novel-between-computers">Syncing and Restoring</a></li><li><a href="/help/penpoint-cloud-settings">Penpoint Cloud Settings</a></li></ul>
+        </details>
+      </nav>
+      <div class="help-article__inner">
+        <nav class="help-crumbs" aria-label="Breadcrumb">
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+        </nav>
+        <div class="help-body">
+<article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Sorting Items</h1><figure class="float-right ml-8 mb-8"><div class="border border-border rounded-lg shadow-lg overflow-hidden bg-primary/10 p-4"><div class="rounded [&amp;_*:not(button):not([data-demo-highlight])]:!bg-transparent [&amp;_*]:!border-primary/40 select-none"><div class="w-[200px] mx-auto space-y-3"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-normal ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-transparent border border-border hover:bg-muted hover:border-accent py-2 h-7 px-2 font-caption font-normal text-muted-foreground opacity-90 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-down h-3 w-3 mr-1" aria-hidden="true"><path d="m21 16-4 4-4-4"></path><path d="M17 20V4"></path><path d="m3 8 4-4 4 4"></path><path d="M7 4v16"></path></svg>Sort</button><div class="w-40 bg-background border border-primary rounded-md shadow-lg p-1"><div class="px-2 py-1.5 font-body-sm font-semibold">Sort Method</div><div role="separator" aria-orientation="horizontal" class="-mx-1 my-1 h-px bg-muted"></div><div class="flex items-center px-2 py-1.5 text-sm cursor-default select-none rounded-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check h-4 w-4 mr-2 text-primary" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Alphabetical</div><div class="flex items-center px-2 py-1.5 text-sm cursor-default select-none rounded-sm opacity-60"><span class="h-4 w-4 mr-2"></span>Date Created</div><div class="flex items-center px-2 py-1.5 text-sm cursor-default select-none rounded-sm opacity-60"><span class="h-4 w-4 mr-2"></span>Importance</div><div role="separator" aria-orientation="horizontal" class="-mx-1 my-1 h-px bg-muted"></div><div class="px-2 py-1.5 font-body-sm font-semibold">Sort Order</div><div role="separator" aria-orientation="horizontal" class="-mx-1 my-1 h-px bg-muted"></div><div class="flex items-center px-2 py-1.5 text-sm cursor-default select-none rounded-sm"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check h-4 w-4 mr-2 text-primary" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Ascending</div><div class="flex items-center px-2 py-1.5 text-sm cursor-default select-none rounded-sm opacity-60"><span class="h-4 w-4 mr-2"></span>Descending</div></div></div></div></div><figcaption class="text-xs text-muted-foreground text-center mt-2 italic px-1">Figure 1 - Sort menu with Alphabetical and Ascending selected</figcaption></figure><p class="font-body text-base mb-4">Control how your items are ordered using the sort menu in the Items page toolbar. Choose both the sort method and direction to organize your list exactly how you need it.</p><h2 class="font-heading mb-4 mt-8">Sort Methods</h2><h2 class="font-heading mb-4 mt-8">Alphabetical</h2><p class="font-body text-base mb-4">Sorts items by name from A to Z (ascending) or Z to A (descending). The default sorting method for finding items by name quickly.</p><h2 class="font-heading mb-4 mt-8">Date Created</h2><p class="font-body text-base mb-4">Sorts items by when they were created. Choose ascending to see your oldest items first, or descending to see your most recently created items at the top.</p><p class="font-body text-base mb-4">Useful for tracking what you added recently or finding items created early in your project.</p><h2 class="font-heading mb-4 mt-8">Importance</h2><p class="font-body text-base mb-4">Sorts items by importance level: <strong class="font-body-bold">Primary</strong> items first, then <strong class="font-body-bold">Secondary</strong>, then <strong class="font-body-bold">Background</strong>. Reverse the order to see background items at the top.</p><p class="font-body text-base mb-4">Perfect for keeping plot-critical items at the top of your list for quick access during writing sessions.</p><h2 class="font-heading mb-4 mt-8">Sort Persistence</h2><p class="font-body text-base mb-4">Your sort preferences are saved automatically. When you return to the Items page, Penpoint restores both your sort method and direction exactly as you left them.</p></article>
+        </div>
+        <p class="help-footer">This guide is also in Penpoint, under Help. <a href="/help/">Browse all guides</a> or <a href="/trial">try Penpoint free</a>.</p>
+      </div>
+    </div>
+  </main>
+<footer class="pp-footer">
+    <div class="pp-footer__top">
+      <div class="pp-footer__cols">
+        <div class="pp-footer__col">
+          <div class="pp-footer__brand-row">
+            <svg class="pp-footer__brand-icon" viewBox="0 0 24 24" width="20" height="20" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+            <span class="pp-footer__brand-name">Penpoint</span>
+          </div>
+          <p class="pp-footer__tagline">Write your novel and organize your world in one app.</p>
+          <div class="pp-footer__platforms">
+            <i class="fa-brands fa-windows"></i>
+            <i class="fa-brands fa-apple"></i>
+            <i class="fa-brands fa-linux"></i>
+          </div>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/about" class="foot-link">About</a>
+          <a href="/development" class="foot-link">Development</a>
+          <a href="/#faq" class="foot-link">FAQ</a>
+          <a href="/help" class="foot-link">Help Guide</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/compare" class="foot-link">Compare All</a>
+          <a href="/scrivener-alternative" class="foot-link">vs Scrivener</a>
+          <a href="/dabble-alternative" class="foot-link">vs Dabble</a>
+          <a href="/campfire-alternative" class="foot-link">vs Campfire</a>
+          <a href="/worldanvil-alternative" class="foot-link">vs World Anvil</a>
+          <a href="/ellipsus-alternative" class="foot-link">vs Ellipsus</a>
+          <a href="/story-bible" class="foot-link">Story Bible</a>
+          <a href="/character-bible" class="foot-link">Character Bible</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/trial" class="foot-link">Free Trial</a>
+          <a href="/buy" class="foot-link">Buy</a>
+          <a href="/changelog" class="foot-link">Changelog</a>
+          <a href="/roadmap" class="foot-link">Roadmap</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/terms" class="foot-link">Terms</a>
+          <a href="/privacy" class="foot-link">Privacy</a>
+          <a href="/press" class="foot-link">Press</a>
+          <a href="mailto:support@penpoint.app" class="foot-link">Support</a>
+        </div>
+      </div>
+    </div>
+    <div class="pp-footer__bottom">
+      <div class="pp-footer__bottom-inner">
+        <p class="pp-footer__copy">&copy; 2026 Tophat Creative, LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/site-chrome.js"></script>
+</body>
+</html>

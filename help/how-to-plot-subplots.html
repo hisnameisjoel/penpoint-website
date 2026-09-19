@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="linen">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <title>How to Plot Subplots | Penpoint Help</title>
+  <meta name="description" content="Map your main plot and its subplots as layered curves with keyframes at every turning point. Three-Act, Hero’s Journey, or a shape of your own.">
+  <link rel="canonical" href="https://penpoint.app/help/how-to-plot-subplots">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://penpoint.app/help/how-to-plot-subplots">
+  <meta property="og:title" content="How to Plot Subplots | Penpoint Help">
+  <meta property="og:description" content="Map your main plot and its subplots as layered curves with keyframes at every turning point. Three-Act, Hero’s Journey, or a shape of your own.">
+  <meta property="og:site_name" content="Penpoint">
+  <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://penpoint.app/help/how-to-plot-subplots">
+  <meta name="twitter:title" content="How to Plot Subplots | Penpoint Help">
+  <meta name="twitter:description" content="Map your main plot and its subplots as layered curves with keyframes at every turning point. Three-Act, Hero’s Journey, or a shape of your own.">
+  <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="theme-color" content="#FFF7E6">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/site-chrome.css">
+  <link rel="stylesheet" href="help-articles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Story Arcs","item":"https://penpoint.app/help/how-to-plot-subplots"}]}</script>
+  <style>
+    /* The article body is the app's design system; the chrome is the website's.
+       These rules are the seam between them, and they follow the site's spacing
+       variables rather than inventing a second scale. */
+    .help-article { padding: var(--space-10) 0 var(--space-16); }
+    /* Sidebar + article. The reading measure stays 760px; the sidebar sits beside it
+       rather than eating into it. */
+    .help-layout {
+      display: grid; grid-template-columns: 240px minmax(0, 760px);
+      gap: clamp(28px, 5vw, 64px); justify-content: center;
+      padding: 0 clamp(20px, 5vw, 52px);
+    }
+    .help-article__inner { min-width: 0; }
+
+    /* ----- Sidebar -----
+       Mirrors the in-app hierarchy. <details> gives the collapse with no JavaScript, so
+       it works for a crawler and for a reader with scripts off. Content inside a closed
+       <details> is still in the DOM, unlike the app's Collapsible. */
+    .help-nav {
+      position: sticky; top: 84px; align-self: start;
+      max-height: calc(100vh - 110px); overflow-y: auto;
+      font-family: 'Source Serif 4', serif; font-size: 14px; line-height: 1.45;
+      padding-right: 8px;
+    }
+    .help-nav__home {
+      display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+      letter-spacing: .14em; text-transform: uppercase; color: #7C5236;
+      text-decoration: none; margin: 0 0 16px; padding-bottom: 10px;
+      border-bottom: 1px solid #E0D2BC;
+    }
+    .help-nav__home:hover { color: #CD6E2C; }
+    .help-nav__sec { margin: 0 0 4px; }
+    .help-nav__sec > summary {
+      cursor: pointer; list-style: none; padding: 6px 0;
+      font-weight: 600; color: #29241E;
+    }
+    .help-nav__sec > summary::-webkit-details-marker { display: none; }
+    .help-nav__sec > summary::before {
+      content: '›'; display: inline-block; width: 14px;
+      color: #A8906D; transition: transform .15s ease;
+    }
+    .help-nav__sec[open] > summary::before { transform: rotate(90deg); }
+    .help-nav__sec > summary:hover { color: #CD6E2C; }
+    .help-nav__list { list-style: none; margin: 0; padding: 0 0 0 14px; }
+    .help-nav__list--1 { padding-left: 12px; }
+    .help-nav__list a {
+      display: block; padding: 4px 8px; color: #5C4332; text-decoration: none;
+      border-left: 2px solid transparent; text-wrap: pretty;
+    }
+    .help-nav__list a:hover { color: #CD6E2C; background: #F4EBD8; }
+    .help-nav__list a.is-current {
+      color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
+    }
+
+    @media (max-width: 960px) {
+      /* The sidebar becomes a collapsed block above the article rather than disappearing,
+         so the whole guide is still reachable on a phone. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav {
+        position: static; max-height: none; overflow: visible;
+        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
+      }
+    }
+    .help-crumbs {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: rgb(var(--muted-foreground)); margin: 0 0 var(--space-6);
+    }
+    .help-crumbs a { color: inherit; text-decoration: none; }
+    .help-crumbs a:hover { color: #CD6E2C; }
+    .help-body { color: rgb(var(--foreground)); }
+    .help-body :is(h1, h2, h3) { text-wrap: balance; }
+    .help-body p, .help-body li { text-wrap: pretty; }
+    /* Strong is font-body-bold in the app, a class the website's typography.css
+       does not carry. Without this, bold runs fall back to the browser default face. */
+    .help-body .font-body-bold { font-weight: 700; }
+    .help-footer {
+      margin-top: var(--space-12); padding-top: var(--space-6);
+      border-top: 1px solid rgb(var(--border));
+      color: rgb(var(--muted-foreground)); font-size: var(--text-sm);
+    }
+    .help-footer a { color: rgb(var(--link)); }
+    @media (max-width: 720px) {
+      /* Floated figures have no room to float on a phone. */
+      .help-body figure { float: none !important; margin: var(--space-6) auto !important; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<header class="pp-header">
+    <div class="pp-header__inner">
+      <a href="/" class="pp-logo" aria-label="Penpoint home">
+        <svg class="pp-logo__icon" viewBox="0 0 24 24" width="22" height="22" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+        <span class="pp-logo__text">Penpoint</span>
+      </a>
+      <nav class="pp-nav" aria-label="Primary">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" aria-label="Join our Discord" class="pp-nav__discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="/trial" class="pp-cta">Try Penpoint</a>
+      </nav>
+      <a href="/trial" class="pp-try-m">Try</a>
+      <button type="button" class="pp-burger" data-burger="" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="pp-mobile" data-mobile-menu="">
+      <div class="pp-mobile__inner">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </header>
+  <main class="help-article">
+    <div class="help-layout">
+      <nav class="help-nav" aria-label="All guides">
+        <a class="help-nav__home" href="/help/">All guides</a>
+        <details class="help-nav__sec">
+          <summary>Getting Started</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/getting-started-with-penpoint">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/how-to-start-a-novel">Creating Your First Book</a></li><li><a href="/help/novel-outline-templates">Understanding Book Template Types</a></li><li><a href="/help/organize-multiple-writing-projects">Managing Your Books</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/editing-book-details">Editing Book Details</a></li><li><a href="/help/duplicating-books">Duplicating Books</a></li><li><a href="/help/deleting-books">Deleting Books</a></li><li><a href="/help/importing-a-book">Importing a Book</a></li><li><a href="/help/exporting-a-book">Exporting a Book</a></li></ul></li><li><a href="/help/tracking-your-time">Tracking Your Time</a></li></ul>
+        </details>
+        <details class="help-nav__sec" open>
+          <summary>Building Your World</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/worldbuilding-for-writers">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/the-worldbuilding-toolbar">The Worldbuilding Toolbar</a></li><li><a href="/help/character-profile-software">Characters</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-write-a-character-profile">Working with Characters</a></li><li><a href="/help/character-views">Character Views</a></li><li><a href="/help/view-edit-modes">View Mode vs Edit Mode</a></li><li><a href="/help/sidebar-navigation">Sidebar &amp; Navigation</a></li><li><a href="/help/block-types">Block Types</a><ul class="help-nav__list help-nav__list--2"><li><a href="/help/text-block">Text Block</a></li><li><a href="/help/paragraph-block">Paragraph Block</a></li><li><a href="/help/number-block">Number Block</a></li><li><a href="/help/divider-block">Divider Block</a></li><li><a href="/help/calculate-block">Calculate Block</a></li><li><a href="/help/trait-block">Trait Block</a></li><li><a href="/help/tags-block">Tags Block</a></li><li><a href="/help/relationships-block">Relationships Block</a></li><li><a href="/help/items-block">Items Block</a></li><li><a href="/help/locations-block">Locations Block</a></li><li><a href="/help/chapters-block">Chapters Block</a></li><li><a href="/help/character-arc-block">Character Arc Block</a></li><li><a href="/help/image-block">Image Block</a></li><li><a href="/help/events-block">Events Block</a></li><li><a href="/help/notebook-block">Notebook Block</a></li></ul></li></ul></li><li><a href="/help/story-item-tracker">Items</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/working-with-items">Working with Items</a></li><li><a href="/help/item-views">Item Views</a></li><li><a href="/help/filtering-items">Filtering Items</a></li><li><a href="/help/sorting-items">Sorting Items</a></li><li><a href="/help/item-detail-panel">Item Detail Panel</a></li><li><a href="/help/editing-item-details">Editing Item Details</a></li><li><a href="/help/managing-item-types">Managing Item Types</a></li></ul></li><li><a href="/help/fictional-location-tracker">Locations</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/working-with-locations">Working with Locations</a></li><li><a href="/help/how-to-organize-fictional-locations">Location Hierarchy</a></li><li><a href="/help/organizing-locations">Organizing Locations</a></li><li><a href="/help/fictional-location-profile">Location Detail View</a></li><li><a href="/help/location-icons">Location Icons</a></li></ul></li><li><a href="/help/chapter-planning-software">Chapters</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-outline-a-novel">The Chapter Outline</a></li><li><a href="/help/chapter-view-modes">Chapter View Modes: By Group or By Scene</a></li><li><a href="/help/index-card-outlining">The Corkboard</a></li><li><a href="/help/placeholder-cards">Placeholder Cards</a></li><li><a href="/help/creating-chapters-and-scenes">Creating Chapters and Scenes</a></li><li><a href="/help/editing-chapter-and-scene-details">Editing Chapter and Scene Details</a></li><li><a href="/help/reordering-chapters">Reordering and Organizing Chapters</a></li><li><a href="/help/how-to-organize-a-novel-into-parts">Chapter Groups (Folders)</a></li><li><a href="/help/merging-and-deleting-chapters">Merging and Deleting</a></li><li><a href="/help/customizing-chapter-layout">Customizing Chapter Layout</a></li><li><a href="/help/chapter-block-types">Chapter Block Types</a><ul class="help-nav__list help-nav__list--2"><li><a href="/help/calendar-block">Calendar Block</a></li><li><a href="/help/outline-block">Outline Block</a></li><li><a href="/help/assigning-things-to-scenes">Assigning Things to Scenes</a></li></ul></li><li><a href="/help/chapters-open-in-manuscript">Open in Manuscript</a></li></ul></li><li><a href="/help/how-to-track-character-arcs">Arcs</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-plot-subplots" aria-current="page" class="is-current">Story Arcs</a></li><li><a href="/help/how-to-write-a-character-arc">Character Arcs</a></li></ul></li><li><a href="/help/story-timeline-software">Timeline</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/story-event-tracker">Events</a></li></ul></li><li><a href="/help/character-relationship-map">Relationship Map</a></li><li><a href="/help/how-to-track-themes-in-a-novel">Tags Overview</a></li><li><a href="/help/notes-app-for-novelists">Notebook</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/organize-novel-research-notes">Working with Notes</a></li><li><a href="/help/smart-folders-for-writing-notes">Folders and Smart Folders</a></li><li><a href="/help/notebook-images">Images in the Notebook</a></li><li><a href="/help/notebook-tables">Tables</a></li><li><a href="/help/notebook-shortcuts">Shortcuts</a></li><li><a href="/help/views-and-sorting">Views and Sorting</a></li><li><a href="/help/archiving-notes">Archiving Notes</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Manuscript Mode</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/distraction-free-writing-software">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/scenes-vs-chapters">Chapters &amp; Scenes</a></li><li><a href="/help/novel-outliner-sidebar">The Outliner</a></li><li><a href="/help/manuscript-breaks">Scene &amp; Chapter Breaks</a></li><li><a href="/help/manuscript-toolbar">The Toolbar</a></li><li><a href="/help/manuscript-version-history">Manuscript Snapshots</a></li><li><a href="/help/alternate-scene-drafts">Scene Drafts</a></li><li><a href="/help/manuscript-chapter-drafts">Chapter Drafts</a></li><li><a href="/help/compare-manuscript-drafts">Comparing Your Manuscript Drafts</a></li><li><a href="/help/manuscript-comments-and-notes">Comments &amp; Pinned Notes</a></li><li><a href="/help/manuscript-settings">Manuscript Settings</a></li><li><a href="/help/find-character-names-in-a-manuscript">Chapter Scanner</a></li><li><a href="/help/worldbuilding-while-you-write">Minipen</a></li><li><a href="/help/stop-editing-while-you-draft">Flowstate</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Searching &amp; Connecting</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/search-your-novel-notes">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/search-across-your-novel">Search</a></li><li><a href="/help/link-characters-in-your-manuscript">@Mentions</a></li><li><a href="/help/quick-add-menu">Quick Add Menu</a></li><li><a href="/help/story-glossary-generator">Compendium</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Writing a Series</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/how-to-write-a-book-series">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/combine-books-into-a-series">Converting a Book to a Series</a></li><li><a href="/help/series-library">Your Series in the Library</a></li><li><a href="/help/switching-books">Switching Between Books</a></li><li><a href="/help/presence">Presence: Which Books a Character Is In</a></li><li><a href="/help/importance-across-books">Importance Across Books</a></li><li><a href="/help/series-focus">This Book vs All Books</a></li><li><a href="/help/series-arcs-vs-book-arcs">Book Arcs and Series Arcs</a></li><li><a href="/help/book-notes-folders">Using Dedicated Book Folders</a></li><li><a href="/help/how-to-split-a-book-series">Splitting a Series into Separate Books</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Import &amp; Export</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/import-and-export-your-manuscript">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/exporting">Exporting Your Data</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/export-your-worldbuilding">Exporting Worldbuilding Data</a></li><li><a href="/help/generating-templates">Generating Templates</a></li><li><a href="/help/export-your-novel-to-word">Exporting Manuscripts</a></li></ul></li><li><a href="/help/importing-exporting">Importing Your Data</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/import-your-manuscript">Importing Data</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Settings</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/settings">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/customizing-character-layout">Customizing Character Layout</a></li><li><a href="/help/location-types">Managing Location Types</a></li><li><a href="/help/managing-traits">Managing Traits</a></li><li><a href="/help/tags">Managing Tags</a></li><li><a href="/help/interface-settings">Interface Settings</a></li><li><a href="/help/announcements">Community &amp; Updates</a></li><li><a href="/help/advanced-settings">Advanced Settings</a></li><li><a href="/help/automatic-novel-backup">Backup &amp; Restore</a></li><li><a href="/help/spellcheck-for-character-names">Spellcheck &amp; Autocorrect</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/contributing-authors-dictionary">Contributing to the Authors Dictionary</a></li></ul></li><li><a href="/help/calendar-settings">Calendar Settings</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/fantasy-calendar-generator">Custom Calendar</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Penpoint Cloud</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/cloud-backup-for-writers">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/set-up-cloud-backup-for-your-novel">Setting Up Penpoint Cloud</a></li><li><a href="/help/encrypted-novel-backup">Your Password and Recovery Kit</a></li><li><a href="/help/penpoint-cloud-plans">Managing Your Subscription</a></li><li><a href="/help/write-on-multiple-computers">Managing Your Devices</a></li><li><a href="/help/sync-your-novel-between-computers">Syncing and Restoring</a></li><li><a href="/help/penpoint-cloud-settings">Penpoint Cloud Settings</a></li></ul>
+        </details>
+      </nav>
+      <div class="help-article__inner">
+        <nav class="help-crumbs" aria-label="Breadcrumb">
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+        </nav>
+        <div class="help-body">
+<article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Story Arcs</h1><p class="font-body text-base mb-4">Story Arcs let you map the structural backbone of your narrative: the main plot, its subplots, and the keyframes that mark each major turning point. Think of them as the architectural blueprint of your story.</p><h2 class="font-heading mb-4 mt-8">The Arc Hierarchy</h2><p class="font-body text-base mb-4">Every book has one main story arc at the top, with subplots nested beneath it. The sidebar on the left shows this hierarchy as a tree. Click any arc to select it and see its details.</p><p class="font-body text-base mb-4">Subplots are anchored to specific keyframes on their parent arc. For example, a romance subplot might span from your story&#x27;s &quot;Midpoint&quot; keyframe to its &quot;Climax,&quot; showing exactly where that thread weaves through the main plot.</p><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> In a series, Story Arcs are called Book Arcs (same tool, one per Book), and series-spanning storylines get their own tab. See <a href="/help/series-arcs-vs-book-arcs" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Book Arcs and Series Arcs</a>.</p></div><h2 class="font-heading mb-4 mt-8">The Visualizer</h2><figure class="w-full my-6 clear-both"><div class="border border-border rounded-lg shadow-lg overflow-hidden bg-primary/10 p-4"><div class="rounded [&amp;_*:not(button):not([data-demo-highlight])]:!bg-transparent [&amp;_*]:!border-primary/40 select-none"><div class="w-full"><svg width="100%" viewBox="-100 0 1100 220" preserveAspectRatio="xMidYMid meet" class="bg-background-accent"><defs><pattern id="demo-arc-grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgb(var(--border))" stroke-width="0.5" opacity="0.5"></path></pattern></defs><rect width="100%" height="100%" fill="url(#demo-arc-grid)" opacity="0.5"></rect><path d="M 80.9 158.1 L 93.7 155.1 L 106.5 152.2 L 119.4 149.4 L 132.2 146.7 L 145.0 144.1 L 157.8 141.7 L 170.6 139.3 L 183.5 137.0 L 196.3 134.9 L 209.1 132.8 L 221.9 130.9 L 234.7 129.0 L 247.5 127.3 L 260.4 125.7 L 273.2 124.1 L 286.0 122.7 L 298.8 121.4 L 311.6 120.2 L 324.4 119.1 L 337.2 118.1 L 350.1 117.2 L 362.9 116.5 L 375.7 115.8 L 388.5 115.2 L 401.3 114.8 L 414.1 114.4 L 426.9 114.2 L 439.7 114.0 L 452.6 114.0 L 465.4 114.1 L 478.2 114.3 L 491.0 114.5" fill="none" stroke="#7a9e7a" stroke-width="6" stroke-linecap="butt" opacity="0.9"></path><path d="M 247.0 142.5 L 262.2 140.5 L 277.4 138.7 L 292.6 137.1 L 307.9 135.6 L 323.1 134.3 L 338.3 133.1 L 353.6 132.0 L 368.8 131.2 L 384.0 130.4 L 399.2 129.8 L 414.5 129.4 L 429.7 129.1 L 444.9 129.0 L 460.2 129.0 L 475.4 129.2 L 490.6 129.5 L 505.8 130.0 L 521.1 130.7 L 536.3 131.4 L 551.5 132.4 L 566.7 133.5 L 582.0 134.7 L 597.2 136.1 L 612.4 137.6 L 627.7 139.3 L 642.9 141.2 L 658.1 143.2 L 673.4 145.3 L 688.6 147.6 L 703.8 150.1 L 719.1 152.7 L 734.3 155.4" fill="none" stroke="#6b8cce" stroke-width="6" stroke-linecap="butt" opacity="0.9"></path><path d="M 490.2 144.5 L 500.3 144.8 L 510.3 145.2 L 520.4 145.6 L 530.4 146.1 L 540.5 146.7 L 550.5 147.3 L 560.6 148.0 L 570.6 148.8 L 580.7 149.6 L 590.7 150.5 L 600.8 151.5 L 610.8 152.5 L 620.9 153.7 L 631.0 154.8 L 641.0 156.1 L 651.1 157.4 L 661.1 158.7 L 671.2 160.2 L 681.3 161.7 L 691.3 163.2 L 701.4 164.9 L 711.4 166.6 L 721.5 168.4 L 731.6 170.2 L 741.6 172.1 L 751.7 174.1 L 761.8 176.1 L 771.8 178.2 L 781.9 180.4 L 792.0 182.6 L 802.1 184.9 L 812.1 187.3" fill="none" stroke="#9b7cb8" stroke-width="6" stroke-linecap="butt" opacity="0.9"></path><path d="M 171.2 184.9 L 189.9 181.6 L 208.6 178.5 L 227.2 175.6 L 245.9 172.9 L 264.6 170.5 L 283.3 168.3 L 301.9 166.3 L 320.6 164.6 L 339.3 163.1 L 357.9 161.8 L 376.6 160.8 L 395.3 160.0 L 413.9 159.4 L 432.6 159.1 L 451.2 159.0 L 469.9 159.1 L 488.6 159.5 L 507.2 160.1 L 525.9 160.9 L 544.5 162.0 L 563.2 163.3 L 581.9 164.8 L 600.5 166.6 L 619.2 168.6 L 637.9 170.8 L 656.6 173.2 L 675.3 175.9 L 693.9 178.9 L 712.6 182.0 L 731.3 185.4 L 750.0 189.0 L 768.7 192.9" fill="none" stroke="#c4915e" stroke-width="6" stroke-linecap="butt" opacity="0.9"></path><path d="M 36.0 154.0 L 61.9 147.3 L 87.8 141.1 L 113.6 135.3 L 139.5 129.9 L 165.4 125.0 L 191.3 120.5 L 217.1 116.4 L 243.0 112.8 L 268.9 109.5 L 294.8 106.7 L 320.6 104.4 L 346.5 102.4 L 372.4 100.9 L 398.3 99.9 L 424.1 99.2 L 450.0 99.0 L 475.9 99.2 L 501.8 99.9 L 527.6 100.9 L 553.5 102.4 L 579.4 104.4 L 605.3 106.7 L 631.1 109.5 L 657.0 112.8 L 682.9 116.4 L 708.8 120.5 L 734.6 125.0 L 760.5 129.9 L 786.4 135.3 L 812.3 141.1 L 838.1 147.3 L 864.0 154.0" fill="none" stroke="#8b7355" stroke-width="6" stroke-linecap="butt"></path><g transform="translate(36, 154)"><polygon points="0,-13.561395160225574 9.686710828732554,0 0,13.561395160225574 -9.686710828732554,0" fill="rgb(var(--background-accent))" stroke="none"></polygon><polygon points="0,-8.399999999999999 6,0 0,8.399999999999999 -6,0" fill="#8b7355" stroke="none"></polygon><path d="M -8,-9.2 L -20,-21.2 L -100,-21.2" fill="none" stroke="rgb(var(--background-accent))" stroke-width="8" stroke-linecap="square"></path><path d="M -8,-9.2 L -20,-21.2 L -100,-21.2" fill="none" stroke="rgb(var(--primary))" stroke-width="2" stroke-linecap="square"></path><text x="-100" y="-26.2" text-anchor="start" fill="rgb(var(--foreground))" stroke="rgb(var(--background-accent))" stroke-width="4" paint-order="stroke fill" font-size="14" font-weight="700" font-family="&#x27;Source Serif 4&#x27;, Georgia, serif">Gateshead</text></g><g transform="translate(243, 112.75)"><polygon points="0,-13.561395160225574 9.686710828732554,0 0,13.561395160225574 -9.686710828732554,0" fill="rgb(var(--background-accent))" stroke="none"></polygon><polygon points="0,-8.399999999999999 6,0 0,8.399999999999999 -6,0" fill="#8b7355" stroke="none"></polygon><path d="M -8,-9.2 L -20,-21.2 L -76,-21.2" fill="none" stroke="rgb(var(--background-accent))" stroke-width="8" stroke-linecap="square"></path><path d="M -8,-9.2 L -20,-21.2 L -76,-21.2" fill="none" stroke="rgb(var(--primary))" stroke-width="2" stroke-linecap="square"></path><text x="-76" y="-26.2" text-anchor="start" fill="rgb(var(--foreground))" stroke="rgb(var(--background-accent))" stroke-width="4" paint-order="stroke fill" font-size="14" font-weight="700" font-family="&#x27;Source Serif 4&#x27;, Georgia, serif">Lowood</text></g><g transform="translate(450, 99)"><polygon points="0,-13.561395160225574 9.686710828732554,0 0,13.561395160225574 -9.686710828732554,0" fill="rgb(var(--background-accent))" stroke="none"></polygon><polygon points="0,-8.399999999999999 6,0 0,8.399999999999999 -6,0" fill="#8b7355" stroke="none"></polygon><path d="M 8,-9.2 L 20,-21.2 L 108,-21.2" fill="none" stroke="rgb(var(--background-accent))" stroke-width="8" stroke-linecap="square"></path><path d="M 8,-9.2 L 20,-21.2 L 108,-21.2" fill="none" stroke="rgb(var(--primary))" stroke-width="2" stroke-linecap="square"></path><text x="108" y="-26.2" text-anchor="end" fill="rgb(var(--foreground))" stroke="rgb(var(--background-accent))" stroke-width="4" paint-order="stroke fill" font-size="14" font-weight="700" font-family="&#x27;Source Serif 4&#x27;, Georgia, serif">Thornfield</text></g><g transform="translate(657, 112.75)"><polygon points="0,-13.561395160225574 9.686710828732554,0 0,13.561395160225574 -9.686710828732554,0" fill="rgb(var(--background-accent))" stroke="none"></polygon><polygon points="0,-8.399999999999999 6,0 0,8.399999999999999 -6,0" fill="#8b7355" stroke="none"></polygon><path d="M 8,-9.2 L 20,-21.2 L 108,-21.2" fill="none" stroke="rgb(var(--background-accent))" stroke-width="8" stroke-linecap="square"></path><path d="M 8,-9.2 L 20,-21.2 L 108,-21.2" fill="none" stroke="rgb(var(--primary))" stroke-width="2" stroke-linecap="square"></path><text x="108" y="-26.2" text-anchor="end" fill="rgb(var(--foreground))" stroke="rgb(var(--background-accent))" stroke-width="4" paint-order="stroke fill" font-size="14" font-weight="700" font-family="&#x27;Source Serif 4&#x27;, Georgia, serif">Revelation</text></g><g transform="translate(864, 154)"><polygon points="0,-13.561395160225574 9.686710828732554,0 0,13.561395160225574 -9.686710828732554,0" fill="rgb(var(--background-accent))" stroke="none"></polygon><polygon points="0,-8.399999999999999 6,0 0,8.399999999999999 -6,0" fill="#8b7355" stroke="none"></polygon><path d="M 8,-9.2 L 20,-21.2 L 84,-21.2" fill="none" stroke="rgb(var(--background-accent))" stroke-width="8" stroke-linecap="square"></path><path d="M 8,-9.2 L 20,-21.2 L 84,-21.2" fill="none" stroke="rgb(var(--primary))" stroke-width="2" stroke-linecap="square"></path><text x="84" y="-26.2" text-anchor="end" fill="rgb(var(--foreground))" stroke="rgb(var(--background-accent))" stroke-width="4" paint-order="stroke fill" font-size="14" font-weight="700" font-family="&#x27;Source Serif 4&#x27;, Georgia, serif">Reunion</text></g></svg></div></div></div><figcaption class="text-xs text-muted-foreground text-center mt-2 italic px-1">Figure 1 - A main story arc with a subplot branching off between two keyframes</figcaption></figure><p class="font-body text-base mb-4">The visualizer shows your arcs as curves. The main arc sits on top as a broad sweep, with subplots branching below it. Diamond markers along each curve represent keyframes: the major beats of your story.</p><p class="font-body text-base mb-4">Click any keyframe diamond to select it and view its details in the panel below. Click a subplot curve to expand it and see its own keyframes.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> Hover over arcs in the sidebar to highlight them in the visualizer, and vice versa. This makes it easy to orient yourself in complex stories with many subplots.</p></div><h2 class="font-heading mb-4 mt-8">Visualizer Settings</h2><p class="font-body text-base mb-4">The gear icon in the top-right of the visualizer opens settings that control what&#x27;s visible. Toggle <strong class="font-body-bold">Always show labels</strong> off when your arcs feel crowded. With it off, labels stay hidden until you hover over (or click) a specific keyframe, giving you a cleaner view of the curves themselves.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> Click any empty space on the canvas to deselect the current keyframe and let its label fade away.</p></div><h2 class="font-heading mb-4 mt-8">Keyframes</h2><p class="font-body text-base mb-4">Keyframes are the turning points of your arc. Each keyframe has:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Label</strong>: A short name for the beat (e.g., &quot;Thornfield,&quot; &quot;The Revelation&quot;).</li><li class="font-body text-base"><strong class="font-body-bold">Type</strong>: An optional literary classification such as Inciting Incident, Midpoint, Climax, or Resolution. Tagging keyframes with a type helps you see at a glance whether your story hits the structural beats your chosen framework calls for.</li><li class="font-body text-base"><strong class="font-body-bold">Brief Description</strong>: A one-line summary of what happens at this beat.</li><li class="font-body text-base"><strong class="font-body-bold">Plot Details</strong>: A rich text field for longer notes, scene outlines, or draft prose.</li><li class="font-body text-base"><strong class="font-body-bold">Chapter Assignments</strong>: Link keyframes to specific chapters so you can track where each beat falls in your manuscript.</li></ul><p class="font-body text-base mb-4">In Edit mode, you can add new keyframes, delete existing ones, and drag to reorder them. Keyframes automatically space themselves evenly along the arc curve.</p><h2 class="font-heading mb-4 mt-8">Arc Presets</h2><p class="font-body text-base mb-4">When creating a new arc, you choose a preset that determines the starting keyframes. Presets give you a narrative scaffold to build on:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Three-Act Structure</strong>: Setup, Confrontation, Resolution. The classic.</li><li class="font-body text-base"><strong class="font-body-bold">Five-Act Structure</strong>: Shakespearean dramatic structure with five distinct phases.</li><li class="font-body text-base"><strong class="font-body-bold">Hero&#x27;s Journey</strong>: Joseph Campbell&#x27;s 12-stage monomyth.</li><li class="font-body text-base"><strong class="font-body-bold">Save The Cat!</strong>: Blake Snyder&#x27;s detailed 15-beat screenplay structure.</li><li class="font-body text-base"><strong class="font-body-bold">Romance Arc</strong>: Meeting, Attraction, Obstacle, Resolution.</li><li class="font-body text-base"><strong class="font-body-bold">Mystery Arc</strong>: Discovery, Investigation, Revelation.</li><li class="font-body text-base"><strong class="font-body-bold">Character Growth</strong>: Flaw Introduced, Challenge, Growth Moment, Transformation.</li><li class="font-body text-base"><strong class="font-body-bold">Simple Arc</strong>: Just a Beginning and End. Good for subplots you want to fill in manually.</li><li class="font-body text-base"><strong class="font-body-bold">Custom</strong>: Two blank keyframes to shape however you like.</li></ul><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> Presets are starting points, not constraints. After creating your arc, you can rename, add, remove, or reorder any keyframes.</p></div><h2 class="font-heading mb-4 mt-8">Creating Subplots</h2><figure class="float-right ml-8 mb-8"><div class="border border-border rounded-lg shadow-lg overflow-hidden bg-primary/10 p-4"><div class="rounded [&amp;_*:not(button):not([data-demo-highlight])]:!bg-transparent [&amp;_*]:!border-primary/40 select-none"><div class="w-[440px] mx-auto bg-background"><div class="mb-4"><div class="flex items-center gap-2 mb-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-branch h-5 w-5" aria-hidden="true"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg><h2 class="font-heading text-lg font-semibold">New Subplot</h2></div><p class="text-sm text-muted-foreground">Create a subplot under &quot;Jane Eyre&quot;.</p></div><div class="space-y-4"><div class="space-y-1"><label class="text-sm font-medium">Arc Name</label><input class="w-full px-3 py-2 border border-border rounded-md bg-input text-foreground text-sm opacity-90" disabled="" value="Rochester&#x27;s Secret"/></div><div class="space-y-1"><label class="text-sm font-medium">Arc Preset</label><div class="flex items-center px-3 py-2 border border-border rounded-md bg-input text-sm opacity-90"><span class="text-foreground">Mystery Arc</span></div></div><div class="rounded-lg border bg-muted/50 p-3 space-y-2"><p class="text-sm text-muted-foreground">Structure for mystery or investigation subplots with discovery and revelation.</p><div class="space-y-1"><p class="text-xs font-medium text-muted-foreground">Creates 3 keyframes:</p><div class="flex flex-wrap gap-1"><span class="inline-flex items-center rounded-md bg-background px-2 py-0.5 text-xs border">Discovery</span><span class="inline-flex items-center rounded-md bg-background px-2 py-0.5 text-xs border">Investigation</span><span class="inline-flex items-center rounded-md bg-background px-2 py-0.5 text-xs border">Revelation</span></div></div></div><div class="space-y-1"><label class="text-sm font-medium">Arc Color</label><div class="flex items-center gap-2 px-3 py-2 rounded-md border opacity-90 pointer-events-none"><div class="w-5 h-5 rounded border" style="background-color:#7a9e7a"></div><span class="text-sm">Choose color</span></div></div><div class="space-y-1"><label class="text-sm font-medium">Start Anchor</label><div class="flex items-center px-3 py-2 border border-border rounded-md bg-input text-sm opacity-90"><span class="text-foreground">Thornfield</span></div></div><div class="space-y-1"><label class="text-sm font-medium">End Anchor</label><div class="flex items-center px-3 py-2 border border-border rounded-md bg-input text-sm opacity-90"><span class="text-foreground">Revelation</span></div></div></div><div class="flex justify-end gap-2 mt-6 pt-4 border-t border-border"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-normal ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-transparent text-foreground border border-border hover:bg-muted hover:border-accent px-4 py-2.5 font-body opacity-90 pointer-events-none">Cancel</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-normal ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-transparent text-foreground border border-border hover:bg-muted hover:border-accent px-4 py-2.5 font-body opacity-90 pointer-events-none">Create Subplot</button></div></div></div></div><figcaption class="text-xs text-muted-foreground text-center mt-2 italic px-1">Figure 2 - The New Subplot modal with anchor selection</figcaption></figure><p class="font-body text-base mb-4">To create a subplot, hover over any arc in the sidebar and click the + button. You&#x27;ll be asked to:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base">Name the subplot</li><li class="font-body text-base">Choose a preset</li><li class="font-body text-base">Pick a color</li><li class="font-body text-base">Select a <strong class="font-body-bold">Start Anchor</strong> and <strong class="font-body-bold">End Anchor</strong>: keyframes on the parent arc that define where this subplot begins and ends</li></ul><p class="font-body text-base mb-4">The start anchor must come before the end anchor in the parent&#x27;s keyframe sequence. Subplots can themselves have sub-subplots, allowing you to model complex narrative structures.</p><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> The parent arc must have at least 2 keyframes before you can create a subplot beneath it. If it doesn&#x27;t, the + button won&#x27;t appear.</p></div><h2 class="font-heading mb-4 mt-8">Reordering Arcs</h2><p class="font-body text-base mb-4">In Edit mode, you can drag and drop arcs in the sidebar to reorder them among their siblings. Grab an arc by the drag handle and move it up or down; a drop indicator shows where it will land. This lets you arrange subplots in whatever order makes sense for your story.</p><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> Drag handles only appear when an arc has at least one sibling at the same level. The main arc cannot be dragged since it&#x27;s always at the top of the hierarchy.</p></div><h2 class="font-heading mb-4 mt-8">Chapters &amp; Story Arcs</h2><p class="font-body text-base mb-4">When you assign chapters to keyframes, a mini arc visualizer appears on each chapter&#x27;s detail page showing all your story arcs and highlighting the assigned plot points. Click any keyframe in the mini visualizer to jump back to the Arcs page. See <a href="/help/editing-chapter-and-scene-details" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Editing Chapter and Scene Details</a> for more about the chapter-side view.</p><h2 class="font-heading mb-4 mt-8">Deleting Arcs</h2><p class="font-body text-base mb-4">In Edit mode, every arc (including the main story arc) has a Delete button at the bottom of the details panel. What you see depends on the arc:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Main arc</strong>: Deleting the main arc is a full reset. It removes the main arc, every subplot beneath it, and all their keyframes. Afterward, the page returns to its empty state and you can create a new story arc from scratch.</li><li class="font-body text-base"><strong class="font-body-bold">Subplot with no children</strong>: A simple confirmation. The subplot and all its keyframes are removed.</li><li class="font-body text-base"><strong class="font-body-bold">Subplot with children</strong>: You choose between <strong class="font-body-bold">Delete All</strong> (removes the subplot and every nested subplot beneath it) or <strong class="font-body-bold">Keep Subplots</strong> (removes only this subplot and promotes its children up one level in the hierarchy).</li></ul><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> &quot;Keep Subplots&quot; is useful when you want to restructure your hierarchy without losing the detailed work you&#x27;ve put into child arcs.</p></div></article>
+        </div>
+        <p class="help-footer">This guide is also in Penpoint, under Help. <a href="/help/">Browse all guides</a> or <a href="/trial">try Penpoint free</a>.</p>
+      </div>
+    </div>
+  </main>
+<footer class="pp-footer">
+    <div class="pp-footer__top">
+      <div class="pp-footer__cols">
+        <div class="pp-footer__col">
+          <div class="pp-footer__brand-row">
+            <svg class="pp-footer__brand-icon" viewBox="0 0 24 24" width="20" height="20" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+            <span class="pp-footer__brand-name">Penpoint</span>
+          </div>
+          <p class="pp-footer__tagline">Write your novel and organize your world in one app.</p>
+          <div class="pp-footer__platforms">
+            <i class="fa-brands fa-windows"></i>
+            <i class="fa-brands fa-apple"></i>
+            <i class="fa-brands fa-linux"></i>
+          </div>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/about" class="foot-link">About</a>
+          <a href="/development" class="foot-link">Development</a>
+          <a href="/#faq" class="foot-link">FAQ</a>
+          <a href="/help" class="foot-link">Help Guide</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/compare" class="foot-link">Compare All</a>
+          <a href="/scrivener-alternative" class="foot-link">vs Scrivener</a>
+          <a href="/dabble-alternative" class="foot-link">vs Dabble</a>
+          <a href="/campfire-alternative" class="foot-link">vs Campfire</a>
+          <a href="/worldanvil-alternative" class="foot-link">vs World Anvil</a>
+          <a href="/ellipsus-alternative" class="foot-link">vs Ellipsus</a>
+          <a href="/story-bible" class="foot-link">Story Bible</a>
+          <a href="/character-bible" class="foot-link">Character Bible</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/trial" class="foot-link">Free Trial</a>
+          <a href="/buy" class="foot-link">Buy</a>
+          <a href="/changelog" class="foot-link">Changelog</a>
+          <a href="/roadmap" class="foot-link">Roadmap</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/terms" class="foot-link">Terms</a>
+          <a href="/privacy" class="foot-link">Privacy</a>
+          <a href="/press" class="foot-link">Press</a>
+          <a href="mailto:support@penpoint.app" class="foot-link">Support</a>
+        </div>
+      </div>
+    </div>
+    <div class="pp-footer__bottom">
+      <div class="pp-footer__bottom-inner">
+        <p class="pp-footer__copy">&copy; 2026 Tophat Creative, LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/site-chrome.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="linen">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <title>Novel Outline Templates | Penpoint Help</title>
+  <meta name="description" content="Every starting template Penpoint offers and what each one comes stocked with, so you can pick the structure that fits the book you are writing.">
+  <link rel="canonical" href="https://penpoint.app/help/novel-outline-templates">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://penpoint.app/help/novel-outline-templates">
+  <meta property="og:title" content="Novel Outline Templates | Penpoint Help">
+  <meta property="og:description" content="Every starting template Penpoint offers and what each one comes stocked with, so you can pick the structure that fits the book you are writing.">
+  <meta property="og:site_name" content="Penpoint">
+  <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://penpoint.app/help/novel-outline-templates">
+  <meta name="twitter:title" content="Novel Outline Templates | Penpoint Help">
+  <meta name="twitter:description" content="Every starting template Penpoint offers and what each one comes stocked with, so you can pick the structure that fits the book you are writing.">
+  <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="theme-color" content="#FFF7E6">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/site-chrome.css">
+  <link rel="stylesheet" href="help-articles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Understanding Book Template Types","item":"https://penpoint.app/help/novel-outline-templates"}]}</script>
+  <style>
+    /* The article body is the app's design system; the chrome is the website's.
+       These rules are the seam between them, and they follow the site's spacing
+       variables rather than inventing a second scale. */
+    .help-article { padding: var(--space-10) 0 var(--space-16); }
+    /* Sidebar + article. The reading measure stays 760px; the sidebar sits beside it
+       rather than eating into it. */
+    .help-layout {
+      display: grid; grid-template-columns: 240px minmax(0, 760px);
+      gap: clamp(28px, 5vw, 64px); justify-content: center;
+      padding: 0 clamp(20px, 5vw, 52px);
+    }
+    .help-article__inner { min-width: 0; }
+
+    /* ----- Sidebar -----
+       Mirrors the in-app hierarchy. <details> gives the collapse with no JavaScript, so
+       it works for a crawler and for a reader with scripts off. Content inside a closed
+       <details> is still in the DOM, unlike the app's Collapsible. */
+    .help-nav {
+      position: sticky; top: 84px; align-self: start;
+      max-height: calc(100vh - 110px); overflow-y: auto;
+      font-family: 'Source Serif 4', serif; font-size: 14px; line-height: 1.45;
+      padding-right: 8px;
+    }
+    .help-nav__home {
+      display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+      letter-spacing: .14em; text-transform: uppercase; color: #7C5236;
+      text-decoration: none; margin: 0 0 16px; padding-bottom: 10px;
+      border-bottom: 1px solid #E0D2BC;
+    }
+    .help-nav__home:hover { color: #CD6E2C; }
+    .help-nav__sec { margin: 0 0 4px; }
+    .help-nav__sec > summary {
+      cursor: pointer; list-style: none; padding: 6px 0;
+      font-weight: 600; color: #29241E;
+    }
+    .help-nav__sec > summary::-webkit-details-marker { display: none; }
+    .help-nav__sec > summary::before {
+      content: '›'; display: inline-block; width: 14px;
+      color: #A8906D; transition: transform .15s ease;
+    }
+    .help-nav__sec[open] > summary::before { transform: rotate(90deg); }
+    .help-nav__sec > summary:hover { color: #CD6E2C; }
+    .help-nav__list { list-style: none; margin: 0; padding: 0 0 0 14px; }
+    .help-nav__list--1 { padding-left: 12px; }
+    .help-nav__list a {
+      display: block; padding: 4px 8px; color: #5C4332; text-decoration: none;
+      border-left: 2px solid transparent; text-wrap: pretty;
+    }
+    .help-nav__list a:hover { color: #CD6E2C; background: #F4EBD8; }
+    .help-nav__list a.is-current {
+      color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
+    }
+
+    @media (max-width: 960px) {
+      /* The sidebar becomes a collapsed block above the article rather than disappearing,
+         so the whole guide is still reachable on a phone. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav {
+        position: static; max-height: none; overflow: visible;
+        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
+      }
+    }
+    .help-crumbs {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: rgb(var(--muted-foreground)); margin: 0 0 var(--space-6);
+    }
+    .help-crumbs a { color: inherit; text-decoration: none; }
+    .help-crumbs a:hover { color: #CD6E2C; }
+    .help-body { color: rgb(var(--foreground)); }
+    .help-body :is(h1, h2, h3) { text-wrap: balance; }
+    .help-body p, .help-body li { text-wrap: pretty; }
+    /* Strong is font-body-bold in the app, a class the website's typography.css
+       does not carry. Without this, bold runs fall back to the browser default face. */
+    .help-body .font-body-bold { font-weight: 700; }
+    .help-footer {
+      margin-top: var(--space-12); padding-top: var(--space-6);
+      border-top: 1px solid rgb(var(--border));
+      color: rgb(var(--muted-foreground)); font-size: var(--text-sm);
+    }
+    .help-footer a { color: rgb(var(--link)); }
+    @media (max-width: 720px) {
+      /* Floated figures have no room to float on a phone. */
+      .help-body figure { float: none !important; margin: var(--space-6) auto !important; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<header class="pp-header">
+    <div class="pp-header__inner">
+      <a href="/" class="pp-logo" aria-label="Penpoint home">
+        <svg class="pp-logo__icon" viewBox="0 0 24 24" width="22" height="22" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+        <span class="pp-logo__text">Penpoint</span>
+      </a>
+      <nav class="pp-nav" aria-label="Primary">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" aria-label="Join our Discord" class="pp-nav__discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="/trial" class="pp-cta">Try Penpoint</a>
+      </nav>
+      <a href="/trial" class="pp-try-m">Try</a>
+      <button type="button" class="pp-burger" data-burger="" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="pp-mobile" data-mobile-menu="">
+      <div class="pp-mobile__inner">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </header>
+  <main class="help-article">
+    <div class="help-layout">
+      <nav class="help-nav" aria-label="All guides">
+        <a class="help-nav__home" href="/help/">All guides</a>
+        <details class="help-nav__sec" open>
+          <summary>Getting Started</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/getting-started-with-penpoint">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/how-to-start-a-novel">Creating Your First Book</a></li><li><a href="/help/novel-outline-templates" aria-current="page" class="is-current">Understanding Book Template Types</a></li><li><a href="/help/organize-multiple-writing-projects">Managing Your Books</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/editing-book-details">Editing Book Details</a></li><li><a href="/help/duplicating-books">Duplicating Books</a></li><li><a href="/help/deleting-books">Deleting Books</a></li><li><a href="/help/importing-a-book">Importing a Book</a></li><li><a href="/help/exporting-a-book">Exporting a Book</a></li></ul></li><li><a href="/help/tracking-your-time">Tracking Your Time</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Building Your World</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/worldbuilding-for-writers">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/the-worldbuilding-toolbar">The Worldbuilding Toolbar</a></li><li><a href="/help/character-profile-software">Characters</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-write-a-character-profile">Working with Characters</a></li><li><a href="/help/character-views">Character Views</a></li><li><a href="/help/view-edit-modes">View Mode vs Edit Mode</a></li><li><a href="/help/sidebar-navigation">Sidebar &amp; Navigation</a></li><li><a href="/help/block-types">Block Types</a><ul class="help-nav__list help-nav__list--2"><li><a href="/help/text-block">Text Block</a></li><li><a href="/help/paragraph-block">Paragraph Block</a></li><li><a href="/help/number-block">Number Block</a></li><li><a href="/help/divider-block">Divider Block</a></li><li><a href="/help/calculate-block">Calculate Block</a></li><li><a href="/help/trait-block">Trait Block</a></li><li><a href="/help/tags-block">Tags Block</a></li><li><a href="/help/relationships-block">Relationships Block</a></li><li><a href="/help/items-block">Items Block</a></li><li><a href="/help/locations-block">Locations Block</a></li><li><a href="/help/chapters-block">Chapters Block</a></li><li><a href="/help/character-arc-block">Character Arc Block</a></li><li><a href="/help/image-block">Image Block</a></li><li><a href="/help/events-block">Events Block</a></li><li><a href="/help/notebook-block">Notebook Block</a></li></ul></li></ul></li><li><a href="/help/story-item-tracker">Items</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/working-with-items">Working with Items</a></li><li><a href="/help/item-views">Item Views</a></li><li><a href="/help/filtering-items">Filtering Items</a></li><li><a href="/help/sorting-items">Sorting Items</a></li><li><a href="/help/item-detail-panel">Item Detail Panel</a></li><li><a href="/help/editing-item-details">Editing Item Details</a></li><li><a href="/help/managing-item-types">Managing Item Types</a></li></ul></li><li><a href="/help/fictional-location-tracker">Locations</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/working-with-locations">Working with Locations</a></li><li><a href="/help/how-to-organize-fictional-locations">Location Hierarchy</a></li><li><a href="/help/organizing-locations">Organizing Locations</a></li><li><a href="/help/fictional-location-profile">Location Detail View</a></li><li><a href="/help/location-icons">Location Icons</a></li></ul></li><li><a href="/help/chapter-planning-software">Chapters</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-outline-a-novel">The Chapter Outline</a></li><li><a href="/help/chapter-view-modes">Chapter View Modes: By Group or By Scene</a></li><li><a href="/help/index-card-outlining">The Corkboard</a></li><li><a href="/help/placeholder-cards">Placeholder Cards</a></li><li><a href="/help/creating-chapters-and-scenes">Creating Chapters and Scenes</a></li><li><a href="/help/editing-chapter-and-scene-details">Editing Chapter and Scene Details</a></li><li><a href="/help/reordering-chapters">Reordering and Organizing Chapters</a></li><li><a href="/help/how-to-organize-a-novel-into-parts">Chapter Groups (Folders)</a></li><li><a href="/help/merging-and-deleting-chapters">Merging and Deleting</a></li><li><a href="/help/customizing-chapter-layout">Customizing Chapter Layout</a></li><li><a href="/help/chapter-block-types">Chapter Block Types</a><ul class="help-nav__list help-nav__list--2"><li><a href="/help/calendar-block">Calendar Block</a></li><li><a href="/help/outline-block">Outline Block</a></li><li><a href="/help/assigning-things-to-scenes">Assigning Things to Scenes</a></li></ul></li><li><a href="/help/chapters-open-in-manuscript">Open in Manuscript</a></li></ul></li><li><a href="/help/how-to-track-character-arcs">Arcs</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-plot-subplots">Story Arcs</a></li><li><a href="/help/how-to-write-a-character-arc">Character Arcs</a></li></ul></li><li><a href="/help/story-timeline-software">Timeline</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/story-event-tracker">Events</a></li></ul></li><li><a href="/help/character-relationship-map">Relationship Map</a></li><li><a href="/help/how-to-track-themes-in-a-novel">Tags Overview</a></li><li><a href="/help/notes-app-for-novelists">Notebook</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/organize-novel-research-notes">Working with Notes</a></li><li><a href="/help/smart-folders-for-writing-notes">Folders and Smart Folders</a></li><li><a href="/help/notebook-images">Images in the Notebook</a></li><li><a href="/help/notebook-tables">Tables</a></li><li><a href="/help/notebook-shortcuts">Shortcuts</a></li><li><a href="/help/views-and-sorting">Views and Sorting</a></li><li><a href="/help/archiving-notes">Archiving Notes</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Manuscript Mode</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/distraction-free-writing-software">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/scenes-vs-chapters">Chapters &amp; Scenes</a></li><li><a href="/help/novel-outliner-sidebar">The Outliner</a></li><li><a href="/help/manuscript-breaks">Scene &amp; Chapter Breaks</a></li><li><a href="/help/manuscript-toolbar">The Toolbar</a></li><li><a href="/help/manuscript-version-history">Manuscript Snapshots</a></li><li><a href="/help/alternate-scene-drafts">Scene Drafts</a></li><li><a href="/help/manuscript-chapter-drafts">Chapter Drafts</a></li><li><a href="/help/compare-manuscript-drafts">Comparing Your Manuscript Drafts</a></li><li><a href="/help/manuscript-comments-and-notes">Comments &amp; Pinned Notes</a></li><li><a href="/help/manuscript-settings">Manuscript Settings</a></li><li><a href="/help/find-character-names-in-a-manuscript">Chapter Scanner</a></li><li><a href="/help/worldbuilding-while-you-write">Minipen</a></li><li><a href="/help/stop-editing-while-you-draft">Flowstate</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Searching &amp; Connecting</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/search-your-novel-notes">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/search-across-your-novel">Search</a></li><li><a href="/help/link-characters-in-your-manuscript">@Mentions</a></li><li><a href="/help/quick-add-menu">Quick Add Menu</a></li><li><a href="/help/story-glossary-generator">Compendium</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Writing a Series</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/how-to-write-a-book-series">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/combine-books-into-a-series">Converting a Book to a Series</a></li><li><a href="/help/series-library">Your Series in the Library</a></li><li><a href="/help/switching-books">Switching Between Books</a></li><li><a href="/help/presence">Presence: Which Books a Character Is In</a></li><li><a href="/help/importance-across-books">Importance Across Books</a></li><li><a href="/help/series-focus">This Book vs All Books</a></li><li><a href="/help/series-arcs-vs-book-arcs">Book Arcs and Series Arcs</a></li><li><a href="/help/book-notes-folders">Using Dedicated Book Folders</a></li><li><a href="/help/how-to-split-a-book-series">Splitting a Series into Separate Books</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Import &amp; Export</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/import-and-export-your-manuscript">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/exporting">Exporting Your Data</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/export-your-worldbuilding">Exporting Worldbuilding Data</a></li><li><a href="/help/generating-templates">Generating Templates</a></li><li><a href="/help/export-your-novel-to-word">Exporting Manuscripts</a></li></ul></li><li><a href="/help/importing-exporting">Importing Your Data</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/import-your-manuscript">Importing Data</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Settings</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/settings">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/customizing-character-layout">Customizing Character Layout</a></li><li><a href="/help/location-types">Managing Location Types</a></li><li><a href="/help/managing-traits">Managing Traits</a></li><li><a href="/help/tags">Managing Tags</a></li><li><a href="/help/interface-settings">Interface Settings</a></li><li><a href="/help/announcements">Community &amp; Updates</a></li><li><a href="/help/advanced-settings">Advanced Settings</a></li><li><a href="/help/automatic-novel-backup">Backup &amp; Restore</a></li><li><a href="/help/spellcheck-for-character-names">Spellcheck &amp; Autocorrect</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/contributing-authors-dictionary">Contributing to the Authors Dictionary</a></li></ul></li><li><a href="/help/calendar-settings">Calendar Settings</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/fantasy-calendar-generator">Custom Calendar</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Penpoint Cloud</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/cloud-backup-for-writers">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/set-up-cloud-backup-for-your-novel">Setting Up Penpoint Cloud</a></li><li><a href="/help/encrypted-novel-backup">Your Password and Recovery Kit</a></li><li><a href="/help/penpoint-cloud-plans">Managing Your Subscription</a></li><li><a href="/help/write-on-multiple-computers">Managing Your Devices</a></li><li><a href="/help/sync-your-novel-between-computers">Syncing and Restoring</a></li><li><a href="/help/penpoint-cloud-settings">Penpoint Cloud Settings</a></li></ul>
+        </details>
+      </nav>
+      <div class="help-article__inner">
+        <nav class="help-crumbs" aria-label="Breadcrumb">
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+        </nav>
+        <div class="help-body">
+<article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Understanding Book Template Types</h1><p class="font-body text-base mb-4">When you click &quot;Create New Book,&quot; you&#x27;ll see several ready-made templates to choose from. Each template is designed for different types of writing projects, providing specialized custom traits (lists you choose from that you can add to every character, like Role or Alignment), item categories (the types you can assign to items, like Weapons or Clothing), location types, and tags (labels you can attach to characters, locations, or chapters).</p><p class="font-body text-base mb-4">Templates give you a head start by filling in your book with commonly-used fields and structures. You can fully customize everything after creating your book, so no template choice is permanent.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> All templates can be customized after creation. You can add, remove, or modify traits, item categories, location types, tags, and character sections to fit your specific needs.</p></div><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> Trait dropdowns let you pick more than one option when it fits: a character&#x27;s Demeanor might be both Confident and Charming, not just one. Choose as many, or as few, as you like.</p></div><div class="my-6"><h2 class="font-heading text-2xl font-semibold">Standard Template</h2><div class="mt-4"><p class="font-body text-base mb-4">The <strong class="font-body-bold">Standard Template</strong> provides a comprehensive, balanced starting point suitable for most novels, series, and creative writing projects.</p><h3 class="font-heading-sm mb-3 mt-6">What&#x27;s Included</h3><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">2 custom traits:</strong> Role (Protagonist, Antagonist, Major, Minor, Love Interest, Mentor, Narrator, Foil, Other) and Demeanor (Friendly, Reserved, Confident, Mysterious, and more)</li><li class="font-body text-base"><strong class="font-body-bold">7 item categories:</strong> Personal Items, Documents, Clothing &amp; Accessories, Vehicles, Technology, Keepsakes &amp; Mementos, and Miscellaneous</li><li class="font-body text-base"><strong class="font-body-bold">10 location types:</strong> City, Town, Village, Building, Room, Landmark, Nature, Region, Country, and Other</li><li class="font-body text-base"><strong class="font-body-bold">9 thematic tags:</strong> POV Character, Conflict, Romance, Family, Backstory, Secret, Turning Point, Comic Relief, and Tragic</li><li class="font-body text-base"><strong class="font-body-bold">14 character sections</strong> (the individual sections on a character&#x27;s page, like Name, Age, or Bio)<strong class="font-body-bold">:</strong> Name, Age, Role, Demeanor, Appearance, Bio, and Notes, plus the standard Character Arc, Events, Chapters, Relationships, Locations, Items, and Tags</li></ul><h3 class="font-heading-sm mb-3 mt-6">Best For</h3><p class="font-body text-base mb-4">General fiction, contemporary novels, literary fiction, or any project that doesn&#x27;t require genre-specific elements. If you&#x27;re unsure which template to choose, Standard is a safe, flexible choice.</p></div></div><div class="my-6"><h2 class="font-heading text-2xl font-semibold">Empty Template</h2><div class="mt-4"><p class="font-body text-base mb-4">The <strong class="font-body-bold">Empty Template</strong> provides a completely blank slate with only the bare essentials, giving you maximum customization freedom.</p><h3 class="font-heading-sm mb-3 mt-6">What&#x27;s Included</h3><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">0 custom traits:</strong> No predefined character traits: build your own from scratch</li><li class="font-body text-base"><strong class="font-body-bold">0 item categories:</strong> Add exactly the categories your story needs</li><li class="font-body text-base"><strong class="font-body-bold">0 location types:</strong> Define your own from scratch</li><li class="font-body text-base"><strong class="font-body-bold">0 tags:</strong> No predefined tags: create exactly what you need</li><li class="font-body text-base"><strong class="font-body-bold">1 character section:</strong> Only the name &amp; importance field</li></ul><h3 class="font-heading-sm mb-3 mt-6">Best For</h3><p class="font-body text-base mb-4">Writers who want complete control over their book&#x27;s structure, experimental projects, or unique genres that don&#x27;t fit standard categories. This template requires the most manual setup but offers unlimited flexibility.</p></div></div><div class="my-6"><h2 class="font-heading text-2xl font-semibold">Minimal Template</h2><div class="mt-4"><p class="font-body text-base mb-4">The <strong class="font-body-bold">Minimal Template</strong> provides quick-start essentials (name, appearance, details, relationships, and tags) so you can begin writing immediately without complex setup.</p><h3 class="font-heading-sm mb-3 mt-6">What&#x27;s Included</h3><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">0 custom traits:</strong> No trait fields to manage</li><li class="font-body text-base"><strong class="font-body-bold">3 item categories:</strong> Personal Items, Documents, and Miscellaneous</li><li class="font-body text-base"><strong class="font-body-bold">6 location types:</strong> City, Town, Building, Room, Outdoors / Nature, and Other</li><li class="font-body text-base"><strong class="font-body-bold">3 essential tags:</strong> Main Cast, Supporting, and Mentioned</li><li class="font-body text-base"><strong class="font-body-bold">8 character sections:</strong> Name &amp; importance, appearance, background, character arc, chapters, relationships, locations, and tags</li></ul><h3 class="font-heading-sm mb-3 mt-6">Best For</h3><p class="font-body text-base mb-4">Writers who prefer simplicity over detailed tracking, short stories, writers who prefer to dive in without a detailed outline, or projects where you&#x27;ll primarily use the free-form background field.</p></div></div><div class="my-6"><h2 class="font-heading text-2xl font-semibold">Fantasy Template</h2><div class="mt-4"><p class="font-body text-base mb-4">The <strong class="font-body-bold">Fantasy Template</strong> is built for fantasy novelists, with room for magic systems, peoples, and worlds, flexible enough for any setting you can imagine.</p><h3 class="font-heading-sm mb-3 mt-6">What&#x27;s Included</h3><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">2 custom traits:</strong> Role and Demeanor</li><li class="font-body text-base"><strong class="font-body-bold">10 fantasy item categories:</strong> Weapons &amp; Armor, Magical Objects, Documents &amp; Books, Clothing &amp; Accessories, Symbols &amp; Tokens, Creatures &amp; Companions, Tools &amp; Equipment, Substances, Treasure &amp; Currency, and Miscellaneous</li><li class="font-body text-base"><strong class="font-body-bold">14 fantasy location types:</strong> Kingdom, City, Village, Castle, Tower, Temple, Stronghold, Underground, Port / Harbor, Ruins, Forest, Mountain, Realm, and Other</li><li class="font-body text-base"><strong class="font-body-bold">11 thematic tags:</strong> POV Character, Magical, Royal, Prophecy, Cursed, Ancient, Exile, Oath-Bound, Alive, Dead, and Missing</li><li class="font-body text-base"><strong class="font-body-bold">17 character sections:</strong> Free-text Species / People and Abilities / Powers, plus Backstory and Secrets, and the standard Bio, Character Arc, Chapters, Relationships, Locations, Items, and Tags</li></ul><h3 class="font-heading-sm mb-3 mt-6">Best For</h3><p class="font-body text-base mb-4">Epic fantasy, sword &amp; sorcery, urban fantasy, high fantasy, or any world-building project with magic systems, diverse peoples, and layered lore. The Species / People and Abilities / Powers fields are free-form, so you can describe your world in your own words rather than fitting it into a fixed list.</p></div></div><div class="my-6"><h2 class="font-heading text-2xl font-semibold">Sci-Fi Template</h2><div class="mt-4"><p class="font-body text-base mb-4">The <strong class="font-body-bold">Sci-Fi Template</strong> is built for science fiction with space for your own species, factions, and technology, plus numeric tools for tech levels and clearance.</p><h3 class="font-heading-sm mb-3 mt-6">What&#x27;s Included</h3><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">2 custom traits:</strong> Role and Demeanor</li><li class="font-body text-base"><strong class="font-body-bold">10 sci-fi item categories:</strong> Weapons &amp; Armor, Technology &amp; Devices, Tools &amp; Equipment, Medical Supplies, Data &amp; Storage, Clothing &amp; Accessories, Vehicles &amp; Ships, Augmentations, Credits &amp; Currency, and Miscellaneous</li><li class="font-body text-base"><strong class="font-body-bold">10 futuristic location types:</strong> Planet, Space Station, Starship, City, Colony, Facility, Sector, Star System, Nebula / Anomaly, and Other</li><li class="font-body text-base"><strong class="font-body-bold">12 thematic tags:</strong> POV Character, Military, Scientific, Alien, Exploration, Augmented, AI / Synthetic, Classified, Colonial, Alive, Dead, and Missing</li><li class="font-body text-base"><strong class="font-body-bold">19 character sections:</strong> Free-text Species / Origin and Affiliation, numeric Tech Level and Clearance Level, plus Background and Mission Log, and the standard Bio, Character Arc, Relationships, Locations, Items, and Tags</li></ul><h3 class="font-heading-sm mb-3 mt-6">Best For</h3><p class="font-body text-base mb-4">Space opera, cyberpunk, hard sci-fi, dystopian futures, first contact stories, or any science fiction project dealing with advanced technology, alien species, or interstellar settings. The numeric Tech Level and Clearance Level fields are handy for tracking capability and access across a large cast.</p></div></div><div class="my-6"><h2 class="font-heading text-2xl font-semibold">D&amp;D 5e Template</h2><div class="mt-4"><p class="font-body text-base mb-4">The <strong class="font-body-bold">D&amp;D 5e Template</strong> is built for Dungeons &amp; Dragons 5th Edition campaigns with complete stat blocks (a set of number fields for things like Strength or Hit Points), Hit Points (HP) tracking, Armor Class (AC), ability scores, and session notes.</p><h3 class="font-heading-sm mb-3 mt-6">What&#x27;s Included</h3><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">5 custom traits:</strong> Race, Class, Alignment, Background, and Demeanor</li><li class="font-body text-base"><strong class="font-body-bold">10 item categories:</strong> Weapons, Armor &amp; Shields, Magic Items, Potions &amp; Consumables, Scrolls &amp; Books, Tools &amp; Kits, Adventuring Gear, Treasure &amp; Currency, Quest Items, and Miscellaneous</li><li class="font-body text-base"><strong class="font-body-bold">12 adventure location types:</strong> Dungeon, Tavern, City, Town, Wilderness, Castle / Fortress, Temple / Shrine, Kingdom, Lair, Ruins, Plane of Existence, and Other</li><li class="font-body text-base"><strong class="font-body-bold">13 gameplay tags:</strong> Playable, NPC, Boss, Friendly, Hostile, Commerce, Quest, Companion, Leadership, Monstrous, Recurring, Alive, and Dead</li><li class="font-body text-base"><strong class="font-body-bold">29 character sections:</strong> A full D&amp;D stat block (Level, Challenge Rating, Hit Points / Max HP, Armor Class, Speed, and all six ability scores), plus Faction, Personality &amp; Traits, and character &amp; session notes, alongside the standard Character Arc, Relationships, Locations, Items, and Tags</li></ul><h3 class="font-heading-sm mb-3 mt-6">Best For</h3><p class="font-body text-base mb-4">Dungeons &amp; Dragons campaigns, tabletop RPG world-building, game master prep, NPC tracking for campaigns, or fantasy stories with detailed mechanical character progression. Game masters can use this to track party members, NPCs, and monsters with complete stat blocks.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> The session notes section is perfect for recording what happened during your last gaming session, tracking character development across gameplay, or noting important plot hooks for future sessions.</p></div></div></div><div class="my-6"><h2 class="font-heading text-2xl font-semibold">Historical / Non-fiction Template</h2><div class="mt-4"><p class="font-body text-base mb-4">The <strong class="font-body-bold">Historical / Non-fiction Template</strong> is designed for historical fiction and non-fiction with social class hierarchy, biographical data, and source documentation.</p><h3 class="font-heading-sm mb-3 mt-6">What&#x27;s Included</h3><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">5 custom traits:</strong> Social Class, Historical Basis, Status, Religion, and Demeanor</li><li class="font-body text-base"><strong class="font-body-bold">12 period-specific item categories:</strong> Documents &amp; Letters, Personal Effects, Clothing &amp; Accessories, Historical Artifacts, Books &amp; Manuscripts, Art &amp; Paintings, Maps &amp; Charts, Currency &amp; Coins, Religious Items, Tools &amp; Equipment, Weapons, and Miscellaneous</li><li class="font-body text-base"><strong class="font-body-bold">16 historical location types:</strong> City, Town / Village, Palace, Estate, Church / Temple, University, Theater, Market, Harbor / Port, Prison, Building, Landmark, Battlefield, Farm, Region, and Country</li><li class="font-body text-base"><strong class="font-body-bold">11 research tags:</strong> Factual, Fictional, POV Character, Leadership, Artistic, Military, Civilian, Political, Religious, Revolutionary, and Tragic</li><li class="font-body text-base"><strong class="font-body-bold">25 character sections:</strong> Birth Name / Historical Name, Born, Died, Occupation, Nationality, Education, Biography, Historical Context, Role in Events, and a Primary Source ID (archive reference), plus the standard Character Arc, Relationships, Locations, Items, and Tags</li></ul><h3 class="font-heading-sm mb-3 mt-6">Best For</h3><p class="font-body text-base mb-4">Historical fiction, biographical novels, historical non-fiction, period dramas, alternative history, or research-heavy projects requiring source documentation. The Primary Source ID field helps track archival references, and the Historical Basis trait distinguishes between documented historical figures and fictionalized characters.</p><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> The Born and Died fields accept free-form text, allowing you to enter specific dates like &quot;March 15, 1850, London, England&quot; or approximate dates like &quot;circa 1420&quot; for characters with uncertain historical records.</p></div></div></div><div class="my-6"><h2 class="font-heading text-2xl font-semibold">Horror Template</h2><div class="mt-4"><p class="font-body text-base mb-4">The <strong class="font-body-bold">Horror Template</strong> is crafted for horror fiction and psychological thrillers with psychological profiles, dark secrets, and atmospheric settings, focused on dread, not monsters.</p><h3 class="font-heading-sm mb-3 mt-6">What&#x27;s Included</h3><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">3 custom traits:</strong> Role (Protagonist, Antagonist, Victim, Survivor, Investigator, and more), Psychological Profile (Stable, Anxious, Paranoid, Obsessive, Traumatized, and more), and Demeanor</li><li class="font-body text-base"><strong class="font-body-bold">10 horror item categories:</strong> Keys &amp; Locks, Documents &amp; Letters, Potions &amp; Substances, Occult Objects, Light Sources, Weapons, Protective Items, Medical Supplies, Evidence &amp; Records, and Miscellaneous</li><li class="font-body text-base"><strong class="font-body-bold">10 atmospheric location types:</strong> House, Building, Room, Town, Forest, Cemetery, Underground, Ruins, Wilderness, and Other</li><li class="font-body text-base"><strong class="font-body-bold">14 thematic tags:</strong> Survivor, Victim, Threat, Cursed, Innocent, Corrupted, Supernatural, Mysterious, Possessed, Missing, Dead, Investigator, Cult, and Red Herring</li><li class="font-body text-base"><strong class="font-body-bold">18 character sections:</strong> Alias / Known As, Deepest Fear, and What They&#x27;re Hiding, plus the standard Appearance, Bio, Character Arc, Relationships, Locations, Items, and Tags</li></ul><h3 class="font-heading-sm mb-3 mt-6">Best For</h3><p class="font-body text-base mb-4">Horror fiction, psychological thrillers, gothic novels, supernatural mysteries, or any story built around fear and suspense. The Psychological Profile trait, plus the Deepest Fear and What They&#x27;re Hiding fields, help you track each character&#x27;s mental state and the secrets driving the dread.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> The Red Herring tag is great for marking characters who seem suspicious but are ultimately innocent, perfect for mystery-horror plots where misdirection is key.</p></div></div></div><div class="my-6"><h2 class="font-heading text-2xl font-semibold">Romance Template</h2><div class="mt-4"><p class="font-body text-base mb-4">The <strong class="font-body-bold">Romance Template</strong> is designed for romance writers, with emotional wound tracking, attachment styles, and relationship-centered character building.</p><h3 class="font-heading-sm mb-3 mt-6">What&#x27;s Included</h3><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">3 custom traits:</strong> Role (Love Interest, Rival, Ex, and more), Attachment Style (Secure, Anxious, Avoidant, Disorganized), and Demeanor</li><li class="font-body text-base"><strong class="font-body-bold">8 item categories:</strong> Personal Items, Letters &amp; Messages, Clothing &amp; Accessories, Gifts &amp; Tokens, Photographs &amp; Mementos, Technology, Keepsakes, and Miscellaneous</li><li class="font-body text-base"><strong class="font-body-bold">12 location types:</strong> Home / Apartment, Office / Workplace, Restaurant / Cafe, Bar / Club, Park / Outdoors, Hotel, School / University, Shop / Store, Neighborhood, City, Travel Destination, and Other</li><li class="font-body text-base"><strong class="font-body-bold">20 relationship tags:</strong> Central Couple, Secondary Couple, Found Family, Slow Burn, Enemies to Lovers, Second Chance, Forbidden, Friends to Lovers, Fake Dating, Grumpy / Sunshine, Meet Cute, and more</li><li class="font-body text-base"><strong class="font-body-bold">18 character sections:</strong> Emotional Wound, Core Fear / False Belief, and What They Need, plus the standard Appearance, Bio, Character Arc, Relationships, Locations, Items, and Tags</li></ul><h3 class="font-heading-sm mb-3 mt-6">Best For</h3><p class="font-body text-base mb-4">Contemporary romance, romantic subplots, women&#x27;s fiction, or any story where the emotional arc between characters is the heart of the book. The Emotional Wound, Core Fear, and What They Need fields help you build the internal journey behind each romance.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> The relationship tags (Slow Burn, Enemies to Lovers, Fake Dating, and more) double as trope labels: handy for planning beats or keeping a series consistent.</p></div></div></div><h2 class="font-heading mb-4 mt-8">How to Choose a Template</h2><p class="font-body text-base mb-4">Selecting the right template depends on your project&#x27;s genre, complexity, and tracking needs:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Not sure?</strong> Start with <strong class="font-body-bold">Standard</strong>: it&#x27;s versatile and works for most projects</li><li class="font-body text-base"><strong class="font-body-bold">Want complete control?</strong> Choose <strong class="font-body-bold">Empty</strong> and build exactly what you need</li><li class="font-body text-base"><strong class="font-body-bold">Want to start writing fast?</strong> Pick <strong class="font-body-bold">Minimal</strong> for quick, simple tracking</li><li class="font-body text-base"><strong class="font-body-bold">Fantasy world-building?</strong> Use <strong class="font-body-bold">Fantasy</strong> for magic, peoples, and lore</li><li class="font-body text-base"><strong class="font-body-bold">Sci-fi universe?</strong> Select <strong class="font-body-bold">Sci-Fi</strong> for species, factions, and tech</li><li class="font-body text-base"><strong class="font-body-bold">Running a campaign?</strong> Choose <strong class="font-body-bold">D&amp;D 5e</strong> for full stat blocks</li><li class="font-body text-base"><strong class="font-body-bold">Historical accuracy or non-fiction?</strong> Pick <strong class="font-body-bold">Historical / Non-fiction</strong> for period research and source documentation</li><li class="font-body text-base"><strong class="font-body-bold">Writing horror or thrillers?</strong> Use <strong class="font-body-bold">Horror</strong> for psychological profiles and dark secrets</li><li class="font-body text-base"><strong class="font-body-bold">Writing romance?</strong> Use <strong class="font-body-bold">Romance</strong> for attachment styles, emotional wounds, and trope tags</li></ul><h2 class="font-heading mb-4 mt-8">What You Can Customize</h2><p class="font-body text-base mb-4">Remember: templates are <strong class="font-body-bold">starting points</strong>, not limitations. After creating your book, you can modify everything:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Traits:</strong> Add new custom fields, remove unused ones, or modify the options you choose from</li><li class="font-body text-base"><strong class="font-body-bold">Items:</strong> Create new item categories, rename existing ones, or change icons</li><li class="font-body text-base"><strong class="font-body-bold">Locations:</strong> Add specialized location types unique to your world</li><li class="font-body text-base"><strong class="font-body-bold">Tags:</strong> Create unlimited thematic tags with custom colors</li><li class="font-body text-base"><strong class="font-body-bold">Layout:</strong> Rearrange character sections, resize fields, or add new information types</li></ul><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> Removing a trait deletes the trait definition, its options, and any values you have entered for your characters. The deletion is permanent. Make sure you no longer need the data before removing a trait.</p></div><p class="font-body text-base mb-4">Templates simply save you time by providing genre-appropriate defaults. Your book grows and evolves as your project develops.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> You can always check which template you used by viewing your book&#x27;s trait and item configurations in the Settings page (the gear icon in the sidebar). From there, you can modify anything to better fit your evolving needs.</p></div></article>
+        </div>
+        <p class="help-footer">This guide is also in Penpoint, under Help. <a href="/help/">Browse all guides</a> or <a href="/trial">try Penpoint free</a>.</p>
+      </div>
+    </div>
+  </main>
+<footer class="pp-footer">
+    <div class="pp-footer__top">
+      <div class="pp-footer__cols">
+        <div class="pp-footer__col">
+          <div class="pp-footer__brand-row">
+            <svg class="pp-footer__brand-icon" viewBox="0 0 24 24" width="20" height="20" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+            <span class="pp-footer__brand-name">Penpoint</span>
+          </div>
+          <p class="pp-footer__tagline">Write your novel and organize your world in one app.</p>
+          <div class="pp-footer__platforms">
+            <i class="fa-brands fa-windows"></i>
+            <i class="fa-brands fa-apple"></i>
+            <i class="fa-brands fa-linux"></i>
+          </div>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/about" class="foot-link">About</a>
+          <a href="/development" class="foot-link">Development</a>
+          <a href="/#faq" class="foot-link">FAQ</a>
+          <a href="/help" class="foot-link">Help Guide</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/compare" class="foot-link">Compare All</a>
+          <a href="/scrivener-alternative" class="foot-link">vs Scrivener</a>
+          <a href="/dabble-alternative" class="foot-link">vs Dabble</a>
+          <a href="/campfire-alternative" class="foot-link">vs Campfire</a>
+          <a href="/worldanvil-alternative" class="foot-link">vs World Anvil</a>
+          <a href="/ellipsus-alternative" class="foot-link">vs Ellipsus</a>
+          <a href="/story-bible" class="foot-link">Story Bible</a>
+          <a href="/character-bible" class="foot-link">Character Bible</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/trial" class="foot-link">Free Trial</a>
+          <a href="/buy" class="foot-link">Buy</a>
+          <a href="/changelog" class="foot-link">Changelog</a>
+          <a href="/roadmap" class="foot-link">Roadmap</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/terms" class="foot-link">Terms</a>
+          <a href="/privacy" class="foot-link">Privacy</a>
+          <a href="/press" class="foot-link">Press</a>
+          <a href="mailto:support@penpoint.app" class="foot-link">Support</a>
+        </div>
+      </div>
+    </div>
+    <div class="pp-footer__bottom">
+      <div class="pp-footer__bottom-inner">
+        <p class="pp-footer__copy">&copy; 2026 Tophat Creative, LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/site-chrome.js"></script>
+</body>
+</html>

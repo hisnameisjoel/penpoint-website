@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="linen">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <title>Your Series in the Library | Penpoint Help</title>
+  <meta name="description" content="In your Library, a series appears as a single stacked card.">
+  <link rel="canonical" href="https://penpoint.app/help/series-library">
+  <meta name="robots" content="noindex, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://penpoint.app/help/series-library">
+  <meta property="og:title" content="Your Series in the Library | Penpoint Help">
+  <meta property="og:description" content="In your Library, a series appears as a single stacked card.">
+  <meta property="og:site_name" content="Penpoint">
+  <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://penpoint.app/help/series-library">
+  <meta name="twitter:title" content="Your Series in the Library | Penpoint Help">
+  <meta name="twitter:description" content="In your Library, a series appears as a single stacked card.">
+  <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="theme-color" content="#FFF7E6">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/site-chrome.css">
+  <link rel="stylesheet" href="help-articles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Your Series in the Library","item":"https://penpoint.app/help/series-library"}]}</script>
+  <style>
+    /* The article body is the app's design system; the chrome is the website's.
+       These rules are the seam between them, and they follow the site's spacing
+       variables rather than inventing a second scale. */
+    .help-article { padding: var(--space-10) 0 var(--space-16); }
+    /* Sidebar + article. The reading measure stays 760px; the sidebar sits beside it
+       rather than eating into it. */
+    .help-layout {
+      display: grid; grid-template-columns: 240px minmax(0, 760px);
+      gap: clamp(28px, 5vw, 64px); justify-content: center;
+      padding: 0 clamp(20px, 5vw, 52px);
+    }
+    .help-article__inner { min-width: 0; }
+
+    /* ----- Sidebar -----
+       Mirrors the in-app hierarchy. <details> gives the collapse with no JavaScript, so
+       it works for a crawler and for a reader with scripts off. Content inside a closed
+       <details> is still in the DOM, unlike the app's Collapsible. */
+    .help-nav {
+      position: sticky; top: 84px; align-self: start;
+      max-height: calc(100vh - 110px); overflow-y: auto;
+      font-family: 'Source Serif 4', serif; font-size: 14px; line-height: 1.45;
+      padding-right: 8px;
+    }
+    .help-nav__home {
+      display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+      letter-spacing: .14em; text-transform: uppercase; color: #7C5236;
+      text-decoration: none; margin: 0 0 16px; padding-bottom: 10px;
+      border-bottom: 1px solid #E0D2BC;
+    }
+    .help-nav__home:hover { color: #CD6E2C; }
+    .help-nav__sec { margin: 0 0 4px; }
+    .help-nav__sec > summary {
+      cursor: pointer; list-style: none; padding: 6px 0;
+      font-weight: 600; color: #29241E;
+    }
+    .help-nav__sec > summary::-webkit-details-marker { display: none; }
+    .help-nav__sec > summary::before {
+      content: '›'; display: inline-block; width: 14px;
+      color: #A8906D; transition: transform .15s ease;
+    }
+    .help-nav__sec[open] > summary::before { transform: rotate(90deg); }
+    .help-nav__sec > summary:hover { color: #CD6E2C; }
+    .help-nav__list { list-style: none; margin: 0; padding: 0 0 0 14px; }
+    .help-nav__list--1 { padding-left: 12px; }
+    .help-nav__list a {
+      display: block; padding: 4px 8px; color: #5C4332; text-decoration: none;
+      border-left: 2px solid transparent; text-wrap: pretty;
+    }
+    .help-nav__list a:hover { color: #CD6E2C; background: #F4EBD8; }
+    .help-nav__list a.is-current {
+      color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
+    }
+
+    @media (max-width: 960px) {
+      /* The sidebar becomes a collapsed block above the article rather than disappearing,
+         so the whole guide is still reachable on a phone. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav {
+        position: static; max-height: none; overflow: visible;
+        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
+      }
+    }
+    .help-crumbs {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: rgb(var(--muted-foreground)); margin: 0 0 var(--space-6);
+    }
+    .help-crumbs a { color: inherit; text-decoration: none; }
+    .help-crumbs a:hover { color: #CD6E2C; }
+    .help-body { color: rgb(var(--foreground)); }
+    .help-body :is(h1, h2, h3) { text-wrap: balance; }
+    .help-body p, .help-body li { text-wrap: pretty; }
+    /* Strong is font-body-bold in the app, a class the website's typography.css
+       does not carry. Without this, bold runs fall back to the browser default face. */
+    .help-body .font-body-bold { font-weight: 700; }
+    .help-footer {
+      margin-top: var(--space-12); padding-top: var(--space-6);
+      border-top: 1px solid rgb(var(--border));
+      color: rgb(var(--muted-foreground)); font-size: var(--text-sm);
+    }
+    .help-footer a { color: rgb(var(--link)); }
+    @media (max-width: 720px) {
+      /* Floated figures have no room to float on a phone. */
+      .help-body figure { float: none !important; margin: var(--space-6) auto !important; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<header class="pp-header">
+    <div class="pp-header__inner">
+      <a href="/" class="pp-logo" aria-label="Penpoint home">
+        <svg class="pp-logo__icon" viewBox="0 0 24 24" width="22" height="22" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+        <span class="pp-logo__text">Penpoint</span>
+      </a>
+      <nav class="pp-nav" aria-label="Primary">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" aria-label="Join our Discord" class="pp-nav__discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="/trial" class="pp-cta">Try Penpoint</a>
+      </nav>
+      <a href="/trial" class="pp-try-m">Try</a>
+      <button type="button" class="pp-burger" data-burger="" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="pp-mobile" data-mobile-menu="">
+      <div class="pp-mobile__inner">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </header>
+  <main class="help-article">
+    <div class="help-layout">
+      <nav class="help-nav" aria-label="All guides">
+        <a class="help-nav__home" href="/help/">All guides</a>
+        <details class="help-nav__sec">
+          <summary>Getting Started</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/getting-started-with-penpoint">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/how-to-start-a-novel">Creating Your First Book</a></li><li><a href="/help/novel-outline-templates">Understanding Book Template Types</a></li><li><a href="/help/organize-multiple-writing-projects">Managing Your Books</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/editing-book-details">Editing Book Details</a></li><li><a href="/help/duplicating-books">Duplicating Books</a></li><li><a href="/help/deleting-books">Deleting Books</a></li><li><a href="/help/importing-a-book">Importing a Book</a></li><li><a href="/help/exporting-a-book">Exporting a Book</a></li></ul></li><li><a href="/help/tracking-your-time">Tracking Your Time</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Building Your World</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/worldbuilding-for-writers">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/the-worldbuilding-toolbar">The Worldbuilding Toolbar</a></li><li><a href="/help/character-profile-software">Characters</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-write-a-character-profile">Working with Characters</a></li><li><a href="/help/character-views">Character Views</a></li><li><a href="/help/view-edit-modes">View Mode vs Edit Mode</a></li><li><a href="/help/sidebar-navigation">Sidebar &amp; Navigation</a></li><li><a href="/help/block-types">Block Types</a><ul class="help-nav__list help-nav__list--2"><li><a href="/help/text-block">Text Block</a></li><li><a href="/help/paragraph-block">Paragraph Block</a></li><li><a href="/help/number-block">Number Block</a></li><li><a href="/help/divider-block">Divider Block</a></li><li><a href="/help/calculate-block">Calculate Block</a></li><li><a href="/help/trait-block">Trait Block</a></li><li><a href="/help/tags-block">Tags Block</a></li><li><a href="/help/relationships-block">Relationships Block</a></li><li><a href="/help/items-block">Items Block</a></li><li><a href="/help/locations-block">Locations Block</a></li><li><a href="/help/chapters-block">Chapters Block</a></li><li><a href="/help/character-arc-block">Character Arc Block</a></li><li><a href="/help/image-block">Image Block</a></li><li><a href="/help/events-block">Events Block</a></li><li><a href="/help/notebook-block">Notebook Block</a></li></ul></li></ul></li><li><a href="/help/story-item-tracker">Items</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/working-with-items">Working with Items</a></li><li><a href="/help/item-views">Item Views</a></li><li><a href="/help/filtering-items">Filtering Items</a></li><li><a href="/help/sorting-items">Sorting Items</a></li><li><a href="/help/item-detail-panel">Item Detail Panel</a></li><li><a href="/help/editing-item-details">Editing Item Details</a></li><li><a href="/help/managing-item-types">Managing Item Types</a></li></ul></li><li><a href="/help/fictional-location-tracker">Locations</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/working-with-locations">Working with Locations</a></li><li><a href="/help/how-to-organize-fictional-locations">Location Hierarchy</a></li><li><a href="/help/organizing-locations">Organizing Locations</a></li><li><a href="/help/fictional-location-profile">Location Detail View</a></li><li><a href="/help/location-icons">Location Icons</a></li></ul></li><li><a href="/help/chapter-planning-software">Chapters</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-outline-a-novel">The Chapter Outline</a></li><li><a href="/help/chapter-view-modes">Chapter View Modes: By Group or By Scene</a></li><li><a href="/help/index-card-outlining">The Corkboard</a></li><li><a href="/help/placeholder-cards">Placeholder Cards</a></li><li><a href="/help/creating-chapters-and-scenes">Creating Chapters and Scenes</a></li><li><a href="/help/editing-chapter-and-scene-details">Editing Chapter and Scene Details</a></li><li><a href="/help/reordering-chapters">Reordering and Organizing Chapters</a></li><li><a href="/help/how-to-organize-a-novel-into-parts">Chapter Groups (Folders)</a></li><li><a href="/help/merging-and-deleting-chapters">Merging and Deleting</a></li><li><a href="/help/customizing-chapter-layout">Customizing Chapter Layout</a></li><li><a href="/help/chapter-block-types">Chapter Block Types</a><ul class="help-nav__list help-nav__list--2"><li><a href="/help/calendar-block">Calendar Block</a></li><li><a href="/help/outline-block">Outline Block</a></li><li><a href="/help/assigning-things-to-scenes">Assigning Things to Scenes</a></li></ul></li><li><a href="/help/chapters-open-in-manuscript">Open in Manuscript</a></li></ul></li><li><a href="/help/how-to-track-character-arcs">Arcs</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-plot-subplots">Story Arcs</a></li><li><a href="/help/how-to-write-a-character-arc">Character Arcs</a></li></ul></li><li><a href="/help/story-timeline-software">Timeline</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/story-event-tracker">Events</a></li></ul></li><li><a href="/help/character-relationship-map">Relationship Map</a></li><li><a href="/help/how-to-track-themes-in-a-novel">Tags Overview</a></li><li><a href="/help/notes-app-for-novelists">Notebook</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/organize-novel-research-notes">Working with Notes</a></li><li><a href="/help/smart-folders-for-writing-notes">Folders and Smart Folders</a></li><li><a href="/help/notebook-images">Images in the Notebook</a></li><li><a href="/help/notebook-tables">Tables</a></li><li><a href="/help/notebook-shortcuts">Shortcuts</a></li><li><a href="/help/views-and-sorting">Views and Sorting</a></li><li><a href="/help/archiving-notes">Archiving Notes</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Manuscript Mode</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/distraction-free-writing-software">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/scenes-vs-chapters">Chapters &amp; Scenes</a></li><li><a href="/help/novel-outliner-sidebar">The Outliner</a></li><li><a href="/help/manuscript-breaks">Scene &amp; Chapter Breaks</a></li><li><a href="/help/manuscript-toolbar">The Toolbar</a></li><li><a href="/help/manuscript-version-history">Manuscript Snapshots</a></li><li><a href="/help/alternate-scene-drafts">Scene Drafts</a></li><li><a href="/help/manuscript-chapter-drafts">Chapter Drafts</a></li><li><a href="/help/compare-manuscript-drafts">Comparing Your Manuscript Drafts</a></li><li><a href="/help/manuscript-comments-and-notes">Comments &amp; Pinned Notes</a></li><li><a href="/help/manuscript-settings">Manuscript Settings</a></li><li><a href="/help/find-character-names-in-a-manuscript">Chapter Scanner</a></li><li><a href="/help/worldbuilding-while-you-write">Minipen</a></li><li><a href="/help/stop-editing-while-you-draft">Flowstate</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Searching &amp; Connecting</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/search-your-novel-notes">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/search-across-your-novel">Search</a></li><li><a href="/help/link-characters-in-your-manuscript">@Mentions</a></li><li><a href="/help/quick-add-menu">Quick Add Menu</a></li><li><a href="/help/story-glossary-generator">Compendium</a></li></ul>
+        </details>
+        <details class="help-nav__sec" open>
+          <summary>Writing a Series</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/how-to-write-a-book-series">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/combine-books-into-a-series">Converting a Book to a Series</a></li><li><a href="/help/series-library" aria-current="page" class="is-current">Your Series in the Library</a></li><li><a href="/help/switching-books">Switching Between Books</a></li><li><a href="/help/presence">Presence: Which Books a Character Is In</a></li><li><a href="/help/importance-across-books">Importance Across Books</a></li><li><a href="/help/series-focus">This Book vs All Books</a></li><li><a href="/help/series-arcs-vs-book-arcs">Book Arcs and Series Arcs</a></li><li><a href="/help/book-notes-folders">Using Dedicated Book Folders</a></li><li><a href="/help/how-to-split-a-book-series">Splitting a Series into Separate Books</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Import &amp; Export</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/import-and-export-your-manuscript">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/exporting">Exporting Your Data</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/export-your-worldbuilding">Exporting Worldbuilding Data</a></li><li><a href="/help/generating-templates">Generating Templates</a></li><li><a href="/help/export-your-novel-to-word">Exporting Manuscripts</a></li></ul></li><li><a href="/help/importing-exporting">Importing Your Data</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/import-your-manuscript">Importing Data</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Settings</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/settings">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/customizing-character-layout">Customizing Character Layout</a></li><li><a href="/help/location-types">Managing Location Types</a></li><li><a href="/help/managing-traits">Managing Traits</a></li><li><a href="/help/tags">Managing Tags</a></li><li><a href="/help/interface-settings">Interface Settings</a></li><li><a href="/help/announcements">Community &amp; Updates</a></li><li><a href="/help/advanced-settings">Advanced Settings</a></li><li><a href="/help/automatic-novel-backup">Backup &amp; Restore</a></li><li><a href="/help/spellcheck-for-character-names">Spellcheck &amp; Autocorrect</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/contributing-authors-dictionary">Contributing to the Authors Dictionary</a></li></ul></li><li><a href="/help/calendar-settings">Calendar Settings</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/fantasy-calendar-generator">Custom Calendar</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Penpoint Cloud</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/cloud-backup-for-writers">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/set-up-cloud-backup-for-your-novel">Setting Up Penpoint Cloud</a></li><li><a href="/help/encrypted-novel-backup">Your Password and Recovery Kit</a></li><li><a href="/help/penpoint-cloud-plans">Managing Your Subscription</a></li><li><a href="/help/write-on-multiple-computers">Managing Your Devices</a></li><li><a href="/help/sync-your-novel-between-computers">Syncing and Restoring</a></li><li><a href="/help/penpoint-cloud-settings">Penpoint Cloud Settings</a></li></ul>
+        </details>
+      </nav>
+      <div class="help-article__inner">
+        <nav class="help-crumbs" aria-label="Breadcrumb">
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+        </nav>
+        <div class="help-body">
+<article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Your Series in the Library</h1><p class="font-body text-base mb-4">In your Library, a series appears as a single stacked card. Clicking it doesn&#x27;t open a Book directly; it opens the series&#x27; own shelf, where each Book has its own card. This shelf is your series&#x27; home base: add Books, reorder them, give each one its own cover.<strong class="font-body-bold"> Back to Library</strong> returns you to the main Library.</p><h2 class="font-heading mb-4 mt-8">The Series Shelf</h2><figure class="w-full my-6 clear-both"><div class="border border-border rounded-lg shadow-lg overflow-hidden bg-primary/10 p-4"><div class="rounded [&amp;_*:not(button):not([data-demo-highlight])]:!bg-transparent [&amp;_*]:!border-primary/40 select-none"><div class="w-full max-w-[640px] min-h-[320px] mx-auto flex flex-col"><div class="border-b border-border pb-3 mb-6 flex items-center"><div class="flex items-center gap-1.5 shrink-0 text-muted-foreground pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left h-4 w-4" aria-hidden="true"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg><span class="text-sm">Back to Library</span></div><h2 class="flex-1 text-lg font-heading font-semibold text-primary text-center px-4">The Sherlock Holmes Mysteries</h2><div class="h-9 w-9 shrink-0 flex items-center justify-center rounded-md pointer-events-none" aria-label="Series options"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis-vertical h-5 w-5 text-muted-foreground" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></div></div><div class="flex justify-center gap-5 pb-2 pointer-events-none"><div class="w-[140px] h-[210px] rounded-md border border-border relative flex items-center justify-center px-3"><div class="absolute left-1.5 top-0 bottom-0 border-l border-border"></div><span class="font-heading font-bold text-foreground text-center leading-snug">A Study in Scarlet</span></div><div class="w-[140px] h-[210px] rounded-md border border-border relative flex items-center justify-center px-3"><div class="absolute left-1.5 top-0 bottom-0 border-l border-border"></div><span class="font-heading font-bold text-foreground text-center leading-snug">The Sign of Four</span></div><div class="w-[140px] h-[210px] rounded-md border border-dashed border-border flex flex-col items-center justify-center gap-3 px-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus w-7 h-7 text-muted-foreground" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg><span class="text-xs text-muted-foreground text-center">Add Book to Series</span></div></div></div></div></div><figcaption class="text-xs text-muted-foreground text-center mt-2 italic px-1">Figure 1 - Inside a series: each Book has its own card, plus the Add Book to Series card</figcaption></figure><p class="font-body text-base mb-4">Each Book gets its own card, and you can customize every one with its own cover, color, and description to give each volume a distinct look. Click a card to open that Book. The faded outline card at the end, <strong class="font-body-bold">Add Book to Series</strong>, creates a brand-new Book in the series.</p><h2 class="font-heading mb-4 mt-8">Managing a Book</h2><figure class="float-right ml-8 mb-8"><div class="border border-border rounded-lg shadow-lg overflow-hidden bg-primary/10 p-4"><div class="rounded [&amp;_*:not(button):not([data-demo-highlight])]:!bg-transparent [&amp;_*]:!border-primary/40 select-none"><div class="w-[220px] mx-auto rounded-md border border-border shadow-md py-1 pointer-events-none"><div class="flex items-center gap-2 px-3 py-1.5 text-sm text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pen w-4 h-4 text-muted-foreground" aria-hidden="true"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg><span>Edit Book Details…</span></div><div class="flex items-center gap-2 px-3 py-1.5 text-sm text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy w-4 h-4 text-muted-foreground" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span>Duplicate Book</span></div><div class="flex items-center gap-2 px-3 py-1.5 text-sm text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 text-muted-foreground" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg><span>Move Forward</span></div><div class="flex items-center gap-2 px-3 py-1.5 text-sm text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left w-4 h-4 text-muted-foreground" aria-hidden="true"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg><span>Move Backward</span></div><div class="h-px border-t border-border mx-2 my-1"></div><div class="flex items-center gap-2 px-3 py-1.5 text-sm text-destructive"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2 lucide-trash-2 w-4 h-4" aria-hidden="true"><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg><span>Delete Book…</span></div></div></div></div><figcaption class="text-xs text-muted-foreground text-center mt-2 italic px-1">Figure 2 - A Book card&#x27;s management menu</figcaption></figure><p class="font-body text-base mb-4">Right-click any Book card (or Control-click on Mac), or click the small ⋮ button in the card&#x27;s top-right corner, for its menu: <strong class="font-body-bold">Edit Book Details…</strong> (name, cover, color), <strong class="font-body-bold">Duplicate Book</strong>, <strong class="font-body-bold">Move Forward</strong> and <strong class="font-body-bold">Move Backward</strong> to reorder the series, and <strong class="font-body-bold">Delete Book…</strong>.</p><p class="font-body text-base mb-4">Deleting a Book permanently removes the Book and its chapters, scenes, folders, and Story Arcs: the writing inside it is gone, and this can&#x27;t be undone. Penpoint always shows a confirmation dialog first, so a stray click can never delete a Book on its own. The dialog also asks what to do with characters, items, and locations that only exist in that Book: <strong class="font-body-bold">Reassign to another Book</strong> keeps them in the series, or <strong class="font-body-bold">Delete them with the Book</strong> removes them permanently (again, only after you confirm). Anything shared with other Books simply stays where it is. Delete is only offered while the series has more than one Book; to unwind the last Book, split the series instead, which turns it into a standalone book.</p><h2 class="font-heading mb-4 mt-8">Series Options</h2><p class="font-body text-base mb-4">The ⋮ Series options button at the right end of the shelf header holds options for the whole series: &quot;Edit Series Details…&quot; lets you change the series&#x27; name and description, and &quot;Split into separate books…&quot; breaks the series apart into separate standalone books in your Library. Splitting is permanent, so read <a href="/help/how-to-split-a-book-series" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Splitting a Series into Separate Books</a> before using it.</p><h2 class="font-heading mb-4 mt-8">Bringing an Existing Book In</h2><p class="font-body text-base mb-4">You can also fold a standalone book you already have into the series, so a book you wrote before you knew it was a series can join the others. This one starts from the main Library, not the series shelf: right-click (or Control-click on Mac) the standalone book&#x27;s card, or use its ⋮ menu, and choose <strong class="font-body-bold">Add to Series…</strong>. Pick which series to add it to, name the Book inside the series, and choose what to bring over.</p><p class="font-body text-base mb-4">You&#x27;ll first choose whether to copy or move the book:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Copy</strong> keeps the original standalone book in your Library and adds it into the series too, so you have it in both places.</li><li class="font-body text-base"><strong class="font-body-bold">Move</strong> adds it to the series, then removes the original standalone book (and its saved backups) from your Library, so it lives only in the series. Moving can&#x27;t be undone, so Penpoint confirms first; any external or cloud backups you set up separately are kept.</li></ul><h2 class="font-heading mb-4 mt-8">Merging Duplicates</h2><figure class="w-full my-6 clear-both"><div class="border border-border rounded-lg shadow-lg overflow-hidden bg-primary/10 p-4"><div class="rounded [&amp;_*:not(button):not([data-demo-highlight])]:!bg-transparent [&amp;_*]:!border-primary/40 select-none"><div class="w-[520px] mx-auto bg-background"><div class="mb-4"><h2 class="font-heading text-xl font-semibold mb-2 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search h-5 w-5" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg>Review Duplicates</h2><p class="text-sm text-muted-foreground">Matched names merge into the character, location, or item the series already has: one entry, in both books, with its chapter assignments and tags combined.</p></div><div class="space-y-4"><p class="text-sm font-medium">4 duplicates found: 3 characters, 1 location</p><div class="space-y-2"><div class="flex items-center gap-2 text-sm font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user h-4 w-4 text-primary" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Characters</div><div class="ml-6 space-y-1.5"><div class="flex items-center gap-2.5 px-2 py-1.5 rounded-md opacity-90"><button type="button" role="checkbox" aria-checked="true" data-state="checked" data-disabled="" disabled="" value="on" class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground" id="demo-merge-sherlock"><span data-state="checked" data-disabled="" class="flex items-center justify-center text-current" style="pointer-events:none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check h-4 w-4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span></button><input type="checkbox" aria-hidden="true" disabled="" tabindex="-1" style="position:absolute;pointer-events:none;opacity:0;margin:0;transform:translateX(-100%)" checked="" value="on"/><span class="text-sm">Sherlock Holmes</span><span class="text-xs text-muted-foreground">— will merge with Sherlock Holmes already in the series</span></div><div class="flex items-center gap-2.5 px-2 py-1.5 rounded-md opacity-90"><button type="button" role="checkbox" aria-checked="true" data-state="checked" data-disabled="" disabled="" value="on" class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground" id="demo-merge-watson"><span data-state="checked" data-disabled="" class="flex items-center justify-center text-current" style="pointer-events:none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check h-4 w-4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span></button><input type="checkbox" aria-hidden="true" disabled="" tabindex="-1" style="position:absolute;pointer-events:none;opacity:0;margin:0;transform:translateX(-100%)" checked="" value="on"/><span class="text-sm">Dr. Watson</span><span class="text-xs text-muted-foreground">— will merge with Dr. Watson already in the series</span></div><div class="flex items-center gap-2.5 px-2 py-1.5 rounded-md"><span class="w-4 shrink-0"></span><span class="text-sm">The Woman</span><span class="text-xs text-primary/90">— will merge with Irene Adler already in the series</span><span class="ml-auto h-6 w-6 inline-flex items-center justify-center text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-3.5 w-3.5" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></span></div><div class="flex items-center gap-2.5 px-2 py-1.5 rounded-md"><span class="w-4 shrink-0"></span><span class="text-sm">Inspector Bradstreet</span><span class="text-xs text-muted-foreground">— will be added to your series</span><span class="ml-auto h-6 w-6 inline-flex items-center justify-center text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2 lucide-link-2 h-3.5 w-3.5" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg></span></div></div></div><div class="space-y-2"><div class="flex items-center gap-2 text-sm font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin h-4 w-4 text-primary" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Locations</div><div class="ml-6 space-y-1.5"><div class="flex items-center gap-2.5 px-2 py-1.5 rounded-md opacity-90"><button type="button" role="checkbox" aria-checked="true" data-state="checked" data-disabled="" disabled="" value="on" class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground" id="demo-merge-baker"><span data-state="checked" data-disabled="" class="flex items-center justify-center text-current" style="pointer-events:none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check h-4 w-4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span></button><input type="checkbox" aria-hidden="true" disabled="" tabindex="-1" style="position:absolute;pointer-events:none;opacity:0;margin:0;transform:translateX(-100%)" checked="" value="on"/><span class="text-sm">221B Baker Street</span><span class="text-xs text-muted-foreground">— will merge with 221B Baker Street already in the series</span></div></div></div><p class="text-xs text-muted-foreground">Tags with matching names are merged automatically.</p><div class="space-y-2 pt-2 border-t border-border"><label class="text-sm font-medium">How do you want to merge duplicate content?</label><p class="text-xs text-muted-foreground">Chapters, tags, and any blank details combine automatically. But when a character, place, or item has <strong class="font-semibold">different text in each book</strong>, Penpoint needs to know how to handle it:</p><div class="ml-6 space-y-2 pointer-events-none"><div class="flex items-start gap-2 opacity-90"><button type="button" role="checkbox" aria-checked="true" data-state="checked" value="on" class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground mt-0.5" tabindex="-1"><span data-state="checked" class="flex items-center justify-center text-current" style="pointer-events:none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check h-4 w-4" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span></button><input type="checkbox" aria-hidden="true" tabindex="-1" style="position:absolute;pointer-events:none;opacity:0;margin:0;transform:translateX(-100%)" checked="" value="on"/><span class="text-sm">Keep both by appending (recommended)<span class="block text-xs text-muted-foreground">This book’s text is added below the version in your series, with a dividing line, so you can blend them yourself later.</span></span></div><div class="flex items-start gap-2 opacity-90"><button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="on" class="peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground mt-0.5" tabindex="-1"></button><input type="checkbox" aria-hidden="true" tabindex="-1" style="position:absolute;pointer-events:none;opacity:0;margin:0;transform:translateX(-100%)" value="on"/><span class="text-sm">Keep your series’ text only<span class="block text-xs text-muted-foreground">The text already in your series stays as it is. Any conflicting text from this book is left out.</span></span></div></div><p class="text-xs text-muted-foreground pt-1">Either way, things like a name, type, or number can’t be blended into one value, so your series’ version always wins there. You’ll see exactly what didn’t carry over on the summary screen once this finishes.</p></div></div><div class="flex justify-end gap-2 mt-6 pt-4 border-t border-border"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-normal ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-transparent text-foreground border border-border hover:bg-muted hover:border-accent px-4 py-2.5 font-body opacity-90 pointer-events-none mr-auto">Back</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-normal ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-transparent text-foreground border border-border hover:bg-muted hover:border-accent px-4 py-2.5 font-body opacity-90 pointer-events-none">Cancel</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-normal ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-transparent text-foreground border border-border hover:bg-muted hover:border-accent px-4 py-2.5 font-body opacity-90 pointer-events-none">Copy &amp; Merge 4</button></div></div></div></div><figcaption class="text-xs text-muted-foreground text-center mt-2 italic px-1">Figure 3 - The Review Duplicates step: matched entries merge, new ones can be linked by hand</figcaption></figure><p class="font-body text-base mb-4">If the incoming book shares characters, locations, or items with the series (the same protagonist in every volume, say), Penpoint spots them by name before anything is added and shows them on a <strong class="font-body-bold">Review Duplicates</strong> step. Checked matches <strong class="font-body-bold">merge</strong>: instead of a second copy, the incoming book&#x27;s chapter assignments, scene links, tags, and trait choices all land on the entity the series already has, and that one entry simply appears in both Books. Uncheck a match to bring it in as a separate copy instead. Tags with matching names merge automatically.</p><p class="font-body text-base mb-4">Renamed someone between books? Use the <strong class="font-body-bold">link button</strong> on a &quot;new&quot; row to point it at the right series entry by hand: Luke in the old book can merge into Lucian in the series.</p><p class="font-body text-base mb-4">For merged entries, most things combine on their own: chapters, tags, and any field one book left blank. Where the same entry has <strong class="font-body-bold">different text</strong> in each book, the default keeps both: the incoming book&#x27;s wording is stacked under a divider on the series entry, and you can blend the two by hand later. Prefer a tidier result? Switch to <strong class="font-body-bold">Keep your series&#x27; text only</strong> and the series wording stays as it is, leaving out the incoming book&#x27;s conflicting text. Each Book still keeps its own arcs, events, and notes.</p><p class="font-body text-base mb-4">A few details can&#x27;t be blended into one value no matter which option you pick: a name, a type, or a number or calculation field always keeps the series&#x27; version on a conflict. Importance is the one exception that resolves itself: merging always keeps whichever level is higher, so a character promoted to Primary in the new book stays Primary.</p><figure class="w-full my-6 clear-both"><div class="border border-border rounded-lg shadow-lg overflow-hidden bg-primary/10 p-4"><div class="rounded [&amp;_*:not(button):not([data-demo-highlight])]:!bg-transparent [&amp;_*]:!border-primary/40 select-none"><div class="w-[480px] mx-auto bg-background"><div class="mb-4"><h2 class="font-heading text-xl font-semibold mb-2 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-5 w-5 text-primary" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Book Copied into Series</h2><p class="text-sm text-muted-foreground"><span class="font-medium text-foreground">The Sign of Four</span> is now part of <span class="font-medium text-foreground">The Adventures of Sherlock Holmes</span>. The original book is still in your library. 2 duplicates were merged with the versions the series already had.</p></div><div class="bg-card border border-border rounded-lg p-4" style="border-color:rgb(var(--foreground) / 0.25)"><h4 class="font-semibold mb-1 text-sm">2 details couldn’t be blended</h4><p class="text-sm text-muted-foreground mb-3">A name, type, or number can’t be combined the way text can, so your series’ version was kept for each. If you’d rather use the other version, open that character, item, or location in your series and update it directly.</p><div class="space-y-2 opacity-90"><div class="bg-background rounded p-3 border border-border"><div class="text-sm"><span class="font-medium text-foreground">Dr. Watson</span> — Importance: kept “Primary”, not “Secondary”</div></div><div class="bg-background rounded p-3 border border-border"><div class="text-sm"><span class="font-medium text-foreground">221B Baker Street</span> — Type: kept “Residence”, not “Crime Scene”</div></div></div></div><div class="flex justify-end pt-4 mt-4 border-t border-border"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-normal ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-transparent text-foreground border border-border hover:bg-muted hover:border-accent px-4 py-2.5 font-body opacity-90 pointer-events-none">Done</button></div></div></div></div><figcaption class="text-xs text-muted-foreground text-center mt-2 italic px-1">Figure 4 - The results screen lists anything that couldn&#x27;t be blended, and what was kept</figcaption></figure><p class="font-body text-base mb-4">Once the merge finishes, anything that couldn&#x27;t be combined shows up right there on the results screen: which entry it was, which detail, and what it kept. If you&#x27;d rather have the other version, open that character, item, or location afterward and change it yourself.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> Merging with <strong class="font-body-bold">Copy</strong> is the gentler path: your original book stays in the Library, so if a merged entry didn&#x27;t keep something you wanted, it&#x27;s still right there to reference.</p></div><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> This is different from the shelf&#x27;s <strong class="font-body-bold">Add Book to Series</strong> card, which starts a fresh, blank Book. Reach for <strong class="font-body-bold">Add to Series…</strong> in the Library when the book already exists.</p></div></article>
+        </div>
+        <p class="help-footer">This guide is also in Penpoint, under Help. <a href="/help/">Browse all guides</a> or <a href="/trial">try Penpoint free</a>.</p>
+      </div>
+    </div>
+  </main>
+<footer class="pp-footer">
+    <div class="pp-footer__top">
+      <div class="pp-footer__cols">
+        <div class="pp-footer__col">
+          <div class="pp-footer__brand-row">
+            <svg class="pp-footer__brand-icon" viewBox="0 0 24 24" width="20" height="20" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+            <span class="pp-footer__brand-name">Penpoint</span>
+          </div>
+          <p class="pp-footer__tagline">Write your novel and organize your world in one app.</p>
+          <div class="pp-footer__platforms">
+            <i class="fa-brands fa-windows"></i>
+            <i class="fa-brands fa-apple"></i>
+            <i class="fa-brands fa-linux"></i>
+          </div>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/about" class="foot-link">About</a>
+          <a href="/development" class="foot-link">Development</a>
+          <a href="/#faq" class="foot-link">FAQ</a>
+          <a href="/help" class="foot-link">Help Guide</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/compare" class="foot-link">Compare All</a>
+          <a href="/scrivener-alternative" class="foot-link">vs Scrivener</a>
+          <a href="/dabble-alternative" class="foot-link">vs Dabble</a>
+          <a href="/campfire-alternative" class="foot-link">vs Campfire</a>
+          <a href="/worldanvil-alternative" class="foot-link">vs World Anvil</a>
+          <a href="/ellipsus-alternative" class="foot-link">vs Ellipsus</a>
+          <a href="/story-bible" class="foot-link">Story Bible</a>
+          <a href="/character-bible" class="foot-link">Character Bible</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/trial" class="foot-link">Free Trial</a>
+          <a href="/buy" class="foot-link">Buy</a>
+          <a href="/changelog" class="foot-link">Changelog</a>
+          <a href="/roadmap" class="foot-link">Roadmap</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/terms" class="foot-link">Terms</a>
+          <a href="/privacy" class="foot-link">Privacy</a>
+          <a href="/press" class="foot-link">Press</a>
+          <a href="mailto:support@penpoint.app" class="foot-link">Support</a>
+        </div>
+      </div>
+    </div>
+    <div class="pp-footer__bottom">
+      <div class="pp-footer__bottom-inner">
+        <p class="pp-footer__copy">&copy; 2026 Tophat Creative, LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/site-chrome.js"></script>
+</body>
+</html>

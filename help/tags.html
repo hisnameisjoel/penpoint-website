@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="linen">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <title>Managing Tags | Penpoint Help</title>
+  <meta name="description" content="Tags are universal markers that work across everything in your book: characters, items, locations, chapters, and notes.">
+  <link rel="canonical" href="https://penpoint.app/help/tags">
+  <meta name="robots" content="noindex, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://penpoint.app/help/tags">
+  <meta property="og:title" content="Managing Tags | Penpoint Help">
+  <meta property="og:description" content="Tags are universal markers that work across everything in your book: characters, items, locations, chapters, and notes.">
+  <meta property="og:site_name" content="Penpoint">
+  <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://penpoint.app/help/tags">
+  <meta name="twitter:title" content="Managing Tags | Penpoint Help">
+  <meta name="twitter:description" content="Tags are universal markers that work across everything in your book: characters, items, locations, chapters, and notes.">
+  <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="theme-color" content="#FFF7E6">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/site-chrome.css">
+  <link rel="stylesheet" href="help-articles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Managing Tags","item":"https://penpoint.app/help/tags"}]}</script>
+  <style>
+    /* The article body is the app's design system; the chrome is the website's.
+       These rules are the seam between them, and they follow the site's spacing
+       variables rather than inventing a second scale. */
+    .help-article { padding: var(--space-10) 0 var(--space-16); }
+    /* Sidebar + article. The reading measure stays 760px; the sidebar sits beside it
+       rather than eating into it. */
+    .help-layout {
+      display: grid; grid-template-columns: 240px minmax(0, 760px);
+      gap: clamp(28px, 5vw, 64px); justify-content: center;
+      padding: 0 clamp(20px, 5vw, 52px);
+    }
+    .help-article__inner { min-width: 0; }
+
+    /* ----- Sidebar -----
+       Mirrors the in-app hierarchy. <details> gives the collapse with no JavaScript, so
+       it works for a crawler and for a reader with scripts off. Content inside a closed
+       <details> is still in the DOM, unlike the app's Collapsible. */
+    .help-nav {
+      position: sticky; top: 84px; align-self: start;
+      max-height: calc(100vh - 110px); overflow-y: auto;
+      font-family: 'Source Serif 4', serif; font-size: 14px; line-height: 1.45;
+      padding-right: 8px;
+    }
+    .help-nav__home {
+      display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+      letter-spacing: .14em; text-transform: uppercase; color: #7C5236;
+      text-decoration: none; margin: 0 0 16px; padding-bottom: 10px;
+      border-bottom: 1px solid #E0D2BC;
+    }
+    .help-nav__home:hover { color: #CD6E2C; }
+    .help-nav__sec { margin: 0 0 4px; }
+    .help-nav__sec > summary {
+      cursor: pointer; list-style: none; padding: 6px 0;
+      font-weight: 600; color: #29241E;
+    }
+    .help-nav__sec > summary::-webkit-details-marker { display: none; }
+    .help-nav__sec > summary::before {
+      content: '›'; display: inline-block; width: 14px;
+      color: #A8906D; transition: transform .15s ease;
+    }
+    .help-nav__sec[open] > summary::before { transform: rotate(90deg); }
+    .help-nav__sec > summary:hover { color: #CD6E2C; }
+    .help-nav__list { list-style: none; margin: 0; padding: 0 0 0 14px; }
+    .help-nav__list--1 { padding-left: 12px; }
+    .help-nav__list a {
+      display: block; padding: 4px 8px; color: #5C4332; text-decoration: none;
+      border-left: 2px solid transparent; text-wrap: pretty;
+    }
+    .help-nav__list a:hover { color: #CD6E2C; background: #F4EBD8; }
+    .help-nav__list a.is-current {
+      color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
+    }
+
+    @media (max-width: 960px) {
+      /* The sidebar becomes a collapsed block above the article rather than disappearing,
+         so the whole guide is still reachable on a phone. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav {
+        position: static; max-height: none; overflow: visible;
+        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
+      }
+    }
+    .help-crumbs {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: rgb(var(--muted-foreground)); margin: 0 0 var(--space-6);
+    }
+    .help-crumbs a { color: inherit; text-decoration: none; }
+    .help-crumbs a:hover { color: #CD6E2C; }
+    .help-body { color: rgb(var(--foreground)); }
+    .help-body :is(h1, h2, h3) { text-wrap: balance; }
+    .help-body p, .help-body li { text-wrap: pretty; }
+    /* Strong is font-body-bold in the app, a class the website's typography.css
+       does not carry. Without this, bold runs fall back to the browser default face. */
+    .help-body .font-body-bold { font-weight: 700; }
+    .help-footer {
+      margin-top: var(--space-12); padding-top: var(--space-6);
+      border-top: 1px solid rgb(var(--border));
+      color: rgb(var(--muted-foreground)); font-size: var(--text-sm);
+    }
+    .help-footer a { color: rgb(var(--link)); }
+    @media (max-width: 720px) {
+      /* Floated figures have no room to float on a phone. */
+      .help-body figure { float: none !important; margin: var(--space-6) auto !important; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<header class="pp-header">
+    <div class="pp-header__inner">
+      <a href="/" class="pp-logo" aria-label="Penpoint home">
+        <svg class="pp-logo__icon" viewBox="0 0 24 24" width="22" height="22" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+        <span class="pp-logo__text">Penpoint</span>
+      </a>
+      <nav class="pp-nav" aria-label="Primary">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" aria-label="Join our Discord" class="pp-nav__discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="/trial" class="pp-cta">Try Penpoint</a>
+      </nav>
+      <a href="/trial" class="pp-try-m">Try</a>
+      <button type="button" class="pp-burger" data-burger="" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="pp-mobile" data-mobile-menu="">
+      <div class="pp-mobile__inner">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </header>
+  <main class="help-article">
+    <div class="help-layout">
+      <nav class="help-nav" aria-label="All guides">
+        <a class="help-nav__home" href="/help/">All guides</a>
+        <details class="help-nav__sec">
+          <summary>Getting Started</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/getting-started-with-penpoint">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/how-to-start-a-novel">Creating Your First Book</a></li><li><a href="/help/novel-outline-templates">Understanding Book Template Types</a></li><li><a href="/help/organize-multiple-writing-projects">Managing Your Books</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/editing-book-details">Editing Book Details</a></li><li><a href="/help/duplicating-books">Duplicating Books</a></li><li><a href="/help/deleting-books">Deleting Books</a></li><li><a href="/help/importing-a-book">Importing a Book</a></li><li><a href="/help/exporting-a-book">Exporting a Book</a></li></ul></li><li><a href="/help/tracking-your-time">Tracking Your Time</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Building Your World</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/worldbuilding-for-writers">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/the-worldbuilding-toolbar">The Worldbuilding Toolbar</a></li><li><a href="/help/character-profile-software">Characters</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-write-a-character-profile">Working with Characters</a></li><li><a href="/help/character-views">Character Views</a></li><li><a href="/help/view-edit-modes">View Mode vs Edit Mode</a></li><li><a href="/help/sidebar-navigation">Sidebar &amp; Navigation</a></li><li><a href="/help/block-types">Block Types</a><ul class="help-nav__list help-nav__list--2"><li><a href="/help/text-block">Text Block</a></li><li><a href="/help/paragraph-block">Paragraph Block</a></li><li><a href="/help/number-block">Number Block</a></li><li><a href="/help/divider-block">Divider Block</a></li><li><a href="/help/calculate-block">Calculate Block</a></li><li><a href="/help/trait-block">Trait Block</a></li><li><a href="/help/tags-block">Tags Block</a></li><li><a href="/help/relationships-block">Relationships Block</a></li><li><a href="/help/items-block">Items Block</a></li><li><a href="/help/locations-block">Locations Block</a></li><li><a href="/help/chapters-block">Chapters Block</a></li><li><a href="/help/character-arc-block">Character Arc Block</a></li><li><a href="/help/image-block">Image Block</a></li><li><a href="/help/events-block">Events Block</a></li><li><a href="/help/notebook-block">Notebook Block</a></li></ul></li></ul></li><li><a href="/help/story-item-tracker">Items</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/working-with-items">Working with Items</a></li><li><a href="/help/item-views">Item Views</a></li><li><a href="/help/filtering-items">Filtering Items</a></li><li><a href="/help/sorting-items">Sorting Items</a></li><li><a href="/help/item-detail-panel">Item Detail Panel</a></li><li><a href="/help/editing-item-details">Editing Item Details</a></li><li><a href="/help/managing-item-types">Managing Item Types</a></li></ul></li><li><a href="/help/fictional-location-tracker">Locations</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/working-with-locations">Working with Locations</a></li><li><a href="/help/how-to-organize-fictional-locations">Location Hierarchy</a></li><li><a href="/help/organizing-locations">Organizing Locations</a></li><li><a href="/help/fictional-location-profile">Location Detail View</a></li><li><a href="/help/location-icons">Location Icons</a></li></ul></li><li><a href="/help/chapter-planning-software">Chapters</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-outline-a-novel">The Chapter Outline</a></li><li><a href="/help/chapter-view-modes">Chapter View Modes: By Group or By Scene</a></li><li><a href="/help/index-card-outlining">The Corkboard</a></li><li><a href="/help/placeholder-cards">Placeholder Cards</a></li><li><a href="/help/creating-chapters-and-scenes">Creating Chapters and Scenes</a></li><li><a href="/help/editing-chapter-and-scene-details">Editing Chapter and Scene Details</a></li><li><a href="/help/reordering-chapters">Reordering and Organizing Chapters</a></li><li><a href="/help/how-to-organize-a-novel-into-parts">Chapter Groups (Folders)</a></li><li><a href="/help/merging-and-deleting-chapters">Merging and Deleting</a></li><li><a href="/help/customizing-chapter-layout">Customizing Chapter Layout</a></li><li><a href="/help/chapter-block-types">Chapter Block Types</a><ul class="help-nav__list help-nav__list--2"><li><a href="/help/calendar-block">Calendar Block</a></li><li><a href="/help/outline-block">Outline Block</a></li><li><a href="/help/assigning-things-to-scenes">Assigning Things to Scenes</a></li></ul></li><li><a href="/help/chapters-open-in-manuscript">Open in Manuscript</a></li></ul></li><li><a href="/help/how-to-track-character-arcs">Arcs</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-plot-subplots">Story Arcs</a></li><li><a href="/help/how-to-write-a-character-arc">Character Arcs</a></li></ul></li><li><a href="/help/story-timeline-software">Timeline</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/story-event-tracker">Events</a></li></ul></li><li><a href="/help/character-relationship-map">Relationship Map</a></li><li><a href="/help/how-to-track-themes-in-a-novel">Tags Overview</a></li><li><a href="/help/notes-app-for-novelists">Notebook</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/organize-novel-research-notes">Working with Notes</a></li><li><a href="/help/smart-folders-for-writing-notes">Folders and Smart Folders</a></li><li><a href="/help/notebook-images">Images in the Notebook</a></li><li><a href="/help/notebook-tables">Tables</a></li><li><a href="/help/notebook-shortcuts">Shortcuts</a></li><li><a href="/help/views-and-sorting">Views and Sorting</a></li><li><a href="/help/archiving-notes">Archiving Notes</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Manuscript Mode</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/distraction-free-writing-software">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/scenes-vs-chapters">Chapters &amp; Scenes</a></li><li><a href="/help/novel-outliner-sidebar">The Outliner</a></li><li><a href="/help/manuscript-breaks">Scene &amp; Chapter Breaks</a></li><li><a href="/help/manuscript-toolbar">The Toolbar</a></li><li><a href="/help/manuscript-version-history">Manuscript Snapshots</a></li><li><a href="/help/alternate-scene-drafts">Scene Drafts</a></li><li><a href="/help/manuscript-chapter-drafts">Chapter Drafts</a></li><li><a href="/help/compare-manuscript-drafts">Comparing Your Manuscript Drafts</a></li><li><a href="/help/manuscript-comments-and-notes">Comments &amp; Pinned Notes</a></li><li><a href="/help/manuscript-settings">Manuscript Settings</a></li><li><a href="/help/find-character-names-in-a-manuscript">Chapter Scanner</a></li><li><a href="/help/worldbuilding-while-you-write">Minipen</a></li><li><a href="/help/stop-editing-while-you-draft">Flowstate</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Searching &amp; Connecting</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/search-your-novel-notes">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/search-across-your-novel">Search</a></li><li><a href="/help/link-characters-in-your-manuscript">@Mentions</a></li><li><a href="/help/quick-add-menu">Quick Add Menu</a></li><li><a href="/help/story-glossary-generator">Compendium</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Writing a Series</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/how-to-write-a-book-series">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/combine-books-into-a-series">Converting a Book to a Series</a></li><li><a href="/help/series-library">Your Series in the Library</a></li><li><a href="/help/switching-books">Switching Between Books</a></li><li><a href="/help/presence">Presence: Which Books a Character Is In</a></li><li><a href="/help/importance-across-books">Importance Across Books</a></li><li><a href="/help/series-focus">This Book vs All Books</a></li><li><a href="/help/series-arcs-vs-book-arcs">Book Arcs and Series Arcs</a></li><li><a href="/help/book-notes-folders">Using Dedicated Book Folders</a></li><li><a href="/help/how-to-split-a-book-series">Splitting a Series into Separate Books</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Import &amp; Export</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/import-and-export-your-manuscript">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/exporting">Exporting Your Data</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/export-your-worldbuilding">Exporting Worldbuilding Data</a></li><li><a href="/help/generating-templates">Generating Templates</a></li><li><a href="/help/export-your-novel-to-word">Exporting Manuscripts</a></li></ul></li><li><a href="/help/importing-exporting">Importing Your Data</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/import-your-manuscript">Importing Data</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec" open>
+          <summary>Settings</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/settings">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/customizing-character-layout">Customizing Character Layout</a></li><li><a href="/help/location-types">Managing Location Types</a></li><li><a href="/help/managing-traits">Managing Traits</a></li><li><a href="/help/tags" aria-current="page" class="is-current">Managing Tags</a></li><li><a href="/help/interface-settings">Interface Settings</a></li><li><a href="/help/announcements">Community &amp; Updates</a></li><li><a href="/help/advanced-settings">Advanced Settings</a></li><li><a href="/help/automatic-novel-backup">Backup &amp; Restore</a></li><li><a href="/help/spellcheck-for-character-names">Spellcheck &amp; Autocorrect</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/contributing-authors-dictionary">Contributing to the Authors Dictionary</a></li></ul></li><li><a href="/help/calendar-settings">Calendar Settings</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/fantasy-calendar-generator">Custom Calendar</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Penpoint Cloud</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/cloud-backup-for-writers">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/set-up-cloud-backup-for-your-novel">Setting Up Penpoint Cloud</a></li><li><a href="/help/encrypted-novel-backup">Your Password and Recovery Kit</a></li><li><a href="/help/penpoint-cloud-plans">Managing Your Subscription</a></li><li><a href="/help/write-on-multiple-computers">Managing Your Devices</a></li><li><a href="/help/sync-your-novel-between-computers">Syncing and Restoring</a></li><li><a href="/help/penpoint-cloud-settings">Penpoint Cloud Settings</a></li></ul>
+        </details>
+      </nav>
+      <div class="help-article__inner">
+        <nav class="help-crumbs" aria-label="Breadcrumb">
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+        </nav>
+        <div class="help-body">
+<article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Managing Tags</h1><p class="font-body text-base mb-4">Tags are universal markers that work across everything in your book: characters, items, locations, chapters, and notes. Think of them as colored labels that help you group and find related content instantly.</p><figure class="float-right ml-8 mb-8"><div class="border border-border rounded-lg shadow-lg overflow-hidden p-4 bg-primary/10"><div class="space-y-6 w-[520px] mx-auto"><h3 class="font-heading text-foreground">Available Tags:</h3><div class="space-y-4"><div class="flex flex-wrap items-center gap-4"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-normal ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-transparent text-foreground border border-border hover:bg-muted hover:border-accent px-3 py-2 font-body-sm opacity-90 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus h-4 w-4 mr-2" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>Add New Tag</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-normal ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-transparent text-foreground border border-border hover:bg-muted hover:border-accent px-3 py-2 font-body-sm opacity-90 pointer-events-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shapes h-4 w-4 mr-2" aria-hidden="true"><path d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"></path><rect x="3" y="14" width="7" height="7" rx="1"></rect><circle cx="17.5" cy="17.5" r="3.5"></circle></svg>Create Tag Group</button><div class="flex items-center gap-2"><label class="font-body font-medium text-foreground text-sm">Display Order in app:</label><div class="relative"><button class="flex h-9 items-center justify-between rounded-md border border-border bg-transparent px-3 py-2 text-sm shadow-sm w-[180px] opacity-90 pointer-events-none"><span class="font-body">Most Used</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down ml-1 h-3 w-3 flex-shrink-0 opacity-50" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div></div></div></div><div class="space-y-5"><div class="space-y-2"><div class="flex items-center gap-2 border-b border-border/50 pb-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-grip-vertical h-3 w-3 flex-shrink-0 text-muted-foreground opacity-45" aria-hidden="true"><circle cx="9" cy="12" r="1"></circle><circle cx="9" cy="5" r="1"></circle><circle cx="9" cy="19" r="1"></circle><circle cx="15" cy="12" r="1"></circle><circle cx="15" cy="5" r="1"></circle><circle cx="15" cy="19" r="1"></circle></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right h-3 w-3 flex-shrink-0 text-muted-foreground rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-crown h-3.5 w-3.5 flex-shrink-0" aria-hidden="true"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"></path><path d="M5 21h14"></path></svg><span class="font-body font-semibold text-foreground leading-none">Great Houses</span><span class="font-caption text-muted-foreground leading-none">2</span></div><div class="grid gap-3" style="grid-template-columns:repeat(auto-fill, minmax(175px, 1fr));grid-auto-rows:minmax(48px, auto)"><div class="relative group"><div class="flex items-center gap-3 px-3 py-2 border border-border"><div data-tag-color-square="true" class="w-3 h-3 shrink-0" style="background-color:#b09116;--tag-color:#b09116"></div><div class="flex flex-col items-start gap-0.5 flex-1 min-w-0"><span class="font-body-sm !font-bold text-foreground truncate w-full">House Atreides</span><span class="font-body-sm text-muted-foreground">Uses: 8</span></div></div></div><div class="relative group"><div class="flex items-center gap-3 px-3 py-2 border border-border"><div data-tag-color-square="true" class="w-3 h-3 shrink-0" style="background-color:#c84042;--tag-color:#c84042"></div><div class="flex flex-col items-start gap-0.5 flex-1 min-w-0"><span class="font-body-sm !font-bold text-foreground truncate w-full">House Harkonnen</span><span class="font-body-sm text-muted-foreground">Uses: 7</span></div></div></div></div></div><div class="space-y-2"><div class="flex items-center gap-2 border-b border-border/50 pb-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-grip-vertical h-3 w-3 flex-shrink-0 text-muted-foreground opacity-45" aria-hidden="true"><circle cx="9" cy="12" r="1"></circle><circle cx="9" cy="5" r="1"></circle><circle cx="9" cy="19" r="1"></circle><circle cx="15" cy="12" r="1"></circle><circle cx="15" cy="5" r="1"></circle><circle cx="15" cy="19" r="1"></circle></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right h-3 w-3 flex-shrink-0 text-muted-foreground rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" style="color:#317bc4"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg><span class="font-body font-semibold text-foreground leading-none" style="color:#317bc4">Orders</span><span class="font-caption text-muted-foreground leading-none">3</span></div><div class="grid gap-3" style="grid-template-columns:repeat(auto-fill, minmax(175px, 1fr));grid-auto-rows:minmax(48px, auto)"><div class="relative group"><div class="flex items-center gap-3 px-3 py-2 border border-border"><div data-tag-color-square="true" class="w-3 h-3 shrink-0" style="background-color:#317bc4;--tag-color:#317bc4"></div><div class="flex flex-col items-start gap-0.5 flex-1 min-w-0"><span class="font-body-sm !font-bold text-foreground truncate w-full">Bene Gesserit</span><span class="font-body-sm text-muted-foreground">Uses: 6</span></div></div></div><div class="relative group"><div class="flex items-center gap-3 px-3 py-2 border border-border"><div data-tag-color-square="true" class="w-3 h-3 shrink-0" style="background-color:#317bc4;--tag-color:#317bc4"></div><div class="flex flex-col items-start gap-0.5 flex-1 min-w-0"><span class="font-body-sm !font-bold text-foreground truncate w-full">Spacing Guild</span><span class="font-body-sm text-muted-foreground">Uses: 4</span></div></div></div><div class="relative group"><div class="flex items-center gap-3 px-3 py-2 border border-border"><div data-tag-color-square="true" class="w-3 h-3 shrink-0" style="background-color:#317bc4;--tag-color:#317bc4"></div><div class="flex flex-col items-start gap-0.5 flex-1 min-w-0"><span class="font-body-sm !font-bold text-foreground truncate w-full">Mentats</span><span class="font-body-sm text-muted-foreground">Uses: 3</span></div></div></div></div></div><div class="pt-4"><div class="border-t border-border mb-4"></div><div class="space-y-2"><div class="flex items-center gap-2 border-b border-border/50 pb-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right h-3 w-3 flex-shrink-0 text-muted-foreground rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span class="font-body font-semibold text-foreground leading-none">Ungrouped</span><span class="font-caption text-muted-foreground leading-none">3</span></div><div class="grid gap-3" style="grid-template-columns:repeat(auto-fill, minmax(175px, 1fr));grid-auto-rows:minmax(48px, auto)"><div class="relative group"><div class="flex items-center gap-3 px-3 py-2 border border-border"><div data-tag-color-square="true" class="w-3 h-3 shrink-0" style="background-color:#844ec0;--tag-color:#844ec0"></div><div class="flex flex-col items-start gap-0.5 flex-1 min-w-0"><span class="font-body-sm !font-bold text-foreground truncate w-full">Fremen</span><span class="font-body-sm text-muted-foreground">Uses: 12</span></div></div></div><div class="relative group"><div class="flex items-center gap-3 px-3 py-2 border border-border"><div data-tag-color-square="true" class="w-3 h-3 shrink-0" style="background-color:#c06931;--tag-color:#c06931"></div><div class="flex flex-col items-start gap-0.5 flex-1 min-w-0"><span class="font-body-sm !font-bold text-foreground truncate w-full">Sardaukar</span><span class="font-body-sm text-muted-foreground">Uses: 5</span></div></div></div><div class="relative group"><div class="flex items-center gap-3 px-3 py-2 border border-border"><div data-tag-color-square="true" class="w-3 h-3 shrink-0" style="background-color:#1f8d8d;--tag-color:#1f8d8d"></div><div class="flex flex-col items-start gap-0.5 flex-1 min-w-0"><span class="font-body-sm !font-bold text-foreground truncate w-full">Spice Trade</span><span class="font-body-sm text-muted-foreground">Uses: 9</span></div></div></div></div></div></div></div></div></div><figcaption class="text-xs text-muted-foreground text-center mt-2 italic px-1">Figure 1 - Tags Manager showing tag creation controls, two Tag Groups, and the Ungrouped section</figcaption></figure><h2 class="font-heading mb-4 mt-8">Why Use Tags?</h2><p class="font-body text-base mb-4">Traits belong to a single character. Tags don&#x27;t. Tag a character with &quot;Rebels&quot; and a location with &quot;Rebels,&quot; then view everything Rebellion-related in one place on the Tags page.</p><h2 class="font-heading mb-4 mt-8">Common Tag Uses</h2><p class="font-body text-base mb-4">Tags shine when tracking concepts that span multiple areas of your story:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Factions &amp; Affiliations:</strong> &quot;Royal Family&quot;, &quot;Magic Order&quot;, &quot;Merchant Guild&quot;</li><li class="font-body text-base"><strong class="font-body-bold">Story arcs:</strong> &quot;Act 1&quot;, &quot;Rebellion Arc&quot;, &quot;Resolution&quot;</li><li class="font-body text-base"><strong class="font-body-bold">Themes &amp; Motifs:</strong> &quot;Nature Symbolism&quot;, &quot;Political Intrigue&quot;, &quot;Prophecy&quot;</li><li class="font-body text-base"><strong class="font-body-bold">Status tracking:</strong> &quot;Needs Development&quot;, &quot;Ready for Review&quot;, &quot;Plot Critical&quot;</li><li class="font-body text-base"><strong class="font-body-bold">Character roles:</strong> &quot;Protagonist&quot;, &quot;Antagonist&quot;, &quot;Comic Relief&quot;</li></ul><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> Tags are book-wide. Create them once, use them everywhere. A tag created while editing a character is immediately available for locations, items, chapters, and notes. In a series, that means the whole series: one set of tags shared across every Book.</p></div><h2 class="font-heading mb-4 mt-8">Creating Tags</h2><p class="font-body text-base mb-4"><strong class="font-body-bold">Add New Tag:</strong> Click the &quot;Add New Tag&quot; button to create a tag. Give it a name and select a color. Colors help you visually distinguish tags at a glance.</p><p class="font-body text-base mb-4"><strong class="font-body-bold">Display Order:</strong> Choose how tags are sorted throughout the app:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Most Used:</strong> Tags you use frequently appear first (default)</li><li class="font-body text-base"><strong class="font-body-bold">A-Z:</strong> Alphabetical order for easy lookup</li><li class="font-body text-base"><strong class="font-body-bold">Recently Created:</strong> Newest tags appear first</li></ul><p class="font-body text-base mb-4">This setting affects tag ordering everywhere in Penpoint, not just in the Tags Manager.</p><h2 class="font-heading mb-4 mt-8">Tag Groups</h2><p class="font-body text-base mb-4">Once you have more than a couple of dozen tags, a flat list stops being useful. Tag Groups let you file related tags together under a heading: &quot;Factions&quot;, &quot;Themes&quot;, &quot;Draft Status&quot;. A group is only a filing cabinet. Putting a tag in one changes nothing about where that tag is already assigned, and a tag lives in one group at a time. Groups appear everywhere you pick or browse tags, not only on this page.</p><p class="font-body text-base mb-4"><strong class="font-body-bold">Create Tag Group:</strong> Click this button, name the group, and it appears as a section in your tag list. Tags you haven&#x27;t filed anywhere sit in a section called <strong class="font-body-bold">Ungrouped</strong> at the bottom.</p><h3 class="font-heading-sm mb-3 mt-6">Putting Tags in a Group</h3><p class="font-body text-base mb-4">Filing is safe to experiment with: nothing is deleted, and a tag in the wrong place just gets dragged somewhere else.</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Drag it:</strong> Pick up a tag and drop it anywhere inside a group&#x27;s section. The whole section lights up as you hover over it. Drop a tag on the Ungrouped section to pull it back out of its group, and let go away from any section to call the whole thing off.</li><li class="font-body text-base"><strong class="font-body-bold">Use the menu:</strong> Hover over a tag and click the small folder button (rest on it and it says &quot;Move to group&quot;), then pick a group. The same menu offers &quot;No group&quot; to take a tag out of one, and &quot;New group…&quot; to make a group and file the tag into it in one step.</li><li class="font-body text-base"><strong class="font-body-bold">Do a batch:</strong> Tick several tags and a dark bar appears above your tag list. Click <strong class="font-body-bold">Move to Group</strong> there to file all of them at once. Dragging any one of the ticked tags brings the rest with it.</li><li class="font-body text-base"><strong class="font-body-bold">Set it when you create it:</strong> Once you have at least one group, the Create New Tag window (opened by <strong class="font-body-bold">Add New Tag</strong>) gains a Group dropdown, so a tag can go straight where it belongs.</li></ul><h3 class="font-heading-sm mb-3 mt-6">Group Colors and Icons</h3><p class="font-body text-base mb-4">Every group&#x27;s heading carries a small row of buttons, faint until you hover over them, to rename the group, give it an icon, assign it a color, or delete it.</p><p class="font-body text-base mb-4">A group color takes over the display of every tag inside it, so a whole category reads as one block at a glance. Your own tag colors are kept, not overwritten: choose <strong class="font-body-bold">Remove group color</strong> from that same color button and every tag returns to the color you gave it. While the group color is in charge, each member tag&#x27;s own color button is deliberately unavailable, since the group is deciding.</p><h3 class="font-heading-sm mb-3 mt-6">Collapsing and Reordering</h3><p class="font-body text-base mb-4">Anywhere you pick tags, clicking a group&#x27;s heading folds it away, and it stays folded everywhere else you pick tags until you open it again, including the next time you open Penpoint. A category you&#x27;re not working on today stops taking up room on every character sheet and note. Headings don&#x27;t fold here in the Tags Manager: this is where you organize groups, so they stay open.</p><p class="font-body text-base mb-4">To change the order groups appear in, drag a group up or down by the grip at the far left of its heading (the column of small dots). That order is used everywhere, and Ungrouped always sits last.</p><h3 class="font-heading-sm mb-3 mt-6">Deleting a Group</h3><p class="font-body text-base mb-4">One of the two ways to delete a group reaches past the group and deletes the tags themselves, so the window spells out both outcomes and the tag count before you choose. Neither choice can be undone.</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Delete Group, Keep Tags:</strong> Only the heading goes. Every tag survives untouched, still attached to each character, chapter and note it was on. The tags simply become ungrouped.</li><li class="font-body text-base"><strong class="font-body-bold">Delete Group and N Tags:</strong> The tags are deleted outright and removed from every character, item, location, chapter, scene, note and arc they were on.</li></ul><p class="font-body text-base mb-4">An empty group is removed with a single <strong class="font-body-bold">Delete Group</strong> button, since there is nothing to decide.</p><h2 class="font-heading mb-4 mt-8">Managing Tags</h2><p class="font-body text-base mb-4">Hover over any tag card to reveal management options:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Change Color:</strong> Click the color swatch to pick a new color</li><li class="font-body text-base"><strong class="font-body-bold">Edit Name:</strong> Click the pencil icon to rename the tag</li><li class="font-body text-base"><strong class="font-body-bold">Merge Tags:</strong> Combine two tags into one, preserving all assignments</li><li class="font-body text-base"><strong class="font-body-bold">Move to group:</strong> File the tag into a Tag Group, or take it out of one</li><li class="font-body text-base"><strong class="font-body-bold">Delete:</strong> Remove a tag from your book (removes from all assignments)</li></ul><h3 class="font-heading-sm mb-3 mt-6">Merging Tags</h3><p class="font-body text-base mb-4">If you&#x27;ve created duplicate tags or want to consolidate similar tags, merging moves all assignments from one tag to another, then deletes the source tag. For example, merging &quot;Magic Users&quot; into &quot;Mages&quot; will update all characters, locations, and other content to use &quot;Mages&quot; instead.</p><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> When deleting a tag, you&#x27;ll be prompted to either delete it permanently or merge it with another tag. Choose merge if you want to preserve the categorization under a different name.</p></div><h3 class="font-heading-sm mb-3 mt-6">Bulk Operations</h3><p class="font-body text-base mb-4">Select multiple tags using the checkboxes (visible on hover) to perform actions on many tags at once:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Set Color:</strong> Apply the same color to multiple tags for visual grouping</li><li class="font-body text-base"><strong class="font-body-bold">Move to Group:</strong> File every selected tag into the same group at once</li><li class="font-body text-base"><strong class="font-body-bold">Merge:</strong> Consolidate multiple tags into a single target tag</li><li class="font-body text-base"><strong class="font-body-bold">Delete:</strong> Remove several tags at once, taking them off everything they were assigned to. You&#x27;re asked to confirm first, and it can&#x27;t be undone</li></ul><h2 class="font-heading mb-4 mt-8">Using Tags</h2><p class="font-body text-base mb-4">Assign tags to any content by entering Edit mode and using the Tags Block. View all content with a specific tag in the <strong class="font-body-bold">Tags</strong> page, where you can filter by type (characters, items, locations, chapters, notes).</p><h2 class="font-heading mb-4 mt-8">Best Practices</h2><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base">Start with broad categories and add specific tags as your book develops</li><li class="font-body text-base">Use consistent naming conventions (e.g., &quot;Royal Family&quot; not &quot;Family Royal&quot;)</li><li class="font-body text-base">Assign colors strategically. Similar tags can share colors, contrasting concepts use different colors</li><li class="font-body text-base">Don&#x27;t over-tag early; let your tagging system evolve with your story</li><li class="font-body text-base">Wait until a pattern appears before making groups. Groups are worth it once a flat list gets hard to scan, not on day one</li><li class="font-body text-base">Visit the Tags page regularly to discover unexpected connections</li></ul><h2 class="font-heading mb-4 mt-8">Learn More</h2><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><a href="/help/tags-block" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Tags Block</a> - Learn about the Tags Block for assigning tags to characters</li><li class="font-body text-base"><a href="/help/how-to-track-themes-in-a-novel" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Tags Viewer Page</a> - Discover how to view all content associated with a specific tag</li></ul></article>
+        </div>
+        <p class="help-footer">This guide is also in Penpoint, under Help. <a href="/help/">Browse all guides</a> or <a href="/trial">try Penpoint free</a>.</p>
+      </div>
+    </div>
+  </main>
+<footer class="pp-footer">
+    <div class="pp-footer__top">
+      <div class="pp-footer__cols">
+        <div class="pp-footer__col">
+          <div class="pp-footer__brand-row">
+            <svg class="pp-footer__brand-icon" viewBox="0 0 24 24" width="20" height="20" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+            <span class="pp-footer__brand-name">Penpoint</span>
+          </div>
+          <p class="pp-footer__tagline">Write your novel and organize your world in one app.</p>
+          <div class="pp-footer__platforms">
+            <i class="fa-brands fa-windows"></i>
+            <i class="fa-brands fa-apple"></i>
+            <i class="fa-brands fa-linux"></i>
+          </div>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/about" class="foot-link">About</a>
+          <a href="/development" class="foot-link">Development</a>
+          <a href="/#faq" class="foot-link">FAQ</a>
+          <a href="/help" class="foot-link">Help Guide</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/compare" class="foot-link">Compare All</a>
+          <a href="/scrivener-alternative" class="foot-link">vs Scrivener</a>
+          <a href="/dabble-alternative" class="foot-link">vs Dabble</a>
+          <a href="/campfire-alternative" class="foot-link">vs Campfire</a>
+          <a href="/worldanvil-alternative" class="foot-link">vs World Anvil</a>
+          <a href="/ellipsus-alternative" class="foot-link">vs Ellipsus</a>
+          <a href="/story-bible" class="foot-link">Story Bible</a>
+          <a href="/character-bible" class="foot-link">Character Bible</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/trial" class="foot-link">Free Trial</a>
+          <a href="/buy" class="foot-link">Buy</a>
+          <a href="/changelog" class="foot-link">Changelog</a>
+          <a href="/roadmap" class="foot-link">Roadmap</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/terms" class="foot-link">Terms</a>
+          <a href="/privacy" class="foot-link">Privacy</a>
+          <a href="/press" class="foot-link">Press</a>
+          <a href="mailto:support@penpoint.app" class="foot-link">Support</a>
+        </div>
+      </div>
+    </div>
+    <div class="pp-footer__bottom">
+      <div class="pp-footer__bottom-inner">
+        <p class="pp-footer__copy">&copy; 2026 Tophat Creative, LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/site-chrome.js"></script>
+</body>
+</html>

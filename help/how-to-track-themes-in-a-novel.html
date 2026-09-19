@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="linen">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <title>How to Track Themes in a Novel | Penpoint Help</title>
+  <meta name="description" content="Tag anything in your book, then see everything carrying that tag in one place. This is how you track a theme, a motif, or a loose thread.">
+  <link rel="canonical" href="https://penpoint.app/help/how-to-track-themes-in-a-novel">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://penpoint.app/help/how-to-track-themes-in-a-novel">
+  <meta property="og:title" content="How to Track Themes in a Novel | Penpoint Help">
+  <meta property="og:description" content="Tag anything in your book, then see everything carrying that tag in one place. This is how you track a theme, a motif, or a loose thread.">
+  <meta property="og:site_name" content="Penpoint">
+  <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://penpoint.app/help/how-to-track-themes-in-a-novel">
+  <meta name="twitter:title" content="How to Track Themes in a Novel | Penpoint Help">
+  <meta name="twitter:description" content="Tag anything in your book, then see everything carrying that tag in one place. This is how you track a theme, a motif, or a loose thread.">
+  <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="theme-color" content="#FFF7E6">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/site-chrome.css">
+  <link rel="stylesheet" href="help-articles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Tags Overview","item":"https://penpoint.app/help/how-to-track-themes-in-a-novel"}]}</script>
+  <style>
+    /* The article body is the app's design system; the chrome is the website's.
+       These rules are the seam between them, and they follow the site's spacing
+       variables rather than inventing a second scale. */
+    .help-article { padding: var(--space-10) 0 var(--space-16); }
+    /* Sidebar + article. The reading measure stays 760px; the sidebar sits beside it
+       rather than eating into it. */
+    .help-layout {
+      display: grid; grid-template-columns: 240px minmax(0, 760px);
+      gap: clamp(28px, 5vw, 64px); justify-content: center;
+      padding: 0 clamp(20px, 5vw, 52px);
+    }
+    .help-article__inner { min-width: 0; }
+
+    /* ----- Sidebar -----
+       Mirrors the in-app hierarchy. <details> gives the collapse with no JavaScript, so
+       it works for a crawler and for a reader with scripts off. Content inside a closed
+       <details> is still in the DOM, unlike the app's Collapsible. */
+    .help-nav {
+      position: sticky; top: 84px; align-self: start;
+      max-height: calc(100vh - 110px); overflow-y: auto;
+      font-family: 'Source Serif 4', serif; font-size: 14px; line-height: 1.45;
+      padding-right: 8px;
+    }
+    .help-nav__home {
+      display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+      letter-spacing: .14em; text-transform: uppercase; color: #7C5236;
+      text-decoration: none; margin: 0 0 16px; padding-bottom: 10px;
+      border-bottom: 1px solid #E0D2BC;
+    }
+    .help-nav__home:hover { color: #CD6E2C; }
+    .help-nav__sec { margin: 0 0 4px; }
+    .help-nav__sec > summary {
+      cursor: pointer; list-style: none; padding: 6px 0;
+      font-weight: 600; color: #29241E;
+    }
+    .help-nav__sec > summary::-webkit-details-marker { display: none; }
+    .help-nav__sec > summary::before {
+      content: '›'; display: inline-block; width: 14px;
+      color: #A8906D; transition: transform .15s ease;
+    }
+    .help-nav__sec[open] > summary::before { transform: rotate(90deg); }
+    .help-nav__sec > summary:hover { color: #CD6E2C; }
+    .help-nav__list { list-style: none; margin: 0; padding: 0 0 0 14px; }
+    .help-nav__list--1 { padding-left: 12px; }
+    .help-nav__list a {
+      display: block; padding: 4px 8px; color: #5C4332; text-decoration: none;
+      border-left: 2px solid transparent; text-wrap: pretty;
+    }
+    .help-nav__list a:hover { color: #CD6E2C; background: #F4EBD8; }
+    .help-nav__list a.is-current {
+      color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
+    }
+
+    @media (max-width: 960px) {
+      /* The sidebar becomes a collapsed block above the article rather than disappearing,
+         so the whole guide is still reachable on a phone. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav {
+        position: static; max-height: none; overflow: visible;
+        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
+      }
+    }
+    .help-crumbs {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: rgb(var(--muted-foreground)); margin: 0 0 var(--space-6);
+    }
+    .help-crumbs a { color: inherit; text-decoration: none; }
+    .help-crumbs a:hover { color: #CD6E2C; }
+    .help-body { color: rgb(var(--foreground)); }
+    .help-body :is(h1, h2, h3) { text-wrap: balance; }
+    .help-body p, .help-body li { text-wrap: pretty; }
+    /* Strong is font-body-bold in the app, a class the website's typography.css
+       does not carry. Without this, bold runs fall back to the browser default face. */
+    .help-body .font-body-bold { font-weight: 700; }
+    .help-footer {
+      margin-top: var(--space-12); padding-top: var(--space-6);
+      border-top: 1px solid rgb(var(--border));
+      color: rgb(var(--muted-foreground)); font-size: var(--text-sm);
+    }
+    .help-footer a { color: rgb(var(--link)); }
+    @media (max-width: 720px) {
+      /* Floated figures have no room to float on a phone. */
+      .help-body figure { float: none !important; margin: var(--space-6) auto !important; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<header class="pp-header">
+    <div class="pp-header__inner">
+      <a href="/" class="pp-logo" aria-label="Penpoint home">
+        <svg class="pp-logo__icon" viewBox="0 0 24 24" width="22" height="22" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+        <span class="pp-logo__text">Penpoint</span>
+      </a>
+      <nav class="pp-nav" aria-label="Primary">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" aria-label="Join our Discord" class="pp-nav__discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="/trial" class="pp-cta">Try Penpoint</a>
+      </nav>
+      <a href="/trial" class="pp-try-m">Try</a>
+      <button type="button" class="pp-burger" data-burger="" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="pp-mobile" data-mobile-menu="">
+      <div class="pp-mobile__inner">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </header>
+  <main class="help-article">
+    <div class="help-layout">
+      <nav class="help-nav" aria-label="All guides">
+        <a class="help-nav__home" href="/help/">All guides</a>
+        <details class="help-nav__sec">
+          <summary>Getting Started</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/getting-started-with-penpoint">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/how-to-start-a-novel">Creating Your First Book</a></li><li><a href="/help/novel-outline-templates">Understanding Book Template Types</a></li><li><a href="/help/organize-multiple-writing-projects">Managing Your Books</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/editing-book-details">Editing Book Details</a></li><li><a href="/help/duplicating-books">Duplicating Books</a></li><li><a href="/help/deleting-books">Deleting Books</a></li><li><a href="/help/importing-a-book">Importing a Book</a></li><li><a href="/help/exporting-a-book">Exporting a Book</a></li></ul></li><li><a href="/help/tracking-your-time">Tracking Your Time</a></li></ul>
+        </details>
+        <details class="help-nav__sec" open>
+          <summary>Building Your World</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/worldbuilding-for-writers">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/the-worldbuilding-toolbar">The Worldbuilding Toolbar</a></li><li><a href="/help/character-profile-software">Characters</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-write-a-character-profile">Working with Characters</a></li><li><a href="/help/character-views">Character Views</a></li><li><a href="/help/view-edit-modes">View Mode vs Edit Mode</a></li><li><a href="/help/sidebar-navigation">Sidebar &amp; Navigation</a></li><li><a href="/help/block-types">Block Types</a><ul class="help-nav__list help-nav__list--2"><li><a href="/help/text-block">Text Block</a></li><li><a href="/help/paragraph-block">Paragraph Block</a></li><li><a href="/help/number-block">Number Block</a></li><li><a href="/help/divider-block">Divider Block</a></li><li><a href="/help/calculate-block">Calculate Block</a></li><li><a href="/help/trait-block">Trait Block</a></li><li><a href="/help/tags-block">Tags Block</a></li><li><a href="/help/relationships-block">Relationships Block</a></li><li><a href="/help/items-block">Items Block</a></li><li><a href="/help/locations-block">Locations Block</a></li><li><a href="/help/chapters-block">Chapters Block</a></li><li><a href="/help/character-arc-block">Character Arc Block</a></li><li><a href="/help/image-block">Image Block</a></li><li><a href="/help/events-block">Events Block</a></li><li><a href="/help/notebook-block">Notebook Block</a></li></ul></li></ul></li><li><a href="/help/story-item-tracker">Items</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/working-with-items">Working with Items</a></li><li><a href="/help/item-views">Item Views</a></li><li><a href="/help/filtering-items">Filtering Items</a></li><li><a href="/help/sorting-items">Sorting Items</a></li><li><a href="/help/item-detail-panel">Item Detail Panel</a></li><li><a href="/help/editing-item-details">Editing Item Details</a></li><li><a href="/help/managing-item-types">Managing Item Types</a></li></ul></li><li><a href="/help/fictional-location-tracker">Locations</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/working-with-locations">Working with Locations</a></li><li><a href="/help/how-to-organize-fictional-locations">Location Hierarchy</a></li><li><a href="/help/organizing-locations">Organizing Locations</a></li><li><a href="/help/fictional-location-profile">Location Detail View</a></li><li><a href="/help/location-icons">Location Icons</a></li></ul></li><li><a href="/help/chapter-planning-software">Chapters</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-outline-a-novel">The Chapter Outline</a></li><li><a href="/help/chapter-view-modes">Chapter View Modes: By Group or By Scene</a></li><li><a href="/help/index-card-outlining">The Corkboard</a></li><li><a href="/help/placeholder-cards">Placeholder Cards</a></li><li><a href="/help/creating-chapters-and-scenes">Creating Chapters and Scenes</a></li><li><a href="/help/editing-chapter-and-scene-details">Editing Chapter and Scene Details</a></li><li><a href="/help/reordering-chapters">Reordering and Organizing Chapters</a></li><li><a href="/help/how-to-organize-a-novel-into-parts">Chapter Groups (Folders)</a></li><li><a href="/help/merging-and-deleting-chapters">Merging and Deleting</a></li><li><a href="/help/customizing-chapter-layout">Customizing Chapter Layout</a></li><li><a href="/help/chapter-block-types">Chapter Block Types</a><ul class="help-nav__list help-nav__list--2"><li><a href="/help/calendar-block">Calendar Block</a></li><li><a href="/help/outline-block">Outline Block</a></li><li><a href="/help/assigning-things-to-scenes">Assigning Things to Scenes</a></li></ul></li><li><a href="/help/chapters-open-in-manuscript">Open in Manuscript</a></li></ul></li><li><a href="/help/how-to-track-character-arcs">Arcs</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/how-to-plot-subplots">Story Arcs</a></li><li><a href="/help/how-to-write-a-character-arc">Character Arcs</a></li></ul></li><li><a href="/help/story-timeline-software">Timeline</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/story-event-tracker">Events</a></li></ul></li><li><a href="/help/character-relationship-map">Relationship Map</a></li><li><a href="/help/how-to-track-themes-in-a-novel" aria-current="page" class="is-current">Tags Overview</a></li><li><a href="/help/notes-app-for-novelists">Notebook</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/organize-novel-research-notes">Working with Notes</a></li><li><a href="/help/smart-folders-for-writing-notes">Folders and Smart Folders</a></li><li><a href="/help/notebook-images">Images in the Notebook</a></li><li><a href="/help/notebook-tables">Tables</a></li><li><a href="/help/notebook-shortcuts">Shortcuts</a></li><li><a href="/help/views-and-sorting">Views and Sorting</a></li><li><a href="/help/archiving-notes">Archiving Notes</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Manuscript Mode</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/distraction-free-writing-software">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/scenes-vs-chapters">Chapters &amp; Scenes</a></li><li><a href="/help/novel-outliner-sidebar">The Outliner</a></li><li><a href="/help/manuscript-breaks">Scene &amp; Chapter Breaks</a></li><li><a href="/help/manuscript-toolbar">The Toolbar</a></li><li><a href="/help/manuscript-version-history">Manuscript Snapshots</a></li><li><a href="/help/alternate-scene-drafts">Scene Drafts</a></li><li><a href="/help/manuscript-chapter-drafts">Chapter Drafts</a></li><li><a href="/help/compare-manuscript-drafts">Comparing Your Manuscript Drafts</a></li><li><a href="/help/manuscript-comments-and-notes">Comments &amp; Pinned Notes</a></li><li><a href="/help/manuscript-settings">Manuscript Settings</a></li><li><a href="/help/find-character-names-in-a-manuscript">Chapter Scanner</a></li><li><a href="/help/worldbuilding-while-you-write">Minipen</a></li><li><a href="/help/stop-editing-while-you-draft">Flowstate</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Searching &amp; Connecting</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/search-your-novel-notes">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/search-across-your-novel">Search</a></li><li><a href="/help/link-characters-in-your-manuscript">@Mentions</a></li><li><a href="/help/quick-add-menu">Quick Add Menu</a></li><li><a href="/help/story-glossary-generator">Compendium</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Writing a Series</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/how-to-write-a-book-series">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/combine-books-into-a-series">Converting a Book to a Series</a></li><li><a href="/help/series-library">Your Series in the Library</a></li><li><a href="/help/switching-books">Switching Between Books</a></li><li><a href="/help/presence">Presence: Which Books a Character Is In</a></li><li><a href="/help/importance-across-books">Importance Across Books</a></li><li><a href="/help/series-focus">This Book vs All Books</a></li><li><a href="/help/series-arcs-vs-book-arcs">Book Arcs and Series Arcs</a></li><li><a href="/help/book-notes-folders">Using Dedicated Book Folders</a></li><li><a href="/help/how-to-split-a-book-series">Splitting a Series into Separate Books</a></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Import &amp; Export</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/import-and-export-your-manuscript">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/exporting">Exporting Your Data</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/export-your-worldbuilding">Exporting Worldbuilding Data</a></li><li><a href="/help/generating-templates">Generating Templates</a></li><li><a href="/help/export-your-novel-to-word">Exporting Manuscripts</a></li></ul></li><li><a href="/help/importing-exporting">Importing Your Data</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/import-your-manuscript">Importing Data</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Settings</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/settings">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/customizing-character-layout">Customizing Character Layout</a></li><li><a href="/help/location-types">Managing Location Types</a></li><li><a href="/help/managing-traits">Managing Traits</a></li><li><a href="/help/tags">Managing Tags</a></li><li><a href="/help/interface-settings">Interface Settings</a></li><li><a href="/help/announcements">Community &amp; Updates</a></li><li><a href="/help/advanced-settings">Advanced Settings</a></li><li><a href="/help/automatic-novel-backup">Backup &amp; Restore</a></li><li><a href="/help/spellcheck-for-character-names">Spellcheck &amp; Autocorrect</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/contributing-authors-dictionary">Contributing to the Authors Dictionary</a></li></ul></li><li><a href="/help/calendar-settings">Calendar Settings</a><ul class="help-nav__list help-nav__list--1"><li><a href="/help/fantasy-calendar-generator">Custom Calendar</a></li></ul></li></ul>
+        </details>
+        <details class="help-nav__sec">
+          <summary>Penpoint Cloud</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/cloud-backup-for-writers">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/set-up-cloud-backup-for-your-novel">Setting Up Penpoint Cloud</a></li><li><a href="/help/encrypted-novel-backup">Your Password and Recovery Kit</a></li><li><a href="/help/penpoint-cloud-plans">Managing Your Subscription</a></li><li><a href="/help/write-on-multiple-computers">Managing Your Devices</a></li><li><a href="/help/sync-your-novel-between-computers">Syncing and Restoring</a></li><li><a href="/help/penpoint-cloud-settings">Penpoint Cloud Settings</a></li></ul>
+        </details>
+      </nav>
+      <div class="help-article__inner">
+        <nav class="help-crumbs" aria-label="Breadcrumb">
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+        </nav>
+        <div class="help-body">
+<article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Tags Viewer Page</h1><p class="font-body text-base mb-4">The Tags Viewer is your central hub for discovering connections across your entire book. Select any tag to instantly see every character, item, location, chapter, note, and arc associated with it, all in one unified view.</p><h2 class="font-heading mb-4 mt-8">Why Use the Tags Viewer?</h2><figure class="float-right ml-8 mb-8"><div class="border border-border rounded-lg shadow-lg overflow-hidden p-4"><div class="w-full max-w-[880px] mx-auto"><div class="mb-6"><h2 class="font-heading text-foreground mb-0 select-none">Search by tag:</h2><p class="font-body-sm text-muted-foreground select-none">Select a tag to view all characters, items, locations, chapters, and notes containing that tag.</p></div><div class="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-x-3 gap-y-4"><div class="flex items-center gap-3 px-4 py-3 border border-border opacity-90 pointer-events-none"><div data-tag-color-square="true" class="w-2.5 h-2.5 shrink-0" style="background-color:#b05399;--tag-color:#b05399"></div><h3 class="font-body font-semibold text-foreground truncate flex-1">Protagonist</h3><span class="font-body-sm text-muted-foreground shrink-0">5</span></div><div class="flex items-center gap-3 px-4 py-3 border border-border opacity-90 pointer-events-none"><div data-tag-color-square="true" class="w-2.5 h-2.5 shrink-0" style="background-color:#c84042;--tag-color:#c84042"></div><h3 class="font-body font-semibold text-foreground truncate flex-1">Antagonist</h3><span class="font-body-sm text-muted-foreground shrink-0">3</span></div><div class="flex items-center gap-3 px-4 py-3 border border-border opacity-90 pointer-events-none"><div data-tag-color-square="true" class="w-2.5 h-2.5 shrink-0" style="background-color:#317bc4;--tag-color:#317bc4"></div><h3 class="font-body font-semibold text-foreground truncate flex-1">Supporting</h3><span class="font-body-sm text-muted-foreground shrink-0">12</span></div><div class="flex items-center gap-3 px-4 py-3 border border-border opacity-90 pointer-events-none"><div data-tag-color-square="true" class="w-2.5 h-2.5 shrink-0" style="background-color:#5b59d0;--tag-color:#5b59d0"></div><h3 class="font-body font-semibold text-foreground truncate flex-1">London</h3><span class="font-body-sm text-muted-foreground shrink-0">18</span></div><div class="flex items-center gap-3 px-4 py-3 border border-border opacity-90 pointer-events-none"><div data-tag-color-square="true" class="w-2.5 h-2.5 shrink-0" style="background-color:#b09116;--tag-color:#b09116"></div><h3 class="font-body font-semibold text-foreground truncate flex-1">Military</h3><span class="font-body-sm text-muted-foreground shrink-0">4</span></div><div class="flex items-center gap-3 px-4 py-3 border border-border opacity-90 pointer-events-none"><div data-tag-color-square="true" class="w-2.5 h-2.5 shrink-0" style="background-color:#c43869;--tag-color:#c43869"></div><h3 class="font-body font-semibold text-foreground truncate flex-1">Victorian Era</h3><span class="font-body-sm text-muted-foreground shrink-0">22</span></div><div class="flex items-center gap-3 px-4 py-3 border border-border opacity-90 pointer-events-none"><div data-tag-color-square="true" class="w-2.5 h-2.5 shrink-0" style="background-color:#1f8d8d;--tag-color:#1f8d8d"></div><h3 class="font-body font-semibold text-foreground truncate flex-1">Magic User</h3><span class="font-body-sm text-muted-foreground shrink-0">7</span></div><div class="flex items-center gap-3 px-4 py-3 border border-border opacity-90 pointer-events-none"><div data-tag-color-square="true" class="w-2.5 h-2.5 shrink-0" style="background-color:#c06931;--tag-color:#c06931"></div><h3 class="font-body font-semibold text-foreground truncate flex-1">Rebel Alliance</h3><span class="font-body-sm text-muted-foreground shrink-0">9</span></div></div></div></div><figcaption class="text-xs text-muted-foreground text-center mt-2 italic px-1">Figure 1 - Tag selection grid in a book with no tag groups, showing all tags with usage counts</figcaption></figure><p class="font-body text-base mb-4">Tags transcend boundaries. A character, location, and chapter can all share the same tag. The Tags Viewer brings these connections to the surface, helping you:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Find related content instantly:</strong> See everything sharing a tag without searching multiple pages</li><li class="font-body text-base"><strong class="font-body-bold">Track story threads:</strong> Follow factions, themes, or arcs across your entire book</li><li class="font-body text-base"><strong class="font-body-bold">Spot gaps:</strong> Identify which characters or locations need more development</li><li class="font-body text-base"><strong class="font-body-bold">Maintain consistency:</strong> Review all content related to a specific concept or group</li></ul><h2 class="font-heading mb-4 mt-8">How It Works</h2><h3 class="font-heading-sm mb-3 mt-6">Selecting a Tag</h3><p class="font-body text-base mb-4">The Tags Viewer lays out all your tags as cards. Each one shows its name, color, and usage count (how many times it&#x27;s been assigned across your book). Click any tag to view all associated content.</p><p class="font-body text-base mb-4"><strong class="font-body-bold">Tag Groups:</strong> If you&#x27;ve filed your tags into groups, they appear here under a heading for each group, with anything unfiled under a heading called Ungrouped. Penpoint spreads the headings across two columns when there&#x27;s room for them, keeping each group whole.</p><p class="font-body text-base mb-4">Clicking a group&#x27;s heading folds it away, and it stays folded everywhere else you pick tags, including the next time you open Penpoint. Groups themselves are made, renamed and reordered on the Tags Manager, the page in Settings where you look after your tags.</p><p class="font-body text-base mb-4"><strong class="font-body-bold">Sorting Options:</strong> Use the Sort dropdown to organize tags by Usage (most-used first), Alphabetical (A-Z), or Date Created (newest first). There is one tag order shared across Penpoint, so setting it here also sets it on the Tags Manager and everywhere tags are listed.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> High usage counts indicate tags you&#x27;re actively using. Low counts might reveal tags you created but haven&#x27;t fully integrated yet: perfect opportunities to enrich your content.</p></div><h3 class="font-heading-sm mb-3 mt-6">Viewing Tagged Content</h3><figure class="w-full my-6"><div class="border border-border rounded-lg shadow-lg overflow-hidden p-4 bg-primary/10"><div class="w-full max-w-[900px] mx-auto"><div class="mb-6"><div class="flex justify-center"><div class="flex items-center gap-3 px-4 py-3 border border-border bg-background"><div data-tag-color-square="true" class="w-5 h-5 shrink-0 border border-border/30" style="background-color:#c43869;--tag-color:#c43869"></div><h2 class="font-heading text-foreground text-lg select-none">Victorian Era</h2><span class="font-body text-sm text-muted-foreground select-none">(5 items)</span></div></div></div><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-2"><span class="font-body text-xs text-muted-foreground select-none">Show:</span><div class="flex gap-1"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-normal ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/80 py-2 h-6 px-2 font-body text-xs pointer-events-none opacity-90"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user w-3 h-3 mr-1" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Characters</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-normal ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-transparent text-foreground border border-border hover:bg-muted hover:border-accent py-2 h-6 px-2 font-body text-xs pointer-events-none opacity-90"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package w-3 h-3 mr-1" aria-hidden="true"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"></path><path d="M12 22V12"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><path d="m7.5 4.27 9 5.15"></path></svg>Items</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-normal ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/80 py-2 h-6 px-2 font-body text-xs pointer-events-none opacity-90"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-3 h-3 mr-1" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>Locations</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-normal ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-transparent text-foreground border border-border hover:bg-muted hover:border-accent py-2 h-6 px-2 font-body text-xs pointer-events-none opacity-90"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-3 h-3 mr-1" aria-hidden="true"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>Chapters</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-normal ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-transparent text-foreground border border-border hover:bg-muted hover:border-accent py-2 h-6 px-2 font-body text-xs pointer-events-none opacity-90"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text w-3 h-3 mr-1" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>Notes</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-normal ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-transparent text-foreground border border-border hover:bg-muted hover:border-accent py-2 h-6 px-2 font-body text-xs pointer-events-none opacity-90"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-spline w-3 h-3 mr-1" aria-hidden="true" style="transform:rotate(45deg)"><circle cx="19" cy="5" r="2"></circle><circle cx="5" cy="19" r="2"></circle><path d="M5 17A12 12 0 0 1 17 5"></path></svg>Arcs</button></div></div></div><div class="space-y-4"><div><button class="flex items-center gap-2 w-full mb-2 group pointer-events-none" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-3.5 h-3.5 text-muted-foreground" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg><h3 class="font-body text-xs font-medium text-foreground select-none">Characters</h3><span class="font-body text-xs text-muted-foreground select-none">(3)</span></button><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"><div class="bg-card border border-border p-3 opacity-90"><div class="flex items-start mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user w-4 h-4 text-muted-foreground" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><h3 class="font-body text-xs font-medium mb-1 text-foreground">Sherlock Holmes</h3><p class="font-body text-[11px] text-muted-foreground leading-relaxed line-clamp-2">Brilliant detective known for his logical reasoning and forensic skills.</p></div><div class="bg-card border border-border p-3 opacity-90"><div class="flex items-start mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user w-4 h-4 text-muted-foreground" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><h3 class="font-body text-xs font-medium mb-1 text-foreground">Dr. John Watson</h3><p class="font-body text-[11px] text-muted-foreground leading-relaxed line-clamp-2">Former military doctor and chronicler of Holmes&#x27; adventures.</p></div><div class="bg-card border border-border p-3 opacity-90"><div class="flex items-start mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user w-4 h-4 text-muted-foreground" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><h3 class="font-body text-xs font-medium mb-1 text-foreground">Professor Moriarty</h3><p class="font-body text-[11px] text-muted-foreground leading-relaxed line-clamp-2">Criminal mastermind and Holmes&#x27; greatest adversary.</p></div></div></div><div><button class="flex items-center gap-2 w-full mb-2 group pointer-events-none" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-3.5 h-3.5 text-muted-foreground" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg><h3 class="font-body text-xs font-medium text-foreground select-none">Locations</h3><span class="font-body text-xs text-muted-foreground select-none">(2)</span></button><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"><div class="bg-card border border-border p-3 opacity-90"><div class="flex items-start mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-4 h-4 text-muted-foreground" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg></div><h3 class="font-body text-xs font-medium mb-1 text-foreground">221B Baker Street</h3><p class="font-body text-[11px] text-muted-foreground leading-relaxed line-clamp-2">Holmes and Watson&#x27;s residence in London.</p></div><div class="bg-card border border-border p-3 opacity-90"><div class="flex items-start mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-4 h-4 text-muted-foreground" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg></div><h3 class="font-body text-xs font-medium mb-1 text-foreground">Scotland Yard</h3><p class="font-body text-[11px] text-muted-foreground leading-relaxed line-clamp-2">Headquarters of the Metropolitan Police.</p></div></div></div></div></div></div><figcaption class="text-xs text-muted-foreground text-center mt-2 italic px-1">Figure 2 - Results view showing everything tagged with &quot;Victorian Era&quot;</figcaption></figure><p class="font-body text-base mb-4">After selecting a tag, you&#x27;ll see all related content organized by type: Characters, Items, Locations, Chapters, Arcs, and Notes. Each section shows cards with names and brief snippets from their descriptions. This page is for looking, not editing: to add or remove a tag, click through to the character, item, location, chapter, note, or arc and switch it to Edit mode.</p><p class="font-body text-base mb-4"><strong class="font-body-bold">Filters:</strong> Use the filter buttons at the top to show or hide specific types. Turn Characters, Items, Locations, Chapters, Notes, or Arcs on and off to focus on what matters for your current task.</p><p class="font-body text-base mb-4"><strong class="font-body-bold">Collapsible Sections:</strong> Click the small arrow beside any section heading to fold that section away. This keeps your view clean when working with tags that have many associated items.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> Click any card to navigate directly to that character, item, location, chapter, note, or arc. The Tags Viewer becomes a powerful navigation tool for exploring your book&#x27;s interconnected structure.</p></div><h2 class="font-heading mb-4 mt-8">Common Use Cases</h2><h3 class="font-heading-sm mb-3 mt-6">Tracking Factions &amp; Groups</h3><p class="font-body text-base mb-4">Tag characters with &quot;Rebel Alliance&quot; or &quot;Royal Court,&quot; then use the Tags Viewer to see all members at a glance. Add locations and chapters to the same tag to track where the faction appears and which story sections involve them.</p><h3 class="font-heading-sm mb-3 mt-6">Following Story Arcs</h3><p class="font-body text-base mb-4">Create tags like &quot;Act 1,&quot; &quot;Redemption Arc,&quot; or &quot;Mystery Thread,&quot; then assign them to relevant characters, chapters, and notes. The Tags Viewer shows you everything related to that arc, making it easy to check continuity and pacing.</p><h3 class="font-heading-sm mb-3 mt-6">Managing Development Status</h3><p class="font-body text-base mb-4">Use tags like &quot;Needs Development&quot; or &quot;Plot Critical&quot; to mark content requiring attention. Filter by Characters to see which personalities need more depth, or by Locations to identify settings that need fleshing out.</p><h3 class="font-heading-sm mb-3 mt-6">Thematic Analysis</h3><p class="font-body text-base mb-4">Tag content with themes like &quot;Betrayal,&quot; &quot;Redemption,&quot; or &quot;Nature Symbolism.&quot; The Tags Viewer reveals patterns across your story, helping you strengthen thematic consistency or identify areas where themes could be reinforced.</p><h2 class="font-heading mb-4 mt-8">Navigation Tips</h2><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Back to Tag Selection:</strong> Click the &quot;Back to Tag Selection&quot; button to return to your tags and choose a different one</li><li class="font-body text-base"><strong class="font-body-bold">Direct Navigation:</strong> Click any card to jump straight to that content on its own page (Characters, Items, and so on)</li><li class="font-body text-base"><strong class="font-body-bold">Quick Filtering:</strong> Turn type filters off to hide sections temporarily without folding them away</li></ul><h2 class="font-heading mb-4 mt-8">Learn More</h2><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><p class="font-body text-base mb-4"><a href="/help/tags" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Managing Tags</a> - Create, edit, and organize your tags in Settings</p></li><li class="font-body text-base"><p class="font-body text-base mb-4"><a href="/help/tags-block" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Tags Block</a> - Assign tags to characters and other content</p></li></ul></article>
+        </div>
+        <p class="help-footer">This guide is also in Penpoint, under Help. <a href="/help/">Browse all guides</a> or <a href="/trial">try Penpoint free</a>.</p>
+      </div>
+    </div>
+  </main>
+<footer class="pp-footer">
+    <div class="pp-footer__top">
+      <div class="pp-footer__cols">
+        <div class="pp-footer__col">
+          <div class="pp-footer__brand-row">
+            <svg class="pp-footer__brand-icon" viewBox="0 0 24 24" width="20" height="20" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+            <span class="pp-footer__brand-name">Penpoint</span>
+          </div>
+          <p class="pp-footer__tagline">Write your novel and organize your world in one app.</p>
+          <div class="pp-footer__platforms">
+            <i class="fa-brands fa-windows"></i>
+            <i class="fa-brands fa-apple"></i>
+            <i class="fa-brands fa-linux"></i>
+          </div>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/about" class="foot-link">About</a>
+          <a href="/development" class="foot-link">Development</a>
+          <a href="/#faq" class="foot-link">FAQ</a>
+          <a href="/help" class="foot-link">Help Guide</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/compare" class="foot-link">Compare All</a>
+          <a href="/scrivener-alternative" class="foot-link">vs Scrivener</a>
+          <a href="/dabble-alternative" class="foot-link">vs Dabble</a>
+          <a href="/campfire-alternative" class="foot-link">vs Campfire</a>
+          <a href="/worldanvil-alternative" class="foot-link">vs World Anvil</a>
+          <a href="/ellipsus-alternative" class="foot-link">vs Ellipsus</a>
+          <a href="/story-bible" class="foot-link">Story Bible</a>
+          <a href="/character-bible" class="foot-link">Character Bible</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/trial" class="foot-link">Free Trial</a>
+          <a href="/buy" class="foot-link">Buy</a>
+          <a href="/changelog" class="foot-link">Changelog</a>
+          <a href="/roadmap" class="foot-link">Roadmap</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/terms" class="foot-link">Terms</a>
+          <a href="/privacy" class="foot-link">Privacy</a>
+          <a href="/press" class="foot-link">Press</a>
+          <a href="mailto:support@penpoint.app" class="foot-link">Support</a>
+        </div>
+      </div>
+    </div>
+    <div class="pp-footer__bottom">
+      <div class="pp-footer__bottom-inner">
+        <p class="pp-footer__copy">&copy; 2026 Tophat Creative, LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/site-chrome.js"></script>
+</body>
+</html>

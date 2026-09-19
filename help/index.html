@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="linen">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.classList.add('js-ready');</script>
+  <title>Penpoint Help: Guides for Novelists and Worldbuilders</title>
+  <meta name="description" content="Guides for writing and worldbuilding in Penpoint: characters, chapters, outlining, manuscripts, series, import and export.">
+  <link rel="canonical" href="https://penpoint.app/help/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://penpoint.app/help/">
+  <meta property="og:title" content="Penpoint Help">
+  <meta property="og:description" content="Guides for writing and worldbuilding in Penpoint: characters, chapters, outlining, manuscripts, series, import and export.">
+  <meta property="og:site_name" content="Penpoint">
+  <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://penpoint.app/help/">
+  <meta name="twitter:title" content="Penpoint Help">
+  <meta name="twitter:description" content="Guides for writing and worldbuilding in Penpoint: characters, chapters, outlining, manuscripts, series, import and export.">
+  <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="theme-color" content="#FFF7E6">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <!-- Section and step icons. Same pinned build and SRI hash the other pages use. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/site-chrome.css">
+  <link rel="stylesheet" href="help-articles.css">
+  <style>
+    /* Follows the band pattern from trial.html: alternating paper / paper-alt sections,
+       an IBM Plex Mono kicker over a Newsreader heading, and icon + title + description
+       grids. A help hub is a landing page, so it is built like the other landing pages
+       rather than like a table of contents. */
+    /* ⚠️ Every color here is a literal hex. Do NOT reach for var(--accent, #CD6E2C) or
+       var(--paper, #FCF8F0) the way trial.html does.
+       Those custom properties hold rgb TRIPLETS ("229 211 200"), not colors, in both
+       Website/css/variables.css and the app theme this page also loads. The var therefore
+       resolves to something invalid and the hex fallback never fires. Measured: accent
+       icons rendered near-black, and the section cards lost their background entirely so
+       the hairline grid color showed through as a solid tan block.
+       trial.html gets away with it only because it does not load variables.css. */
+    .help-band { padding: clamp(42px, 6vw, 80px) clamp(20px, 5vw, 52px); }
+    .help-band--alt {
+      background: #F4EBD8;
+      border-top: 1px solid #E6DCCD; border-bottom: 1px solid #E6DCCD;
+    }
+    .help-wrap { max-width: 920px; margin: 0 auto; }
+    .help-kicker {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .22em;
+      text-transform: uppercase; color: #CD6E2C; margin: 0 0 16px;
+    }
+    .help-h2 {
+      font-family: 'Newsreader', serif; font-weight: 500;
+      font-size: clamp(26px, 3.8vw, 44px); line-height: 1.08; letter-spacing: -.02em;
+      color: #29241E; margin: 0; text-wrap: balance;
+    }
+    .help-h2 em { font-style: italic; font-weight: 400; }
+
+    /* ----- Hero ----- */
+    .help-hero { text-align: center; max-width: 760px; }
+    .help-hero h1 {
+      font-family: 'Newsreader', serif; font-weight: 500;
+      font-size: clamp(34px, 5.6vw, 62px); line-height: 1.06; letter-spacing: -.022em;
+      color: #29241E; margin: 0 0 clamp(16px, 2.4vw, 22px); text-wrap: balance;
+    }
+    .help-hero h1 em { font-style: italic; font-weight: 400; }
+    .help-hero__sub {
+      font-family: 'Source Serif 4', serif; font-size: clamp(16px, 1.9vw, 20px);
+      line-height: 1.58; color: #5C4A33; max-width: 600px; margin: 0 auto;
+      text-wrap: pretty;
+    }
+
+    /* ----- Start here: icon + title + sentence, same shape as the trial page ----- */
+    .help-steps {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(20px, 3vw, 30px) clamp(28px, 4vw, 48px);
+      margin-top: clamp(30px, 4vw, 44px);
+    }
+    .help-step {
+      display: flex; gap: 14px; align-items: flex-start;
+      text-decoration: none; color: inherit;
+      /* The whole entry is the link, so the whole entry has to look clickable. Padding
+         plus a matching negative margin keeps the grid alignment identical to a plain
+         block while giving the hover state something to fill. Both stay inside the grid
+         gap, so neighbors never overlap. */
+      padding: 14px 16px; margin: -14px -16px;
+      transition: background .18s ease;
+    }
+    .help-step:hover { background: #EFE3CC; }
+    .help-step i {
+      color: #CD6E2C; font-size: 18px; margin-top: 3px;
+      flex: none; width: 24px; text-align: center;
+    }
+    .help-step__title {
+      display: block; font-family: 'Source Serif 4', serif; font-weight: 600;
+      font-size: 16px; color: #29241E; margin: 0 0 5px;
+    }
+    .help-step:hover .help-step__title { color: #CD6E2C; }
+    .help-step__text {
+      display: block; font-family: 'Source Serif 4', serif; font-size: 14.5px;
+      line-height: 1.55; color: #5C4332; text-wrap: pretty;
+    }
+
+    /* ----- Section cards -----
+       The hairline grid from trial.html: a 1px gap over a border-colored background
+       draws the dividers, so the cards read as one block rather than eight islands.
+       Two fixed columns, never auto-fit. Eight sections divide evenly, so there is no
+       ragged final row and no short trailing column to make the page look left-weighted. */
+    .help-cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: #E0D2BC; border: 1px solid #E0D2BC;
+      margin-top: clamp(30px, 4vw, 44px);
+    }
+    .help-card { background: #FCF8F0; padding: clamp(22px, 2.8vw, 30px); min-width: 0; }
+    .help-card > i { font-size: 19px; color: #CD6E2C; margin-bottom: 12px; display: block; }
+    .help-card__title {
+      font-family: 'Source Serif 4', serif; font-weight: 600; font-size: 17px;
+      color: #29241E; margin: 0 0 6px; text-wrap: balance;
+    }
+    .help-card__title a { color: inherit; text-decoration: none; }
+    .help-card__title a:hover { color: #CD6E2C; }
+    /* The one sentence that separates a good help site from a bad one. */
+    .help-card__blurb {
+      font-family: 'Source Serif 4', serif; font-size: 14px; line-height: 1.55;
+      color: #5C4332; margin: 0 0 18px; text-wrap: pretty;
+    }
+    .help-card__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+    .help-card__list li { display: flex; flex-direction: column; gap: 2px; }
+    .help-card__list a {
+      font-family: 'Source Serif 4', serif; font-size: 15px; font-weight: 600;
+      color: #CD6E2C; text-decoration: none; text-wrap: pretty;
+    }
+    .help-card__list a:hover { text-decoration: underline; }
+    /* One line per link, so a reader scans rather than reads. */
+    .help-item__blurb {
+      font-family: 'Source Serif 4', serif; font-size: 13.5px; line-height: 1.5;
+      color: #7C6A52; text-wrap: pretty;
+    }
+    .help-card__more { margin: 18px 0 0; font-family: 'Source Serif 4', serif; font-size: 13.5px; }
+    .help-card__more a { color: #7C5236; text-decoration: none; }
+    .help-card__more a:hover { color: #CD6E2C; text-decoration: underline; }
+
+    @media (max-width: 720px) {
+      .help-steps { grid-template-columns: 1fr; }
+      .help-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<header class="pp-header">
+    <div class="pp-header__inner">
+      <a href="/" class="pp-logo" aria-label="Penpoint home">
+        <svg class="pp-logo__icon" viewBox="0 0 24 24" width="22" height="22" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+        <span class="pp-logo__text">Penpoint</span>
+      </a>
+      <nav class="pp-nav" aria-label="Primary">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" aria-label="Join our Discord" class="pp-nav__discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="/trial" class="pp-cta">Try Penpoint</a>
+      </nav>
+      <a href="/trial" class="pp-try-m">Try</a>
+      <button type="button" class="pp-burger" data-burger="" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="pp-mobile" data-mobile-menu="">
+      <div class="pp-mobile__inner">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="help-band">
+      <div class="help-wrap help-hero">
+        <p class="help-kicker">Penpoint Help</p>
+        <h1>Guides for novelists <em>and worldbuilders.</em></h1>
+        <p class="help-hero__sub">How to build a world, outline a book, and write it. Every guide here is also inside Penpoint.</p>
+      </div>
+    </section>
+
+    <section class="help-band help-band--alt">
+      <div class="help-wrap">
+        <div style="text-align:center;">
+          <p class="help-kicker">New to Penpoint</p>
+          <h2 class="help-h2">Start here.</h2>
+        </div>
+        <nav class="help-steps" aria-label="Start here">
+          <a class="help-step" href="/help/how-to-start-a-novel">
+            <i class="fa-solid fa-book" aria-hidden="true"></i>
+            <span>
+              <span class="help-step__title">Create your first book</span>
+              <span class="help-step__text">Name it, pick a template, and you are writing. Penpoint ships with a demo book if you would rather poke around first.</span>
+            </span>
+          </a>
+          <a class="help-step" href="/help/worldbuilding-for-writers">
+            <i class="fa-solid fa-earth-americas" aria-hidden="true"></i>
+            <span>
+              <span class="help-step__title">Build your world</span>
+              <span class="help-step__text">Characters, locations, and items live beside the manuscript, not in a separate app you forget to open.</span>
+            </span>
+          </a>
+          <a class="help-step" href="/help/how-to-outline-a-novel">
+            <i class="fa-solid fa-list-ol" aria-hidden="true"></i>
+            <span>
+              <span class="help-step__title">Outline your chapters</span>
+              <span class="help-step__text">Plan the shape of the book on a corkboard or an outline, and reorder it as the story changes.</span>
+            </span>
+          </a>
+          <a class="help-step" href="/help/distraction-free-writing-software">
+            <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
+            <span>
+              <span class="help-step__title">Write the prose</span>
+              <span class="help-step__text">Manuscript Mode is the writing side. Your worldbuilding stays one panel away while you draft.</span>
+            </span>
+          </a>
+          <a class="help-step" href="/help/export-your-novel-to-word">
+            <i class="fa-solid fa-file-export" aria-hidden="true"></i>
+            <span>
+              <span class="help-step__title">Export when you are ready</span>
+              <span class="help-step__text">Word, PDF, EPUB, Markdown, or plain text. Your work is yours, and it leaves whenever you want.</span>
+            </span>
+          </a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="help-band">
+      <div class="help-wrap">
+        <div style="text-align:center;">
+          <p class="help-kicker">Everything else</p>
+          <h2 class="help-h2">Browse by what you are doing.</h2>
+        </div>
+        <div class="help-cards">
+        <section class="help-card">
+          <i class="fa-solid fa-flag" aria-hidden="true"></i>
+          <h2 class="help-card__title"><a href="/help/getting-started-with-penpoint">Getting Started</a></h2>
+          <p class="help-card__blurb">Your first hour with Penpoint.</p>
+          <ul class="help-card__list">
+            <li><a href="/help/how-to-start-a-novel">Creating Your First Book</a>
+              <span class="help-item__blurb">Name it, pick a template, and start writing.</span>
+            </li>
+            <li><a href="/help/novel-outline-templates">Understanding Book Template Types</a>
+              <span class="help-item__blurb">Which starting structure fits the book you are writing.</span>
+            </li>
+            <li><a href="/help/organize-multiple-writing-projects">Managing Your Books</a>
+              <span class="help-item__blurb">Rename, duplicate, and organize your library.</span>
+            </li>
+          </ul>
+        </section>
+        <section class="help-card">
+          <i class="fa-solid fa-earth-americas" aria-hidden="true"></i>
+          <h2 class="help-card__title"><a href="/help/worldbuilding-for-writers">Building Your World</a></h2>
+          <p class="help-card__blurb">Characters, locations, chapters, and the connections between them.</p>
+          <ul class="help-card__list">
+            <li><a href="/help/character-profile-software">Characters</a>
+              <span class="help-item__blurb">Profiles, traits, and everything your cast carries.</span>
+            </li>
+            <li><a href="/help/chapter-planning-software">Chapters</a>
+              <span class="help-item__blurb">Break the book into chapters and scenes.</span>
+            </li>
+            <li><a href="/help/how-to-outline-a-novel">The Chapter Outline</a>
+              <span class="help-item__blurb">Plan the shape of the book before you draft it.</span>
+            </li>
+            <li><a href="/help/story-timeline-software">Timeline</a>
+              <span class="help-item__blurb">See which characters appear in which chapters.</span>
+            </li>
+            <li><a href="/help/character-relationship-map">Relationship Map</a>
+              <span class="help-item__blurb">Map who knows whom, and how.</span>
+            </li>
+            <li><a href="/help/how-to-track-character-arcs">Arcs</a>
+              <span class="help-item__blurb">Track the threads running through the story.</span>
+            </li>
+          </ul>
+          <p class="help-card__more"><a href="/help/worldbuilding-for-writers">All 20 Building Your World guides →</a></p>
+        </section>
+        <section class="help-card">
+          <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
+          <h2 class="help-card__title"><a href="/help/distraction-free-writing-software">Manuscript Mode</a></h2>
+          <p class="help-card__blurb">Write your prose, keep your drafts, and hold your world beside you.</p>
+          <ul class="help-card__list">
+            <li><a href="/help/scenes-vs-chapters">Chapters &amp; Scenes</a>
+              <span class="help-item__blurb">How scenes sit inside chapters.</span>
+            </li>
+            <li><a href="/help/stop-editing-while-you-draft">Flowstate</a>
+              <span class="help-item__blurb">A timer that locks each sentence so you stop re-editing.</span>
+            </li>
+            <li><a href="/help/worldbuilding-while-you-write">Minipen</a>
+              <span class="help-item__blurb">Your worldbuilding, open beside the prose.</span>
+            </li>
+            <li><a href="/help/manuscript-version-history">Manuscript Snapshots</a>
+              <span class="help-item__blurb">Keep earlier versions of a chapter.</span>
+            </li>
+            <li><a href="/help/compare-manuscript-drafts">Comparing Your Manuscript Drafts</a>
+              <span class="help-item__blurb">See what changed between two drafts.</span>
+            </li>
+            <li><a href="/help/find-character-names-in-a-manuscript">Chapter Scanner</a>
+              <span class="help-item__blurb">Find character and place names in your prose.</span>
+            </li>
+          </ul>
+          <p class="help-card__more"><a href="/help/distraction-free-writing-software">All 9 Manuscript Mode guides →</a></p>
+        </section>
+        <section class="help-card">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <h2 class="help-card__title"><a href="/help/search-your-novel-notes">Searching &amp; Connecting</a></h2>
+          <p class="help-card__blurb">Find anything in your book, and link it to everything else.</p>
+          <ul class="help-card__list">
+            <li><a href="/help/search-across-your-novel">Search</a>
+              <span class="help-item__blurb">Search every note, chapter, and character at once.</span>
+            </li>
+            <li><a href="/help/link-characters-in-your-manuscript">@Mentions</a>
+              <span class="help-item__blurb">Link a character into your text by typing @.</span>
+            </li>
+            <li><a href="/help/story-glossary-generator">Compendium</a>
+              <span class="help-item__blurb">An index of your world, built as you write.</span>
+            </li>
+          </ul>
+        </section>
+        <section class="help-card">
+          <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+          <h2 class="help-card__title"><a href="/help/how-to-write-a-book-series">Writing a Series</a></h2>
+          <p class="help-card__blurb">Write several books in one file, sharing a cast and a world.</p>
+          <ul class="help-card__list">
+            <li><a href="/help/combine-books-into-a-series">Converting a Book to a Series</a>
+              <span class="help-item__blurb">Turn one book into a series sharing a cast.</span>
+            </li>
+            <li><a href="/help/series-arcs-vs-book-arcs">Book Arcs and Series Arcs</a>
+              <span class="help-item__blurb">Arcs that span one book, or all of them.</span>
+            </li>
+            <li><a href="/help/how-to-split-a-book-series">Splitting a Series into Separate Books</a>
+              <span class="help-item__blurb">Separate a series back into standalone books.</span>
+            </li>
+          </ul>
+        </section>
+        <section class="help-card">
+          <i class="fa-solid fa-right-left" aria-hidden="true"></i>
+          <h2 class="help-card__title"><a href="/help/import-and-export-your-manuscript">Import &amp; Export</a></h2>
+          <p class="help-card__blurb">Get your book in and out of Penpoint.</p>
+          <ul class="help-card__list">
+            <li><a href="/help/import-your-manuscript">Importing Data</a>
+              <span class="help-item__blurb">Bring in a manuscript from another app.</span>
+            </li>
+            <li><a href="/help/export-your-novel-to-word">Exporting Manuscripts</a>
+              <span class="help-item__blurb">Export to Word, PDF, EPUB, and more.</span>
+            </li>
+            <li><a href="/help/export-your-worldbuilding">Exporting Worldbuilding Data</a>
+              <span class="help-item__blurb">Take your worldbuilding out as a document.</span>
+            </li>
+          </ul>
+        </section>
+        <section class="help-card">
+          <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+          <h2 class="help-card__title">Settings</h2>
+          <p class="help-card__blurb">Backups, spellcheck, and calendars you invent yourself.</p>
+          <ul class="help-card__list">
+            <li><a href="/help/automatic-novel-backup">Backup &amp; Restore</a>
+              <span class="help-item__blurb">Automatic local backups, and how to restore one.</span>
+            </li>
+            <li><a href="/help/spellcheck-for-character-names">Spellcheck &amp; Autocorrect</a>
+              <span class="help-item__blurb">Teach it your character names so it stops underlining them.</span>
+            </li>
+            <li><a href="/help/fantasy-calendar-generator">Custom Calendar</a>
+              <span class="help-item__blurb">Invent your own months, days, and years.</span>
+            </li>
+          </ul>
+        </section>
+        <section class="help-card">
+          <i class="fa-solid fa-cloud" aria-hidden="true"></i>
+          <h2 class="help-card__title"><a href="/help/cloud-backup-for-writers">Penpoint Cloud</a></h2>
+          <p class="help-card__blurb">Back up your books online and keep them in step across computers.</p>
+          <ul class="help-card__list">
+            <li><a href="/help/set-up-cloud-backup-for-your-novel">Setting Up Penpoint Cloud</a>
+              <span class="help-item__blurb">Create an account and choose a plan.</span>
+            </li>
+            <li><a href="/help/sync-your-novel-between-computers">Syncing and Restoring</a>
+              <span class="help-item__blurb">Keep a book in step across computers.</span>
+            </li>
+            <li><a href="/help/write-on-multiple-computers">Managing Your Devices</a>
+              <span class="help-item__blurb">Which computers are signed in.</span>
+            </li>
+            <li><a href="/help/encrypted-novel-backup">Your Password and Recovery Kit</a>
+              <span class="help-item__blurb">Your encryption password, and how to keep it safe.</span>
+            </li>
+            <li><a href="/help/penpoint-cloud-plans">Managing Your Subscription</a>
+              <span class="help-item__blurb">Plans, switching, and canceling.</span>
+            </li>
+          </ul>
+          <p class="help-card__more"><a href="/help/cloud-backup-for-writers">All 6 Penpoint Cloud guides →</a></p>
+        </section>
+        </div>
+      </div>
+    </section>
+  </main>
+<footer class="pp-footer">
+    <div class="pp-footer__top">
+      <div class="pp-footer__cols">
+        <div class="pp-footer__col">
+          <div class="pp-footer__brand-row">
+            <svg class="pp-footer__brand-icon" viewBox="0 0 24 24" width="20" height="20" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+            <span class="pp-footer__brand-name">Penpoint</span>
+          </div>
+          <p class="pp-footer__tagline">Write your novel and organize your world in one app.</p>
+          <div class="pp-footer__platforms">
+            <i class="fa-brands fa-windows"></i>
+            <i class="fa-brands fa-apple"></i>
+            <i class="fa-brands fa-linux"></i>
+          </div>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/about" class="foot-link">About</a>
+          <a href="/development" class="foot-link">Development</a>
+          <a href="/#faq" class="foot-link">FAQ</a>
+          <a href="/help" class="foot-link">Help Guide</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/compare" class="foot-link">Compare All</a>
+          <a href="/scrivener-alternative" class="foot-link">vs Scrivener</a>
+          <a href="/dabble-alternative" class="foot-link">vs Dabble</a>
+          <a href="/campfire-alternative" class="foot-link">vs Campfire</a>
+          <a href="/worldanvil-alternative" class="foot-link">vs World Anvil</a>
+          <a href="/ellipsus-alternative" class="foot-link">vs Ellipsus</a>
+          <a href="/story-bible" class="foot-link">Story Bible</a>
+          <a href="/character-bible" class="foot-link">Character Bible</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/trial" class="foot-link">Free Trial</a>
+          <a href="/buy" class="foot-link">Buy</a>
+          <a href="/changelog" class="foot-link">Changelog</a>
+          <a href="/roadmap" class="foot-link">Roadmap</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/terms" class="foot-link">Terms</a>
+          <a href="/privacy" class="foot-link">Privacy</a>
+          <a href="/press" class="foot-link">Press</a>
+          <a href="mailto:support@penpoint.app" class="foot-link">Support</a>
+        </div>
+      </div>
+    </div>
+    <div class="pp-footer__bottom">
+      <div class="pp-footer__bottom-inner">
+        <p class="pp-footer__copy">&copy; 2026 Tophat Creative, LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/site-chrome.js"></script>
+</body>
+</html>

@@ -53,6 +53,7 @@ Penpoint puts the manuscript and the worldbuilding in the same app:
 ### Data & Privacy
 - **Offline-First**: All data stored locally, works without internet
 - **No Account Required**: The app runs without a sign-up. Buying it is a one-time purchase, not a subscription
+- **Optional Cloud Backup**: Penpoint Cloud is a separate, optional subscription that adds encrypted backup and multi-computer sync. The app itself never requires it. See the Penpoint Cloud section below
 - **No AI**: Penpoint does not read, analyze, or generate prose. The writing is entirely the author's
 - **Cross-Platform**: Windows, macOS (Intel and Apple Silicon), and Linux
 - **Full Export**: Export everything to document formats at any time — no lock-in
@@ -60,6 +61,15 @@ Penpoint puts the manuscript and the worldbuilding in the same app:
 ## Pricing
 
 One-time purchase: $40 USD. The app carries no subscription and no recurring fees. Buy it, own it. One license covers all your desktop computers, regardless of operating system. Future major version upgrades will be optional paid upgrades with discounts for existing users.
+
+## Penpoint Cloud (Optional Add-On)
+
+Penpoint Cloud is a separate, optional subscription. The app is a one-time $40 purchase and works fully offline without it; Cloud adds an encrypted off-site copy of your work.
+
+- **Penpoint Backup** ($5/month or $45/year): encrypted cloud backup from one computer at a time, with unlimited version history
+- **Penpoint Sync** ($10/month or $96/year): everything in Backup, plus up to 5 computers kept in step automatically, plus the Penpoint phone app
+- **End-to-end encrypted**: books are encrypted on the writer's computer with a password only they hold, before anything is uploaded. Penpoint stores the books and cannot read them. A 12-word Recovery Kit is the backup if the password is lost
+- **Local books are never dependent on it**: the files on the computer are the originals. Canceling Cloud does not touch them
 
 ## Platform Support
 
@@ -93,16 +103,16 @@ Penpoint is developed by Tophat Creative, LLC (Oregon, USA, founded 2024). It is
 
 - **vs. Scrivener**: Scrivener organizes your manuscript but has no worldbuilding tools, and its series support is manual (a folder per book, no shared cast). Penpoint organizes your manuscript AND your world (characters, relationships, arcs, and locations, all cross-referenced), and builds a series automatically with one shared cast and world across every book. It also costs less ($40 vs $59.99) and includes all platforms in one license
 - **vs. Campfire**: Campfire has worldbuilding tools but you can't write your manuscript in it. Penpoint combines a full manuscript editor with worldbuilding in one app. Campfire also uses subscriptions or expensive module bundles. And where Campfire relies on separate linked projects for a series, Penpoint keeps one shared cast and world across every book in a single file, with a one-click book switcher and a This Book / All Books focus that narrows the whole app to the volume you're drafting
-- **vs. Dabble**: Dabble has scene management and plotting but limited worldbuilding and costs up to $30/month as a subscription. Penpoint is a one-time $40 purchase with deeper worldbuilding tools. One beta tester switching from Dabble said Penpoint "out-featured it". Dabble shares notes across a project's manuscripts; Penpoint shares your whole world (characters, locations, arcs) across every book in a series, with a This Book / All Books focus driven by each character's Presence
+- **vs. Dabble**: Dabble has scene management and plotting but limited worldbuilding and costs up to $49/month as a subscription. Penpoint is a one-time $40 purchase with deeper worldbuilding tools. One beta tester switching from Dabble said Penpoint "out-featured it". Dabble shares notes across a project's manuscripts; Penpoint shares your whole world (characters, locations, arcs) across every book in a series, with a This Book / All Books focus driven by each character's Presence
 - **vs. Notion/Obsidian**: Built specifically for writers — not adapted from general note-taking. No setup required, purpose-built features like Chapter Scanner, relationship maps, and arc visualizers
 - **vs. Google Docs / Word**: Great for typing. Penpoint is built for writing books — with scene management, character tracking, and worldbuilding. Import your Word doc and keep going
 - **vs. World Anvil**: Your books are local files and the app works offline, where World Anvil is web-only. The app itself is a one-time purchase rather than a tiered subscription. Plus you can write your manuscript in Penpoint too
-- **vs. Plottr**: Penpoint includes visual plotting AND a manuscript editor AND worldbuilding. Plottr is plotting-only with subscriptions up to $14.99/month or $419 lifetime
+- **vs. Plottr**: Penpoint includes visual plotting AND a manuscript editor AND worldbuilding. Plottr is plotting-only with subscriptions up to $14.99/month, or lifetime licenses from $150 to $649 depending on tier
 - **vs. Spreadsheets**: Visual tools designed for stories, not data entry
 
 ## What Writers Say
 
-Penpoint was beta tested by 29 writers across multiple genres. These are direct quotes from beta testers.
+Penpoint was beta tested by 100+ writers across multiple genres. These are direct quotes from beta testers.
 
 "Penpoint is THE writing app. If you want something that provides some structure for your planning, then acts as a quiet companion for the writing, this is it. From world building, to character creation, to helping you easily find things within your manuscript, to just sitting down and writing the damn thing... this is a writer's best friend." — L.M. Whiteley, author of the Hitmen of Ulysses series
 
@@ -110,7 +120,7 @@ Penpoint was beta tested by 29 writers across multiple genres. These are direct 
 
 "Penpoint lets me work the way I like and the tools are there waiting for me when I need them. The Flowstate aspect of Manuscript mode is a game changer for those who get stuck editing while they write." — Jen Yocom
 
-"Instead of ideas being scattered across Google Docs, notes on an iPad, and sticky notes, everything stays organized and centralized. The interface is clean, simple, and very easy to use, making it quick to focus on writing rather than figuring out complicated features." — ChromedOutCortex (Robert)
+"Instead of ideas being scattered across Google Docs, notes on an iPad, and sticky notes, everything stays organized and centralized. The interface is clean, simple, and very easy to use, making it quick to focus on writing rather than figuring out complicated features." — Robert, beta tester
 
 "I've been looking for years for a story bible software that fit the way my brain works, one that I can write in and link back to the pages of information for the things I'm writing. And it's finally here! Penpoint can even scan what I've written and make character and item pages for all the things it finds!" — Anonymous beta tester
 
@@ -118,11 +128,11 @@ Penpoint was beta tested by 29 writers across multiple genres. These are direct 
 
 "I am now using this exclusively — no more Google Docs or sticky notes!" — Beta tester
 
-"The plan I'm on is $30 a month for Dabble and Penpoint has out-featured it." — WarMaiden, beta tester switching from Dabble
+"The plan I'm on is $30 a month for Dabble and Penpoint has out-featured it." — Beta tester switching from Dabble
 
 ## Beta Validation
 
-Penpoint was tested by 29 beta users over a 3+ week period in February–March 2026. Key findings:
+Penpoint's beta ran over a 3+ week period in February–March 2026. 29 testers completed the exit survey, and these are its findings:
 
 - 81% of testers were actively writing a novel or series
 - 70% said they would purchase at $40 with little or no hesitation
@@ -152,7 +162,7 @@ Penpoint was tested by 29 beta users over a 3+ week period in February–March 2
 
 - Not a web app — it's a native desktop application
 - Not AI-powered — Penpoint does not read, analyze, or generate prose
-- Not a subscription — the app is a one-time $40 purchase
+- Not a subscription — the app is a one-time $40 purchase. Penpoint Cloud is a separate optional subscription for encrypted backup and sync; the app never requires it
 - Not dependent on the internet — it works fully offline, and your books are files on your computer
 - Not a formatting or publishing tool — it's for writing and organizing, not typesetting ebooks
 
@@ -206,6 +216,69 @@ Penpoint publishes detailed comparison pages and writing-reference articles at p
 - /ellipsus-alternative — Penpoint vs Ellipsus: collaboration, offline access, worldbuilding, and pricing.
 - /story-bible — What is a story bible? Definition, a full template, and how Penpoint builds one from your manuscript.
 - /character-bible — What is a character bible? Definition, a field-by-field template, and how to build one from a draft you already have.
+
+## Help Guide
+
+Penpoint's full user guide is published at https://penpoint.app/help. It is the same documentation that ships inside the app, and it covers every feature in depth. Start at the hub; these are the most-asked-about guides.
+
+- /help — Guide hub. Every section, plus a step-by-step path for someone who has just installed Penpoint.
+
+Getting started
+- /help/getting-started-with-penpoint — The overview: both modes, what lives where, and a guided path from an empty library to an active draft.
+- /help/how-to-start-a-novel — Creating a first book and picking a starting template.
+- /help/novel-outline-templates — What each starting template comes stocked with.
+
+Worldbuilding
+- /help/worldbuilding-for-writers — The worldbuilding side of the app and how its pages relate.
+- /help/character-profile-software — Character profiles, traits, and customizable character sheets.
+- /help/how-to-write-a-character-profile — Creating and organizing characters, and how much detail is worth filling in.
+- /help/fictional-location-tracker — Locations, and /help/how-to-organize-fictional-locations for nesting them into a hierarchy.
+- /help/chapter-planning-software — The Chapters page: chapters, scenes, POV, and per-scene cast.
+- /help/how-to-outline-a-novel — The Chapter Outline tree view.
+- /help/index-card-outlining — The Corkboard, Penpoint's index-card view of a book's structure.
+- /help/how-to-organize-a-novel-into-parts — Chapter Groups for parts and acts.
+- /help/how-to-plot-subplots — Story Arcs: main plot, subplots, keyframes, and structure presets.
+- /help/how-to-write-a-character-arc — Character Arcs and fortune curves.
+- /help/story-timeline-software — The Timeline view of character appearances across chapters.
+- /help/character-relationship-map — The visual map of the cast and their connections.
+- /help/how-to-track-themes-in-a-novel — Universal tags and the Tags viewer.
+- /help/notes-app-for-novelists — The Notebook, and /help/smart-folders-for-writing-notes for tag-driven folders.
+
+Writing the manuscript
+- /help/distraction-free-writing-software — Manuscript Mode, the writing environment.
+- /help/scenes-vs-chapters — How prose is split into chapters and scenes.
+- /help/stop-editing-while-you-draft — Flowstate, the forward-only writing mode.
+- /help/worldbuilding-while-you-write — Minipen, the worldbuilding sidebar inside Manuscript Mode.
+- /help/find-character-names-in-a-manuscript — The Chapter Scanner, which reads prose and links the characters, locations, and items it finds.
+- /help/manuscript-version-history — Manuscript snapshots.
+- /help/alternate-scene-drafts and /help/compare-manuscript-drafts — Saving alternate versions of a scene and diffing them.
+- /help/spellcheck-for-character-names — The offline spellchecker and how it learns invented names.
+
+Finding things
+- /help/search-across-your-novel — The Ctrl+K searchbar across manuscript and worldbuilding.
+- /help/link-characters-in-your-manuscript — @mentions and auto-updating links.
+- /help/story-glossary-generator — The Compendium, an alphabetical index of everything in a book.
+
+Series
+- /help/how-to-write-a-book-series — Series support: one file, one shared cast and world.
+- /help/combine-books-into-a-series — Converting a standalone book into Book 1 of a series.
+- /help/how-to-split-a-book-series — Splitting a series back into standalone books.
+- /help/series-arcs-vs-book-arcs — When a storyline belongs to one book and when it spans the saga.
+
+Import, export, and backup
+- /help/import-and-export-your-manuscript — Getting work in and out.
+- /help/import-your-manuscript — The Import Wizard and automatic chapter detection.
+- /help/export-your-novel-to-word — Exporting to Word, PDF, EPUB, RTF, Markdown, or plain text.
+- /help/export-your-worldbuilding — Exporting characters, locations, items, and notes.
+- /help/automatic-novel-backup — Automatic local backups and restoring from one.
+
+Penpoint Cloud
+- /help/cloud-backup-for-writers — What Penpoint Cloud is, the two plans, and how the encryption works.
+- /help/set-up-cloud-backup-for-your-novel — Creating an account, choosing a plan, and saving the Recovery Kit.
+- /help/sync-your-novel-between-computers — How sync and version history work, and restoring a book.
+- /help/write-on-multiple-computers — Managing which computers are signed in.
+- /help/encrypted-novel-backup — The encryption password and the 12-word Recovery Kit.
+- /help/penpoint-cloud-plans — Plans, pricing, switching, and canceling.
 
 ## Status
 
