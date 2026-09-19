@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Arcs","item":"https://penpoint.app/help/how-to-track-character-arcs"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Building Your World","item":"https://penpoint.app/help/worldbuilding-for-writers"},{"@type":"ListItem","position":4,"name":"Arcs","item":"https://penpoint.app/help/how-to-track-character-arcs"}]}</script>
   <style>
     /* The article body is the app's design system; the chrome is the website's.
        These rules are the seam between them, and they follow the site's spacing
@@ -83,15 +83,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -99,6 +90,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -198,7 +204,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/worldbuilding-for-writers">Building Your World</a> / <span aria-current="page">Arcs</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Arcs</h1><p class="font-body text-base mb-4">The Arcs page helps you visualize and track the structural and emotional threads running through your story. Whether you&#x27;re mapping the twists of your main plot or charting a character&#x27;s rise and fall, arcs give you a bird&#x27;s-eye view of your narrative.</p><h2 class="font-heading mb-4 mt-8">Two Kinds of Arcs</h2><p class="font-body text-base mb-4">The Arcs page is divided into two modes, accessible via the tab toggle at the top:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><a href="/help/how-to-plot-subplots" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Story Arcs</a>: Track your plot structure: main storyline, subplots, and the keyframes that mark each turning point.</li><li class="font-body text-base"><a href="/help/how-to-write-a-character-arc" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Character Arcs</a>: Track a character&#x27;s fortune over time, visualized as a curve that rises and falls with their circumstances.</li></ul><p class="font-body text-base mb-4">Writing a series? There&#x27;s a third kind: Series Arcs chart the storylines that span every Book, and your Story Arcs are called Book Arcs there: same tool, one per Book. See <a href="/help/series-arcs-vs-book-arcs" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Book Arcs and Series Arcs</a>.</p><h2 class="font-heading mb-4 mt-8">The Layout</h2><p class="font-body text-base mb-4">Both modes share a three-panel layout:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Sidebar</strong> (left): Browse your arc hierarchy or character list. Use the divider button to collapse or expand it.</li><li class="font-body text-base"><strong class="font-body-bold">Visualizer</strong> (top right): An interactive display showing your arcs as curves with diamond-shaped keyframes.</li><li class="font-body text-base"><strong class="font-body-bold">Details Panel</strong> (bottom right): View and edit the selected arc or keyframe&#x27;s information.</li></ul><h2 class="font-heading mb-4 mt-8">View and Edit Modes</h2><p class="font-body text-base mb-4">Each mode has a View/Edit toggle. In View mode you can browse your arcs and read details. Switch to Edit mode to make changes: rename arcs, add or remove keyframes, write plot details, and more.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> Press Ctrl+E (Cmd+E on Mac) to toggle between View and Edit mode from anywhere on the Arcs page.</p></div><h2 class="font-heading mb-4 mt-8">Arcs Across the App</h2><p class="font-body text-base mb-4">Arcs aren&#x27;t confined to the Arcs page; they appear throughout Penpoint to keep your story structure visible wherever you&#x27;re working:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><a href="/help/how-to-write-a-character-arc" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Character Arcs</a> appear on character sheets via the <a href="/help/character-arc-block" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Character Arc Block</a>, showing a compact fortune curve you can click to jump to the full editor.</li><li class="font-body text-base"><a href="/help/how-to-plot-subplots" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Story Arcs</a> appear on chapter detail pages as a mini arc visualizer, showing which plot points each chapter is assigned to. See <a href="/help/editing-chapter-and-scene-details" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Editing Chapter and Scene Details</a> for more.</li></ul><p class="font-body text-base mb-4">Clicking any arc or keyframe in these compact views navigates you directly to the full <a href="/help/how-to-track-character-arcs" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Arcs</a> page with that arc selected.</p></article>

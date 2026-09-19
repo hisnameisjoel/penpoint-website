@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Scene & Chapter Breaks","item":"https://penpoint.app/help/manuscript-breaks"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Manuscript Mode","item":"https://penpoint.app/help/distraction-free-writing-software"},{"@type":"ListItem","position":4,"name":"Scene & Chapter Breaks","item":"https://penpoint.app/help/manuscript-breaks"}]}</script>
   <style>
     /* The article body is the app's design system; the chrome is the website's.
        These rules are the seam between them, and they follow the site's spacing
@@ -84,15 +84,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -100,6 +91,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -199,7 +205,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/distraction-free-writing-software">Manuscript Mode</a> / <span aria-current="page">Scene &amp; Chapter Breaks</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Inserting Scene &amp; Chapter Breaks</h1><p class="font-body text-base mb-4">As you write, you&#x27;ll need to split your prose into scenes and chapters. Penpoint makes this easy with toolbar buttons and keyboard shortcuts that split content right at your cursor position.</p><h2 class="font-heading mb-4 mt-8">Scene Breaks</h2><p class="font-body text-base mb-4">Press <strong class="font-body-bold">Ctrl+Shift+Enter</strong> (Cmd+Shift+Enter on Mac) to insert a scene break at your cursor. The text before the cursor stays in the current scene, and everything after becomes a new scene. A visual divider appears between them.</p><p class="font-body text-base mb-4">You can also click the scene break button in the toolbar (the button that looks like a rectangle split in two; hover over it and the tooltip will say &quot;Scene break&quot;). Scene breaks are useful for marking shifts in time, location, or point of view within a chapter.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> You can customize the look of scene dividers in manuscript settings (click the gear icon in the toolbar). Choose from six styles: Quill, Dinkus (the classic * * * mark seen in published books), Line, Fade, Dot, or Blank.</p></div><h2 class="font-heading mb-4 mt-8">Chapter Breaks</h2><p class="font-body text-base mb-4">The easiest way to insert a chapter break is to click the chapter break button in the toolbar (the two-columns icon, right next to the scene break button; hover over it and the tooltip will say &quot;Chapter break&quot;). You can also use the keyboard shortcut <strong class="font-body-bold">Ctrl+Shift+Alt+Enter</strong> (Cmd+Shift+Alt+Enter on Mac). Either way, this splits the current content into two chapters at your cursor position.</p><p class="font-body text-base mb-4">A small window pops up asking for the new chapter&#x27;s details:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Chapter Title</strong>: The name of the new chapter (max 50 characters).</li><li class="font-body text-base"><strong class="font-body-bold">In which...</strong>: A brief chapter summary, meant to be completed like a sentence, e.g. &quot;In which our hero discovers the truth.&quot; This is optional (max 100 characters).</li><li class="font-body text-base"><strong class="font-body-bold">Chapter Type</strong>: Choose from Standard, Prologue, Epilogue, and several others. This is a label for your own reference. You can usually just leave this on Standard and press Enter.</li></ul><p class="font-body text-base mb-4">After confirming, everything after your cursor moves into the new chapter and Penpoint takes you there.</p><h2 class="font-heading mb-4 mt-8">Undoing a Split</h2><p class="font-body text-base mb-4">You can undo a split, but only right away: before you type anything else or leave the chapter. Once you start editing or move to a different chapter, the undo option is gone.</p><p class="font-body text-base mb-4">To undo, press <strong class="font-body-bold">Ctrl+Z</strong> (Cmd+Z on Mac). For scene splits, one undo step puts everything back. For chapter breaks (which split both a scene and a chapter), pressing Ctrl+Z twice will fully reverse the operation: first rejoining the chapters, then rejoining the scenes.</p><h2 class="font-heading mb-4 mt-8">Merging Scenes</h2><p class="font-body text-base mb-4">To merge two scenes back together, place your cursor on the line directly above or below a scene divider and press <strong class="font-body-bold">Backspace</strong> or <strong class="font-body-bold">Delete</strong>. You can also right-click (or Ctrl+click on Mac) a scene in the outline sidebar (the chapter and scene list on the left side of the screen) and select <strong class="font-body-bold">Merge with scene above</strong>. Either way, Penpoint asks you to confirm first, then combines the two scenes into one.</p><p class="font-body text-base mb-4">All the writing from both scenes is kept, in order, and the absorbed scene&#x27;s characters, locations, items, tags, and plot points move across to the scene above it. Notes and other text fields are joined together; where both scenes had a single number or date, the upper scene&#x27;s value wins.</p><p class="font-body text-base mb-4">The absorbed scene itself stops existing, so its name, color, status, and any saved drafts on it are removed. The confirmation window says so before you commit.</p><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> <strong class="font-body-bold">Merged two scenes by mistake?</strong> Press Ctrl+Z (Cmd+Z on Mac) to undo. Penpoint restores the absorbed scene exactly as it was: its title, color, status, saved drafts, custom field values, and any character, location, tag, or plot point assignments all come back. The undo lasts until you navigate to a different chapter or close the app, so check the merge looks right while you still have it. The text of the second scene should now start where the divider used to be.</p></div><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> If you merge scenes often and would rather skip the confirmation, tick <strong class="font-body-bold">Don’t ask again</strong> in the merge window. Backspace and Delete will then merge straight away (the right-click menu still confirms). This applies to every book. To bring the confirmation back, open manuscript settings with the gear icon in the toolbar and re-tick <strong class="font-body-bold">Confirm scene merges</strong>.</p></div><h2 class="font-heading mb-4 mt-8">Merging Chapters</h2><p class="font-body text-base mb-4">Right-click a chapter in the outline sidebar and select <strong class="font-body-bold">Merge with chapter above</strong> to combine it with the previous chapter. Penpoint will ask you to confirm before merging. All scenes from both chapters are preserved: the scenes from the second chapter are added after the scenes from the first.</p><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> <strong class="font-body-bold">Unlike scene merges, chapter merges cannot be undone with Ctrl+Z.</strong> If you merge by mistake, you would need to manually re-split the chapter using a chapter break. Take a moment to confirm you&#x27;re merging the right chapters before proceeding.</p></div></article>

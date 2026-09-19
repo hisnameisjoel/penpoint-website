@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Folders and Smart Folders","item":"https://penpoint.app/help/smart-folders-for-writing-notes"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Building Your World","item":"https://penpoint.app/help/worldbuilding-for-writers"},{"@type":"ListItem","position":4,"name":"Folders and Smart Folders","item":"https://penpoint.app/help/smart-folders-for-writing-notes"}]}</script>
   <style>
     /* The article body is the app's design system; the chrome is the website's.
        These rules are the seam between them, and they follow the site's spacing
@@ -83,15 +83,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -99,6 +90,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -198,7 +204,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/worldbuilding-for-writers">Building Your World</a> / <span aria-current="page">Folders and Smart Folders</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Folders and Smart Folders</h1><p class="font-body text-base mb-4">The folder list on the left side of the Notebook lets you organize your notes, images, and shortcuts into folders within folders (much like folders on your computer). The top level is called the <strong class="font-body-bold">Binder</strong> (the top-level folder, labeled &quot;Binder&quot; in the app, that holds everything).</p><h2 class="font-heading mb-4 mt-8">Creating Folders</h2><p class="font-body text-base mb-4">To create a folder, click the <strong class="font-body-bold">Folder</strong> button in the toolbar at the top of the Notebook and choose <strong class="font-body-bold">New Folder</strong>, or right-click (or Ctrl+click on Mac) any empty space in the folder list and choose <strong class="font-body-bold">New Folder</strong>. Type a name (up to 100 characters) and press Enter.</p><p class="font-body text-base mb-4">You can nest folders up to 5 levels deep. To create a subfolder, right-click an existing folder and choose <strong class="font-body-bold">New Folder</strong>.</p><h2 class="font-heading mb-4 mt-8">Managing Folders</h2><p class="font-body text-base mb-4">Right-click any folder to see its options:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Rename</strong>: Edit the folder name right where it appears (also triggered by pressing F2; you may need to hold Fn on some Mac keyboards)</li><li class="font-body text-base"><strong class="font-body-bold">Change Color</strong>: Pick a color for visual organization; a color picker will appear with the available options</li><li class="font-body text-base"><strong class="font-body-bold">Move to Folder...</strong>: Move the folder to a different location in the folder list</li><li class="font-body text-base"><strong class="font-body-bold">Delete Folder</strong>: Permanently remove the folder and everything inside it. You&#x27;ll be asked to confirm before anything is deleted, and there is no undo. If the folder contains notes you want to keep, move them to another folder first</li></ul><p class="font-body text-base mb-4">You can also drag folders in the folder list to rearrange them.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> Click the arrow next to a folder to expand or collapse it. Your expand/collapse preferences are remembered between sessions.</p></div><h2 class="font-heading mb-4 mt-8">Moving Items Between Folders</h2><p class="font-body text-base mb-4">There are two ways to move items, including notes, images, and shortcuts (quick links to characters, locations, and other items in your book), between folders:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Drag and drop</strong>: Drag an item onto a folder in the folder list or in the content area on the right</li><li class="font-body text-base"><strong class="font-body-bold">Move to Folder...</strong>: Right-click an item and choose &quot;Move to Folder...&quot; to pick the destination from a dialog</li></ul><p class="font-body text-base mb-4">You can move multiple items at once. Select several items by holding Ctrl (or Cmd on Mac) and clicking each one, or hold Shift and click to select a range. Then right-click and choose <strong class="font-body-bold">Move to Folder...</strong>.</p><h2 class="font-heading mb-4 mt-8">Folder Path</h2><p class="font-body text-base mb-4">When you go into a nested folder, a breadcrumb trail (a row of folder names at the top showing where you are) appears above the content area. You can click any folder name in that path to jump back to it, or press <strong class="font-body-bold">Alt+Up Arrow</strong> to go to the folder that contains this one.</p><h2 class="font-heading mb-4 mt-8">Smart Folders</h2><p class="font-body text-base mb-4">A Smart Folder is a regular folder that&#x27;s linked to one of your tags (labels you create to categorize items across your book). It automatically creates shortcuts (links to the original items, not copies) to every item with that tag, keeping related content gathered in one place. Deleting a shortcut from a Smart Folder does not delete the original item — it just removes the link.</p><h3 class="font-heading-sm mb-3 mt-6">Creating a Smart Folder</h3><p class="font-body text-base mb-4">Right-click in the folder list and choose <strong class="font-body-bold">New Smart Folder</strong>. You&#x27;ll be prompted to pick a tag. The folder is created and named after the tag, and it fills with shortcuts to all items that have that tag.</p><p class="font-body text-base mb-4">You can also convert an existing folder into a Smart Folder: right-click it and choose <strong class="font-body-bold">Link to Tag (Smart Folder)...</strong>, then select a tag. Notes, images, and subfolders already in the folder stay where they are; the tag shortcuts are added alongside them.</p><h3 class="font-heading-sm mb-3 mt-6">Unlinking a Smart Folder</h3><p class="font-body text-base mb-4">To turn a Smart Folder back into a regular folder, right-click it and choose <strong class="font-body-bold">Unlink Smart Folder</strong>. The shortcuts that were automatically created will remain and still work; they continue to point to the original items. Any items you added manually also stay in the folder. However, new tagged items won&#x27;t be added automatically.</p><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> You can also add tagged items to a regular folder without linking it. Right-click a folder and choose <strong class="font-body-bold">Add Shortcuts from Tag...</strong>. This adds them once; it won&#x27;t automatically update if you tag more items later.</p></div><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> A folder can also appear outside the Notebook. Point a <a href="/help/notebook-block" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Notebook Block</a> on a character sheet or scene at a folder, and every note inside it shows up there as a live list, updating as you add notes. Handy for a per-character &quot;Character Work&quot; folder.</p></div><p class="font-body text-base mb-4">The links below will take you to related articles in this help system. To learn more about shortcuts, see <a href="/help/notebook-shortcuts" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Shortcuts</a>. For tag management, see <a href="/help/tags" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Tags</a>.</p></article>

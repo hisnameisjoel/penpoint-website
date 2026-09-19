@@ -83,15 +83,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -99,6 +90,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -198,7 +204,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <span aria-current="page">Penpoint Cloud</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Penpoint Cloud</h1><p class="font-body text-base mb-4">Penpoint Cloud keeps an encrypted copy of every book in the cloud. If something happens to your computer, sign in on another one and bring your books back. It&#x27;s built right into Penpoint, so backing up is automatic.</p><h2 class="font-heading mb-4 mt-8">What Penpoint Cloud Does</h2><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Keeps your books safe</strong>: every book and every version, backed up automatically. Lost laptop, dead hard drive: your work is still there.</li><li class="font-body text-base"><strong class="font-body-bold">Write on more than one computer</strong>: Penpoint Sync copies your latest writing between them (that&#x27;s what &quot;syncing&quot; means), so a book stays the same everywhere you sign in.</li><li class="font-body text-base"><strong class="font-body-bold">Private encryption</strong>: your books stay yours alone. You protect them with a password, and everything is encrypted on your computer before it leaves. Penpoint stores your books but cannot read them, and neither can anyone else. If you forget your password, your Recovery Kit is your backup (a 12-word phrase you save when you set up Cloud; see Your Password and Recovery Kit below).</li></ul><h2 class="font-heading mb-4 mt-8">Two Sizes</h2><p class="font-body text-base mb-4">Penpoint Cloud comes in two sizes:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Penpoint Backup</strong> ($5/month or $45/year): encrypted cloud backup from one computer at a time, with unlimited version history (go back to any earlier draft of your book).</li><li class="font-body text-base"><strong class="font-body-bold">Penpoint Sync</strong> ($10/month or $96/year): everything in Backup, plus up to 5 computers kept in step automatically, plus the Penpoint phone app.</li></ul><p class="font-body text-base mb-4"><strong class="font-body-bold">Penpoint itself is yours forever</strong>, one payment, and works completely offline. Penpoint Cloud is optional.</p><h2 class="font-heading mb-4 mt-8">Learn More</h2><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><a href="/help/set-up-cloud-backup-for-your-novel" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Setting Up Penpoint Cloud</a>: Creating your account, choosing a plan, and saving your Recovery Kit</li><li class="font-body text-base"><a href="/help/encrypted-novel-backup" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Your Password and Recovery Kit</a>: How your books are encrypted, and what to do if you forget your password</li><li class="font-body text-base"><a href="/help/penpoint-cloud-plans" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Managing Your Subscription</a>: Choosing a plan, switching plans, and canceling or resuming</li><li class="font-body text-base"><a href="/help/write-on-multiple-computers" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Managing Your Devices</a>: Adding computers, switching your active device, and removing devices</li><li class="font-body text-base"><a href="/help/sync-your-novel-between-computers" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Syncing and Restoring</a>: How sync works, version history, and restoring from the cloud</li><li class="font-body text-base"><a href="/help/penpoint-cloud-settings" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Penpoint Cloud Settings</a>: The Penpoint Cloud settings panel</li></ul></article>

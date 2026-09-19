@@ -83,15 +83,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -99,6 +90,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -198,7 +204,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <span aria-current="page">Building Your World</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Building Your World</h1><p class="font-body text-base mb-4">This is Penpoint&#x27;s worldbuilding side: everything that makes up your story other than the prose itself. Even a grounded, real-world novel lives here. Track your cast, map your places, outline your chapters, and shape your plot, then step back and see how it all connects.</p><p class="font-body text-base mb-4">New to the worldbuilding side? Start with <a href="/help/the-worldbuilding-toolbar" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">The Worldbuilding Toolbar</a>, which walks you through the navigation menu on the left and what each page is for. Everything below hangs off that menu.</p><h2 class="font-heading mb-4 mt-8">The Things in Your Story</h2><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><a href="/help/character-profile-software" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Characters</a>: Build customizable character profiles with traits, relationships, and as much or as little detail as you need.</li><li class="font-body text-base"><a href="/help/story-item-tracker" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Items</a>: Track weapons, artifacts, documents, and other objects that matter to your plot.</li><li class="font-body text-base"><a href="/help/fictional-location-tracker" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Locations</a>: Nest places inside places: the kingdom holds the city, which holds the tavern.</li><li class="font-body text-base"><a href="/help/chapter-planning-software" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Chapters</a>: Organize your story structure, assign point-of-view characters, and track who appears where.</li><li class="font-body text-base"><a href="/help/how-to-track-character-arcs" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Arcs</a>: Shape your plot as layered story-arc curves and follow how each character&#x27;s journey rises and falls.</li><li class="font-body text-base"><a href="/help/notes-app-for-novelists" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Notebook</a>: Keep research, worldbuilding notes, and loose ideas in rich text, with @Mentions to link to anything.</li></ul><h2 class="font-heading mb-4 mt-8">Seeing How It All Connects</h2><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><a href="/help/story-timeline-software" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Timeline</a>: See when every character appears across your chapters, and log key story moments as <a href="/help/story-event-tracker" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Events</a> tied to the cast involved.</li><li class="font-body text-base"><a href="/help/character-relationship-map" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Relationship Map</a>: Explore your whole character web as a visual map you can drag, zoom, and click.</li><li class="font-body text-base"><a href="/help/how-to-track-themes-in-a-novel" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Tags Overview</a>: Tags are labels you attach to anything. Tag related things, then view everything with that tag in one place.</li></ul><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> None of this is required, and you don&#x27;t have to fill it all in up front. Start with whoever walks onto the page in your first scene, add a place or two, and let the rest grow as your story does. The connections build as you go: @Mention a character in a location&#x27;s description to link the two, assign characters to your chapters and they appear on the Timeline, and add a relationship or two to watch the Relationship Map take shape.</p></div></article>

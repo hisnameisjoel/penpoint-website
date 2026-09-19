@@ -83,15 +83,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -99,6 +90,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -198,7 +204,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <span aria-current="page">Searching &amp; Connecting</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Searching &amp; Connecting</h1><p class="font-body text-base mb-4">These are the tools that turn a big, busy book into something you can move through without thinking. Once they&#x27;re second nature, you stop hunting through menus and start writing at speed: find anyone in a keystroke, link a character into your prose as you type, spin up a new location without losing your place, and see your whole cast at a glance. They work from <strong class="font-body-bold">anywhere</strong> in Penpoint, in either mode.</p><h2 class="font-heading mb-4 mt-8">Find Anything, Instantly</h2><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><a href="/help/search-across-your-novel" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Search</a>: Press Ctrl+K (Cmd+K on Mac) from anywhere and start typing. It searches everything at once: characters, locations, items, chapters, notes, arcs, tags, and the full text of your manuscript prose, with highlighted snippets and instant results. In a series it covers every book. Recent searches and a fullscreen mode are built in.</li><li class="font-body text-base"><a href="/help/story-glossary-generator" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Compendium</a>: An A-to-Z index of everything in your book (characters, items, locations, chapters, and arcs) on one page. Perfect for a birds-eye view, jumping to anything by name, or catching two characters you accidentally named the same thing.</li></ul><h2 class="font-heading mb-4 mt-8">Link It All Together</h2><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><a href="/help/link-characters-in-your-manuscript" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">@Mentions</a>: Type @ anywhere on the worldbuilding side and pick a name to drop a live, clickable link to any character, place, item, chapter, note, or arc point. Mentions follow whatever they point to: rename a character and every mention updates itself. Click one to jump straight there.</li><li class="font-body text-base"><a href="/help/quick-add-menu" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Quick Add Menu</a>: Press Ctrl+N (Cmd+N on Mac) to create a character, location, item, chapter, note, or tag without leaving what you&#x27;re doing. If your cursor is in a writing area, Create + Mention makes the new thing and drops a link to it right where you&#x27;re typing, so creating and connecting happen in one move.</li></ul><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> The theme here is speed with no dead ends: Search takes you anywhere, @Mentions wires your world together as you write, Quick Add grows it on the fly, and the Compendium keeps the whole thing in view. Learn the two shortcuts (Ctrl+K and Ctrl+N) and the rest follows.</p></div></article>

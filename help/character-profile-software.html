@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Characters","item":"https://penpoint.app/help/character-profile-software"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Building Your World","item":"https://penpoint.app/help/worldbuilding-for-writers"},{"@type":"ListItem","position":4,"name":"Characters","item":"https://penpoint.app/help/character-profile-software"}]}</script>
   <style>
     /* The article body is the app's design system; the chrome is the website's.
        These rules are the seam between them, and they follow the site's spacing
@@ -83,15 +83,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -99,6 +90,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -198,7 +204,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/worldbuilding-for-writers">Building Your World</a> / <span aria-current="page">Characters</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Characters</h1><p class="font-body text-base mb-4">The <strong class="font-body-bold">Characters</strong> page is the heart of Penpoint, where you create and manage your cast of characters.</p><p class="font-body text-base mb-4">Whether you&#x27;re tracking a sprawling ensemble or a tight-knit group, this page gives you complete control over how you organize and view your characters.</p><h2 class="font-heading mb-4 mt-8">What You Can Do</h2><p class="font-body text-base mb-4">On the Characters page, you can:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base">Create new characters with importance levels (such as Primary, Secondary, or Background)</li><li class="font-body text-base">View your characters in three display modes: Standard (full detail), Compact (names and key info), or Cards (visual summary cards)</li><li class="font-body text-base">Switch between View mode and Edit mode (View mode is for reading; Edit mode is for making changes)</li><li class="font-body text-base">Sort and organize your character list</li><li class="font-body text-base">Pin important characters to the top of the list: right-click a character and choose &quot;Pin to top&quot; to keep your protagonist or key characters always visible above the rest, separated by a divider from the main list</li><li class="font-body text-base">Track character details using customizable sections (like text fields, trait lists, and relationships)</li><li class="font-body text-base">Collapse and expand individual sections by clicking their header to keep your sheet tidy</li><li class="font-body text-base">Expand or collapse the character list on the left to focus on what matters</li><li class="font-body text-base">Right-click for quick access to common actions: add or delete characters, pin or unpin characters, change sort order, switch view modes, toggle edit mode, change importance, swap profile pictures, or jump to the Relationship Map</li></ul><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> Writing a series? Characters are shared across every Book. <a href="/help/presence" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Presence: Which Books a Character Is In</a> controls where each one appears, and the <a href="/help/series-focus" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">This Book vs All Books</a> view narrows this list.</p></div><h2 class="font-heading mb-4 mt-8">Customizable Character Layout</h2><p class="font-body text-base mb-4">Every character in Penpoint uses a flexible section-based layout. You can add sections for text fields, traits, relationships, items, locations, events, and more. The layout you create applies to all characters in your book, but each character&#x27;s details are their own.</p><p class="font-body text-base mb-4">To customize your character layout, visit <strong class="font-body-bold">Character Sheet Setup</strong>. You can add, remove, reorder, and configure sections to match exactly how you think about your characters.</p><p class="font-body text-base mb-4">An Events section tracks the key moments a character is part of. The same event also appears on the items and locations involved. See <a href="/help/story-event-tracker" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Events</a> to learn how they work.</p></article>

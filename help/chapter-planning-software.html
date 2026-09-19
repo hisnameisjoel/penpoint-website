@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Chapters","item":"https://penpoint.app/help/chapter-planning-software"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Building Your World","item":"https://penpoint.app/help/worldbuilding-for-writers"},{"@type":"ListItem","position":4,"name":"Chapters","item":"https://penpoint.app/help/chapter-planning-software"}]}</script>
   <style>
     /* The article body is the app's design system; the chrome is the website's.
        These rules are the seam between them, and they follow the site's spacing
@@ -83,15 +83,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -99,6 +90,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -198,7 +204,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/worldbuilding-for-writers">Building Your World</a> / <span aria-current="page">Chapters</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Chapters</h1><p class="font-body text-base mb-4">The <strong class="font-body-bold">Chapters</strong> page is where you organize your book&#x27;s structure. It pairs an outline of chapters and scenes on the left with the right side of the screen, where chapter details appear. Scenes are where you fill in details like dates, characters, locations, and more. The same scenes are written in <a href="/help/distraction-free-writing-software" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Manuscript Mode</a>.</p><p class="font-body text-base mb-4">It helps to keep two things straight as you work here. <strong class="font-body-bold">Chapters</strong> hold your scenes: they carry the chapter number, title, and overall identity readers will see.<strong class="font-body-bold"> Scenes</strong> are where your actual Worldbuilding content lives. A scene holds its own details (dates, characters present, locations, items, and so on) and corresponds to a stretch of prose you&#x27;ll write in Manuscript Mode. Every chapter has at least one scene, even if you never give it a name. Essentially, in a single-scene chapter, the chapter itself is the scene. So even if you never use individual scenes in Penpoint, for the sake of clarity, the root chapter itself is considered a &#x27;single-scene chapter.&#x27;</p><h2 class="font-heading mb-4 mt-8">Getting Around</h2><p class="font-body text-base mb-4">Most of your time on this page starts in the outline. Click a chapter or scene there, and its details appear on the right.</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><a href="/help/how-to-outline-a-novel" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">The Chapter Outline</a>: the tree on the left side of the page.</li><li class="font-body text-base"><a href="/help/index-card-outlining" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">The Corkboard</a>: a second view that lays your chapters out as index cards.</li><li class="font-body text-base"><a href="/help/placeholder-cards" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Placeholder Cards</a>: sticky notes for chapters you haven&#x27;t written yet.</li></ul><h2 class="font-heading mb-4 mt-8">Working with Chapters and Scenes</h2><p class="font-body text-base mb-4">Everything you can do to add, rename, rearrange, combine, or remove chapters and scenes lives in these articles:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><a href="/help/creating-chapters-and-scenes" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Creating Chapters and Scenes</a>: adding new chapters or scenes.</li><li class="font-body text-base"><a href="/help/editing-chapter-and-scene-details" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Editing Chapter and Scene Details</a>: filling in the details on the right side of the screen.</li><li class="font-body text-base"><a href="/help/reordering-chapters" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Reordering and Organizing Chapters</a>: moving items earlier or later, or between chapters.</li><li class="font-body text-base"><a href="/help/how-to-organize-a-novel-into-parts" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Chapter Groups (Folders)</a>: gathering related chapters into acts or parts.</li><li class="font-body text-base"><a href="/help/merging-and-deleting-chapters" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Merging and Deleting</a>: combining items, or removing them safely.</li></ul><h2 class="font-heading mb-4 mt-8">The Detail Area</h2><p class="font-body text-base mb-4">The right side of the page is built from blocks (small sections like a date field, a character list, or a notes field). You decide which blocks appear and in what order, then fill them in for each scene.</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><a href="/help/customizing-chapter-layout" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Customizing Chapter Layout</a>: adding, removing, and reordering blocks.</li><li class="font-body text-base"><a href="/help/chapter-block-types" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Chapter Block Types</a>: what each block is for and when to use it.</li><li class="font-body text-base"><a href="/help/calendar-block" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Calendar Block</a>: placing scenes on your book&#x27;s timeline.</li><li class="font-body text-base"><a href="/help/assigning-things-to-scenes" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Assigning Things to Scenes</a>: connecting characters, locations, and items to a scene.</li></ul><h2 class="font-heading mb-4 mt-8">How Chapters Connect</h2><p class="font-body text-base mb-4">Chapters don&#x27;t live in isolation. These articles cover how the page connects to the rest of your book:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><a href="/help/chapters-open-in-manuscript" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Open in Manuscript</a>: jumping straight from a scene to the prose you&#x27;re writing.</li><li class="font-body text-base"><a href="/help/calendar-settings" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Calendar Settings</a>: configuring the book-level calendar that scene dates use.</li></ul><p class="font-body text-base mb-4">If this is your first time on the page, start with <a href="/help/how-to-outline-a-novel" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">The Chapter Outline</a>. Once the outline makes sense, everything else follows naturally.</p></article>

@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Setting Up Penpoint Cloud","item":"https://penpoint.app/help/set-up-cloud-backup-for-your-novel"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Penpoint Cloud","item":"https://penpoint.app/help/cloud-backup-for-writers"},{"@type":"ListItem","position":4,"name":"Setting Up Penpoint Cloud","item":"https://penpoint.app/help/set-up-cloud-backup-for-your-novel"}]}</script>
   <style>
     /* The article body is the app's design system; the chrome is the website's.
        These rules are the seam between them, and they follow the site's spacing
@@ -83,15 +83,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -99,6 +90,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -198,7 +204,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/cloud-backup-for-writers">Penpoint Cloud</a> / <span aria-current="page">Setting Up Penpoint Cloud</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Setting Up Penpoint Cloud</h1><p class="font-body text-base mb-4">Your books live on your computer first. Penpoint Cloud copies them to a secure online backup.</p><p class="font-body text-base mb-4">Setup ends with a Recovery Kit: think of it as a spare key, 12 words you save somewhere safe rather than memorize.</p><h2 class="font-heading mb-4 mt-8">Step 1: Create Your Account</h2><p class="font-body text-base mb-4">Open <strong class="font-body-bold">Settings &gt; Penpoint Cloud</strong> and click Set up Penpoint Cloud. Enter your email address and Penpoint sends you a 6-digit code. Check your inbox (and your spam folder, just in case) and enter the code.</p><h2 class="font-heading mb-4 mt-8">Step 2: Choose Your Plan</h2><p class="font-body text-base mb-4">There are two plans. Penpoint Backup keeps a secure online copy of your books. Penpoint Sync does that and also keeps your books in step across more than one computer. Both are available monthly or yearly (yearly saves around 20-25%). Penpoint then opens checkout in your browser; complete the purchase and it detects it automatically. If it does not show up right away, give it a moment and try again.</p><p class="font-body text-base mb-4">See <a href="/help/penpoint-cloud-plans" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Managing Your Subscription</a> for a full comparison of the two plans.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> You can change or cancel your plan at any time in Penpoint Cloud settings.</p></div><h2 class="font-heading mb-4 mt-8">Step 3: Create Your Password</h2><p class="font-body text-base mb-4">This password encrypts your books (it scrambles them into a secret code so no one else can read them) before they leave your computer. It is not a login password. Penpoint never receives this password, so no one, including Penpoint, can reset it for you.</p><p class="font-body text-base mb-4">There are two separate secrets: the emailed code signs you in, and this password unlocks your books on this computer.</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base">Choose something you will remember, and save it in a password manager</li><li class="font-body text-base">Minimum 8 characters, no special character requirements</li><li class="font-body text-base">You enter it once per computer, then Penpoint remembers it securely.</li></ul><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> <strong class="font-body-bold">Important:</strong> if you ever forget this password with no saved Recovery Kit and no computer still signed in, no one can recover your backups, including Penpoint. So save your password now, and your Recovery Kit in the next step. Your books on this computer are never affected either way.</p></div><h2 class="font-heading mb-4 mt-8">Step 4: Save Your Recovery Kit</h2><p class="font-body text-base mb-4">Penpoint generates a 12-word Recovery Kit. If you ever forget your password, this is your way back into your backups.</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base">You can download, copy, or print it</li><li class="font-body text-base">Store it somewhere other than this computer, like a password manager or a printout</li><li class="font-body text-base">You must confirm you have saved it before finishing setup</li><li class="font-body text-base">You will only see it once during setup, but you can download a fresh one at any time from Penpoint Cloud settings (a new one replaces the old, so discard old copies)</li></ul><h2 class="font-heading mb-4 mt-8">What Happens Next</h2><p class="font-body text-base mb-4">Penpoint uploads encrypted copies of your books. You can keep writing. If you close the app or put your computer to sleep, the backup picks up where it left off.</p><p class="font-body text-base mb-4">See <a href="/help/encrypted-novel-backup" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Your Password and Recovery Kit</a> for more on how encryption works and what to do if you forget your password.</p></article>

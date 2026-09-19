@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Using Dedicated Book Folders","item":"https://penpoint.app/help/book-notes-folders"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Writing a Series","item":"https://penpoint.app/help/how-to-write-a-book-series"},{"@type":"ListItem","position":4,"name":"Using Dedicated Book Folders","item":"https://penpoint.app/help/book-notes-folders"}]}</script>
   <style>
     /* The article body is the app's design system; the chrome is the website's.
        These rules are the seam between them, and they follow the site's spacing
@@ -84,15 +84,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -100,6 +91,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -199,7 +205,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/how-to-write-a-book-series">Writing a Series</a> / <span aria-current="page">Using Dedicated Book Folders</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Using Dedicated Book Folders</h1><p class="font-body text-base mb-4">Your Notes are shared across the whole series, which is usually what you want: a character sketch or a scrap of research is handy no matter which Book you&#x27;re drafting (in this article, a Book means one book inside your series). But some notes really do belong to one volume. For those, every Book in your series gets its own folder in the Notebook, named <strong class="font-body-bold">Book 1 Notes</strong>, <strong class="font-body-bold">Book 2 Notes</strong>, and so on. Drop a note inside one to keep it with that Book.</p><h2 class="font-heading mb-4 mt-8">They Appear on Their Own</h2><p class="font-body text-base mb-4">The folders sit at the very top of your Notebook&#x27;s folder list (the strip on the left, sometimes called the Binder, where all your folders live), one for each Book, and Penpoint keeps them for you. When you convert a book into a series, add a new Book, or bring one in from another file, its folder shows up automatically. You never have to create or name them.</p><p class="font-body text-base mb-4">The name follows the Book&#x27;s position, so if you reorder your Books the labels renumber to match: the folder for whatever is now your second Book always reads &quot;Book 2 Notes.&quot; Because Penpoint manages them, these folders can&#x27;t be renamed, moved, or deleted (right-click (or Ctrl+click on Mac) on one to see a shorter menu, headed &quot;Automatic series folder&quot;). You can still give one a color and build ordinary subfolders inside it.</p><h2 class="font-heading mb-4 mt-8">Keeping a Note with a Book</h2><p class="font-body text-base mb-4">Drag a note into a Book&#x27;s folder and it belongs to that Book. Images, shortcuts (quick links to a character, location, or other part of your book), and subfolders work the same way. Anything you leave outside these folders stays shared across your whole series, right where it&#x27;s always been.</p><h2 class="font-heading mb-4 mt-8">Following This Book vs All Books</h2><p class="font-body text-base mb-4">These folders follow the same <a href="/help/series-focus" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">This Book vs All Books</a> setting as the rest of your series (it narrows your series to just the Book you&#x27;re working on). In All Books you see every Book&#x27;s folder; turn on This Book and the folders for the other Books tuck out of sight, so you can focus on the volume in front of you. Nothing is deleted, they are only hidden, and switching back to All Books brings them all straight back.</p><h2 class="font-heading mb-4 mt-8">Hiding Them Entirely</h2><p class="font-body text-base mb-4">If you&#x27;d rather keep your Notebook plain, turn on <strong class="font-body-bold">Hide Series Folders</strong> from the display-settings menu (the small gear icon above your list of notes). The same option lives on the right-click menu too, both on empty space and on a Book folder itself. Turn it off the same way to bring the folders back.</p><h2 class="font-heading mb-4 mt-8">Deleting a Book, or Splitting the Series</h2><p class="font-body text-base mb-4">If you delete a Book that has notes in its folder, Penpoint asks what should happen to them: move them into another Book, or delete them along with the Book. It&#x27;s the same choice it offers for that Book&#x27;s characters, items, and locations, so nothing disappears without your say-so.</p><p class="font-body text-base mb-4">And if you ever go through <a href="/help/how-to-split-a-book-series" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Splitting a Series into Separate Books</a> (which turns each Book back into its own separate book file), each book keeps its own Book Notes folder (now just an ordinary folder), and your series-wide notes come along into every book as well.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> You&#x27;ll only ever see these folders in a series. A standalone book&#x27;s Notebook has no automatic folders.</p></div></article>

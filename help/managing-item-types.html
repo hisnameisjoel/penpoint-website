@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Managing Item Types","item":"https://penpoint.app/help/managing-item-types"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Building Your World","item":"https://penpoint.app/help/worldbuilding-for-writers"},{"@type":"ListItem","position":4,"name":"Managing Item Types","item":"https://penpoint.app/help/managing-item-types"}]}</script>
   <style>
     /* The article body is the app's design system; the chrome is the website's.
        These rules are the seam between them, and they follow the site's spacing
@@ -84,15 +84,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -100,6 +91,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -199,7 +205,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/worldbuilding-for-writers">Building Your World</a> / <span aria-current="page">Managing Item Types</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Managing Item Types</h1><p class="font-body text-base mb-4">Item types define categories for your items. Customize them in <strong class="font-body-bold">Settings &gt; Items</strong> to match your story&#x27;s genre and needs.</p><p class="font-body text-base mb-4">Penpoint includes default types like Weapon, Artifact, Document, and Vehicle, but you can create custom types for any category: Evidence for mysteries, Spell Components for fantasy, Tech Gadgets for sci-fi, or anything else your story requires.</p><h2 class="font-heading mb-4 mt-8">Adding Item Types</h2><p class="font-body text-base mb-4">Click <strong class="font-body-bold">Add Item Type</strong> to create a new item type. Enter a name and choose an icon from the available options. Your new type appears immediately in the list and becomes available when creating items.</p><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> You can have up to 50 item types per book. The button will show &quot;(Maximum reached)&quot; when you&#x27;ve hit the limit.</p></div><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> Choose icons that visually represent your item categories. With 60+ icons available (from swords and shields to phones and rockets), you can find something that fits most genres.</p></div><h2 class="font-heading mb-4 mt-8">Editing Item Types</h2><p class="font-body text-base mb-4">Click the edit button next to any item type to modify its name. Click the icon to change it. Changes apply immediately to all items using that type.</p><p class="font-body text-base mb-4">The icon helps you quickly identify item types at a glance in the Items page, making it easier to scan your inventory visually.</p><h2 class="font-heading mb-4 mt-8">Reordering Types</h2><p class="font-body text-base mb-4">Use the up and down arrow buttons to reorder your item types. The order affects how types appear in dropdown menus when creating or editing items. Put your most frequently used types at the top for quicker access.</p><h2 class="font-heading mb-4 mt-8">Deleting Item Types</h2><p class="font-body text-base mb-4">Click the delete button next to an item type to remove it. A confirmation dialog will warn you that any items using that type will need a new type assigned.</p><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> Deleting an item type doesn&#x27;t delete the items themselves; they&#x27;ll remain in your project, but you&#x27;ll need to assign them a different type.</p></div><h2 class="font-heading mb-4 mt-8">Default Types</h2><p class="font-body text-base mb-4">Penpoint&#x27;s Standard template includes ten default item types: Personal Effects, Documents, Clothing &amp; Accessories, Tools &amp; Equipment, Weapons &amp; Armor, Vehicles, Consumables, Technology, Artifacts, and Miscellaneous. Other templates include their own genre-specific types.</p><p class="font-body text-base mb-4">Feel free to modify, delete, or replace these defaults to match your story&#x27;s needs.</p></article>

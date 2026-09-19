@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Images in the Notebook","item":"https://penpoint.app/help/notebook-images"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Building Your World","item":"https://penpoint.app/help/worldbuilding-for-writers"},{"@type":"ListItem","position":4,"name":"Images in the Notebook","item":"https://penpoint.app/help/notebook-images"}]}</script>
   <style>
     /* The article body is the app's design system; the chrome is the website's.
        These rules are the seam between them, and they follow the site's spacing
@@ -84,15 +84,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -100,6 +91,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -199,7 +205,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/worldbuilding-for-writers">Building Your World</a> / <span aria-current="page">Images in the Notebook</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Images in the Notebook</h1><p class="font-body text-base mb-4">The Notebook lets you upload and organize reference images: character sketches, maps, mood boards, or any visual inspiration for your story.</p><h2 class="font-heading mb-4 mt-8">Uploading Images</h2><p class="font-body text-base mb-4">There are two ways to add images:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Toolbar button</strong>: Click the <strong class="font-body-bold">Image</strong> button in the toolbar at the top of the Notebook and pick files from your computer</li><li class="font-body text-base"><strong class="font-body-bold">Drag and drop</strong>: Drag image files from your computer directly onto the Notebook page you&#x27;re currently viewing</li></ul><p class="font-body text-base mb-4">Supported formats: JPG, PNG, WebP, GIF, and BMP. Images can be up to 20 MB each.</p><p class="font-body text-base mb-4">When you upload an image, a dialog appears where you can give it a name (up to 100 characters) and an optional note (up to 500 characters). If you&#x27;re uploading multiple images at once, you&#x27;ll work through them one at a time; you can skip any image or use <strong class="font-body-bold">Cancel All</strong> to stop adding the rest.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> The image name is auto-filled from the filename, so you can skip the naming step if the filename is already descriptive.</p></div><h2 class="font-heading mb-4 mt-8">Viewing Images</h2><p class="font-body text-base mb-4">Click any image to open a larger view on the right side of the screen. From there, you can:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Zoom</strong>: Scroll your mouse wheel to zoom in very close or zoom way out. The current zoom level is shown at the bottom of the viewer.</li><li class="font-body text-base"><strong class="font-body-bold">Move around</strong>: When zoomed in, click and drag the image to move around it</li><li class="font-body text-base"><strong class="font-body-bold">Fit to screen</strong>: Click the number showing the current zoom level at the bottom-right and choose <strong class="font-body-bold">Fit</strong> to see the whole image again, or double-click the image to snap back to the default view</li></ul><p class="font-body text-base mb-4">Your zoom level and position are remembered for each image, so you can pick up right where you left off.</p><h2 class="font-heading mb-4 mt-8">Editing Image Details</h2><p class="font-body text-base mb-4">To change the image&#x27;s name or description, press <strong class="font-body-bold">Ctrl+E</strong> (or <strong class="font-body-bold">Cmd+E</strong> on Mac) while viewing an image, or click the pencil icon in the top-right corner of the viewer. Changes save automatically; click the pencil icon again when you&#x27;re done to leave editing.</p><h2 class="font-heading mb-4 mt-8">Managing Images</h2><p class="font-body text-base mb-4">Right-click (or Ctrl+click on Mac) an image to see its options:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Edit Title</strong>: Rename the image (also triggered by pressing F2)</li><li class="font-body text-base"><strong class="font-body-bold">Move to Folder</strong>: Move the image to a different folder (it will be removed from the folder it&#x27;s currently in)</li><li class="font-body text-base"><strong class="font-body-bold">Save to Disk</strong>: Download the image back to your computer</li><li class="font-body text-base"><strong class="font-body-bold">Duplicate</strong>: Create a copy of the image</li><li class="font-body text-base"><strong class="font-body-bold">Delete</strong>: You&#x27;ll be asked to confirm first. Deleting an image is permanent and cannot be undone, so use <strong class="font-body-bold">Save to Disk</strong> first if you want to keep a copy. If you just want to hide an image, consider moving it to a folder for images you no longer need.</li></ul></article>

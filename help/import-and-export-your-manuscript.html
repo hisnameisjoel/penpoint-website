@@ -83,15 +83,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -99,6 +90,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -198,7 +204,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <span aria-current="page">Import &amp; Export</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Import &amp; Export</h1><p class="font-body text-base mb-4">Penpoint keeps your work on your own computer, and it&#x27;s happy to hand it back to you whenever you want. Bring in a manuscript you started somewhere else, pull in worldbuilding you drafted in another tool, or send a polished copy of your book out to submit, publish, or share. Exporting only ever makes copies: it never changes or removes anything from your book.</p><h2 class="font-heading mb-4 mt-8">Two Kinds of Content</h2><p class="font-body text-base mb-4">Almost everything here comes down to which of two things you&#x27;re moving, because each has its own tools in its own place:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Your manuscript</strong>: the actual prose you write in Manuscript Mode, organized into chapters and scenes. Its import and export tools live in Manuscript Mode itself (the row of buttons at the top).</li><li class="font-body text-base"><strong class="font-body-bold">Your worldbuilding</strong>: your characters, locations, items, notes, chapter outlines, and arcs. Its import and export tools live in Settings, under Import/Export.</li></ul><h2 class="font-heading mb-4 mt-8">Getting Data Out (Export)</h2><p class="font-body text-base mb-4">You choose what to include, pick a file format, and Penpoint saves a copy wherever you like. Common reasons: submitting to an agent, uploading to a store, backing up a readable copy, or handing notes to a co-author.</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><a href="/help/export-your-novel-to-word" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Exporting Manuscripts</a>: Turn your prose into one document. Export the whole book, a single chapter, or one scene, as Word, EPUB, PDF, Markdown, Rich Text, or Plain Text, with control over the title page, chapter headers, scene breaks, and paragraph style (with a live preview).</li><li class="font-body text-base"><a href="/help/export-your-worldbuilding" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Exporting Worldbuilding Data</a>: Save any of the six worldbuilding types (characters, locations, items, notes, chapter outlines, arcs) to Word, PDF, Markdown, Rich Text, or Plain Text, as one combined file or a tidy folder of separate files, optionally with images.</li><li class="font-body text-base"><a href="/help/generating-templates" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Generating Templates</a>: Create blank fill-in-the-blank files shaped like your book. Great for drafting new entries in a text editor, handing to a collaborator without Penpoint, or working with an AI tool. Anything you fill in imports straight back.</li><li class="font-body text-base"><a href="/help/exporting-a-book" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Exporting a Book</a>: Saving a whole book as a .penpoint file, to move between your own computers or share with another Penpoint writer. This is a different feature from the three content exports above.</li></ul><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> Markdown is the round-trip format: a Markdown worldbuilding export is a complete, editable copy you can change and bring back in, with every detail, image, and @mention landing exactly where it was. Word, PDF, Rich Text, and Plain Text are for sharing and reading, not for re-importing.</p></div><h2 class="font-heading mb-4 mt-8">Getting Data In (Import)</h2><p class="font-body text-base mb-4">Three separate things can come in, depending on what you have:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><a href="/help/importing-exporting" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Importing Your Data</a>: The overview of the two content imports: a manuscript written in another app (.docx, .epub, .rtf, .md, or .txt), or worldbuilding from Markdown files. It explains which tool to use and where each one lives.</li><li class="font-body text-base"><a href="/help/import-your-manuscript" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Importing Data</a>: The full worldbuilding Import Wizard: bring characters, locations, items, notes, chapter outlines, and arcs back from Markdown, with a preview of what each file contains, automatic checks, conflict handling (overwrite, skip, or keep both), and auto-created placeholders for anything your files mention.</li><li class="font-body text-base"><a href="/help/importing-a-book" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Importing a Book</a>: Opening a whole .penpoint file, one you exported or someone shared with you, as its own book. This is a different feature from the two content imports above.</li></ul><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> Importing never deletes your existing work. It only changes something you already have when you explicitly choose to overwrite it, and even then you&#x27;re shown exactly what will happen first. Making a quick backup before a large overwrite is still a good habit.</p></div></article>

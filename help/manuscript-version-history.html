@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Manuscript Snapshots","item":"https://penpoint.app/help/manuscript-version-history"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Manuscript Mode","item":"https://penpoint.app/help/distraction-free-writing-software"},{"@type":"ListItem","position":4,"name":"Manuscript Snapshots","item":"https://penpoint.app/help/manuscript-version-history"}]}</script>
   <style>
     /* The article body is the app's design system; the chrome is the website's.
        These rules are the seam between them, and they follow the site's spacing
@@ -83,15 +83,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -99,6 +90,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -198,7 +204,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/distraction-free-writing-software">Manuscript Mode</a> / <span aria-current="page">Manuscript Snapshots</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Manuscript Snapshots</h1><p class="font-body text-base mb-4">Manuscript snapshots let you save a copy of your entire manuscript at a point in time. The button in the toolbar at the top of your writing area is called <strong class="font-body-bold">Versions</strong>: think of each version as a snapshot of your book at a point in time. Snapshots are for looking back and copying text you need; they don&#x27;t replace your current manuscript. You can always open a snapshot to see exactly what your book looked like and grab anything you want to reuse.</p><h2 class="font-heading mb-4 mt-8">What&#x27;s Captured</h2><p class="font-body text-base mb-4">A snapshot captures everything in your manuscript:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base">All chapters with their titles, subtitles, numbering, and which folders your chapters are in</li><li class="font-body text-base">All scenes within every chapter, including the full text</li><li class="font-body text-base">How your chapters are organized into folders (the snapshot captures everything even if you don&#x27;t use folders)</li></ul><p class="font-body text-base mb-4">Snapshots always capture your <strong class="font-body-bold">entire manuscript</strong>, not individual chapters or scenes. In a series, that means the whole of the Book you are currently writing in: each Book keeps its own separate set of snapshots, and its own 10 slots.</p><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> If your series is older than version 1.3.5, snapshots you took back then captured every Book at once rather than one Book, so they are all kept together under your first Book. Open the first Book’s Versions panel to read any of them.</p></div><h2 class="font-heading mb-4 mt-8">Creating a Snapshot</h2><p class="font-body text-base mb-4">Click the <strong class="font-body-bold">Versions</strong> button (clock icon) on the right side of the toolbar at the top of your writing area. A window opens with your version list. Type an optional description and click <strong class="font-body-bold">Create</strong>.</p><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> Creating a snapshot leaves your scene drafts (saved alternate versions of individual scenes; see the Scene Drafts article) exactly where they are. The two features keep separate histories, so you never have to choose between them.</p></div><p class="font-body text-base mb-4">Descriptions help you remember why you took the snapshot: for example, &quot;Before rewriting Chapter 3&quot; or &quot;Draft 2 complete.&quot; If you leave the description blank, Penpoint names it for you automatically: Version 1, Version 2, and so on.</p><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> You can store up to <strong class="font-body-bold">10 snapshots</strong> per book. When you reach the limit, delete an older snapshot before creating a new one.</p></div><h2 class="font-heading mb-4 mt-8">Viewing a Snapshot</h2><p class="font-body text-base mb-4">Click the eye icon (an open eye shape) next to any snapshot to open it, or click anywhere on that row. The viewer looks and feels like your regular writing screen (with the sidebar for browsing chapters), but nothing can be changed. A &quot;Read-only Snapshot&quot; label at the top confirms you&#x27;re viewing a snapshot.</p><p class="font-body text-base mb-4">Click <strong class="font-body-bold">Back to Editor</strong> or press Escape to return to your current manuscript.</p><h2 class="font-heading mb-4 mt-8">Managing Snapshots</h2><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Edit description</strong>: Click the pencil icon to update a snapshot&#x27;s description. Press Enter to save the description.</li><li class="font-body text-base"><strong class="font-body-bold">Delete</strong>: Click the trash icon to permanently remove a snapshot. Deletion is immediate with no confirmation step, so be sure before you click. This makes room for a new one if you&#x27;ve reached the 10-snapshot limit.</li></ul><p class="font-body text-base mb-4">Snapshots are listed newest first. Version numbers (v1, v2, etc.) are assigned in the order you create them: v1 is your first snapshot, v2 the second, and so on. In a series the numbering starts again at v1 in each Book, so the panel header names the Book you are looking at.</p></article>

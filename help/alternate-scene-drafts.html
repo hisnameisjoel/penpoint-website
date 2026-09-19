@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Scene Drafts","item":"https://penpoint.app/help/alternate-scene-drafts"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Manuscript Mode","item":"https://penpoint.app/help/distraction-free-writing-software"},{"@type":"ListItem","position":4,"name":"Scene Drafts","item":"https://penpoint.app/help/alternate-scene-drafts"}]}</script>
   <style>
     /* The article body is the app's design system; the chrome is the website's.
        These rules are the seam between them, and they follow the site's spacing
@@ -83,15 +83,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -99,6 +90,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -198,7 +204,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/distraction-free-writing-software">Manuscript Mode</a> / <span aria-current="page">Scene Drafts</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Scene Drafts</h1><p class="font-body text-base mb-4">Scene Drafts save a copy of one scene before major changes. Unlike manuscript snapshots, they can be restored as your current scene. Before restoring, Penpoint saves your current scene as a draft labeled &quot;Auto-saved before restore&quot; so you can return to it.</p><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> Manuscript snapshots and Scene Drafts are separate. Snapshots do not include draft history, and creating one does not delete drafts.</p></div><p class="font-body text-base mb-4">See <a href="/help/manuscript-version-history" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Manuscript Snapshots</a> to learn about read-only copies of a whole Book.</p><h2 class="font-heading mb-4 mt-8">Creating a Draft</h2><p class="font-body text-base mb-4">Select a scene, not a chapter, in the <strong class="font-body-bold">Outliner</strong>. Click <strong class="font-body-bold">Scene Drafts</strong> in the toolbar, add an optional description, then click <strong class="font-body-bold">Save Draft</strong>.</p><p class="font-body text-base mb-4">Good descriptions help you find the right draft later: &quot;Before point-of-view change,&quot; &quot;Original ending,&quot; or &quot;Pre-feedback revision.&quot;</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> Penpoint does not set a limit on how many scene drafts you can save.</p></div><h2 class="font-heading mb-4 mt-8">Viewing Drafts</h2><p class="font-body text-base mb-4">Click a draft or its eye-shaped icon to open the dedicated read-only viewer. Its list starts with <strong class="font-body-bold">Current Manuscript</strong>, a read-only view of your current scene, followed by saved drafts. Drafts normally appear newest first. An unseen Cloud-preserved draft is prioritized at the top until you view it. Select an entry to switch versions.</p><p class="font-body text-base mb-4">Select a draft and click <strong class="font-body-bold">Compare</strong>. The read-only comparison shows writing removed since the draft on the left and writing added on the right. Comments stay saved but are not compared. If Penpoint cannot calculate or display the comparison, neither copy changes. Turn off <strong class="font-body-bold">Compare</strong> to view one version again.</p><p class="font-body text-base mb-4">See <a href="/help/compare-manuscript-drafts" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Comparing Your Manuscript Drafts</a> for how to read the highlights and number of changed passages.</p><h2 class="font-heading mb-4 mt-8">Using a Saved Draft</h2><p class="font-body text-base mb-4">Click <strong class="font-body-bold">Use This Draft</strong>. Before anything changes, Penpoint asks you to confirm and explains the safety draft:</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base">Your current scene content is <strong class="font-body-bold">automatically saved as a new draft</strong> labeled &quot;Auto-saved before restore&quot;</li><li class="font-body text-base">The draft you chose becomes your current scene</li><li class="font-body text-base">If you don&#x27;t like the result, restore the auto-saved draft to go back</li></ul><h2 class="font-heading mb-4 mt-8">Deleting Drafts</h2><p class="font-body text-base mb-4">Deletion starts immediately with no confirmation and no Scene Drafts Undo. It does not change your current scene. Click the trash icon beside a draft to delete it.</p><h2 class="font-heading mb-4 mt-8">Other Ways to Access Drafts</h2><p class="font-body text-base mb-4">In the viewer, right-click a draft (Ctrl+click on Mac) for <strong class="font-body-bold">Use This Draft</strong> or <strong class="font-body-bold">Delete This Draft</strong>. You can also right-click a scene in the <strong class="font-body-bold">Outliner</strong> and choose <strong class="font-body-bold">Scene Drafts</strong>. A small stacked-pages icon marks scenes with drafts.</p><h2 class="font-heading mb-4 mt-8">Drafts Preserved by Penpoint Cloud</h2><p class="font-body text-base mb-4">If the same scene is edited on another device, your most recent edit stays in the scene and Penpoint Cloud keeps the other version as a draft. <strong class="font-body-bold">Current Manuscript</strong> is the writing that is live in your scene; the preserved copy sits in the list below it. If a scene is edited on one device and deleted on another, the edited scene stays in your book and its writing is kept as a draft labeled &quot;From a deleted scene&quot;. Each preserved draft carries a label saying where it came from, naming the other device when Penpoint knows its name.</p><p class="font-body text-base mb-4">Until you look at a preserved draft, Penpoint shows a short notice reading <strong class="font-body-bold">Edited on another device</strong>. It appears on your library shelf, in Penpoint Cloud settings, and in the Save menu inside your book. On the shelf and in the Save menu, clicking it takes you to your Penpoint Cloud settings, which is where the full list lives: every affected book and every affected scene, each name clickable to open that scene&#x27;s preserved draft.</p><p class="font-body text-base mb-4">Opening a preserved draft marks it viewed without restoring it, which clears the notice. Inside a book, a message titled <strong class="font-body-bold">Your manuscript was separately modified on another device</strong> also points you to your Penpoint Cloud settings, where every scene with a second version is listed by name.</p></article>

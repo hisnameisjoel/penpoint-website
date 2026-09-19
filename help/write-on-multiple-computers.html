@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Managing Your Devices","item":"https://penpoint.app/help/write-on-multiple-computers"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Penpoint Cloud","item":"https://penpoint.app/help/cloud-backup-for-writers"},{"@type":"ListItem","position":4,"name":"Managing Your Devices","item":"https://penpoint.app/help/write-on-multiple-computers"}]}</script>
   <style>
     /* The article body is the app's design system; the chrome is the website's.
        These rules are the seam between them, and they follow the site's spacing
@@ -83,15 +83,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -99,6 +90,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -198,7 +204,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/cloud-backup-for-writers">Penpoint Cloud</a> / <span aria-current="page">Managing Your Devices</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Managing Your Devices</h1><p class="font-body text-base mb-4">Your local books are always safe regardless of how you manage your devices. Nothing in this screen deletes any writing from any computer.</p><p class="font-body text-base mb-4">Every computer you sign in to Penpoint Cloud on becomes a registered device: one the app remembers, whether or not it is currently backing up.</p><h2 class="font-heading mb-4 mt-8">Device Limits</h2><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base"><strong class="font-body-bold">Penpoint Backup</strong>: one active device at a time. Your active device is the one computer that sends your books to the cloud. Other registered computers save locally but do not back up.</li><li class="font-body text-base"><strong class="font-body-bold">Penpoint Sync</strong>: up to 5 devices, all syncing automatically.</li></ul><p class="font-body text-base mb-4">Both plans allow up to 5 registered devices.</p><h2 class="font-heading mb-4 mt-8">Adding a Computer</h2><p class="font-body text-base mb-4">Install Penpoint on the computer and sign in with the same email you used during setup. Enter your password, or your Recovery Kit if you have forgotten it (the 12-word phrase you saved when you set up Penpoint Cloud; see <a href="/help/encrypted-novel-backup" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Your Password and Recovery Kit</a>). The device then appears in your device list. If you are on Penpoint Sync, it starts syncing immediately. If you are on Penpoint Backup, it registers but does not back up unless you make it the active device.</p><h2 class="font-heading mb-4 mt-8">Switching Your Active Backup Device</h2><p class="font-body text-base mb-4">Penpoint Backup only. To change which computer backs up to the cloud:</p><p class="font-body text-base mb-4">Open <strong class="font-body-bold">Settings &gt; Penpoint Cloud</strong>, click Manage devices, and click Make this the active device on the computer you want to use.</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base">Your first activation is free and does not count toward the limit. After that, each active-device switch counts toward your two.</li><li class="font-body text-base">You can switch up to 2 times per rolling 30-day window. If you switch twice, a slot opens again about 30 days after the first of those two moves.</li><li class="font-body text-base">Replacing a dead computer uses one switch, but a used switch always comes back, so you are never stranded. If you get stuck sooner, email support@penpoint.app and we can help.</li></ul><h2 class="font-heading mb-4 mt-8">Removing a Device</h2><p class="font-body text-base mb-4">Removing a device signs that computer out of Penpoint Cloud. No books are deleted when you remove a device.</p><p class="font-body text-base mb-4">Open <strong class="font-body-bold">Settings &gt; Penpoint Cloud</strong>, click Manage devices, and click the trash icon next to the device you want to remove.</p><ul class="list-disc pl-6 space-y-2 mb-4"><li class="font-body text-base">You can remove the device you are currently using; it stops backing up until you sign in again.</li><li class="font-body text-base">If you have reached your device limit, remove one before adding another.</li></ul><h2 class="font-heading mb-4 mt-8">Renaming a Device</h2><p class="font-body text-base mb-4">Click the pencil icon next to any device to give it a recognizable label for your reference, such as &quot;Desktop&quot; or &quot;Laptop&quot;.</p><h2 class="font-heading mb-4 mt-8">What If This Computer Isn&#x27;t Backing Up?</h2><p class="font-body text-base mb-4">If you are on Penpoint Backup and this computer is not the active device, Penpoint Cloud settings say so at the top, under Backup health: &quot;This computer is not backing up&quot;, with an Activate this computer button that takes you straight to your device list. Your local books are always safe and local backups keep running.</p></article>

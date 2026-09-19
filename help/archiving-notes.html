@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Archiving Notes","item":"https://penpoint.app/help/archiving-notes"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Building Your World","item":"https://penpoint.app/help/worldbuilding-for-writers"},{"@type":"ListItem","position":4,"name":"Archiving Notes","item":"https://penpoint.app/help/archiving-notes"}]}</script>
   <style>
     /* The article body is the app's design system; the chrome is the website's.
        These rules are the seam between them, and they follow the site's spacing
@@ -84,15 +84,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -100,6 +91,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -199,7 +205,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/worldbuilding-for-writers">Building Your World</a> / <span aria-current="page">Archiving Notes</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Archiving Notes</h1><p class="font-body text-base mb-4">Archiving tucks a note out of sight without deleting it; your note is still safely stored in your book. It&#x27;s perfect for ideas you&#x27;ve already used, old drafts, or notes you might want to reference later but don&#x27;t need cluttering your workspace.</p><h2 class="font-heading mb-4 mt-8">How to Archive</h2><p class="font-body text-base mb-4">Right-click (or Ctrl+click on Mac) a note and choose <strong class="font-body-bold">Archive</strong>. You can also archive multiple notes at once by selecting them with Cmd+click (Mac) or Ctrl+click (Windows/Linux) to pick individual notes, or Shift+click to select a range. Then choose <strong class="font-body-bold">Archive</strong> from the right-click menu.</p><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> Archiving is completely reversible — you can bring any archived note back at any time. When in doubt, archive instead of deleting.</p></div><h2 class="font-heading mb-4 mt-8">Viewing Archived Notes</h2><p class="font-body text-base mb-4">Archived notes are hidden by default. To see them, click the gear (cog-shaped) icon in the top-right corner of the toolbar above your notes and check the <strong class="font-body-bold">Show Archived</strong> option. Archived notes appear alongside your other notes but slightly faded so you can tell them apart.</p><p class="font-body text-base mb-4">This only affects the folder you&#x27;re in; your other folders won&#x27;t change.</p><h2 class="font-heading mb-4 mt-8">Restoring a Note</h2><p class="font-body text-base mb-4">To bring an archived note back, first turn on <strong class="font-body-bold">Show Archived</strong> in the gear menu. Then right-click the archived note and choose <strong class="font-body-bold">Unarchive</strong>. The note returns to your active notes immediately.</p></article>

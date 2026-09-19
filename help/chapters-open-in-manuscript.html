@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Open in Manuscript","item":"https://penpoint.app/help/chapters-open-in-manuscript"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Building Your World","item":"https://penpoint.app/help/worldbuilding-for-writers"},{"@type":"ListItem","position":4,"name":"Open in Manuscript","item":"https://penpoint.app/help/chapters-open-in-manuscript"}]}</script>
   <style>
     /* The article body is the app's design system; the chrome is the website's.
        These rules are the seam between them, and they follow the site's spacing
@@ -84,15 +84,6 @@
       color: #CD6E2C; font-weight: 600; border-left-color: #CD6E2C; background: #F4EBD8;
     }
 
-    @media (max-width: 960px) {
-      /* The sidebar becomes a collapsed block above the article rather than disappearing,
-         so the whole guide is still reachable on a phone. */
-      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav {
-        position: static; max-height: none; overflow: visible;
-        border: 1px solid #E0D2BC; padding: 16px; margin-bottom: 28px;
-      }
-    }
     .help-crumbs {
       font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
       letter-spacing: .14em; text-transform: uppercase;
@@ -100,6 +91,21 @@
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
     .help-crumbs a:hover { color: #CD6E2C; }
+    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+
+    @media (max-width: 960px) {
+      /* The full sidebar doesn't fit on a phone: with the current section open by
+         default, the tree ran 760px+ tall, so a reader landed on a screen entirely full
+         of navigation and had to scroll past all of it to reach the article. The
+         breadcrumb above already carries the same "where am I" context in one line, and
+         "Browse all guides" in the footer still reaches the full tree. The links
+         themselves are lost to mobile users, not to crawlers: Google indexes the mobile
+         render, but a link only in a display:none block is still present in the HTML,
+         which is the same pattern any responsive nav (a hamburger menu, a collapsed
+         drawer) uses and is explicitly fine per Google's mobile-first guidance. */
+      .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
+      .help-nav { display: none; }
+    }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
     .help-body p, .help-body li { text-wrap: pretty; }
@@ -199,7 +205,7 @@
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
-          <a href="/">Penpoint</a> / <a href="/help/">Help</a>
+          <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/worldbuilding-for-writers">Building Your World</a> / <span aria-current="page">Open in Manuscript</span>
         </nav>
         <div class="help-body">
 <article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Open in Manuscript</h1><p class="font-body text-base mb-4">The Chapters page and Manuscript Mode are two views of the same book. They share the same chapters and scenes, not copies. Use Chapters to plan details and Manuscript Mode to write prose.</p><h2 class="font-heading mb-4 mt-8">Jumping to Manuscript Mode</h2><p class="font-body text-base mb-4">Click <strong class="font-body-bold">Manuscript</strong> at the top-right of the chapter view. Penpoint opens the selected chapter, or goes directly to the selected scene.</p><p class="font-body text-base mb-4">You can also right-click (or Ctrl+click on Mac) any chapter or scene in the outline (the chapter-and-scene list on the left), then choose <strong class="font-body-bold">Open in Manuscript</strong>.</p><h2 class="font-heading mb-4 mt-8">What Each View Edits</h2><p class="font-body text-base mb-4">Both views let you rename and reorganize chapters and scenes or change their status and color. A scene added in Chapters appears in Manuscript Mode. Deleting a scene from either view removes it from both; Penpoint asks you to confirm because deletion cannot be undone.</p><p class="font-body text-base mb-4"><strong class="font-body-bold">Chapters</strong> is the main place for planning blocks such as Calendar, Characters, Locations, Items, and Story Arcs. <strong class="font-body-bold">Manuscript Mode</strong> handles prose, formatting, writing tools, and chapter title or subtitle edits.</p><p class="font-body text-base mb-4">For the full picture of how Manuscript Mode works, see <a href="/help/distraction-free-writing-software" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Manuscript Mode</a>.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> Planning details and prose are stored separately. Routine changes to blocks, status, or color do not rewrite prose, and editing prose does not replace those details.</p></div><h2 class="font-heading mb-4 mt-8">Drafts From the Manuscript Outline</h2><p class="font-body text-base mb-4">In Manuscript Mode, right-click a scene in the outline and choose <strong class="font-body-bold">Scene Drafts</strong>. Right-click any chapter and choose <strong class="font-body-bold">View Chapter Drafts</strong>.</p><p class="font-body text-base mb-4">Scene Drafts save one scene&#x27;s prose. Chapter Drafts save all of the chapter&#x27;s scenes, names, and order. Before restoring either kind, Penpoint saves your current prose as<strong class="font-body-bold">Auto-saved before restore</strong>, which you can restore to return to that writing. Restoring does not replace chapter-level details such as the chapter title.</p><p class="font-body text-base mb-4">For one-scene versions, see <a href="/help/alternate-scene-drafts" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Scene Drafts</a>.</p><p class="font-body text-base mb-4">For whole-chapter versions, see <a href="/help/manuscript-chapter-drafts" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Chapter Drafts</a>.</p><p class="font-body text-base mb-4">To compare a saved draft with your current writing, see <a href="/help/compare-manuscript-drafts" class="font-semibold text-link underline" style="text-decoration-thickness:1px;text-underline-offset:2px">Comparing Your Manuscript Drafts</a>.</p></article>
