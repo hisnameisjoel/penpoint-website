@@ -1029,7 +1029,11 @@
 (function () {
   var LATEST_JSON_URL = 'https://updates.penpoint.app/latest.json';
   var RELEASE_BASE = 'https://f003.backblazeb2.com/file/penpoint-releases';
-  var RELEASES_PAGE = 'https://github.com/hisnameisjoel/penpoint-updates/releases';
+  // Fallback when a platform has no build this release, or latest.json fails to load.
+  // Used to point at the public GitHub releases page; that page no longer carries any
+  // downloadable binaries (B2 is the only public host now), so a stuck visitor gets a
+  // human instead of a dead end.
+  var SUPPORT_FALLBACK = 'mailto:support@penpoint.app?subject=Penpoint%20download%20help';
   var manifestPromise = null; // warmed during order validation so the picker is ready before reveal
 
   // Detect mobile devices
@@ -1239,7 +1243,7 @@
 
           var available = VARIANTS[osKey].filter(function (v) { return !!getUrl(v.key); });
           if (available.length === 0) {
-            optionsEl.innerHTML = '<a class="btn btn-outline version-btn" href="' + RELEASES_PAGE + '">View downloads</a>';
+            optionsEl.innerHTML = '<a class="btn btn-outline version-btn" href="' + SUPPORT_FALLBACK + '">Email support for a download link</a>';
             playOptionsFade();
             return;
           }
@@ -1291,7 +1295,7 @@
         }
       })
       .catch(function () {
-        if (optionsEl) optionsEl.innerHTML = '<a class="btn btn-primary btn-xl btn-shadow version-btn" href="' + RELEASES_PAGE + '">View Downloads</a>';
+        if (optionsEl) optionsEl.innerHTML = '<a class="btn btn-primary btn-xl btn-shadow version-btn" href="' + SUPPORT_FALLBACK + '">Email support for a download link</a>';
         if (versionEl) versionEl.textContent = '';
       });
     }); // end armDetection.then
