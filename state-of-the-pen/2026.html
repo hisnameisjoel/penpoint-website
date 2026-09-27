@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    document.documentElement.classList.add('js-ready');
+  </script>
+  <title>State of the Pen 2026: Where Penpoint Is Headed</title>
+  <meta name="description" content="Six months after launch: 13 releases, 2.6 million words written, Penpoint Cloud in closed beta, and the plan for Penpoint Hub, starting with Novel November.">
+  <link rel="canonical" href="https://penpoint.app/state-of-the-pen/2026">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://penpoint.app/state-of-the-pen/2026">
+  <meta property="og:title" content="State of the Pen: Where Penpoint Is Headed">
+  <meta property="og:description" content="Six months after launch: what shipped, what writers have made with it, what's being built next, and how Novel November starts Penpoint Hub.">
+  <meta property="og:image" content="https://penpoint.app/images/state-of-the-pen-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="State of the Pen, a Penpoint community update">
+  <meta property="og:site_name" content="Penpoint">
+  <meta property="og:locale" content="en_US">
+  <meta name="theme-color" content="#FFF7E6">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://penpoint.app/state-of-the-pen/2026">
+  <meta name="twitter:title" content="State of the Pen: Where Penpoint Is Headed">
+  <meta name="twitter:description" content="Six months after launch: what shipped, what writers have made with it, what's being built next, and how Novel November starts Penpoint Hub.">
+  <meta name="twitter:image" content="https://penpoint.app/images/state-of-the-pen-og.jpg">
+  <meta name="twitter:image:alt" content="State of the Pen, a Penpoint community update">
+
+  <!-- AI / LLM -->
+  <link rel="help" type="text/plain" href="/llms.txt" title="LLM information about Penpoint">
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+
+  <!-- Google Fonts. Caveat is the hand-lettering on the sticky notes, as in the talk's slides. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <!-- Root-absolute paths: this page lives one folder down, at /state-of-the-pen/2026. -->
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/typography.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/site-chrome.css">
+  <!-- Shared vs-* article shell (hero, breadcrumb, prose column, related, CTA). -->
+  <link rel="stylesheet" href="/css/comparison.css">
+  <!-- The editions row, shared by every State of the Pen edition. -->
+  <link rel="stylesheet" href="/css/state-of-the-pen.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-79JVXYBCTN');
+  </script>
+
+  <!-- ===========================================
+       STRUCTURED DATA
+       A community update, not a comparison or definitional page, so there
+       is no FAQPage block: most of this page is plans, and a lifted FAQ
+       answer about a plan outlives the plan (WritingPromotionalArticles §6).
+       =========================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://penpoint.app/state-of-the-pen/2026#article",
+        "headline": "State of the Pen 2026: Where Penpoint Is Headed",
+        "description": "Six months after launch: 13 releases, 2.6 million words written, Penpoint Cloud in closed beta, and the plan for Penpoint Hub, starting with Novel November.",
+        "image": "https://penpoint.app/images/state-of-the-pen-og.jpg",
+        "datePublished": "2026-09-26",
+        "dateModified": "2026-09-26",
+        "author": {
+          "@type": "Person",
+          "name": "Joel Gerlach",
+          "url": "https://penpoint.app/about"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Tophat Creative, LLC"
+        },
+        "mainEntityOfPage": {
+          "@id": "https://penpoint.app/state-of-the-pen/2026#webpage"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://penpoint.app/state-of-the-pen/2026#webpage",
+        "name": "State of the Pen 2026: Where Penpoint Is Headed",
+        "url": "https://penpoint.app/state-of-the-pen/2026",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Penpoint",
+          "url": "https://penpoint.app/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://penpoint.app/state-of-the-pen/2026#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://penpoint.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Development",
+            "item": "https://penpoint.app/development"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "State of the Pen 2026",
+            "item": "https://penpoint.app/state-of-the-pen/2026"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- data-edition-style: this edition's own look. The editions switcher swaps
+       these in and out with the article, so each year can have its own design. -->
+  <style data-edition-style>
+    /* ===========================================
+       STATE OF THE PEN 2026: the talk's slides, rebuilt as page graphics.
+       Every graphic is real HTML text (a crawler with no JavaScript reads
+       all of it) laid on a parchment "desk" panel in the Paper Desk Reel
+       look: paper cards, tape, sticky notes, hand lettering.
+       Cards tilt only in the first three graphics, matching the slides,
+       which went flat from "Almost here" on so they read easily.
+       =========================================== */
+
+    .sp-byline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+      text-align: left;
+    }
+
+    .sp-byline img {
+      width: 52px;
+      height: 52px;
+      object-fit: cover;
+      object-position: center 20%;
+      border: 1px solid rgb(var(--border));
+    }
+
+    .sp-byline__name {
+      font-weight: 600;
+      font-size: var(--text-sm);
+      color: rgb(var(--foreground));
+    }
+
+    .sp-byline__meta {
+      font-size: var(--text-xs);
+      color: rgb(var(--muted-foreground));
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      letter-spacing: 0.04em;
+    }
+
+    /* ----- The desk panel every graphic sits on ----- */
+    .sp-fig {
+      max-width: 1040px;
+      margin: var(--space-10) auto;
+      padding: clamp(22px, 4.2vw, 52px);
+      clear: both;
+      position: relative;
+      border: 1px solid rgb(var(--border));
+      background-color: #F8EFDB;
+      background-image:
+        radial-gradient(ellipse at 50% 40%, rgba(255, 252, 242, 0.9) 0%, rgba(248, 239, 219, 0) 62%),
+        radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0) 60%, rgba(120, 80, 30, 0.10) 100%),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' seed='4'/><feColorMatrix values='0 0 0 0 0.45  0 0 0 0 0.32  0 0 0 0 0.16  0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+
+    .sp-fig__top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin-bottom: clamp(18px, 3vw, 30px);
+    }
+
+    .sp-fig__title {
+      font-family: 'Newsreader', ui-serif, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(1.9rem, 4.4vw, 3rem);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      color: #29241E;
+      margin: 0;
+      text-wrap: balance;
+    }
+
+    .sp-fig__title em,
+    .sp-statement em,
+    .sp-ct em { font-style: italic; font-weight: 400; }
+
+    .sp-fig__sub {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.45;
+      color: #5A4A36;
+      margin: var(--space-3) 0 0;
+      text-wrap: pretty;
+    }
+
+    /* ----- Paper -----
+       Card groups are plain divs rather than <ul>: each card holds several
+       blocks (label, title, number), and the orphan gate reads a list item as
+       one paragraph, so a card's last short line looked like a stranded word. */
+    .sp-list { margin: 0; padding: 0; }
+
+    .sp-card {
+      position: relative;
+      height: 100%;
+      box-sizing: border-box;
+      padding: clamp(18px, 2.6vw, 30px);
+      background-color: #FFFDF7;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='9'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0 0.25  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      box-shadow: 0 1px 2px rgba(60, 35, 10, 0.10), 0 14px 30px rgba(60, 35, 10, 0.13);
+      transform: rotate(var(--r, 0deg));
+    }
+
+    .sp-card--manila { background-color: #EFE2C2; }
+    .sp-card--edge { border-top: 6px solid var(--c, #CD6E2C); }
+
+    .sp-sticky {
+      padding: clamp(16px, 2.4vw, 26px) clamp(18px, 2.6vw, 30px);
+      background: #F8E08A;
+      box-shadow: 0 1px 2px rgba(60, 35, 10, 0.12), 0 12px 24px rgba(60, 35, 10, 0.16);
+      transform: rotate(var(--r, 0deg));
+    }
+
+    .sp-sticky--blue { background: #CFE2EE; }
+
+    .sp-tape {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      width: 96px;
+      height: 26px;
+      margin-left: -48px;
+      background: rgba(233, 221, 188, 0.85);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      transform: rotate(-3deg);
+    }
+
+    .sp-label {
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--c, #CD6E2C);
+      margin: 0;
+    }
+
+    .sp-ct {
+      font-family: 'Newsreader', ui-serif, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(1.3rem, 2.3vw, 1.65rem);
+      line-height: 1.12;
+      letter-spacing: -0.012em;
+      color: #29241E;
+      margin: var(--space-2) 0 var(--space-2);
+      text-wrap: balance;
+    }
+
+    /* Card blurbs are one to three lines, where `balance` reliably keeps the
+       last word company and `pretty` often does not. Three-word card titles
+       carry a &nbsp; in the markup, since no wrap setting can split three
+       words without leaving one alone. */
+    .sp-cb {
+      font-size: 0.98rem;
+      line-height: 1.5;
+      color: #5A4A36;
+      margin: 0;
+      text-wrap: balance;
+    }
+
+    .sp-cols--4 .sp-ct { font-size: clamp(1.2rem, 1.8vw, 1.35rem); }
+
+    .sp-hand {
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      line-height: 1.05;
+      color: #2A4A8A;
+      margin: 0;
+      text-wrap: balance;
+    }
+
+    .sp-sticky .sp-hand { color: #3A3020; }
+    .sp-sticky--blue .sp-hand { color: #23364F; }
+
+    .sp-chip {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-weight: 600;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 9px;
+      background: var(--chip-bg, rgba(205, 110, 44, 0.12));
+      color: var(--c, #CD6E2C);
+      white-space: nowrap;
+    }
+
+    .sp-head-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    .sp-icon {
+      width: 26px;
+      height: 26px;
+      flex: none;
+      fill: none;
+      stroke: var(--c, #C0692D);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .sp-quill { fill: #CD6E2C; flex: none; }
+
+    /* ----- Card grids ----- */
+    .sp-cols {
+      display: grid;
+      gap: clamp(16px, 2.6vw, 30px);
+      align-items: stretch;
+    }
+
+    .sp-cols--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sp-cols--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .sp-cols--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    @media (max-width: 1020px) {
+      .sp-converge { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 860px) {
+      .sp-cols--3,
+      .sp-cols--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 560px) {
+      .sp-cols--2,
+      .sp-cols--3,
+      .sp-cols--4 { grid-template-columns: 1fr; }
+    }
+
+    /* ----- "Why Penpoint exists" ----- */
+    .sp-why { text-align: center; }
+
+    .sp-statement {
+      font-family: 'Newsreader', ui-serif, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 5.4vw, 3.6rem);
+      line-height: 1.06;
+      letter-spacing: -0.022em;
+      color: #29241E;
+      margin: 0;
+      text-wrap: balance;
+    }
+
+    .sp-why__chips {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-5);
+      margin-top: clamp(24px, 4vw, 44px);
+    }
+
+    .sp-why__chips .sp-card { height: auto; padding: 14px 22px; }
+
+    /* ----- Six months grid, laid out like the help page's Browse grid ----- */
+    .sp-shipped {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2px;
+      background: #DCCDB0;
+      border: 2px solid #DCCDB0;
+      box-shadow: 0 14px 32px rgba(60, 35, 10, 0.10);
+    }
+
+    .sp-shipped > div {
+      background: #FAF6EE;
+      padding: clamp(16px, 2.2vw, 24px) clamp(16px, 2.4vw, 26px);
+    }
+
+    .sp-shipped__title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 6px 0 4px;
+      font-weight: 600;
+      font-size: 1.15rem;
+      line-height: 1.15;
+      color: #29241E;
+    }
+
+    .sp-shipped dl { margin: 0; }
+
+    .sp-shipped dt {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #B8622A;
+      margin-top: 10px;
+    }
+
+    .sp-shipped dd {
+      margin: 1px 0 0;
+      font-size: 0.86rem;
+      line-height: 1.4;
+      color: #5A4A36;
+      text-wrap: pretty;
+    }
+
+    @media (max-width: 860px) {
+      .sp-shipped { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 560px) {
+      .sp-shipped { grid-template-columns: 1fr; }
+    }
+
+    /* ----- The numbers ----- */
+    .sp-stats {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: clamp(16px, 2.6vw, 30px);
+    }
+
+    .sp-stats__big {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .sp-num {
+      font-family: 'Newsreader', ui-serif, Georgia, serif;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: #29241E;
+    }
+
+    .sp-num--xl { font-size: clamp(3.6rem, 10vw, 7.2rem); margin: var(--space-3) 0 var(--space-2); }
+    .sp-num--xl small { font-size: 0.55em; }
+    .sp-num--md { font-size: clamp(2rem, 4.4vw, 3rem); }
+    .sp-num--lg { font-size: clamp(2.4rem, 5.4vw, 3.8rem); margin-top: var(--space-3); }
+
+    .sp-stats__side {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(14px, 2vw, 22px);
+    }
+
+    .sp-stats__side .sp-card {
+      height: auto;
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-4);
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+
+    .sp-worlds { margin-top: clamp(34px, 5vw, 56px); }
+
+    /* A little scatter, as if dropped on the desk. Desktop only. */
+    @media (min-width: 861px) {
+      .sp-worlds > div:nth-child(2) { margin-top: 24px; }
+      .sp-worlds > div:nth-child(3) { margin-top: 6px; }
+      .sp-worlds > div:nth-child(4) { margin-top: 30px; }
+    }
+
+    .sp-worlds__note {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: clamp(24px, 4vw, 40px);
+      padding-right: clamp(0px, 8vw, 120px);
+    }
+
+    @media (max-width: 700px) {
+      .sp-stats { grid-template-columns: 1fr; }
+    }
+
+    /* ----- Section turn ----- */
+    /* A pause in the page, not a graphic: no desk panel, sized to the prose column. */
+    .sp-turn {
+      max-width: 780px;
+      text-align: center;
+      padding: var(--space-6) 0;
+      border: 0;
+      background: none;
+    }
+
+    .sp-turn .sp-statement { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+
+    .sp-turn .sp-quill { display: block; width: 36px; height: 36px; margin: 0 auto var(--space-4); }
+
+    /* ----- Penpoint Hub title card ----- */
+    .sp-hub { text-align: center; }
+
+    .sp-hub__mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      letter-spacing: -0.03em;
+      color: #29241E;
+    }
+
+    .sp-hub .sp-statement { font-size: clamp(1.7rem, 4.2vw, 2.8rem); margin-top: var(--space-5); }
+
+    /* ----- Group goal bar ----- */
+    .sp-bar {
+      height: 16px;
+      margin-top: var(--space-4);
+      background: #EDE3CB;
+      overflow: hidden;
+    }
+
+    .sp-bar > span {
+      display: block;
+      width: 64%;
+      height: 100%;
+      background: linear-gradient(90deg, #E8964F, #CD6E2C);
+    }
+
+    .sp-bar__legend {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-2);
+      margin-top: 8px;
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-weight: 600;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: #8A6A45;
+    }
+
+    /* ----- First word to finished book ----- */
+    .sp-steps {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr) 48px minmax(0, 1fr);
+      align-items: stretch;
+    }
+
+    .sp-steps__arrow {
+      align-self: center;
+      width: 48px;
+      height: 32px;
+      fill: none;
+      stroke: #8A6A45;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 760px) {
+      .sp-steps { grid-template-columns: 1fr; }
+      .sp-steps__arrow { justify-self: center; transform: rotate(90deg); margin: 6px 0; }
+    }
+
+    .sp-band {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: clamp(18px, 3vw, 28px);
+      padding: clamp(14px, 2.2vw, 20px) clamp(18px, 3vw, 32px);
+      background: #CD6E2C;
+      color: #FFF8EA;
+      box-shadow: 0 10px 24px rgba(160, 80, 30, 0.22);
+      font-family: 'Newsreader', ui-serif, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(1.25rem, 2.8vw, 1.9rem);
+      line-height: 1.15;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .sp-band em { font-style: italic; font-weight: 400; }
+    .sp-band .sp-quill { fill: #FFF8EA; }
+    .sp-band__sep { opacity: 0.55; }
+
+    .sp-center-note { text-align: center; margin-top: var(--space-5); }
+
+    /* ----- Beta readers: cards beside a browser window ----- */
+    .sp-readers {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+      gap: clamp(18px, 3vw, 40px);
+      align-items: start;
+    }
+
+    .sp-readers__cards { display: flex; flex-direction: column; gap: clamp(14px, 2vw, 20px); }
+    .sp-readers__cards .sp-card { height: auto; }
+
+    .sp-browser {
+      background: #FFFDF7;
+      box-shadow: 0 1px 2px rgba(60, 35, 10, 0.1), 0 18px 38px rgba(60, 35, 10, 0.2);
+      overflow: hidden;
+    }
+
+    .sp-browser__bar {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 12px;
+      background: #EDE3CB;
+    }
+
+    .sp-browser__dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+
+    .sp-browser__url {
+      margin-left: 8px;
+      flex: 1;
+      min-width: 0;
+      padding: 4px 10px;
+      background: #FBF6EA;
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-size: 0.68rem;
+      color: #8A6A45;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sp-browser__page { display: flex; gap: var(--space-4); padding: clamp(18px, 2.6vw, 28px); }
+
+    .sp-browser__prose {
+      flex: 1;
+      min-width: 0;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: #3D2E1C;
+    }
+
+    .sp-browser__prose p { margin: 0 0 var(--space-3); text-wrap: pretty; }
+
+    .sp-browser__chapter {
+      font-family: 'Newsreader', ui-serif, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.4rem;
+      color: #29241E;
+      margin: 0 0 var(--space-3);
+    }
+
+    .sp-browser mark {
+      background: rgba(232, 150, 79, 0.3);
+      border-bottom: 2px solid #CD6E2C;
+      color: inherit;
+    }
+
+    .sp-browser__comment { width: 150px; flex: none; }
+    .sp-browser__comment .sp-hand { font-size: 1.5rem; }
+
+    .sp-browser__who {
+      font-family: 'IBM Plex Mono', ui-monospace, monospace;
+      font-weight: 600;
+      font-size: 0.56rem;
+      letter-spacing: 0.12em;
+      color: #8A6A45;
+      margin: 0 0 4px;
+    }
+
+    @media (max-width: 760px) {
+      .sp-readers { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .sp-browser__page { flex-direction: column; }
+      .sp-browser__comment { width: auto; }
+    }
+
+    /* ----- Hub tiers ----- */
+    .sp-tiers {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2px;
+      background: #DCCDB0;
+      border: 2px solid #DCCDB0;
+      box-shadow: 0 14px 32px rgba(60, 35, 10, 0.10);
+    }
+
+    .sp-tiers > div {
+      background: #FAF6EE;
+      border-top: 6px solid var(--c);
+      padding: clamp(18px, 2.6vw, 28px);
+    }
+
+    .sp-tiers__who {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 6px 0 12px;
+      font-family: 'Newsreader', ui-serif, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(1.5rem, 2.8vw, 2rem);
+      letter-spacing: -0.015em;
+      line-height: 1;
+      color: #29241E;
+    }
+
+    .sp-tiers .sp-cb { margin-top: 10px; }
+
+    @media (max-width: 760px) {
+      .sp-tiers { grid-template-columns: 1fr; }
+    }
+
+    /* ----- Pencil note ----- */
+    .sp-pencil { text-align: center; padding-top: clamp(36px, 6vw, 70px); padding-bottom: clamp(36px, 6vw, 70px); }
+    .sp-pencil .sp-hand { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-top: var(--space-6); transform: rotate(-2deg); }
+
+    /* ----- Converge: four pieces feeding one event ----- */
+    .sp-converge__lines {
+      display: block;
+      width: 100%;
+      height: 46px;
+      margin: 4px 0 0;
+    }
+
+    .sp-converge__lines path {
+      fill: none;
+      stroke: #8A6A45;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-dasharray: 2 8;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .sp-converge + .sp-band { margin-top: 0; }
+    .sp-converge .sp-card { padding: 20px 18px; }
+
+    @media (max-width: 1020px) {
+      .sp-converge__lines { display: none; }
+      .sp-converge + .sp-band { margin-top: clamp(18px, 3vw, 28px); }
+    }
+
+    /* ----- Novel November months ----- */
+    .sp-months {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr);
+      align-items: center;
+    }
+
+    .sp-month { padding: 0; overflow: hidden; }
+    .sp-month__head { background: var(--c); padding: 12px clamp(18px, 2.6vw, 28px); }
+    .sp-month__head .sp-label { color: #FFF8EA; }
+    .sp-month__body { padding: clamp(18px, 2.6vw, 28px); }
+    .sp-month__body .sp-ct { margin-top: 0; }
+
+    .sp-months__arrow {
+      justify-self: center;
+      width: 60px;
+      height: 34px;
+      fill: none;
+      stroke: #2A4A8A;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .sp-offers { margin-top: clamp(22px, 4vw, 40px); }
+    .sp-offers .sp-sticky { height: 100%; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-3); text-align: center; }
+
+    @media (max-width: 700px) {
+      .sp-months { grid-template-columns: 1fr; }
+      .sp-months__arrow { transform: rotate(90deg); margin: 6px 0; }
+    }
+
+    /* ----- The ask ----- */
+    .sp-ask {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(18px, 3vw, 36px);
+      align-items: stretch;
+    }
+
+    .sp-ask__cards { display: flex; flex-direction: column; gap: clamp(14px, 2vw, 22px); }
+    .sp-ask__cards .sp-card { height: auto; flex: 1; }
+
+    .sp-ask .sp-sticky { display: flex; flex-direction: column; }
+    .sp-ask .sp-sticky .sp-label { --c: #8A5A10; }
+    .sp-ask .sp-sticky .sp-hand { font-size: clamp(1.8rem, 3.6vw, 2.5rem); margin-top: var(--space-3); }
+
+    .sp-ask__options {
+      list-style: none;
+      margin: var(--space-6) 0 0;
+      padding: 0;
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.3;
+      color: #2A4A8A;
+    }
+
+    @media (max-width: 700px) {
+      .sp-ask { grid-template-columns: 1fr; }
+    }
+
+    /* ----- Sign-off: Joel's name in the sticky-note hand, then the thank-you sticky ----- */
+    .vs-body .sp-closing { margin: var(--space-6) 0 0; }
+
+    .vs-body .sp-signoff {
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: 2.2rem;
+      line-height: 1.1;
+      color: #2A4A8A;
+      margin: var(--space-1) 0 0;
+    }
+
+    .sp-thanks {
+      max-width: 300px;
+      margin: var(--space-12) auto var(--space-4);
+      text-align: center;
+    }
+
+    .sp-stats-note {
+      max-width: 780px;
+      margin: 0 auto var(--space-10);
+      font-size: var(--text-xs);
+      font-style: italic;
+      line-height: 1.5;
+      color: rgb(var(--muted-foreground));
+      text-wrap: pretty;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Shared site header (see css/site-chrome.css) ===== -->
+  <header class="pp-header">
+    <div class="pp-header__inner">
+      <a href="/" class="pp-logo" aria-label="Penpoint home">
+        <svg class="pp-logo__icon" viewBox="0 0 24 24" width="22" height="22" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+        <span class="pp-logo__text">Penpoint</span>
+      </a>
+      <nav class="pp-nav" aria-label="Primary">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" aria-label="Join our Discord" class="pp-nav__discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="/trial" class="pp-cta">Try Penpoint</a>
+      </nav>
+      <a href="/trial" class="pp-try-m">Try</a>
+      <button type="button" class="pp-burger" data-burger="" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="pp-mobile" data-mobile-menu="">
+      <div class="pp-mobile__inner">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+  <!-- Everything inside this <article> is the edition. The editions switcher
+       (js/state-of-the-pen.js) swaps the whole element for another edition's. -->
+  <article id="sotp-edition" data-edition="2026">
+
+  <!-- ===========================================
+       BREADCRUMB
+       =========================================== -->
+  <nav class="vs-crumb container" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">&rsaquo;</li>
+      <li><a href="/development">Development</a></li>
+      <li aria-hidden="true">&rsaquo;</li>
+      <li aria-current="page">State of the Pen 2026</li>
+    </ol>
+  </nav>
+
+  <!-- ===========================================
+       EDITIONS ROW. Every tab is a real link to a full static page, so
+       crawlers and no-JS readers simply navigate. Adding an edition: add
+       its tab here AND in every other edition's row, newest first.
+       =========================================== -->
+  <nav class="sotp-editions container" aria-label="State of the Pen editions">
+    <span class="sotp-editions__label">Editions</span>
+    <a href="/state-of-the-pen/2026" aria-current="page">2026</a>
+  </nav>
+
+
+  <!-- ===========================================
+       HERO
+       =========================================== -->
+  <section class="vs-hero">
+    <div class="container">
+      <p class="vs-hero__kicker" data-animate="fade-up">The 2026 keynote &middot; September 26</p>
+      <h1 class="vs-hero__headline" data-animate="fade-up" data-stagger="1">
+        State of the <em>Pen</em>
+      </h1>
+      <p class="vs-hero__sub font-body-lg" data-animate="fade-up" data-stagger="2">
+        Where Penpoint stands six months after launch, what's being built next, and how Novel November starts something bigger.
+      </p>
+      <div class="sp-byline" data-animate="fade-up" data-stagger="3">
+        <img src="/images/joel-portrait.webp" width="52" height="52" alt="Joel, the writer and developer who makes Penpoint">
+        <div>
+          <div class="sp-byline__name">Joel Gerlach, founder of Penpoint</div>
+          <div class="sp-byline__meta">From the live Discord talk, September 26, 2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===========================================
+       ANSWER CAPSULE
+       =========================================== -->
+  <section class="vs-intro">
+    <div class="container">
+      <p class="vs-checked" data-animate="fade-up">Published September 26, 2026</p>
+      <div class="vs-verdict" data-animate="fade-up">
+        <h2>The short version</h2>
+        <p>
+          Penpoint launched in March 2026 and has shipped 13 releases since, adding multi-book Series, the Corkboard, inline comments, custom calendars, Zen Mode, and more. Penpoint Cloud, which backs up and syncs your books, is in closed beta ahead of its public launch. The next big community event is Novel November: the first version of a new space called Penpoint Hub, and our first marketing outreach.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="vs-main">
+    <div class="container">
+
+      <!-- ============ WHY PENPOINT EXISTS ============ -->
+      <div class="sp-fig sp-why" data-animate="fade-up">
+        <p class="sp-label">Why Penpoint exists</p>
+        <h2 id="why" class="sp-statement" style="margin-top: var(--space-4)">For human storytellers, <em>by human storytellers.</em></h2>
+        <div class="sp-list sp-why__chips">
+          <div><div class="sp-card" style="--r:-3deg"><p class="sp-label">Your characters</p></div></div>
+          <div><div class="sp-card" style="--r:2deg"><p class="sp-label" style="--c:#5E7F52">Your places</p></div></div>
+          <div><div class="sp-card" style="--r:-1.5deg"><p class="sp-label" style="--c:#3E6598">Your words</p></div></div>
+        </div>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          Nearly every writer I know has a haphazard way of keeping track of their worlds. Sometimes it's all contained in one app (using a file and folder structure they had to painstakingly build themselves), but more often it's a document editor for the draft, a spreadsheet for the timeline, and a folder of character notes that stopped matching the manuscript somewhere around chapter nine. And in this age of "everything is a subscription," authors have to pay every month just to keep access to their own work. Penpoint keeps all of it in one file, offline and local, so the world stays current with the book while you write it. And you only pay for the core app once.
+        </p>
+        <p>
+          I built Penpoint because I wanted a better place to build my own book. I'm delighted to have found like-minded authors who are willing to help me make Penpoint into something even better than I could have imagined. Let's take a look at where we are now and what's on the horizon.
+        </p>
+      </div>
+
+
+      <!-- ============ SIX MONTHS ============ -->
+      <div class="sp-fig" data-animate="fade-up">
+        <div class="sp-fig__top">
+          <h2 id="six-months" class="sp-fig__title">Six months at the <em>desk.</em></h2>
+          <p class="sp-hand" style="transform: rotate(-3deg)">13 releases since March!</p>
+        </div>
+        <div class="sp-list sp-shipped">
+          <div>
+            <p class="sp-label" style="--c:#8A6A45">March</p>
+            <p class="sp-shipped__title"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>We launched!</p>
+            <dl>
+              <dt>Zen Mode</dt><dd>Press F11 and everything fades but your words.</dd>
+              <dt>Find &amp; Replace, rebuilt</dt><dd>Match bold, italic, and whole words.</dd>
+              <dt>Safer restores</dt><dd>Restore any backup as a brand-new book.</dd>
+            </dl>
+          </div>
+          <div>
+            <p class="sp-label" style="--c:#8A6A45">May</p>
+            <p class="sp-shipped__title"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Your world, your way</p>
+            <dl>
+              <dt>Chapters page, rebuilt</dt><dd>Custom layouts, and scenes with their own cast.</dd>
+              <dt>Custom calendars</dt><dd>Gregorian, a day counter, or your own fantasy one.</dd>
+              <dt>@ Mentions</dt><dd>Type @ to drop any character into your prose.</dd>
+            </dl>
+          </div>
+          <div>
+            <p class="sp-label" style="--c:#8A6A45">July</p>
+            <p class="sp-shipped__title"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m16 6 4 14"/><path d="M12 6v14"/><path d="M8 8v12"/><path d="M4 4v16"/></svg>Go big</p>
+            <dl>
+              <dt>Series</dt><dd>Turn one book into a saga with a shared world.</dd>
+              <dt>The Corkboard</dt><dd>Rearrange your chapters as index cards.</dd>
+              <dt>Events</dt><dd>Story moments linked to everyone involved.</dd>
+            </dl>
+          </div>
+          <div>
+            <p class="sp-label" style="--c:#8A6A45">August</p>
+            <p class="sp-shipped__title"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></svg>Polish the prose</p>
+            <dl>
+              <dt>Comments &amp; pinned notes</dt><dd>Margin notes tied to the exact passage.</dd>
+              <dt>Chapter Drafts</dt><dd>Snapshot a chapter, restore any old version.</dd>
+              <dt>Tag Groups</dt><dd>Sort a long tag list into tidy sections.</dd>
+            </dl>
+          </div>
+          <div>
+            <p class="sp-label" style="--c:#8A6A45">September &middot; in beta</p>
+            <p class="sp-shipped__title"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>Into the Cloud</p>
+            <dl>
+              <dt>Penpoint Cloud</dt><dd>Backup and sync across your computers.</dd>
+              <dt>Compare drafts</dt><dd>See exactly what changed between versions.</dd>
+              <dt>Submission-ready export</dt><dd>Standard manuscript format, plus Scrivener 3.</dd>
+            </dl>
+          </div>
+          <div>
+            <p class="sp-label" style="--c:#8A6A45">All along the way</p>
+            <p class="sp-shipped__title"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>The little things</p>
+            <dl>
+              <dt>Reading-friendly fonts</dt><dd>OpenDyslexic and EB Garamond, built in.</dd>
+              <dt>Page Setup</dt><dd>Letter, A4, or 6&times;9 book trim on export.</dd>
+              <dt>Book covers</dt><dd>Colors, textures, or your own cover art.</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          Book Series, the Corkboard, comments on prose, custom calendars, Chapter Drafts, Tag Groups, and countless others were all requests from real writers in the Discord before they were features in the app. You can follow every change, release by release, in the <a href="/changelog">changelog</a>, and see just how fast Penpoint has grown since launch.
+        </p>
+      </div>
+
+
+      <!-- ============ THE NUMBERS ============ -->
+      <div class="sp-fig" data-animate="fade-up">
+        <div class="sp-fig__top">
+          <h2 id="numbers" class="sp-fig__title">Look what you've <em>written.</em></h2>
+        </div>
+        <div class="sp-stats">
+          <div class="sp-card sp-stats__big" style="--r:-1.2deg">
+            <p class="sp-label">Words of story</p>
+            <div class="sp-num sp-num--xl">2.6<small> million</small></div>
+            <p class="sp-cb">written in Penpoint since launch.</p>
+          </div>
+          <div class="sp-list sp-stats__side">
+            <div class="sp-card" style="--r:1.2deg"><span class="sp-num sp-num--md">260</span><span class="sp-cb">books started</span></div>
+            <div class="sp-card" style="--r:-0.8deg"><span class="sp-num sp-num--md">3,400+</span><span class="sp-cb">hours at the desk</span></div>
+            <div class="sp-sticky" style="--r:1.6deg"><p class="sp-hand">Almost 14 years of writing days, together.</p></div>
+          </div>
+        </div>
+
+        <div class="sp-list sp-cols sp-cols--4 sp-worlds">
+          <div><div class="sp-card" style="--r:-2deg"><span class="sp-tape"></span><p class="sp-label" style="--c:#3E6598">Chapters</p><p class="sp-num sp-num--lg">2,664</p></div></div>
+          <div><div class="sp-card" style="--r:1.6deg"><span class="sp-tape"></span><p class="sp-label" style="--c:#5E7F52">Locations</p><p class="sp-num sp-num--lg">819</p></div></div>
+          <div><div class="sp-card" style="--r:-0.8deg"><span class="sp-tape"></span><p class="sp-label" style="--c:#A8742C">Items</p><p class="sp-num sp-num--lg">470</p></div></div>
+          <div><div class="sp-card" style="--r:2deg"><span class="sp-tape"></span><p class="sp-label">Characters</p><p class="sp-num sp-num--lg">336</p></div></div>
+        </div>
+        <div class="sp-worlds__note">
+          <div class="sp-sticky" style="--r:-3deg"><p class="sp-hand">4&times; the devices running Penpoint since launch day!</p></div>
+        </div>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          Since launch, writers have put 2.6 million words of story into Penpoint across 260 books, in more than 3,400 hours of writing and worldbuilding. Behind those words sit 2,664 chapters, 819 locations, 470 items, and 336 characters. And four times as many devices run Penpoint today as on launch day. That's huge growth in such a short time!
+        </p>
+      </div>
+      <p class="sp-stats-note">
+        These counts come only from writers who turned on Penpoint's optional community analytics, which are off by default, so the real totals are higher. The analytics record counts, never your writing.
+      </p>
+
+
+      <!-- ============ ALMOST HERE ============ -->
+      <div class="sp-fig" data-animate="fade-up">
+        <div class="sp-fig__top">
+          <h2 id="almost-here" class="sp-fig__title">What's almost <em>here.</em></h2>
+        </div>
+        <div class="sp-cols sp-cols--2">
+          <div class="sp-card" style="padding-top: clamp(24px, 3.4vw, 40px)">
+            <span class="sp-tape"></span>
+            <div class="sp-head-row"><p class="sp-label" style="--c:#3E6598">Penpoint Cloud</p><span class="sp-chip">Mid-October</span></div>
+            <p class="sp-ct" style="font-size: clamp(1.6rem, 3vw, 2.2rem); margin-top: var(--space-4)">Your books, on every device.</p>
+            <p class="sp-cb">Automatic backup and sync across your computers, plus the <strong style="color:#CD6E2C">Minipen</strong> Mobile Companion App for your phone. Pick up right where you left off.</p>
+            <p class="sp-hand" style="margin-top: var(--space-5)">Thank you, beta testers!</p>
+          </div>
+          <div class="sp-list" style="display:flex; flex-direction:column; gap: clamp(16px, 2.6vw, 30px)">
+            <div class="sp-card" style="height:auto">
+              <div class="sp-head-row"><p class="sp-label" style="--c:#5E7F52">Author Progress</p><span class="sp-chip" style="--c:#5E7F52; --chip-bg: rgba(94,127,82,0.14)">Testing now</span></div>
+              <p class="sp-ct">Your writing life on one page.</p>
+              <p class="sp-cb">Goals, sprints, and sessions, all in one place.</p>
+            </div>
+            <div class="sp-card sp-card--manila" style="height:auto">
+              <div class="sp-head-row"><p class="sp-label" style="--c:#A8742C">Video Tutorials</p><span class="sp-chip" style="--c:#A8742C; --chip-bg: rgba(168,116,44,0.16)">In the works</span></div>
+              <p class="sp-ct">Watch how it all works.</p>
+              <p class="sp-cb">Full video tutorials for every part of Penpoint, filmed in the real app.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          <strong>Penpoint Cloud</strong> is the big one. It backs up your books automatically and keeps them in sync across your computers. A small group of testers has been running it in closed beta since August, and the public launch is planned for mid-October. Thank you to every one of them. This is Penpoint's first <em>entirely optional subscription service</em>, built to make writing on more than one computer, or keeping a secure backup, more convenient. <strong>The core Penpoint experience is not affected by Penpoint Cloud</strong>, and your books are always available offline by design. Use Penpoint Cloud if you want it, or skip it if you don't. <em>Penpoint stays the same.</em>
+        </p>
+        <p>
+          The <strong>Minipen Mobile Companion App</strong> is planned to arrive with the launch of Cloud. Minipen is the sidebar that keeps your worldbuilding open beside your manuscript, and the companion app puts it on your phone. The app works alongside the desktop app, but only with a Penpoint Cloud subscription. The subscription is required because iOS and Android apps can't sideload .penpoint files, so a secure, encrypted server is the only way to move books between devices. Personally, I find the app to be an incredible way to edit a few lines of my manuscript or jot down ideas about my characters while on the go. I'm excited to see how people will use Minipen!
+        </p>
+      </div>
+
+
+      <!-- ============ WORKBENCH ============ -->
+      <div class="sp-fig" data-animate="fade-up">
+        <div class="sp-fig__top">
+          <h2 id="workbench" class="sp-fig__title">On the <em>workbench.</em></h2>
+          <p class="sp-hand" style="transform: rotate(-3deg)">Being built right now</p>
+        </div>
+        <div class="sp-list sp-cols sp-cols--2">
+          <div class="sp-card"><p class="sp-label" style="--c:#7A5A8C">Scrivener Import</p><p class="sp-ct">Bring your Scrivener projects home.</p><p class="sp-cb">Structure and all. No copying chapters by hand.</p></div>
+          <div class="sp-card"><p class="sp-label">Custom Character Sheets</p><p class="sp-ct">A sheet sized to every role.</p><p class="sp-cb">Full depth for your hero, a light card for the tavern keeper.</p></div>
+          <div class="sp-card"><p class="sp-label" style="--c:#5E7F52">Reimagined Timeline</p><p class="sp-ct">A timeline that speaks your calendar.</p><p class="sp-cb">Built on your book's own calendar, fantasy ones included.</p></div>
+          <div class="sp-card"><p class="sp-label" style="--c:#B8453A">More Languages</p><p class="sp-ct">Penpoint, beyond English.</p><p class="sp-cb">Use the whole app in more of the world's languages.</p></div>
+        </div>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          None of these four has a ship date yet, and each one ships when it's ready.
+        </p>
+        <p>
+          <strong>Custom Character Sheets</strong> are a long-overdue upgrade to characters, letting you choose a different character sheet for each character. A primary character gets the full deep-dive, a secondary character gets a focused middle ground, and a background character gets a light card, so the tavern keeper no longer needs the same sheet as your hero.
+        </p>
+        <p>
+          <strong>Scrivener Import</strong> is being built to bring a Scrivener project across with its structure intact, so nobody has to copy chapters over one at a time. The <strong>Reimagined Timeline</strong> runs on the calendars you already set up in your book, invented ones included, and will be the biggest upgrade yet to the Events system, tying your entire book together into one linear series of events. <strong>More Languages</strong> is a first pass at translating the Penpoint interface out of English, with Chinese releasing first.
+        </p>
+      </div>
+
+
+      <!-- ============ RADAR ============ -->
+      <div class="sp-fig" data-animate="fade-up">
+        <div class="sp-fig__top">
+          <div>
+            <p class="sp-label">Ideas I'm exploring</p>
+            <h2 id="radar" class="sp-fig__title" style="margin-top: var(--space-2)">On my <em>radar.</em></h2>
+          </div>
+        </div>
+        <div class="sp-list sp-cols sp-cols--3">
+          <div class="sp-card sp-card--edge" style="--c:#3E6598"><p class="sp-ct" style="margin-top:0">Reader Mode</p><p class="sp-cb">Read your manuscript like a finished book.</p></div>
+          <div class="sp-card sp-card--edge" style="--c:#B8453A"><p class="sp-ct" style="margin-top:0">Script Mode</p><p class="sp-cb">Screenplays, with all your worldbuilding.</p></div>
+          <div class="sp-card sp-card--edge" style="--c:#5E7F52"><p class="sp-ct" style="margin-top:0">Family Tree View</p><p class="sp-cb">Map families and bloodlines.</p></div>
+          <div class="sp-card sp-card--edge" style="--c:#A8742C"><p class="sp-ct" style="margin-top:0">Custom Book&nbsp;Templates</p><p class="sp-cb">Start new books your way.</p></div>
+          <div class="sp-card sp-card--edge" style="--c:#7A5A8C"><p class="sp-ct" style="margin-top:0">Build Your Own Theme</p><p class="sp-cb">Every color, your choice.</p></div>
+          <div class="sp-card sp-card--edge" style="--c:#CD6E2C"><p class="sp-ct" style="margin-top:0">Custom Colors&nbsp;Everywhere</p><p class="sp-cb">Color-code anything.</p></div>
+          <div class="sp-card sp-card--edge" style="--c:#3E6598"><p class="sp-ct" style="margin-top:0">Multi-Window</p><p class="sp-cb">Spread out across two screens.</p></div>
+        </div>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          These are ideas from the public <a href="/roadmap">roadmap</a> that I'm exploring. None of them are currently scheduled, so hearing which ones you want is part of how they get picked.
+        </p>
+        <p>
+          Have your own feature ideas you want to share? Tell me about them in the <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>, and they might end up on this list!
+        </p>
+      </div>
+
+
+      <!-- ============ THE TURN ============ -->
+      <div class="sp-fig sp-turn" data-animate="fade-up">
+        <svg class="sp-quill" viewBox="0 0 24 24" width="48" height="48" aria-hidden="true"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/></svg>
+        <p class="sp-statement">Now, let's talk about <em>what's next.</em></p>
+      </div>
+
+
+      <!-- ============ PENPOINT HUB ============ -->
+      <div class="sp-fig sp-hub" data-animate="fade-up">
+        <p class="sp-label">Introducing</p>
+        <h2 id="hub" class="sp-hub__mark" style="margin-top: var(--space-4)">
+          <svg class="sp-quill" viewBox="0 0 24 24" width="52" height="52" aria-hidden="true"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/></svg>
+          Penpoint Hub
+        </h2>
+        <p class="sp-statement">Writing doesn't have to be <em>lonely.</em></p>
+        <p class="sp-fig__sub">A new place for writers to gather, set goals, and cheer each other on.</p>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          This has been a big dream of mine since I first shared Penpoint on Reddit back in January. One thing I've noticed when talking with other authors (and from my own experience) is that most of writing a book happens alone. We work on our book or our series in isolation, and we often struggle with the motivation to keep going, to push through writer's block and get words on the page. Often, writers turn to other communities online, from Discord and Reddit to user forums and pop-up writing sprint sites. I envision something that brings authors together, right inside the app they use to write their book. I'm calling it <strong>Penpoint Hub</strong>.
+        </p>
+        <p>
+          The Hub is a planned home for writers to gather, set goals together, take part in global writing challenges, and cheer each other on.
+        </p>
+      </div>
+
+      <div class="sp-fig" data-animate="fade-up">
+        <div class="sp-fig__top">
+          <div>
+            <p class="sp-label">Penpoint Hub &middot; planned</p>
+            <h3 id="write-together" class="sp-fig__title" style="margin-top: var(--space-2)">Write <em>together.</em></h3>
+            <p class="sp-fig__sub">Community events that turn a solo grind into a shared adventure.</p>
+          </div>
+        </div>
+        <div class="sp-list sp-cols sp-cols--3">
+          <div class="sp-card"><p class="sp-label">Challenges</p><p class="sp-ct">Themed writing&nbsp;challenges.</p><p class="sp-cb">Prompts, streaks, and sprints you take on alongside everyone else.</p></div>
+          <div class="sp-card">
+            <p class="sp-label" style="--c:#5E7F52">Group goals</p><p class="sp-ct">One big goal, together.</p>
+            <div class="sp-bar" aria-hidden="true"><span></span></div>
+            <div class="sp-bar__legend"><span>640,000 WORDS</span><span>GOAL 1,000,000</span></div>
+            <p class="sp-hand" style="margin-top: var(--space-2); font-size: 1.6rem">(just an example!)</p>
+          </div>
+          <div class="sp-card"><p class="sp-label" style="--c:#3E6598">Celebrate</p><p class="sp-ct">Celebrate every win.</p><p class="sp-cb">Milestones, finished drafts, and "The End" moments, shared.</p></div>
+        </div>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          It will likely start with anonymous statistics (the same kind behind the writing numbers above). You'll be able to join sprints, contribute to goals, and see completion rates from authors around the world who are working on their own books and hitting their own milestones. Every word you write and every milestone you reach pushes the community goal a little further, so finishing that chapter you've been stuck on moves everyone forward, one bit at a time. It feels good to see those goals get crossed off, both for yourself <em>and</em> for others.
+        </p>
+      </div>
+
+      <div class="sp-fig" data-animate="fade-up">
+        <div class="sp-fig__top">
+          <div>
+            <p class="sp-label">Penpoint Hub &middot; planned</p>
+            <h3 id="guided-sprints" class="sp-fig__title" style="margin-top: var(--space-2)">Learn from writers who've <em>been there.</em></h3>
+            <p class="sp-fig__sub">Guided writing sprints, built by fellow authors who share what they've learned.</p>
+          </div>
+        </div>
+        <div class="sp-list sp-cols sp-cols--2">
+          <div class="sp-card">
+            <span class="sp-tape"></span>
+            <div class="sp-head-row" style="justify-content:flex-start">
+              <svg class="sp-quill" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/></svg>
+              <p class="sp-label">Built by fellow authors</p>
+            </div>
+            <p class="sp-ct" style="margin-top: var(--space-3)">Follow a guided goal.</p>
+            <p class="sp-cb">Each sprint shares the habits and lessons that got its author to "The End."</p>
+          </div>
+          <div class="sp-card sp-card--manila">
+            <span class="sp-tape"></span>
+            <div class="sp-head-row" style="justify-content:flex-start">
+              <svg class="sp-icon" viewBox="0 0 24 24" style="--c:#5E7F52; width:22px; height:22px" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              <p class="sp-label" style="--c:#5E7F52">Tracks your goals</p>
+            </div>
+            <p class="sp-ct" style="margin-top: var(--space-3)">See how you're doing.</p>
+            <p class="sp-cb">Penpoint tracks your goals as you write and lets you know how you're doing along the way.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          This is something <strong>I've been really excited about</strong>. I want to invite real authors to share their wisdom and experience, with a targeted goal at the end. You could join a writing sprint on "Writing Better Conflict," "Cutting Down on 'He Said, She Said,'" or "Outlining Your Book from Day One to Day 30." Not only do you get instructions on how to complete the sprint, but Penpoint tracks your progress as you work, because each goal has a target that can be tracked and measured. Authors who create these shared goals in the Hub will be paid to produce them, supporting their talent and hard-earned experience financially. These are working writers sharing what worked for them, not celebrity authors, and you'd be able to start a sprint whenever you're ready.
+        </p>
+        <p>
+          If you're interested in helping create guides for the Hub, please reach out on Discord or at <a href="mailto:support@penpoint.app">support@penpoint.app</a>. I'd love to have you contribute!
+        </p>
+      </div>
+
+
+      <!-- ============ THE DREAM ============ -->
+      <div class="sp-fig" data-animate="fade-up">
+        <div class="sp-fig__top">
+          <div>
+            <p class="sp-label">The dream</p>
+            <h2 id="dream" class="sp-fig__title" style="margin-top: var(--space-2)">From first word to <em>finished book.</em></h2>
+            <p class="sp-fig__sub">Penpoint helps you the whole way through.</p>
+          </div>
+        </div>
+        <div class="sp-steps">
+          <div class="sp-card"><p class="sp-label">Step one</p><p class="sp-ct" style="font-size: clamp(1.5rem, 2.8vw, 2rem)">Write</p><p class="sp-cb">Build your world and write your book. You're already here!</p></div>
+          <svg class="sp-steps__arrow" viewBox="0 0 48 32" aria-hidden="true"><path d="M6 16 H38 M28 7 L39 16 L28 25"/></svg>
+          <div class="sp-card"><p class="sp-label" style="--c:#5E7F52">Step two</p><p class="sp-ct" style="font-size: clamp(1.5rem, 2.8vw, 2rem)">Beta Readers</p><p class="sp-cb">Share chapters and trade feedback with fellow writers.</p></div>
+          <svg class="sp-steps__arrow" viewBox="0 0 48 32" aria-hidden="true"><path d="M6 16 H38 M28 7 L39 16 L28 25"/></svg>
+          <div class="sp-card sp-card--manila"><p class="sp-label" style="--c:#3E6598">Step three</p><p class="sp-ct" style="font-size: clamp(1.5rem, 2.8vw, 2rem)">Editors</p><p class="sp-cb">Work with trusted, professional editors right in your manuscript.</p></div>
+        </div>
+        <div class="sp-band">
+          <svg class="sp-quill" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/></svg>
+          <span>Penpoint, with you <em>every step of the way.</em></span>
+        </div>
+        <p class="sp-hand sp-center-note">Not a date, a direction.</p>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          I'm also really excited about this one. Today, Penpoint helps you write the book. The dream is for it to help with what comes after the draft too: sharing your work securely with beta readers, then working with an editor, and finding an audience, all without leaving the app.
+        </p>
+      </div>
+
+      <div class="sp-fig" data-animate="fade-up">
+        <div class="sp-fig__top">
+          <div>
+            <p class="sp-label">The dream</p>
+            <h3 id="first-readers" class="sp-fig__title" style="margin-top: var(--space-2)">Your first readers, <em>built in.</em></h3>
+          </div>
+        </div>
+        <div class="sp-readers">
+          <div class="sp-list sp-readers__cards">
+            <div class="sp-card"><p class="sp-label" style="--c:#5E7F52">Beta reader exchange</p><p class="sp-cb" style="margin-top: var(--space-2)">Swap chapters with other Penpoint writers and trade honest feedback.</p></div>
+            <div class="sp-card"><p class="sp-label">Read on the web</p><p class="sp-cb" style="margin-top: var(--space-2)">Send a link. Your readers read and comment in their browser, no app needed, with measures in place to prevent copying (stealing) your content.</p></div>
+            <div class="sp-card"><p class="sp-label" style="--c:#3E6598">Trusted editors</p><p class="sp-cb" style="margin-top: var(--space-2)">Invite verified editors into your manuscript <em>and</em> your worldbuilding.</p></div>
+          </div>
+          <!-- An illustration of a shared chapter open in a reader's browser. -->
+          <div class="sp-browser" role="img" aria-label="Illustration: a chapter shared to a beta reader's browser, with a margin comment">
+            <div class="sp-browser__bar">
+              <span class="sp-browser__dot" style="background:#E0806E"></span>
+              <span class="sp-browser__dot" style="background:#E6BF5C"></span>
+              <span class="sp-browser__dot" style="background:#8FB07E"></span>
+              <span class="sp-browser__url">The Ashen Crown &middot; shared by Joel</span>
+            </div>
+            <div class="sp-browser__page">
+              <div class="sp-browser__prose">
+                <p class="sp-browser__chapter">Chapter&nbsp;Three</p>
+                <p>Aldric had never trusted the river. It spoke too softly, and <mark>it always seemed to know where he was going</mark> before he did.</p>
+                <p>By the time the bell rang in the tower, he was already at the gate.</p>
+              </div>
+              <div class="sp-browser__comment">
+                <div class="sp-sticky" style="--r:2deg">
+                  <p class="sp-browser__who">MIRA<br>BETA&nbsp;READER</p>
+                  <p class="sp-hand">Chills! Is the river&nbsp;alive??</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          Three pieces could make this work (it's still an untested dream, but I'm dreaming big, right?). A <strong>beta reader exchange</strong> would let fellow Penpoint writers swap chapters and trade feedback. You'd know the feedback is quality, because the pool is people who paid $40 for the app: serious authors offering serious feedback, without the risk of polluting your book with notes from people who have no real skin in the game.
+        </p>
+        <p>
+          <strong>Web reading</strong> would let you send a link (revocable at any time), so a reader can read and comment in their browser with nothing to install. We'd work to disable easy copy-and-paste in the browser, though nothing on the internet is ever copy-proof. The best part: comments left in the browser would stream back into your desktop app behind a filter, so beta feedback shows up right in your manuscript.
+        </p>
+        <p>
+          Finally, <strong>trusted editors</strong>, verified professionals you invite in, could see your manuscript, your worldbuilding, or both together, with the characters, places, and timeline behind the prose, and leave notes right where you work. <strong>Multi-user collaboration</strong> is next: working in real time with others on your content, just like in other online apps, except that all your data stays on your own computer, not in the cloud.
+        </p>
+      </div>
+
+      <div class="sp-fig" data-animate="fade-up">
+        <div class="sp-fig__top">
+          <div>
+            <p class="sp-label">The dream</p>
+            <h3 id="hub-expanded" class="sp-fig__title" style="margin-top: var(--space-2)">Penpoint Hub, <em>expanded.</em></h3>
+            <p class="sp-fig__sub">A place where writers, readers, and editors find each other.</p>
+          </div>
+        </div>
+        <div class="sp-list sp-tiers">
+          <div style="--c:#CD6E2C">
+            <p class="sp-label" style="--c:#8A6A45">Tier one</p>
+            <p class="sp-tiers__who"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Writers</p>
+            <span class="sp-chip">Own Penpoint</span>
+            <p class="sp-cb">Part of the community from day one.</p>
+            <p class="sp-cb">Swap chapters and beta-read together.</p>
+          </div>
+          <div style="--c:#3E6598">
+            <p class="sp-label" style="--c:#8A6A45">Tier two</p>
+            <p class="sp-tiers__who"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></svg>Editors</p>
+            <span class="sp-chip" style="--chip-bg: rgba(62,101,152,0.12)">Own Penpoint</span>
+            <p class="sp-cb">Offer your editing and prep services.</p>
+            <p class="sp-cb">Get matched with authors who need it.</p>
+          </div>
+          <div style="--c:#5E7F52">
+            <p class="sp-label" style="--c:#8A6A45">Tier three</p>
+            <p class="sp-tiers__who"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Web readers</p>
+            <span class="sp-chip" style="--chip-bg: rgba(94,127,82,0.12)">Invited, no app needed</span>
+            <p class="sp-cb">Anyone you grant access to your book.</p>
+            <p class="sp-cb">They read and comment in a browser.</p>
+          </div>
+        </div>
+        <div class="sp-band">
+          <span>Writers &#8644; <em>beta readers</em></span>
+          <span class="sp-band__sep" aria-hidden="true">&middot;</span>
+          <span>Authors &#8644; <em>editors</em></span>
+          <span class="sp-band__sep" aria-hidden="true">&middot;</span>
+          <span>Matched in the Hub</span>
+        </div>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          Put together, the Hub could match writers with beta readers and authors with editors. Writers and editors who own Penpoint would find each other there. Web readers, meaning anyone you invite, could read and comment in a browser without buying anything. A whole ecosystem, all in one place.
+        </p>
+      </div>
+
+      <div class="sp-fig sp-pencil" data-animate="fade-up">
+        <p class="sp-label">A quick note</p>
+        <p class="sp-statement" style="margin-top: var(--space-4)">This is where things <em>could</em> be headed.</p>
+        <p class="sp-fig__sub">It's a big vision, and it will change as we grow. I want you all to help me shape it.</p>
+        <p class="sp-hand">Written in pencil, not ink.</p>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          None of this is set in stone. It's the big vision, right? It will change as we learn what writers need, and a lot of that learning happens in conversations like the one we had on Discord. Without your help and shaping, none of this would be possible.
+        </p>
+      </div>
+
+
+      <!-- ============ IT STARTS THIS NOVEMBER ============ -->
+      <div class="sp-fig" data-animate="fade-up">
+        <div class="sp-fig__top">
+          <div>
+            <p class="sp-label">Putting it together</p>
+            <h2 id="this-november" class="sp-fig__title" style="margin-top: var(--space-2)">It all starts <em>this November.</em></h2>
+            <p class="sp-fig__sub">The Hub's first version, built from four pieces.</p>
+          </div>
+        </div>
+        <div class="sp-list sp-cols sp-cols--4 sp-converge">
+          <div class="sp-card sp-card--edge"><svg class="sp-icon" viewBox="0 0 24 24" style="width:30px;height:30px" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><p class="sp-ct">Penpoint Hub</p><p class="sp-cb">A home base where everyone taking part gathers.</p></div>
+          <div class="sp-card sp-card--edge" style="--c:#5E7F52"><svg class="sp-icon" viewBox="0 0 24 24" style="width:30px;height:30px" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg><p class="sp-ct">Community&nbsp;events</p><p class="sp-cb">One big word goal for the whole community.</p></div>
+          <div class="sp-card sp-card--edge" style="--c:#3E6598"><svg class="sp-icon" viewBox="0 0 24 24" style="width:30px;height:30px" aria-hidden="true"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></svg><p class="sp-ct">Guided sprints</p><p class="sp-cb">Author-built sprints for Preptober plotting and November drafting.</p></div>
+          <div class="sp-card sp-card--edge" style="--c:#A8742C"><svg class="sp-icon" viewBox="0 0 24 24" style="width:30px;height:30px" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><p class="sp-ct">Author Progress</p><p class="sp-cb">Your words, sessions, and goals, tracked all month long.</p></div>
+        </div>
+        <!-- Dotted lines from each card down into the band. Stretched to the row
+             width; non-scaling strokes keep the dots round at any size. -->
+        <svg class="sp-converge__lines" viewBox="0 0 1000 46" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M118 2 C 118 26, 500 20, 500 44"/><path d="M373 2 C 373 26, 500 20, 500 44"/>
+          <path d="M627 2 C 627 26, 500 20, 500 44"/><path d="M882 2 C 882 26, 500 20, 500 44"/>
+        </svg>
+        <div class="sp-band">
+          <svg class="sp-quill" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/></svg>
+          <span>Novel November <em>is Hub, version one.</em></span>
+        </div>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          The way to get to all this big, crazy stuff is to start small. Novel November brings the first pieces together in one event. It has a shared goal (a 50,000-word novel is something everyone will be working toward), and it doubles as the first version of the Hub. I'm calling it the "v0" version, because it'll launch bare-bones, but we have to start somewhere, and this event feels like a good place to start.
+        </p>
+        <p>
+          The Hub is the home base where a shared word goal, guided sprints from fellow authors, and Author Progress tracking all run together for the first time.
+        </p>
+        <p>
+          It's a real test of the whole idea, with a clear finish line. We'll see if I can get it all working by then, but it's an exciting thing to aim for.
+        </p>
+      </div>
+
+
+      <!-- ============ NOVEL NOVEMBER ============ -->
+      <div class="sp-fig" data-animate="fade-up">
+        <div class="sp-fig__top">
+          <div>
+            <p class="sp-label">Our next step, this fall</p>
+            <h2 id="novel-november" class="sp-fig__title" style="margin-top: var(--space-2)">Novel <em>November.</em></h2>
+          </div>
+        </div>
+        <div class="sp-months">
+          <div class="sp-card sp-month" style="--c:#5E7F52">
+            <div class="sp-month__head"><p class="sp-label">October &middot; Preptober</p></div>
+            <div class="sp-month__body"><p class="sp-ct">Get ready.</p><p class="sp-cb">Plot your story. Build your world. Meet your cast.</p></div>
+          </div>
+          <svg class="sp-months__arrow" viewBox="0 0 60 34" aria-hidden="true"><path d="M4 20 C 18 10, 34 28, 52 16"/><path d="M42 7 L53 16 L41 25"/></svg>
+          <div class="sp-card sp-month" style="--c:#CD6E2C">
+            <div class="sp-month__head"><p class="sp-label">November &middot; Write</p></div>
+            <div class="sp-month__body"><p class="sp-ct">50,000 words.</p><p class="sp-cb">Write your novel in a month, with a whole community beside you.</p></div>
+          </div>
+        </div>
+        <div class="sp-list sp-cols sp-cols--2 sp-offers">
+          <div class="sp-sticky"><span class="sp-chip">Planned</span><p class="sp-hand">A 45-day free trial for new writers, covering Preptober and November!</p></div>
+          <div class="sp-sticky sp-sticky--blue"><span class="sp-chip" style="--c:#3E6598; --chip-bg: rgba(62,101,152,0.14)">Planned</span><p class="sp-hand">Plus: a free month of Penpoint Cloud for all writers in November!</p></div>
+        </div>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          October is Preptober, for planning your plot, building your world, and meeting your cast. November is for writing 50,000 words. We want Penpoint to be the home for both months.
+        </p>
+        <p>
+          Two offers are planned to help. New writers get a <strong>45-day free trial</strong>, timed to cover the second half of Preptober and all of November. And to celebrate the launch, <strong>every Penpoint writer (including all existing ones!) gets a free month of Penpoint Cloud</strong> in November, so the novel is backed up and on every device while it's being written, and you can write from your phone.
+        </p>
+        <p>
+          I'll be covering the cost of the Penpoint Cloud infrastructure during that period. Afterward, people can choose to buy the app and sign up for a paid Penpoint Cloud subscription if they want, and they can always export their book content either way. So essentially, every new writer gets a <strong>completely free, fully integrated writing tool to craft their book for Novel November. No strings attached.</strong> I hope this brings a lot of new faces into Penpoint.
+        </p>
+        <p>
+          The 45-day trial will arrive with a dedicated Novel November page. Until then, the regular trial is 14 days.
+        </p>
+      </div>
+
+
+      <!-- ============ THE ASK ============ -->
+      <div class="sp-fig" data-animate="fade-up">
+        <div class="sp-fig__top">
+          <div>
+            <p class="sp-label">I need your help</p>
+            <h2 id="spread-the-word" class="sp-fig__title" style="margin-top: var(--space-2)">Help me get <em>the word out.</em></h2>
+          </div>
+        </div>
+        <div class="sp-ask">
+          <div class="sp-list sp-ask__cards">
+            <div class="sp-card">
+              <div class="sp-head-row"><p class="sp-label">Invite your writing friends</p><span class="sp-chip">Planned</span></div>
+              <p class="sp-ct">They write free all fall.</p>
+              <p class="sp-cb">The 45-day trial covers Preptober and November.</p>
+            </div>
+            <div class="sp-card">
+              <div class="sp-head-row"><p class="sp-label" style="--c:#3E6598">A page to share</p><span class="sp-chip" style="--c:#3E6598; --chip-bg: rgba(62,101,152,0.14)">Coming soon</span></div>
+              <p class="sp-ct">Novel November on penpoint.app</p>
+              <p class="sp-cb">A dedicated signup page, easy to share.</p>
+            </div>
+          </div>
+          <div class="sp-sticky">
+            <p class="sp-label">Tell me in the Discord</p>
+            <p class="sp-hand">What would help you share Penpoint with others?</p>
+            <ul class="sp-ask__options">
+              <li><span aria-hidden="true">&#9744;</span> Referral rewards?</li>
+              <li><span aria-hidden="true">&#9744;</span> Coupons for friends?</li>
+              <li><span aria-hidden="true">&#9744;</span> Something else?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="vs-body">
+        <p>
+          For Penpoint to grow, it all starts with something like this, here and now. If you have writing friends planning a November novel, invite them: once the Novel November trial is live, they can write free through Preptober and November. A dedicated Novel November page on penpoint.app is coming soon, so there will be one easy link to share.
+        </p>
+        <p>
+          Answers to the question on the sticky note go in the <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>. I'm collecting them.
+        </p>
+        <p>
+          In the meantime, I'm honored to have you here with me: reading this page, sharing this app with your friends, suggesting ideas and feedback to make it better, and generally being so positive and encouraging. I couldn't do any of this without you.
+        </p>
+        <p class="sp-closing">All the love, and happy writing,</p>
+        <p class="sp-signoff">-Joel</p>
+      </div>
+
+      <div class="sp-thanks" data-animate="fade-up">
+        <div class="sp-sticky" style="--r:5deg"><p class="sp-hand">Thank you for writing with Penpoint!</p></div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===========================================
+       RELATED
+       =========================================== -->
+  <section class="vs-related">
+    <div class="container">
+      <h2>Keep reading</h2>
+      <a href="/roadmap">
+        <strong>The public roadmap</strong> Everything planned, in progress, and under consideration.
+      </a>
+      <a href="/changelog">
+        <strong>The changelog</strong> Every release since launch, feature by feature.
+      </a>
+      <a href="/about">
+        <strong>About Penpoint</strong> Who makes it, and why.
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ===========================================
+       FINAL CTA. The page's ask is a conversation, so the Discord leads here;
+       the trial sits beside it for the friends this page asks readers to invite.
+       =========================================== -->
+  <section class="final-cta section" id="your-turn">
+    <div class="container">
+      <h2 class="final-cta__headline font-heading-lg" data-animate="fade-up">
+        Your turn.
+      </h2>
+      <p class="final-cta__subtext font-body-lg" data-animate="fade-up" data-stagger="1">
+        Questions, feature ideas, and pain points are all welcome in the Discord. I'll be taking lots of notes.
+      </p>
+      <div class="final-cta__actions" data-animate="scale" data-stagger="2">
+        <a href="https://discord.gg/q7yV3PXrGB" class="btn btn-primary btn-xl btn-shadow" target="_blank" rel="noopener">
+          <i class="fa-brands fa-discord"></i>&nbsp; Join the Discord
+        </a>
+        <a href="/trial" class="btn btn-outline btn-xl">
+          Try Penpoint free
+        </a>
+      </div>
+      <div class="final-cta__platforms" data-animate="fade-up" data-stagger="4">
+        <span class="final-cta__platform">
+          <i class="fa-brands fa-windows final-cta__platform-icon"></i>
+          Windows
+        </span>
+        <span class="final-cta__platform">
+          <i class="fa-brands fa-apple final-cta__platform-icon"></i>
+          macOS
+        </span>
+        <span class="final-cta__platform">
+          <i class="fa-brands fa-linux final-cta__platform-icon"></i>
+          Linux
+        </span>
+      </div>
+    </div>
+  </section>
+
+  </article>
+  </main>
+
+  <!-- ===== Shared site footer ===== -->
+  <footer class="pp-footer">
+    <div class="pp-footer__top">
+      <div class="pp-footer__cols">
+        <div class="pp-footer__col">
+          <div class="pp-footer__brand-row">
+            <svg class="pp-footer__brand-icon" viewBox="0 0 24 24" width="20" height="20" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+            <span class="pp-footer__brand-name">Penpoint</span>
+          </div>
+          <p class="pp-footer__tagline">Write your novel and organize your world in one app.</p>
+          <div class="pp-footer__platforms">
+            <i class="fa-brands fa-windows"></i>
+            <i class="fa-brands fa-apple"></i>
+            <i class="fa-brands fa-linux"></i>
+          </div>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/about" class="foot-link">About</a>
+          <a href="/development" class="foot-link">Development</a>
+          <a href="/#faq" class="foot-link">FAQ</a>
+          <a href="/help" class="foot-link">Help Guide</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/compare" class="foot-link">Compare All</a>
+          <a href="/scrivener-alternative" class="foot-link">vs Scrivener</a>
+          <a href="/dabble-alternative" class="foot-link">vs Dabble</a>
+          <a href="/campfire-alternative" class="foot-link">vs Campfire</a>
+          <a href="/worldanvil-alternative" class="foot-link">vs World Anvil</a>
+          <a href="/ellipsus-alternative" class="foot-link">vs Ellipsus</a>
+          <a href="/story-bible" class="foot-link">Story Bible</a>
+          <a href="/character-bible" class="foot-link">Character Bible</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/trial" class="foot-link">Free Trial</a>
+          <a href="/buy" class="foot-link">Buy</a>
+          <a href="/changelog" class="foot-link">Changelog</a>
+          <a href="/roadmap" class="foot-link">Roadmap</a>
+        </div>
+        <div class="pp-footer__col">
+          <a href="/terms" class="foot-link">Terms</a>
+          <a href="/privacy" class="foot-link">Privacy</a>
+          <a href="/press" class="foot-link">Press</a>
+          <a href="mailto:support@penpoint.app" class="foot-link">Support</a>
+        </div>
+      </div>
+    </div>
+    <div class="pp-footer__bottom">
+      <div class="pp-footer__bottom-inner">
+        <p class="pp-footer__copy">&copy; 2026 Tophat Creative, LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/scroll-animations.js"></script>
+  <script src="/js/site-chrome.js"></script>
+  <script src="/js/state-of-the-pen.js"></script>
+</body>
+</html>

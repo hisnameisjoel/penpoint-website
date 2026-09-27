@@ -1,0 +1,60 @@
+/* State of the Pen: shared by every edition page (/state-of-the-pen/<edition>).
+   Only the editions row lives here. Each edition's own graphics are styled in
+   that page's <style data-edition-style> block, so a new year can have a new look
+   without touching the old one. */
+
+.sotp-editions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding-top: var(--space-6);
+}
+
+.sotp-editions__label {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgb(var(--muted-foreground));
+  margin-right: var(--space-2);
+}
+
+.sotp-editions a {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border: 1px solid rgb(var(--border));
+  background: rgb(var(--paper));
+  color: rgb(var(--foreground));
+  text-decoration: none;
+  transition: border-color var(--duration-fast) var(--ease-penpoint),
+    background-color var(--duration-fast) var(--ease-penpoint),
+    color var(--duration-fast) var(--ease-penpoint);
+}
+
+.sotp-editions a:hover {
+  border-color: rgb(var(--cta));
+  color: rgb(var(--cta));
+}
+
+.sotp-editions a[aria-current="page"] {
+  background: rgb(var(--cta));
+  border-color: rgb(var(--cta));
+  color: #FFF8EA;
+  cursor: default;
+}
+
+/* While another edition loads, the current one dims slightly rather than
+   jumping, then the new one fades in (see js/state-of-the-pen.js). */
+#sotp-edition {
+  transition: opacity var(--duration-slow) var(--ease-penpoint);
+}
+
+#sotp-edition.is-leaving {
+  opacity: 0.35;
+}

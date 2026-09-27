@@ -117,10 +117,15 @@
 
     .dev-cards__grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: var(--space-6);
-      max-width: 900px;
+      max-width: 1140px;
       margin: 0 auto;
+    }
+
+    .dev-card__title,
+    .dev-card__sub {
+      text-wrap: pretty;
     }
 
     .dev-card {
@@ -209,12 +214,16 @@
       text-decoration: underline;
     }
 
+    /* Three cards stop fitting side by side well before phone width. */
+    @media (max-width: 960px) {
+      .dev-cards__grid { grid-template-columns: 1fr; max-width: 640px; gap: var(--space-4); }
+    }
+
     @media (max-width: 768px) {
       .dev-hero {
         padding-top: var(--space-10);
         padding-bottom: var(--space-8);
       }
-      .dev-cards__grid { grid-template-columns: 1fr; gap: var(--space-4); }
       .dev-card { min-height: auto; padding: var(--space-6) var(--space-5); }
     }
   </style>
@@ -274,12 +283,12 @@
         Where Penpoint is <em>Heading</em>
       </h1>
       <p class="dev-hero__sub font-body-lg" data-animate="fade-up" data-stagger="2">
-        See what's planned, what's being worked on right now, and what just shipped.
+        See what's planned, what's being worked on right now, what just shipped, and the big picture.
       </p>
     </div>
   </section>
 
-  <!-- TWO-CARD HUB -->
+  <!-- THREE-CARD HUB -->
   <section class="dev-cards">
     <div class="container">
       <div class="dev-cards__grid">
@@ -308,6 +317,22 @@
           </p>
           <span class="dev-card__cta">
             See recent updates
+            <i data-lucide="arrow-right" class="dev-card__cta-arrow" style="width: 18px; height: 18px;"></i>
+          </span>
+        </a>
+
+        <!-- Links straight to the newest edition. When a new one ships, update
+             this href and the CTA year (and the /state-of-the-pen redirect stub). -->
+        <a href="/state-of-the-pen/2026" class="dev-card" data-animate="fade-up" data-stagger="4">
+          <span class="dev-card__icon-wrap">
+            <i data-lucide="presentation" class="dev-card__icon"></i>
+          </span>
+          <h2 class="dev-card__title">State of the Pen</h2>
+          <p class="dev-card__sub">
+            The big picture. State of the Pen is the annual keynote on where Penpoint is and where we're heading, together.
+          </p>
+          <span class="dev-card__cta">
+            Read the 2026 keynote
             <i data-lucide="arrow-right" class="dev-card__cta-arrow" style="width: 18px; height: 18px;"></i>
           </span>
         </a>
