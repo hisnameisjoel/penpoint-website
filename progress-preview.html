@@ -103,7 +103,7 @@
   flex: none;
   border: 1px solid currentColor;
   padding: 0.05rem 0.4rem;
-  font-size: 0.6875em;
+  font-size: calc(0.75rem * var(--font-size-multiplier, 1));
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -441,7 +441,7 @@
 }
 .pp-intro-card .pp-tag {
   display: inline-block;
-  color: var(--pp-brand);
+  color: #A4521D;
   margin-bottom: 0.9rem;
 }
 .pp-intro-card h1 {
@@ -1751,7 +1751,7 @@
   .pp-hk-peak {
     position: absolute; right: 0; top: 0;
     font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: calc(0.625rem * var(--font-size-multiplier, 1));
+    font-size: calc(0.75rem * var(--font-size-multiplier, 1));
     letter-spacing: 0.1em; text-transform: uppercase;
     color: rgb(var(--foreground));
   }
@@ -1770,7 +1770,7 @@
   .pp-hk-axis {
     display: flex; margin-top: calc(0.3125rem * var(--font-size-multiplier, 1));
     font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: calc(0.625rem * var(--font-size-multiplier, 1));
+    font-size: calc(0.75rem * var(--font-size-multiplier, 1));
     letter-spacing: 0.1em; text-transform: uppercase;
     color: rgb(var(--muted-foreground));
   }
@@ -1807,7 +1807,7 @@
   }
   .pp-hk-count {
     font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: calc(0.625rem * var(--font-size-multiplier, 1));
+    font-size: calc(0.75rem * var(--font-size-multiplier, 1));
     letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;
   }
 
@@ -1851,7 +1851,7 @@
   .pp-now {
     position: absolute; top: 0; white-space: nowrap;
     font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: calc(0.7rem * var(--font-size-multiplier, 1));
+    font-size: calc(0.75rem * var(--font-size-multiplier, 1));
     letter-spacing: 0.12em; text-transform: uppercase; line-height: 1;
     color: rgb(var(--link));
   }

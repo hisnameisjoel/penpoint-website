@@ -2324,8 +2324,8 @@ body.lightbox-open {
 .launch-countdown__unit-label {
   color: rgb(var(--muted-foreground));
   text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
-  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
 }
 
 .launch-countdown__sep {

@@ -36,6 +36,27 @@
   <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
   <link rel="apple-touch-icon" href="images/icon-192.png">
 
+  <!-- The emailed download link arrives as /trial?key=... Move that key out of the address bar BEFORE
+       Google Analytics runs: gtag('config') records the full page URL, and the key is personal. The gate
+       (js/trial-gate.js) reads it back from window.PP_TRIAL_PENDING_KEY / sessionStorage. Keep this script
+       ABOVE the analytics snippet, and keep the two names in step with trial-gate.js (PENDING_KEY). -->
+  <script>
+    (function () {
+      try {
+        var u = new URL(location.href);
+        var k = u.searchParams.get('key');
+        if (k === null) return;
+        k = k.trim();
+        if (k) {
+          window.PP_TRIAL_PENDING_KEY = k;
+          try { sessionStorage.setItem('pp_trial_pending_key', k); } catch (e) {}
+        }
+        u.searchParams.delete('key');
+        history.replaceState(null, '', u.pathname + u.search + u.hash);
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
   <script>
@@ -52,6 +73,7 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/site-chrome.css">
+  <link rel="stylesheet" href="css/trial-gate.css">
 
   <!-- Font Awesome (platform + feature icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -68,7 +90,8 @@
     /* Section scaffolding */
     .tri-sec{padding:clamp(42px,6vw,80px) clamp(20px,5vw,52px);}
     .tri-wrap{max-width:920px;margin:0 auto;}
-    .tri-kicker{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent,#CD6E2C);margin:0 0 16px;}
+    .tri-kicker{display:flex;align-items:center;justify-content:center;gap:clamp(10px,1.4vw,16px);font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1.35vw,16px);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#A4521D;margin:0 0 20px;}
+    .tri-kicker::before,.tri-kicker::after{content:"";flex:none;width:clamp(22px,3.6vw,44px);height:2px;background:currentColor;opacity:.5;}
     .tri-h2{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(26px,3.8vw,44px);line-height:1.08;letter-spacing:-0.02em;color:#29241E;margin:0;}
     .tri-h2 em{font-style:italic;font-weight:400;}
 
@@ -88,9 +111,11 @@
     .btn-shadow{box-shadow:0 8px 16px -10px rgba(61,46,28,.42);}
     .btn-shadow:hover{box-shadow:0 12px 22px -12px rgba(61,46,28,.5);}
 
-    /* Download card */
+    /* Download card. It starts hidden: the email gate (css/trial-gate.css) stands in its place until the visitor has a link. */
     .download-area{text-align:center;padding:clamp(28px,4vw,40px) clamp(20px,3vw,36px);background:var(--paper-alt,#F4EBD8);border:1px solid #E0D2BC;box-shadow:0 24px 50px -34px rgba(61,46,28,.4);margin-top:clamp(28px,4vw,38px);min-height:250px;display:flex;flex-direction:column;justify-content:center;}
-    .download-area__version{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7C5236;margin-bottom:clamp(16px,2.4vw,22px);}
+    .download-area[hidden],.phone-card[hidden]{display:none;}
+    #trial-gate{margin-top:clamp(28px,4vw,38px);}
+    .download-area__version{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#7C5236;margin-bottom:clamp(16px,2.4vw,22px);}
     .download-area__buttons{display:flex;flex-direction:column;align-items:center;gap:18px;}
     /* Two-tier picker: OS row -> version row */
     .os-picker{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;width:100%;}
@@ -101,7 +126,7 @@
     .os-pick:disabled,.os-pick.is-disabled{opacity:.4;cursor:default;background:var(--paper,#FCF8F0);color:#7C5236;}
     .picker-divider{border:none;border-top:1px solid #DDCBAE;width:100%;max-width:360px;margin:0 auto;}
     .version-picker{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;}
-    .version-picker__label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9A7B4F;}
+    .version-picker__label{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#7C5236;}
     .version-picker__options{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
     .version-btn{flex-direction:column;align-items:center;gap:4px;min-width:200px;padding:15px 24px;}
     .version-btn__name{display:inline-flex;align-items:center;}
@@ -158,11 +183,11 @@
     .contact-link{display:inline-flex;align-items:center;gap:9px;font-family:'Source Serif 4',serif;font-weight:600;color:var(--accent,#CD6E2C);text-decoration:none;font-size:17px;}
     .contact-link:hover{text-decoration:underline;}
 
-    /* Mobile fallback */
-    .mobile-fallback{text-align:center;padding:clamp(56px,12vw,110px) clamp(20px,6vw,40px);}
-    .mobile-fallback i{font-size:46px;color:var(--accent,#CD6E2C);margin-bottom:clamp(18px,4vw,26px);}
-    .mobile-fallback h1{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(30px,7vw,44px);line-height:1.08;letter-spacing:-0.02em;color:#29241E;margin:0 0 16px;}
-    .mobile-fallback p{font-family:'Source Serif 4',serif;font-size:clamp(16px,4.4vw,19px);line-height:1.6;color:#5C4A33;max-width:440px;margin:0 auto;}
+    /* Phone card: stands in for the download card once a phone holds a valid link (a trial is a desktop installer) */
+    .phone-card{text-align:center;padding:clamp(36px,8vw,56px) clamp(20px,5vw,36px);background:var(--paper-alt,#F4EBD8);border:1px solid #E0D2BC;box-shadow:0 24px 50px -34px rgba(61,46,28,.4);margin-top:clamp(28px,4vw,38px);}
+    .phone-card i{font-size:42px;color:var(--accent,#CD6E2C);margin-bottom:18px;}
+    .phone-card h2{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(28px,7vw,36px);line-height:1.1;letter-spacing:-0.02em;color:#29241E;margin:0 0 14px;}
+    .phone-card p{font-family:'Source Serif 4',serif;font-size:clamp(16px,4.4vw,18px);line-height:1.6;color:#5C4A33;max-width:440px;margin:0 auto;}
 
     /* Attribution survey */
     .attribution-survey{display:none;text-align:center;flex-direction:column;align-items:center;justify-content:center;flex:1;}
@@ -226,28 +251,32 @@
 
   <main id="main">
 
-  <!-- ===== Mobile fallback (a trial is a desktop installer) ===== -->
-  <div id="mobile-view" style="display:none;">
-    <section style="background:var(--paper,#FCF8F0);">
-      <div class="tri-wrap mobile-fallback">
-        <i class="fa-solid fa-laptop"></i>
-        <h1>Penpoint is a desktop app.</h1>
-        <p>To download and try Penpoint, open this page on your computer: Windows, macOS, or Linux.</p>
-      </div>
-    </section>
-  </div>
+  <div id="desktop-view">
 
-  <!-- ===== Desktop download ===== -->
-  <div id="desktop-view" style="display:none;">
-
-    <!-- Hero + download -->
+    <!-- Hero + email gate + download.
+         The copy below is the Penpoint & Novel November copy. On December 1 (visitor's local date) the script
+         swaps every data-after-text element to its plain 14-day wording. -->
     <section class="tri-sec" style="background:var(--paper,#FCF8F0);">
       <div class="tri-wrap" style="max-width:760px;text-align:center;">
-        <p class="tri-kicker tri-in">Free 14-Day Trial</p>
-        <h1 class="tri-in" style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(38px,6.4vw,74px);line-height:1.06;letter-spacing:-0.022em;color:#29241E;margin:0 0 clamp(18px,2.6vw,24px);animation-delay:70ms;">Try Penpoint.<br><span style="font-style:italic;font-weight:400;">Free for 14 days.</span></h1>
-        <p class="tri-in" style="font-family:'Source Serif 4',serif;font-size:clamp(16px,1.9vw,20px);line-height:1.58;color:#5C4A33;max-width:600px;margin:0 auto;animation-delay:150ms;">Full access to every feature. No account, no credit card. Your data is always yours, export anytime, even after the trial ends.</p>
+        <p class="tri-kicker tri-in" data-after-text="Free 14-Day Trial">Free through December 1</p>
+        <h1 class="tri-in" style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(38px,6.4vw,74px);line-height:1.06;letter-spacing:-0.022em;color:#29241E;margin:0 0 clamp(18px,2.6vw,24px);animation-delay:70ms;">Try Penpoint.<br><span style="font-style:italic;font-weight:400;" data-after-text="Free for 14 days.">Free through December&nbsp;1.</span></h1>
+        <p class="tri-in" style="font-family:'Source Serif 4',serif;font-size:clamp(16px,1.9vw,20px);line-height:1.58;color:#5C4A33;max-width:600px;margin:0 auto;animation-delay:150ms;" data-after-text="Full access to every feature. No account, no credit card. Your data is always yours, export anytime, even after the trial ends.">Full access to every feature, free through December&nbsp;1 or for 14 days, whichever is longer. No credit card. Your data is always yours, export anytime, even after the trial ends. This offer is part of <a href="/novel-november" style="color:#CD6E2C;font-weight:600;">Penpoint &amp; Novel November</a>.</p>
 
-        <div class="download-area tri-in" style="animation-delay:230ms;text-align:center;">
+        <!-- The email gate. js/trial-gate.js fills this in; the download card below stays hidden until the visitor has a link. -->
+        <div class="tg tri-in" id="trial-gate" data-trial-gate data-source="trial" style="animation-delay:230ms;">
+          <noscript><p class="tg-lead">Turn on JavaScript to get your download link, or write to <a href="mailto:support@penpoint.app">support@penpoint.app</a> and we will help.</p></noscript>
+        </div>
+
+        <!-- Phones: a trial is a desktop installer, so a phone with a valid link sees this instead of the picker. -->
+        <div class="phone-card tri-in" id="phone-card" hidden style="animation-delay:230ms;">
+          <i class="fa-solid fa-laptop" aria-hidden="true"></i>
+          <h2>Penpoint is a desktop app.</h2>
+          <p>To download and try Penpoint, open this page on your computer: Windows, macOS, or Linux.</p>
+        </div>
+
+        <p class="tg-sr" id="trial-live" role="status" aria-live="polite"></p>
+
+        <div class="download-area tri-in" id="dl-area" hidden style="animation-delay:230ms;text-align:center;">
           <div class="download-area__version" id="dl-version">Loading version…</div>
           <div class="download-area__buttons">
             <div class="os-picker" id="dl-os-picker" role="group" aria-label="Choose your operating system">
@@ -287,7 +316,7 @@
             </div>
           </div>
         </div>
-        <p class="tri-in" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:#9A7B4F;margin:clamp(16px,2.4vw,20px) 0 0;animation-delay:300ms;">No account · No credit card · Works offline</p>
+        <p class="tri-in" style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#7C5236;margin:clamp(16px,2.4vw,20px) 0 0;animation-delay:300ms;text-wrap:balance;">No account · No credit card · Works offline</p>
       </div>
     </section>
 
@@ -301,11 +330,11 @@
         <div class="tri-features">
           <div class="tri-feat">
             <i class="fa-solid fa-calendar-day"></i>
-            <div><h4>14 full days, the complete app</h4><p>The countdown starts when you first open Penpoint. Every feature is unlocked: no watermarks, no disabled tools, no credit card.</p></div>
+            <div><h4 data-after-text="14 full days, the complete app">Free through December 1, the complete app</h4><p data-after-text="The countdown starts when you first open Penpoint. Every feature is unlocked: no watermarks, no disabled tools, no credit card.">Free through December 1, or for 14 days from the first time you open Penpoint, whichever is longer. Every feature is unlocked: no watermarks, no disabled tools, no credit card.</p></div>
           </div>
           <div class="tri-feat">
             <i class="fa-solid fa-box-archive"></i>
-            <div><h4>Nothing is deleted when it ends</h4><p>Your books stay on your computer. After day 14 you can still open your library and export everything. You just can't keep editing until you buy.</p></div>
+            <div><h4>Nothing is deleted when it ends</h4><p>Your books stay on your computer. After the trial ends you can still open your library and export everything. You just can't keep editing until you buy.</p></div>
           </div>
           <div class="tri-feat">
             <i class="fa-solid fa-key"></i>
@@ -504,6 +533,10 @@
 
 </div>
 
+<!-- The email gate (shared with /novel-november). If this file fails to load, the page below reveals the download:
+     the gate is a speed bump, never a wall. -->
+<script src="js/trial-gate.js"></script>
+
 <script>
 (function () {
   var TRIAL_JSON_URL = 'https://updates.penpoint.app/trial/latest.json';
@@ -514,12 +547,64 @@
       || (navigator.maxTouchPoints > 1 && window.innerWidth < 820);
   }
 
-  if (isMobile()) {
-    document.getElementById('mobile-view').style.display = '';
-    return;
+  var gate = window.PPTrialGate;
+  var phone = gate ? gate.isPhone() : isMobile();
+
+  // Install-guide tabs (lower on the page). Wired on every device: a phone visitor reads the guide too.
+  var tabs = document.querySelectorAll('[data-install-tab]');
+  var panels = document.querySelectorAll('[data-install-panel]');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var target = tab.getAttribute('data-install-tab');
+      tabs.forEach(function (t) { t.classList.remove('install-tab--active'); });
+      panels.forEach(function (p) { p.hidden = true; });
+      tab.classList.add('install-tab--active');
+      var panel = document.querySelector('[data-install-panel="' + target + '"]');
+      if (panel) panel.hidden = false;
+    });
+  });
+  function syncInstallTab(osKey) {
+    var tab = document.querySelector('[data-install-tab="' + osKey + '"]');
+    if (tab) tab.click();
   }
 
-  document.getElementById('desktop-view').style.display = '';
+  // From December 1 (the visitor's local date) the event wording gives way to the plain 14-day copy.
+  if (gate && !gate.isEventWindow()) {
+    document.querySelectorAll('[data-after-text]').forEach(function (el) {
+      el.textContent = el.getAttribute('data-after-text');
+    });
+  }
+
+  // The gate hands over to the download card, or on a phone to the "open this on your computer" card.
+  var gateEl = document.getElementById('trial-gate');
+  var dlArea = document.getElementById('dl-area');
+  var phoneCard = document.getElementById('phone-card');
+  var liveEl = document.getElementById('trial-live');
+  var revealed = false;
+  function reveal(reason, instant) {
+    if (revealed) return;
+    revealed = true;
+    var target = phone ? phoneCard : dlArea;
+    var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function swap() {
+      gateEl.hidden = true;
+      if (!instant) target.style.animationDelay = '0s';
+      target.hidden = false;
+      if (!instant && liveEl) {
+        liveEl.textContent = phone
+          ? 'Penpoint is a desktop app. Open this page on your computer to download it.'
+          : 'Your download is ready. Choose your operating system.';
+      }
+    }
+    if (instant || calm) { swap(); return; }
+    gateEl.classList.add('tg-leaving');
+    setTimeout(swap, 230);
+  }
+  if (gate) gate.mount(gateEl, { source: 'trial', onReveal: reveal });
+  else reveal('nogate', true);
+
+  // A phone never gets the picker, so there is nothing more to set up.
+  if (phone) return;
 
   function detectOS() {
     var ua = navigator.userAgent;
@@ -588,24 +673,6 @@
     var osPicker = document.getElementById('dl-os-picker');
     var optionsEl = document.getElementById('dl-version-options');
     var noteEl = document.getElementById('dl-version-note');
-
-    // Install-guide tabs (lower on the page). Wire them, and follow the OS picker above.
-    var tabs = document.querySelectorAll('[data-install-tab]');
-    var panels = document.querySelectorAll('[data-install-panel]');
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        var target = tab.getAttribute('data-install-tab');
-        tabs.forEach(function (t) { t.classList.remove('install-tab--active'); });
-        panels.forEach(function (p) { p.hidden = true; });
-        tab.classList.add('install-tab--active');
-        var panel = document.querySelector('[data-install-panel="' + target + '"]');
-        if (panel) panel.hidden = false;
-      });
-    });
-    function syncInstallTab(osKey) {
-      var tab = document.querySelector('[data-install-tab="' + osKey + '"]');
-      if (tab) tab.click();
-    }
 
     // Each OS family and the build variants it offers (name + a short "which one?" hint).
     var VARIANTS = {

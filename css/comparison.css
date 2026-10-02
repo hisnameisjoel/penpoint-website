@@ -49,8 +49,8 @@
 
     .vs-crumb {
       padding-top: var(--space-8);
-      font-size: var(--text-xs);
-      color: rgb(var(--muted-foreground));
+      font-size: clamp(12px, 1.05vw, 13px);
+      color: #7C5236;
     }
 
     .vs-crumb ol {
@@ -64,7 +64,7 @@
     }
 
     .vs-crumb a {
-      color: rgb(var(--muted-foreground));
+      color: #7C5236;
       text-decoration: underline;
       text-underline-offset: 2px;
     }
@@ -102,15 +102,38 @@
       text-align: center;
     }
 
+    /* Section marker (same standard as the homepage .pp-kicker): sized and ruled
+       to read as a divider, not fine print. Centered, so a rule on each side. */
     .vs-hero__kicker {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(10px, 1.4vw, 16px);
       font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
-      font-size: var(--text-xs);
-      font-weight: 500;
-      letter-spacing: 0.22em;
+      font-size: clamp(14px, 1.35vw, 16px);
+      font-weight: 600;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgb(var(--cta));
+      text-align: center;
+      text-wrap: balance;
+      color: #A4521D;
       margin-bottom: var(--space-5);
+    }
+
+    .vs-hero__kicker::before,
+    .vs-hero__kicker::after {
+      content: "";
+      flex: none;
+      width: clamp(22px, 3.6vw, 44px);
+      height: 2px;
+      background: currentColor;
+      opacity: 0.5;
+    }
+
+    /* Long markers wrap to two lines on phones; side rules there would strand at the screen edges. */
+    @media (max-width: 600px) {
+      .vs-hero__kicker::before,
+      .vs-hero__kicker::after { display: none; }
     }
 
     .vs-hero__headline {
@@ -158,8 +181,8 @@
       max-width: 780px;
       margin: 0 auto var(--space-3);
       font-family: 'IBM Plex Mono', ui-monospace, monospace;
-      font-size: var(--text-xs);
-      color: rgb(var(--muted-foreground));
+      font-size: clamp(12px, 1.05vw, 13px);
+      color: #7C5236;
       letter-spacing: 0.04em;
       text-align: right;
     }
@@ -175,14 +198,27 @@
       border-left: 4px solid rgb(var(--cta));
     }
 
+    /* Section marker: left-aligned, so one rule trailing to the right. */
     .vs-verdict h2 {
+      display: flex;
+      align-items: center;
+      gap: clamp(10px, 1.4vw, 16px);
       font-family: 'IBM Plex Mono', ui-monospace, monospace;
-      font-size: var(--text-xs);
+      font-size: clamp(14px, 1.35vw, 16px);
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgb(var(--cta));
+      color: #A4521D;
       margin: 0 0 var(--space-4);
+    }
+
+    .vs-verdict h2::after {
+      content: "";
+      flex: none;
+      width: clamp(22px, 3.6vw, 44px);
+      height: 2px;
+      background: currentColor;
+      opacity: 0.5;
     }
 
     .vs-verdict p {
@@ -313,11 +349,11 @@
       top: -12px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgb(var(--cta));
+      background: #A4521D;
       color: #fff;
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       font-weight: 600;
-      padding: 2px 10px;
+      padding: 3px 10px;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       white-space: nowrap;

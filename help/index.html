@@ -49,9 +49,15 @@
       border-top: 1px solid #E6DCCD; border-bottom: 1px solid #E6DCCD;
     }
     .help-wrap { max-width: 920px; margin: 0 auto; }
+    /* Section markers: every hub marker is centered, so a rule sits on each side. */
     .help-kicker {
-      font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .22em;
-      text-transform: uppercase; color: #CD6E2C; margin: 0 0 16px;
+      display: flex; align-items: center; justify-content: center; gap: clamp(10px, 1.4vw, 16px);
+      font-family: 'IBM Plex Mono', monospace; font-size: clamp(14px, 1.35vw, 16px); font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase; color: #A4521D; margin: 0 0 20px;
+    }
+    .help-kicker::before, .help-kicker::after {
+      content: ""; flex: none; width: clamp(22px, 3.6vw, 44px); height: 2px;
+      background: currentColor; opacity: .5;
     }
     .help-h2 {
       font-family: 'Newsreader', serif; font-weight: 500;

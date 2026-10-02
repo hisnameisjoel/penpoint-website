@@ -271,12 +271,35 @@
     .sp-label {
       font-family: 'IBM Plex Mono', ui-monospace, monospace;
       font-weight: 600;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
+      font-size: clamp(12px, 1.05vw, 13px);
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--c, #CD6E2C);
+      color: var(--c, #A4521D);
       margin: 0;
     }
+
+    /* Section marker: an eyebrow directly above a section heading. Same standard as
+       the homepage .pp-kicker. Left-aligned gets one rule trailing right; the
+       centered variant gets a rule on each side. */
+    .sp-label.sp-marker {
+      display: flex;
+      align-items: center;
+      gap: clamp(10px, 1.4vw, 16px);
+      font-size: clamp(14px, 1.35vw, 16px);
+      letter-spacing: 0.18em;
+    }
+
+    .sp-marker::after,
+    .sp-marker--center::before {
+      content: "";
+      flex: none;
+      width: clamp(22px, 3.6vw, 44px);
+      height: 2px;
+      background: currentColor;
+      opacity: 0.5;
+    }
+
+    .sp-marker--center { justify-content: center; text-align: center; }
 
     .sp-ct {
       font-family: 'Newsreader', ui-serif, Georgia, serif;
@@ -320,12 +343,14 @@
       display: inline-block;
       font-family: 'IBM Plex Mono', ui-monospace, monospace;
       font-weight: 600;
-      font-size: 0.62rem;
-      letter-spacing: 0.14em;
+      font-size: 12px;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 5px 9px;
+      padding: 6px 10px;
       background: var(--chip-bg, rgba(205, 110, 44, 0.12));
-      color: var(--c, #CD6E2C);
+      color: var(--c, #A4521D);
+      /* Chips sit on a tinted fill, so darken the hue a touch to keep the text at 4.5:1. */
+      color: color-mix(in srgb, var(--c, #A4521D) 80%, #000);
       white-space: nowrap;
     }
 
@@ -563,9 +588,9 @@
       margin-top: 8px;
       font-family: 'IBM Plex Mono', ui-monospace, monospace;
       font-weight: 600;
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      color: #8A6A45;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: #7C5236;
     }
 
     /* ----- First word to finished book ----- */
@@ -689,9 +714,9 @@
     .sp-browser__who {
       font-family: 'IBM Plex Mono', ui-monospace, monospace;
       font-weight: 600;
-      font-size: 0.56rem;
-      letter-spacing: 0.12em;
-      color: #8A6A45;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: #7C5236;
       margin: 0 0 4px;
     }
 
@@ -970,11 +995,11 @@
 
       <!-- ============ WHY PENPOINT EXISTS ============ -->
       <div class="sp-fig sp-why" data-animate="fade-up">
-        <p class="sp-label">Why Penpoint exists</p>
+        <p class="sp-label sp-marker sp-marker--center">Why Penpoint exists</p>
         <h2 id="why" class="sp-statement" style="margin-top: var(--space-4)">For human storytellers, <em>by human storytellers.</em></h2>
         <div class="sp-list sp-why__chips">
           <div><div class="sp-card" style="--r:-3deg"><p class="sp-label">Your characters</p></div></div>
-          <div><div class="sp-card" style="--r:2deg"><p class="sp-label" style="--c:#5E7F52">Your places</p></div></div>
+          <div><div class="sp-card" style="--r:2deg"><p class="sp-label" style="--c:#4F6D44">Your places</p></div></div>
           <div><div class="sp-card" style="--r:-1.5deg"><p class="sp-label" style="--c:#3E6598">Your words</p></div></div>
         </div>
       </div>
@@ -997,7 +1022,7 @@
         </div>
         <div class="sp-list sp-shipped">
           <div>
-            <p class="sp-label" style="--c:#8A6A45">March</p>
+            <p class="sp-label" style="--c:#7C5236">March</p>
             <p class="sp-shipped__title"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg>We launched!</p>
             <dl>
               <dt>Zen Mode</dt><dd>Press F11 and everything fades but your words.</dd>
@@ -1006,7 +1031,7 @@
             </dl>
           </div>
           <div>
-            <p class="sp-label" style="--c:#8A6A45">May</p>
+            <p class="sp-label" style="--c:#7C5236">May</p>
             <p class="sp-shipped__title"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Your world, your way</p>
             <dl>
               <dt>Chapters page, rebuilt</dt><dd>Custom layouts, and scenes with their own cast.</dd>
@@ -1015,7 +1040,7 @@
             </dl>
           </div>
           <div>
-            <p class="sp-label" style="--c:#8A6A45">July</p>
+            <p class="sp-label" style="--c:#7C5236">July</p>
             <p class="sp-shipped__title"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m16 6 4 14"/><path d="M12 6v14"/><path d="M8 8v12"/><path d="M4 4v16"/></svg>Go big</p>
             <dl>
               <dt>Series</dt><dd>Turn one book into a saga with a shared world.</dd>
@@ -1024,7 +1049,7 @@
             </dl>
           </div>
           <div>
-            <p class="sp-label" style="--c:#8A6A45">August</p>
+            <p class="sp-label" style="--c:#7C5236">August</p>
             <p class="sp-shipped__title"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></svg>Polish the prose</p>
             <dl>
               <dt>Comments &amp; pinned notes</dt><dd>Margin notes tied to the exact passage.</dd>
@@ -1033,7 +1058,7 @@
             </dl>
           </div>
           <div>
-            <p class="sp-label" style="--c:#8A6A45">September &middot; in beta</p>
+            <p class="sp-label" style="--c:#7C5236">September &middot; in beta</p>
             <p class="sp-shipped__title"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>Into the Cloud</p>
             <dl>
               <dt>Penpoint Cloud</dt><dd>Backup and sync across your computers.</dd>
@@ -1042,7 +1067,7 @@
             </dl>
           </div>
           <div>
-            <p class="sp-label" style="--c:#8A6A45">All along the way</p>
+            <p class="sp-label" style="--c:#7C5236">All along the way</p>
             <p class="sp-shipped__title"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>The little things</p>
             <dl>
               <dt>Reading-friendly fonts</dt><dd>OpenDyslexic and EB Garamond, built in.</dd>
@@ -1080,8 +1105,8 @@
 
         <div class="sp-list sp-cols sp-cols--4 sp-worlds">
           <div><div class="sp-card" style="--r:-2deg"><span class="sp-tape"></span><p class="sp-label" style="--c:#3E6598">Chapters</p><p class="sp-num sp-num--lg">2,664</p></div></div>
-          <div><div class="sp-card" style="--r:1.6deg"><span class="sp-tape"></span><p class="sp-label" style="--c:#5E7F52">Locations</p><p class="sp-num sp-num--lg">819</p></div></div>
-          <div><div class="sp-card" style="--r:-0.8deg"><span class="sp-tape"></span><p class="sp-label" style="--c:#A8742C">Items</p><p class="sp-num sp-num--lg">470</p></div></div>
+          <div><div class="sp-card" style="--r:1.6deg"><span class="sp-tape"></span><p class="sp-label" style="--c:#4F6D44">Locations</p><p class="sp-num sp-num--lg">819</p></div></div>
+          <div><div class="sp-card" style="--r:-0.8deg"><span class="sp-tape"></span><p class="sp-label" style="--c:#8A5A10">Items</p><p class="sp-num sp-num--lg">470</p></div></div>
           <div><div class="sp-card" style="--r:2deg"><span class="sp-tape"></span><p class="sp-label">Characters</p><p class="sp-num sp-num--lg">336</p></div></div>
         </div>
         <div class="sp-worlds__note">
@@ -1114,12 +1139,12 @@
           </div>
           <div class="sp-list" style="display:flex; flex-direction:column; gap: clamp(16px, 2.6vw, 30px)">
             <div class="sp-card" style="height:auto">
-              <div class="sp-head-row"><p class="sp-label" style="--c:#5E7F52">Author Progress</p><span class="sp-chip" style="--c:#5E7F52; --chip-bg: rgba(94,127,82,0.14)">Testing now</span></div>
+              <div class="sp-head-row"><p class="sp-label" style="--c:#4F6D44">Author Progress</p><span class="sp-chip" style="--c:#4F6D44; --chip-bg: rgba(94,127,82,0.14)">Testing now</span></div>
               <p class="sp-ct">Your writing life on one page.</p>
               <p class="sp-cb">Goals, sprints, and sessions, all in one place.</p>
             </div>
             <div class="sp-card sp-card--manila" style="height:auto">
-              <div class="sp-head-row"><p class="sp-label" style="--c:#A8742C">Video Tutorials</p><span class="sp-chip" style="--c:#A8742C; --chip-bg: rgba(168,116,44,0.16)">In the works</span></div>
+              <div class="sp-head-row"><p class="sp-label" style="--c:#8A5A10">Video Tutorials</p><span class="sp-chip" style="--c:#8A5A10; --chip-bg: rgba(168,116,44,0.16)">In the works</span></div>
               <p class="sp-ct">Watch how it all works.</p>
               <p class="sp-cb">Full video tutorials for every part of Penpoint, filmed in the real app.</p>
             </div>
@@ -1146,7 +1171,7 @@
         <div class="sp-list sp-cols sp-cols--2">
           <div class="sp-card"><p class="sp-label" style="--c:#7A5A8C">Scrivener Import</p><p class="sp-ct">Bring your Scrivener projects home.</p><p class="sp-cb">Structure and all. No copying chapters by hand.</p></div>
           <div class="sp-card"><p class="sp-label">Custom Character Sheets</p><p class="sp-ct">A sheet sized to every role.</p><p class="sp-cb">Full depth for your hero, a light card for the tavern keeper.</p></div>
-          <div class="sp-card"><p class="sp-label" style="--c:#5E7F52">Reimagined Timeline</p><p class="sp-ct">A timeline that speaks your calendar.</p><p class="sp-cb">Built on your book's own calendar, fantasy ones included.</p></div>
+          <div class="sp-card"><p class="sp-label" style="--c:#4F6D44">Reimagined Timeline</p><p class="sp-ct">A timeline that speaks your calendar.</p><p class="sp-cb">Built on your book's own calendar, fantasy ones included.</p></div>
           <div class="sp-card"><p class="sp-label" style="--c:#B8453A">More Languages</p><p class="sp-ct">Penpoint, beyond English.</p><p class="sp-cb">Use the whole app in more of the world's languages.</p></div>
         </div>
       </div>
@@ -1168,15 +1193,15 @@
       <div class="sp-fig" data-animate="fade-up">
         <div class="sp-fig__top">
           <div>
-            <p class="sp-label">Ideas I'm exploring</p>
+            <p class="sp-label sp-marker">Ideas I'm exploring</p>
             <h2 id="radar" class="sp-fig__title" style="margin-top: var(--space-2)">On my <em>radar.</em></h2>
           </div>
         </div>
         <div class="sp-list sp-cols sp-cols--3">
           <div class="sp-card sp-card--edge" style="--c:#3E6598"><p class="sp-ct" style="margin-top:0">Reader Mode</p><p class="sp-cb">Read your manuscript like a finished book.</p></div>
           <div class="sp-card sp-card--edge" style="--c:#B8453A"><p class="sp-ct" style="margin-top:0">Script Mode</p><p class="sp-cb">Screenplays, with all your worldbuilding.</p></div>
-          <div class="sp-card sp-card--edge" style="--c:#5E7F52"><p class="sp-ct" style="margin-top:0">Family Tree View</p><p class="sp-cb">Map families and bloodlines.</p></div>
-          <div class="sp-card sp-card--edge" style="--c:#A8742C"><p class="sp-ct" style="margin-top:0">Custom Book&nbsp;Templates</p><p class="sp-cb">Start new books your way.</p></div>
+          <div class="sp-card sp-card--edge" style="--c:#4F6D44"><p class="sp-ct" style="margin-top:0">Family Tree View</p><p class="sp-cb">Map families and bloodlines.</p></div>
+          <div class="sp-card sp-card--edge" style="--c:#8A5A10"><p class="sp-ct" style="margin-top:0">Custom Book&nbsp;Templates</p><p class="sp-cb">Start new books your way.</p></div>
           <div class="sp-card sp-card--edge" style="--c:#7A5A8C"><p class="sp-ct" style="margin-top:0">Build Your Own Theme</p><p class="sp-cb">Every color, your choice.</p></div>
           <div class="sp-card sp-card--edge" style="--c:#CD6E2C"><p class="sp-ct" style="margin-top:0">Custom Colors&nbsp;Everywhere</p><p class="sp-cb">Color-code anything.</p></div>
           <div class="sp-card sp-card--edge" style="--c:#3E6598"><p class="sp-ct" style="margin-top:0">Multi-Window</p><p class="sp-cb">Spread out across two screens.</p></div>
@@ -1202,7 +1227,7 @@
 
       <!-- ============ PENPOINT HUB ============ -->
       <div class="sp-fig sp-hub" data-animate="fade-up">
-        <p class="sp-label">Introducing</p>
+        <p class="sp-label sp-marker sp-marker--center">Introducing</p>
         <h2 id="hub" class="sp-hub__mark" style="margin-top: var(--space-4)">
           <svg class="sp-quill" viewBox="0 0 24 24" width="52" height="52" aria-hidden="true"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/></svg>
           Penpoint Hub
@@ -1223,7 +1248,7 @@
       <div class="sp-fig" data-animate="fade-up">
         <div class="sp-fig__top">
           <div>
-            <p class="sp-label">Penpoint Hub &middot; planned</p>
+            <p class="sp-label sp-marker">Penpoint Hub &middot; planned</p>
             <h3 id="write-together" class="sp-fig__title" style="margin-top: var(--space-2)">Write <em>together.</em></h3>
             <p class="sp-fig__sub">Community events that turn a solo grind into a shared adventure.</p>
           </div>
@@ -1231,7 +1256,7 @@
         <div class="sp-list sp-cols sp-cols--3">
           <div class="sp-card"><p class="sp-label">Challenges</p><p class="sp-ct">Themed writing&nbsp;challenges.</p><p class="sp-cb">Prompts, streaks, and sprints you take on alongside everyone else.</p></div>
           <div class="sp-card">
-            <p class="sp-label" style="--c:#5E7F52">Group goals</p><p class="sp-ct">One big goal, together.</p>
+            <p class="sp-label" style="--c:#4F6D44">Group goals</p><p class="sp-ct">One big goal, together.</p>
             <div class="sp-bar" aria-hidden="true"><span></span></div>
             <div class="sp-bar__legend"><span>640,000 WORDS</span><span>GOAL 1,000,000</span></div>
             <p class="sp-hand" style="margin-top: var(--space-2); font-size: 1.6rem">(just an example!)</p>
@@ -1249,7 +1274,7 @@
       <div class="sp-fig" data-animate="fade-up">
         <div class="sp-fig__top">
           <div>
-            <p class="sp-label">Penpoint Hub &middot; planned</p>
+            <p class="sp-label sp-marker">Penpoint Hub &middot; planned</p>
             <h3 id="guided-sprints" class="sp-fig__title" style="margin-top: var(--space-2)">Learn from writers who've <em>been there.</em></h3>
             <p class="sp-fig__sub">Guided writing sprints, built by fellow authors who share what they've learned.</p>
           </div>
@@ -1267,8 +1292,8 @@
           <div class="sp-card sp-card--manila">
             <span class="sp-tape"></span>
             <div class="sp-head-row" style="justify-content:flex-start">
-              <svg class="sp-icon" viewBox="0 0 24 24" style="--c:#5E7F52; width:22px; height:22px" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-              <p class="sp-label" style="--c:#5E7F52">Tracks your goals</p>
+              <svg class="sp-icon" viewBox="0 0 24 24" style="--c:#4F6D44; width:22px; height:22px" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              <p class="sp-label" style="--c:#4F6D44">Tracks your goals</p>
             </div>
             <p class="sp-ct" style="margin-top: var(--space-3)">See how you're doing.</p>
             <p class="sp-cb">Penpoint tracks your goals as you write and lets you know how you're doing along the way.</p>
@@ -1290,7 +1315,7 @@
       <div class="sp-fig" data-animate="fade-up">
         <div class="sp-fig__top">
           <div>
-            <p class="sp-label">The dream</p>
+            <p class="sp-label sp-marker">The dream</p>
             <h2 id="dream" class="sp-fig__title" style="margin-top: var(--space-2)">From first word to <em>finished book.</em></h2>
             <p class="sp-fig__sub">Penpoint helps you the whole way through.</p>
           </div>
@@ -1298,7 +1323,7 @@
         <div class="sp-steps">
           <div class="sp-card"><p class="sp-label">Step one</p><p class="sp-ct" style="font-size: clamp(1.5rem, 2.8vw, 2rem)">Write</p><p class="sp-cb">Build your world and write your book. You're already here!</p></div>
           <svg class="sp-steps__arrow" viewBox="0 0 48 32" aria-hidden="true"><path d="M6 16 H38 M28 7 L39 16 L28 25"/></svg>
-          <div class="sp-card"><p class="sp-label" style="--c:#5E7F52">Step two</p><p class="sp-ct" style="font-size: clamp(1.5rem, 2.8vw, 2rem)">Beta Readers</p><p class="sp-cb">Share chapters and trade feedback with fellow writers.</p></div>
+          <div class="sp-card"><p class="sp-label" style="--c:#4F6D44">Step two</p><p class="sp-ct" style="font-size: clamp(1.5rem, 2.8vw, 2rem)">Beta Readers</p><p class="sp-cb">Share chapters and trade feedback with fellow writers.</p></div>
           <svg class="sp-steps__arrow" viewBox="0 0 48 32" aria-hidden="true"><path d="M6 16 H38 M28 7 L39 16 L28 25"/></svg>
           <div class="sp-card sp-card--manila"><p class="sp-label" style="--c:#3E6598">Step three</p><p class="sp-ct" style="font-size: clamp(1.5rem, 2.8vw, 2rem)">Editors</p><p class="sp-cb">Work with trusted, professional editors right in your manuscript.</p></div>
         </div>
@@ -1318,13 +1343,13 @@
       <div class="sp-fig" data-animate="fade-up">
         <div class="sp-fig__top">
           <div>
-            <p class="sp-label">The dream</p>
+            <p class="sp-label sp-marker">The dream</p>
             <h3 id="first-readers" class="sp-fig__title" style="margin-top: var(--space-2)">Your first readers, <em>built in.</em></h3>
           </div>
         </div>
         <div class="sp-readers">
           <div class="sp-list sp-readers__cards">
-            <div class="sp-card"><p class="sp-label" style="--c:#5E7F52">Beta reader exchange</p><p class="sp-cb" style="margin-top: var(--space-2)">Swap chapters with other Penpoint writers and trade honest feedback.</p></div>
+            <div class="sp-card"><p class="sp-label" style="--c:#4F6D44">Beta reader exchange</p><p class="sp-cb" style="margin-top: var(--space-2)">Swap chapters with other Penpoint writers and trade honest feedback.</p></div>
             <div class="sp-card"><p class="sp-label">Read on the web</p><p class="sp-cb" style="margin-top: var(--space-2)">Send a link. Your readers read and comment in their browser, no app needed, with measures in place to prevent copying (stealing) your content.</p></div>
             <div class="sp-card"><p class="sp-label" style="--c:#3E6598">Trusted editors</p><p class="sp-cb" style="margin-top: var(--space-2)">Invite verified editors into your manuscript <em>and</em> your worldbuilding.</p></div>
           </div>
@@ -1368,28 +1393,28 @@
       <div class="sp-fig" data-animate="fade-up">
         <div class="sp-fig__top">
           <div>
-            <p class="sp-label">The dream</p>
+            <p class="sp-label sp-marker">The dream</p>
             <h3 id="hub-expanded" class="sp-fig__title" style="margin-top: var(--space-2)">Penpoint Hub, <em>expanded.</em></h3>
             <p class="sp-fig__sub">A place where writers, readers, and editors find each other.</p>
           </div>
         </div>
         <div class="sp-list sp-tiers">
-          <div style="--c:#CD6E2C">
-            <p class="sp-label" style="--c:#8A6A45">Tier one</p>
+          <div style="--c:#A4521D">
+            <p class="sp-label" style="--c:#7C5236">Tier one</p>
             <p class="sp-tiers__who"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Writers</p>
             <span class="sp-chip">Own Penpoint</span>
             <p class="sp-cb">Part of the community from day one.</p>
             <p class="sp-cb">Swap chapters and beta-read together.</p>
           </div>
           <div style="--c:#3E6598">
-            <p class="sp-label" style="--c:#8A6A45">Tier two</p>
+            <p class="sp-label" style="--c:#7C5236">Tier two</p>
             <p class="sp-tiers__who"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></svg>Editors</p>
             <span class="sp-chip" style="--chip-bg: rgba(62,101,152,0.12)">Own Penpoint</span>
             <p class="sp-cb">Offer your editing and prep services.</p>
             <p class="sp-cb">Get matched with authors who need it.</p>
           </div>
-          <div style="--c:#5E7F52">
-            <p class="sp-label" style="--c:#8A6A45">Tier three</p>
+          <div style="--c:#4F6D44">
+            <p class="sp-label" style="--c:#7C5236">Tier three</p>
             <p class="sp-tiers__who"><svg class="sp-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Web readers</p>
             <span class="sp-chip" style="--chip-bg: rgba(94,127,82,0.12)">Invited, no app needed</span>
             <p class="sp-cb">Anyone you grant access to your book.</p>
@@ -1412,7 +1437,7 @@
       </div>
 
       <div class="sp-fig sp-pencil" data-animate="fade-up">
-        <p class="sp-label">A quick note</p>
+        <p class="sp-label sp-marker sp-marker--center">A quick note</p>
         <p class="sp-statement" style="margin-top: var(--space-4)">This is where things <em>could</em> be headed.</p>
         <p class="sp-fig__sub">It's a big vision, and it will change as we grow. I want you all to help me shape it.</p>
         <p class="sp-hand">Written in pencil, not ink.</p>
@@ -1429,16 +1454,16 @@
       <div class="sp-fig" data-animate="fade-up">
         <div class="sp-fig__top">
           <div>
-            <p class="sp-label">Putting it together</p>
+            <p class="sp-label sp-marker">Putting it together</p>
             <h2 id="this-november" class="sp-fig__title" style="margin-top: var(--space-2)">It all starts <em>this November.</em></h2>
             <p class="sp-fig__sub">The Hub's first version, built from four pieces.</p>
           </div>
         </div>
         <div class="sp-list sp-cols sp-cols--4 sp-converge">
           <div class="sp-card sp-card--edge"><svg class="sp-icon" viewBox="0 0 24 24" style="width:30px;height:30px" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><p class="sp-ct">Penpoint Hub</p><p class="sp-cb">A home base where everyone taking part gathers.</p></div>
-          <div class="sp-card sp-card--edge" style="--c:#5E7F52"><svg class="sp-icon" viewBox="0 0 24 24" style="width:30px;height:30px" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg><p class="sp-ct">Community&nbsp;events</p><p class="sp-cb">One big word goal for the whole community.</p></div>
+          <div class="sp-card sp-card--edge" style="--c:#4F6D44"><svg class="sp-icon" viewBox="0 0 24 24" style="width:30px;height:30px" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg><p class="sp-ct">Community&nbsp;events</p><p class="sp-cb">One big word goal for the whole community.</p></div>
           <div class="sp-card sp-card--edge" style="--c:#3E6598"><svg class="sp-icon" viewBox="0 0 24 24" style="width:30px;height:30px" aria-hidden="true"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></svg><p class="sp-ct">Guided sprints</p><p class="sp-cb">Author-built sprints for Preptober plotting and November drafting.</p></div>
-          <div class="sp-card sp-card--edge" style="--c:#A8742C"><svg class="sp-icon" viewBox="0 0 24 24" style="width:30px;height:30px" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><p class="sp-ct">Author Progress</p><p class="sp-cb">Your words, sessions, and goals, tracked all month long.</p></div>
+          <div class="sp-card sp-card--edge" style="--c:#8A5A10"><svg class="sp-icon" viewBox="0 0 24 24" style="width:30px;height:30px" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><p class="sp-ct">Author Progress</p><p class="sp-cb">Your words, sessions, and goals, tracked all month long.</p></div>
         </div>
         <!-- Dotted lines from each card down into the band. Stretched to the row
              width; non-scaling strokes keep the dots round at any size. -->
@@ -1469,17 +1494,17 @@
       <div class="sp-fig" data-animate="fade-up">
         <div class="sp-fig__top">
           <div>
-            <p class="sp-label">Our next step, this fall</p>
+            <p class="sp-label sp-marker">Our next step, this fall</p>
             <h2 id="novel-november" class="sp-fig__title" style="margin-top: var(--space-2)">Novel <em>November.</em></h2>
           </div>
         </div>
         <div class="sp-months">
-          <div class="sp-card sp-month" style="--c:#5E7F52">
+          <div class="sp-card sp-month" style="--c:#4F6D44">
             <div class="sp-month__head"><p class="sp-label">October &middot; Preptober</p></div>
             <div class="sp-month__body"><p class="sp-ct">Get ready.</p><p class="sp-cb">Plot your story. Build your world. Meet your cast.</p></div>
           </div>
           <svg class="sp-months__arrow" viewBox="0 0 60 34" aria-hidden="true"><path d="M4 20 C 18 10, 34 28, 52 16"/><path d="M42 7 L53 16 L41 25"/></svg>
-          <div class="sp-card sp-month" style="--c:#CD6E2C">
+          <div class="sp-card sp-month" style="--c:#A4521D">
             <div class="sp-month__head"><p class="sp-label">November &middot; Write</p></div>
             <div class="sp-month__body"><p class="sp-ct">50,000 words.</p><p class="sp-cb">Write your novel in a month, with a whole community beside you.</p></div>
           </div>
@@ -1510,7 +1535,7 @@
       <div class="sp-fig" data-animate="fade-up">
         <div class="sp-fig__top">
           <div>
-            <p class="sp-label">I need your help</p>
+            <p class="sp-label sp-marker">I need your help</p>
             <h2 id="spread-the-word" class="sp-fig__title" style="margin-top: var(--space-2)">Help me get <em>the word out.</em></h2>
           </div>
         </div>

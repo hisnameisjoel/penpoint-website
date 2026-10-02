@@ -1,0 +1,99 @@
+/* =====================================================================
+   Penpoint trial gate: the email form in front of the free-trial download.
+   Shared by trial.html and novel-november.html (see js/trial-gate.js).
+   Self-contained: it expects the pages' own .btn / .btn-primary / .btn-lg /
+   .btn-shadow rules (both define them) and the Source Serif 4, Newsreader and
+   IBM Plex Mono fonts.
+   The card takes its look from the download card it stands in for. A page can
+   retint it with --tg-bg on the mount element.
+   ===================================================================== */
+
+.tg-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;}
+
+/* ---- The card ---- */
+.tg{
+  --tg-bg:var(--paper-alt,#F4EBD8);
+  text-align:center;
+  padding:clamp(28px,4vw,40px) clamp(20px,3vw,36px);
+  background:var(--tg-bg);
+  border:1px solid #E0D2BC;
+  box-shadow:0 24px 50px -34px rgba(61,46,28,.4);
+  min-height:250px;
+  display:flex;flex-direction:column;justify-content:center;
+  font-family:'Source Serif 4',Georgia,serif;
+}
+/* .tg sets display:flex, which would beat the hidden attribute; this wins on specificity, no !important. */
+.tg[hidden]{display:none;}
+/* The page's own entrance animation (tri-in) fills "both", which would pin opacity at 1 and defeat the
+   fade-out when the card hands over to the download picker. "backwards" holds the start state only. */
+.tg.tri-in{animation-fill-mode:backwards;}
+.tg.tg-leaving{opacity:0;transition:opacity .22s ease;}
+.tg-stage{width:100%;}
+
+/* ---- Panels: one at a time, fading in; the outgoing one fades out first ---- */
+@keyframes tgFade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+@keyframes tgSpin{to{transform:rotate(360deg);}}
+.tg-panel{animation:tgFade .5s cubic-bezier(.2,.7,.2,1) backwards;}
+.tg-panel.tg-static{animation:none;}
+.tg-panel.tg-leave,.tg-msg__in.tg-leave{opacity:0;transition:opacity .18s ease;}
+
+/* ---- The form ---- */
+.tg-form{max-width:440px;margin:0 auto;text-align:left;}
+.tg-phone{font-size:15px;line-height:1.5;color:#5C4332;margin:0 0 20px;text-align:center;text-wrap:pretty;}
+.tg-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#7C5236;margin:0 0 8px;}
+/* 16px keeps iOS Safari from zooming the page when the field takes focus. */
+.tg-input{display:block;width:100%;font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.3;padding:13px 14px;background:#fff;color:#29241E;border:1px solid #DDCBAE;border-radius:0;transition:border-color .2s ease,box-shadow .2s ease;-webkit-appearance:none;appearance:none;}
+.tg-input:hover{border-color:#C9B79A;}
+.tg-input:focus{outline:none;border-color:#CD6E2C;box-shadow:0 0 0 3px rgba(205,110,44,.22);}
+.tg-input[aria-invalid="true"]{border-color:#9B2F1E;}
+.tg-input[aria-invalid="true"]:focus{box-shadow:0 0 0 3px rgba(155,47,30,.2);}
+
+/* Messages sit right under the field. The region is always present, so its changes are announced. */
+.tg-msg{margin:0;}
+.tg-msg__in{margin:10px 0 0;font-size:14.5px;line-height:1.5;animation:tgFade .35s cubic-bezier(.2,.7,.2,1) backwards;text-wrap:pretty;}
+.tg-msg--error{color:#9B2F1E;}
+.tg-msg--note{color:#5C4332;}
+.tg-msg__in a{color:#A4521D;font-weight:600;}
+.tg-sent .tg-msg{min-height:0;}
+
+/* Typo fix: a text button that completes the correction in one click. */
+.tg-fix,.tg-link{font:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;color:#29241E;font-weight:600;text-decoration:underline;text-decoration-color:rgba(205,110,44,.7);text-decoration-thickness:2px;text-underline-offset:3px;transition:color .2s ease,text-decoration-color .2s ease;}
+.tg-fix:hover,.tg-link:hover:not(:disabled){color:#A4521D;text-decoration-color:currentColor;}
+.tg-link:disabled{cursor:default;color:#7C5236;font-weight:500;text-decoration:none;}
+
+/* The honeypot: out of sight and out of the tab order, but still a real field a bot will fill. */
+.tg-hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;}
+
+.tg-check{display:flex;align-items:flex-start;gap:11px;margin:16px 0 18px;font-size:15px;line-height:1.45;color:#5C4332;cursor:pointer;}
+.tg-check input{flex:none;width:19px;height:19px;margin:1px 0 0;accent-color:#CD6E2C;cursor:pointer;}
+.tg-submit{width:100%;}
+.tg-submit:disabled{opacity:.65;cursor:default;transform:none;box-shadow:none;}
+.tg-fine{margin:14px 0 0;font-size:13px;line-height:1.5;color:#7C5236;text-align:center;text-wrap:pretty;}
+.tg-fine a{color:#7C5236;text-decoration:underline;text-underline-offset:2px;}
+.tg-fine a:hover{color:#29241E;}
+
+/* ---- Sent, loading, returning ---- */
+.tg-sent,.tg-loading,.tg-return{max-width:480px;margin:0 auto;}
+.tg-title{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(28px,4vw,38px);line-height:1.1;letter-spacing:-0.02em;color:#29241E;margin:0 0 12px;text-wrap:balance;}
+.tg-title:focus{outline:none;}
+.tg-lead{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(16px,1.9vw,18px);line-height:1.55;color:#5C4A33;margin:0 0 6px;text-wrap:pretty;}
+.tg-addr{color:#29241E;font-weight:600;overflow-wrap:anywhere;}
+.tg-aside{margin:14px 0 0;font-size:15px;line-height:1.5;color:#5C4332;text-wrap:pretty;}
+.tg-sent .tg-phone{margin:16px 0 0;}
+.tg-go{margin-top:18px;}
+.tg-loading{display:flex;flex-direction:column;align-items:center;gap:14px;}
+.tg-loading .tg-lead{margin:0;}
+.tg-spinner{display:block;width:26px;height:26px;border:3px solid #E0D2BC;border-top-color:#CD6E2C;border-radius:50%;animation:tgSpin .9s linear infinite;}
+
+/* Keyboard users get a clear ring on everything the gate offers. */
+.tg a:focus-visible,.tg button:focus-visible,.tg-check input:focus-visible{outline:2px solid #CD6E2C;outline-offset:3px;}
+
+@media(max-width:560px){
+  .tg-check{font-size:15.5px;}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .tg-panel,.tg-msg__in{animation:none;}
+  .tg.tg-leaving,.tg-panel.tg-leave,.tg-msg__in.tg-leave{transition:none;}
+  .tg-spinner{animation:none;border-top-color:#E0D2BC;border-right-color:#CD6E2C;}
+}

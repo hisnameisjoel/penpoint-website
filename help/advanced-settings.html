@@ -54,10 +54,13 @@
       font-family: 'Source Serif 4', serif; font-size: 14px; line-height: 1.45;
       padding-right: 8px;
     }
+    /* Small caps follow the site standard (see /novel-november and index.html):
+       at least 12px, bold, and the darker #A4521D orange, so they read as labels,
+       not fine print. */
     .help-nav__home {
-      display: block; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
-      letter-spacing: .14em; text-transform: uppercase; color: #7C5236;
-      text-decoration: none; margin: 0 0 16px; padding-bottom: 10px;
+      display: block; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600;
+      letter-spacing: .16em; text-transform: uppercase; color: #A4521D;
+      text-decoration: none; margin: 0 0 16px; padding-bottom: 12px;
       border-bottom: 1px solid #E0D2BC;
     }
     .help-nav__home:hover { color: #CD6E2C; }
@@ -85,13 +88,13 @@
     }
 
     .help-crumbs {
-      font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500;
-      letter-spacing: .14em; text-transform: uppercase;
-      color: rgb(var(--muted-foreground)); margin: 0 0 var(--space-6);
+      font-family: 'IBM Plex Mono', monospace; font-size: clamp(13px, 1.2vw, 14px); font-weight: 600;
+      letter-spacing: .12em; line-height: 1.6; text-transform: uppercase;
+      color: #7C5236; margin: 0 0 var(--space-6);
     }
     .help-crumbs a { color: inherit; text-decoration: none; }
-    .help-crumbs a:hover { color: #CD6E2C; }
-    .help-crumbs span[aria-current] { color: rgb(var(--foreground)); }
+    .help-crumbs a:hover { color: #A4521D; }
+    .help-crumbs span[aria-current] { color: #CD6E2C; }
 
     @media (max-width: 960px) {
       /* The full sidebar doesn't fit on a phone: with the current section open by
@@ -202,13 +205,18 @@
           <ul class="help-nav__list help-nav__list--0"><li><a href="/help/cloud-backup-for-writers">Overview</a></li></ul>
           <ul class="help-nav__list help-nav__list--0"><li><a href="/help/set-up-cloud-backup-for-your-novel">Setting Up Penpoint Cloud</a></li><li><a href="/help/encrypted-novel-backup">Your Password and Recovery Kit</a></li><li><a href="/help/penpoint-cloud-plans">Managing Your Subscription</a></li><li><a href="/help/write-on-multiple-computers">Managing Your Devices</a></li><li><a href="/help/sync-your-novel-between-computers">Syncing and Restoring</a></li><li><a href="/help/penpoint-cloud-settings">Penpoint Cloud Settings</a></li></ul>
         </details>
+        <details class="help-nav__sec">
+          <summary>Events</summary>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/writing-events">Overview</a></li></ul>
+          <ul class="help-nav__list help-nav__list--0"><li><a href="/help/how-to-write-a-novel-in-a-month">Writing a Novel in a Month with Penpoint</a></li></ul>
+        </details>
       </nav>
       <div class="help-article__inner">
         <nav class="help-crumbs" aria-label="Breadcrumb">
           <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/settings">Settings</a> / <span aria-current="page">Advanced Settings</span>
         </nav>
         <div class="help-body">
-<article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Advanced Settings</h1><p class="font-body text-base mb-4">The Advanced page in <strong class="font-body-bold">Settings &gt; Advanced</strong> contains troubleshooting tools and system-level settings that most writers won&#x27;t need day-to-day, but they&#x27;re here when you need them.</p><h2 class="font-heading mb-4 mt-8">Hardware Acceleration</h2><p class="font-body text-base mb-4">Penpoint uses your computer&#x27;s graphics hardware to render the interface smoothly. On most machines this works perfectly, but on some systems it can cause visual problems: flickering, black screens, graphical glitches, or other display issues.</p><p class="font-body text-base mb-4">If you&#x27;re experiencing any of these issues, try switching hardware acceleration to <strong class="font-body-bold">Disabled</strong> using the dropdown. This tells Penpoint to use software rendering instead, which is slower but avoids graphics driver conflicts.</p><p class="font-body text-base mb-4">After changing this setting, you&#x27;ll need to restart Penpoint for it to take effect. A restart banner will appear with a <strong class="font-body-bold">Restart Now</strong> button: click it when you&#x27;re ready.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> If everything looks fine on your screen, leave this set to Enabled. You only need to change it if you&#x27;re seeing visual problems.</p></div><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> This setting is only available on Windows. macOS and Linux handle graphics rendering differently and don&#x27;t need this toggle.</p></div><h2 class="font-heading mb-4 mt-8">Support Logs</h2><p class="font-body text-base mb-4">If something goes wrong and you need help troubleshooting, Penpoint can export its internal logs as a zip file. These logs record what the app was doing behind the scenes: things like which pages you visited, what actions you took, and any errors that occurred.</p><p class="font-body text-base mb-4">Click <strong class="font-body-bold">Save Logs to Disk</strong> to choose where to save the file. You can then share the zip with support or attach it to a bug report.</p><p class="font-body text-base mb-4"><strong class="font-body-bold">What&#x27;s NOT in the logs:</strong> Your writing, characters, book content, and personal data are never included. Logs only contain technical information about how the app was running.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> If Penpoint is behaving unexpectedly, export your logs before restarting; restarting clears the current session&#x27;s log history.</p></div></article>
+<article class="prose prose-sm max-w-none select-text help-article-content"><h1 class="font-heading-lg mb-6 mt-8 first:mt-0">Advanced Settings</h1><p class="font-body text-base mb-4">The Advanced page in <strong class="font-body-bold">Settings &gt; Advanced</strong> contains troubleshooting tools and system-level settings that most writers won&#x27;t need day-to-day, but they&#x27;re here when you need them.</p><h2 class="font-heading mb-4 mt-8">Hardware Acceleration</h2><p class="font-body text-base mb-4">Penpoint uses your computer&#x27;s graphics hardware to render the interface smoothly. On most machines this works perfectly, but on some systems it can cause visual problems: flickering, black screens, graphical glitches, or other display issues.</p><p class="font-body text-base mb-4">If you&#x27;re experiencing any of these issues, try switching hardware acceleration to <strong class="font-body-bold">Disabled</strong> using the dropdown. This tells Penpoint to use software rendering instead, which is slower but avoids graphics driver conflicts.</p><p class="font-body text-base mb-4">After changing this setting, you&#x27;ll need to restart Penpoint for it to take effect. A restart banner will appear with a <strong class="font-body-bold">Restart Now</strong> button: click it when you&#x27;re ready.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> If everything looks fine on your screen, leave this set to Enabled. You only need to change it if you&#x27;re seeing visual problems.</p></div><div class="bg-muted/50 border-l-4 border-muted-foreground px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Note:</strong> This setting is only available on Windows. macOS and Linux handle graphics rendering differently and don&#x27;t need this toggle.</p></div><h2 class="font-heading mb-4 mt-8">Support Logs</h2><p class="font-body text-base mb-4">If something goes wrong and you need help troubleshooting, Penpoint can export its internal logs as a zip file. These logs record what the app was doing behind the scenes: things like which pages you visited, what actions you took, and any errors that occurred.</p><p class="font-body text-base mb-4">Click <strong class="font-body-bold">Save Logs to Disk</strong> to choose where to save the file. You can then share the zip with support or attach it to a bug report.</p><p class="font-body text-base mb-4"><strong class="font-body-bold">What&#x27;s NOT in the logs:</strong> Your manuscript and the text of your book are never included. Logs can mention the names of things like characters or chapters. The saved copy also has your computer&#x27;s user name, folder paths, email addresses, and sign-in tokens removed. The log files on your computer are not changed.</p><div class="bg-primary/10 border-l-4 border-primary px-4 py-3 my-4 rounded-r overflow-hidden"><p class="font-body-sm"><strong class="font-body-bold">Tip:</strong> Penpoint keeps its logs across restarts, so you can still save them after restarting. Older entries are dropped after a while, so save the logs soon after something goes wrong.</p></div></article>
         </div>
         <p class="help-footer">This guide is also in Penpoint, under Help. <a href="/help/">Browse all guides</a> or <a href="/trial">try Penpoint free</a>.</p>
       </div>
