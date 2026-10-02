@@ -116,7 +116,7 @@
       <div class="un-wrap">
         <!-- The card is filled in by the script below. Nothing here sends a request on its own. -->
         <div class="tg un-card" id="un-card" style="--tg-bg:#FFFDF7;">
-          <noscript><p class="tg-lead">Turn on JavaScript to unsubscribe, or email <a href="mailto:support@penpoint.app">support@penpoint.app</a> and I'll take you off the list.</p></noscript>
+          <noscript><p class="tg-lead">Turn on JavaScript to unsubscribe, or email <a href="mailto:support@penpoint.app">support@penpoint.app</a> to be taken off the list.</p></noscript>
         </div>
       </div>
     </section>
@@ -226,7 +226,7 @@
   function incompletePanel() {
     return h('div', { 'class': 'tg-panel' }, [
       title('Unsubscribe from Penpoint emails?'),
-      h('p', { 'class': 'tg-lead' }, ['This unsubscribe link looks incomplete. Email ', support(), ' and I\'ll take you off the list.'])
+      h('p', { 'class': 'tg-lead' }, ['This unsubscribe link looks incomplete. Email ', support(), ' to be taken off the list.'])
     ]);
   }
 
@@ -268,7 +268,7 @@
           show(incompletePanel());
         } else {
           setBusy(false);
-          msgEl.appendChild(h('div', { 'class': 'tg-msg__in tg-msg--error' }, ['Something broke on my end. Try again in a minute, or email ', support(), '.']));
+          msgEl.appendChild(h('div', { 'class': 'tg-msg__in tg-msg--error' }, ['Something went wrong. Try again in a minute, or email ', support(), '.']));
         }
       });
     });

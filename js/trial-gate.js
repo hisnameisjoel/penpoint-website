@@ -51,14 +51,14 @@
     newsletter: 'Send me Penpoint news and writing tips. Unsubscribe anytime.',
     submit: 'Email me the download',
     sending: 'Sending…',
-    // The lines where Joel is the one speaking (phone intro, sent, rate limit, bad link, welcome back) are
-    // first person: see docs/technical/WritingLikeJoel.md. Field labels and errors stay plain. The newsletter
-    // checkbox label above and the small print under the form (smallPrintParts) are consent wording tied to
-    // CONSENT_VERSION: leave them alone.
-    phoneIntro: 'Penpoint is a desktop app, so I\'ll email you the link to open on your computer.',
+    // Website copy never speaks as "I" (Joel, 2026-10-02): status lines are neutral ("The download link
+    // was sent to"). Only the EMAILS speak as Joel (docs/technical/WritingLikeJoel.md). "Me" on the button
+    // and the checkbox is the VISITOR speaking, which is fine. The newsletter checkbox label above and the
+    // small print under the form (smallPrintParts) are consent wording tied to CONSENT_VERSION: leave them alone.
+    phoneIntro: 'Penpoint is a desktop app, so the download link will be emailed to you to open on your computer.',
     phoneSent: 'Open the email on your computer to download Penpoint.',
     sentTitle: 'Check your inbox!',
-    sentLead: 'I just sent your download link to ',
+    sentLead: 'The download link was sent to ',
     wrongAddress: 'Wrong address? ',
     change: 'Change it',
     notGotIt: 'Didn\'t get it? Check your spam folder, or ',
@@ -66,10 +66,10 @@
     empty: 'Enter your email address.',
     invalid: 'That email address doesn\'t look right.',
     disposable: 'Please use an email address you check. Throwaway addresses can\'t get the link.',
-    rate: 'I just sent it! Check your inbox (and your spam folder, just in case).',
+    rate: 'The link was just sent. Check your inbox (and your spam folder, just in case).',
     rateMore: ' Still nothing? Email ',
     supportEmail: 'support@penpoint.app',
-    badLink: 'That link didn\'t work. Enter your email and I\'ll send a fresh one.',
+    badLink: 'That link didn\'t work. Enter your email to get a fresh one.',
     checking: 'Checking your link…',
     didYouMean: 'Did you mean ',
     returningTitle: 'Welcome back!',
@@ -254,7 +254,7 @@
     return secondsLeft > 0 ? 'send it again in ' + secondsLeft + 's' : 'send it again';
   }
 
-  // The first "I just sent it" stands alone. From the second one on, point at support.
+  // The first "The link was just sent" stands alone. From the second one on, point at support.
   function rateLimitCopy(count) {
     return {
       text: COPY.rate,
@@ -440,7 +440,11 @@
       var trap = h('div', { 'class': 'tg-hp', 'aria-hidden': 'true' }, [h('label', null, ['Website', honeypot])]);
 
       var news = h('input', { type: 'checkbox', name: 'newsletter', id: id + '-news' });
-      var check = h('label', { 'class': 'tg-check', 'for': id + '-news' }, [news, h('span', null, [COPY.newsletter])]);
+      // "Unsubscribe anytime." starts its own line so "anytime." is never left alone on the second line
+      // (Joel, 2026-10-02). The words, and so the label's text, are exactly COPY.newsletter (consent wording).
+      var newsText = COPY.newsletter.split(/ (?=Unsubscribe anytime\.)/);
+      var newsKids = newsText.length === 2 ? [newsText[0] + ' ', h('br'), newsText[1]] : [COPY.newsletter];
+      var check = h('label', { 'class': 'tg-check', 'for': id + '-news' }, [news, h('span', null, newsKids)]);
 
       var submit = h('button', { type: 'submit', 'class': 'btn btn-primary btn-lg btn-shadow tg-submit' }, [COPY.submit]);
 
