@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    document.documentElement.classList.add('js-ready');
+  </script>
+  <title>Penpoint &amp; Novel November: write your novel free through November</title>
+  <meta name="description" content="Write your 50,000-word novel in Penpoint, free through November. No account, no credit card, export anytime. Penpoint Cloud opens November 1, free all month.">
+  <link rel="canonical" href="https://penpoint.app/novel-november">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://penpoint.app/novel-november">
+  <meta property="og:title" content="Penpoint &amp; Novel November: write your novel free through November">
+  <meta property="og:description" content="Write your novel with Penpoint, free through November. No account. No credit card. Export anytime.">
+  <meta property="og:image" content="https://penpoint.app/images/novel-november-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Penpoint &amp; Novel November: write your 50,000-word novel, free through November">
+  <meta property="og:site_name" content="Penpoint">
+  <meta property="og:locale" content="en_US">
+  <meta name="theme-color" content="#FFF7E6">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://penpoint.app/novel-november">
+  <meta name="twitter:title" content="Penpoint &amp; Novel November: write your novel free through November">
+  <meta name="twitter:description" content="Write your novel with Penpoint, free through November. No account. No credit card. Export anytime.">
+  <meta name="twitter:image" content="https://penpoint.app/images/novel-november-og.jpg">
+  <meta name="twitter:image:alt" content="Penpoint &amp; Novel November: write your 50,000-word novel, free through November">
+
+  <!-- AI / LLM -->
+  <link rel="help" type="text/plain" href="/llms.txt" title="LLM information about Penpoint">
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-79JVXYBCTN');
+  </script>
+
+  <!-- Google Fonts. Caveat is the sticky-note hand lettering, as on State of the Pen. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/site-chrome.css">
+  <link rel="stylesheet" href="css/trial-gate.css">
+
+  <!-- Font Awesome (platform + feature icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://penpoint.app/novel-november#webpage",
+    "name": "Penpoint & Novel November",
+    "description": "Write your 50,000-word novel in Penpoint, free through November. No account, no credit card, export anytime. Penpoint Cloud opens November 1, free all month.",
+    "url": "https://penpoint.app/novel-november",
+    "image": "https://penpoint.app/images/novel-november-og.jpg",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Penpoint",
+      "url": "https://penpoint.app/"
+    }
+  }
+  </script>
+
+  <style>
+    /* ===========================================
+       PENPOINT & NOVEL NOVEMBER
+       trial.html's email gate and install guide, dressed in the
+       State of the Pen 2026 desk look: paper grain, manila cards,
+       sticky notes, Caveat hand lettering. Self-contained like trial.html:
+       only site-chrome.css and the gate's trial-gate.css are shared, so .btn here cannot collide with main.css.
+       =========================================== */
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--paper,#FCF8F0);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+    img{max-width:100%;}
+    ::selection{background:var(--accent-bright,#DDA964);color:#29241E;}
+    a{transition:opacity .2s ease, background .2s ease, color .2s ease;}
+    /* The sticky header would otherwise cover every anchor target. */
+    [id]{scroll-margin-top:84px;}
+    /* This page's nav carries one extra link (Novel November). Between the burger
+       breakpoint and ~1060px that wraps the bar to two lines, so Testimonials steps
+       out of the desktop bar in that range only (it stays in the burger menu). */
+    @media(min-width:881px) and (max-width:1060px){.pp-nav a[href="/#testimonials"]{display:none;}}
+
+    /* Section scaffolding (trial.html) */
+    .tri-sec{padding:clamp(48px,7vw,92px) clamp(20px,5vw,52px);}
+    .tri-wrap{max-width:920px;margin:0 auto;}
+    .nn-wide{max-width:1040px;margin:0 auto;}
+    /* Small caps use the darker #A4521D orange from index.html; anything under
+       12px read as near-invisible. */
+    /* Section markers: sized and ruled to read as a section divider, not fine print. */
+    .tri-kicker{display:flex;align-items:center;justify-content:center;gap:clamp(10px,1.4vw,16px);font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1.35vw,16px);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#A4521D;margin:0 0 20px;}
+    .tri-kicker::before,.tri-kicker::after{content:"";flex:none;width:clamp(22px,3.6vw,44px);height:2px;background:currentColor;opacity:.5;}
+    .tri-h2{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.08;letter-spacing:-0.02em;color:#29241E;margin:0;text-wrap:balance;}
+    .tri-h2 em{font-style:italic;font-weight:400;}
+    .nn-head{text-align:center;max-width:680px;margin:0 auto clamp(28px,4vw,44px);}
+    .nn-lede{font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,18px);line-height:1.6;color:#5C4332;margin:16px auto 0;max-width:600px;text-wrap:pretty;}
+    .nn-alt{background:var(--paper-alt,#F4EBD8);border-top:1px solid #E6DCCD;border-bottom:1px solid #E6DCCD;}
+
+    /* Paper grain (State of the Pen's desk panel) */
+    .nn-grain{
+      background-color:#F8EFDB;
+      background-image:
+        radial-gradient(ellipse at 50% 40%, rgba(255,252,242,0.9) 0%, rgba(248,239,219,0) 62%),
+        radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 60%, rgba(120,80,30,0.10) 100%),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' seed='4'/><feColorMatrix values='0 0 0 0 0.45  0 0 0 0 0.32  0 0 0 0 0.16  0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+
+    /* On-load fade for the hero (trial.html) */
+    @keyframes triFade{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+    .tri-in{animation:triFade .7s cubic-bezier(.2,.7,.2,1) both;}
+
+    /* Scroll reveal (State of the Pen's data-animate pattern). Hidden only
+       once JS has run, so a no-JS reader or a crawler sees everything. */
+    .js-ready [data-animate]{opacity:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
+    [data-animate].animate-in{animation:triFade .7s cubic-bezier(.2,.7,.2,1) forwards;}
+    [data-animate][data-stagger="1"].animate-in{animation-delay:80ms;}
+    [data-animate][data-stagger="2"].animate-in{animation-delay:160ms;}
+    [data-animate][data-stagger="3"].animate-in{animation-delay:240ms;}
+    [data-animate][data-stagger="4"].animate-in{animation-delay:320ms;}
+    [data-animate][data-stagger="5"].animate-in{animation-delay:400ms;}
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto;}
+      .tri-in,[data-animate].animate-in{animation:none !important;}
+      .js-ready [data-animate]{opacity:1;}
+    }
+
+    /* Buttons (classes reused by the email gate) */
+    .btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-weight:600;text-decoration:none;cursor:pointer;border:none;line-height:1.2;transition:transform .2s ease, box-shadow .2s ease, background .2s ease;}
+    .btn-primary{background:var(--accent,#CD6E2C);color:#FFF7E6;}
+    .btn-primary:hover{background:#B85F22;transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:#29241E;border:1px solid #C9B79A;}
+    .btn-outline:hover{background:#F1E6D2;}
+    .btn-dark{background:#29241E;color:#FEF9F0;}
+    .btn-dark:hover{background:#3D342A;transform:translateY(-1px);}
+    .btn-lg{font-size:16px;padding:13px 30px;}
+    .btn-xl{font-size:18px;padding:16px 38px;}
+    .btn-sm{font-size:14px;padding:9px 18px;}
+    .btn-shadow{box-shadow:0 8px 16px -10px rgba(61,46,28,.42);}
+    .btn-shadow:hover{box-shadow:0 12px 22px -12px rgba(61,46,28,.5);}
+    .btn i{margin-right:9px;}
+
+    /* ----- Hero ----- */
+    .nn-hero{padding:clamp(52px,9vw,112px) clamp(20px,5vw,52px) clamp(56px,8vw,100px);text-align:center;border-bottom:1px solid #E6DCCD;}
+    .nn-hero__h1{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(36px,6.2vw,72px);line-height:1.06;letter-spacing:-0.022em;color:#29241E;margin:0 auto clamp(20px,2.8vw,28px);max-width:900px;text-wrap:balance;}
+    .nn-hero__h1 em{display:block;font-style:italic;font-weight:400;margin-top:.12em;}
+    .nn-hero__sub{font-family:'Source Serif 4',serif;font-size:clamp(17px,2vw,21px);line-height:1.58;color:#5C4A33;max-width:640px;margin:0 auto;text-wrap:pretty;}
+    .nn-hero__ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:clamp(28px,4vw,40px);}
+    /* Scoped under .nn-hero so it outranks .sp-hand's margin:0, which comes later in this sheet. */
+    .nn-hero .nn-hero__hand{margin-top:clamp(40px,5vw,60px);transform:rotate(-2deg);}
+
+    /* ----- State of the Pen paper ----- */
+    .sp-card{
+      position:relative;height:100%;box-sizing:border-box;padding:clamp(18px,2.6vw,30px);
+      background-color:#FFFDF7;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='9'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0 0.25  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      box-shadow:0 1px 2px rgba(60,35,10,0.10), 0 14px 30px rgba(60,35,10,0.13);
+      transform:rotate(var(--r,0deg));
+    }
+    .sp-card--manila{background-color:#EFE2C2;}
+    .sp-sticky{padding:clamp(16px,2.4vw,26px) clamp(18px,2.6vw,30px);background:#F8E08A;box-shadow:0 1px 2px rgba(60,35,10,0.12), 0 12px 24px rgba(60,35,10,0.16);transform:rotate(var(--r,0deg));}
+    .sp-sticky--blue{background:#CFE2EE;}
+    .sp-tape{position:absolute;top:-13px;left:50%;width:96px;height:26px;margin-left:-48px;background:rgba(233,221,188,0.85);box-shadow:0 1px 2px rgba(0,0,0,0.08);transform:rotate(-3deg);}
+    .sp-label{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:clamp(12px,1.05vw,13px);letter-spacing:0.16em;text-transform:uppercase;color:var(--c,#A4521D);margin:0;}
+    .sp-ct{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(1.3rem,2.3vw,1.65rem);line-height:1.12;letter-spacing:-0.012em;color:#29241E;margin:8px 0;text-wrap:balance;}
+    .sp-cb{font-family:'Source Serif 4',serif;font-size:0.98rem;line-height:1.55;color:#5A4A36;margin:0;text-wrap:pretty;}
+    .sp-cb strong{color:#29241E;font-weight:600;}
+    .sp-hand{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.1;color:#2A4A8A;margin:0;text-wrap:balance;}
+    .sp-sticky .sp-hand{color:#3A3020;}
+    .sp-sticky--blue .sp-hand{color:#23364F;}
+    .sp-chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;padding:6px 10px;background:var(--chip-bg,rgba(205,110,44,0.12));color:var(--c,#A4521D);white-space:nowrap;}
+    .sp-cols{display:grid;gap:clamp(16px,2.6vw,30px);align-items:stretch;}
+    .sp-cols--2{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .sp-cols--3{grid-template-columns:repeat(3,minmax(0,1fr));}
+    @media(max-width:860px){.sp-cols--3{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    @media(max-width:560px){.sp-cols--2,.sp-cols--3{grid-template-columns:1fr;}}
+
+    /* The desk panel graphics sit on */
+    .nn-desk{padding:clamp(22px,4.2vw,52px);border:1px solid #E0D2BC;}
+
+    /* ----- Two-month timeline -----
+       Read left to right like a calendar: the month cards say what you do in
+       Penpoint that month, and the two offer bars sit under exactly the months
+       they cover, ending at the December 1 finish line. */
+    .sp-month{padding:0;overflow:hidden;}
+    .sp-month__head{background:var(--c);padding:12px clamp(18px,2.6vw,28px);}
+    .sp-month__head .sp-label{color:#FFF8EA;}
+    .sp-month__body{padding:clamp(18px,2.6vw,28px);}
+    .sp-month__body .sp-ct{margin-top:0;}
+    .nn-plan{display:grid;grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr) 150px;row-gap:clamp(16px,2.2vw,22px);align-items:stretch;}
+    .nn-plan__oct{grid-column:1;grid-row:1;}
+    .nn-plan__arrow{grid-column:2;grid-row:1;align-self:center;justify-self:center;width:52px;height:32px;fill:none;stroke:#2A4A8A;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;}
+    .nn-plan__nov{grid-column:3;grid-row:1;margin-right:16px;}
+    .nn-plan__app{grid-column:1 / 4;grid-row:2;}
+    .nn-plan__cloud{grid-column:3 / 4;grid-row:3;}
+    .nn-plan__late{grid-column:1;grid-row:3;align-self:center;justify-self:center;max-width:300px;text-align:center;transform:rotate(-3deg);padding:0 16px;}
+    .nn-plan__end{grid-column:4;grid-row:1 / 4;border-left:3px dashed #8A6A45;padding-left:18px;display:flex;flex-direction:column;gap:10px;}
+    .nn-plan__flag{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:clamp(12px,1.05vw,13px);letter-spacing:0.16em;text-transform:uppercase;color:#FFF8EA;background:#29241E;padding:12px 14px;margin:0;}
+    .nn-plan__end .sp-hand{color:#29241E;transform:rotate(-3deg);margin-top:6px;}
+    .nn-bar{height:auto;padding:clamp(14px,2vw,20px) clamp(18px,2.6vw,26px);}
+    .nn-bar .sp-label{margin-top:10px;}
+    .nn-bar .sp-hand{font-size:clamp(1.55rem,2.8vw,2.05rem);margin-top:2px;}
+    .nn-bar__small{font-family:'Source Serif 4',serif;font-size:0.95rem;line-height:1.5;color:#4A3C2A;margin:6px 0 0;text-wrap:pretty;}
+    .nn-bar__small a,.nn-plan__end a{color:#29241E;font-weight:600;}
+    .nn-plan-note{margin:clamp(24px,3.6vw,34px) auto 0;max-width:740px;text-align:center;font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.6;color:#5C4332;text-wrap:balance;}
+    .nn-plan-note a{color:var(--accent,#CD6E2C);font-weight:600;}
+    @media(max-width:860px){
+      .nn-plan{grid-template-columns:1fr;}
+      .nn-plan > *{grid-column:1 !important;grid-row:auto !important;margin-right:0;}
+      .nn-plan__arrow{transform:rotate(90deg);margin:-4px 0;}
+      .nn-plan__end{border-left:none;border-top:3px dashed #8A6A45;padding:18px 0 0;}
+      .nn-plan__late{justify-self:center;margin:2px 0;}
+    }
+
+    /* ----- Email gate (js/trial-gate.js + css/trial-gate.css) -----
+       The download itself lives on /trial. This page asks for an email, and the emailed link opens the picker there. */
+    .nn-gate .tg{--tg-bg:#FFFDF7;}
+    .nn-dl-after{text-align:center;margin-top:clamp(32px,4.4vw,48px);}
+    .nn-dl-after p.nn-upgrade{font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,16.5px);line-height:1.6;color:#5C4332;max-width:620px;margin:0 auto;text-wrap:balance;}
+    .nn-dl-after p.nn-upgrade i{color:var(--accent,#CD6E2C);margin-right:4px;}
+    .nn-lede--wide{max-width:720px;text-wrap:balance;}
+    .nn-dl-after strong{color:#29241E;font-weight:600;}
+
+    /* What's inside */
+    /* The three promises, right under the intro line and above the email
+       form. Open columns split by thin rules, orange accent, no boxes. */
+    #download .nn-head{margin-bottom:0;}
+    #download.tri-sec{padding-bottom:clamp(36px,5vw,60px);}
+    .nn-promises{list-style:none;margin:clamp(24px,3.2vw,32px) auto clamp(36px,4.8vw,50px);padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:800px;}
+    .nn-promises li{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;padding:2px clamp(10px,1.6vw,18px);border-left:1px solid #D9C6A5;}
+    .nn-promises li:first-child{border-left:none;}
+    .nn-promises i{font-size:16px;color:var(--accent,#CD6E2C);margin-bottom:4px;}
+    .nn-promise__t{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(21px,2.4vw,26px);line-height:1.1;letter-spacing:-0.01em;color:#29241E;}
+    .nn-promise__s{font-family:'Source Serif 4',serif;font-size:14.5px;line-height:1.45;color:#7C5236;text-wrap:balance;}
+    @media(max-width:560px){
+      .nn-promises{grid-template-columns:1fr;max-width:300px;}
+      .nn-promises li{border-left:none;border-top:1px solid #D9C6A5;padding:14px 0;}
+      .nn-promises li:first-child{border-top:none;padding-top:0;}
+    }
+
+    /* Floating "Get it free!" sticky. Hidden over the hero (it has its own
+       button), over the email-form section itself, over the footer, and on
+       phones. */
+    .nn-float{position:fixed;right:clamp(20px,3.36vw,42px);bottom:clamp(20px,3.36vw,42px);z-index:40;display:flex;flex-direction:column;align-items:center;gap:2px;padding:16px 22px 14px;background:#F8E08A;box-shadow:0 1px 2px rgba(60,35,10,0.14), 0 16px 30px rgba(60,35,10,0.24);text-decoration:none;color:#3A3020;opacity:0;visibility:hidden;transform:rotate(-3deg) translateY(16px);transition:opacity .35s cubic-bezier(.2,.7,.2,1), transform .35s cubic-bezier(.2,.7,.2,1), visibility 0s linear .35s;}
+    .nn-float.is-on{opacity:1;visibility:visible;transform:rotate(-3deg) translateY(0);transition:opacity .35s cubic-bezier(.2,.7,.2,1), transform .35s cubic-bezier(.2,.7,.2,1), visibility 0s;}
+    .nn-float.is-on:hover{transform:rotate(-1deg) translateY(-3px);box-shadow:0 1px 2px rgba(60,35,10,0.14), 0 20px 36px rgba(60,35,10,0.28);}
+    .nn-float .sp-tape{width:64px;margin-left:-32px;top:-11px;height:22px;}
+    .nn-float__hand{font-family:'Caveat',cursive;font-weight:700;font-size:1.75rem;line-height:1;display:flex;align-items:center;gap:9px;}
+    .nn-float__hand i{font-size:1.1rem;}
+    .nn-float__sub{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#8A5A10;}
+    @media(prefers-reduced-motion:reduce){.nn-float,.nn-float.is-on{transition:none;}}
+
+    /* ----- Questions writers ask ----- */
+    .nn-q .sp-card{display:flex;flex-direction:column;}
+    .nn-q .sp-ct{margin-top:10px;}
+    .nn-q .sp-cb{text-wrap:pretty;}
+    /* Feature names link to their Help Guide article in a new tab. */
+    .nn-help{color:#29241E;font-weight:600;text-decoration:underline;text-decoration-color:rgba(205,110,44,.55);text-decoration-thickness:1.5px;text-underline-offset:3px;white-space:nowrap;}
+    .nn-help::after{content:"\f35d";font-family:"Font Awesome 6 Free";font-weight:900;font-size:.62em;margin-left:.3em;color:var(--accent,#CD6E2C);vertical-align:.2em;}
+    .nn-help:hover{color:#A4521D;text-decoration-color:currentColor;}
+
+    /* ----- December 1 ----- */
+    .nn-dec{max-width:760px;margin:0 auto;background:var(--paper,#FCF8F0);border:1px solid #DDCBAE;box-shadow:0 24px 50px -38px rgba(61,46,28,.4);}
+    .nn-dec__row{display:flex;gap:18px;align-items:flex-start;padding:clamp(18px,2.6vw,24px) clamp(20px,3vw,32px);border-top:1px solid #E6DCCD;}
+    .nn-dec__row:first-child{border-top:none;}
+    .nn-dec__row > i{flex:none;width:24px;text-align:center;font-size:18px;color:var(--accent,#CD6E2C);margin-top:3px;}
+    .nn-dec__row p{font-family:'Source Serif 4',serif;font-size:clamp(15.5px,1.7vw,17px);line-height:1.6;color:#5C4332;margin:0;text-wrap:pretty;}
+    .nn-dec__row strong{color:#29241E;font-weight:600;}
+    .nn-dec__buy{margin-top:14px;}
+    .nn-dec__note{font-family:'Source Serif 4',serif;font-size:14px !important;color:#7C5236 !important;margin-top:10px !important;text-wrap:balance !important;}
+    /* The buy button and its note center on the whole card, not the text column: pull them left by the icon (24px) + gap (18px). */
+    .nn-dec__row > div{flex:1;min-width:0;}
+    .nn-dec__buy,.nn-dec__row .nn-dec__note{margin-left:-42px;text-align:center;}
+
+    /* ----- Already own Penpoint? ----- */
+    .nn-owners{display:grid;grid-template-columns:minmax(0,0.8fr) minmax(0,1.6fr);gap:clamp(20px,4vw,48px);align-items:center;}
+    .nn-owners .sp-sticky{text-align:center;}
+    .nn-owners .sp-hand{font-size:clamp(1.9rem,3.6vw,2.6rem);}
+    .nn-owners__body p{font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,18px);line-height:1.6;color:#5C4332;margin:0 0 14px;text-wrap:pretty;}
+    .nn-owners__body p:last-child{margin-bottom:0;}
+    .nn-owners__body strong{color:#29241E;font-weight:600;}
+    .nn-owners__body a{color:var(--accent,#CD6E2C);font-weight:600;}
+    @media(max-width:700px){.nn-owners{grid-template-columns:1fr;}}
+
+    /* ----- Share ----- */
+    .nn-share{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(18px,3vw,36px);align-items:stretch;}
+    .nn-share__cards{display:flex;flex-direction:column;gap:clamp(16px,2.4vw,24px);}
+    .nn-share__cards .sp-card{height:auto;}
+    .nn-share__cards .sp-cb{margin-bottom:16px;}
+    .nn-share-text{font-family:'Source Serif 4',serif;font-size:15px;line-height:1.55;color:#29241E;background:#FFFFFF;border:1px solid #DDCBAE;padding:12px 14px;margin:0 0 14px;overflow-wrap:anywhere;}
+    .nn-share-text p{margin:0;text-wrap:pretty;}
+    .nn-share-text .nn-share-url{margin-top:6px;color:#7C5236;font-size:14px;}
+    .nn-tags-note{display:flex;flex-direction:column;}
+    .nn-tags-note .sp-label{--c:#8A5A10;}
+    .nn-tags{margin:14px 0 18px;padding:0 0 0 1.6em;font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.45rem,2.6vw,1.8rem);line-height:1.3;color:#3A3020;}
+    .nn-tags li::marker{font-family:'IBM Plex Mono',monospace;font-size:.5em;color:#8A5A10;}
+    .nn-tags-note .btn{align-self:flex-start;margin-top:auto;}
+    .nn-share__foot{text-align:center;margin-top:clamp(30px,4.4vw,44px);}
+    .nn-share__foot .nn-disclaim{font-family:'Source Serif 4',serif;font-style:italic;font-size:14px;color:#7C5236;margin:18px 0 0;}
+    @media(max-width:760px){.nn-share{grid-template-columns:1fr;}}
+
+    /* ----- Install tabs + help (trial.html) ----- */
+    .install-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:clamp(28px,3.6vw,40px);margin-bottom:clamp(18px,2.4vw,24px);}
+    button.install-tab{font-family:'Source Serif 4',serif;font-size:15px;font-weight:600;padding:10px 22px;background:var(--paper,#FCF8F0);border:1px solid #DDCBAE;cursor:pointer;color:#7C5236;transition:background .2s ease,color .2s ease,border-color .2s ease;}
+    button.install-tab:hover{color:#29241E;background:#F1E6D2;}
+    button.install-tab.install-tab--active{color:#FEF9F0;background:#29241E;border-color:#29241E;}
+    .install-panel{max-width:640px;margin:0 auto;padding:6px 0;font-family:'Source Serif 4',serif;color:#5C4332;}
+    .install-panel ol{padding-left:22px;margin:0 0 16px;}
+    .install-panel li{margin-bottom:12px;line-height:1.6;font-size:15px;text-wrap:pretty;}
+    .install-panel p{font-size:15px;line-height:1.6;margin:0 0 14px;text-wrap:pretty;}
+    .install-panel strong{color:#29241E;font-weight:600;}
+    .install-panel code{font-family:'IBM Plex Mono',monospace;font-size:.88em;background:#EFE3CC;padding:2px 6px;overflow-wrap:anywhere;}
+    .windows-help-note{color:#7C5236;}
+    .windows-help-note a{color:var(--accent,#CD6E2C);font-weight:600;}
+    .contact-links{display:flex;gap:16px 32px;flex-wrap:wrap;justify-content:center;margin-top:clamp(22px,3vw,28px);}
+    .contact-link{display:inline-flex;align-items:center;gap:9px;font-family:'Source Serif 4',serif;font-weight:600;color:var(--accent,#CD6E2C);text-decoration:none;font-size:17px;}
+    .contact-link:hover{text-decoration:underline;}
+
+    /* Tilted paper only where there is room for it */
+    @media(max-width:560px){.sp-card,.sp-sticky{transform:none;}}
+    @media(max-width:640px){.contact-links{flex-direction:column;gap:14px;}}
+  </style>
+</head>
+<body>
+<div id="pp-root" style="font-family:'Source Serif 4',Georgia,serif;color:#3D2E1C;background:var(--paper,#FCF8F0);">
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ===== Shared site header (see css/site-chrome.css) ===== -->
+  <!-- "Novel November" is in this page's nav only. Adding it to the other pages' navs is Joel's call. -->
+  <header class="pp-header">
+    <div class="pp-header__inner">
+      <a href="/" class="pp-logo" aria-label="Penpoint home">
+        <svg class="pp-logo__icon" viewBox="0 0 24 24" width="22" height="22" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+        <span class="pp-logo__text">Penpoint</span>
+      </a>
+      <nav class="pp-nav" aria-label="Primary">
+        <a href="/novel-november" aria-current="page">Novel November</a>
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" aria-label="Join our Discord" class="pp-nav__discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="#download" class="pp-cta">Try Penpoint</a>
+      </nav>
+      <a href="#download" class="pp-try-m">Try</a>
+      <button type="button" class="pp-burger" data-burger="" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="pp-mobile" data-mobile-menu="">
+      <div class="pp-mobile__inner">
+        <a href="/novel-november" aria-current="page">Novel November</a>
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===========================================
+         HERO
+         =========================================== -->
+    <section class="nn-hero nn-grain">
+      <p class="tri-kicker tri-in">Penpoint &amp; Novel November</p>
+      <h1 class="nn-hero__h1 tri-in" style="animation-delay:70ms;">It's time to write your 50,000-word novel. <em>Penpoint can help. Entirely free.</em></h1>
+      <p class="nn-hero__sub tri-in" style="animation-delay:150ms;">Write your novel with incredible software, free now through December 1st. No strings attached. No account, no credit card, and no data lock-in: export at any time.</p>
+      <div class="nn-hero__ctas tri-in" style="animation-delay:230ms;">
+        <a href="#download" class="btn btn-primary btn-xl btn-shadow">Get Penpoint free</a>
+        <a href="#how-it-works" class="btn btn-outline btn-xl">How it works</a>
+      </div>
+      <p class="sp-hand nn-hero__hand tri-in" style="animation-delay:380ms;">Plot it in October. Write it in November.</p>
+    </section>
+
+
+    <!-- ===========================================
+         TWO MONTHS
+         =========================================== -->
+    <section id="how-it-works" class="tri-sec">
+      <div class="nn-wide">
+        <div class="nn-head" data-animate="fade-up">
+          <p class="tri-kicker">How it works</p>
+          <h2 class="tri-h2">Two months. One&nbsp;novel. <em>Both free.</em></h2>
+        </div>
+
+        <div class="nn-desk nn-grain" data-animate="fade-up">
+          <div class="nn-plan">
+            <div class="sp-card sp-month nn-plan__oct" style="--c:#5E7F52">
+              <div class="sp-month__head"><p class="sp-label">October &middot; Preptober</p></div>
+              <div class="sp-month__body"><p class="sp-ct">Plan it.</p><p class="sp-cb">Outline on the <strong>Corkboard</strong>. Build your cast, your places, and your timeline.</p></div>
+            </div>
+            <svg class="nn-plan__arrow" viewBox="0 0 60 34" aria-hidden="true"><path d="M4 20 C 18 10, 34 28, 52 16"/><path d="M42 7 L53 16 L41 25"/></svg>
+            <div class="sp-card sp-month nn-plan__nov" style="--c:#CD6E2C">
+              <div class="sp-month__head"><p class="sp-label">November &middot; Write</p></div>
+              <div class="sp-month__body"><p class="sp-ct">Write 50,000 words.</p><p class="sp-cb">Draft in <strong>Manuscript Mode</strong> with your world open beside you, aiming for 1,667 words a day.</p></div>
+            </div>
+
+            <div class="sp-sticky nn-bar nn-plan__app" style="--r:-0.4deg">
+              <span class="sp-chip" style="--c:#8A5A10; --chip-bg: rgba(138,90,16,0.12)">Starts today</span>
+              <p class="sp-label" style="--c:#8A5A10">Penpoint, the writing app</p>
+              <p class="sp-hand">Free now through December 1</p>
+              <p class="nn-bar__small">No account. No credit card. Nothing to cancel.</p>
+            </div>
+
+            <p class="sp-hand nn-plan__late">Starting late? You still get at least 14&nbsp;free&nbsp;days.</p>
+
+            <div class="sp-sticky sp-sticky--blue nn-bar nn-plan__cloud" style="--r:0.5deg">
+              <span class="sp-chip" style="--c:#3E6598; --chip-bg: rgba(62,101,152,0.14)">Opens November 1</span>
+              <p class="sp-label" style="--c:#3E6598">Penpoint Cloud</p>
+              <p class="sp-hand">Free for everyone, all November</p>
+              <p class="nn-bar__small">Encrypted backup, sync across your computers, and the Minipen phone app. Already own Penpoint? You get it&nbsp;too.</p>
+            </div>
+
+            <div class="nn-plan__end">
+              <p class="nn-plan__flag">December 1</p>
+              <p class="sp-hand">Finish line!</p>
+              <p class="nn-bar__small">Your books stay yours. <a href="#december-1">What happens&nbsp;next</a></p>
+            </div>
+          </div>
+        </div>
+
+        <p class="nn-plan-note" data-animate="fade-up">After November, Penpoint is $40 once to keep writing, and Penpoint Cloud becomes an optional paid subscription. Either way, you can export your books at any&nbsp;time.</p>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         GET PENPOINT (the email gate; the download picker lives on /trial)
+         =========================================== -->
+    <section id="download" class="tri-sec nn-alt">
+      <div class="tri-wrap" style="max-width:760px;">
+        <div class="nn-head" data-animate="fade-up">
+          <p class="tri-kicker">Download</p>
+          <h2 class="tri-h2">Get Penpoint.<br><em>Free through November.</em></h2>
+          <p class="nn-lede nn-lede--wide">Your books stay on your computer, and you can export them to Word, PDF, Markdown, or plain text at any time, even after the trial ends.</p>
+        </div>
+
+        <ul class="nn-promises" data-animate="fade-up">
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span class="nn-promise__t">No account</span><span class="nn-promise__s">Just your email for the download link.</span></li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span class="nn-promise__t">No credit card</span><span class="nn-promise__s">Nothing to cancel, ever.</span></li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i><span class="nn-promise__t">Works offline</span><span class="nn-promise__s">No internet needed to write.</span></li>
+        </ul>
+
+        <!-- The email gate (js/trial-gate.js fills it in). The plain link inside is what a visitor sees if the
+             script never loads: /trial opens the download on its own when the gate cannot run. -->
+        <div class="nn-gate" data-animate="fade-up" data-stagger="1">
+          <div class="tg" id="trial-gate" data-trial-gate data-source="novel-november">
+            <p class="tg-lead"><a href="/trial" class="btn btn-primary btn-lg btn-shadow">Get Penpoint free</a></p>
+          </div>
+        </div>
+
+        <div class="nn-dl-after" data-animate="fade-up">
+          <p class="nn-upgrade"><i class="fa-solid fa-rotate" aria-hidden="true"></i> <strong>Already on the 14-day trial?</strong> Get your link above, then install that build over your current copy. You keep everything and your trial runs through December&nbsp;1.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         QUESTIONS WRITERS ASK
+         =========================================== -->
+    <section id="questions" class="tri-sec">
+      <div class="nn-wide">
+        <div class="nn-head" data-animate="fade-up">
+          <p class="tri-kicker">Before you start</p>
+          <h2 class="tri-h2">Questions writers <em>ask.</em></h2>
+        </div>
+        <div class="sp-cols sp-cols--3 nn-q">
+          <div data-animate="fade-up">
+            <div class="sp-card sp-card--manila" style="--r:-0.8deg">
+              <p class="sp-label" style="--c:#5E7F52">Planning</p>
+              <p class="sp-ct">“How do I plan a whole novel in a month?”</p>
+              <p class="sp-cb">Lay the story out on the <a class="nn-help" href="/help/index-card-outlining" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">Corkboard</a>, one index card per chapter, and drag the cards until the order feels right. Every chapter holds its own scenes, so October's outline becomes November's list of what to write next.</p>
+            </div>
+          </div>
+          <div data-animate="fade-up" data-stagger="1">
+            <div class="sp-card sp-card--manila" style="--r:0.6deg">
+              <p class="sp-label" style="--c:#3E6598">Your cast</p>
+              <p class="sp-ct">“How do I keep my cast and timeline straight?”</p>
+              <p class="sp-cb">Every person in the story gets their own page in <a class="nn-help" href="/help/character-profile-software" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">Characters</a>, and the <a class="nn-help" href="/help/story-timeline-software" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">Timeline</a> shows who appears in which chapter. While you write, the <a class="nn-help" href="/help/worldbuilding-while-you-write" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">Minipen</a> sidebar keeps that whole world open beside the&nbsp;manuscript.</p>
+            </div>
+          </div>
+          <div data-animate="fade-up" data-stagger="2">
+            <div class="sp-card sp-card--manila" style="--r:-0.5deg">
+              <p class="sp-label">Word count</p>
+              <p class="sp-ct">“Can I really hit 1,667 words a day?”</p>
+              <p class="sp-cb">Click the bar chart icon at the top of the screen and <a class="nn-help" href="/help/the-worldbuilding-toolbar" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">Writing Stats</a> shows the words you've added to your manuscript today. Fifty thousand words over thirty days is 1,667 a day, so you always know where today stands.</p>
+            </div>
+          </div>
+          <div data-animate="fade-up">
+            <div class="sp-card sp-card--manila" style="--r:0.7deg">
+              <p class="sp-label" style="--c:#7A5A8C">Week two</p>
+              <p class="sp-ct">“What do I do when I hit the week-two wall?”</p>
+              <p class="sp-cb"><a class="nn-help" href="/help/distraction-free-writing-software" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">Fullscreen Mode</a> hides everything but your words, and Writing Stats keeps your writing streak in view. The plan you built on the <a class="nn-help" href="/help/index-card-outlining" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">Corkboard</a> is still there, telling you which scene comes next.</p>
+            </div>
+          </div>
+          <div data-animate="fade-up" data-stagger="1">
+            <div class="sp-card sp-card--manila" style="--r:-0.6deg">
+              <p class="sp-label" style="--c:#B8453A">Safety</p>
+              <p class="sp-ct">“What if I lose my draft?”</p>
+              <p class="sp-cb">Penpoint saves as you write and makes <a class="nn-help" href="/help/automatic-novel-backup" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">automatic backups</a> you can restore from. From November 1, <a class="nn-help" href="/help/cloud-backup-for-writers" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">Penpoint Cloud</a> adds an encrypted backup off your computer, free all month.</p>
+            </div>
+          </div>
+          <div data-animate="fade-up" data-stagger="2">
+            <div class="sp-card sp-card--manila" style="--r:0.5deg">
+              <p class="sp-label" style="--c:#A8742C">What now</p>
+              <p class="sp-ct">“The November challenge is still on. What do I use now?”</p>
+              <p class="sp-cb">Penpoint gives you <a class="nn-help" href="/help/distraction-free-writing-software" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">Manuscript Mode</a> for the draft, <a class="nn-help" href="/help/worldbuilding-for-writers" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">worldbuilding pages</a> for everything around it, and a daily word count to pace the month. It is free through November, with no account and no credit card.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         DECEMBER 1
+         =========================================== -->
+    <section id="december-1" class="tri-sec nn-alt">
+      <div class="tri-wrap">
+        <div class="nn-head" data-animate="fade-up">
+          <p class="tri-kicker">After November</p>
+          <h2 class="tri-h2">What happens on <em>December 1.</em></h2>
+        </div>
+        <div class="nn-dec" data-animate="fade-up">
+          <div class="nn-dec__row">
+            <i class="fa-solid fa-hard-drive" aria-hidden="true"></i>
+            <p><strong>Your books stay on your computer.</strong> They are yours, trial or no trial.</p>
+          </div>
+          <div class="nn-dec__row">
+            <i class="fa-solid fa-file-export" aria-hidden="true"></i>
+            <p><strong>Export always works.</strong> Word, PDF, Markdown, or plain text, even after the trial ends.</p>
+          </div>
+          <div class="nn-dec__row">
+            <i class="fa-solid fa-key" aria-hidden="true"></i>
+            <div>
+              <p><strong>Keep writing for $40, once.</strong> No subscription for the app.</p>
+              <div class="nn-dec__buy"><a href="/buy" data-track="buy" class="btn btn-primary btn-lg btn-shadow">Buy Penpoint for $40</a></div>
+              <p class="nn-dec__note">One-time payment, lifetime license. No subscription, free updates, and a 30-day money-back guarantee.</p>
+            </div>
+          </div>
+          <div class="nn-dec__row">
+            <i class="fa-solid fa-cloud" aria-hidden="true"></i>
+            <p><strong>Penpoint Cloud becomes an optional subscription.</strong> You can export your books or delete your account at any time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         ALREADY OWN PENPOINT?
+         =========================================== -->
+    <section id="owners" class="tri-sec">
+      <div class="tri-wrap">
+        <div class="nn-owners" data-animate="fade-up">
+          <div class="sp-sticky sp-sticky--blue" style="--r:-2deg"><p class="sp-hand">Already own&nbsp;Penpoint?</p></div>
+          <div class="nn-owners__body">
+            <p><strong>Your free month of Penpoint Cloud starts November 1.</strong> Claim it inside the app: encrypted backup, sync across your computers, and the Minipen phone companion, free all November.</p>
+            <p>Know a writer starting a novel this November? <a href="#share">Send them this page.</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         SHARE
+         =========================================== -->
+    <section id="share" class="tri-sec nn-alt">
+      <div class="nn-wide">
+        <div class="nn-head" data-animate="fade-up">
+          <p class="tri-kicker">For your writing friends</p>
+          <h2 class="tri-h2">Get involved. <em>Spread the word.</em></h2>
+          <p class="nn-lede">One link is all a writer needs to get started, free through November.</p>
+          <p class="nn-lede" style="margin-top:10px;"><strong style="color:#29241E;font-weight:600;">Share it with friends, in writing groups, on Reddit</strong>: anywhere and everywhere. Every share helps Penpoint reach more writers, so thank you for spreading the word!</p>
+        </div>
+
+        <div class="nn-share" data-animate="fade-up">
+          <div class="nn-share__cards">
+            <div class="sp-card">
+              <p class="sp-label" style="--c:#3E6598">Media kit</p>
+              <p class="sp-ct">Graphics to post.</p>
+              <p class="sp-cb">Ready-to-post images sized for Instagram, TikTok, and more, plus the Penpoint logo, all in one download.</p>
+              <a href="assets/novel-november-media-kit.zip" download class="btn btn-dark btn-lg"><i class="fa-solid fa-download" aria-hidden="true"></i>Download the media kit</a>
+            </div>
+            <div class="sp-card">
+              <p class="sp-label">Share this page</p>
+              <p class="sp-ct">One line, ready to paste.</p>
+              <div class="nn-share-text" id="nn-share-text"><p>Writing a novel this November? Penpoint is a new writing app that keeps your characters, plot, and manuscript all in one place. It's free through December 1, so you can plan your story and write the whole book without paying a thing. Find out more:</p> <p class="nn-share-url">https://penpoint.app/novel-november</p></div>
+              <button type="button" class="btn btn-primary btn-sm" data-copy-from="nn-share-text"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copy share text</span></button>
+            </div>
+          </div>
+          <div class="sp-sticky nn-tags-note">
+            <p class="sp-label">Hashtags, most used first</p>
+            <ol class="nn-tags" id="nn-tags">
+              <li>#preptober</li>
+              <li>#writingcommunity</li>
+              <li>#writerscommunity</li>
+              <li>#amwriting</li>
+              <li>#writertok</li>
+              <li>#writersofinstagram</li>
+              <li>#novelwriting</li>
+              <li>#writingchallenge</li>
+              <li>#penpoint</li>
+            </ol>
+            <button type="button" class="btn btn-dark btn-sm" data-copy-tags="nn-tags"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copy hashtags</span></button>
+          </div>
+        </div>
+
+        <div class="nn-share__foot" data-animate="fade-up">
+          <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" class="btn btn-outline btn-lg"><i class="fa-brands fa-discord" aria-hidden="true"></i>Join the Penpoint Discord</a>
+          <p class="nn-disclaim">Penpoint is not affiliated with any writing organization.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         INSTALL GUIDE (trial.html)
+         =========================================== -->
+    <section id="install" class="tri-sec">
+      <div class="tri-wrap">
+        <div style="text-align:center;">
+          <p class="tri-kicker">Installing</p>
+          <h2 class="tri-h2">Quick setup guide.</h2>
+        </div>
+
+        <div class="install-tabs">
+          <button type="button" class="install-tab install-tab--active" data-install-tab="windows"><i class="fa-brands fa-windows"></i>&ensp;Windows</button>
+          <button type="button" class="install-tab" data-install-tab="mac"><i class="fa-brands fa-apple"></i>&ensp;macOS</button>
+          <button type="button" class="install-tab" data-install-tab="linux"><i class="fa-brands fa-linux"></i>&ensp;Linux</button>
+        </div>
+
+        <div class="install-panel" data-install-panel="windows">
+          <ol>
+            <li>Run the downloaded <code>.exe</code> installer.</li>
+            <li>Follow the installation prompts. Penpoint will launch when finished.</li>
+          </ol>
+          <p class="windows-help-note"><strong>Penpoint won't open?</strong> <a href="/windows-help" target="_blank" rel="noopener">Check or repair Microsoft WebView2.</a></p>
+        </div>
+
+        <div class="install-panel" data-install-panel="mac" hidden>
+          <ol>
+            <li>Open the downloaded <code>.dmg</code> file.</li>
+            <li>Drag Penpoint to your <strong>Applications</strong> folder.</li>
+            <li>Open Penpoint from Applications. It will launch normally.</li>
+          </ol>
+        </div>
+
+        <div class="install-panel" data-install-panel="linux" hidden>
+          <p><strong>.AppImage</strong> (recommended: works on any distro and updates itself)</p>
+          <ol style="margin-bottom:22px;">
+            <li>Make the AppImage executable. Open a terminal and run:<br><code>chmod +x Penpoint_*.AppImage</code></li>
+            <li>Double-click the <code>.AppImage</code> file to launch Penpoint, or run it from the terminal:<br><code>./Penpoint_*.AppImage</code></li>
+          </ol>
+          <p><strong>.deb package</strong> (Ubuntu, Debian, Pop!_OS, Mint). Installs through your package manager, but you update it manually each release; the AppImage updates itself.</p>
+          <ol>
+            <li>Double-click the downloaded <code>.deb</code> file. Your package manager will handle the rest.</li>
+            <li>Find Penpoint in your app launcher and open it.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Help (trial.html) -->
+    <section class="tri-sec nn-alt">
+      <div class="tri-wrap" style="text-align:center;">
+        <h2 class="tri-h2">Need help?</h2>
+        <p style="font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,18px);line-height:1.6;color:#5C4332;max-width:520px;margin:16px auto 0;text-wrap:pretty;">Start with the guides. Our Discord community is the fastest way to get an answer they do not cover.</p>
+        <div class="contact-links">
+          <a href="/help" class="contact-link"><i class="fa-solid fa-book-open"></i> Read the guides</a>
+          <a href="https://discord.gg/q7yV3PXrGB" class="contact-link" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i> Join our Discord</a>
+          <a href="mailto:support@penpoint.app" class="contact-link"><i class="fa-solid fa-envelope"></i> support@penpoint.app</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Floating "Get it free!" sticky (shown by the script at the bottom of the page) -->
+  <a href="#download" class="nn-float" id="nn-float" aria-label="Get Penpoint free">
+    <span class="sp-tape" aria-hidden="true"></span>
+    <span class="nn-float__hand"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Get it free!</span>
+    <span class="nn-float__sub">Free through November</span>
+  </a>
+
+  <!-- ===== Shared site footer (see css/site-chrome.css) ===== -->
+  <footer class="pp-footer">
+    <div class="pp-footer__top">
+      <div class="pp-footer__brand">
+        <div class="pp-footer__brand-row">
+          <svg class="pp-footer__brand-icon" viewBox="0 0 24 24" width="22" height="22" fill="#DDA964"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+          <span class="pp-footer__brand-name">Penpoint</span>
+        </div>
+        <p class="pp-footer__tagline">Where Your Story Comes Together</p>
+      </div>
+      <nav class="pp-footer__cols" aria-label="Footer">
+        <div class="pp-footer__col">
+          <h4>Product</h4>
+          <a href="/#features" class="foot-link">Features</a>
+          <a href="/development" class="foot-link">Development</a>
+          <a href="/#faq" class="foot-link">FAQ</a>
+          <a href="/help" class="foot-link">Help Guide</a>
+          <a href="/trial" class="foot-link">Free Trial</a>
+          <a href="/novel-november" class="foot-link">Novel November</a>
+        </div>
+        <div class="pp-footer__col">
+          <h4>Compare</h4>
+          <a href="/compare" class="foot-link">Compare All</a>
+          <a href="/scrivener-alternative" class="foot-link">vs Scrivener</a>
+          <a href="/dabble-alternative" class="foot-link">vs Dabble</a>
+          <a href="/campfire-alternative" class="foot-link">vs Campfire</a>
+          <a href="/worldanvil-alternative" class="foot-link">vs World Anvil</a>
+          <a href="/ellipsus-alternative" class="foot-link">vs Ellipsus</a>
+          <a href="/story-bible" class="foot-link">Story Bible</a>
+          <a href="/character-bible" class="foot-link">Character Bible</a>
+        </div>
+        <div class="pp-footer__col">
+          <h4>Company</h4>
+          <a href="/about" class="foot-link">About</a>
+          <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" class="foot-link">Discord</a>
+          <a href="mailto:support@penpoint.app" class="foot-link">Contact Support</a>
+        </div>
+        <div class="pp-footer__col">
+          <h4>Legal</h4>
+          <a href="/terms" class="foot-link">Terms of Service</a>
+          <a href="/privacy" class="foot-link">Privacy Policy</a>
+        </div>
+      </nav>
+    </div>
+    <div class="pp-footer__bottom">
+      <div class="pp-footer__bottom-inner">
+        <span class="pp-footer__copy">© 2026 Tophat Creative, LLC. All Rights Reserved.</span>
+        <div class="pp-footer__platforms">
+          <i class="fa-brands fa-windows"></i>
+          <i class="fa-brands fa-apple"></i>
+          <i class="fa-brands fa-linux"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- Scroll reveal: State of the Pen's data-animate pattern, inlined so this page
+     needs no main.css. Reduced motion and no-observer browsers show everything at once. -->
+<script>
+(function () {
+  var els = Array.prototype.slice.call(document.querySelectorAll('[data-animate]'));
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('animate-in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+<!-- Install-guide tabs. Wired on every device. -->
+<script>
+(function () {
+  var tabs = document.querySelectorAll('[data-install-tab]');
+  var panels = document.querySelectorAll('[data-install-panel]');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var target = tab.getAttribute('data-install-tab');
+      tabs.forEach(function (t) { t.classList.remove('install-tab--active'); });
+      panels.forEach(function (p) { p.hidden = true; });
+      tab.classList.add('install-tab--active');
+      var panel = document.querySelector('[data-install-panel="' + target + '"]');
+      if (panel) panel.hidden = false;
+    });
+  });
+})();
+</script>
+
+<!-- Click tracking (anonymous aggregate counters, no PII). The download picker, its attribution survey and the
+     trial_download counter live on /trial, where the download now happens. -->
+<script>
+(function() {
+  function trackClick(eventType) {
+    var key = 'pp_tracked_' + eventType;
+    if (sessionStorage.getItem(key)) return;
+    sessionStorage.setItem(key, '1');
+    try { if (window.gtag) window.gtag('event', eventType); } catch (e) {}
+    fetch('https://lpgprxbwrkzxmbwzkisz.supabase.co/functions/v1/track-click', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ eventType: eventType }),
+      keepalive: true
+    }).catch(function() {});
+  }
+
+  // "Buy Penpoint" button in the December 1 box
+  var purchaseLink = document.querySelector('[data-track="buy"]');
+  if (purchaseLink) {
+    purchaseLink.addEventListener('click', function() { trackClick('buy_click'); });
+  }
+})();
+</script>
+
+<!-- The email gate. Without this file the plain "Get Penpoint free" link inside #trial-gate still works. -->
+<script src="js/trial-gate.js"></script>
+<script>
+(function () {
+  var gate = window.PPTrialGate;
+  if (gate) gate.mount(document.getElementById('trial-gate'), { source: 'novel-november' });
+
+  // Open the install guide on the visitor's own system (the download picker used to do this).
+  if (gate && !gate.isPhone()) {
+    var ua = navigator.userAgent;
+    var osKey = /Windows/.test(ua) ? 'windows' : /Mac/.test(ua) ? 'mac' : /Linux/.test(ua) ? 'linux' : null;
+    var tab = osKey && document.querySelector('[data-install-tab="' + osKey + '"]');
+    if (tab) tab.click();
+  }
+})();
+</script>
+
+<!-- Copy buttons for the share text and the hashtags. The label itself confirms the copy. -->
+<script>
+(function () {
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  function copy(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return fallbackCopy(text); });
+    }
+    return Promise.resolve(fallbackCopy(text));
+  }
+
+  function showCopied(btn, ok) {
+    var label = btn.querySelector('span');
+    var icon = btn.querySelector('i');
+    if (!label) return;
+    if (!btn.dataset.label) btn.dataset.label = label.textContent;
+    label.textContent = ok ? 'Copied' : 'Select and copy it by hand';
+    if (icon) icon.className = ok ? 'fa-solid fa-check' : 'fa-regular fa-copy';
+    clearTimeout(btn._nnTimer);
+    btn._nnTimer = setTimeout(function () {
+      label.textContent = btn.dataset.label;
+      if (icon) icon.className = 'fa-regular fa-copy';
+    }, 2200);
+  }
+
+  document.querySelectorAll('[data-copy-from]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var src = document.getElementById(btn.getAttribute('data-copy-from'));
+      if (!src) return;
+      copy(src.textContent.replace(/\s+/g, ' ').trim()).then(function (ok) { showCopied(btn, ok); });
+    });
+  });
+
+  document.querySelectorAll('[data-copy-tags]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var list = document.getElementById(btn.getAttribute('data-copy-tags'));
+      if (!list) return;
+      var tags = Array.prototype.map.call(list.querySelectorAll('li'), function (li) { return li.textContent.trim(); });
+      copy(tags.join(' ')).then(function (ok) { showCopied(btn, ok); });
+    });
+  });
+})();
+</script>
+
+<!-- Floating "Get it free!" sticky: visible only while none of the hero, the
+     email-form section, or the footer is on screen. Never on phones. -->
+<script>
+(function () {
+  var btn = document.getElementById('nn-float');
+  if (!btn || !('IntersectionObserver' in window)) return;
+  var phone = /Android|iPhone|iPad|iPod|webOS|BlackBerry|Opera Mini|IEMobile/i.test(navigator.userAgent)
+    || (navigator.maxTouchPoints > 1 && window.innerWidth < 820);
+  if (phone) return;
+  // The hero and the download section block it only once they reach the middle
+  // band of the screen, so a sliver peeking in at an edge does not. The footer
+  // blocks it as soon as it appears, so the note never covers footer links.
+  var inView = new Map();
+  function update(entries) {
+    entries.forEach(function (e) { inView.set(e.target, e.isIntersecting); });
+    var blocked = false;
+    inView.forEach(function (v) { if (v) blocked = true; });
+    btn.classList.toggle('is-on', !blocked);
+  }
+  var middle = new IntersectionObserver(update, { rootMargin: '-30% 0px -30% 0px' });
+  var edge = new IntersectionObserver(update, { threshold: 0 });
+  [document.querySelector('.nn-hero'), document.getElementById('download')].forEach(function (el) { if (el) middle.observe(el); });
+  var footer = document.querySelector('.pp-footer');
+  if (footer) edge.observe(footer);
+})();
+</script>
+
+<!-- Mobile nav toggle (shared header) -->
+<script>
+(function(){
+  var root = document.getElementById('pp-root') || document.body;
+  var burger = root.querySelector('[data-burger]');
+  var panel = root.querySelector('[data-mobile-menu]');
+  if (!burger || !panel) return;
+  function setOpen(open){ burger.classList.toggle('open',open); panel.classList.toggle('open',open); burger.setAttribute('aria-expanded', open?'true':'false'); }
+  burger.addEventListener('click', function(){ setOpen(!panel.classList.contains('open')); });
+  panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
+})();
+</script>
+
+</body>
+</html>

@@ -13,8 +13,10 @@
    The gate is a SPEED BUMP, never a wall. Any network error, any 5xx, and any
    429 whose scope is not "email" opens the download. On /trial that reveals
    the picker; on the Novel November page it sets sessionStorage
-   pp_trial_open=1 and sends the visitor to /trial, which reveals the picker
-   when it sees that flag. Nothing in the URL can bypass the gate.
+   pp_trial_open=1 and offers a button to /trial, which reveals the picker
+   when it sees that flag. The Novel November page never navigates on its own:
+   the visitor stays and keeps reading (Joel, 2026-10-02). Nothing in the URL
+   can bypass the gate.
 
    Server contract: supabase/mailroom/README.md, "Event trial gate".
    unsubscribe.html reuses this file for the API base, postJson and the unsubscribe rules.
@@ -76,7 +78,8 @@
     returningLead: 'Your download is ready.',
     returningGo: 'Go to the download',
     returningOther: 'Send a link to a different email',
-    opening: 'Taking you to the download…'
+    skipTitle: 'Skip the email',
+    skipLead: 'The link couldn\'t be emailed right now, so you can go straight to the download.'
   };
 
   /* ---------- pure logic ---------- */
@@ -375,11 +378,12 @@
         onReveal('failopen', false);
         return;
       }
-      show(h('div', { 'class': 'tg-panel tg-loading', role: 'status' }, [
-        h('span', { 'class': 'tg-spinner', 'aria-hidden': 'true' }),
-        h('p', { 'class': 'tg-lead' }, [COPY.opening])
-      ]));
-      setTimeout(function () { win.location.assign('/trial'); }, 500);
+      // Novel November: a button, never an automatic redirect, so the visitor can keep reading.
+      show(h('div', { 'class': 'tg-panel tg-return tg-skip' }, [
+        h('h2', { 'class': 'tg-title', tabindex: '-1' }, [COPY.skipTitle]),
+        h('p', { 'class': 'tg-lead' }, [COPY.skipLead]),
+        h('a', { 'class': 'btn btn-primary btn-lg btn-shadow tg-go', href: '/trial' }, [COPY.returningGo])
+      ]), { focus: '.tg-title' });
     }
 
     function post(email, optIn, honeypot) {

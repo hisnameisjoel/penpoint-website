@@ -217,6 +217,9 @@ Penpoint publishes detailed comparison pages and writing-reference articles at p
 - /story-bible — What is a story bible? Definition, a full template, and how Penpoint builds one from your manuscript.
 - /character-bible — What is a character bible? Definition, a field-by-field template, and how to build one from a draft you already have.
 
+## Novel November
+- /novel-november — Penpoint & Novel November: the Penpoint trial is free through November and ends December 1 (late starters still get at least 14 days), with no account and no credit card; Penpoint Cloud opens November 1 and is free for every writer all November. Penpoint is not affiliated with any writing organization.
+
 ## Help Guide
 
 Penpoint's full user guide is published at https://penpoint.app/help. It is the same documentation that ships inside the app, and it covers every feature in depth. Start at the hub; these are the most-asked-about guides.
