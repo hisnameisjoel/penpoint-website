@@ -51,7 +51,7 @@
   <!-- Google Fonts. Caveat is the sticky-note hand lettering, as on State of the Pen. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/site-chrome.css">
@@ -230,6 +230,74 @@
       .nn-plan__late{justify-self:center;margin:2px 0;}
     }
 
+    /* ----- Write on the go (Minipen) -----
+       The phone screen is a code rebuild of Minipen's real App Store edit-mode
+       screenshot (MinipenApp docs/deployment/store-assets/appstore/iphone69-03.png):
+       same layout, sampled colors, and the app's own Lucide icons, with our own
+       prose and a blinking cursor. The frame matches the Feature Tour's PhoneFrame
+       (src/components/featureTour/takeoverKit.tsx).
+       The screen is laid out at the real phone's 440 CSS px width, then scaled
+       to fit (--s = screen width / 440), so every measurement below is the
+       app's own. */
+    .nn-go-sec{border-bottom:1px solid #E6DCCD;}
+    .nn-go{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,64px);align-items:center;}
+    .nn-go__phone-wrap{position:relative;justify-self:center;padding:10px 34px 10px 0;}
+    .nn-phone{--s:0.63636;position:relative;width:296px;padding:8px;border-radius:50px;background:linear-gradient(155deg,#43464d 0%,#191a1e 46%,#0b0c0f 100%);box-shadow:0 42px 80px -34px rgba(0,0,0,0.62), inset 0 0 0 1.5px rgba(255,255,255,0.07);transform:rotate(-3deg);}
+    .nn-phone__screen{position:relative;aspect-ratio:9/19.5;border-radius:42px;background:#FFF7E6;overflow:hidden;}
+    .nn-ph{position:absolute;top:0;left:0;width:440px;height:953px;transform:scale(var(--s));transform-origin:0 0;display:flex;flex-direction:column;background:#FFF7E6;font-family:'Source Serif 4',Georgia,serif;color:#3D2E1C;}
+    .nn-ph svg{flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+    .nn-ph__island{position:absolute;top:13px;left:50%;width:126px;height:37px;margin-left:-63px;border-radius:999px;background:#000;}
+    .nn-ph__status{flex:none;display:flex;justify-content:space-between;align-items:center;height:62px;padding:0 36px 0 40px;font-family:-apple-system,'Segoe UI',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.02em;color:#28241E;}
+    .nn-ph__status span{display:flex;gap:6px;}
+    .nn-ph__head{flex:none;display:flex;align-items:center;height:40px;padding:0 10px 0 14px;}
+    .nn-ph__brand{display:flex;align-items:center;gap:3px;flex:1;font-weight:700;font-size:20px;color:#3D2E1C;}
+    .nn-ph__acts{display:flex;gap:22px;color:#28241E;}
+    .nn-ph__book{flex:none;display:flex;align-items:center;justify-content:center;gap:8px;height:36px;border-bottom:1px solid #E6DCCD;font-size:15px;color:#3D2E1C;}
+    .nn-ph__tabs{flex:none;display:flex;height:48px;border-bottom:1px solid #E6DCCD;color:#7D5D35;}
+    .nn-ph__tabs span{flex:1;display:flex;align-items:center;justify-content:center;}
+    .nn-ph__tabs .is-on{flex:none;gap:8px;padding:0 10px 0 11px;background:#3D362E;color:#FFF7E6;font-size:16px;font-weight:500;}
+    .nn-ph__crumb{flex:none;display:flex;align-items:stretch;height:48px;border-bottom:1px solid #E6DCCD;color:#7D5D35;}
+    .nn-ph__back{display:flex;align-items:center;gap:6px;padding:0 14px 0 16px;background:#FDEACC;font-size:12px;}
+    .nn-ph__crumb > span:last-child{display:flex;align-items:center;padding-left:9px;font-size:15px;}
+    .nn-ph__page{flex:1;min-height:0;overflow:hidden;padding:30px 32px 0;}
+    .nn-ph__chap{margin:0;font-size:17px;letter-spacing:0.14em;color:#7D5D35;}
+    .nn-ph__title{margin:6px 0 0;font-size:30px;font-weight:700;line-height:1.15;letter-spacing:-0.005em;color:#3D2E1C;}
+    .nn-ph__sub{margin:6px 0 0;padding-bottom:16px;border-bottom:1px solid #E6DCCD;font-size:18px;font-style:italic;color:#7D5D35;}
+    .nn-ph__page p.nn-ph__prose{margin:0 0 8px;font-size:16.5px;line-height:1.13;text-indent:32px;color:#3D2E1C;}
+    .nn-ph__page .nn-ph__sub + .nn-ph__prose{margin-top:16px;}
+    /* The bottom 34px is the phone's home-indicator safe area, which keeps the
+       toolbar icons clear of the screen's rounded corners. */
+    .nn-ph__tools{flex:none;display:flex;align-items:center;height:82px;padding:0 0 34px 24px;background:#FDEACC;border-top:1px solid #E6DCCD;color:#7D5D35;}
+    .nn-ph__home{position:absolute;left:50%;bottom:9px;width:140px;height:5px;margin-left:-70px;border-radius:999px;background:#29241E;}
+    .nn-ph__tools > *{margin-right:20px;}
+    .nn-ph__tools i{width:1px;height:26px;background:#E6DCCD;margin-right:20px;}
+    .nn-ph__hi{position:relative;}
+    .nn-ph__hi::after{content:"";position:absolute;left:2px;right:2px;bottom:-6px;height:4px;border-radius:2px;background:#F2C230;}
+    .nn-caret{display:inline-block;width:2.5px;height:1.1em;margin-left:1px;vertical-align:-3px;background:var(--accent,#CD6E2C);animation:nnBlink 1.1s steps(1) infinite;}
+    @keyframes nnBlink{50%{opacity:0;}}
+    @media(max-width:400px){.nn-phone{--s:0.57273;width:268px;}}
+    /* Sits in the blank space under the last line, clear of the cursor and the toolbar. */
+    .nn-go__note{position:absolute;right:-6px;bottom:84px;max-width:178px;padding:12px 16px;text-align:center;}
+    .nn-go__note .sp-hand{font-size:1.5rem;}
+    .nn-go__cards{display:flex;flex-direction:column;gap:clamp(16px,2.2vw,22px);}
+    .nn-go__cards .sp-card{height:auto;}
+    .nn-go__cards .sp-ct{margin-top:6px;}
+    .nn-go__launch{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin:clamp(22px,3vw,28px) 0 0;font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;}
+    .nn-go__launch i{margin-right:6px;}
+    .nn-go__stores{display:inline-flex;gap:18px;}
+    .nn-go__fine{font-family:'Source Serif 4',serif;font-size:14.5px;line-height:1.55;color:#7C5236;margin:10px 0 0;text-wrap:pretty;}
+    @media(max-width:860px){
+      .nn-go{grid-template-columns:1fr;}
+      .nn-go__phone-wrap{padding-right:28px;}
+    }
+    @media(max-width:560px){.nn-phone{transform:rotate(-2deg);}}
+    @media(prefers-reduced-motion:reduce){.nn-caret{animation:none;}}
+    /* The hero's one-line pointer down to the phone section */
+    .nn-hero__phone{display:inline-flex;align-items:center;gap:9px;margin-top:22px;font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);color:#5C4A33;text-decoration:underline;text-decoration-color:rgba(205,110,44,.55);text-decoration-thickness:1.5px;text-underline-offset:4px;}
+    .nn-hero__phone i{color:var(--accent,#CD6E2C);}
+    .nn-hero__phone strong{color:#29241E;font-weight:600;}
+    .nn-hero__phone:hover{color:#29241E;text-decoration-color:currentColor;}
+
     /* ----- Email gate (js/trial-gate.js + css/trial-gate.css) -----
        The download itself lives on /trial. This page asks for an email, and the emailed link opens the picker there. */
     .nn-gate .tg{--tg-bg:#FFFDF7;}
@@ -276,6 +344,8 @@
     .nn-help{color:#29241E;font-weight:600;text-decoration:underline;text-decoration-color:rgba(205,110,44,.55);text-decoration-thickness:1.5px;text-underline-offset:3px;white-space:nowrap;}
     .nn-help::after{content:"\f35d";font-family:"Font Awesome 6 Free";font-weight:900;font-size:.62em;margin-left:.3em;color:var(--accent,#CD6E2C);vertical-align:.2em;}
     .nn-help:hover{color:#A4521D;text-decoration-color:currentColor;}
+    /* Links within this page don't open a new tab, so no new-tab arrow. */
+    .nn-help[href^="#"]::after{content:none;}
 
     /* ----- December 1 ----- */
     .nn-dec{max-width:760px;margin:0 auto;background:var(--paper,#FCF8F0);border:1px solid #DDCBAE;box-shadow:0 24px 50px -38px rgba(61,46,28,.4);}
@@ -394,6 +464,7 @@
         <a href="#download" class="btn btn-primary btn-xl btn-shadow">Get Penpoint free</a>
         <a href="#how-it-works" class="btn btn-outline btn-xl">How it works</a>
       </div>
+      <div class="tri-in" style="animation-delay:300ms;"><a href="#on-the-go" class="nn-hero__phone"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i><span><strong>New this November:</strong> write on your phone with Minipen</span></a></div>
       <p class="sp-hand nn-hero__hand tri-in" style="animation-delay:380ms;">Plot it in October. Write it in November.</p>
     </section>
 
@@ -424,7 +495,7 @@
               <span class="sp-chip" style="--c:#8A5A10; --chip-bg: rgba(138,90,16,0.12)">Starts today</span>
               <p class="sp-label" style="--c:#8A5A10">Penpoint, the writing app</p>
               <p class="sp-hand">Free now through December 1</p>
-              <p class="nn-bar__small">No account. No credit card. Nothing to cancel.</p>
+              <p class="nn-bar__small">Download it and start writing today.</p>
             </div>
 
             <p class="sp-hand nn-plan__late">Starting late? You still get at least 14&nbsp;free&nbsp;days.</p>
@@ -433,7 +504,7 @@
               <span class="sp-chip" style="--c:#3E6598; --chip-bg: rgba(62,101,152,0.14)">Opens November 1</span>
               <p class="sp-label" style="--c:#3E6598">Penpoint Cloud</p>
               <p class="sp-hand">Free for everyone, all November</p>
-              <p class="nn-bar__small">Encrypted backup, sync across your computers, and the Minipen phone app. Already own Penpoint? You get it&nbsp;too.</p>
+              <p class="nn-bar__small">Write on your phone with the new <a href="#on-the-go">Minipen app</a>, plus encrypted backup and sync across your computers. Already own Penpoint? You get it&nbsp;too.</p>
             </div>
 
             <div class="nn-plan__end">
@@ -445,6 +516,133 @@
         </div>
 
         <p class="nn-plan-note" data-animate="fade-up">After November, Penpoint is $40 once to keep writing, and Penpoint Cloud becomes an optional paid subscription. Either way, you can export your books at any&nbsp;time.</p>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         WRITE ON THE GO (Minipen, the phone app)
+         =========================================== -->
+    <section id="on-the-go" class="tri-sec nn-grain nn-go-sec">
+      <div class="nn-wide">
+        <div class="nn-head" data-animate="fade-up">
+          <p class="tri-kicker">Write on the go</p>
+          <h2 class="tri-h2">Your novel, in your pocket. <em>Free all November.</em></h2>
+          <p class="nn-lede">1,667 words a day is a lot to find at one desk. Minipen, the new Penpoint phone app, launches this November, so the bus ride, the lunch break, and the line at the coffee shop can count&nbsp;too.</p>
+        </div>
+
+        <div class="nn-go">
+          <div class="nn-go__phone-wrap" data-animate="fade-up">
+            <!-- Minipen's own Lucide icons (MinipenApp src/components/shell/TabNav.tsx, the header, the editor toolbar). -->
+            <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+              <!-- The header mark is Remix's quill pen (RiQuillPenLine in AppShell.tsx), filled, not a Lucide stroke icon. -->
+              <symbol id="nnI-quill" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/></symbol>
+              <symbol id="nnI-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></symbol>
+              <symbol id="nnI-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+              <symbol id="nnI-book-open" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+              <symbol id="nnI-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+              <symbol id="nnI-scroll" viewBox="0 0 24 24"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></symbol>
+              <symbol id="nnI-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></symbol>
+              <symbol id="nnI-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><polyline points="3.29 7 12 12 20.71 7"/><path d="m7.5 4.27 9 5.15"/></symbol>
+              <symbol id="nnI-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+              <symbol id="nnI-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+              <symbol id="nnI-arcs" viewBox="0 0 24 24"><g transform="rotate(45 12 12)"><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><path d="M5 17A12 12 0 0 1 17 5"/></g></symbol>
+              <symbol id="nnI-bookmark" viewBox="0 0 24 24"><path d="M10 2v8l3-3 3 3V2"/><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></symbol>
+              <symbol id="nnI-tag" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
+              <symbol id="nnI-gear" viewBox="0 0 24 24"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></symbol>
+              <symbol id="nnI-back" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+              <symbol id="nnI-bold" viewBox="0 0 24 24"><path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"/></symbol>
+              <symbol id="nnI-italic" viewBox="0 0 24 24"><line x1="19" x2="10" y1="4" y2="4"/><line x1="14" x2="5" y1="20" y2="20"/><line x1="15" x2="9" y1="4" y2="20"/></symbol>
+              <symbol id="nnI-underline" viewBox="0 0 24 24"><path d="M6 4v6a6 6 0 0 0 12 0V4"/><line x1="4" x2="20" y1="20" y2="20"/></symbol>
+              <symbol id="nnI-strike" viewBox="0 0 24 24"><path d="M16 4H9a3 3 0 0 0-2.83 4"/><path d="M14 12a4 4 0 0 1 0 8H6"/><line x1="4" x2="20" y1="12" y2="12"/></symbol>
+              <symbol id="nnI-highlight" viewBox="0 0 24 24"><path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></symbol>
+              <symbol id="nnI-comment" viewBox="0 0 24 24"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/></symbol>
+              <symbol id="nnI-note" viewBox="0 0 24 24"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8Z"/><path d="M15 3v4a2 2 0 0 0 2 2h4"/></symbol>
+              <symbol id="nnI-more" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></symbol>
+              <symbol id="nnI-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"/></symbol>
+              <symbol id="nnI-redo" viewBox="0 0 24 24"><path d="m15 14 5-5-5-5"/><path d="M20 9H9.5A5.5 5.5 0 0 0 4 14.5A5.5 5.5 0 0 0 9.5 20H13"/></symbol>
+              <symbol id="nnI-signal" viewBox="0 0 24 24"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></symbol>
+              <symbol id="nnI-wifi" viewBox="0 0 24 24"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></symbol>
+              <symbol id="nnI-battery" viewBox="0 0 24 24"><path d="M10 10v4"/><path d="M14 10v4"/><path d="M22 14v-4"/><path d="M6 10v4"/><rect x="2" y="6" width="16" height="12" rx="2"/></symbol>
+            </defs></svg>
+
+            <div class="nn-phone" role="img" aria-label="Minipen on a phone, with a manuscript chapter open in edit mode, mid-sentence">
+              <div class="nn-phone__screen" aria-hidden="true">
+                <div class="nn-ph">
+                  <div class="nn-ph__status"><span>9:41</span><span><svg width="19" height="19"><use href="#nnI-signal"/></svg><svg width="19" height="19"><use href="#nnI-wifi"/></svg><svg width="27" height="19" style="stroke-width:1.5"><use href="#nnI-battery"/></svg></span></div>
+                  <div class="nn-ph__head">
+                    <span class="nn-ph__brand"><svg width="22" height="22"><use href="#nnI-quill"/></svg>Minipen</span>
+                    <span class="nn-ph__acts"><svg width="23" height="23"><use href="#nnI-search"/></svg><svg width="23" height="23"><use href="#nnI-plus"/></svg><svg width="23" height="23"><use href="#nnI-book-open"/></svg></span>
+                  </div>
+                  <div class="nn-ph__book">The Lighthouse Keeper<svg width="15" height="15"><use href="#nnI-chevron"/></svg></div>
+                  <div class="nn-ph__tabs">
+                    <span class="is-on"><svg width="21" height="21"><use href="#nnI-scroll"/></svg>Manuscript</span>
+                    <span><svg width="21" height="21"><use href="#nnI-users"/></svg></span>
+                    <span><svg width="21" height="21"><use href="#nnI-package"/></svg></span>
+                    <span><svg width="21" height="21"><use href="#nnI-pin"/></svg></span>
+                    <span><svg width="21" height="21"><use href="#nnI-file"/></svg></span>
+                    <span><svg width="21" height="21"><use href="#nnI-arcs"/></svg></span>
+                    <span><svg width="21" height="21"><use href="#nnI-bookmark"/></svg></span>
+                    <span><svg width="21" height="21"><use href="#nnI-tag"/></svg></span>
+                    <span><svg width="21" height="21"><use href="#nnI-gear"/></svg></span>
+                  </div>
+                  <div class="nn-ph__crumb"><span class="nn-ph__back"><svg width="14" height="14"><use href="#nnI-back"/></svg>Back</span><span>The Lamp Room</span></div>
+                  <div class="nn-ph__page">
+                    <p class="nn-ph__chap">CHAPTER 3</p>
+                    <p class="nn-ph__title">The Lamp Room</p>
+                    <p class="nn-ph__sub">Ninety-One Stairs</p>
+                    <p class="nn-ph__prose">Mara counted the stairs the way her father had taught her: ninety-one to the lamp room, and one more for luck. The last step was the one that creaked, and tonight it creaked as if it had been waiting for her.</p>
+                    <p class="nn-ph__prose">The glass was cold under her palm. Somewhere below, the bell on the old dock rang twice, though there was no wind to ring it and no boat left to tie to it.</p>
+                    <p class="nn-ph__prose">Down in the village the windows had gone dark one by one, the way they always did in November, until only the church and the Hallorans' kitchen still burned.</p>
+                    <p class="nn-ph__prose">She did not look down at the water. She had promised herself she would not look<span class="nn-caret"></span></p>
+                  </div>
+                  <div class="nn-ph__tools">
+                    <svg width="22" height="22"><use href="#nnI-bold"/></svg>
+                    <svg width="22" height="22"><use href="#nnI-italic"/></svg>
+                    <svg width="22" height="22"><use href="#nnI-underline"/></svg>
+                    <svg width="22" height="22"><use href="#nnI-strike"/></svg>
+                    <span class="nn-ph__hi"><svg width="22" height="22" style="display:block"><use href="#nnI-highlight"/></svg></span>
+                    <svg width="15" height="15" style="margin-left:-10px"><use href="#nnI-chevron"/></svg>
+                    <i></i>
+                    <svg width="22" height="22"><use href="#nnI-comment"/></svg>
+                    <svg width="22" height="22"><use href="#nnI-note"/></svg>
+                    <svg width="22" height="22"><use href="#nnI-more"/></svg>
+                    <i></i>
+                    <svg width="22" height="22"><use href="#nnI-undo"/></svg>
+                    <svg width="22" height="22"><use href="#nnI-redo"/></svg>
+                  </div>
+                  <div class="nn-ph__island"></div>
+                  <div class="nn-ph__home"></div>
+                </div>
+              </div>
+            </div>
+            <div class="sp-sticky nn-go__note" style="--r:4deg"><p class="sp-hand">+412 words on the&nbsp;bus!</p></div>
+          </div>
+
+          <div>
+            <div class="nn-go__cards">
+              <div class="sp-card" style="--r:0.6deg" data-animate="fade-up">
+                <p class="sp-label">Write</p>
+                <p class="sp-ct">Add words anywhere.</p>
+                <p class="sp-cb">A full manuscript editor on your phone. Ten minutes on the bus is a couple hundred words toward today's&nbsp;1,667.</p>
+              </div>
+              <div class="sp-card" style="--r:-0.5deg" data-animate="fade-up" data-stagger="1">
+                <p class="sp-label" style="--c:#3E6598">Look it up</p>
+                <p class="sp-ct">Your whole world comes along.</p>
+                <p class="sp-cb">Characters, places, items, notes, and your chapter outline are all there when you need a detail mid-scene, and you can edit them&nbsp;too.</p>
+              </div>
+              <div class="sp-card" style="--r:0.4deg" data-animate="fade-up" data-stagger="2">
+                <p class="sp-label" style="--c:#5E7F52">Sync</p>
+                <p class="sp-ct">Back at your desk, it's already there.</p>
+                <p class="sp-cb">Penpoint Cloud keeps your phone and computers in step, so the scene you wrote at lunch is waiting in Manuscript Mode&nbsp;tonight.</p>
+              </div>
+            </div>
+            <div data-animate="fade-up" data-stagger="3">
+              <p class="nn-go__launch"><span class="sp-chip" style="--c:#3E6598; --chip-bg: rgba(62,101,152,0.14)">Launching this November</span><span class="nn-go__stores"><span><i class="fa-brands fa-apple" aria-hidden="true"></i>iPhone</span><span><i class="fa-brands fa-android" aria-hidden="true"></i>Android</span></span></p>
+              <p class="nn-go__fine">Minipen runs on Penpoint Cloud, which is free for everyone all November. Turn on Cloud in the Penpoint desktop app, then sign in on your phone with the same&nbsp;account.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -509,7 +707,7 @@
             <div class="sp-card sp-card--manila" style="--r:-0.5deg">
               <p class="sp-label">Word count</p>
               <p class="sp-ct">“Can I really hit 1,667 words a day?”</p>
-              <p class="sp-cb">Click the bar chart icon at the top of the screen and <a class="nn-help" href="/help/the-worldbuilding-toolbar" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">Writing Stats</a> shows the words you've added to your manuscript today. Fifty thousand words over thirty days is 1,667 a day, so you always know where today stands.</p>
+              <p class="sp-cb">Click the bar chart icon at the top of the screen and <a class="nn-help" href="/help/the-worldbuilding-toolbar" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">Writing Stats</a> shows the words you've added to your manuscript today. Fifty thousand words over thirty days is 1,667 a day, and from November, <a class="nn-help" href="#on-the-go" title="Jump to Write on the go">Minipen</a> lets you chip away at it from your phone.</p>
             </div>
           </div>
           <div data-animate="fade-up">
@@ -530,7 +728,7 @@
             <div class="sp-card sp-card--manila" style="--r:0.5deg">
               <p class="sp-label" style="--c:#A8742C">What now</p>
               <p class="sp-ct">“The November challenge is still on. What do I use now?”</p>
-              <p class="sp-cb">Penpoint gives you <a class="nn-help" href="/help/distraction-free-writing-software" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">Manuscript Mode</a> for the draft, <a class="nn-help" href="/help/worldbuilding-for-writers" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">worldbuilding pages</a> for everything around it, and a daily word count to pace the month. It is free through November, with no account and no credit card.</p>
+              <p class="sp-cb">Penpoint gives you <a class="nn-help" href="/help/distraction-free-writing-software" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">Manuscript Mode</a> for the draft, <a class="nn-help" href="/help/worldbuilding-for-writers" target="_blank" rel="noopener" title="Opens the Help Guide in a new tab">worldbuilding pages</a> for everything around it, and a daily word count to pace the month. All of it is free through&nbsp;November.</p>
             </div>
           </div>
         </div>
@@ -566,7 +764,7 @@
           </div>
           <div class="nn-dec__row">
             <i class="fa-solid fa-cloud" aria-hidden="true"></i>
-            <p><strong>Penpoint Cloud becomes an optional subscription.</strong> You can export your books or delete your account at any time.</p>
+            <p><strong>Penpoint Cloud becomes an optional subscription.</strong> Minipen, the phone app, comes with it. Your books stay on your computer either way, and you can export them or delete your account at any time.</p>
           </div>
         </div>
       </div>
@@ -581,7 +779,7 @@
         <div class="nn-owners" data-animate="fade-up">
           <div class="sp-sticky sp-sticky--blue" style="--r:-2deg"><p class="sp-hand">Already own&nbsp;Penpoint?</p></div>
           <div class="nn-owners__body">
-            <p><strong>Your free month of Penpoint Cloud starts November 1.</strong> Claim it inside the app: encrypted backup, sync across your computers, and the Minipen phone companion, free all November.</p>
+            <p><strong>Your free month of Penpoint Cloud starts November 1.</strong> Claim it inside the app: write on your phone with the new <a href="#on-the-go">Minipen app</a>, plus encrypted backup and sync across your computers, free all November.</p>
             <p>Know a writer starting a novel this November? <a href="#share">Send them this page.</a></p>
           </div>
         </div>
