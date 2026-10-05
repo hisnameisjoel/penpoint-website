@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    document.documentElement.classList.add('js-ready');
+  </script>
   <title>Support — Penpoint</title>
-  <meta name="description" content="Get help with Penpoint, Penpoint Cloud, and the Minipen phone app. Email support@penpoint.app or browse the Help Guide.">
+  <meta name="description" content="Get help with Penpoint, Penpoint Cloud, and the Minipen phone app. Ask on the Penpoint Discord, email support@penpoint.app, or browse the Help Guide.">
   <link rel="canonical" href="https://penpoint.app/support">
   <meta name="theme-color" content="#FFF7E6">
 
@@ -16,15 +19,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
   <link rel="apple-touch-icon" href="images/icon-192.png">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts. Caveat is the sticky-note hand lettering, as on /novel-november. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/typography.css">
-  <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/site-chrome.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -38,72 +38,144 @@
   </script>
 
   <style>
-    .legal-narrow {
-      max-width: 720px;
-      margin: 0 auto;
+    /* ===========================================
+       SUPPORT
+       The desk look of /novel-november and /minipen-beta (paper grain, cards, a sticky note).
+       Self-contained like those pages: only site-chrome.css is shared.
+       =========================================== */
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--paper,#FCF8F0);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+    ::selection{background:var(--accent-bright,#DDA964);color:#29241E;}
+    a{transition:opacity .2s ease, background .2s ease, color .2s ease;}
+    [id]{scroll-margin-top:84px;}
+
+    /* Section scaffolding */
+    .su-sec{padding:clamp(48px,7vw,92px) clamp(20px,5vw,52px);}
+    .su-wrap{max-width:920px;margin:0 auto;}
+    .su-wide{max-width:1040px;margin:0 auto;}
+    .su-kicker{display:flex;align-items:center;justify-content:center;gap:clamp(10px,1.4vw,16px);font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1.35vw,16px);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#A4521D;margin:0 0 20px;}
+    .su-kicker::before,.su-kicker::after{content:"";flex:none;width:clamp(22px,3.6vw,44px);height:2px;background:currentColor;opacity:.5;}
+    .su-h2{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.08;letter-spacing:-0.02em;color:#29241E;margin:0;text-wrap:balance;}
+    .su-h2 em{font-style:italic;font-weight:400;}
+    .su-head{text-align:center;max-width:680px;margin:0 auto clamp(28px,4vw,44px);}
+    .su-lede{font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,18px);line-height:1.6;color:#5C4332;margin:16px auto 0;max-width:620px;text-wrap:pretty;}
+    .su-lede strong{color:#29241E;font-weight:600;}
+    .su-alt{background:var(--paper-alt,#F4EBD8);border-top:1px solid #E6DCCD;border-bottom:1px solid #E6DCCD;}
+    .su-grain{
+      background-color:#F8EFDB;
+      background-image:
+        radial-gradient(ellipse at 50% 40%, rgba(255,252,242,0.9) 0%, rgba(248,239,219,0) 62%),
+        radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 60%, rgba(120,80,30,0.10) 100%),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' seed='4'/><feColorMatrix values='0 0 0 0 0.45  0 0 0 0 0.32  0 0 0 0 0.16  0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
     }
 
-    .legal-content {
-      /* Vertical only — horizontal gutters come from .container so mobile keeps its side margins */
-      padding-top: var(--space-10);
-      padding-bottom: var(--space-16);
+    /* On-load fade for the hero, scroll reveal for the rest */
+    @keyframes suFade{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+    .su-in{animation:suFade .7s cubic-bezier(.2,.7,.2,1) both;}
+    .js-ready [data-animate]{opacity:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
+    [data-animate].animate-in{animation:suFade .7s cubic-bezier(.2,.7,.2,1) forwards;}
+    [data-animate][data-stagger="1"].animate-in{animation-delay:80ms;}
+    [data-animate][data-stagger="2"].animate-in{animation-delay:160ms;}
+    [data-animate][data-stagger="3"].animate-in{animation-delay:240ms;}
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto;}
+      .su-in,[data-animate].animate-in{animation:none !important;}
+      .js-ready [data-animate]{opacity:1;}
     }
 
-    .legal-content h1 {
-      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
-      font-size: var(--text-3xl);
-      font-weight: 700;
-      color: rgb(var(--foreground));
-      margin-bottom: var(--space-2);
-    }
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-weight:600;text-decoration:none;cursor:pointer;border:none;line-height:1.2;transition:transform .2s ease, box-shadow .2s ease, background .2s ease;}
+    .btn-primary{background:var(--accent,#CD6E2C);color:#FFF7E6;}
+    .btn-primary:hover{background:#B85F22;transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:#29241E;border:1px solid #C9B79A;}
+    .btn-outline:hover{background:#F1E6D2;}
+    .btn-dark{background:#29241E;color:#FEF9F0;}
+    .btn-dark:hover{background:#3D342A;transform:translateY(-1px);}
+    .btn-lg{font-size:16px;padding:13px 28px;}
+    .btn-sm{font-size:14px;padding:9px 18px;}
+    .btn-shadow{box-shadow:0 8px 16px -10px rgba(61,46,28,.42);}
+    .btn-shadow:hover{box-shadow:0 12px 22px -12px rgba(61,46,28,.5);}
+    .btn i{margin-right:9px;}
 
-    .legal-content .legal-updated {
-      font-size: var(--text-sm);
-      color: rgb(var(--muted-foreground));
-      margin-bottom: var(--space-8);
+    /* Paper */
+    .sp-card{
+      position:relative;box-sizing:border-box;padding:clamp(20px,2.8vw,32px);
+      background-color:#FFFDF7;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='9'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0 0.25  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      box-shadow:0 1px 2px rgba(60,35,10,0.10), 0 14px 30px rgba(60,35,10,0.13);
+      transform:rotate(var(--r,0deg));
     }
+    .sp-sticky{position:relative;padding:clamp(16px,2.4vw,26px) clamp(18px,2.6vw,30px);background:#F8E08A;box-shadow:0 1px 2px rgba(60,35,10,0.12), 0 12px 24px rgba(60,35,10,0.16);transform:rotate(var(--r,0deg));}
+    .sp-tape{position:absolute;top:-13px;left:50%;width:96px;height:26px;margin-left:-48px;background:rgba(233,221,188,0.85);box-shadow:0 1px 2px rgba(0,0,0,0.08);transform:rotate(-3deg);}
+    .sp-label{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:clamp(12px,1.05vw,13px);letter-spacing:0.16em;text-transform:uppercase;color:var(--c,#A4521D);margin:0;}
+    .sp-ct{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(1.3rem,2.3vw,1.65rem);line-height:1.12;letter-spacing:-0.012em;color:#29241E;margin:8px 0;text-wrap:balance;}
+    .sp-cb{font-family:'Source Serif 4',serif;font-size:1rem;line-height:1.55;color:#5A4A36;margin:0;text-wrap:pretty;}
+    .sp-cb strong{color:#29241E;font-weight:600;}
+    .sp-hand{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.45rem,2.6vw,1.8rem);line-height:1.1;color:#3A3020;margin:0;text-wrap:balance;}
+    .sp-chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;padding:6px 10px;background:var(--chip-bg,rgba(205,110,44,0.12));color:var(--c,#A4521D);white-space:nowrap;}
 
-    .legal-content h2 {
-      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
-      font-size: var(--text-xl);
-      font-weight: 600;
-      color: rgb(var(--foreground));
-      margin-top: var(--space-8);
-      margin-bottom: var(--space-3);
-    }
+    /* ----- Hero ----- */
+    .su-hero{padding:clamp(52px,9vw,108px) clamp(20px,5vw,52px) clamp(52px,7vw,84px);text-align:center;border-bottom:1px solid #E6DCCD;}
+    .su-hero__h1{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(36px,6.2vw,68px);line-height:1.06;letter-spacing:-0.022em;color:#29241E;margin:0 auto clamp(20px,2.8vw,28px);max-width:860px;text-wrap:balance;}
+    .su-hero__h1 em{display:block;font-style:italic;font-weight:400;margin-top:.12em;}
+    .su-hero__sub{font-family:'Source Serif 4',serif;font-size:clamp(17px,2vw,21px);line-height:1.58;color:#5C4A33;max-width:600px;margin:0 auto;text-wrap:pretty;}
+    /* Send people to the Help Guide before they write in */
+    .su-hero__guide{display:inline-flex;align-items:flex-start;gap:10px;max-width:600px;margin:clamp(22px,3vw,30px) auto 0;padding:12px 18px;text-align:left;background:#FFFDF7;border:1px solid #E0D2BC;box-shadow:0 10px 24px -20px rgba(61,46,28,.5);font-family:'Source Serif 4',serif;font-size:clamp(15.5px,1.7vw,17px);line-height:1.5;color:#5C4332;text-wrap:pretty;}
+    .su-hero__guide i{flex:none;color:var(--accent,#CD6E2C);margin-top:4px;}
+    .su-hero__guide a{color:var(--accent,#CD6E2C);font-weight:600;}
 
-    .legal-content p,
-    .legal-content li {
-      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
-      font-size: var(--text-base);
-      line-height: 1.7;
-      color: rgb(var(--foreground));
-    }
+    /* ----- Contact Support, built into the app (v1.3.6+) ----- */
+    .su-version{display:inline-flex;align-items:flex-start;gap:9px;max-width:560px;margin:18px auto 0;padding:9px 16px;text-align:left;font-family:'Source Serif 4',serif;font-size:15px;line-height:1.45;color:#3E6598;background:rgba(62,101,152,0.10);text-wrap:pretty;}
+    .su-version i{flex:none;margin-top:3px;}
+    .su-steps{list-style:none;padding:0;margin:0 auto;max-width:1000px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.8vw,18px);}
+    .su-steps li{display:flex;flex-direction:column;gap:6px;padding:18px 18px 20px;background:#FFFDF7;border:1px solid #E0D2BC;box-shadow:0 10px 24px -20px rgba(61,46,28,.5);}
+    .su-steps__n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#29241E;color:#FEF9F0;font-family:'Newsreader',serif;font-weight:500;font-size:17px;margin-bottom:4px;}
+    .su-steps__t{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(19px,2vw,22px);line-height:1.15;color:#29241E;}
+    .su-steps__s{font-family:'Source Serif 4',serif;font-size:15px;line-height:1.5;color:#7C5236;text-wrap:pretty;}
+    @media(max-width:860px){.su-steps{grid-template-columns:repeat(2,minmax(0,1fr));max-width:620px;}}
+    @media(max-width:480px){.su-steps{grid-template-columns:1fr;max-width:420px;}}
+    .su-promise{display:flex;gap:14px;align-items:flex-start;max-width:780px;margin:clamp(24px,3.4vw,34px) auto 0;padding:18px 22px;background:#FFFDF7;border:1px solid #DDCBAE;box-shadow:0 10px 24px -20px rgba(61,46,28,.5);}
+    .su-promise > i{flex:none;font-size:18px;color:#5E7F52;margin-top:4px;}
+    .su-promise p{font-family:'Source Serif 4',serif;font-size:clamp(15.5px,1.7vw,16.5px);line-height:1.6;color:#5C4332;margin:0;text-wrap:pretty;}
+    .su-promise strong{color:#29241E;font-weight:600;}
+    .su-promise a{color:var(--accent,#CD6E2C);font-weight:600;}
+    #in-app .su-tip{max-width:780px;margin-top:14px;}
 
-    .legal-content p {
-      margin-bottom: var(--space-4);
-    }
+    /* ----- Ways to get help: Discord leads, wider and marked fastest ----- */
+    .su-ways{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(16px,2.6vw,26px);max-width:860px;margin:0 auto;align-items:stretch;}
+    .su-ways .sp-card{display:flex;flex-direction:column;}
+    .su-ways .sp-cb{margin-bottom:18px;}
+    .su-ways .btn{align-self:flex-start;margin-top:auto;}
+    .su-way--lead{border-top:4px solid #5865F2;}
+    .su-way--lead .sp-ct{font-size:clamp(1.5rem,2.7vw,1.95rem);}
+    .su-way__top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+    .su-way__icon{font-size:22px;color:var(--accent,#CD6E2C);}
+    .su-way--lead .su-way__icon{color:#5865F2;font-size:26px;}
+    .su-channels{list-style:none;margin:0 0 18px;padding:0;display:flex;flex-direction:column;gap:6px;}
+    .su-channels li{font-family:'Source Serif 4',serif;font-size:15px;line-height:1.45;color:#5A4A36;}
+    .su-channels code{font-family:'IBM Plex Mono',monospace;font-size:.88em;font-weight:600;color:#3B4199;background:rgba(88,101,242,.10);padding:1px 6px;}
+    @media(max-width:680px){.su-ways{grid-template-columns:1fr;max-width:520px;}}
 
-    .legal-content ul {
-      margin-bottom: var(--space-4);
-      padding-left: var(--space-6);
-    }
+    /* What makes a good report (sticky note) */
+    .su-note{max-width:640px;margin:clamp(34px,4.6vw,48px) auto 0;text-align:center;}
+    .su-note ul{list-style:none;padding:0;margin:10px 0 0;font-family:'Source Serif 4',serif;font-size:15.5px;line-height:1.7;color:#3A3020;}
+    .su-tip{display:flex;gap:12px;align-items:flex-start;max-width:720px;margin:clamp(26px,3.6vw,36px) auto 0;padding:14px 16px;background:#FBF3DF;border-left:3px solid #DDA964;font-family:'Source Serif 4',serif;font-size:15.5px;line-height:1.55;color:#4A3C2A;text-wrap:pretty;}
+    .su-tip > i{color:#B8862E;margin-top:4px;flex:none;}
+    .su-tip strong{color:#29241E;font-weight:600;}
+    .su-ui{display:inline-block;font-family:'Source Serif 4',serif;font-weight:600;font-size:.92em;line-height:1.35;color:#29241E;background:#FFFFFF;border:1px solid #D9C6A5;border-bottom-width:2px;padding:0 7px;white-space:nowrap;}
 
-    .legal-content li {
-      margin-bottom: var(--space-2);
-    }
+    /* ----- Privacy and terms ----- */
+    .su-legal{font-family:'Source Serif 4',serif;font-size:clamp(15.5px,1.7vw,17px);line-height:1.6;color:#5C4332;text-align:center;max-width:620px;margin:0 auto;text-wrap:balance;}
+    .su-legal a{color:var(--accent,#CD6E2C);font-weight:600;}
 
-    .legal-content a {
-      color: rgb(var(--cta));
-      text-decoration: underline;
-    }
-
-    .legal-content a:hover {
-      opacity: 0.8;
-    }
+    /* Tilted paper only where there is room for it */
+    @media(max-width:560px){.sp-card,.sp-sticky{transform:none;}}
   </style>
 </head>
 <body>
+<div id="pp-root" style="font-family:'Source Serif 4',Georgia,serif;color:#3D2E1C;background:var(--paper,#FCF8F0);">
 
   <a href="#main" class="skip-link">Skip to main content</a>
 
@@ -136,34 +208,112 @@
   </header>
 
   <main id="main">
-    <div class="container legal-narrow legal-content">
-      <h1>Penpoint Support</h1>
-      <p class="legal-updated">Help for the Penpoint desktop app, Penpoint Cloud, and Minipen, the Penpoint phone app.</p>
 
-      <h2>Contact us</h2>
-      <p>Email <a href="mailto:support@penpoint.app">support@penpoint.app</a>. A real person reads every message. Tell us which app you are using (the desktop app or Minipen), which device, and what happened; a screenshot helps a lot.</p>
-      <p>You can also ask questions and report bugs in the <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Penpoint Discord community</a>.</p>
+    <!-- ===========================================
+         HERO
+         =========================================== -->
+    <section class="su-hero su-grain">
+      <p class="su-kicker su-in">Support</p>
+      <h1 class="su-hero__h1 su-in" style="animation-delay:70ms;">Need a hand? <em>Here's how to get help.</em></h1>
+      <p class="su-hero__sub su-in" style="animation-delay:150ms;">Help for the Penpoint desktop app, Penpoint Cloud, and Minipen, the Penpoint phone app.</p>
+      <p class="su-hero__guide su-in" style="animation-delay:230ms;"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Before contacting support, check the <a href="/help">Help Guide</a>. Lots of questions already have a good answer there.</span></p>
+    </section>
 
-      <h2>Guides</h2>
-      <p>The <a href="/help">Penpoint Help Guide</a> covers every part of the app. Good places to start with Penpoint Cloud:</p>
-      <ul>
-        <li><a href="/help/encrypted-novel-backup">Your Password and Recovery Kit</a></li>
-        <li><a href="/help/write-on-multiple-computers">Managing Your Devices</a></li>
-        <li><a href="/help/sync-your-novel-between-computers">Syncing and Restoring</a></li>
-        <li><a href="/help/penpoint-cloud-settings">Penpoint Cloud Settings</a></li>
-      </ul>
 
-      <h2>Minipen, the phone app</h2>
-      <ul>
-        <li><strong>Signing in:</strong> Minipen uses your existing Penpoint Cloud account and needs an active Penpoint Cloud Sync subscription, which you set up in the Penpoint desktop app. You'll enter your account email, a code we email to you, and your Cloud password.</li>
-        <li><strong>Forgot your Cloud password?</strong> See <a href="/help/encrypted-novel-backup">Your Password and Recovery Kit</a>.</li>
-        <li><strong>Signing out</strong> removes the book copies stored on your phone. Your cloud copy and your computer are not affected, and you can sign back in any time.</li>
-        <li><strong>Deleting your account</strong> happens in the desktop app or by email. See <a href="/delete-account">Delete Your Penpoint Cloud Account</a>.</li>
-      </ul>
+    <!-- ===========================================
+         CONTACT SUPPORT, BUILT INTO THE APP
+         Ships with Penpoint v1.3.6 (Joel, 2026-10-04: publish now with the version note).
+         Labels from src/components/support/ (supportCatalog.ts, SupportModal.tsx); what gets sent
+         must match privacy.html#support-submissions.
+         =========================================== -->
+    <section id="in-app" class="su-sec">
+      <div class="su-wrap">
+        <div class="su-head" data-animate="fade-up">
+          <p class="su-kicker">Built into Penpoint</p>
+          <h2 class="su-h2">Contact Support, <em>right from the app.</em></h2>
+          <p class="su-lede">Report a bug, share an idea, or ask a question without leaving Penpoint. Click the <span class="su-ui">?</span> at the top right, then <span class="su-ui">Contact Support</span>.</p>
+          <p class="su-version"><i class="fa-solid fa-circle-info" aria-hidden="true"></i>Available in Penpoint v1.3.6 and later. On an earlier version, Discord and email below work just as well.</p>
+        </div>
 
-      <h2>Privacy and terms</h2>
-      <p>Our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a> cover both the desktop app and Minipen.</p>
-    </div>
+        <ol class="su-steps" data-animate="fade-up" aria-label="How the Contact Support form works">
+          <li><span class="su-steps__n" aria-hidden="true">1</span><span class="su-steps__t">Pick a topic</span><span class="su-steps__s">Bug Report, Feature Idea, Question / Need Help, Penpoint Cloud Issue, and a few more.</span></li>
+          <li><span class="su-steps__n" aria-hidden="true">2</span><span class="su-steps__t">Add pictures</span><span class="su-steps__s">A screenshot of Penpoint is already attached. Add up to four images, or remove any you don't want to send.</span></li>
+          <li><span class="su-steps__n" aria-hidden="true">3</span><span class="su-steps__t">Write it out</span><span class="su-steps__s">In your own words. Close the form and what you typed is still there when you come back.</span></li>
+          <li><span class="su-steps__n" aria-hidden="true">4</span><span class="su-steps__t">Choose the extras</span><span class="su-steps__s">Include technical logs if you like, and tick whether you'd like a reply by email or Discord.</span></li>
+        </ol>
+
+        <div class="su-promise" data-animate="fade-up">
+          <i class="fa-solid fa-lock" aria-hidden="true"></i>
+          <p><strong>Nothing leaves your computer until you press Send.</strong> Open <span class="su-ui">See what's included</span> to read the system report word for word before it goes. After sending, you get a reference number like Pen-1042. <a href="/privacy#support-submissions">What gets sent, and how long it's kept</a>.</p>
+        </div>
+        <p class="su-tip" data-animate="fade-up"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span><strong>Penpoint hit an error?</strong> The error screen has a <span class="su-ui">Send to Penpoint</span> button that opens the same form with the error already filled in.</span></p>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         WAYS TO GET HELP
+         Discord leads (Joel, 2026-10-04): it's the quickest, and other writers can help too.
+         =========================================== -->
+    <section id="contact" class="su-sec su-alt">
+      <div class="su-wide">
+        <div class="su-head" data-animate="fade-up">
+          <p class="su-kicker">Get in touch</p>
+          <h2 class="su-h2">Start on Discord. <em>It's the quickest way.</em></h2>
+          <p class="su-lede">Questions usually get answered fastest on the Penpoint Discord, and other writers there can often help too. <strong>Email works just as well</strong> for anything private.</p>
+        </div>
+
+        <div class="su-ways">
+          <div class="sp-card su-way--lead" style="--r:-0.5deg" data-animate="fade-up">
+            <div class="su-way__top">
+              <p class="sp-label" style="--c:#3B4199">Discord</p>
+              <span class="sp-chip" style="--c:#3B4199;--chip-bg:rgba(88,101,242,0.13)">Fastest right now</span>
+            </div>
+            <p class="sp-ct"><i class="fa-brands fa-discord su-way__icon" aria-hidden="true"></i>&ensp;Ask the Penpoint community.</p>
+            <p class="sp-cb">Ask a question, share what you're stuck on, or report a problem. Screenshots help a lot.</p>
+            <ul class="su-channels">
+              <li><code>#bug-report</code> for anything that's broken</li>
+              <li><code>#ideas-and-feedback</code> for what you'd love to see</li>
+            </ul>
+            <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" class="btn btn-dark btn-lg btn-shadow"><i class="fa-brands fa-discord" aria-hidden="true"></i>Join the Discord</a>
+          </div>
+
+          <div class="sp-card" style="--r:0.5deg" data-animate="fade-up" data-stagger="1">
+            <p class="sp-label">Email</p>
+            <p class="sp-ct"><i class="fa-solid fa-envelope su-way__icon" aria-hidden="true"></i>&ensp;Write in.</p>
+            <p class="sp-cb">Best for anything private, like your account or billing. A real person reads every message.</p>
+            <a href="mailto:support@penpoint.app" class="btn btn-outline btn-sm"><i class="fa-solid fa-envelope" aria-hidden="true"></i>support@penpoint.app</a>
+          </div>
+        </div>
+
+        <!-- Minipen path: Settings > About > Diagnostics > "Share Logs" (MinipenApp src/pages/SettingsPage.tsx). -->
+        <p class="su-tip" data-animate="fade-up"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i><span><strong>Writing from Minipen?</strong> Open <strong>Settings</strong>, then <span class="su-ui">About</span>, and under <strong>Diagnostics</strong> tap <span class="su-ui">Share Logs</span>. Email the file or attach it to your Discord post. It holds app activity only, never your book's text.</span></p>
+
+        <div class="su-note" data-animate="fade-up">
+          <div class="sp-sticky" style="--r:-1.5deg;display:inline-block;text-align:left;">
+            <span class="sp-tape" aria-hidden="true"></span>
+            <p class="sp-hand">A great report says:</p>
+            <ul>
+              <li>Which app (the desktop app or Minipen)</li>
+              <li>Which device (Windows, Mac, Linux, iPhone, or Android)</li>
+              <li>What you did, and what happened instead</li>
+              <li>A screenshot, if you can</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         PRIVACY AND TERMS
+         =========================================== -->
+    <section class="su-sec">
+      <div class="su-wrap">
+        <p class="su-legal" data-animate="fade-up"><strong>Privacy and terms:</strong> the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a> cover both the desktop app and Minipen.</p>
+      </div>
+    </section>
+
   </main>
 
   <!-- ===== Shared site footer (see css/site-chrome.css) ===== -->
@@ -180,8 +330,7 @@
         <div class="pp-footer__col">
           <h4>Help</h4>
           <a href="/help" class="foot-link">Help Guide</a>
-          <a href="/support" class="foot-link">Support</a>
-          <a href="mailto:support@penpoint.app" class="foot-link">Email Support</a>
+          <a href="/support" class="foot-link">Contact Support</a>
           <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" class="foot-link">Discord</a>
         </div>
         <div class="pp-footer__col">
@@ -199,6 +348,29 @@
     </div>
   </footer>
 
-  <script src="js/site-chrome.js"></script>
+</div>
+
+<!-- Scroll reveal (as /novel-november). Reduced motion and no-observer browsers show everything at once. -->
+<script>
+(function () {
+  var els = Array.prototype.slice.call(document.querySelectorAll('[data-animate]'));
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('animate-in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+<script src="js/site-chrome.js"></script>
 </body>
 </html>

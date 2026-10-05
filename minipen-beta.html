@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    document.documentElement.classList.add('js-ready');
+  </script>
+  <!-- UNLISTED: noindex, not in the sitemap, not in any nav. Joel decides when it goes public.
+       Never link this page from inside Minipen: the phone app may not point at pages with a Buy
+       button while it is under store review (MinipenApp src/lib/sync/copy.ts, StoreLaunchChecklist row 37). -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Minipen beta: set up Penpoint on your phone</title>
+  <meta name="description" content="Step-by-step setup for the Minipen open beta: install Penpoint Staging on your computer, set up Penpoint Cloud, then sign in to Minipen on your iPhone or Android phone.">
+
+  <!-- Open Graph (Discord shows this card when the link is shared) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://penpoint.app/minipen-beta">
+  <meta property="og:title" content="Minipen beta: set up Penpoint on your phone">
+  <meta property="og:description" content="Install Penpoint Staging, set up Penpoint Cloud, and sign in to Minipen on your iPhone or Android phone. Step by step.">
+  <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Penpoint">
+  <meta property="og:locale" content="en_US">
+  <meta name="theme-color" content="#FFF7E6">
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-79JVXYBCTN');
+  </script>
+
+  <!-- Google Fonts. Caveat is the sticky-note hand lettering, as on /novel-november. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/site-chrome.css">
+
+  <!-- Font Awesome (platform + step icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* ===========================================
+       MINIPEN BETA FRONT DOOR
+       /novel-november's desk look (paper grain, manila cards, sticky notes,
+       Caveat lettering) carrying trial.html's download picker and install guide.
+       Self-contained like those two pages: only site-chrome.css is shared.
+       =========================================== */
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--paper,#FCF8F0);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+    img{max-width:100%;}
+    ::selection{background:var(--accent-bright,#DDA964);color:#29241E;}
+    a{transition:opacity .2s ease, background .2s ease, color .2s ease;}
+    [id]{scroll-margin-top:84px;}
+
+    /* Section scaffolding (as /novel-november) */
+    .tri-sec{padding:clamp(48px,7vw,92px) clamp(20px,5vw,52px);}
+    .tri-wrap{max-width:920px;margin:0 auto;}
+    .mb-wide{max-width:1040px;margin:0 auto;}
+    .tri-kicker{display:flex;align-items:center;justify-content:center;gap:clamp(10px,1.4vw,16px);font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1.35vw,16px);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#A4521D;margin:0 0 20px;}
+    .tri-kicker::before,.tri-kicker::after{content:"";flex:none;width:clamp(22px,3.6vw,44px);height:2px;background:currentColor;opacity:.5;}
+    .tri-h2{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.08;letter-spacing:-0.02em;color:#29241E;margin:0;text-wrap:balance;}
+    .tri-h2 em{font-style:italic;font-weight:400;}
+    .mb-head{text-align:center;max-width:680px;margin:0 auto clamp(28px,4vw,44px);}
+    .mb-lede{font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,18px);line-height:1.6;color:#5C4332;margin:16px auto 0;max-width:620px;text-wrap:pretty;}
+    .mb-lede strong{color:#29241E;font-weight:600;}
+    .mb-alt{background:var(--paper-alt,#F4EBD8);border-top:1px solid #E6DCCD;border-bottom:1px solid #E6DCCD;}
+    .mb-grain{
+      background-color:#F8EFDB;
+      background-image:
+        radial-gradient(ellipse at 50% 40%, rgba(255,252,242,0.9) 0%, rgba(248,239,219,0) 62%),
+        radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 60%, rgba(120,80,30,0.10) 100%),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' seed='4'/><feColorMatrix values='0 0 0 0 0.45  0 0 0 0 0.32  0 0 0 0 0.16  0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+
+    /* On-load fade for the hero, scroll reveal for the rest (State of the Pen's data-animate pattern) */
+    @keyframes triFade{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+    .tri-in{animation:triFade .7s cubic-bezier(.2,.7,.2,1) both;}
+    .js-ready [data-animate]{opacity:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
+    [data-animate].animate-in{animation:triFade .7s cubic-bezier(.2,.7,.2,1) forwards;}
+    [data-animate][data-stagger="1"].animate-in{animation-delay:80ms;}
+    [data-animate][data-stagger="2"].animate-in{animation-delay:160ms;}
+    [data-animate][data-stagger="3"].animate-in{animation-delay:240ms;}
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto;}
+      .tri-in,[data-animate].animate-in{animation:none !important;}
+      .js-ready [data-animate]{opacity:1;}
+    }
+
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-weight:600;text-decoration:none;cursor:pointer;border:none;line-height:1.2;transition:transform .2s ease, box-shadow .2s ease, background .2s ease;}
+    .btn-primary{background:var(--accent,#CD6E2C);color:#FFF7E6;}
+    .btn-primary:hover{background:#B85F22;transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:#29241E;border:1px solid #C9B79A;}
+    .btn-outline:hover{background:#F1E6D2;}
+    .btn-dark{background:#29241E;color:#FEF9F0;}
+    .btn-dark:hover{background:#3D342A;transform:translateY(-1px);}
+    .btn-lg{font-size:16px;padding:13px 30px;}
+    .btn-xl{font-size:18px;padding:16px 38px;}
+    .btn-sm{font-size:14px;padding:9px 18px;}
+    .btn-shadow{box-shadow:0 8px 16px -10px rgba(61,46,28,.42);}
+    .btn-shadow:hover{box-shadow:0 12px 22px -12px rgba(61,46,28,.5);}
+    .btn i{margin-right:9px;}
+
+    /* Paper (State of the Pen) */
+    .sp-card{
+      position:relative;box-sizing:border-box;padding:clamp(18px,2.6vw,30px);
+      background-color:#FFFDF7;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='9'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0 0.25  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      box-shadow:0 1px 2px rgba(60,35,10,0.10), 0 14px 30px rgba(60,35,10,0.13);
+      transform:rotate(var(--r,0deg));
+    }
+    .sp-card--manila{background-color:#EFE2C2;}
+    .sp-sticky{position:relative;padding:clamp(16px,2.4vw,26px) clamp(18px,2.6vw,30px);background:#F8E08A;box-shadow:0 1px 2px rgba(60,35,10,0.12), 0 12px 24px rgba(60,35,10,0.16);transform:rotate(var(--r,0deg));}
+    .sp-sticky--blue{background:#CFE2EE;}
+    .sp-tape{position:absolute;top:-13px;left:50%;width:96px;height:26px;margin-left:-48px;background:rgba(233,221,188,0.85);box-shadow:0 1px 2px rgba(0,0,0,0.08);transform:rotate(-3deg);}
+    .sp-label{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:clamp(12px,1.05vw,13px);letter-spacing:0.16em;text-transform:uppercase;color:var(--c,#A4521D);margin:0;}
+    .sp-ct{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(1.3rem,2.3vw,1.65rem);line-height:1.12;letter-spacing:-0.012em;color:#29241E;margin:8px 0;text-wrap:balance;}
+    .sp-cb{font-family:'Source Serif 4',serif;font-size:0.98rem;line-height:1.55;color:#5A4A36;margin:0;text-wrap:pretty;}
+    .sp-cb strong{color:#29241E;font-weight:600;}
+    .sp-hand{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.1;color:#2A4A8A;margin:0;text-wrap:balance;}
+    .sp-sticky .sp-hand{color:#3A3020;}
+    .sp-sticky--blue .sp-hand{color:#23364F;}
+    .sp-chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;padding:6px 10px;background:var(--chip-bg,rgba(205,110,44,0.12));color:var(--c,#A4521D);white-space:nowrap;}
+
+    /* ----- Hero ----- */
+    .mb-hero{padding:clamp(52px,9vw,112px) clamp(20px,5vw,52px) clamp(56px,8vw,96px);text-align:center;border-bottom:1px solid #E6DCCD;}
+    .mb-hero__h1{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(36px,6.2vw,72px);line-height:1.06;letter-spacing:-0.022em;color:#29241E;margin:0 auto clamp(20px,2.8vw,28px);max-width:900px;text-wrap:balance;}
+    .mb-hero__h1 em{display:block;font-style:italic;font-weight:400;margin-top:.12em;}
+    .mb-hero__sub{font-family:'Source Serif 4',serif;font-size:clamp(17px,2vw,21px);line-height:1.58;color:#5C4A33;max-width:640px;margin:0 auto;text-wrap:pretty;}
+    .mb-hero__chip{margin:0 0 22px;}
+
+    /* The four-step map under the hero copy */
+    .mb-map{list-style:none;padding:0;margin:clamp(32px,4.6vw,48px) auto 0;max-width:920px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.8vw,18px);text-align:left;}
+    .mb-map a{display:flex;flex-direction:column;gap:6px;height:100%;padding:16px 18px 18px;background:#FFFDF7;border:1px solid #E0D2BC;box-shadow:0 10px 24px -20px rgba(61,46,28,.5);text-decoration:none;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;}
+    .mb-map a:hover{transform:translateY(-2px);border-color:#CD6E2C;box-shadow:0 16px 28px -20px rgba(61,46,28,.55);}
+    .mb-map__n{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#A4521D;}
+    .mb-map__t{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(19px,2vw,22px);line-height:1.15;color:#29241E;}
+    .mb-map__s{font-family:'Source Serif 4',serif;font-size:14px;line-height:1.45;color:#7C5236;}
+    @media(max-width:860px){.mb-map{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    /* Phones: a compact 2x2 grid of step names; the one-line summaries would make it four screens tall. */
+    @media(max-width:480px){.mb-map{gap:10px;}.mb-map a{padding:12px 14px;}.mb-map__s{display:none;}}
+
+    /* What you need: open columns split by thin rules (/novel-november's promises) */
+    .mb-needs{list-style:none;margin:clamp(28px,3.6vw,38px) auto 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:820px;}
+    .mb-needs li{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;padding:2px clamp(10px,1.6vw,18px);border-left:1px solid #D9C6A5;}
+    .mb-needs li:first-child{border-left:none;}
+    .mb-needs i{font-size:17px;color:var(--accent,#CD6E2C);margin-bottom:4px;}
+    .mb-needs__t{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(19px,2.1vw,22px);line-height:1.15;color:#29241E;}
+    .mb-needs__s{font-family:'Source Serif 4',serif;font-size:14.5px;line-height:1.45;color:#7C5236;text-wrap:balance;}
+    /* The early pointer to the FAQ, so nobody has to find it by scrolling */
+    .mb-faq-hint{margin:clamp(24px,3.2vw,34px) auto 0;font-family:'Source Serif 4',serif;font-size:clamp(15px,1.6vw,16.5px);line-height:1.5;color:#5C4332;text-wrap:balance;}
+    .mb-faq-hint i{color:var(--accent,#CD6E2C);margin-right:8px;}
+    .mb-faq-hint a{color:var(--accent,#CD6E2C);font-weight:600;}
+    @media(max-width:620px){
+      .mb-needs{grid-template-columns:1fr;max-width:360px;}
+      .mb-needs li{display:grid;grid-template-columns:30px 1fr;column-gap:12px;align-items:start;text-align:left;border-left:none;border-top:1px solid #D9C6A5;padding:12px 0;}
+      .mb-needs li:first-child{border-top:none;padding-top:0;}
+      .mb-needs i{grid-row:1 / 3;margin:4px 0 0;text-align:center;}
+      .mb-needs__s{text-wrap:pretty;}
+    }
+
+    /* ----- What Minipen is: real screenshots + the computer > cloud > phone line ----- */
+    .mb-shots{display:flex;justify-content:center;align-items:flex-start;gap:clamp(18px,3.4vw,40px);flex-wrap:wrap;margin:0 auto;}
+    .mb-shot{margin:0;width:clamp(180px,24vw,236px);text-align:center;}
+    .mb-shot__frame{padding:7px;border-radius:34px;background:linear-gradient(155deg,#43464d 0%,#191a1e 46%,#0b0c0f 100%);box-shadow:0 34px 60px -32px rgba(0,0,0,0.6), inset 0 0 0 1.5px rgba(255,255,255,0.07);transform:rotate(var(--r,0deg));}
+    .mb-shot__frame img{display:block;width:100%;height:auto;aspect-ratio:600/1304;border-radius:28px;background:#FFF7E6;}
+    .mb-shot figcaption{font-family:'Source Serif 4',serif;font-size:15px;line-height:1.45;color:#5C4332;margin-top:18px;text-wrap:balance;}
+    .mb-shot figcaption strong{display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#A4521D;margin-bottom:4px;}
+    /* Phones: the three screenshots become a sideways swipe instead of three screens of scrolling. */
+    @media(max-width:620px){
+      .mb-shots{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin:0 calc(-1 * clamp(20px,5vw,52px));padding:4px clamp(20px,5vw,52px) 14px;gap:18px;scrollbar-width:none;}
+      .mb-shots::-webkit-scrollbar{display:none;}
+      .mb-shot{flex:none;width:min(220px,62vw);scroll-snap-align:center;}
+      .mb-shot__frame{transform:none;}
+    }
+
+    .mb-flow{display:grid;grid-template-columns:minmax(0,1fr) 48px minmax(0,1fr) 48px minmax(0,1fr);align-items:center;max-width:860px;margin:clamp(40px,5.6vw,60px) auto 0;}
+    .mb-flow__box{text-align:center;padding:18px 16px;}
+    .mb-flow__box i{font-size:26px;color:var(--accent,#CD6E2C);margin-bottom:10px;}
+    .mb-flow__box .sp-ct{font-size:clamp(1.15rem,2vw,1.35rem);margin:2px 0 4px;}
+    .mb-flow__arrow{justify-self:center;color:#2A4A8A;font-size:22px;}
+    .mb-flow-note{text-align:center;max-width:640px;margin:clamp(24px,3.4vw,32px) auto 0;font-family:'Source Serif 4',serif;font-size:clamp(15px,1.7vw,17px);line-height:1.6;color:#5C4332;text-wrap:balance;}
+    .mb-flow-note strong{color:#29241E;font-weight:600;}
+    @media(max-width:760px){
+      .mb-flow{grid-template-columns:1fr;max-width:340px;row-gap:6px;}
+      .mb-flow__arrow{transform:rotate(90deg);}
+    }
+
+    /* ----- Read this first: the honest beta box (/novel-november's December 1 card) ----- */
+    .mb-rows{max-width:780px;margin:0 auto;background:var(--paper,#FCF8F0);border:1px solid #DDCBAE;box-shadow:0 24px 50px -38px rgba(61,46,28,.4);}
+    .mb-row{display:flex;gap:18px;align-items:flex-start;padding:clamp(18px,2.6vw,24px) clamp(20px,3vw,32px);border-top:1px solid #E6DCCD;}
+    .mb-row:first-child{border-top:none;}
+    .mb-row > i{flex:none;width:24px;text-align:center;font-size:18px;color:var(--accent,#CD6E2C);margin-top:4px;}
+    .mb-row p{font-family:'Source Serif 4',serif;font-size:clamp(15.5px,1.7vw,17px);line-height:1.6;color:#5C4332;margin:0;text-wrap:pretty;}
+    .mb-row strong{color:#29241E;font-weight:600;}
+    .mb-row a{color:var(--accent,#CD6E2C);font-weight:600;}
+
+    /* ----- Steps ----- */
+    .mb-step-head{text-align:center;max-width:700px;margin:0 auto clamp(30px,4.4vw,46px);}
+    .mb-step-head .mb-lede{text-wrap:balance;}
+    .mb-step-num{display:inline-flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:50%;background:#29241E;color:#FEF9F0;font-family:'Newsreader',serif;font-weight:500;font-size:30px;margin-bottom:14px;box-shadow:0 10px 22px -14px rgba(41,36,30,.7);}
+    .mb-subs{display:flex;flex-direction:column;gap:clamp(22px,3vw,32px);max-width:820px;margin:0 auto;}
+    .mb-sub{padding:clamp(22px,3.2vw,36px);}
+    .mb-sub__head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px;}
+    .mb-sub__head .sp-ct{margin:0;}
+    .mb-sub__intro{font-family:'Source Serif 4',serif;font-size:clamp(15.5px,1.7vw,17px);line-height:1.6;color:#5C4332;margin:10px 0 0;text-wrap:pretty;}
+    .mb-sub__intro strong{color:#29241E;font-weight:600;}
+    .mb-where{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#3E6598;margin:22px 0 0;display:flex;align-items:center;gap:8px;}
+    .mb-where i{font-size:14px;}
+    .mb-where svg{flex:none;fill:currentColor;}
+
+    /* Numbered instructions with big round markers */
+    .mb-ol{list-style:none;counter-reset:mb;margin:16px 0 0;padding:0;}
+    .mb-ol > li{counter-increment:mb;position:relative;padding:0 0 0 44px;margin:0 0 16px;font-family:'Source Serif 4',serif;font-size:clamp(15.5px,1.7vw,17px);line-height:1.6;color:#4A3C2A;text-wrap:pretty;}
+    .mb-ol > li:last-child{margin-bottom:0;}
+    .mb-ol > li::before{content:counter(mb);position:absolute;left:0;top:-1px;width:30px;height:30px;border-radius:50%;background:#F1E2C6;border:1px solid #D9C6A5;color:#7C5236;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:14px;display:flex;align-items:center;justify-content:center;}
+    .mb-ol--cont{counter-reset:none;}
+    .mb-ol strong{color:#29241E;font-weight:600;}
+    .mb-ol a:not(.btn){color:var(--accent,#CD6E2C);font-weight:600;}
+    .mb-ol .btn{margin-top:10px;}
+    /* An on-screen label the writer looks for: a button, a menu entry, a heading */
+    .mb-ui{display:inline-block;font-family:'Source Serif 4',serif;font-weight:600;font-size:.92em;line-height:1.35;color:#29241E;background:#FFFFFF;border:1px solid #D9C6A5;border-bottom-width:2px;padding:0 7px;white-space:nowrap;}
+    /* "You'll see one of two screens" branches inside a step */
+    .mb-choices{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;}
+    .mb-choices li{position:relative;padding:10px 14px 10px 30px;background:#FBF6EA;border:1px solid #E6DCCD;}
+    .mb-choices li::before{content:"";position:absolute;left:13px;top:19px;width:7px;height:7px;border-radius:50%;background:var(--accent,#CD6E2C);}
+    code.mb-file{font-family:'IBM Plex Mono',monospace;font-size:.86em;background:#EFE3CC;padding:2px 6px;overflow-wrap:anywhere;}
+
+    /* Notes inside a step */
+    .mb-tip{display:flex;gap:12px;align-items:flex-start;margin:20px 0 0;padding:14px 16px;background:#FBF3DF;border-left:3px solid #DDA964;font-family:'Source Serif 4',serif;font-size:15.5px;line-height:1.55;color:#4A3C2A;text-wrap:pretty;}
+    .mb-tip > i{color:#B8862E;margin-top:4px;flex:none;}
+    .mb-tip strong{color:#29241E;font-weight:600;}
+    .mb-tip a{color:var(--accent,#CD6E2C);font-weight:600;}
+    .mb-tip--warn{background:#FBEDE4;border-left-color:#CD6E2C;}
+    .mb-tip--warn > i{color:#B85F22;}
+
+    /* The Lemon Squeezy test card */
+    .mb-card{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:baseline;max-width:460px;margin:14px 0 4px;padding:18px 20px;background:#29241E;color:#FEF9F0;box-shadow:0 18px 30px -20px rgba(41,36,30,.8);}
+    .mb-card__k{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#DDA964;}
+    .mb-card__v{font-family:'Source Serif 4',serif;font-size:15px;color:#FEF9F0;}
+    .mb-card__num{font-family:'IBM Plex Mono',monospace;font-size:clamp(17px,2.2vw,20px);font-weight:600;letter-spacing:.06em;color:#FFFFFF;white-space:nowrap;}
+    .mb-card__copy{grid-column:1 / -1;justify-self:start;margin-top:8px;background:#3D342A;color:#FEF9F0;font-size:13px;padding:7px 14px;}
+    .mb-card__copy:hover{background:#4A4034;}
+    @media(max-width:420px){.mb-card{grid-template-columns:1fr;gap:2px;}.mb-card__v{margin-bottom:8px;}}
+
+    /* Download card + OS picker (trial.html) */
+    .download-area{text-align:center;padding:clamp(24px,3.6vw,36px) clamp(18px,3vw,32px);background:var(--paper-alt,#F4EBD8);border:1px solid #E0D2BC;margin-top:18px;min-height:220px;display:flex;flex-direction:column;justify-content:center;}
+    .download-area[hidden],.mb-phone-card[hidden]{display:none;}
+    .download-area__version{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#7C5236;margin-bottom:clamp(16px,2.4vw,22px);}
+    .download-area__buttons{display:flex;flex-direction:column;align-items:center;gap:18px;}
+    .os-picker{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;width:100%;}
+    .os-pick{flex:1 1 0;min-width:120px;max-width:190px;display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'Source Serif 4',serif;font-size:16px;font-weight:600;padding:14px 16px;background:var(--paper,#FCF8F0);border:1px solid #DDCBAE;color:#7C5236;cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease;}
+    .os-pick i{font-size:18px;}
+    .os-pick:hover{color:#29241E;background:#F1E6D2;}
+    .os-pick.is-active{color:#FEF9F0;background:#29241E;border-color:#29241E;}
+    .os-pick:disabled,.os-pick.is-disabled{opacity:.4;cursor:default;background:var(--paper,#FCF8F0);color:#7C5236;}
+    .picker-divider{border:none;border-top:1px solid #DDCBAE;width:100%;max-width:360px;margin:0 auto;}
+    .version-picker{display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;}
+    .version-picker__label{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#7C5236;}
+    .version-picker__options{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+    .version-btn{flex-direction:column;align-items:center;gap:4px;min-width:200px;padding:15px 24px;}
+    .version-btn__name{display:inline-flex;align-items:center;}
+    .version-hint{font-size:12px;font-weight:400;opacity:.85;}
+    .version-picker__note{font-family:'Source Serif 4',serif;font-size:13px;line-height:1.5;color:#7C5236;max-width:460px;margin:0 auto;}
+    .version-picker__options.fade-in{animation:triFade .4s cubic-bezier(.2,.7,.2,1) both;}
+    @media(prefers-reduced-motion:reduce){.version-picker__options.fade-in{animation:none;}}
+
+    /* On a phone the picker gives way to this card (Penpoint Staging is a desktop app) */
+    .mb-phone-card{text-align:center;padding:clamp(26px,6vw,40px) clamp(18px,5vw,30px);background:var(--paper-alt,#F4EBD8);border:1px solid #E0D2BC;margin-top:18px;}
+    .mb-phone-card > i{font-size:34px;color:var(--accent,#CD6E2C);margin-bottom:12px;}
+    .mb-phone-card p{font-family:'Source Serif 4',serif;font-size:16px;line-height:1.55;color:#5C4A33;max-width:440px;margin:0 auto 16px;text-wrap:pretty;}
+    .mb-phone-card strong{color:#29241E;font-weight:600;}
+
+    /* Tabs: the install guide (Windows / macOS / Linux) and the phone choice (iPhone / Android) */
+    .mb-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 18px;}
+    .mb-tabs--center{justify-content:center;}
+    button.mb-tab{font-family:'Source Serif 4',serif;font-size:15px;font-weight:600;padding:10px 22px;background:var(--paper,#FCF8F0);border:1px solid #DDCBAE;cursor:pointer;color:#7C5236;transition:background .2s ease,color .2s ease,border-color .2s ease;}
+    button.mb-tab i{margin-right:8px;}
+    button.mb-tab:hover{color:#29241E;background:#F1E6D2;}
+    button.mb-tab.is-active{color:#FEF9F0;background:#29241E;border-color:#29241E;}
+    .mb-tabs--big button.mb-tab{font-size:17px;padding:14px 30px;min-width:170px;}
+    @media(max-width:480px){.mb-tabs--big{flex-wrap:nowrap;}.mb-tabs--big button.mb-tab{flex:1 1 0;min-width:0;padding:13px 10px;}}
+    .mb-panel{animation:triFade .35s cubic-bezier(.2,.7,.2,1) both;}
+    .mb-panel[hidden]{display:none;}
+    @media(prefers-reduced-motion:reduce){.mb-panel{animation:none;}}
+    .mb-panel > p{font-family:'Source Serif 4',serif;font-size:15.5px;line-height:1.6;color:#5C4332;margin:0 0 10px;text-wrap:pretty;}
+    .mb-panel > p strong{color:#29241E;font-weight:600;}
+    /* Sentence case on purpose: "iOS" and "iPad" must not be uppercased. */
+    .mb-panel > p.mb-req{display:inline-flex;align-items:center;gap:8px;font-family:'Source Serif 4',serif;font-weight:600;font-size:15px;color:#3F5E35;background:rgba(94,127,82,.13);padding:7px 12px;margin:0 0 8px;}
+
+    /* The two-phone install panels sit in one wide card */
+    .mb-phone-step{max-width:820px;margin:0 auto;}
+
+    /* Feedback */
+    .mb-fb{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.6vw,26px);max-width:1000px;margin:0 auto;}
+    .mb-fb .sp-card{display:flex;flex-direction:column;}
+    .mb-fb .sp-cb{margin-bottom:16px;}
+    .mb-fb .btn{align-self:flex-start;margin-top:auto;}
+    .mb-fb .mb-ui{white-space:normal;}
+    @media(max-width:860px){.mb-fb{grid-template-columns:1fr;max-width:560px;}}
+    .mb-fb-note{max-width:640px;margin:clamp(30px,4.4vw,44px) auto 0;text-align:center;}
+    .mb-fb-note .sp-hand{font-size:clamp(1.45rem,2.6vw,1.8rem);}
+    .mb-fb-note ul{list-style:none;padding:0;margin:10px 0 0;font-family:'Source Serif 4',serif;font-size:15.5px;line-height:1.7;color:#3A3020;}
+
+    /* FAQ */
+    .mb-faq{max-width:780px;margin:0 auto;border-top:1px solid #DDCBAE;}
+    .mb-faq details{border-bottom:1px solid #DDCBAE;}
+    .mb-faq summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;gap:14px;padding:20px 4px;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(19px,2.1vw,22px);line-height:1.25;color:#29241E;}
+    .mb-faq summary::-webkit-details-marker{display:none;}
+    .mb-faq summary::before{content:"+";flex:none;width:22px;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:20px;line-height:1.2;color:var(--accent,#CD6E2C);transition:transform .2s ease;}
+    .mb-faq details[open] summary::before{content:"\2212";}
+    .mb-faq summary:hover{color:#A4521D;}
+    .mb-faq__a{padding:0 4px 22px 40px;animation:triFade .3s cubic-bezier(.2,.7,.2,1) both;}
+    .mb-faq__a p{font-family:'Source Serif 4',serif;font-size:clamp(15.5px,1.7vw,17px);line-height:1.6;color:#5C4332;margin:0 0 12px;text-wrap:pretty;}
+    .mb-faq__a p:last-child{margin-bottom:0;}
+    .mb-faq__a strong{color:#29241E;font-weight:600;}
+    .mb-faq__a a{color:var(--accent,#CD6E2C);font-weight:600;}
+    @media(prefers-reduced-motion:reduce){.mb-faq__a{animation:none;}}
+
+    /* Contact links */
+    .contact-links{display:flex;gap:16px 32px;flex-wrap:wrap;justify-content:center;margin-top:clamp(22px,3vw,28px);}
+    .contact-link{display:inline-flex;align-items:center;gap:9px;font-family:'Source Serif 4',serif;font-weight:600;color:var(--accent,#CD6E2C);text-decoration:none;font-size:17px;}
+    .contact-link:hover{text-decoration:underline;}
+
+    /* Tilted paper only where there is room for it */
+    @media(max-width:560px){.sp-card,.sp-sticky{transform:none;}}
+    @media(max-width:640px){
+      .mb-row{gap:12px;padding:16px 16px 18px;}
+      .mb-sub{padding:22px 18px;}
+      .contact-links{flex-direction:column;align-items:center;gap:14px;}
+      .mb-ol > li{padding-left:40px;}
+      .mb-faq__a{padding-left:4px;}
+    }
+  </style>
+</head>
+<body>
+<div id="pp-root" style="font-family:'Source Serif 4',Georgia,serif;color:#3D2E1C;background:var(--paper,#FCF8F0);">
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ===== Shared site header (see css/site-chrome.css) ===== -->
+  <header class="pp-header">
+    <div class="pp-header__inner">
+      <a href="/" class="pp-logo" aria-label="Penpoint home">
+        <svg class="pp-logo__icon" viewBox="0 0 24 24" width="22" height="22" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+        <span class="pp-logo__text">Penpoint</span>
+      </a>
+      <nav class="pp-nav" aria-label="Primary">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" aria-label="Join our Discord" class="pp-nav__discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="/trial" class="pp-cta">Try Penpoint</a>
+      </nav>
+      <a href="/trial" class="pp-try-m">Try</a>
+      <button type="button" class="pp-burger" data-burger="" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="pp-mobile" data-mobile-menu="">
+      <div class="pp-mobile__inner">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===========================================
+         HERO
+         =========================================== -->
+    <section class="mb-hero mb-grain">
+      <p class="mb-hero__chip tri-in"><span class="sp-chip" style="--c:#3E6598;--chip-bg:rgba(62,101,152,0.14)">Open beta</span></p>
+      <h1 class="mb-hero__h1 tri-in" style="animation-delay:70ms;">Penpoint, in your pocket. <em>Help me test Minipen.</em></h1>
+      <p class="mb-hero__sub tri-in" style="animation-delay:150ms;">Minipen is the new phone companion to Penpoint. This page takes you from nothing to writing on your phone, one step at a time.</p>
+
+      <ol class="mb-map tri-in" style="animation-delay:230ms;" aria-label="The four setup steps">
+        <li><a href="#computer"><span class="mb-map__n">Step 1</span><span class="mb-map__t">On your computer</span><span class="mb-map__s">Install Penpoint Staging and set up Penpoint Cloud.</span></a></li>
+        <li><a href="#phone"><span class="mb-map__n">Step 2</span><span class="mb-map__t">On your phone</span><span class="mb-map__s">Install Minipen from TestFlight or Google Play.</span></a></li>
+        <li><a href="#sign-in"><span class="mb-map__n">Step 3</span><span class="mb-map__t">Sign in</span><span class="mb-map__s">Your email, a code, and your Cloud password.</span></a></li>
+        <li><a href="#feedback"><span class="mb-map__n">Step 4</span><span class="mb-map__t">Tell me</span><span class="mb-map__s">What broke, what confused you, what you loved.</span></a></li>
+      </ol>
+
+      <ul class="mb-needs tri-in" style="animation-delay:300ms;" aria-label="What you need">
+        <li><i class="fa-solid fa-laptop" aria-hidden="true"></i><span class="mb-needs__t">A computer</span><span class="mb-needs__s">Windows or Mac. Linux works too.</span></li>
+        <li><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i><span class="mb-needs__t">A phone</span><span class="mb-needs__s">iPhone on iOS 16.2 or later, or Android 7.0 or later.</span></li>
+        <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><span class="mb-needs__t">Your email</span><span class="mb-needs__s">Sign-in codes arrive there.</span></li>
+      </ul>
+
+      <p class="mb-faq-hint tri-in" style="animation-delay:360ms;"><i class="fa-solid fa-circle-question" aria-hidden="true"></i>Stuck on a step? <a href="#faq">Check the common questions first.</a></p>
+    </section>
+
+
+    <!-- ===========================================
+         WHAT MINIPEN IS
+         Screenshots: MinipenApp docs/deployment/store-assets/appstore/iphone69-03/-04/-05.png
+         (real app, Sherlock Holmes fixture), resized to 600px webp.
+         =========================================== -->
+    <section id="what" class="tri-sec">
+      <div class="mb-wide">
+        <div class="mb-head" data-animate="fade-up">
+          <p class="tri-kicker">What it is</p>
+          <h2 class="tri-h2">Your books, on your phone. <em>Synced with your computer.</em></h2>
+          <p class="mb-lede">Read and write your manuscript, check on a character or a place mid-scene, and add notes wherever you are. When you get back to your desk, everything you did on your phone is waiting in Penpoint.</p>
+        </div>
+
+        <div class="mb-shots">
+          <figure class="mb-shot" data-animate="fade-up">
+            <div class="mb-shot__frame" style="--r:-2deg"><img src="images/minipen-beta/minipen-write.webp" width="600" height="1304" alt="Minipen showing chapter one of a manuscript, with a formatting toolbar along the bottom of the screen" loading="lazy" decoding="async"></div>
+            <figcaption><strong>Write</strong>Your manuscript, with bold, italics, comments, and notes.</figcaption>
+          </figure>
+          <figure class="mb-shot" data-animate="fade-up" data-stagger="1">
+            <div class="mb-shot__frame" style="--r:1deg"><img src="images/minipen-beta/minipen-character.webp" width="600" height="1304" alt="Minipen showing the character page for Dr. John Watson, with his portrait and bio" loading="lazy" decoding="async"></div>
+            <figcaption><strong>Look it up</strong>Your cast, with portraits, bios, and everything else you've written.</figcaption>
+          </figure>
+          <figure class="mb-shot" data-animate="fade-up" data-stagger="2">
+            <div class="mb-shot__frame" style="--r:2.5deg"><img src="images/minipen-beta/minipen-locations.webp" width="600" height="1304" alt="Minipen showing a book's locations as a tree, from London down to individual rooms" loading="lazy" decoding="async"></div>
+            <figcaption><strong>Your world</strong>Places, items, notes, and arcs, the same as on your computer.</figcaption>
+          </figure>
+        </div>
+
+        <div class="mb-flow" data-animate="fade-up" aria-label="How your books reach your phone">
+          <div class="sp-card mb-flow__box" style="--r:-0.6deg"><i class="fa-solid fa-laptop" aria-hidden="true"></i><p class="sp-label">Your computer</p><p class="sp-ct">Penpoint Staging</p><p class="sp-cb">Where your books and your account start.</p></div>
+          <i class="fa-solid fa-arrow-right-arrow-left mb-flow__arrow" aria-hidden="true"></i>
+          <div class="sp-card mb-flow__box" style="--r:0.4deg"><i class="fa-solid fa-cloud" aria-hidden="true"></i><p class="sp-label">In between</p><p class="sp-ct">Penpoint Cloud</p><p class="sp-cb">Keeps both sides in step, encrypted.</p></div>
+          <i class="fa-solid fa-arrow-right-arrow-left mb-flow__arrow" aria-hidden="true"></i>
+          <div class="sp-card mb-flow__box" style="--r:-0.3deg"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i><p class="sp-label">Your phone</p><p class="sp-ct">Minipen</p><p class="sp-cb">Signs in and brings your books along.</p></div>
+        </div>
+        <p class="mb-flow-note" data-animate="fade-up"><strong>Minipen isn't a standalone app.</strong> It needs Penpoint on a computer, and your Penpoint Cloud account can only be created there. So setup starts at your desk.</p>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         READ THIS FIRST (the honest beta box)
+         =========================================== -->
+    <section id="first" class="tri-sec mb-alt">
+      <div class="tri-wrap">
+        <div class="mb-head" data-animate="fade-up">
+          <p class="tri-kicker">Before you start</p>
+          <h2 class="tri-h2">Read this first. <em>It's a beta.</em></h2>
+        </div>
+        <div class="mb-rows" data-animate="fade-up">
+          <div class="mb-row">
+            <i class="fa-solid fa-flask" aria-hidden="true"></i>
+            <p><strong>Expect bugs.</strong> Minipen and Penpoint Staging are both unfinished, and finding the rough edges is why you're here. Don't do work in the beta that you can't afford to lose, and keep your main manuscript in your regular Penpoint.</p>
+          </div>
+          <div class="mb-row">
+            <i class="fa-solid fa-clone" aria-hidden="true"></i>
+            <p><strong>Penpoint Staging is a separate test copy of Penpoint.</strong> It installs next to your regular Penpoint without replacing it, and it keeps its own library. Your regular books won't be in it until you <a href="#bring-a-book">bring a copy over</a>. It's the only version of Penpoint that can talk to Minipen during the beta.</p>
+          </div>
+          <div class="mb-row">
+            <i class="fa-solid fa-cloud" aria-hidden="true"></i>
+            <p><strong>The beta Cloud is a test Cloud.</strong> Your beta account and the cloud copies of your books live on my test servers. They will not carry over when Penpoint Cloud opens to everyone; you would set up a new account then. I may also need to clear the test Cloud during the beta. If I do, the books on your computer stay where they are.</p>
+          </div>
+          <div class="mb-row">
+            <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i>
+            <p><strong>Back up often.</strong> Every so often, export a <code class="mb-file">.penpoint</code> copy of the books you're testing with (<a href="#bring-a-book">Step 1B</a> shows how) and keep it somewhere safe, away from your computer.</p>
+          </div>
+          <div class="mb-row">
+            <i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i>
+            <p><strong>Moving a book back to your regular Penpoint waits for v1.3.6.</strong> Today's Penpoint (v1.3.5) can't open a book that Penpoint Staging has opened. The import looks like it worked, but the book won't open. Once Penpoint v1.3.6 is released, update your regular Penpoint and you can bring beta books back with <span class="mb-ui">Import Book…</span>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         STEP 1: ON YOUR COMPUTER
+         =========================================== -->
+    <section id="computer" class="tri-sec mb-grain">
+      <div class="mb-step-head" data-animate="fade-up">
+        <span class="mb-step-num" aria-hidden="true">1</span>
+        <p class="tri-kicker">Step 1</p>
+        <h2 class="tri-h2">On your computer.</h2>
+        <p class="mb-lede">Install Penpoint Staging, bring a book over if you like, and set up Penpoint Cloud.</p>
+      </div>
+
+      <div class="mb-subs">
+
+        <!-- 1A: download -->
+        <div class="sp-card mb-sub" id="download" data-animate="fade-up">
+          <div class="mb-sub__head"><p class="sp-label">1A</p><h3 class="sp-ct">Download Penpoint Staging</h3></div>
+          <p class="mb-sub__intro">Penpoint Staging is the test version of Penpoint. It's free to use during the beta, and it checks for each new beta version when it starts.</p>
+
+          <div class="download-area" id="dl-area">
+            <div class="download-area__version" id="dl-version">Loading version…</div>
+            <div class="download-area__buttons">
+              <div class="os-picker" id="dl-os-picker" role="group" aria-label="Choose your operating system">
+                <button type="button" class="os-pick" data-os="windows"><i class="fa-brands fa-windows"></i>Windows</button>
+                <button type="button" class="os-pick" data-os="mac"><i class="fa-brands fa-apple"></i>macOS</button>
+                <button type="button" class="os-pick" data-os="linux"><i class="fa-brands fa-linux"></i>Linux</button>
+              </div>
+              <hr class="picker-divider">
+              <div class="version-picker">
+                <span class="version-picker__label">Pick your version</span>
+                <div class="version-picker__options" id="dl-version-options">
+                  <a class="btn btn-primary btn-xl btn-shadow version-btn" href="mailto:support@penpoint.app?subject=Penpoint%20Staging%20download">Loading…</a>
+                </div>
+                <p class="version-picker__note" id="dl-version-note" style="display:none;"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phones: Penpoint Staging is a desktop installer, so a phone sees this instead of the picker. -->
+          <div class="mb-phone-card" id="dl-phone" hidden>
+            <i class="fa-solid fa-laptop" aria-hidden="true"></i>
+            <p><strong>You're on a phone.</strong> Penpoint Staging installs on a computer, so open this page there to download it. Send yourself the link:</p>
+            <button type="button" class="btn btn-dark btn-sm" data-copy-text="https://penpoint.app/minipen-beta"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copy this page's link</span></button>
+          </div>
+
+          <!-- The install steps follow the OS picker above (no second row of OS buttons). -->
+          <div id="dl-install">
+          <p class="mb-where"><i class="fa-solid fa-box-open" aria-hidden="true"></i>Then install it</p>
+          <div class="mb-panel" data-tab-group="install" data-panel="windows">
+            <ol class="mb-ol">
+              <li>Run the installer you downloaded (its name starts with <code class="mb-file">Penpoint.Staging</code> and ends in <code class="mb-file">.exe</code>).</li>
+              <li>Follow the prompts. <strong>Penpoint Staging</strong> opens when it's done, and it has its own icon so you can tell it apart from your regular Penpoint.</li>
+            </ol>
+            <p class="mb-tip"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span><strong>Won't open?</strong> <a href="/windows-help" target="_blank" rel="noopener">Check or repair Microsoft WebView2.</a></span></p>
+          </div>
+          <div class="mb-panel" data-tab-group="install" data-panel="mac" hidden>
+            <ol class="mb-ol">
+              <li>Open the <code class="mb-file">.dmg</code> file you downloaded.</li>
+              <li>Drag <strong>Penpoint Staging</strong> into your <strong>Applications</strong> folder.</li>
+              <li>Open Penpoint Staging from Applications. Your regular Penpoint stays where it is.</li>
+            </ol>
+          </div>
+          <div class="mb-panel" data-tab-group="install" data-panel="linux" hidden>
+            <ol class="mb-ol">
+              <li><strong>AppImage</strong> (updates itself): make it executable with <code class="mb-file">chmod +x Penpoint.Staging_*.AppImage</code>, then double-click it.</li>
+              <li><strong>.deb</strong> (Ubuntu, Debian, Mint): double-click the file and let your package manager install it. You update a .deb by hand each beta.</li>
+            </ol>
+          </div>
+          </div>
+        </div>
+
+        <!-- 1B: bring a book over -->
+        <div class="sp-card mb-sub" id="bring-a-book" data-animate="fade-up">
+          <div class="mb-sub__head"><p class="sp-label">1B</p><h3 class="sp-ct">Bring a book over</h3><span class="sp-chip" style="--c:#5E7F52;--chip-bg:rgba(94,127,82,0.13)">Optional</span></div>
+          <p class="mb-sub__intro">Want to test with your own writing? Copy a book from your regular Penpoint into Penpoint Staging. <strong>The original stays in your regular Penpoint, untouched.</strong> You can also start a brand-new book in Penpoint Staging instead.</p>
+
+          <!-- The Penpoint quill (same path as the site header and the app), not Font Awesome's feather. -->
+          <p class="mb-where"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/></svg>In your regular Penpoint</p>
+          <ol class="mb-ol">
+            <li>Go to your book library.</li>
+            <li>Right-click the book (on a Mac, Control-click), or click the <i class="fa-solid fa-ellipsis-vertical" aria-label="three-dot"></i> menu on its cover. Choose <span class="mb-ui">Export Book</span>.</li>
+            <li>Save the <code class="mb-file">.penpoint</code> file somewhere easy to find, like your Desktop.</li>
+          </ol>
+
+          <p class="mb-where"><i class="fa-solid fa-flask" aria-hidden="true"></i>In Penpoint Staging</p>
+          <ol class="mb-ol mb-ol--cont" start="4" style="counter-reset:mb 3;">
+            <li>In the book library, click the <i class="fa-solid fa-ellipsis-vertical" aria-label="three-dot"></i> menu at the top right (or right-click an empty spot) and choose <span class="mb-ui">Import Book…</span>.</li>
+            <li>Pick the <code class="mb-file">.penpoint</code> file and confirm with <span class="mb-ui">Import Book</span>.</li>
+          </ol>
+          <p class="mb-tip"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span><strong>Use Import Book, not a double-click.</strong> Double-clicking a <code class="mb-file">.penpoint</code> file opens it in your regular Penpoint, not in Penpoint Staging.</span></p>
+          <p class="mb-tip mb-tip--warn"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span><strong>One way only, for now.</strong> Don't import a book from Penpoint Staging into your regular Penpoint until Penpoint v1.3.6 is released. Today's Penpoint can't open it.</span></p>
+        </div>
+
+        <!-- 1C: Penpoint Cloud -->
+        <div class="sp-card mb-sub" id="cloud" data-animate="fade-up">
+          <div class="mb-sub__head"><p class="sp-label">1C</p><h3 class="sp-ct">Set up Penpoint Cloud</h3></div>
+          <p class="mb-sub__intro">This creates your Penpoint Cloud account. <strong>It can only be done here, on your computer.</strong> Minipen signs in to it later.</p>
+          <ol class="mb-ol">
+            <li>In Penpoint Staging, open <strong>Settings</strong>, choose <span class="mb-ui">Penpoint Cloud (Beta)</span>, and click <span class="mb-ui">Set up Penpoint Cloud</span>.</li>
+            <li>Enter your email and click <span class="mb-ui">Send code</span>. Type in the 6-digit code from your inbox. (Not there after a minute? Check your spam folder.)</li>
+            <!-- Two possible screens here. The "Free through November." gift card (Open Door, B6-31) appears
+                 only in Penpoint Staging builds newer than 1.3.6-beta.6 AND while staging's
+                 server_config.gift_claim_enabled is on (claim window ends 2026-11-30). Otherwise the
+                 plan screen shows and the test card below is the way in. Keep both branches until
+                 one of them can no longer happen. -->
+            <li>Next you'll see one of two screens:
+              <ul class="mb-choices">
+                <li><strong>"Free through November."</strong> Click <span class="mb-ui">Start now</span>. No card needed. Skip ahead to step 5.</li>
+                <li><strong>"Choose your plan."</strong> Pick <strong>Penpoint Sync</strong>. Minipen needs Sync; Backup doesn't work with the phone app. Monthly or Yearly makes no difference in the beta. Click <span class="mb-ui">Continue with Penpoint Sync</span>, then do step 4.</li>
+              </ul>
+            </li>
+            <li><strong>Only if you chose a plan:</strong> a checkout page opens in your web browser. It runs in test mode, so <strong>no real money is charged</strong>. Pay with this test card:
+              <div class="mb-card" aria-label="Test card details">
+                <span class="mb-card__k">Card number</span><span class="mb-card__num" id="mb-test-card">4242 4242 4242 4242</span>
+                <span class="mb-card__k">Expiry</span><span class="mb-card__v">Any date in the future</span>
+                <span class="mb-card__k">Security code</span><span class="mb-card__v">Any 3 digits</span>
+                <span class="mb-card__k">Name &amp; address</span><span class="mb-card__v">Anything real-looking</span>
+                <button type="button" class="btn mb-card__copy" data-copy-text="4242424242424242"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copy card number</span></button>
+              </div>
+              Back in Penpoint Staging, setup carries on by itself once checkout finishes. If it doesn't, click <span class="mb-ui">Check now</span>.
+            </li>
+            <li>On <span class="mb-ui">Create your password</span>, choose a password and save it in a password manager. It encrypts your books, and <strong>you'll type it on your phone in Step 3</strong>.</li>
+            <li>On <span class="mb-ui">Save your Recovery Kit</span>, save your 12 words somewhere other than this computer, then click <span class="mb-ui">Finish setup</span>.</li>
+          </ol>
+          <p class="mb-tip"><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i><span><strong>That's it for the computer.</strong> Every book in your Penpoint Staging library now uploads to Penpoint Cloud by itself; there's no switch to flip for each book. The one exception is the demo book. Rename it if you want it on your phone too.</span></p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         STEP 2: INSTALL MINIPEN
+         =========================================== -->
+    <section id="phone" class="tri-sec mb-alt">
+      <div class="mb-step-head" data-animate="fade-up">
+        <span class="mb-step-num" aria-hidden="true">2</span>
+        <p class="tri-kicker">Step 2</p>
+        <h2 class="tri-h2">Install Minipen on your phone.</h2>
+        <p class="mb-lede">Beta builds come through Apple's TestFlight on iPhone and a Google Play testing group on Android. Pick your phone.</p>
+      </div>
+
+      <div class="sp-card mb-sub mb-phone-step" data-animate="fade-up">
+        <div class="mb-tabs mb-tabs--center mb-tabs--big" role="tablist" aria-label="Your phone" data-tab-group="phone">
+          <button type="button" class="mb-tab is-active" role="tab" data-tab="iphone"><i class="fa-brands fa-apple"></i>iPhone</button>
+          <button type="button" class="mb-tab" role="tab" data-tab="android"><i class="fa-brands fa-android"></i>Android</button>
+        </div>
+
+        <div class="mb-panel" role="tabpanel" data-tab-group="phone" data-panel="iphone">
+          <p class="mb-req"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>iOS 16.2 or later · iPhone only, no iPad</p>
+          <ol class="mb-ol">
+            <li>Install Apple's free <strong>TestFlight</strong> app from the App Store.
+              <br><a class="btn btn-outline btn-sm" href="https://apps.apple.com/app/testflight/id899247664" target="_blank" rel="noopener"><i class="fa-brands fa-app-store-ios" aria-hidden="true"></i>Get TestFlight</a></li>
+            <!-- Public TestFlight link (Beta App Review approved build 1017, 2026-10-04; open to anyone, no tester cap).
+                 Apple's join page says "View in TestFlight"; TestFlight itself then shows Accept, then Install. -->
+            <li>On your iPhone, tap the button below. On Apple's page, tap <span class="mb-ui">View in TestFlight</span>, then tap <span class="mb-ui">Accept</span>.
+              <br><a class="btn btn-primary btn-lg btn-shadow" href="https://testflight.apple.com/join/JVw1VsRK" target="_blank" rel="noopener"><i class="fa-brands fa-apple" aria-hidden="true"></i>Join the Minipen beta</a></li>
+            <li>Tap <span class="mb-ui">Install</span>. Minipen appears on your home screen. New beta builds arrive in TestFlight from then on.</li>
+          </ol>
+        </div>
+
+        <div class="mb-panel" role="tabpanel" data-tab-group="phone" data-panel="android" hidden>
+          <p class="mb-req"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>Android 7.0 or later</p>
+          <p>Use the <strong>same Google account</strong> your Play Store uses for both links. If you have more than one Google account, check which one is signed in to your browser first.</p>
+          <ol class="mb-ol">
+            <li>Join the Minipen beta group, then tap <span class="mb-ui">Join group</span>.
+              <br><a class="btn btn-outline btn-sm" href="https://groups.google.com/g/minipen-beta-testers" target="_blank" rel="noopener"><i class="fa-solid fa-user-group" aria-hidden="true"></i>Join the beta group</a></li>
+            <li>Opt in to testing, then tap <span class="mb-ui">Become a tester</span>. It worked when the page shows a green <strong>"You are a tester."</strong> under the Minipen logo.
+              <br><a class="btn btn-outline btn-sm" href="https://play.google.com/apps/testing/com.penpoint.minipen" target="_blank" rel="noopener"><i class="fa-solid fa-flask" aria-hidden="true"></i>Opt in to testing</a></li>
+            <li>Install Minipen from Google Play, where it's listed as <strong>Penpoint – Minipen</strong>.
+              <br><a class="btn btn-primary btn-lg btn-shadow" href="https://play.google.com/store/apps/details?id=com.penpoint.minipen" target="_blank" rel="noopener"><i class="fa-brands fa-google-play" aria-hidden="true"></i>Minipen on Google Play</a></li>
+          </ol>
+          <p class="mb-tip"><i class="fa-solid fa-clock" aria-hidden="true"></i><span><strong>Play says it can't find the app?</strong> It can take a few minutes after you opt in before Play shows it. Wait a little, then try the link again.</span></p>
+        </div>
+
+        <p class="mb-tip"><i class="fa-solid fa-circle-question" aria-hidden="true"></i><span><strong>Stuck, or seeing a message you don't understand?</strong> The <a href="#faq">common questions</a> at the bottom of this page cover the usual ones.</span></p>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         STEP 3: SIGN IN
+         Labels from MinipenApp: MiniOnboarding.tsx, EmailScreen.tsx, CodeScreen.tsx,
+         UnlockScreen.tsx (copy.ts), SyncingScreen.tsx, SetupCompleteScreen.tsx.
+         =========================================== -->
+    <section id="sign-in" class="tri-sec mb-grain">
+      <div class="mb-step-head" data-animate="fade-up">
+        <span class="mb-step-num" aria-hidden="true">3</span>
+        <p class="tri-kicker">Step 3</p>
+        <h2 class="tri-h2">Sign in on your phone.</h2>
+        <p class="mb-lede">Use the same email you used for Penpoint Cloud on your computer.</p>
+      </div>
+      <div class="sp-card mb-sub" style="max-width:820px;margin:0 auto;" data-animate="fade-up">
+        <ol class="mb-ol">
+          <li>Open Minipen. On the welcome screen, tap the arrow, then tap <span class="mb-ui">Sign in to Penpoint Cloud</span>.</li>
+          <li>Enter your email and tap <span class="mb-ui">Send code</span>.</li>
+          <li>Type the 6-digit code from your email and tap <span class="mb-ui">Continue</span>.</li>
+          <li>Enter your <strong>Penpoint Cloud password</strong>, the one you created on your computer in Step 1C, and tap <span class="mb-ui">Unlock</span>.</li>
+          <li>Minipen shows <strong>Syncing with Penpoint Cloud</strong> while your books download. The first time can take a few minutes. When you see <strong>Welcome to Minipen!</strong>, tap <span class="mb-ui">Go to the Library</span>.</li>
+        </ol>
+        <p class="mb-tip"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span><strong>Minipen can't create accounts.</strong> If it says your email isn't set up with Penpoint Cloud yet, finish <a href="#cloud">Step 1C</a> on your computer first.</span></p>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         STEP 4: FEEDBACK
+         Minipen path: Settings > About > Diagnostics > "Share Logs" (MinipenApp src/pages/SettingsPage.tsx).
+         It opens the phone's share sheet; nothing uploads by itself.
+         =========================================== -->
+    <section id="feedback" class="tri-sec mb-alt">
+      <div class="mb-step-head" data-animate="fade-up">
+        <span class="mb-step-num" aria-hidden="true">4</span>
+        <p class="tri-kicker">Step 4</p>
+        <h2 class="tri-h2">Tell me what you find. <em>The good and the broken.</em></h2>
+        <p class="mb-lede">Every report helps, even "this confused me." That's exactly what a beta is for.</p>
+      </div>
+      <div class="mb-fb">
+        <div class="sp-card" style="--r:-0.6deg" data-animate="fade-up">
+          <p class="sp-label" style="--c:#3E6598">Discord</p>
+          <p class="sp-ct">Post it on the Penpoint Discord.</p>
+          <p class="sp-cb">Bugs go in <strong>#bug-report</strong>. Screenshots help a lot.</p>
+          <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" class="btn btn-dark btn-sm"><i class="fa-brands fa-discord" aria-hidden="true"></i>Join our Discord</a>
+        </div>
+        <div class="sp-card" style="--r:0.5deg" data-animate="fade-up" data-stagger="1">
+          <p class="sp-label">Email</p>
+          <p class="sp-ct">Write to me.</p>
+          <p class="sp-cb">Prefer email? I read every message.</p>
+          <a href="mailto:support@penpoint.app?subject=Minipen%20beta" class="btn btn-outline btn-sm"><i class="fa-solid fa-envelope" aria-hidden="true"></i>support@penpoint.app</a>
+        </div>
+        <div class="sp-card" style="--r:-0.4deg" data-animate="fade-up" data-stagger="2">
+          <p class="sp-label" style="--c:#5E7F52">From Minipen</p>
+          <p class="sp-ct">Send me the technical details.</p>
+          <p class="sp-cb">In Minipen, open <strong>Settings</strong>, then <span class="mb-ui">About</span>, and under <strong>Diagnostics</strong> tap <span class="mb-ui">Share Logs</span>. Your phone's share menu opens: email the file to me, or attach it to your Discord post. It holds app activity only, never your book's text.</p>
+        </div>
+      </div>
+      <div class="mb-fb-note" data-animate="fade-up">
+        <div class="sp-sticky" style="--r:-1.5deg;display:inline-block;text-align:left;">
+          <span class="sp-tape" aria-hidden="true"></span>
+          <p class="sp-hand">A great bug report says:</p>
+          <ul>
+            <li>Which phone you have (and iPhone or Android)</li>
+            <li>What you tapped, in order</li>
+            <li>What you expected, and what happened instead</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         FAQ
+         =========================================== -->
+    <section id="faq" class="tri-sec">
+      <div class="tri-wrap">
+        <div class="mb-head" data-animate="fade-up">
+          <p class="tri-kicker">If something's off</p>
+          <h2 class="tri-h2">Questions testers ask.</h2>
+        </div>
+        <div class="mb-faq" data-animate="fade-up">
+          <details>
+            <summary>I don't see my book on my phone.</summary>
+            <div class="mb-faq__a">
+              <p>Every book in your <strong>Penpoint Staging</strong> library goes to your phone by itself, so check these in order:</p>
+              <p><strong>Is it in Penpoint Staging?</strong> Books in your regular Penpoint don't sync. <a href="#bring-a-book">Bring a copy over</a> first.</p>
+              <p><strong>Is it the demo book?</strong> The demo book stays on the computer. Rename it to make it yours, and it will sync like any other book.</p>
+              <p><strong>Has it finished uploading?</strong> Open the book in Penpoint Staging, click the <strong>Saved</strong> indicator in the toolbar, and choose <span class="mb-ui">Sync now</span>. Then close and reopen Minipen.</p>
+              <p><strong>Same account?</strong> Your phone has to be signed in with the same email as your computer.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Minipen says it needs a newer version.</summary>
+            <div class="mb-faq__a">
+              <p>Messages like <strong>"Penpoint needs updating to sync"</strong>, or a book marked <strong>"Written in a newer version of Penpoint"</strong>, mean there's a newer Minipen waiting. On iPhone, open <strong>TestFlight</strong> and tap <span class="mb-ui">Update</span>. On Android, open <strong>Google Play</strong> and update Minipen there.</p>
+              <p>Penpoint Staging on your computer checks for new beta versions each time it starts, so keep it up to date too.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Can I sign up or buy anything on my phone?</summary>
+            <div class="mb-faq__a">
+              <p>No. Everything account-related, from creating your account to choosing a plan, happens in Penpoint on your computer. Minipen only signs in to an account you already have.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Minipen says my subscription has ended, but I never had one.</summary>
+            <div class="mb-faq__a">
+              <p>That screen appears whenever the account doesn't have Penpoint Sync yet. Finish <a href="#cloud">Step 1C</a> on your computer, then tap <span class="mb-ui">Check again</span> on your phone.</p>
+              <p>If it says <strong>"Mobile needs a Penpoint Cloud Sync subscription"</strong>, you picked Penpoint Backup. Switch to Penpoint Sync in Settings, Penpoint Cloud (Beta), on your computer.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Does my phone count as one of my devices?</summary>
+            <div class="mb-faq__a">
+              <p>Yes. One account can have <strong>5 devices in total</strong>, computers and phones together. Your regular Penpoint doesn't count; only Penpoint Staging and Minipen use the beta Cloud.</p>
+              <p>If you reach the limit, your phone shows <strong>"You've reached your device limit"</strong> with a <span class="mb-ui">Remove a device</span> button (a computer says "computer limit" instead). Removing a device signs it out; your books in Penpoint Cloud stay safe. Pick one you no longer use, since anything on it that hasn't synced yet won't come along.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What happens if I sign out of Minipen?</summary>
+            <div class="mb-faq__a">
+              <p>The copies of your books on your phone are removed. Your cloud copy and the books on your computer aren't touched. Sign in again and Minipen downloads them fresh.</p>
+            </div>
+          </details>
+          <details>
+            <summary>I forgot my Penpoint Cloud password.</summary>
+            <div class="mb-faq__a">
+              <p>Fix it on your computer. If Penpoint Staging is still signed in there, change the password in its Penpoint Cloud settings. If not, click <span class="mb-ui">Use your Recovery Kit</span> on the password screen and enter the 12 words you saved in <a href="#cloud">Step 1C</a>. Then sign in on your phone with the new password.</p>
+              <p>No one, including me, can reset this password for you, because it's what encrypts your books.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Will my beta account carry over to the real Penpoint Cloud?</summary>
+            <div class="mb-faq__a">
+              <p>No. The beta runs on a separate test Cloud, and nothing moves from it when Penpoint Cloud opens to everyone. Your books on your computer are yours either way, and you can export any of them as a <code class="mb-file">.penpoint</code> file at any time.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Can I use Minipen on my iPad, or on an older Android phone?</summary>
+            <div class="mb-faq__a">
+              <p>Not on iPad for now: the beta is iPhone only, on iOS 16.2 or later. On Android you need 7.0 or later. If an older Android phone shows <strong>"Minipen needs a newer WebView"</strong>, update <a href="https://play.google.com/store/apps/details?id=com.google.android.webview" target="_blank" rel="noopener">Android System WebView</a> from the Play Store, then reopen Minipen.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Help -->
+    <section class="tri-sec mb-alt">
+      <div class="tri-wrap" style="text-align:center;">
+        <h2 class="tri-h2">Stuck somewhere?</h2>
+        <p style="font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,18px);line-height:1.6;color:#5C4332;max-width:540px;margin:16px auto 0;text-wrap:pretty;">Ask on Discord, where other testers may already know the answer, or write to me. The Penpoint Cloud guides cover setup in more detail.</p>
+        <div class="contact-links">
+          <a href="/help/set-up-cloud-backup-for-your-novel" class="contact-link"><i class="fa-solid fa-book-open"></i> Penpoint Cloud guides</a>
+          <a href="https://discord.gg/q7yV3PXrGB" class="contact-link" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i> Join our Discord</a>
+          <a href="mailto:support@penpoint.app?subject=Minipen%20beta" class="contact-link"><i class="fa-solid fa-envelope"></i> support@penpoint.app</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Shared site footer (see css/site-chrome.css) ===== -->
+  <footer class="pp-footer">
+    <div class="pp-footer__top">
+      <div class="pp-footer__brand">
+        <div class="pp-footer__brand-row">
+          <svg class="pp-footer__brand-icon" viewBox="0 0 24 24" width="22" height="22" fill="#DDA964"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+          <span class="pp-footer__brand-name">Penpoint</span>
+        </div>
+        <p class="pp-footer__tagline">Where Your Story Comes Together</p>
+      </div>
+      <nav class="pp-footer__cols" aria-label="Footer">
+        <div class="pp-footer__col">
+          <h4>Product</h4>
+          <a href="/#features" class="foot-link">Features</a>
+          <a href="/trial" class="foot-link">Free Trial</a>
+          <a href="/changelog" class="foot-link">Changelog</a>
+          <a href="/roadmap" class="foot-link">Roadmap</a>
+          <a href="/development" class="foot-link">Development</a>
+        </div>
+        <div class="pp-footer__col">
+          <h4>Compare</h4>
+          <a href="/compare" class="foot-link">Compare All</a>
+          <a href="/scrivener-alternative" class="foot-link">vs Scrivener</a>
+          <a href="/dabble-alternative" class="foot-link">vs Dabble</a>
+          <a href="/campfire-alternative" class="foot-link">vs Campfire</a>
+          <a href="/worldanvil-alternative" class="foot-link">vs World Anvil</a>
+          <a href="/ellipsus-alternative" class="foot-link">vs Ellipsus</a>
+          <a href="/story-bible" class="foot-link">Story Bible</a>
+          <a href="/character-bible" class="foot-link">Character Bible</a>
+        </div>
+        <div class="pp-footer__col">
+          <h4>Help</h4>
+          <a href="/help" class="foot-link">Help Guide</a>
+          <a href="/#faq" class="foot-link">FAQ</a>
+          <a href="/support" class="foot-link">Contact Support</a>
+          <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" class="foot-link">Discord</a>
+        </div>
+        <div class="pp-footer__col">
+          <h4>Company</h4>
+          <a href="/about" class="foot-link">About</a>
+          <a href="/press" class="foot-link">Press</a>
+          <a href="/terms" class="foot-link">Terms of Service</a>
+          <a href="/privacy" class="foot-link">Privacy Policy</a>
+        </div>
+      </nav>
+    </div>
+    <div class="pp-footer__bottom">
+      <div class="pp-footer__bottom-inner">
+        <span class="pp-footer__copy">© 2026 Tophat Creative, LLC. All Rights Reserved.</span>
+        <div class="pp-footer__platforms">
+          <i class="fa-brands fa-windows"></i>
+          <i class="fa-brands fa-apple"></i>
+          <i class="fa-brands fa-linux"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- Scroll reveal (as /novel-november). Reduced motion and no-observer browsers show everything at once. -->
+<script>
+(function () {
+  var els = Array.prototype.slice.call(document.querySelectorAll('[data-animate]'));
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('animate-in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+<!-- Tabs (install guide + phone choice), the download picker, and the copy buttons. -->
+<script>
+(function () {
+  var ua = navigator.userAgent;
+  var phone = /Android|iPhone|iPad|iPod|webOS|BlackBerry|Opera Mini|IEMobile/i.test(ua)
+    || (navigator.maxTouchPoints > 1 && window.innerWidth < 820);
+
+  // ----- Tabs: one group per data-tab-group -----
+  function selectTab(group, key) {
+    var btns = document.querySelectorAll('.mb-tab[data-tab][data-tab-group-btn="' + group + '"]');
+    btns.forEach(function (b) {
+      var on = b.getAttribute('data-tab') === key;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    document.querySelectorAll('.mb-panel[data-tab-group="' + group + '"]').forEach(function (p) {
+      p.hidden = p.getAttribute('data-panel') !== key;
+    });
+  }
+  document.querySelectorAll('.mb-tabs[data-tab-group]').forEach(function (list) {
+    var group = list.getAttribute('data-tab-group');
+    list.querySelectorAll('.mb-tab[data-tab]').forEach(function (b) {
+      b.setAttribute('data-tab-group-btn', group);
+      b.addEventListener('click', function () { selectTab(group, b.getAttribute('data-tab')); });
+    });
+  });
+
+  // Open the phone tabs on the visitor's own phone.
+  if (/Android/i.test(ua)) selectTab('phone', 'android');
+  else if (/iPhone|iPod/i.test(ua)) selectTab('phone', 'iphone');
+
+  // ----- Copy buttons (the label itself confirms the copy) -----
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    return ok;
+  }
+  function copy(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return fallbackCopy(text); });
+    }
+    return Promise.resolve(fallbackCopy(text));
+  }
+  document.querySelectorAll('[data-copy-text]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      copy(btn.getAttribute('data-copy-text')).then(function (ok) {
+        var label = btn.querySelector('span');
+        var icon = btn.querySelector('i');
+        if (!label) return;
+        if (!btn.dataset.label) btn.dataset.label = label.textContent;
+        label.textContent = ok ? 'Copied' : 'Select and copy it by hand';
+        if (icon) icon.className = ok ? 'fa-solid fa-check' : 'fa-regular fa-copy';
+        clearTimeout(btn._mbTimer);
+        btn._mbTimer = setTimeout(function () {
+          label.textContent = btn.dataset.label;
+          if (icon) icon.className = 'fa-regular fa-copy';
+        }, 2200);
+      });
+    });
+  });
+
+  // ----- Download picker: Penpoint Staging -----
+  // staging/latest.json is the Tauri updater manifest (version + platforms, no installers map), so the
+  // installer URLs are built from the version, the same way /download and /trial do for their channels.
+  // B2 keys replace the space in "Penpoint Staging" with a dot. Windows on ARM is not built for staging,
+  // so the manifest has no windows-aarch64 key and that button never appears.
+  var STAGING_JSON_URL = 'https://updates.penpoint.app/staging/latest.json';
+  var RELEASE_BASE = 'https://f003.backblazeb2.com/file/penpoint-releases';
+  var SUPPORT_FALLBACK = 'mailto:support@penpoint.app?subject=Penpoint%20Staging%20download';
+  var dlArea = document.getElementById('dl-area');
+  var dlPhone = document.getElementById('dl-phone');
+
+  if (phone) {
+    var dlInstall = document.getElementById('dl-install');
+    if (dlArea) dlArea.hidden = true;
+    if (dlInstall) dlInstall.hidden = true;
+    if (dlPhone) dlPhone.hidden = false;
+    return;
+  }
+
+  var os = /Windows/.test(ua) ? 'windows' : /Mac/.test(ua) ? 'mac' : /Linux/.test(ua) ? 'linux' : 'windows';
+  selectTab('install', os);
+
+  function detectMacArch() {
+    try {
+      var canvas = document.createElement('canvas');
+      var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) return null;
+      var debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+      if (!debugInfo) return null;
+      var renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+      if (/Apple M\d|Apple GPU/i.test(renderer)) return 'mac-arm';
+      if (/Intel/i.test(renderer)) return 'mac-intel';
+      return null;
+    } catch (e) { return null; }
+  }
+  var macArch = os === 'mac' ? detectMacArch() : null;
+
+  var MANIFEST_KEY = {
+    'windows': 'windows-x86_64', 'windows-arm': 'windows-aarch64',
+    'mac-arm': 'darwin-aarch64', 'mac-intel': 'darwin-x86_64',
+    'linux': 'linux-x86_64', 'linux-deb': 'linux-x86_64'
+  };
+  var FILE_SUFFIX = {
+    'windows': 'x64-setup.exe', 'windows-arm': 'arm64-setup.exe',
+    'mac-arm': 'aarch64.dmg', 'mac-intel': 'x64.dmg',
+    'linux': 'amd64.AppImage', 'linux-deb': 'amd64.deb'
+  };
+  var VARIANTS = {
+    windows: [
+      { key: 'windows', name: 'Windows', hint: '64-bit · most PCs' },
+      { key: 'windows-arm', name: 'Windows on ARM', hint: 'Snapdragon · ARM64' }
+    ],
+    mac: [
+      { key: 'mac-arm', name: 'Apple Silicon', hint: 'M1, M2, M3, M4' },
+      { key: 'mac-intel', name: 'Intel', hint: '2019 & earlier' }
+    ],
+    linux: [
+      { key: 'linux', name: 'AppImage', hint: 'Any distro · updates itself' },
+      { key: 'linux-deb', name: '.deb package', hint: 'Debian/Ubuntu/Mint · manual updates' }
+    ]
+  };
+  function platformIcon(p) {
+    if (p.indexOf('windows') === 0) return 'fa-brands fa-windows';
+    if (p.indexOf('mac') === 0) return 'fa-brands fa-apple';
+    return 'fa-brands fa-linux';
+  }
+
+  var versionEl = document.getElementById('dl-version');
+  var osPicker = document.getElementById('dl-os-picker');
+  var optionsEl = document.getElementById('dl-version-options');
+  var noteEl = document.getElementById('dl-version-note');
+
+  function failPicker() {
+    if (optionsEl) optionsEl.innerHTML = '<a class="btn btn-primary btn-xl btn-shadow version-btn" href="' + SUPPORT_FALLBACK + '">Email me for a download link</a>';
+    if (versionEl) versionEl.textContent = '';
+  }
+
+  fetch(STAGING_JSON_URL)
+    .then(function (res) { if (!res.ok) throw new Error('manifest ' + res.status); return res.json(); })
+    .then(function (data) {
+      var version = data && data.version;
+      // Only a plain version string may go into a URL.
+      if (!version || !/^[0-9A-Za-z.\-]+$/.test(version)) throw new Error('bad version');
+      var platforms = data.platforms || {};
+      if (versionEl) versionEl.textContent = 'Penpoint Staging v' + version;
+
+      function getUrl(p) {
+        if (!platforms[MANIFEST_KEY[p]] || !FILE_SUFFIX[p]) return null;
+        return RELEASE_BASE + '/v' + version + '-staging/Penpoint.Staging_' + version + '_' + FILE_SUFFIX[p];
+      }
+      function recommendedFor(osKey) {
+        if (osKey === 'windows') return 'windows';
+        if (osKey === 'mac') return (macArch && getUrl(macArch)) ? macArch : (getUrl('mac-arm') ? 'mac-arm' : 'mac-intel');
+        return 'linux';
+      }
+      function renderVersions(osKey) {
+        optionsEl.innerHTML = '';
+        optionsEl.classList.remove('fade-in');
+        if (noteEl) noteEl.style.display = 'none';
+        var available = VARIANTS[osKey].filter(function (v) { return !!getUrl(v.key); });
+        if (available.length === 0) {
+          optionsEl.innerHTML = '<span class="version-picker__label">Not in this beta build.</span>';
+        } else {
+          var rec = recommendedFor(osKey);
+          available.forEach(function (v) {
+            var a = document.createElement('a');
+            a.href = getUrl(v.key);
+            a.className = 'btn version-btn ' + (v.key === rec ? 'btn-primary btn-shadow' : 'btn-outline');
+            a.innerHTML = '<span class="version-btn__name"><i class="' + platformIcon(v.key) + '"></i>&ensp;' + v.name + '</span>'
+                        + '<span class="version-hint">' + v.hint + '</span>';
+            optionsEl.appendChild(a);
+          });
+          if (noteEl && osKey === 'mac' && !macArch) {
+            noteEl.textContent = 'Most Macs from 2020 on are Apple Silicon. On an older Intel Mac? Pick Intel. (The Apple menu, then About This Mac, tells you which.)';
+            noteEl.style.display = '';
+          } else if (noteEl && osKey === 'linux' && getUrl('linux-deb')) {
+            noteEl.textContent = 'The AppImage updates itself. The .deb installs through your package manager, but you update it by hand each beta.';
+            noteEl.style.display = '';
+          }
+        }
+        void optionsEl.offsetWidth;
+        optionsEl.classList.add('fade-in');
+      }
+
+      var osButtons = Array.prototype.slice.call(osPicker.querySelectorAll('[data-os]'));
+      osButtons.forEach(function (b) {
+        var osKey = b.getAttribute('data-os');
+        var hasAny = VARIANTS[osKey].some(function (v) { return !!getUrl(v.key); });
+        if (!hasAny) { b.disabled = true; b.classList.add('is-disabled'); return; }
+        b.addEventListener('click', function () {
+          osButtons.forEach(function (x) { x.classList.remove('is-active'); });
+          b.classList.add('is-active');
+          renderVersions(osKey);
+          selectTab('install', osKey);
+        });
+      });
+
+      var startBtn = osPicker.querySelector('[data-os="' + os + '"]:not([disabled])') || osPicker.querySelector('[data-os]:not([disabled])');
+      if (startBtn) {
+        startBtn.classList.add('is-active');
+        renderVersions(startBtn.getAttribute('data-os'));
+      } else {
+        failPicker();
+      }
+    })
+    .catch(failPicker);
+})();
+</script>
+
+<!-- Mobile nav toggle (shared header) -->
+<script>
+(function(){
+  var root = document.getElementById('pp-root') || document.body;
+  var burger = root.querySelector('[data-burger]');
+  var panel = root.querySelector('[data-mobile-menu]');
+  if (!burger || !panel) return;
+  function setOpen(open){ burger.classList.toggle('open',open); panel.classList.toggle('open',open); burger.setAttribute('aria-expanded', open?'true':'false'); }
+  burger.addEventListener('click', function(){ setOpen(!panel.classList.contains('open')); });
+  panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
+})();
+</script>
+
+</body>
+</html>
