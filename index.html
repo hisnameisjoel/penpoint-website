@@ -333,12 +333,26 @@
     .nn-banner__tag{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:0 10px;height:30px;box-sizing:border-box;display:inline-flex;align-items:center;border:1px solid rgba(255,247,230,.55);}
     .nn-banner__text strong{font-weight:700;}
     .nn-banner__dash{opacity:.75;}
+    .nn-m{display:none;} /* phone-only bits of the copy ("For ", the comma) */
     .nn-banner__go{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:15px;white-space:nowrap;background:#FFF7E6;color:#A4521D;padding:0 14px;height:30px;box-sizing:border-box;transition:background .2s ease;}
     .nn-banner:hover .nn-banner__go{background:#fff;}
     .nn-banner__go i,.nn-banner__go svg{width:16px;height:16px;stroke-width:2;transition:transform .22s cubic-bezier(.4,0,.2,1);}
     .nn-banner:hover .nn-banner__go svg{transform:translateX(3px);}
     @keyframes nn-banner-in{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:none;}}
-    @media(max-width:600px){.nn-banner__inner{font-size:15px;padding:10px 20px;}.nn-banner__icon,.nn-banner__dash{display:none;}}
+    /* Phones: one centered stack. "For Novel November," then the sentence, then the button underneath. */
+    @media(max-width:600px){
+      .nn-banner__inner{flex-direction:column;flex-wrap:nowrap;justify-content:center;gap:0;padding:11px 20px 12px;font-size:15px;line-height:1.3;}
+      .nn-banner__icon,.nn-banner__dash{display:none;}
+      .nn-m{display:inline;}
+      /* The tag drops its box and reads as the first line of the sentence. */
+      .nn-banner__tag{display:block;height:auto;padding:0;border:0;font-family:inherit;font-size:inherit;font-weight:400;letter-spacing:0;text-transform:none;}
+      .nn-banner__text{text-wrap:balance;}
+      .nn-banner__text em{white-space:nowrap;}
+      .nn-banner__go{margin-top:5px;height:32px;padding:0 14px;font-size:14px;gap:6px;}
+    }
+    @media(max-width:340px){
+      .nn-banner__inner{padding-left:14px;padding-right:14px;font-size:14px;}
+    }
     @media(prefers-reduced-motion:reduce){.nn-banner{animation:none;}.nn-banner__go svg{transition:none;}}
 
   </style>
@@ -351,7 +365,7 @@
   <a href="/novel-november" class="nn-banner" id="nn-banner">
     <div class="nn-banner__inner">
       <i data-lucide="pen-line" class="nn-banner__icon" aria-hidden="true"></i>
-      <span class="nn-banner__tag">Novel November</span>
+      <span class="nn-banner__tag"><span class="nn-m">For </span>Novel November<span class="nn-m">,</span></span>
       <span class="nn-banner__dash" aria-hidden="true">&mdash;</span>
       <span class="nn-banner__text">Penpoint is <strong>free to try until <em>December 1st!</em></strong></span>
       <span class="nn-banner__dash" aria-hidden="true">&mdash;</span>
