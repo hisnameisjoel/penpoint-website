@@ -324,11 +324,41 @@
        wraps to two lines on phones; side rules there would strand at the screen edges. */
     @media(max-width:600px){h1.pp-kicker::before,h1.pp-kicker::after{display:none;}}
 
+    /* ----- Novel November banner (above the header; removes itself on Dec 1, see the script after it) ----- */
+    .nn-banner{display:block;background:#AE5A20;color:#FFF7E6;text-decoration:none;transition:background .2s ease;animation:nn-banner-in .5s cubic-bezier(.4,0,.2,1) both;}
+    .nn-banner:hover{background:#A4521D;}
+    .nn-banner:focus-visible{outline:2px solid #FFF7E6;outline-offset:-4px;}
+    .nn-banner__inner{max-width:1180px;margin:0 auto;padding:11px clamp(20px,5vw,56px);display:flex;align-items:center;justify-content:center;gap:10px 14px;flex-wrap:wrap;text-align:center;font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.35;}
+    .nn-banner__icon{width:18px;height:18px;stroke-width:1.8;flex:none;}
+    .nn-banner__tag{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:0 10px;height:30px;box-sizing:border-box;display:inline-flex;align-items:center;border:1px solid rgba(255,247,230,.55);}
+    .nn-banner__text strong{font-weight:700;}
+    .nn-banner__dash{opacity:.75;}
+    .nn-banner__go{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:15px;white-space:nowrap;background:#FFF7E6;color:#A4521D;padding:0 14px;height:30px;box-sizing:border-box;transition:background .2s ease;}
+    .nn-banner:hover .nn-banner__go{background:#fff;}
+    .nn-banner__go i,.nn-banner__go svg{width:16px;height:16px;stroke-width:2;transition:transform .22s cubic-bezier(.4,0,.2,1);}
+    .nn-banner:hover .nn-banner__go svg{transform:translateX(3px);}
+    @keyframes nn-banner-in{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:none;}}
+    @media(max-width:600px){.nn-banner__inner{font-size:15px;padding:10px 20px;}.nn-banner__icon,.nn-banner__dash{display:none;}}
+    @media(prefers-reduced-motion:reduce){.nn-banner{animation:none;}.nn-banner__go svg{transition:none;}}
+
   </style>
 </head>
 <body>
 <div id="pp-root" style="font-family:'Source Serif 4',Georgia,serif;color:#3D2E1C;background:var(--paper,#FCF8F0);">
   <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ===== Novel November banner. Hides itself from Dec 1, 2026 (visitor's local midnight); delete this block and its .nn-banner CSS afterward. ===== -->
+  <a href="/novel-november" class="nn-banner" id="nn-banner">
+    <div class="nn-banner__inner">
+      <i data-lucide="pen-line" class="nn-banner__icon" aria-hidden="true"></i>
+      <span class="nn-banner__tag">Novel November</span>
+      <span class="nn-banner__dash" aria-hidden="true">&mdash;</span>
+      <span class="nn-banner__text">Penpoint is <strong>free to try until <em>December 1st!</em></strong></span>
+      <span class="nn-banner__dash" aria-hidden="true">&mdash;</span>
+      <span class="nn-banner__go">Get Writing <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+    </div>
+  </a>
+  <script>(function(){if(new Date()>=new Date(2026,11,1)){var b=document.getElementById('nn-banner');if(b)b.remove();}})();</script>
 
   <!-- ===== Shared site header (see css/site-chrome.css) ===== -->
   <header class="pp-header">
