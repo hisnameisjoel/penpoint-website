@@ -324,6 +324,7 @@
       <h2>What Penpoint Cloud Cannot Read</h2>
       <p>Penpoint Cloud uses zero-knowledge encryption. All of your book content (manuscripts, characters, locations, items, notes, arcs, and all other project data) is <strong>encrypted on your device before it ever leaves your computer</strong>. Tophat Creative stores the encrypted data but cannot decrypt or read it. Neither can anyone else, including our hosting providers.</p>
       <p>When you delete a book from the cloud or erase your cloud data, the encryption keys are permanently destroyed (crypto-shredded), making all associated ciphertext unrecoverable even if residual copies exist in infrastructure backups.</p>
+      <p>Penpoint Cloud also keeps your writing statistics (words, writing time and sessions for each day, including the day in progress) in sync across your devices. They are encrypted on your device the same way your books are, and we cannot read them.</p>
 
       <h2>What Penpoint Cloud Does Collect</h2>
       <p>While your writing content is encrypted, Penpoint Cloud necessarily processes certain <strong>clear-text metadata</strong> to operate the service:</p>
@@ -332,6 +333,7 @@
         <li><strong>Device information</strong>: a display name for each device (by default your computer's or phone's name, e.g., "My Laptop"; you can change it), visible only to you in the app, plus the device's platform (Windows, macOS, Linux, iOS, or Android), which app it is (desktop or Minipen), the app version, and when it last connected.</li>
         <li><strong>Book identifiers</strong>: internal UUIDs that identify your books in the cloud. <strong>Book titles are NOT stored in clear text</strong>; they live inside the encrypted blob.</li>
         <li><strong>Version metadata</strong>: version numbers, timestamps, and file sizes associated with each backup, used to manage version history and syncing.</li>
+        <li><strong>Writing-statistics records</strong>: for each encrypted daily record, an opaque identifier, its size, how many times it was updated, and when it was created and last updated. This shows roughly when you were writing, but not what or how much.</li>
         <li><strong>Subscription status and history</strong>: your current plan, billing period, and entitlement state, plus a record of subscription lifecycle changes over time (for example subscribe, cancel, or resubscribe events) used for aggregate service and retention analytics.</li>
         <li><strong>Gift status</strong>: whether your account is a free gift account (for example a Novel November gift, or press access) and the date the gift ends. We use this to end the gift on time and to send you notices about it.</li>
         <li><strong>IP addresses</strong>: recorded in server logs by Supabase and Resend as part of normal HTTPS request processing. We do not use IP addresses for tracking or profiling.</li>
