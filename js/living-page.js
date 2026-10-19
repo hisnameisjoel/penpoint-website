@@ -16,8 +16,13 @@
 
   /* ---------- fit: the whole desktop window, scaled to the frame's width ---------- */
   var scale = 1;
+  var fitW = -1;
   function fit() {
-    scale = frame.clientWidth / 1280;
+    // Only a width change moves anything (phones fire resize whenever the address bar slides in or out mid-scroll).
+    var w = frame.clientWidth;
+    if (w === fitW) return;
+    fitW = w;
+    scale = w / 1280;
     stage.style.setProperty('--lp-s', scale);
     frame.style.height = (Math.round(800 * scale) + 2) + 'px'; // border-box: the stage plus the 1px border top and bottom
   }

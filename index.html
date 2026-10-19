@@ -243,6 +243,13 @@
   <style>
     /* Header + footer chrome lives in css/site-chrome.css (shared across all pages) */
     *{box-sizing:border-box;}
+    /* iPhone Safari "boosts" small text and re-boosts whenever a live demo changes its contents, which made text pop
+       and the page jump mid-scroll. The layout is already responsive, so turn the boosting off. */
+    html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+    /* Rows that slide in from the side start up to 70px past the screen edge; on a phone that briefly widened the page,
+       so iOS zoomed out and back in mid-scroll. clip (not hidden) cuts it off without making a scroll box, so the
+       sticky header and sticky asides keep working. */
+    #pp-root{overflow-x:clip;}
     html,body{margin:0;padding:0;}
     html{scroll-behavior:smooth;}
     section[id],footer[id]{scroll-margin-top:88px;}

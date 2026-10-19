@@ -10,7 +10,8 @@
    Measured 2026-10-18 and left out on purpose: content-visibility:auto (moves each window's first layout to the moment
    it scrolls into view, a hitch) and contain on .lp-stage (no gain within noise; strict made painting slightly heavier). */
 .lp-off *{animation-play-state:paused !important;}
-.lp-frame{position:relative;width:100%;overflow:hidden;border:1px solid #E0D2BC;background:#FFF7E6;box-shadow:0 36px 70px -34px rgba(61,46,28,.42);aspect-ratio:1280/800;}
+/* No iPhone text boosting inside a drawn window: it sizes text by the stage's layout width (1024-1280px), not its scaled-down size. */
+.lp-frame{-webkit-text-size-adjust:100%;text-size-adjust:100%;position:relative;width:100%;overflow:hidden;border:1px solid #E0D2BC;background:#FFF7E6;box-shadow:0 36px 70px -34px rgba(61,46,28,.42);aspect-ratio:1280/800;}
 /* --lp-s is set by the script; the fallback suits the widest hero frame if the script never runs. */
 .lp-stage{position:absolute;left:0;top:0;width:1280px;height:800px;transform-origin:0 0;transform:scale(var(--lp-s,.834));overflow:hidden;
   font-family:'Source Serif 4',Georgia,serif;font-variation-settings:"opsz" 14;font-optical-sizing:none;

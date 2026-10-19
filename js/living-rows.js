@@ -29,8 +29,14 @@
     r.scale = 1;
     frame.style.aspectRatio = r.W + ' / ' + r.H;
     r.stage.style.width = r.W + 'px'; r.stage.style.height = r.H + 'px';
+    var fitW = -1;
     r.fit = function () {
-      r.scale = frame.clientWidth / r.W;
+      // Only a width change moves anything. Phones fire resize whenever the address bar slides in or out
+      // mid-scroll; rewriting every frame's height then forced a layout per frame at the worst moment.
+      var w = frame.clientWidth;
+      if (w === fitW) return;
+      fitW = w;
+      r.scale = w / r.W;
       r.stage.style.setProperty('--lp-s', r.scale);
       frame.style.height = (Math.round(r.H * r.scale) + 2) + 'px'; // border-box: stage + 1px border top and bottom
     };
