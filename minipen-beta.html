@@ -177,7 +177,8 @@
     .mb-shots{display:flex;justify-content:center;align-items:flex-start;gap:clamp(18px,3.4vw,40px);flex-wrap:wrap;margin:0 auto;}
     .mb-shot{margin:0;width:clamp(180px,24vw,236px);text-align:center;}
     .mb-shot__frame{padding:7px;border-radius:34px;background:linear-gradient(155deg,#43464d 0%,#191a1e 46%,#0b0c0f 100%);box-shadow:0 34px 60px -32px rgba(0,0,0,0.6), inset 0 0 0 1.5px rgba(255,255,255,0.07);transform:rotate(var(--r,0deg));}
-    .mb-shot__frame img{display:block;width:100%;height:auto;aspect-ratio:600/1304;border-radius:28px;background:#FFF7E6;}
+    /* padding-top is a sliver of cream: the screenshots start right at the header, and the rounded corners clip the Minipen mark and the top-right icons without it. Keep it small (4% adds under 2% to the phone's height); at 11% it read as a forehead. */
+    .mb-shot__frame img{display:block;box-sizing:content-box;width:100%;height:auto;aspect-ratio:600/1304;padding-top:4%;border-radius:28px;background:#FFF7E6;}
     .mb-shot figcaption{font-family:'Source Serif 4',serif;font-size:15px;line-height:1.45;color:#5C4332;margin-top:18px;text-wrap:balance;}
     .mb-shot figcaption strong{display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#A4521D;margin-bottom:4px;}
     /* Phones: the three screenshots become a sideways swipe instead of three screens of scrolling. */
@@ -361,6 +362,7 @@
       <nav class="pp-nav" aria-label="Primary">
         <a href="/about">About</a>
         <a href="/compare">Compare</a>
+        <a href="/penpoint-cloud">Cloud</a>
         <a href="/development">Development</a>
         <a href="/#testimonials">Testimonials</a>
         <a href="/help">Help</a>
@@ -377,6 +379,7 @@
       <div class="pp-mobile__inner">
         <a href="/about">About</a>
         <a href="/compare">Compare</a>
+        <a href="/penpoint-cloud">Cloud</a>
         <a href="/development">Development</a>
         <a href="/#testimonials">Testimonials</a>
         <a href="/help">Help</a>
@@ -842,6 +845,7 @@
         <div class="pp-footer__col">
           <h4>Product</h4>
           <a href="/#features" class="foot-link">Features</a>
+          <a href="/penpoint-cloud" class="foot-link">Penpoint Cloud</a>
           <a href="/trial" class="foot-link">Free Trial</a>
           <a href="/changelog" class="foot-link">Changelog</a>
           <a href="/roadmap" class="foot-link">Roadmap</a>

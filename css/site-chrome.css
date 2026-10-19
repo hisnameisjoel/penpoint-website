@@ -27,6 +27,9 @@
 .pp-nav a:not(.pp-cta):not(.pp-nav__discord){position:relative;}
 .pp-nav a:not(.pp-cta):not(.pp-nav__discord)::after{content:"";position:absolute;left:50%;right:50%;bottom:-2px;height:1px;background:#CD6E2C;transition:left .26s cubic-bezier(.4,0,.2,1),right .26s cubic-bezier(.4,0,.2,1);}
 .pp-nav a:not(.pp-cta):not(.pp-nav__discord):hover::after{left:0;right:0;}
+/* The page you are on (aria-current, set by js/site-chrome.js): bold accent text with a thicker underline held open. */
+.pp-nav a[aria-current="page"]:not(.pp-cta){color:#CD6E2C;font-weight:600;}
+.pp-nav a[aria-current="page"]:not(.pp-cta):not(.pp-nav__discord)::after{left:0;right:0;bottom:-3px;height:2px;}
 
 .pp-cta{font-family:'Source Serif 4',serif;font-weight:600;font-size:14px;letter-spacing:0;text-transform:none;background:#CD6E2C;color:#FFF7E6;padding:9px 18px;text-decoration:none;transition:background .2s ease;}
 .pp-nav a.pp-cta{color:#FFF7E6;}  /* beat .pp-nav a (0,1,1) so the CTA label stays light, not the muted link brown */
@@ -45,8 +48,10 @@
 .pp-mobile a{display:block;font-family:'Source Serif 4',serif;font-size:17px;letter-spacing:0;color:#5C4A33;text-decoration:none;padding:15px 4px;border-top:1px solid #E6DCCD;}
 .pp-mobile a:first-child{border-top:none;}
 .pp-mobile a:active{color:#CD6E2C;}
-@media(max-width:880px){.pp-nav{display:none !important;}.pp-burger{display:flex;}.pp-try-m{display:inline-block;}}
-@media(min-width:881px){.pp-mobile{display:none;}}
+.pp-mobile a[aria-current="page"]{color:#A4521D;font-weight:600;} /* accent, not dark: Buy is already bold dark */
+/* 940px, not 880px: the Cloud link (2026-10) made the full nav wrap to two lines between 881 and ~930px. */
+@media(max-width:940px){.pp-nav{display:none !important;}.pp-burger{display:flex;}.pp-try-m{display:inline-block;}}
+@media(min-width:941px){.pp-mobile{display:none;}}
 
 /* ---- Footer ---- */
 .pp-footer{background:#29241E;color:#9C8862;}

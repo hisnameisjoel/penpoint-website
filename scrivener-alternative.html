@@ -87,7 +87,7 @@
         "headline": "Penpoint vs Scrivener: A Scrivener Alternative With Worldbuilding Built In",
         "description": "An honest head-to-head comparison of Penpoint and Scrivener covering price, platforms, worldbuilding, offline use, and how to move a Scrivener project into Penpoint.",
         "datePublished": "2026-09-10",
-        "dateModified": "2026-09-10",
+        "dateModified": "2026-10-07",
         "inLanguage": "en-US",
         "about": [
           { "@type": "SoftwareApplication", "name": "Penpoint" },
@@ -135,7 +135,7 @@
             "name": "Can Penpoint open a .scriv file?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. Compile to .rtf in Scrivener and import that. Penpoint reads Scrivener's RTF output directly and detects your chapters from it."
+              "text": "Yes. Penpoint imports a Scrivener 3 project directly, from Mac or Windows, as a new book. Chapters, scenes, synopses, document notes, keywords, comments, and snapshots come across, and documents in your Characters and Places folders become characters and locations. There is no compile step, and Penpoint only reads the project; it never changes it."
             }
           },
           {
@@ -143,7 +143,7 @@
             "name": "How do I move a Scrivener project into Penpoint?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Compile the whole draft to RTF in Scrivener, then choose Import from Penpoint's manuscript toolbar. Penpoint shows you the chapters it found before it writes anything, so you can correct the split first. Then run Scan Chapter for Content and your characters, locations, and items become entries linked to the chapters they appear in, which is the step that turns an imported manuscript into a story bible. Research folders, images, and notes do not travel inside a compiled manuscript, so those move across separately into the Notebook. Reading .scriv projects directly is planned. We have taken apart real Scrivener projects to work out what can carry across, including keywords, labels, and your Characters and Places folders. There is no date on it, so compiling to RTF is the route that works today."
+              "text": "On Penpoint's Your Books screen, choose Create New Book, then Import a Scrivener Project, and pick your project. Penpoint sorts your Draft into parts, chapters, and scenes, guesses which binder folders hold characters, places, items, or notes, and lets you correct every guess before anything is written. Then run the Manuscript Scanner, and every character, location, and item gets linked to the chapters it appears in, which is the step that turns an imported manuscript into a story bible. The Importing from Scrivener guide walks through every screen."
             }
           },
           {
@@ -151,7 +151,7 @@
             "name": "Will Penpoint find my chapters if they are not called “Chapter One”?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Penpoint finds chapter breaks from heading styles or from the title text, so “Chapter 9”, “Part II” and “Prologue” are recognized whatever styling they carry. Bespoke titles like “The Drowning” are the hard case: with no heading style applied, the book imports as one long chapter you split yourself, roughly twenty minutes on a forty-chapter novel. Applying a heading style in Scrivener before you compile avoids it, and the import preview shows which way it went before anything is written."
+              "text": "Yes. A Scrivener import takes chapters from your binder, not from the text, so a chapter called “The Drowning” arrives as “The Drowning”. Penpoint guesses how your Draft is organized and shows the result before importing; if the guess is wrong, one menu on the same screen corrects it. Heading styles only matter if you import a compiled Word or RTF file instead."
             }
           },
           {
@@ -159,7 +159,15 @@
             "name": "What does not transfer from Scrivener, and is my project safe?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Compile presets, custom metadata fields, snapshots, and comments do not transfer, so export anything you need to keep before you switch. Your Scrivener project itself is untouched. Installing Penpoint moves nothing and deletes nothing, and you can run both while you decide."
+              "text": "Compile formats and layout settings, collections, project bookmarks, writing targets, the Trash, and PDFs, audio, video, and web pages stay in Scrivener, and Penpoint lists anything it left behind by name. Fonts and text colors give way to Penpoint's own. Your Scrivener project is only read, never changed. Installing Penpoint moves nothing and deletes nothing, and you can run both while you decide."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I send a Penpoint book back to Scrivener?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Penpoint exports your book as a Scrivener 3 project: chapters become folders in the Draft, scenes become documents, and each scene's description lands on its index card. The whole-book export adds your worldbuilding too, with characters as Scrivener character sheets, locations in a Places folder, and items, notes, arcs, and your timeline as documents. Penpoint never overwrites a Scrivener project you already have. The Exporting to Scrivener guide lists everything that carries over."
             }
           },
           {
@@ -288,6 +296,7 @@
       <nav class="pp-nav" aria-label="Primary">
         <a href="/about">About</a>
         <a href="/compare">Compare</a>
+        <a href="/penpoint-cloud">Cloud</a>
         <a href="/development">Development</a>
         <a href="/#testimonials">Testimonials</a>
         <a href="/help">Help</a>
@@ -304,6 +313,7 @@
       <div class="pp-mobile__inner">
         <a href="/about">About</a>
         <a href="/compare">Compare</a>
+        <a href="/penpoint-cloud">Cloud</a>
         <a href="/development">Development</a>
         <a href="/#testimonials">Testimonials</a>
         <a href="/help">Help</a>
@@ -664,6 +674,9 @@
         <p>
           Scrivener's compile engine is the deepest export system in writing software. You can control formatting down to individual section types, build your own templates, and hit a publisher's exact print specification. Penpoint exports clean files to Word, PDF, EPUB, RTF, Markdown, and plain text. It does not give you that level of typesetting control, and if you self-publish print editions you will feel the difference.
         </p>
+        <p>
+          You do not have to choose one for the whole job. Draft in Penpoint, export the book as a Scrivener 3 project, and compile it there.
+        </p>
 
         <h3>Split-screen and multiple windows</h3>
         <p>
@@ -768,9 +781,8 @@
              comparison page, and it sat between the concessions and the
              decision cards, which is exactly where readers were dropping off.
              The FAQ keeps it quotable for search without making a browsing
-             reader walk through it. When native .scriv import ships (see
-             docs/plans/ScrivenerImport-ImplementationPlan.md) the three
-             migration FAQ entries are what need rewriting. -->
+             reader walk through it. The migration FAQ entries were rewritten
+             for native .scriv import and Scrivener export in v1.3.6. -->
 
         <h2 id="which-one">Which one should you choose?</h2>
         <p>
@@ -814,25 +826,27 @@
 
         <h3>Can Penpoint open a .scriv file?</h3>
         <p>
-          No. Compile to <code>.rtf</code> in Scrivener and import that. Penpoint reads Scrivener's RTF output directly and detects your chapters from it.
+          Yes. Penpoint imports a Scrivener 3 project directly, from Mac or Windows, as a new book. Chapters, scenes, synopses, document notes, keywords, comments, and snapshots come across, and documents in your Characters and Places folders become characters and locations. There is no compile step, and Penpoint only reads the project; it never changes it.
         </p>
 
         <h3>How do I move a Scrivener project into Penpoint?</h3>
         <p>
-          Compile the whole draft to RTF in Scrivener, then choose Import from Penpoint's manuscript toolbar. Penpoint shows you the chapters it found before it writes anything, so you can correct the split first. Then run Scan Chapter for Content and your characters, locations, and items become entries linked to the chapters they appear in, which is the step that turns an imported manuscript into a story bible. Research folders, images, and notes do not travel inside a compiled manuscript, so those move across separately into the Notebook.
-        </p>
-        <p>
-          Reading <code>.scriv</code> projects directly is planned. We have taken apart real Scrivener projects to work out what can carry across, including keywords, labels, and your Characters and Places folders. There is no date on it, so compiling to RTF is the route that works today.
+          On Penpoint's Your Books screen, choose Create New Book, then Import a Scrivener Project, and pick your project. Penpoint sorts your Draft into parts, chapters, and scenes, guesses which binder folders hold characters, places, items, or notes, and lets you correct every guess before anything is written. Then run the Manuscript Scanner, and every character, location, and item gets linked to the chapters it appears in, which is the step that turns an imported manuscript into a story bible. The <a href="/help/import-scrivener-project">Importing from Scrivener guide</a> walks through every screen.
         </p>
 
         <h3>Will Penpoint find my chapters if they are not called “Chapter One”?</h3>
         <p>
-          Penpoint finds chapter breaks from heading styles or from the title text, so “Chapter 9”, “Part II” and “Prologue” are recognized whatever styling they carry. Bespoke titles like “The Drowning” are the hard case: with no heading style applied, the book imports as one long chapter you split yourself, roughly twenty minutes on a forty-chapter novel. Applying a heading style in Scrivener before you compile avoids it, and the import preview shows which way it went before anything is written.
+          Yes. A Scrivener import takes chapters from your binder, not from the text, so a chapter called “The Drowning” arrives as “The Drowning”. Penpoint guesses how your Draft is organized and shows the result before importing; if the guess is wrong, one menu on the same screen corrects it. Heading styles only matter if you import a compiled Word or RTF file instead.
         </p>
 
         <h3>What does not transfer from Scrivener, and is my project safe?</h3>
         <p>
-          Compile presets, custom metadata fields, snapshots, and comments do not transfer, so export anything you need to keep before you switch. Your Scrivener project itself is untouched. Installing Penpoint moves nothing and deletes nothing, and you can run both while you decide.
+          Compile formats and layout settings, collections, project bookmarks, writing targets, the Trash, and PDFs, audio, video, and web pages stay in Scrivener, and Penpoint lists anything it left behind by name. Fonts and text colors give way to Penpoint's own. Your Scrivener project is only read, never changed. Installing Penpoint moves nothing and deletes nothing, and you can run both while you decide.
+        </p>
+
+        <h3>Can I send a Penpoint book back to Scrivener?</h3>
+        <p>
+          Yes. Penpoint exports your book as a Scrivener 3 project: chapters become folders in the Draft, scenes become documents, and each scene's description lands on its index card. The whole-book export adds your worldbuilding too, with characters as Scrivener character sheets, locations in a Places folder, and items, notes, arcs, and your timeline as documents. Penpoint never overwrites a Scrivener project you already have. The <a href="/help/export-to-scrivener">Exporting to Scrivener guide</a> lists everything that carries over.
         </p>
 
         <h3>Does Penpoint have the Binder?</h3>
@@ -1036,6 +1050,7 @@
         <div class="pp-footer__col">
           <h4>Product</h4>
           <a href="/#features" class="foot-link">Features</a>
+          <a href="/penpoint-cloud" class="foot-link">Penpoint Cloud</a>
           <a href="/trial" class="foot-link">Free Trial</a>
           <a href="/changelog" class="foot-link">Changelog</a>
           <a href="/roadmap" class="foot-link">Roadmap</a>

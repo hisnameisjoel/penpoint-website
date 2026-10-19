@@ -140,11 +140,11 @@
     }
 
     .changelog-sidebar__group-title {
-      font-size: var(--text-xs);
-      font-weight: 700;
+      font-size: 0.75rem;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: rgb(var(--muted-foreground));
+      color: #7C5236;
       margin: 0 0 var(--space-2) 0;
       padding: 0 var(--space-3) var(--space-2);
       border-bottom: 1px solid rgb(var(--border));
@@ -379,11 +379,11 @@
 
       .changelog-mobile-nav__label {
         display: block;
-        font-size: var(--text-xs);
-        font-weight: 700;
+        font-size: 0.75rem;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.08em;
-        color: rgb(var(--muted-foreground));
+        color: #7C5236;
         margin-bottom: var(--space-2);
       }
 
@@ -430,9 +430,10 @@
       </a>
       <nav class="pp-nav" aria-label="Primary">
         <a href="/compare">Compare</a>
+        <a href="/penpoint-cloud">Cloud</a>
         <a href="/development">Development</a>
         <a href="/#testimonials">Testimonials</a>
-        <a href="/help">Help</a>
+        <a href="/#faq">FAQ</a>
         <a href="/buy" class="pp-nav__buy">Buy</a>
         <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" aria-label="Join our Discord" class="pp-nav__discord"><i class="fa-brands fa-discord"></i></a>
         <a href="/trial" class="pp-cta">Try Penpoint</a>
@@ -445,9 +446,10 @@
     <div class="pp-mobile" data-mobile-menu="">
       <div class="pp-mobile__inner">
         <a href="/compare">Compare</a>
+        <a href="/penpoint-cloud">Cloud</a>
         <a href="/development">Development</a>
         <a href="/#testimonials">Testimonials</a>
-        <a href="/help">Help</a>
+        <a href="/#faq">FAQ</a>
         <a href="/buy" class="pp-nav__buy">Buy</a>
         <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>
       </div>
@@ -481,6 +483,12 @@
         <!-- Sidebar (desktop) -->
         <aside class="changelog-sidebar" aria-label="Version navigation">
           <div class="changelog-sidebar__group">
+  <h3 class="changelog-sidebar__group-title">1.4.x</h3>
+  <ul class="changelog-sidebar__list">
+    <li><a class="changelog-sidebar__link" href="#v1-4-0"><span>1.4.0</span><span class="changelog-sidebar__date">Oct 17, 2026</span></a></li>
+  </ul>
+</div>
+<div class="changelog-sidebar__group">
   <h3 class="changelog-sidebar__group-title">1.3.x</h3>
   <ul class="changelog-sidebar__list">
     <li><a class="changelog-sidebar__link" href="#v1-3-5"><span>1.3.5</span><span class="changelog-sidebar__date">Aug 23, 2026</span></a></li>
@@ -546,6 +554,7 @@
           <label class="changelog-mobile-nav__label" for="changelog-version-select">Jump to version</label>
           <select class="changelog-mobile-nav__select" id="changelog-version-select" onchange="if(this.value) window.location.hash = this.value;">
             <option value="">Select a version&hellip;</option>
+              <option value="#v1-4-0">1.4.0 — Oct 17, 2026</option>
               <option value="#v1-3-5">1.3.5 — Aug 23, 2026</option>
               <option value="#v1-3-4">1.3.4 — Aug 16, 2026</option>
               <option value="#v1-3-3">1.3.3 — Aug 8, 2026</option>
@@ -590,7 +599,114 @@
 
         <!-- Main content -->
         <div class="changelog-content">
-          <section id="v1-3-5" class="changelog-version">
+          <section id="v1-4-0" class="changelog-version">
+  <div class="changelog-version__header">
+    <h2 class="changelog-version__number">1.4.0</h2>
+    <span class="changelog-version__date">October 17, 2026</span>
+  </div>
+  <hr class="changelog-version__divider">
+  <h3>Added</h3>
+  <ul class="changelog-entries">
+    <li><strong>Penpoint Cloud</strong> - Back up every book automatically, then restore your whole library on another computer when you need it. Penpoint remains yours forever and works completely offline.</li>
+    <li><strong>Penpoint Sync</strong> - Keep up to five computers current, including your place in each book and your settings. Changes made on two computers merge on their own, and if the same scene changes on both, each version is kept as a Scene Draft you can compare side by side.</li>
+    <li><strong>Only You Can Read It</strong> - Your books are encrypted on your computer before they leave it. A 12-word Recovery Kit helps you regain access if you forget your Cloud password.</li>
+    <li><strong>Restore From Cloud</strong> - Restore any book missing from this computer, including one you recently deleted, and check stored copies from Settings. Restoring a backup over a Cloud book makes that version the book on every computer.</li>
+    <li><strong>Manage Your Cloud Account</strong> - See signed-in computers, manage account details, and close Cloud without touching books on your computer.</li>
+    <li><strong>Manage Your Cloud Subscription in Penpoint</strong> - Switch plans, cancel, or resume from Settings, with clear pricing before you confirm.</li>
+    <li><strong>Pause and Resume Penpoint Cloud</strong> - Pause Cloud backup on this computer and resume whenever you are ready.</li>
+    <li><strong>Sign In While Setting Up a New Computer</strong> - Sign in from the welcome screen and your books, theme, and settings arrive without repeating setup.</li>
+    <li><strong>Sign Out Everywhere Else</strong> - When you change your Penpoint Cloud password, you can tick a box to sign your other computers out. Nothing on them is deleted; they just need an emailed code and your new password to get back in.</li>
+    <li><strong>Cloud Crash Course</strong> - A few short slides explain how Penpoint Cloud works: what the two kinds of Saved mean, how to switch computers without surprises, and why you can keep writing offline. You see it once per computer.</li>
+    <li><strong>Scrivener Import and Export</strong> - Bring a Scrivener 3 project into Penpoint as a new book: your chapters, scenes, notes, comments, and snapshots come along, and your character and place sheets become characters and locations. Going the other way, export your manuscript, or your whole book with its worldbuilding, as a Scrivener 3 project, saved scene versions included. Penpoint never changes or overwrites a Scrivener project you already have.</li>
+    <li><strong>Note Templates</strong> - Save any note as a reusable template from its toolbar or right-click menu, or start a blank one in the Templates folder. Create new notes from them in any book or series, and with Penpoint Cloud your templates follow you to your other computers.</li>
+    <li><strong>Compare Scene and Chapter Drafts</strong> - Compare a saved draft with your current writing to see added, removed, moved, and missing passages. Arrows jump from one change to the next.</li>
+    <li><strong>Contact Support</strong> - The Help menu (the ? icon) now has Contact Support for reporting a bug, sharing an idea, or asking a question without leaving Penpoint. It can attach a screenshot of your page, up to four images, and diagnostic logs, and "See what's included" shows you everything before you press Send. If a page crashes, the error screen has a Send to Penpoint button that fills in the details for you.</li>
+    <li><strong>Standard Submission Format</strong> - Pick it from the export formats and Penpoint writes the Word manuscript literary agents expect: Times New Roman, double spaced, indented paragraphs, a centered # between scenes, and your surname, title, and page number at the top of each page. The title page carries your contact details and a rounded word count, and it keeps its own settings so your everyday Word exports stay just as you like them.</li>
+    <li><strong>Book Language</strong> - Each book (or a whole series) can have its own spellcheck language, quote style, and autocorrect settings, so writing in two languages no longer means changing settings every time you switch books. Find it at the top of Settings, Spellcheck &amp; Autocorrect. Japanese, Chinese, and Korean books also get matching fonts.</li>
+    <li><strong>Scenes Come In With Your Manuscript</strong> - Importing a manuscript from Word, Scrivener, Dabble, or another app now splits it into separate scenes wherever you marked a break with #, <em> </em> *, or a divider line. The preview shows how many scenes each chapter gets, and you can untick Split scenes at scene breaks to keep one scene per chapter.</li>
+    <li><strong>Import RTF Files</strong> - Open .rtf manuscripts alongside .docx, .epub, and plain-text files, with rich-text formatting and chapter breaks intact.</li>
+    <li><strong>Justify Text</strong> - Manuscript Mode's toolbar now has a Justify button next to Left, Center, and Right. Justified paragraphs carry through to Word, EPUB, and Rich Text exports; PDF and Standard Submission Format stay left-aligned.</li>
+    <li><strong>Backup Protection During Setup</strong> - Choose a secondary backup folder during setup, including a cloud drive or another safe location.</li>
+    <li><strong>Minipen Can Follow Your Writing</strong> - Link Minipen to the active chapter or jump straight to the chapter you are writing. Off by default.</li>
+    <li><strong>Add Chapters Straight Into a Folder</strong> - Click a folder in the chapter outline, then use + New Chapter, and the new chapter lands at the end of that folder. You can also right-click a folder and choose New Chapter in Group.</li>
+    <li><strong>Right-Click Menu for Text Fields</strong> - Cut, Copy, Paste, and Select All now open from a right-click menu on every text box in Penpoint, from chapter titles and character names to nicknames, arc descriptions, and the Quick Create forms.</li>
+    <li><strong>Series Arc in the Minipen</strong> - The Minipen's Arcs tab now has a Series Arc pill for series, so you can read and edit your series-wide arc without leaving Manuscript Mode.</li>
+    <li><strong>Delete From Minipen</strong> - Characters, Items, and Locations in the Minipen now have a Delete button at the bottom of the page in edit mode, with the same confirmation as Worldbuilding.</li>
+    <li><strong>New Single-Quote Style</strong> - Smart quotes' Single quotes menu now offers ‚ ’ (Low-high · 9-close), the partner to the „ ” double-quote style used in Polish, Dutch, and other languages.</li>
+  </ul>
+  <h3>Improved</h3>
+  <ul class="changelog-entries">
+    <li><strong>Tables Beside Your Manuscript</strong> - In the Minipen, a table now shows as a card you can read right next to your writing: the first rows are visible, wide tables scroll sideways, and a small arrow folds it away. Edit opens the full table.</li>
+    <li><strong>More Control Over Exported Pages</strong> - Word and Rich Text exports can use Times New Roman, Georgia, or Courier New with single, 1.5, or double spacing, and Word files can carry a running header. Title pages add a contact block, an optional word count, separate pen name and legal name fields, and a choice of whether your subtitle prints.</li>
+    <li><strong>Export Settings Follow You</strong> - Your name and contact details carry across every export format, and with Penpoint Cloud your export choices reach your other computers too.</li>
+    <li><strong>Series Books Export Under Their Own Names</strong> - Exporting a Book from your Series titles it with that Book's name and adds a "Book 2 of" line for your Series underneath, no retyping needed.</li>
+    <li><strong>Chapter Numbers Without Titles</strong> - You can turn off chapter titles in an export and keep just "Chapter 1", so chapters you titled by number no longer print it twice.</li>
+    <li><strong>Same Plus for New Chapters</strong> - Adding a chapter from the Chapters page now puts it right after the chapter you have selected (inside its folder, too), just like Manuscript does.</li>
+    <li><strong>Split Chapter Popup Matches Create Chapter</strong> - Splitting a chapter now lets you add a subtitle and turn numbering off, and shows which chapter number the new one will get.</li>
+    <li><strong>Sort by Importance Starts With Your Main Cast</strong> - Choosing Importance in the Characters and Items sort menus now puts Primary first, and the order options read "Most important first" and "Least important first" instead of Ascending and Descending.</li>
+    <li><strong>Chapter Subtitles on Import</strong> - A short centered line under a chapter title, like a point-of-view character's name, now comes in as that chapter's subtitle.</li>
+    <li><strong>Import File Picker</strong> - The manuscript picker now shows .doc, .pages, .odt, and .pdf files too, and choosing one tells you exactly how to convert it into a file Penpoint can import.</li>
+    <li><strong>Exporting a Book</strong> - Export Book explains the .penpoint file, then shows where it saved and offers to open its folder.</li>
+    <li><strong>Era Change Heads-Up</strong> - Changing or deleting an era in Calendar Settings now shows which of your existing dates will look different, so you can undo it before it takes effect. Rather skip it? Tick "Don't show this again."</li>
+    <li><strong>Character Page Keeps Its Header</strong> - The Edit button and character name stay in reach while you scroll.</li>
+    <li><strong>Tag Creation, Unified</strong> - Creating a tag from Ctrl+N now matches Tag Settings, including choosing or creating its group without leaving the tag.</li>
+    <li><strong>Faster Mode Switching</strong> - Switching between Worldbuilding and Manuscript mode is quicker now.</li>
+    <li><strong>Cleaner Saved Logs</strong> - When you save logs from Settings, Advanced, the saved copy now has your computer's user name, folder paths, email addresses, and sign-in tokens removed, so it is safer to share. The logs on your computer are not changed.</li>
+    <li><strong>Windows Startup Help</strong> - A clear repair guide helps when Microsoft WebView2 prevents Penpoint from opening.</li>
+    <li><strong>Primary Storage Location Moves</strong> - Moving your Primary Storage Location is more reliable, so you get back to your library more smoothly.</li>
+  </ul>
+  <h3>Fixed</h3>
+  <ul class="changelog-entries">
+    <li><strong>Comments and Pinned Notes on Mac</strong> - Cmd+Option+M now adds a comment, and Ctrl+clicking selected text no longer loses your selection, so Add Comment and Pin a Note work from the right-click menu again.</li>
+    <li><strong>Suggestions Land Where They Should</strong> - On macOS, accepting a ProWritingAid or Grammarly suggestion no longer lands one character off below headings, lists, and quotes.</li>
+    <li><strong>Importing Manuscripts</strong> - Penpoint now spots chapter titles with spelled-out numbers ("Chapter Two"), keeps your Part pages and numbering intact, and leaves a typed table of contents out of your chapter list.</li>
+    <li><strong>Failed Imports</strong> - If a manuscript import fails partway, Penpoint removes what it had already added and explains in plain English what went wrong, so trying again never leaves duplicate chapters or an empty book behind.</li>
+    <li><strong>Importing Markdown Manuscripts</strong> - A line of hash marks (like # or # # #) now becomes a scene break, and a Scrivener Markdown export keeps every paragraph separate, drops the stray # from chapter titles, and no longer turns its title and author header into an extra chapter.</li>
+    <li><strong>Numbered Lists in Imports</strong> - A numbered list that starts above 1, or picks up again after text in between, now keeps its numbers in the editor and in every export.</li>
+    <li><strong>EPUB Re-Import</strong> - Fixed EPUB files exported from Penpoint coming back as empty chapters when imported again.</li>
+    <li><strong>Pasted Text Breaking Exports</strong> - Text pasted in from Word or another app no longer leaves hidden characters that could stop your exported file from opening.</li>
+    <li><strong>Word Exports in Pages</strong> - Exported Word files no longer open with every line centered in Apple Pages and other word processors besides Microsoft Word.</li>
+    <li><strong>Series Exports</strong> - Exporting a Series now numbers chapters the way Penpoint shows them, gives each Book its own folder, and labels chapters from other Books with their Book and chapter number (like "Book Two, Chapter 3: Natalie").</li>
+    <li><strong>Faint Grey Text in Exports</strong> - Chapter numbers, subtitles, and contact details now print in black instead of a faint grey.</li>
+    <li><strong>A Half-Written File Left Behind by a Failed Export</strong> - A failed export no longer leaves a broken .penpoint file where you chose to save it.</li>
+    <li><strong>Window Opening</strong> - On a Mac, Penpoint's window no longer flashes and jumps around as it opens; on Linux, it now remembers your window size and position.</li>
+    <li><strong>Creating and Editing Books</strong> - If Penpoint can't create, save, or duplicate a book (or add one to a series), the window now stays open and tells you why.</li>
+    <li><strong>A Setup Screen When Switching Books</strong> - Rapid book switching no longer flashes a database setup screen.</li>
+    <li><strong>Switching Books in a Series</strong> - Fixed clicking a different book in a series from the Library sometimes opening the wrong one.</li>
+    <li><strong>Empty Folders Stay Put</strong> - Fixed empty chapter folders sliding up or down a spot in the outline after you inserted, deleted, split, or merged a chapter, or duplicated or imported a Book in a series.</li>
+    <li><strong>Index Cards Stay Put When a Chapter Is Deleted</strong> - Deleting or merging away a chapter no longer sends the index cards after it to the top of the outline.</li>
+    <li><strong>Outline Backspace</strong> - Backspace at the start of a bullet in an Outline block now joins it to the line above, and an empty bullet can be deleted with Backspace.</li>
+    <li><strong>Outline Enter on a Parent Bullet</strong> - Pressing Enter at the end of a bullet with sub-bullets no longer moves them under the new blank bullet.</li>
+    <li><strong>Table Deletion in Minipen</strong> - Fixed deleting a table sometimes leaving it behind after you saved.</li>
+    <li><strong>Damaged WebP Pictures</strong> - Adding a damaged WebP picture as a portrait, cover, or Notebook image can no longer close Penpoint on a computer with little memory.</li>
+    <li><strong>Custom Library Folder Remembered</strong> - Penpoint no longer forgets a custom library folder if its library index file gets damaged.</li>
+    <li><strong>Spellcheck and Japanese Text</strong> - Spellcheck no longer underlines whole phrases of Japanese, Chinese, or Thai text.</li>
+    <li><strong>Add to Dictionary No Longer Ignores Capitals</strong> - Adding "sunsteel" after "Sunsteel" now works instead of silently doing nothing.</li>
+    <li><strong>Typed Calendar Years Saving Wrong</strong> - Fixed typing a year into a Calendar block sometimes saving a different year when your calendar uses named eras.</li>
+    <li><strong>Carried-Over Calendar Dates Now Save</strong> - When a chapter's Calendar opens with your last-used date filled in, leaving edit mode now keeps it instead of reverting to "No date set."</li>
+    <li><strong>Character List Keeps Up With Edits</strong> - Renaming a character or changing their nicknames now shows in the character list right away.</li>
+    <li><strong>Series Names Follow the Same-Name Rule</strong> - Converting a book into a series, or renaming a series, now warns you when another book or series already has that name, and split-off books are numbered (like "Dune #2") instead of sitting beside an identical title.</li>
+    <li><strong>Scene Merges Updating Right Away</strong> - Combined writing appears immediately after you merge scenes.</li>
+    <li><strong>Bringing Back a Subtrait You Removed</strong> - Retyping a removed subtrait restores it, and taken names now say so.</li>
+    <li><strong>Splitting a Series Into Books</strong> - The confirmation window no longer hides its own button on some screens.</li>
+    <li><strong>Comment Margins</strong> - Fixed chapter text stretching edge to edge when a chapter had a comment, and staying squeezed to one side when comments were only showing as dots.</li>
+    <li><strong>Story Arc Labels Stay Readable</strong> - Plot point names on the Arcs page no longer pile on top of each other or get cut off.</li>
+    <li><strong>Add Item Picker</strong> - The "Add item" list in a chapter or scene now shows each item's real icon and archetype name (like "Technology") instead of a generic box and an internal code.</li>
+    <li><strong>Item and Location Pictures in Minipen</strong> - Clicking an item or location picture in Minipen now opens it full size, just like character pictures.</li>
+    <li><strong>Alignment Buttons After Select All</strong> - After Ctrl+A in Manuscript Mode, the alignment buttons now show your text's real alignment instead of always lighting Left.</li>
+    <li><strong>Manuscript Stays Put When a Toolbar Menu Closes</strong> - Closing the "..." menu, the zoom menu or the highlight color picker in Manuscript Mode no longer scrolls your manuscript up.</li>
+    <li><strong>Outline Block Colors</strong> - Chapter Outline text and bullets now match the rest of the page.</li>
+    <li><strong>Book Texture Choices</strong> - The texture list in Create New Book stays within smaller windows and scrolls when needed.</li>
+    <li><strong>Dropdown Menus Stay on Screen</strong> - Long dropdowns stay within the window and scroll properly.</li>
+    <li><strong>Arrow Keys in Manuscript Mode</strong> - Left and right arrow keys no longer jump between worldbuilding entries while you write.</li>
+    <li><strong>Right Slot for Insert Chapter</strong> - Insert Chapter Before or After in the Manuscript outline now puts the new chapter exactly there, instead of one chapter too late.</li>
+    <li><strong>Split Chapter Without a Title</strong> - A chapter split off with no title now shows its "Chapter N" label like the rest.</li>
+    <li><strong>Tutorial Waits Its Turn</strong> - The Manuscript tutorial no longer starts on top of the "How would you like to get started?" window.</li>
+    <li><strong>Tags Follow "This Book"</strong> - In a Series, the Tag Viewer (and the Minipen Tags page) now lists only the active Book's characters, items, locations, chapters and arcs when "This Book" is on, and clicking a character from another Book in the Minipen opens it instead of a blank page.</li>
+  </ul>
+</section>
+
+<section id="v1-3-5" class="changelog-version">
   <div class="changelog-version__header">
     <h2 class="changelog-version__number">1.3.5</h2>
     <span class="changelog-version__date">August 23, 2026</span>
@@ -626,6 +742,7 @@
   <hr class="changelog-version__divider">
   <h3>Added</h3>
   <ul class="changelog-entries">
+    <li><strong>Pick Up Exactly Where You Left Off, On Any Computer</strong> - With Penpoint Cloud, your sense of place now travels with your books. Close the app on your desktop mid-scene, open your laptop, and Penpoint brings you back to the same book, the same mode, the same page, even the same spot in the scene you were writing; your cursor lands right where you stopped, as long as that scene hasn't changed in the meantime. How you've arranged each book comes along too: sort orders and view choices, your relationship map layout, which chapters and folders are tucked away in the outliner, which tag groups and notebook folders are open, and the rest of your workspace arrangement. Things that belong to one screen, like sidebar widths and zoom, stay put on each computer where they make sense.</li>
     <li><strong>Comments in Your Manuscript</strong> - Leave yourself notes in the page margin, right beside the line they belong to. Select some text and press Ctrl+Alt+M (or right-click and choose Add Comment), then reply to extend a thought, resolve it when it's handled, or delete it. A small floating button filters the margin to open or resolved comments, or hides them down to little dots. Comments are for you, not your readers: they never appear in your exports.</li>
     <li><strong>Pin Notes to Your Prose</strong> - Right-click a selection and choose "Pin a Note" to keep a Notebook note in the margin beside a passage, with a live preview and a jump straight to the note. It works both ways: the note lists every place it's pinned, and clicking one takes you back to that exact spot in your manuscript.</li>
     <li><strong>Page Setup for Exports</strong> - Exporting to Word, PDF, or RTF now lets you choose a paper size (Letter, A4, or 6" x 9" book trim) and adjust the margins and first-line indent. The export preview shows your actual page shape and margins as you change them, and the three formats finally agree with each other on how your pages look.</li>
@@ -2132,6 +2249,7 @@
         <div class="pp-footer__col">
           <h4>Product</h4>
           <a href="/#features" class="foot-link">Features</a>
+          <a href="/penpoint-cloud" class="foot-link">Penpoint Cloud</a>
           <a href="/trial" class="foot-link">Free Trial</a>
           <a href="/changelog" class="foot-link">Changelog</a>
           <a href="/roadmap" class="foot-link">Roadmap</a>

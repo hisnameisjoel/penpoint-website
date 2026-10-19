@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    document.documentElement.classList.add('js-ready');
+  </script>
+  <title>Penpoint Cloud: encrypted backup, sync, and Minipen on your phone</title>
+  <meta name="description" content="Penpoint Cloud is the optional add-on for Penpoint: an encrypted cloud copy of every book, unlimited version history, up to 5 computers kept in step, and Minipen, the Penpoint phone app. From $5 a month.">
+  <link rel="canonical" href="https://penpoint.app/penpoint-cloud">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://penpoint.app/penpoint-cloud">
+  <meta property="og:title" content="Penpoint Cloud: your whole world, now in your pocket">
+  <meta property="og:description" content="Encrypted backup for every book, your computers kept in step, and Minipen on your phone. Optional, from $5 a month.">
+  <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Penpoint">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Penpoint Cloud: your whole world, now in your pocket">
+  <meta name="twitter:description" content="Encrypted backup for every book, your computers kept in step, and Minipen on your phone. Optional, from $5 a month.">
+  <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
+  <meta name="theme-color" content="#FFF7E6">
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-79JVXYBCTN');
+  </script>
+
+  <!-- Google Fonts. Caveat is the sticky-note hand lettering (as /novel-november and /minipen-beta). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/site-chrome.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Every fact on this page was checked on 2026-10-12 against the app (src/components/sync/subscriptionState.ts
+       for the four prices) and the Cloud help articles. If a price, limit, or policy changes, change it here,
+       in the FAQ JSON-LD below, in llms.txt, and in the homepage Cloud section together. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I need Penpoint Cloud to use Penpoint?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Penpoint is a one-time purchase and works completely offline, with no account. Penpoint Cloud is an optional subscription that adds an encrypted cloud copy of your books, sync between computers, and Minipen, the Penpoint phone app." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Penpoint Cloud cost?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Penpoint Backup is $5 a month or $45 a year. Penpoint Sync is $10 a month or $96 a year and includes everything in Backup, up to 5 computers kept in step, and the Minipen phone app. Tax is added at checkout where it applies." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Penpoint read my books in the cloud?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Your books are encrypted on your computer with a password only you know, before anything is uploaded. Penpoint stores them but cannot read them." }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to my books if I cancel Penpoint Cloud?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The books on your computer are the originals and nothing happens to them. Cloud keeps working until the end of the time you paid for. After that the cloud copy is kept for 30 days, then deleted, with warning emails first." }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I forget my Penpoint Cloud password?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Use your Recovery Kit, the 12 words you save when you set up Cloud, to choose a new password. If you lose both the password and the Recovery Kit and no computer is still signed in, the cloud copy can't be unlocked by anyone, but the books on your computer are not affected." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which phones does Minipen run on?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Minipen, the Penpoint phone app, runs on iPhone (iOS 16.2 or later) and Android (7.0 or later). It needs a Penpoint Sync plan, and you set up your Cloud account in Penpoint on your computer first." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Penpoint Cloud work offline?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Penpoint always saves to your computer first, so you can keep writing with no connection. Cloud catches up on its own when you are back online." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ===========================================
+       PENPOINT CLOUD
+       The desk look of /novel-november and /minipen-beta (paper grain, manila cards,
+       sticky notes, Caveat lettering) with State of the Pen's paper cards, plus a
+       blue "cloud" accent of its own (#3E6598, already the site's secondary label color).
+       Self-contained like those pages: only site-chrome.css is shared.
+       =========================================== */
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--paper,#FCF8F0);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+    img{max-width:100%;}
+    ::selection{background:var(--accent-bright,#DDA964);color:#29241E;}
+    a{transition:opacity .2s ease, background .2s ease, color .2s ease;}
+    [id]{scroll-margin-top:84px;}
+
+    /* Section scaffolding */
+    .tri-sec{padding:clamp(56px,8vw,104px) clamp(20px,5vw,52px);}
+    .tri-wrap{max-width:920px;margin:0 auto;}
+    .cl-wide{max-width:1100px;margin:0 auto;}
+    .tri-kicker{display:flex;align-items:center;justify-content:center;gap:clamp(10px,1.4vw,16px);font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1.35vw,16px);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#A4521D;margin:0 0 20px;}
+    .tri-kicker::before,.tri-kicker::after{content:"";flex:none;width:clamp(22px,3.6vw,44px);height:2px;background:currentColor;opacity:.5;}
+    .tri-kicker--blue{color:#3E6598;}
+    .tri-h2{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(30px,4.4vw,52px);line-height:1.06;letter-spacing:-0.02em;color:#29241E;margin:0;text-wrap:balance;}
+    .tri-h2 em{font-style:italic;font-weight:400;}
+    .cl-head{text-align:center;max-width:700px;margin:0 auto clamp(32px,4.6vw,52px);}
+    .cl-lede{font-family:'Source Serif 4',serif;font-size:clamp(16px,1.8vw,18.5px);line-height:1.62;color:#5C4332;margin:18px auto 0;max-width:620px;text-wrap:pretty;}
+    .cl-lede strong{color:#29241E;font-weight:600;}
+    .cl-alt{background:var(--paper-alt,#F4EBD8);border-top:1px solid #E6DCCD;border-bottom:1px solid #E6DCCD;}
+    .cl-grain{
+      background-color:#F8EFDB;
+      background-image:
+        radial-gradient(ellipse at 50% 40%, rgba(255,252,242,0.9) 0%, rgba(248,239,219,0) 62%),
+        radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 60%, rgba(120,80,30,0.10) 100%),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' seed='4'/><feColorMatrix values='0 0 0 0 0.45  0 0 0 0 0.32  0 0 0 0 0.16  0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+    /* The "cloud" band: a cool blue paper used once, for the privacy section */
+    .cl-sky{background:#E9EEF2;border-top:1px solid #D3DCE4;border-bottom:1px solid #D3DCE4;}
+
+    /* On-load fade for the hero, scroll reveal for the rest */
+    @keyframes triFade{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+    .tri-in{animation:triFade .7s cubic-bezier(.2,.7,.2,1) both;}
+    .js-ready [data-animate]{opacity:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
+    [data-animate].animate-in{animation:triFade .7s cubic-bezier(.2,.7,.2,1) forwards;}
+    [data-animate][data-stagger="1"].animate-in{animation-delay:80ms;}
+    [data-animate][data-stagger="2"].animate-in{animation-delay:160ms;}
+    [data-animate][data-stagger="3"].animate-in{animation-delay:240ms;}
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto;}
+      .tri-in,[data-animate].animate-in{animation:none !important;}
+      .js-ready [data-animate]{opacity:1;}
+    }
+
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-weight:600;text-decoration:none;cursor:pointer;border:none;line-height:1.2;transition:transform .2s ease, box-shadow .2s ease, background .2s ease;}
+    .btn-primary{background:var(--accent,#CD6E2C);color:#FFF7E6;}
+    .btn-primary:hover{background:#B85F22;transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:#29241E;border:1px solid #C9B79A;}
+    .btn-outline:hover{background:#F1E6D2;}
+    .btn-dark{background:#29241E;color:#FEF9F0;}
+    .btn-dark:hover{background:#3D342A;transform:translateY(-1px);}
+    .btn-lg{font-size:17px;padding:14px 30px;}
+    .btn-sm{font-size:14px;padding:9px 18px;}
+    .btn-shadow{box-shadow:0 12px 24px -12px rgba(205,110,44,.7);}
+    .btn i{margin-right:9px;}
+
+    /* Paper (State of the Pen) */
+    .sp-card{
+      position:relative;box-sizing:border-box;padding:clamp(20px,2.6vw,30px);
+      background-color:#FFFDF7;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='9'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0 0.25  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      box-shadow:0 1px 2px rgba(60,35,10,0.10), 0 14px 30px rgba(60,35,10,0.13);
+      transform:rotate(var(--r,0deg));
+    }
+    .sp-card--manila{background-color:#EFE2C2;}
+    .sp-sticky{position:relative;padding:clamp(14px,2.2vw,22px) clamp(16px,2.4vw,26px);background:#F8E08A;box-shadow:0 1px 2px rgba(60,35,10,0.12), 0 12px 24px rgba(60,35,10,0.16);transform:rotate(var(--r,0deg));}
+    .sp-sticky--blue{background:#CFE2EE;}
+    .sp-tape{position:absolute;top:-13px;left:50%;width:96px;height:26px;margin-left:-48px;background:rgba(233,221,188,0.85);box-shadow:0 1px 2px rgba(0,0,0,0.08);transform:rotate(-3deg);}
+    .sp-label{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:clamp(12px,1.05vw,13px);letter-spacing:0.16em;text-transform:uppercase;color:var(--c,#A4521D);margin:0;}
+    .sp-ct{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(1.3rem,2.3vw,1.65rem);line-height:1.12;letter-spacing:-0.012em;color:#29241E;margin:8px 0;text-wrap:balance;}
+    .sp-cb{font-family:'Source Serif 4',serif;font-size:1rem;line-height:1.58;color:#5A4A36;margin:0;text-wrap:pretty;}
+    .sp-cb strong{color:#29241E;font-weight:600;}
+    .sp-cb a{color:var(--accent,#CD6E2C);font-weight:600;}
+    .sp-hand{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.1;color:#3A3020;margin:0;text-wrap:balance;}
+    .sp-sticky--blue .sp-hand{color:#23364F;}
+    .sp-chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;padding:6px 10px;background:var(--chip-bg,rgba(205,110,44,0.12));color:var(--c,#A4521D);white-space:nowrap;}
+    .sp-chip--blue{--c:#3E6598;--chip-bg:rgba(62,101,152,0.14);}
+    .sp-chip--green{--c:#5E7F52;--chip-bg:rgba(94,127,82,0.13);}
+
+    /* ----- Hero: the big line beside the phone ----- */
+    .cl-hero{padding:clamp(40px,7vw,96px) clamp(20px,5vw,52px) clamp(56px,8vw,104px);border-bottom:1px solid #E6DCCD;overflow:hidden;}
+    .cl-hero__grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr);gap:clamp(36px,5vw,72px);align-items:center;}
+    .cl-hero__chip{margin:0 0 22px;}
+    .cl-hero__h1{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(40px,5.4vw,72px);line-height:1.04;letter-spacing:-0.025em;color:#29241E;margin:0 0 clamp(20px,2.8vw,28px);text-wrap:balance;}
+    .cl-hero__h1 em{display:block;font-style:italic;font-weight:400;}
+    .cl-hero__sub{font-family:'Source Serif 4',serif;font-size:clamp(17px,2vw,21px);line-height:1.58;color:#5C4A33;max-width:540px;margin:0;text-wrap:pretty;}
+    .cl-hero__sub strong{color:#29241E;font-weight:600;}
+    .cl-hero__ctas{display:flex;flex-wrap:wrap;gap:12px 14px;margin-top:clamp(26px,3.6vw,36px);}
+    .cl-hero__fine{font-family:'Source Serif 4',serif;font-size:14.5px;line-height:1.55;color:#7C5236;margin:18px 0 0;max-width:500px;text-wrap:pretty;}
+    .cl-hero__fine i{color:#3E6598;margin-right:7px;}
+    @media(max-width:860px){
+      .cl-hero__grid{grid-template-columns:1fr;text-align:center;}
+      .cl-hero__sub,.cl-hero__fine{margin-left:auto;margin-right:auto;}
+      .cl-hero__ctas{justify-content:center;}
+    }
+
+    /* ----- The phone (Minipen, edit mode, blinking cursor) -----
+       A code rebuild of Minipen's real App Store edit-mode screenshot, copied from
+       /novel-november (MinipenApp docs/deployment/store-assets/appstore/iphone69-03.png):
+       same layout, sampled colors, and the app's own Lucide icons. The screen is laid out
+       at the real phone's 440 CSS px width, then scaled to fit (--s = screen width / 440). */
+    .cl-phone-wrap{position:relative;justify-self:center;padding:10px 0;}
+    .cl-phone{--s:0.63636;position:relative;width:296px;padding:8px;border-radius:50px;background:linear-gradient(155deg,#43464d 0%,#191a1e 46%,#0b0c0f 100%);box-shadow:0 42px 80px -34px rgba(0,0,0,0.62), inset 0 0 0 1.5px rgba(255,255,255,0.07);transform:rotate(3deg);}
+    .cl-phone__screen{position:relative;aspect-ratio:9/19.5;border-radius:42px;background:#FFF7E6;overflow:hidden;}
+    .cl-ph{position:absolute;top:0;left:0;width:440px;height:953px;transform:scale(var(--s));transform-origin:0 0;display:flex;flex-direction:column;background:#FFF7E6;font-family:'Source Serif 4',Georgia,serif;color:#3D2E1C;text-align:left;}
+    .cl-ph svg{flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+    .cl-ph__island{position:absolute;top:13px;left:50%;width:126px;height:37px;margin-left:-63px;border-radius:999px;background:#000;}
+    .cl-ph__status{flex:none;display:flex;justify-content:space-between;align-items:center;height:62px;padding:0 36px 0 40px;font-family:-apple-system,'Segoe UI',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.02em;color:#28241E;}
+    .cl-ph__status span{display:flex;gap:6px;}
+    .cl-ph__head{flex:none;display:flex;align-items:center;height:40px;padding:0 10px 0 14px;}
+    .cl-ph__brand{display:flex;align-items:center;gap:3px;flex:1;font-weight:700;font-size:20px;color:#3D2E1C;}
+    .cl-ph__acts{display:flex;gap:22px;color:#28241E;}
+    .cl-ph__book{flex:none;display:flex;align-items:center;justify-content:center;gap:8px;height:36px;border-bottom:1px solid #E6DCCD;font-size:15px;color:#3D2E1C;}
+    .cl-ph__tabs{flex:none;display:flex;height:48px;border-bottom:1px solid #E6DCCD;color:#7D5D35;}
+    .cl-ph__tabs span{flex:1;display:flex;align-items:center;justify-content:center;}
+    .cl-ph__tabs .is-on{flex:none;gap:8px;padding:0 10px 0 11px;background:#3D362E;color:#FFF7E6;font-size:16px;font-weight:500;}
+    .cl-ph__crumb{flex:none;display:flex;align-items:stretch;height:48px;border-bottom:1px solid #E6DCCD;color:#7D5D35;}
+    .cl-ph__back{display:flex;align-items:center;gap:6px;padding:0 14px 0 16px;background:#FDEACC;font-size:12px;}
+    .cl-ph__crumb > span:last-child{display:flex;align-items:center;padding-left:9px;font-size:15px;}
+    .cl-ph__page{flex:1;min-height:0;overflow:hidden;padding:30px 32px 0;}
+    .cl-ph__chap{margin:0;font-size:17px;letter-spacing:0.14em;color:#7D5D35;}
+    .cl-ph__title{margin:6px 0 0;font-size:30px;font-weight:700;line-height:1.15;letter-spacing:-0.005em;color:#3D2E1C;}
+    .cl-ph__sub{margin:6px 0 0;padding-bottom:16px;border-bottom:1px solid #E6DCCD;font-size:18px;font-style:italic;color:#7D5D35;}
+    .cl-ph__page p.cl-ph__prose{margin:0 0 8px;font-size:16.5px;line-height:1.13;text-indent:32px;color:#3D2E1C;}
+    .cl-ph__page .cl-ph__sub + .cl-ph__prose{margin-top:16px;}
+    .cl-ph__tools{flex:none;display:flex;align-items:center;height:82px;padding:0 0 34px 24px;background:#FDEACC;border-top:1px solid #E6DCCD;color:#7D5D35;}
+    .cl-ph__home{position:absolute;left:50%;bottom:9px;width:140px;height:5px;margin-left:-70px;border-radius:999px;background:#29241E;}
+    .cl-ph__tools > *{margin-right:20px;}
+    .cl-ph__tools i{width:1px;height:26px;background:#E6DCCD;margin-right:20px;}
+    .cl-ph__hi{position:relative;}
+    .cl-ph__hi::after{content:"";position:absolute;left:2px;right:2px;bottom:-6px;height:4px;border-radius:2px;background:#F2C230;}
+    .cl-caret{display:inline-block;width:2.5px;height:1.1em;margin-left:1px;vertical-align:-3px;background:var(--accent,#CD6E2C);animation:clBlink 1.1s steps(1) infinite;}
+    @keyframes clBlink{50%{opacity:0;}}
+    @media(max-width:400px){.cl-phone{--s:0.57273;width:268px;}}
+    @media(max-width:560px){.cl-phone{transform:rotate(2deg);}}
+    @media(prefers-reduced-motion:reduce){.cl-caret{animation:none;}}
+
+    /* ----- What it does: four paper cards ----- */
+    .cl-four{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.2vw,24px);}
+    .cl-four .sp-card{display:flex;flex-direction:column;}
+    .cl-four__ic{font-size:22px;color:var(--c,#CD6E2C);margin-bottom:14px;}
+    @media(max-width:1000px){.cl-four{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    @media(max-width:600px){.cl-four{grid-template-columns:1fr;max-width:460px;margin:0 auto;}}
+
+    /* ----- How it works: computer, Cloud, phone ----- */
+    .cl-flow{display:grid;grid-template-columns:minmax(0,1fr) 48px minmax(0,1fr) 48px minmax(0,1fr);align-items:center;max-width:900px;margin:0 auto;}
+    .cl-flow__box{text-align:center;padding:20px 18px;}
+    .cl-flow__box > i{font-size:26px;color:var(--accent,#CD6E2C);margin-bottom:10px;}
+    .cl-flow__box .sp-ct{font-size:clamp(1.15rem,2vw,1.35rem);margin:2px 0 6px;}
+    .cl-flow__box .sp-cb{font-size:.95rem;}
+    .cl-flow__arrow{justify-self:center;color:#3E6598;font-size:22px;}
+    .cl-flow-note{text-align:center;max-width:660px;margin:clamp(28px,3.8vw,38px) auto 0;font-family:'Source Serif 4',serif;font-size:clamp(15.5px,1.7vw,17px);line-height:1.62;color:#5C4332;text-wrap:balance;}
+    .cl-flow-note strong{color:#29241E;font-weight:600;}
+    @media(max-width:760px){
+      .cl-flow{grid-template-columns:1fr;max-width:360px;row-gap:6px;}
+      .cl-flow__arrow{transform:rotate(90deg);}
+    }
+
+    /* ----- Minipen: real screenshots ----- */
+    .cl-shots{display:flex;justify-content:center;align-items:flex-start;gap:clamp(18px,3.4vw,40px);flex-wrap:wrap;margin:0 auto;}
+    .cl-shot{margin:0;width:clamp(180px,24vw,236px);text-align:center;}
+    .cl-shot__frame{padding:7px;border-radius:34px;background:linear-gradient(155deg,#43464d 0%,#191a1e 46%,#0b0c0f 100%);box-shadow:0 34px 60px -32px rgba(0,0,0,0.6), inset 0 0 0 1.5px rgba(255,255,255,0.07);transform:rotate(var(--r,0deg));}
+    /* padding-top is a sliver of cream: the screenshots start right at the header, and the rounded corners clip the Minipen mark and the top-right icons without it. Keep it small (4% adds under 2% to the phone's height); at 11% it read as a forehead. */
+    .cl-shot__frame img{display:block;box-sizing:content-box;width:100%;height:auto;aspect-ratio:600/1304;padding-top:4%;border-radius:28px;background:#FFF7E6;}
+    .cl-shot figcaption{font-family:'Source Serif 4',serif;font-size:15px;line-height:1.45;color:#5C4332;margin-top:18px;text-wrap:balance;}
+    .cl-shot figcaption strong{display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#A4521D;margin-bottom:4px;}
+    @media(max-width:620px){
+      .cl-shots{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin:0 calc(-1 * clamp(20px,5vw,52px));padding:4px clamp(20px,5vw,52px) 14px;gap:18px;scrollbar-width:none;}
+      .cl-shots::-webkit-scrollbar{display:none;}
+      .cl-shot{flex:none;width:min(220px,62vw);scroll-snap-align:center;}
+      .cl-shot__frame{transform:none;}
+    }
+    .cl-launch{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 18px;margin:clamp(34px,4.6vw,46px) 0 0;font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;}
+    .cl-launch i{margin-right:6px;}
+    .cl-launch__stores{display:inline-flex;gap:18px;}
+    .cl-launch-fine{text-align:center;font-family:'Source Serif 4',serif;font-size:15px;line-height:1.6;color:#7C5236;max-width:600px;margin:12px auto 0;text-wrap:balance;}
+
+    /* ----- Privacy rows (the /minipen-beta "read this first" box) ----- */
+    .cl-rows{max-width:800px;margin:0 auto;background:var(--paper,#FCF8F0);border:1px solid #CBD6E0;box-shadow:0 24px 50px -38px rgba(35,54,79,.45);}
+    .cl-row{display:flex;gap:18px;align-items:flex-start;padding:clamp(18px,2.6vw,24px) clamp(20px,3vw,32px);border-top:1px solid #E1E6EA;}
+    .cl-row:first-child{border-top:none;}
+    .cl-row > i{flex:none;width:24px;text-align:center;font-size:18px;color:#3E6598;margin-top:4px;}
+    .cl-row p{font-family:'Source Serif 4',serif;font-size:clamp(15.5px,1.7vw,17px);line-height:1.6;color:#4A3C2A;margin:0;text-wrap:pretty;}
+    .cl-row strong{color:#29241E;font-weight:600;}
+    .cl-row a{color:var(--accent,#CD6E2C);font-weight:600;}
+
+    /* ----- Plans ----- */
+    .cl-plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,32px);max-width:860px;margin:0 auto;align-items:stretch;}
+    .cl-plan{display:flex;flex-direction:column;padding:clamp(26px,3.4vw,38px);}
+    .cl-plan--sync{outline:2px solid #3E6598;outline-offset:-2px;}
+    .cl-plan__top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+    .cl-plan__name{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(26px,3vw,32px);line-height:1.1;letter-spacing:-0.015em;color:#29241E;margin:10px 0 4px;}
+    .cl-plan__for{font-family:'Source Serif 4',serif;font-size:15.5px;line-height:1.5;color:#7C5236;margin:0 0 18px;}
+    .cl-price{display:flex;align-items:baseline;gap:8px;margin:0;}
+    .cl-price__n{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(44px,5vw,56px);line-height:1;letter-spacing:-0.02em;color:#29241E;}
+    .cl-price__per{font-family:'Source Serif 4',serif;font-size:16px;color:#7C5236;}
+    .cl-price-yr{font-family:'Source Serif 4',serif;font-size:15px;color:#5C4332;margin:8px 0 0;}
+    .cl-price-yr strong{color:#29241E;font-weight:600;}
+    .cl-ticks{list-style:none;margin:22px 0 0;padding:20px 0 0;border-top:1px solid #E6DCCD;display:flex;flex-direction:column;gap:10px;}
+    .cl-ticks li{display:flex;gap:11px;align-items:flex-start;font-family:'Source Serif 4',serif;font-size:15.5px;line-height:1.5;color:#4A3C2A;}
+    .cl-ticks li i{flex:none;color:#5E7F52;margin-top:4px;font-size:14px;}
+    .cl-ticks li strong{color:#29241E;font-weight:600;}
+    .cl-plan-fine{max-width:700px;margin:clamp(28px,3.8vw,38px) auto 0;text-align:center;font-family:'Source Serif 4',serif;font-size:15px;line-height:1.65;color:#7C5236;text-wrap:balance;}
+    .cl-plan-fine strong{color:#29241E;font-weight:600;}
+    .cl-plan-fine a{color:var(--accent,#CD6E2C);font-weight:600;}
+    @media(max-width:720px){.cl-plans{grid-template-columns:1fr;max-width:480px;}}
+
+    /* ----- How to start: numbered steps ----- */
+    .cl-steps{list-style:none;counter-reset:cl;margin:0 auto;padding:0;max-width:760px;display:flex;flex-direction:column;gap:clamp(18px,2.6vw,24px);}
+    .cl-steps > li{counter-increment:cl;position:relative;padding:clamp(22px,3vw,30px) clamp(22px,3vw,32px) clamp(22px,3vw,30px) clamp(78px,9vw,96px);}
+    .cl-steps > li::before{content:counter(cl);position:absolute;left:clamp(22px,3vw,30px);top:clamp(22px,3vw,28px);width:44px;height:44px;border-radius:50%;background:#29241E;color:#FEF9F0;font-family:'Newsreader',serif;font-weight:500;font-size:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px -14px rgba(41,36,30,.7);}
+    .cl-steps .sp-ct{margin:2px 0 8px;}
+    .cl-ui{display:inline-block;font-family:'Source Serif 4',serif;font-weight:600;font-size:.92em;line-height:1.35;color:#29241E;background:#FFFFFF;border:1px solid #D9C6A5;border-bottom-width:2px;padding:0 7px;white-space:nowrap;}
+    .cl-steps .btn{margin-top:14px;}
+    @media(max-width:520px){.cl-steps > li{padding-left:22px;padding-top:78px;}.cl-steps > li::before{top:22px;}}
+
+    /* ----- FAQ ----- */
+    .cl-faq{max-width:780px;margin:0 auto;border-top:1px solid #DDCBAE;}
+    .cl-faq details{border-bottom:1px solid #DDCBAE;}
+    .cl-faq summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;gap:14px;padding:20px 4px;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(19px,2.1vw,22px);line-height:1.25;color:#29241E;}
+    .cl-faq summary::-webkit-details-marker{display:none;}
+    .cl-faq summary::before{content:"+";flex:none;width:22px;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:20px;line-height:1.2;color:var(--accent,#CD6E2C);}
+    .cl-faq details[open] summary::before{content:"\2212";}
+    .cl-faq summary:hover{color:#A4521D;}
+    .cl-faq__a{padding:0 4px 22px 40px;animation:triFade .3s cubic-bezier(.2,.7,.2,1) both;}
+    .cl-faq__a p{font-family:'Source Serif 4',serif;font-size:clamp(15.5px,1.7vw,17px);line-height:1.6;color:#5C4332;margin:0 0 12px;text-wrap:pretty;}
+    .cl-faq__a p:last-child{margin-bottom:0;}
+    .cl-faq__a strong{color:#29241E;font-weight:600;}
+    .cl-faq__a a{color:var(--accent,#CD6E2C);font-weight:600;}
+    @media(prefers-reduced-motion:reduce){.cl-faq__a{animation:none;}}
+
+    /* ----- Closing call to action + help links ----- */
+    .cl-end{text-align:center;}
+    .cl-end .tri-h2{font-size:clamp(34px,5.6vw,64px);}
+    .cl-end__ctas{display:flex;flex-wrap:wrap;gap:14px 18px;justify-content:center;margin-top:clamp(28px,4vw,38px);}
+    .cl-help{max-width:760px;margin:clamp(44px,6vw,64px) auto 0;padding-top:clamp(28px,4vw,36px);border-top:1px solid #E0D2BC;}
+    .cl-help .sp-label{text-align:center;margin-bottom:16px;}
+    .cl-help ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 28px;text-align:left;}
+    .cl-help a{display:flex;gap:10px;align-items:baseline;font-family:'Source Serif 4',serif;font-size:15.5px;line-height:1.45;color:#5C4332;text-decoration:none;transition:color .2s ease;}
+    .cl-help a i{color:var(--accent,#CD6E2C);font-size:13px;}
+    .cl-help a:hover,.cl-help a:focus-visible{color:#A4521D;}
+    .cl-help a strong{color:#29241E;font-weight:600;transition:color .2s ease;}
+    .cl-help a:hover strong,.cl-help a:focus-visible strong{color:#A4521D;} /* the bold lead-in has its own color, so it needs its own hover rule */
+    @media(prefers-reduced-motion:no-preference){.cl-help a i{transition:transform .2s ease;}.cl-help a:hover i,.cl-help a:focus-visible i{transform:translateX(3px);}}
+    @media(max-width:620px){.cl-help ul{grid-template-columns:1fr;}}
+
+    /* Tilted paper only where there is room for it */
+    @media(max-width:560px){.sp-card,.sp-sticky{transform:none;}}
+    @media(max-width:640px){
+      .cl-row{gap:12px;padding:16px 16px 18px;}
+      .cl-faq__a{padding-left:4px;}
+    }
+  </style>
+</head>
+<body>
+<div id="pp-root" style="font-family:'Source Serif 4',Georgia,serif;color:#3D2E1C;background:var(--paper,#FCF8F0);">
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ===== Shared site header (see css/site-chrome.css) ===== -->
+  <header class="pp-header">
+    <div class="pp-header__inner">
+      <a href="/" class="pp-logo" aria-label="Penpoint home">
+        <svg class="pp-logo__icon" viewBox="0 0 24 24" width="22" height="22" fill="#CD6E2C"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+        <span class="pp-logo__text">Penpoint</span>
+      </a>
+      <nav class="pp-nav" aria-label="Primary">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/penpoint-cloud" aria-current="page">Cloud</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" aria-label="Join our Discord" class="pp-nav__discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="/trial" class="pp-cta">Try Penpoint</a>
+      </nav>
+      <a href="/trial" class="pp-try-m">Try</a>
+      <button type="button" class="pp-burger" data-burger="" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="pp-mobile" data-mobile-menu="">
+      <div class="pp-mobile__inner">
+        <a href="/about">About</a>
+        <a href="/compare">Compare</a>
+        <a href="/penpoint-cloud" aria-current="page">Cloud</a>
+        <a href="/development">Development</a>
+        <a href="/#testimonials">Testimonials</a>
+        <a href="/help">Help</a>
+        <a href="/buy" class="pp-nav__buy">Buy</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===========================================
+         HERO: the big line beside the phone
+         =========================================== -->
+    <section class="cl-hero cl-grain">
+      <div class="cl-hero__grid">
+        <div>
+          <p class="cl-hero__chip tri-in"><span class="sp-chip sp-chip--blue">Penpoint Cloud</span></p>
+          <h1 class="cl-hero__h1 tri-in" style="animation-delay:70ms;">Your whole world. <em>Now in your pocket.</em></h1>
+          <p class="cl-hero__sub tri-in" style="animation-delay:150ms;">Penpoint Cloud keeps an encrypted copy of every book, keeps your computers in step, and puts your manuscript and your worldbuilding on your phone with <strong>Minipen</strong>, the Penpoint phone app.</p>
+          <div class="cl-hero__ctas tri-in" style="animation-delay:230ms;">
+            <a href="#plans" class="btn btn-primary btn-lg btn-shadow">See the plans</a>
+            <a href="#how" class="btn btn-outline btn-lg">How it works</a>
+          </div>
+          <p class="cl-hero__fine tri-in" style="animation-delay:300ms;"><i class="fa-solid fa-circle-info" aria-hidden="true"></i>Optional, from $5 a month. Penpoint itself stays a one-time purchase, and it works without Cloud.</p>
+        </div>
+
+        <div class="cl-phone-wrap tri-in" style="animation-delay:260ms;">
+          <!-- Minipen's own Lucide icons (MinipenApp src/components/shell/TabNav.tsx, the header, the editor toolbar). -->
+          <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+            <!-- The header mark is Remix's quill pen (RiQuillPenLine in AppShell.tsx), filled, not a Lucide stroke icon. -->
+            <symbol id="clI-quill" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"/></symbol>
+            <symbol id="clI-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></symbol>
+            <symbol id="clI-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+            <symbol id="clI-book-open" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+            <symbol id="clI-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+            <symbol id="clI-scroll" viewBox="0 0 24 24"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></symbol>
+            <symbol id="clI-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></symbol>
+            <symbol id="clI-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><polyline points="3.29 7 12 12 20.71 7"/><path d="m7.5 4.27 9 5.15"/></symbol>
+            <symbol id="clI-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+            <symbol id="clI-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+            <symbol id="clI-arcs" viewBox="0 0 24 24"><g transform="rotate(45 12 12)"><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><path d="M5 17A12 12 0 0 1 17 5"/></g></symbol>
+            <symbol id="clI-bookmark" viewBox="0 0 24 24"><path d="M10 2v8l3-3 3 3V2"/><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></symbol>
+            <symbol id="clI-tag" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
+            <symbol id="clI-gear" viewBox="0 0 24 24"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></symbol>
+            <symbol id="clI-back" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+            <symbol id="clI-bold" viewBox="0 0 24 24"><path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"/></symbol>
+            <symbol id="clI-italic" viewBox="0 0 24 24"><line x1="19" x2="10" y1="4" y2="4"/><line x1="14" x2="5" y1="20" y2="20"/><line x1="15" x2="9" y1="4" y2="20"/></symbol>
+            <symbol id="clI-underline" viewBox="0 0 24 24"><path d="M6 4v6a6 6 0 0 0 12 0V4"/><line x1="4" x2="20" y1="20" y2="20"/></symbol>
+            <symbol id="clI-strike" viewBox="0 0 24 24"><path d="M16 4H9a3 3 0 0 0-2.83 4"/><path d="M14 12a4 4 0 0 1 0 8H6"/><line x1="4" x2="20" y1="12" y2="12"/></symbol>
+            <symbol id="clI-highlight" viewBox="0 0 24 24"><path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></symbol>
+            <symbol id="clI-comment" viewBox="0 0 24 24"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/></symbol>
+            <symbol id="clI-note" viewBox="0 0 24 24"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8Z"/><path d="M15 3v4a2 2 0 0 0 2 2h4"/></symbol>
+            <symbol id="clI-more" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></symbol>
+            <symbol id="clI-signal" viewBox="0 0 24 24"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></symbol>
+            <symbol id="clI-wifi" viewBox="0 0 24 24"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></symbol>
+            <symbol id="clI-battery" viewBox="0 0 24 24"><path d="M10 10v4"/><path d="M14 10v4"/><path d="M22 14v-4"/><path d="M6 10v4"/><rect x="2" y="6" width="16" height="12" rx="2"/></symbol>
+          </defs></svg>
+
+          <div class="cl-phone" role="img" aria-label="Minipen on a phone, with a manuscript chapter open in edit mode, mid-sentence">
+            <div class="cl-phone__screen" aria-hidden="true">
+              <div class="cl-ph">
+                <div class="cl-ph__status"><span>9:41</span><span><svg width="19" height="19"><use href="#clI-signal"/></svg><svg width="19" height="19"><use href="#clI-wifi"/></svg><svg width="27" height="19" style="stroke-width:1.5"><use href="#clI-battery"/></svg></span></div>
+                <div class="cl-ph__head">
+                  <span class="cl-ph__brand"><svg width="22" height="22"><use href="#clI-quill"/></svg>Minipen</span>
+                  <span class="cl-ph__acts"><svg width="23" height="23"><use href="#clI-search"/></svg><svg width="23" height="23"><use href="#clI-plus"/></svg><svg width="23" height="23"><use href="#clI-book-open"/></svg></span>
+                </div>
+                <div class="cl-ph__book">The Lighthouse Keeper<svg width="15" height="15"><use href="#clI-chevron"/></svg></div>
+                <div class="cl-ph__tabs">
+                  <span class="is-on"><svg width="21" height="21"><use href="#clI-scroll"/></svg>Manuscript</span>
+                  <span><svg width="21" height="21"><use href="#clI-users"/></svg></span>
+                  <span><svg width="21" height="21"><use href="#clI-package"/></svg></span>
+                  <span><svg width="21" height="21"><use href="#clI-pin"/></svg></span>
+                  <span><svg width="21" height="21"><use href="#clI-file"/></svg></span>
+                  <span><svg width="21" height="21"><use href="#clI-arcs"/></svg></span>
+                  <span><svg width="21" height="21"><use href="#clI-bookmark"/></svg></span>
+                  <span><svg width="21" height="21"><use href="#clI-tag"/></svg></span>
+                  <span><svg width="21" height="21"><use href="#clI-gear"/></svg></span>
+                </div>
+                <div class="cl-ph__crumb"><span class="cl-ph__back"><svg width="14" height="14"><use href="#clI-back"/></svg>Back</span><span>The Lamp Room</span></div>
+                <div class="cl-ph__page">
+                  <p class="cl-ph__chap">CHAPTER 3</p>
+                  <p class="cl-ph__title">The Lamp Room</p>
+                  <p class="cl-ph__sub">Ninety-One Stairs</p>
+                  <p class="cl-ph__prose">Mara counted the stairs the way her father had taught her: ninety-one to the lamp room, and one more for luck. The last step was the one that creaked, and tonight it creaked as if it had been waiting for her.</p>
+                  <p class="cl-ph__prose">The glass was cold under her palm. Somewhere below, the bell on the old dock rang twice, though there was no wind to ring it and no boat left to tie to it.</p>
+                  <p class="cl-ph__prose">Down in the village the windows had gone dark one by one, until only the church and the Hallorans' kitchen still burned.</p>
+                  <p class="cl-ph__prose">She did not look down at the water. She had promised herself she would not look<span class="cl-caret"></span></p>
+                </div>
+                <div class="cl-ph__tools">
+                  <svg width="22" height="22"><use href="#clI-bold"/></svg>
+                  <svg width="22" height="22"><use href="#clI-italic"/></svg>
+                  <svg width="22" height="22"><use href="#clI-underline"/></svg>
+                  <svg width="22" height="22"><use href="#clI-strike"/></svg>
+                  <span class="cl-ph__hi"><svg width="22" height="22" style="display:block"><use href="#clI-highlight"/></svg></span>
+                  <svg width="15" height="15" style="margin-left:-10px"><use href="#clI-chevron"/></svg>
+                  <i></i>
+                  <svg width="22" height="22"><use href="#clI-comment"/></svg>
+                  <svg width="22" height="22"><use href="#clI-note"/></svg>
+                  <svg width="22" height="22"><use href="#clI-more"/></svg>
+                </div>
+                <div class="cl-ph__island"></div>
+                <div class="cl-ph__home"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         WHAT IT DOES
+         =========================================== -->
+    <section id="what" class="tri-sec">
+      <div class="cl-wide">
+        <div class="cl-head" data-animate="fade-up">
+          <p class="tri-kicker">What you get</p>
+          <h2 class="tri-h2">Your books, safe. <em>And wherever you are.</em></h2>
+        </div>
+        <div class="cl-four">
+          <div class="sp-card" style="--r:-0.6deg" data-animate="fade-up">
+            <i class="fa-solid fa-cloud-arrow-up cl-four__ic" aria-hidden="true"></i>
+            <p class="sp-label">Backed up</p>
+            <p class="sp-ct">Every book. Every version.</p>
+            <p class="sp-cb">Every book backs itself up to the cloud while you write. Restore any earlier draft from the version history, which has no limit for as long as you subscribe.</p>
+          </div>
+          <div class="sp-card" style="--r:0.5deg" data-animate="fade-up" data-stagger="1">
+            <i class="fa-solid fa-laptop cl-four__ic" aria-hidden="true"></i>
+            <p class="sp-label" style="--c:#3E6598">Every computer</p>
+            <p class="sp-ct">Desk in the morning, laptop at lunch.</p>
+            <p class="sp-cb">With Penpoint Sync, up to 5 computers stay in step. Open a book anywhere you're signed in and pick up where you left off.</p>
+          </div>
+          <div class="sp-card" style="--r:-0.4deg" data-animate="fade-up" data-stagger="2">
+            <i class="fa-solid fa-mobile-screen-button cl-four__ic" aria-hidden="true"></i>
+            <p class="sp-label" style="--c:#5E7F52">On your phone</p>
+            <p class="sp-ct">Minipen comes with Sync.</p>
+            <p class="sp-cb">Write your manuscript and look up your characters, places, and notes on your phone. Everything you change is waiting on your computer.</p>
+          </div>
+          <div class="sp-card" style="--r:0.6deg" data-animate="fade-up" data-stagger="3">
+            <i class="fa-solid fa-lock cl-four__ic" aria-hidden="true"></i>
+            <p class="sp-label" style="--c:#7C5236">Private</p>
+            <p class="sp-ct">Encrypted before it leaves.</p>
+            <p class="sp-cb">Your books are encrypted on your computer with a password only you know. Penpoint stores them and can't read them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         HOW IT WORKS: computer, Cloud, phone
+         =========================================== -->
+    <section id="how" class="tri-sec cl-alt">
+      <div class="cl-wide">
+        <div class="cl-head" data-animate="fade-up">
+          <p class="tri-kicker">How it works</p>
+          <h2 class="tri-h2">Your computer, the cloud, <em>and your phone.</em></h2>
+          <p class="cl-lede">Penpoint still saves everything to your computer first. Cloud keeps a second, encrypted copy and passes your changes between your devices.</p>
+        </div>
+        <div class="cl-flow" data-animate="fade-up" aria-label="How your books move between your devices">
+          <div class="sp-card cl-flow__box" style="--r:-0.6deg"><i class="fa-solid fa-laptop" aria-hidden="true"></i><p class="sp-label">Your computer</p><p class="sp-ct">Penpoint</p><p class="sp-cb">Where your books live. These are the originals.</p></div>
+          <i class="fa-solid fa-arrow-right-arrow-left cl-flow__arrow" aria-hidden="true"></i>
+          <div class="sp-card cl-flow__box" style="--r:0.4deg"><i class="fa-solid fa-cloud" aria-hidden="true" style="color:#3E6598"></i><p class="sp-label" style="--c:#3E6598">In between</p><p class="sp-ct">Penpoint Cloud</p><p class="sp-cb">An encrypted copy, with every earlier version.</p></div>
+          <i class="fa-solid fa-arrow-right-arrow-left cl-flow__arrow" aria-hidden="true"></i>
+          <div class="sp-card cl-flow__box" style="--r:-0.3deg"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i><p class="sp-label" style="--c:#5E7F52">Your phone</p><p class="sp-ct">Minipen</p><p class="sp-cb">Signs in and brings your books along.</p></div>
+        </div>
+        <p class="cl-flow-note" data-animate="fade-up"><strong>Lose the Wi-Fi and you keep writing.</strong> Everything saves on your computer as usual, and the cloud catches up on its own when you're back online. If you ever cancel, the books on your computer don't change at all.</p>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         MINIPEN
+         Screenshots: MinipenApp docs/deployment/store-assets/appstore/iphone69-03/-04/-05.png
+         (real app, Sherlock Holmes fixture), resized to 600px webp (shared with /minipen-beta).
+         =========================================== -->
+    <section id="minipen" class="tri-sec cl-grain">
+      <div class="cl-wide">
+        <div class="cl-head" data-animate="fade-up">
+          <p class="tri-kicker">Minipen, the Penpoint phone app</p>
+          <h2 class="tri-h2">Ten minutes on the bus <em>still counts.</em></h2>
+          <p class="cl-lede">Read and write your manuscript, check on a character or a place mid-scene, and add notes wherever you are. When you get back to your desk, everything you did on your phone is waiting in Penpoint.</p>
+        </div>
+
+        <div class="cl-shots">
+          <figure class="cl-shot" data-animate="fade-up">
+            <div class="cl-shot__frame" style="--r:-2deg"><img src="images/minipen-beta/minipen-write.webp" width="600" height="1304" alt="Minipen showing chapter one of a manuscript, with a formatting toolbar along the bottom of the screen" loading="lazy" decoding="async"></div>
+            <figcaption><strong>Write</strong>Your manuscript, with bold, italics, comments, and notes.</figcaption>
+          </figure>
+          <figure class="cl-shot" data-animate="fade-up" data-stagger="1">
+            <div class="cl-shot__frame" style="--r:1deg"><img src="images/minipen-beta/minipen-character.webp" width="600" height="1304" alt="Minipen showing the character page for Dr. John Watson, with his portrait and bio" loading="lazy" decoding="async"></div>
+            <figcaption><strong>Look it up</strong>Your cast, with portraits, bios, and everything else you've written.</figcaption>
+          </figure>
+          <figure class="cl-shot" data-animate="fade-up" data-stagger="2">
+            <div class="cl-shot__frame" style="--r:2.5deg"><img src="images/minipen-beta/minipen-locations.webp" width="600" height="1304" alt="Minipen showing a book's locations as a tree, from London down to individual rooms" loading="lazy" decoding="async"></div>
+            <figcaption><strong>Your world</strong>Places, items, notes, and arcs, the same as on your computer.</figcaption>
+          </figure>
+        </div>
+
+        <!-- STORE BADGES SLOT. Minipen's public App Store and Google Play listings are submitted Oct 22 to 24
+             (hub milestone "Minipen public store submissions start"). Until both are live, this says
+             "Launching this November", the same words /novel-november uses. Once both listings are live,
+             swap the chip for the two store links. Never link the TestFlight / Play testing builds here:
+             they sign in to the test Cloud, not the real one. -->
+        <div data-animate="fade-up">
+          <p class="cl-launch"><span class="sp-chip sp-chip--blue">Launching this November</span><span class="cl-launch__stores"><span><i class="fa-brands fa-apple" aria-hidden="true"></i>iPhone</span><span><i class="fa-brands fa-android" aria-hidden="true"></i>Android</span></span></p>
+          <p class="cl-launch-fine">Minipen comes with Penpoint Sync. It needs Penpoint on a computer, where you set up your Cloud account, then you sign in on your phone with the same email and password. iPhone with iOS 16.2 or later, or Android 7.0 or later.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         PRIVACY
+         =========================================== -->
+    <section id="privacy" class="tri-sec cl-sky">
+      <div class="tri-wrap">
+        <div class="cl-head" data-animate="fade-up">
+          <p class="tri-kicker tri-kicker--blue">Private by design</p>
+          <h2 class="tri-h2">Only you can read it. <em>Not even Penpoint.</em></h2>
+        </div>
+        <div class="cl-rows" data-animate="fade-up">
+          <div class="cl-row">
+            <i class="fa-solid fa-key" aria-hidden="true"></i>
+            <p><strong>Your password locks your books.</strong> Before a book leaves your computer, it's encrypted (scrambled so it's unreadable) with a password you choose. That password never leaves your computer, so Penpoint can store your books but can't open them.</p>
+          </div>
+          <div class="cl-row">
+            <i class="fa-solid fa-life-ring" aria-hidden="true"></i>
+            <p><strong>Your Recovery Kit is the spare key.</strong> When you set up Cloud, you save 12 words somewhere safe, like a password manager or a printout. Forget your password and those 12 words get you back in.</p>
+          </div>
+          <div class="cl-row">
+            <i class="fa-solid fa-hard-drive" aria-hidden="true"></i>
+            <p><strong>The books on your computer are always yours.</strong> If you ever lose both your password and your Recovery Kit, nobody can unlock the cloud copy, but nothing on your computer changes. <a href="/help/encrypted-novel-backup">How the encryption works</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         PLANS
+         Prices: src/components/sync/subscriptionState.ts (the app's checkout list) and
+         /help/penpoint-cloud-plans. Yearly saves 25% on Backup ($45 vs $60) and 20% on Sync ($96 vs $120).
+         HELD: the free Cloud month for Novel November (opens Nov 1). Do not add a line about it here
+         until Joel confirms the wording.
+         =========================================== -->
+    <section id="plans" class="tri-sec">
+      <div class="cl-wide">
+        <div class="cl-head" data-animate="fade-up">
+          <p class="tri-kicker">Plans</p>
+          <h2 class="tri-h2">Two plans. <em>Monthly or yearly.</em></h2>
+          <p class="cl-lede">Penpoint Cloud is a subscription, separate from your one-time Penpoint purchase. Pick a plan inside Penpoint when you set up Cloud.</p>
+        </div>
+
+        <div class="cl-plans">
+          <div class="sp-card cl-plan" style="--r:-0.4deg" data-animate="fade-up">
+            <div class="cl-plan__top"><p class="sp-label">Penpoint Backup</p></div>
+            <p class="cl-plan__name">Backup</p>
+            <p class="cl-plan__for">For writing on one computer, with a safe copy off it.</p>
+            <p class="cl-price"><span class="cl-price__n">$5</span><span class="cl-price__per">a month</span></p>
+            <p class="cl-price-yr">or <strong>$45 a year</strong></p>
+            <ul class="cl-ticks">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>An encrypted cloud copy of every book</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Unlimited version history: restore any earlier draft</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Backs up from one computer at a time</span></li>
+            </ul>
+          </div>
+
+          <div class="sp-card cl-plan cl-plan--sync" style="--r:0.4deg" data-animate="fade-up" data-stagger="1">
+            <div class="cl-plan__top"><p class="sp-label" style="--c:#3E6598">Penpoint Sync</p><span class="sp-chip sp-chip--green">Includes Minipen</span></div>
+            <p class="cl-plan__name">Sync</p>
+            <p class="cl-plan__for">For writing on more than one computer, and on your phone.</p>
+            <p class="cl-price"><span class="cl-price__n">$10</span><span class="cl-price__per">a month</span></p>
+            <p class="cl-price-yr">or <strong>$96 a year</strong></p>
+            <ul class="cl-ticks">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span><strong>Everything in Backup</strong></span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Up to 5 computers kept in step</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Minipen, the Penpoint phone app</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="cl-plan-fine" data-animate="fade-up">Prices in US dollars; tax is added at checkout where it applies. Cancel any time from <strong>Settings &gt; Penpoint Cloud</strong> inside Penpoint, with no phone call or email. A canceled plan runs to the end of the time you paid for. Cloud subscriptions are non-refundable and not prorated. <a href="/help/penpoint-cloud-plans">Plan details</a></p>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         HOW TO START
+         =========================================== -->
+    <section id="start" class="tri-sec cl-alt">
+      <div class="cl-wide">
+        <div class="cl-head" data-animate="fade-up">
+          <p class="tri-kicker">How to start</p>
+          <h2 class="tri-h2">Set it up once, <em>on your computer.</em></h2>
+          <p class="cl-lede">It takes a few minutes. After that, every book in your library uploads by itself.</p>
+        </div>
+        <ol class="cl-steps">
+          <li class="sp-card" style="--r:-0.3deg" data-animate="fade-up">
+            <p class="sp-ct">Get the latest Penpoint</p>
+            <p class="sp-cb">Penpoint Cloud is built into Penpoint on Windows, macOS, and Linux. Already have it? Update to the newest version. New to Penpoint? Start with the free trial.</p>
+            <a href="/trial" class="btn btn-dark btn-sm">Try Penpoint free</a>
+          </li>
+          <li class="sp-card" style="--r:0.3deg" data-animate="fade-up" data-stagger="1">
+            <p class="sp-ct">Open Settings and choose a plan</p>
+            <p class="sp-cb">Go to <span class="cl-ui">Settings</span> &gt; <span class="cl-ui">Penpoint Cloud</span> and click <span class="cl-ui">Set up Penpoint Cloud</span>. Enter your email and the 6-digit code it sends you, then pick Backup or Sync. Checkout opens in your browser, and Penpoint notices when it's done.</p>
+          </li>
+          <li class="sp-card" style="--r:-0.2deg" data-animate="fade-up" data-stagger="2">
+            <p class="sp-ct">Make a password and save your Recovery Kit</p>
+            <p class="sp-cb">Choose the password that encrypts your books, then save your 12-word Recovery Kit somewhere other than this computer. Your books start uploading right away, and you can keep writing while they do. <a href="/help/set-up-cloud-backup-for-your-novel">Full setup guide</a></p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         FAQ (mirrors the FAQPage JSON-LD in <head>; edit both together)
+         =========================================== -->
+    <section id="faq" class="tri-sec">
+      <div class="tri-wrap">
+        <div class="cl-head" data-animate="fade-up">
+          <p class="tri-kicker">Questions</p>
+          <h2 class="tri-h2">Common questions</h2>
+        </div>
+        <div class="cl-faq" data-animate="fade-up">
+          <details>
+            <summary>Do I need Penpoint Cloud to use Penpoint?</summary>
+            <div class="cl-faq__a"><p>No. Penpoint is a one-time purchase and works completely offline, with no account. Penpoint Cloud is an optional subscription that adds an encrypted cloud copy of your books, sync between computers, and Minipen, the Penpoint phone app.</p></div>
+          </details>
+          <details>
+            <summary>How much does Penpoint Cloud cost?</summary>
+            <div class="cl-faq__a"><p><strong>Penpoint Backup</strong> is $5 a month or $45 a year. <strong>Penpoint Sync</strong> is $10 a month or $96 a year and includes everything in Backup, up to 5 computers kept in step, and the Minipen phone app. Tax is added at checkout where it applies.</p></div>
+          </details>
+          <details>
+            <summary>Can Penpoint read my books in the cloud?</summary>
+            <div class="cl-faq__a"><p>No. Your books are encrypted on your computer with a password only you know, before anything is uploaded. Penpoint stores them but cannot read them. <a href="/help/encrypted-novel-backup">More on the password and Recovery Kit</a></p></div>
+          </details>
+          <details>
+            <summary>What happens to my books if I cancel?</summary>
+            <div class="cl-faq__a"><p>The books on your computer are the originals and nothing happens to them. Cloud keeps working until the end of the time you paid for. After that the cloud copy is kept for 30 days, then deleted, with warning emails first.</p><p>Changed your mind before your paid time runs out? A <span class="cl-ui">Resume</span> button in Settings &gt; Penpoint Cloud switches you straight back on.</p></div>
+          </details>
+          <details>
+            <summary>What if I forget my password?</summary>
+            <div class="cl-faq__a"><p>Use your Recovery Kit, the 12 words you save when you set up Cloud, to choose a new password. If you lose both the password and the Recovery Kit and no computer is still signed in, nobody can unlock the cloud copy. The books on your computer are not affected.</p></div>
+          </details>
+          <details>
+            <summary>Which phones does Minipen run on?</summary>
+            <div class="cl-faq__a"><p>iPhone with iOS 16.2 or later, and Android 7.0 or later. Minipen comes with Penpoint Sync, and it launches this November. You set up your Cloud account in Penpoint on your computer first, then sign in on your phone.</p></div>
+          </details>
+          <details>
+            <summary>Does Penpoint Cloud work offline?</summary>
+            <div class="cl-faq__a"><p>Yes. Penpoint always saves to your computer first, so you can keep writing with no connection. Cloud catches up on its own when you're back online.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         CLOSING CALL TO ACTION + HELP GUIDE LINKS
+         =========================================== -->
+    <section class="tri-sec cl-grain cl-end" style="border-top:1px solid #E6DCCD;">
+      <div class="tri-wrap" data-animate="fade-up">
+        <h2 class="tri-h2">Write anywhere. <em>Keep every draft.</em></h2>
+        <p class="cl-lede">Penpoint is $40 once, and Cloud is there when you want it.</p>
+        <div class="cl-end__ctas">
+          <a href="/trial" class="btn btn-primary btn-lg btn-shadow">Try Penpoint free</a>
+          <a href="/buy" class="btn btn-outline btn-lg">Buy Penpoint, $40</a>
+        </div>
+
+        <nav class="cl-help" aria-label="Penpoint Cloud in the Help Guide">
+          <p class="sp-label">In the Help Guide</p>
+          <ul>
+            <li><a href="/help/cloud-backup-for-writers"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span><strong>Penpoint Cloud</strong>: what it does and the two plans</span></a></li>
+            <li><a href="/help/set-up-cloud-backup-for-your-novel"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span><strong>Setting up Cloud</strong>: account, plan, Recovery Kit</span></a></li>
+            <li><a href="/help/penpoint-cloud-plans"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span><strong>Managing your subscription</strong>: switching and canceling</span></a></li>
+            <li><a href="/help/encrypted-novel-backup"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span><strong>Your password and Recovery Kit</strong></span></a></li>
+            <li><a href="/help/sync-your-novel-between-computers"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span><strong>Syncing and restoring</strong>: version history</span></a></li>
+            <li><a href="/help/write-on-multiple-computers"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span><strong>Writing on more than one computer</strong></span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Shared site footer (see css/site-chrome.css) ===== -->
+  <footer class="pp-footer">
+    <div class="pp-footer__top">
+      <div class="pp-footer__brand">
+        <div class="pp-footer__brand-row">
+          <svg class="pp-footer__brand-icon" viewBox="0 0 24 24" width="22" height="22" fill="#DDA964"><path d="M6.93912 14.0328C6.7072 14.6563 6.51032 15.2331 6.33421 15.8155C7.29345 15.1189 8.43544 14.6767 9.75193 14.5121C12.2652 14.198 14.4976 12.5385 15.6279 10.4537L14.1721 8.99888L15.5848 7.58417C15.9185 7.25004 16.2521 6.91614 16.5858 6.58248C17.0151 6.15312 17.5 5.35849 18.0129 4.2149C12.4197 5.08182 8.99484 8.50647 6.93912 14.0328ZM17 8.99739L18 9.99669C17 12.9967 14 15.9967 10 16.4967C7.33146 16.8303 5.66421 18.6636 4.99824 21.9967H3C4 15.9967 6 1.99669 21 1.99669C20.0009 4.99402 19.0018 6.99313 18.0027 7.99402C17.6662 8.33049 17.3331 8.66382 17 8.99739Z"></path></svg>
+          <span class="pp-footer__brand-name">Penpoint</span>
+        </div>
+        <p class="pp-footer__tagline">Where Your Story Comes Together</p>
+      </div>
+      <nav class="pp-footer__cols" aria-label="Footer">
+        <div class="pp-footer__col">
+          <h4>Product</h4>
+          <a href="/#features" class="foot-link">Features</a>
+          <a href="/penpoint-cloud" class="foot-link">Penpoint Cloud</a>
+          <a href="/trial" class="foot-link">Free Trial</a>
+          <a href="/changelog" class="foot-link">Changelog</a>
+          <a href="/roadmap" class="foot-link">Roadmap</a>
+          <a href="/development" class="foot-link">Development</a>
+        </div>
+        <div class="pp-footer__col">
+          <h4>Compare</h4>
+          <a href="/compare" class="foot-link">Compare All</a>
+          <a href="/scrivener-alternative" class="foot-link">vs Scrivener</a>
+          <a href="/dabble-alternative" class="foot-link">vs Dabble</a>
+          <a href="/campfire-alternative" class="foot-link">vs Campfire</a>
+          <a href="/worldanvil-alternative" class="foot-link">vs World Anvil</a>
+          <a href="/ellipsus-alternative" class="foot-link">vs Ellipsus</a>
+          <a href="/story-bible" class="foot-link">Story Bible</a>
+          <a href="/character-bible" class="foot-link">Character Bible</a>
+        </div>
+        <div class="pp-footer__col">
+          <h4>Help</h4>
+          <a href="/help" class="foot-link">Help Guide</a>
+          <a href="/#faq" class="foot-link">FAQ</a>
+          <a href="/support" class="foot-link">Contact Support</a>
+          <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" class="foot-link">Discord</a>
+        </div>
+        <div class="pp-footer__col">
+          <h4>Company</h4>
+          <a href="/about" class="foot-link">About</a>
+          <a href="/press" class="foot-link">Press</a>
+          <a href="/terms" class="foot-link">Terms of Service</a>
+          <a href="/privacy" class="foot-link">Privacy Policy</a>
+        </div>
+      </nav>
+    </div>
+    <div class="pp-footer__bottom">
+      <div class="pp-footer__bottom-inner">
+        <span class="pp-footer__copy">© 2026 Tophat Creative, LLC. All Rights Reserved.</span>
+        <div class="pp-footer__platforms">
+          <i class="fa-brands fa-windows"></i>
+          <i class="fa-brands fa-apple"></i>
+          <i class="fa-brands fa-linux"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('pp-root') || document.body;
+
+  /* Scroll reveal */
+  var els = [].slice.call(root.querySelectorAll('[data-animate]'));
+  if (!('IntersectionObserver' in window)) { els.forEach(function(el){ el.classList.add('animate-in'); }); }
+  else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('animate-in'); io.unobserve(en.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  }
+
+  /* FAQ: one open at a time */
+  var faqs = [].slice.call(root.querySelectorAll('.cl-faq details'));
+  faqs.forEach(function(d){ d.addEventListener('toggle', function(){ if (d.open) faqs.forEach(function(o){ if (o !== d) o.open = false; }); }); });
+
+  /* Click tracking for the two purchase paths (same events as the homepage) */
+  function trackClick(t){ try{ var k='pp_tracked_'+t; if(sessionStorage.getItem(k)) return; sessionStorage.setItem(k,'1'); }catch(e){} try{ if(window.gtag) window.gtag('event',t); }catch(e){} fetch('https://lpgprxbwrkzxmbwzkisz.supabase.co/functions/v1/track-click',{ method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({eventType:t}), keepalive:true }).catch(function(){}); }
+  root.querySelectorAll('a[href="/buy"]').forEach(function(el){ el.addEventListener('click', function(){ trackClick('buy_click'); }); });
+  root.querySelectorAll('a[href="/trial"]').forEach(function(el){ el.addEventListener('click', function(){ trackClick('trial_click'); }); });
+
+  /* Mobile nav toggle (shared header) */
+  var burger = root.querySelector('[data-burger]');
+  var panel = root.querySelector('[data-mobile-menu]');
+  if (burger && panel) {
+    function setOpen(open){ burger.classList.toggle('open',open); panel.classList.toggle('open',open); burger.setAttribute('aria-expanded', open?'true':'false'); }
+    burger.addEventListener('click', function(){ setOpen(!panel.classList.contains('open')); });
+    panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
+  }
+})();
+</script>
+</body>
+</html>

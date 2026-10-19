@@ -70,6 +70,9 @@ Penpoint Cloud is a separate, optional subscription. The app is a one-time $40 p
 - **Penpoint Sync** ($10/month or $96/year): everything in Backup, plus up to 5 computers kept in step automatically, plus the Penpoint phone app
 - **End-to-end encrypted**: books are encrypted on the writer's computer with a password only they hold, before anything is uploaded. Penpoint stores the books and cannot read them. A 12-word Recovery Kit is the backup if the password is lost
 - **Local books are never dependent on it**: the files on the computer are the originals. Canceling Cloud does not touch them
+- **Minipen, the Penpoint phone app** (included with Penpoint Sync): write the manuscript and look up or edit characters, locations, items, notes, and arcs on an iPhone (iOS 16.2+) or Android phone (7.0+). Launching on the App Store and Google Play in November 2026. It is not a standalone app: the Cloud account is set up in Penpoint on a computer first. (Not to be confused with the Minipen sidebar inside Manuscript Mode on the desktop.)
+
+Full overview, plans, and FAQ: https://penpoint.app/penpoint-cloud
 
 ## Platform Support
 
