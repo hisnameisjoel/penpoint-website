@@ -7,14 +7,14 @@
     document.documentElement.classList.add('js-ready');
   </script>
   <title>Penpoint Cloud: encrypted backup, sync, and Minipen on your phone</title>
-  <meta name="description" content="Penpoint Cloud is the optional add-on for Penpoint: an encrypted cloud copy of every book, unlimited version history, up to 5 computers kept in step, and Minipen, the Penpoint phone app. From $5 a month.">
+  <meta name="description" content="Penpoint Cloud is the optional add-on for Penpoint: an encrypted cloud copy of every book with unlimited storage, unlimited version history, up to 5 computers kept in step, and Minipen, the Penpoint phone app. From $5 a month.">
   <link rel="canonical" href="https://penpoint.app/penpoint-cloud">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://penpoint.app/penpoint-cloud">
   <meta property="og:title" content="Penpoint Cloud: your whole world, now in your pocket">
-  <meta property="og:description" content="Encrypted backup for every book, your computers kept in step, and Minipen on your phone. Optional, from $5 a month.">
+  <meta property="og:description" content="Encrypted backup for every book with unlimited storage, your computers kept in step, and Minipen on your phone. Optional, from $5 a month.">
   <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -22,7 +22,7 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Penpoint Cloud: your whole world, now in your pocket">
-  <meta name="twitter:description" content="Encrypted backup for every book, your computers kept in step, and Minipen on your phone. Optional, from $5 a month.">
+  <meta name="twitter:description" content="Encrypted backup for every book with unlimited storage, your computers kept in step, and Minipen on your phone. Optional, from $5 a month.">
   <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
   <meta name="theme-color" content="#FFF7E6">
 
@@ -46,11 +46,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/site-chrome.css">
+  <link rel="stylesheet" href="css/store-badges.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Every fact on this page was checked on 2026-10-12 against the app (src/components/sync/subscriptionState.ts
        for the four prices) and the Cloud help articles. If a price, limit, or policy changes, change it here,
-       in the FAQ JSON-LD below, in llms.txt, and in the homepage Cloud section together. -->
+       in the FAQ JSON-LD below, in llms.txt, and in the homepage Cloud section together.
+       STORAGE: "unlimited storage" is the standing policy (docs/plans/PenpointSyncArchitectureDecisions.md,
+       "Storage policy", decided 2026-06-13: never reintroduce a cap) with the fair-use clause in /terms
+       ("Fair Use & Device Limits": uploads may be slowed past 15 GB, 7 days' notice). Every "unlimited
+       storage" line (here, the homepage Cloud section and FAQ, llms.txt) must stay inside that clause. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -64,7 +69,12 @@
       {
         "@type": "Question",
         "name": "How much does Penpoint Cloud cost?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Penpoint Backup is $5 a month or $45 a year. Penpoint Sync is $10 a month or $96 a year and includes everything in Backup, up to 5 computers kept in step, and the Minipen phone app. Tax is added at checkout where it applies." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Penpoint Backup is $5 a month or $45 a year. Penpoint Sync is $10 a month or $96 a year and includes everything in Backup, up to 5 computers kept in step, and the Minipen phone app. Both plans have unlimited storage. Tax is added at checkout where it applies." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a storage limit on Penpoint Cloud?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Both plans have unlimited storage, so you can back up every book you write, with every image and every earlier draft, and never watch a meter or move up a plan to make room. The one rule is fair use: the Terms let us slow uploads on an account past 15 GB, with at least 7 days' notice, and nothing already in the cloud is touched." }
       },
       {
         "@type": "Question",
@@ -74,22 +84,22 @@
       {
         "@type": "Question",
         "name": "What happens to my books if I cancel Penpoint Cloud?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The books on your computer are the originals and nothing happens to them. Cloud keeps working until the end of the time you paid for. After that the cloud copy is kept for 30 days, then deleted, with warning emails first." }
+        "acceptedAnswer": { "@type": "Answer", "text": "The books on your computer are the originals and nothing happens to them. Cloud keeps working until the end of the time you paid for. After that the cloud copy is kept for 30 days, then deleted, with warning emails first. Changed your mind before your paid time runs out? A Resume button in Settings > Penpoint Cloud switches you straight back on." }
       },
       {
         "@type": "Question",
         "name": "What if I forget my Penpoint Cloud password?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Use your Recovery Kit, the 12 words you save when you set up Cloud, to choose a new password. If you lose both the password and the Recovery Kit and no computer is still signed in, the cloud copy can't be unlocked by anyone, but the books on your computer are not affected." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Use your Recovery Kit, the 12 words you save when you set up Cloud, to choose a new password. If you lose both the password and the Recovery Kit and no computer is still signed in, nobody can unlock the cloud copy. The books on your computer are not affected." }
       },
       {
         "@type": "Question",
         "name": "Which phones does Minipen run on?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Minipen, the Penpoint phone app, runs on iPhone (iOS 16.2 or later) and Android (7.0 or later). It needs a Penpoint Sync plan, and you set up your Cloud account in Penpoint on your computer first." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Minipen, the Penpoint phone app, is on Google Play for Android phones (Android 7.0 or later). The iPhone version (iOS 16.2 or later) is coming soon to the App Store. It needs a Penpoint Sync plan, and you set up your Cloud account in Penpoint on your computer first." }
       },
       {
         "@type": "Question",
         "name": "Does Penpoint Cloud work offline?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Penpoint always saves to your computer first, so you can keep writing with no connection. Cloud catches up on its own when you are back online." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Penpoint always saves to your computer first, so you can keep writing with no connection. Cloud catches up on its own when you're back online." }
       }
     ]
   }
@@ -200,6 +210,7 @@
       .cl-hero__grid{grid-template-columns:1fr;text-align:center;}
       .cl-hero__sub,.cl-hero__fine{margin-left:auto;margin-right:auto;}
       .cl-hero__ctas{justify-content:center;}
+      .cl-phone-wrap{order:-1;} /* stacked: the phone comes first, then the words about it */
     }
 
     /* ----- The phone (Minipen, edit mode, blinking cursor) -----
@@ -278,9 +289,7 @@
       .cl-shot{flex:none;width:min(220px,62vw);scroll-snap-align:center;}
       .cl-shot__frame{transform:none;}
     }
-    .cl-launch{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 18px;margin:clamp(34px,4.6vw,46px) 0 0;font-family:'Source Serif 4',serif;font-weight:600;font-size:16px;color:#29241E;}
-    .cl-launch i{margin-right:6px;}
-    .cl-launch__stores{display:inline-flex;gap:18px;}
+    .cl-stores{margin-top:clamp(14px,2.4vw,24px);}
     .cl-launch-fine{text-align:center;font-family:'Source Serif 4',serif;font-size:15px;line-height:1.6;color:#7C5236;max-width:600px;margin:12px auto 0;text-wrap:balance;}
 
     /* ----- Privacy rows (the /minipen-beta "read this first" box) ----- */
@@ -308,9 +317,9 @@
     .cl-ticks li{display:flex;gap:11px;align-items:flex-start;font-family:'Source Serif 4',serif;font-size:15.5px;line-height:1.5;color:#4A3C2A;}
     .cl-ticks li i{flex:none;color:#5E7F52;margin-top:4px;font-size:14px;}
     .cl-ticks li strong{color:#29241E;font-weight:600;}
-    .cl-plan-fine{max-width:700px;margin:clamp(28px,3.8vw,38px) auto 0;text-align:center;font-family:'Source Serif 4',serif;font-size:15px;line-height:1.65;color:#7C5236;text-wrap:balance;}
+    .cl-plan-fine{max-width:700px;margin:clamp(28px,3.8vw,38px) auto 0;text-align:center;font-family:'Source Serif 4',serif;font-size:13px;line-height:1.65;color:#7C5236;text-wrap:balance;}
     .cl-plan-fine strong{color:#29241E;font-weight:600;}
-    .cl-plan-fine a{color:var(--accent,#CD6E2C);font-weight:600;}
+    .cl-plan-fine a{color:var(--accent,#CD6E2C);font-weight:500;}
     @media(max-width:720px){.cl-plans{grid-template-columns:1fr;max-width:480px;}}
 
     /* ----- How to start: numbered steps ----- */
@@ -411,7 +420,7 @@
         <div>
           <p class="cl-hero__chip tri-in"><span class="sp-chip sp-chip--blue">Penpoint Cloud</span></p>
           <h1 class="cl-hero__h1 tri-in" style="animation-delay:70ms;">Your whole world. <em>Now in your pocket.</em></h1>
-          <p class="cl-hero__sub tri-in" style="animation-delay:150ms;">Penpoint Cloud keeps an encrypted copy of every book, keeps your computers in step, and puts your manuscript and your worldbuilding on your phone with <strong>Minipen</strong>, the Penpoint phone app.</p>
+          <p class="cl-hero__sub tri-in" style="animation-delay:150ms;">Penpoint Cloud keeps an encrypted copy of every book with unlimited storage, keeps your computers in step, and puts your manuscript and your worldbuilding on your phone with <strong>Minipen</strong>, the Penpoint phone app.</p>
           <div class="cl-hero__ctas tri-in" style="animation-delay:230ms;">
             <a href="#plans" class="btn btn-primary btn-lg btn-shadow">See the plans</a>
             <a href="#how" class="btn btn-outline btn-lg">How it works</a>
@@ -517,7 +526,7 @@
             <i class="fa-solid fa-cloud-arrow-up cl-four__ic" aria-hidden="true"></i>
             <p class="sp-label">Backed up</p>
             <p class="sp-ct">Every book. Every version.</p>
-            <p class="sp-cb">Every book backs itself up to the cloud while you write. Restore any earlier draft from the version history, which has no limit for as long as you subscribe.</p>
+            <p class="sp-cb">Every book backs itself up to the cloud while you write, with no storage cap to run into. Restore any earlier draft from the version history, which has no limit for as long as you subscribe.</p>
           </div>
           <div class="sp-card" style="--r:0.5deg" data-animate="fade-up" data-stagger="1">
             <i class="fa-solid fa-laptop cl-four__ic" aria-hidden="true"></i>
@@ -592,14 +601,16 @@
           </figure>
         </div>
 
-        <!-- STORE BADGES SLOT. Minipen's public App Store and Google Play listings are submitted Oct 22 to 24
-             (hub milestone "Minipen public store submissions start"). Until both are live, this says
-             "Launching this November", the same words /novel-november uses. Once both listings are live,
-             swap the chip for the two store links. Never link the TestFlight / Play testing builds here:
+        <!-- STORE BADGES. Google Play is the live public listing. The App Store badge is "coming soon"
+             (data-apple-soon) until Apple approves; then swap it for the link (steps at the top of
+             css/store-badges.css). Never link the TestFlight / Play testing builds here:
              they sign in to the test Cloud, not the real one. -->
         <div data-animate="fade-up">
-          <p class="cl-launch"><span class="sp-chip sp-chip--blue">Launching this November</span><span class="cl-launch__stores"><span><i class="fa-brands fa-apple" aria-hidden="true"></i>iPhone</span><span><i class="fa-brands fa-android" aria-hidden="true"></i>Android</span></span></p>
-          <p class="cl-launch-fine">Minipen comes with Penpoint Sync. It needs Penpoint on a computer, where you set up your Cloud account, then you sign in on your phone with the same email and password. iPhone with iOS 16.2 or later, or Android 7.0 or later.</p>
+          <div class="sb-row sb-row--center cl-stores" role="group" aria-label="Get Minipen, the Penpoint phone app">
+            <a class="sb-badge" href="https://play.google.com/store/apps/details?id=com.penpoint.minipen" target="_blank" rel="noopener"><img src="images/store-badges/google-play-badge.png" width="564" height="168" alt="Get Minipen on Google Play" loading="lazy" decoding="async"></a>
+            <span class="sb-badge sb-badge--soon" data-apple-soon role="img" aria-label="Download Minipen on the App Store, coming soon"><img src="images/store-badges/app-store-badge.svg" width="120" height="40" alt="" loading="lazy" decoding="async"><span class="sb-badge__chip" aria-hidden="true">Coming soon</span></span>
+          </div>
+          <p class="cl-launch-fine">Minipen comes with Penpoint Sync. It needs Penpoint on a computer, where you set up your Cloud account, then you sign in on your phone with the same email and password. Android 7.0 or later today; iPhone (iOS 16.2 or later) is coming soon.</p>
         </div>
       </div>
     </section>
@@ -656,6 +667,7 @@
             <p class="cl-price-yr">or <strong>$45 a year</strong></p>
             <ul class="cl-ticks">
               <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>An encrypted cloud copy of every book</span></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Unlimited storage, however many books you write</span></li>
               <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Unlimited version history: restore any earlier draft</span></li>
               <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Backs up from one computer at a time</span></li>
             </ul>
@@ -675,7 +687,7 @@
           </div>
         </div>
 
-        <p class="cl-plan-fine" data-animate="fade-up">Prices in US dollars; tax is added at checkout where it applies. Cancel any time from <strong>Settings &gt; Penpoint Cloud</strong> inside Penpoint, with no phone call or email. A canceled plan runs to the end of the time you paid for. Cloud subscriptions are non-refundable and not prorated. <a href="/help/penpoint-cloud-plans">Plan details</a></p>
+        <p class="cl-plan-fine" data-animate="fade-up">Prices in US dollars; tax is added at checkout where it applies. Cancel any time from <strong>Settings &gt; Penpoint Cloud</strong> inside Penpoint, with no phone call or email. A canceled plan runs to the end of the time you paid for. Cloud subscriptions are non-refundable and not prorated. Storage is unlimited on both plans, within fair use (see <a href="/terms#fair-use">Fair Use &amp; Device Limits in the Terms</a>). <a href="/help/penpoint-cloud-plans">Plan details</a></p>
       </div>
     </section>
 
@@ -725,23 +737,27 @@
           </details>
           <details>
             <summary>How much does Penpoint Cloud cost?</summary>
-            <div class="cl-faq__a"><p><strong>Penpoint Backup</strong> is $5 a month or $45 a year. <strong>Penpoint Sync</strong> is $10 a month or $96 a year and includes everything in Backup, up to 5 computers kept in step, and the Minipen phone app. Tax is added at checkout where it applies.</p></div>
+            <div class="cl-faq__a"><p><strong>Penpoint Backup</strong> is $5 a month or $45 a year. <strong>Penpoint Sync</strong> is $10 a month or $96 a year and includes everything in Backup, up to 5 computers kept in step, and the Minipen phone app. Both plans have unlimited storage. Tax is added at checkout where it applies.</p></div>
+          </details>
+          <details>
+            <summary>Is there a storage limit on Penpoint Cloud?</summary>
+            <div class="cl-faq__a"><p>No. Both plans have unlimited storage, so you can back up every book you write, with every image and every earlier draft, and never watch a meter or move up a plan to make room. The one rule is fair use: the <a href="/terms#fair-use">Terms</a> let us slow uploads on an account past 15 GB, with at least 7 days' notice, and nothing already in the cloud is touched.</p></div>
           </details>
           <details>
             <summary>Can Penpoint read my books in the cloud?</summary>
             <div class="cl-faq__a"><p>No. Your books are encrypted on your computer with a password only you know, before anything is uploaded. Penpoint stores them but cannot read them. <a href="/help/encrypted-novel-backup">More on the password and Recovery Kit</a></p></div>
           </details>
           <details>
-            <summary>What happens to my books if I cancel?</summary>
+            <summary>What happens to my books if I cancel Penpoint Cloud?</summary>
             <div class="cl-faq__a"><p>The books on your computer are the originals and nothing happens to them. Cloud keeps working until the end of the time you paid for. After that the cloud copy is kept for 30 days, then deleted, with warning emails first.</p><p>Changed your mind before your paid time runs out? A <span class="cl-ui">Resume</span> button in Settings &gt; Penpoint Cloud switches you straight back on.</p></div>
           </details>
           <details>
-            <summary>What if I forget my password?</summary>
+            <summary>What if I forget my Penpoint Cloud password?</summary>
             <div class="cl-faq__a"><p>Use your Recovery Kit, the 12 words you save when you set up Cloud, to choose a new password. If you lose both the password and the Recovery Kit and no computer is still signed in, nobody can unlock the cloud copy. The books on your computer are not affected.</p></div>
           </details>
           <details>
             <summary>Which phones does Minipen run on?</summary>
-            <div class="cl-faq__a"><p>iPhone with iOS 16.2 or later, and Android 7.0 or later. Minipen comes with Penpoint Sync, and it launches this November. You set up your Cloud account in Penpoint on your computer first, then sign in on your phone.</p></div>
+            <div class="cl-faq__a"><p>Minipen, the Penpoint phone app, is on Google Play for Android phones (Android 7.0 or later). The iPhone version (iOS 16.2 or later) is coming soon to the App Store. It needs a Penpoint Sync plan, and you set up your Cloud account in Penpoint on your computer first.</p></div>
           </details>
           <details>
             <summary>Does Penpoint Cloud work offline?</summary>

@@ -1,0 +1,33 @@
+/* Store badges for Minipen, the Penpoint phone app.
+   Google Play is live (a link). The App Store is "coming soon" (a plain span, not a link).
+   Badge artwork is the official, unaltered Google and Apple art in images/store-badges/.
+   When Apple approves: turn each <span class="sb-badge sb-badge--soon" data-apple-soon> into
+   <a class="sb-badge" href="APPLE URL" target="_blank" rel="noopener"> and drop the chip.
+   Find every spot with:  grep -rn "data-apple-soon" Website */
+
+.sb-row{display:flex;flex-wrap:wrap;align-items:center;gap:22px 16px;margin:0;padding:17px 0 0;}
+.sb-row--center{justify-content:center;}
+
+.sb-badge{position:relative;display:inline-block;line-height:0;border-radius:9px;}
+.sb-badge img{display:block;height:48px;width:auto;}
+
+a.sb-badge{transition:transform .2s ease;}
+a.sb-badge:hover{transform:translateY(-2px);}
+a.sb-badge:focus-visible{outline:2px solid #3E6598;outline-offset:3px;}
+
+/* Not live yet: the real badge, dimmed, with a chip on its corner. */
+.sb-badge--soon{cursor:default;}
+.sb-badge--soon img{opacity:.55;}
+.sb-badge__chip{position:absolute;top:-17px;left:50%;transform:translateX(-50%);line-height:1;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;white-space:nowrap;padding:5px 9px;background:#EAF0F8;color:#3E6598;border:1px solid rgba(62,101,152,0.4);border-radius:3px;}
+
+/* Phones: center the pair wherever it sits (the home and Novel November rows are left-aligned on desktop). */
+@media(max-width:640px){
+  .sb-row{justify-content:center;}
+}
+@media(max-width:480px){
+  .sb-badge img{height:44px;}
+}
+@media(prefers-reduced-motion:reduce){
+  a.sb-badge{transition:none;}
+  a.sb-badge:hover{transform:none;}
+}

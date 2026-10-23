@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
+  <link rel="stylesheet" href="../css/help-search.css">
   <style>
     /* Follows the band pattern from trial.html: alternating paper / paper-alt sections,
        an IBM Plex Mono kicker over a Newsreader heading, and icon + title + description
@@ -198,6 +199,16 @@
         <p class="help-kicker">Penpoint Help</p>
         <h1>Guides for novelists <em>and worldbuilders.</em></h1>
         <p class="help-hero__sub">How to build a world, outline a book, and write it. Every guide here is also inside Penpoint.</p>
+        <div class="help-search help-search--hero" id="help-search-hero" data-help-search data-index="/help/search-index.json" data-base="/help/">
+          <label class="help-search__label" for="help-search-hero-input">Search the guides</label>
+          <div class="help-search__field">
+            <svg class="help-search__icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12.8 12.8 17 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <input id="help-search-hero-input" class="help-search__input" type="search" placeholder="Search the guides" role="combobox" aria-expanded="false" aria-controls="help-search-hero-panel" aria-autocomplete="list" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
+            <button type="button" class="help-search__clear" aria-label="Clear search" hidden><svg viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 2 10 10M10 2 2 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          </div>
+          <div class="help-search__panel" id="help-search-hero-panel" role="listbox" aria-label="Search results" hidden></div>
+          <p class="help-search__status" role="status" aria-live="polite"></p>
+        </div>
       </div>
     </section>
 
@@ -491,5 +502,6 @@
   </div>
 </footer>
   <script src="../js/site-chrome.js"></script>
+  <script src="../js/help-search.js"></script>
 </body>
 </html>

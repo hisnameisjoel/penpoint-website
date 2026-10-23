@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/site-chrome.css">
   <link rel="stylesheet" href="help-articles.css">
+  <link rel="stylesheet" href="../css/help-search.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Penpoint","item":"https://penpoint.app"},{"@type":"ListItem","position":2,"name":"Help","item":"https://penpoint.app/help/"},{"@type":"ListItem","position":3,"name":"Import & Export","item":"https://penpoint.app/help/import-and-export-your-manuscript"},{"@type":"ListItem","position":4,"name":"Exporting to Scrivener","item":"https://penpoint.app/help/export-to-scrivener"}]}</script>
   <style>
     /* The article body is the app's design system; the chrome is the website's.
@@ -47,9 +48,19 @@
        Mirrors the in-app hierarchy. <details> gives the collapse with no JavaScript, so
        it works for a crawler and for a reader with scripts off. Content inside a closed
        <details> is still in the DOM, unlike the app's Collapsible. */
-    .help-nav {
+    /* The sidebar is the search box above the tree. .help-side is the sticky column and does
+       not clip, so the results panel can open wider than the 240px and over the article; only
+       the tree scrolls. */
+    .help-side {
       position: sticky; top: 84px; align-self: start;
-      max-height: calc(100vh - 110px); overflow-y: auto;
+      max-height: calc(100vh - 110px); display: flex; flex-direction: column;
+      /* Sticky makes this its own stacking context, so the results panel's z-index only counts
+         inside it. Without a z-index here, any positioned figure in the article paints over the
+         open panel and swallows clicks on the rows beneath it. Stays under the site header (50). */
+      z-index: 30;
+    }
+    .help-nav {
+      flex: 1; min-height: 0; overflow-y: auto;
       font-family: 'Source Serif 4', serif; font-size: 14px; line-height: 1.45;
       padding-right: 8px;
     }
@@ -106,7 +117,7 @@
          which is the same pattern any responsive nav (a hamburger menu, a collapsed
          drawer) uses and is explicitly fine per Google's mobile-first guidance. */
       .help-layout { grid-template-columns: minmax(0, 1fr); max-width: 760px; margin: 0 auto; }
-      .help-nav { display: none; }
+      .help-side { display: none; }
     }
     .help-body { color: rgb(var(--foreground)); }
     .help-body :is(h1, h2, h3) { text-wrap: balance; }
@@ -164,7 +175,18 @@
   </header>
   <main class="help-article">
     <div class="help-layout">
-      <nav class="help-nav" aria-label="All guides">
+      <div class="help-side">
+        <div class="help-search help-search--side" id="help-search-side" data-help-search data-index="/help/search-index.json" data-base="/help/">
+          <label class="help-search__label" for="help-search-side-input">Search the guides</label>
+          <div class="help-search__field">
+            <svg class="help-search__icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12.8 12.8 17 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <input id="help-search-side-input" class="help-search__input" type="search" placeholder="Search the guides" role="combobox" aria-expanded="false" aria-controls="help-search-side-panel" aria-autocomplete="list" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
+            <button type="button" class="help-search__clear" aria-label="Clear search" hidden><svg viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 2 10 10M10 2 2 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          </div>
+          <div class="help-search__panel" id="help-search-side-panel" role="listbox" aria-label="Search results" hidden></div>
+          <p class="help-search__status" role="status" aria-live="polite"></p>
+        </div>
+        <nav class="help-nav" aria-label="All guides">
         <a class="help-nav__home" href="/help/">All guides</a>
         <details class="help-nav__sec">
           <summary>Getting Started</summary>
@@ -212,7 +234,18 @@
           <ul class="help-nav__list help-nav__list--0"><li><a href="/help/how-to-write-a-novel-in-a-month">Writing a Novel in a Month with Penpoint</a></li></ul>
         </details>
       </nav>
+      </div>
       <div class="help-article__inner">
+        <div class="help-search help-search--inline" id="help-search-inline" data-help-search data-index="/help/search-index.json" data-base="/help/">
+          <label class="help-search__label" for="help-search-inline-input">Search the guides</label>
+          <div class="help-search__field">
+            <svg class="help-search__icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12.8 12.8 17 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <input id="help-search-inline-input" class="help-search__input" type="search" placeholder="Search the guides" role="combobox" aria-expanded="false" aria-controls="help-search-inline-panel" aria-autocomplete="list" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
+            <button type="button" class="help-search__clear" aria-label="Clear search" hidden><svg viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 2 10 10M10 2 2 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          </div>
+          <div class="help-search__panel" id="help-search-inline-panel" role="listbox" aria-label="Search results" hidden></div>
+          <p class="help-search__status" role="status" aria-live="polite"></p>
+        </div>
         <nav class="help-crumbs" aria-label="Breadcrumb">
           <a href="/">Penpoint</a> / <a href="/help/">Help</a> / <a href="/help/import-and-export-your-manuscript">Import &amp; Export</a> / <span aria-current="page">Exporting to Scrivener</span>
         </nav>
@@ -281,5 +314,6 @@
   </div>
 </footer>
   <script src="../js/site-chrome.js"></script>
+  <script src="../js/help-search.js"></script>
 </body>
 </html>
