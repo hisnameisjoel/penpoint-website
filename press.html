@@ -536,7 +536,7 @@
             </svg>
             <span class="section-divider__line"></span>
           </div>
-          <p class="font-body-lg">
+          <p class="font-body-lg" id="press-intro">
             Thanks for your interest in Penpoint. Here is a quick overview of the app and how to request a review copy.
           </p>
           <p class="font-body" id="press-subline" style="color: rgb(var(--muted-foreground));">
@@ -966,7 +966,9 @@
   function showPass(name) {
     checkingEl.style.display = 'none';
     document.getElementById('press-pass-name').textContent = name;
-    document.getElementById('press-subline').textContent = 'Your press pass is below: the full version of Penpoint, ready to download.';
+    // With a pass in hand, "how to request a review copy" no longer applies: one line says what's below.
+    document.getElementById('press-intro').textContent = 'Thanks for your interest in Penpoint. Your copy of the full app is ready below, followed by a quick overview.';
+    document.getElementById('press-subline').style.display = 'none';
     if (isMobile) {
       document.getElementById('press-pass-desktop').style.display = 'none';
       document.getElementById('dl-version').style.display = 'none';
