@@ -235,6 +235,219 @@
       line-height: var(--leading-relaxed);
     }
 
+    /* Press Pass: ?pass=<code> swaps the request button for the download picker */
+    .press-pass__welcome {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: rgb(var(--foreground));
+      margin-bottom: var(--space-2);
+    }
+
+    .press-pass__version {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-sm);
+      color: rgb(var(--muted-foreground));
+      margin-bottom: var(--space-5);
+    }
+
+    .press-pass__buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+      width: 100%;
+    }
+
+    .press-pass__checking {
+      color: rgb(var(--muted-foreground));
+    }
+
+    .press-pass__checking i {
+      color: rgb(var(--cta));
+      margin-right: var(--space-2);
+    }
+
+    .press-pass__miss {
+      color: rgb(var(--muted-foreground));
+      margin-bottom: var(--space-4);
+    }
+
+    /* Two-tier picker: OS row -> version row (same as download.html) */
+    .os-picker {
+      display: flex;
+      gap: var(--space-3);
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .os-pick {
+      flex: 1 1 0;
+      min-width: 120px;
+      max-width: 190px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-base);
+      font-weight: 600;
+      padding: var(--space-3) var(--space-4);
+      background: rgb(var(--background));
+      border: 1px solid rgb(var(--border));
+      color: rgb(var(--muted-foreground));
+      cursor: pointer;
+      transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
+    }
+
+    .os-pick:hover {
+      color: rgb(var(--foreground));
+      background: rgb(var(--background-accent));
+    }
+
+    .os-pick.is-active {
+      color: rgb(var(--primary-foreground));
+      background: rgb(var(--primary));
+      border-color: rgb(var(--primary));
+    }
+
+    .os-pick:disabled,
+    .os-pick.is-disabled {
+      opacity: 0.4;
+      cursor: default;
+      background: rgb(var(--background));
+      color: rgb(var(--muted-foreground));
+    }
+
+    .picker-divider {
+      border: none;
+      border-top: 1px solid rgb(var(--border));
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .version-picker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+      width: 100%;
+    }
+
+    .version-picker__label {
+      color: rgb(var(--muted-foreground));
+    }
+
+    .version-picker__options {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .version-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-1);
+      min-width: 200px;
+      padding: var(--space-4) var(--space-6);
+    }
+
+    .version-btn__name {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .version-hint {
+      font-size: var(--text-xs);
+      font-weight: 400;
+      opacity: 0.8;
+    }
+
+    .version-picker__note {
+      color: rgb(var(--muted-foreground));
+      max-width: 460px;
+      margin: 0 auto;
+      line-height: var(--leading-relaxed);
+    }
+
+    /* Install tabs (shown only with a live pass) */
+    .install-tabs {
+      display: flex;
+      gap: var(--space-2);
+      margin-bottom: var(--space-6);
+      margin-top: var(--space-2);
+    }
+
+    button.install-tab {
+      font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+      font-size: var(--text-base);
+      font-weight: 600;
+      padding: var(--space-3) var(--space-6);
+      background: rgb(var(--background));
+      border: 1px solid rgb(var(--border));
+      cursor: pointer;
+      color: rgb(var(--muted-foreground));
+      transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
+    }
+
+    button.install-tab:hover {
+      color: rgb(var(--foreground));
+      background: rgb(var(--background-accent));
+    }
+
+    button.install-tab.install-tab--active {
+      color: rgb(var(--primary-foreground));
+      background: rgb(var(--primary));
+      border-color: rgb(var(--primary));
+    }
+
+    .install-panel {
+      padding: var(--space-4) 0;
+    }
+
+    .install-panel ol {
+      padding-left: var(--space-6);
+      margin-bottom: var(--space-4);
+    }
+
+    .install-panel li {
+      margin-bottom: var(--space-3);
+      line-height: var(--leading-relaxed);
+    }
+
+    .install-panel code {
+      font-family: monospace;
+      font-size: 0.9em;
+      background: rgb(var(--background-accent));
+      padding: 2px 6px;
+    }
+
+    .install-panel a {
+      color: rgb(var(--cta));
+      font-weight: 600;
+    }
+
+    @keyframes pressFadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .press-reveal,
+    .version-picker__options.fade-in {
+      animation: pressFadeUp 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .press-reveal,
+      .version-picker__options.fade-in {
+        animation: none;
+      }
+    }
+
     @media (max-width: 640px) {
       .highlights-grid { grid-template-columns: 1fr; }
       .quick-facts { grid-template-columns: 1fr; }
@@ -326,21 +539,104 @@
           <p class="font-body-lg">
             Thanks for your interest in Penpoint. Here is a quick overview of the app and how to request a review copy.
           </p>
-          <p class="font-body" style="color: rgb(var(--muted-foreground));">
+          <p class="font-body" id="press-subline" style="color: rgb(var(--muted-foreground));">
             Reviewers get the full app. Email support@penpoint.app and a private download link comes back.
           </p>
         </div>
         <div class="press-narrow">
           <div class="download-area">
-            <a class="btn btn-primary btn-xl btn-shadow" href="mailto:support@penpoint.app?subject=Penpoint%20review%20copy%20request">
-              <i class="fa-solid fa-envelope"></i>&ensp;Request a review copy
-            </a>
-            <p class="font-body-sm" style="color: rgb(var(--muted-foreground)); margin-top: var(--space-4);">
-              The reply carries a private download link for the full version.
+            <!-- Default: request by email. Hidden while a ?pass= link is checked, and replaced by the picker when it is live. -->
+            <div id="press-request">
+              <p class="font-body-sm press-pass__miss" id="press-pass-miss" style="display: none;">
+                That press link isn't active anymore. Email us and a fresh one comes back.
+              </p>
+              <a class="btn btn-primary btn-xl btn-shadow" href="mailto:support@penpoint.app?subject=Penpoint%20review%20copy%20request">
+                <i class="fa-solid fa-envelope"></i>&ensp;Request a review copy
+              </a>
+              <p class="font-body-sm" style="color: rgb(var(--muted-foreground)); margin-top: var(--space-4);">
+                The reply carries a private download link for the full version.
+              </p>
+              <p class="font-body-sm download-area__trial">
+                Prefer to try it on your own? The <a href="/trial">free 14-day trial</a> needs no account and no credit card. The $40 license has a 30-day money-back guarantee.
+              </p>
+            </div>
+
+            <p class="font-body press-pass__checking" id="press-checking" style="display: none;">
+              <i class="fa-solid fa-circle-notch fa-spin"></i>Checking your press pass&hellip;
             </p>
-            <p class="font-body-sm download-area__trial">
-              Prefer to try it on your own? The <a href="/trial">free 14-day trial</a> needs no account and no credit card. The $40 license has a 30-day money-back guarantee.
-            </p>
+
+            <div id="press-pass" style="display: none; width: 100%;">
+              <p class="press-pass__welcome">Welcome, <span id="press-pass-name"></span>.</p>
+              <div class="press-pass__version" id="dl-version">Loading version&hellip;</div>
+              <div class="press-pass__buttons" id="press-pass-desktop">
+                <div class="os-picker" id="dl-os-picker" role="group" aria-label="Choose your operating system">
+                  <button type="button" class="os-pick" data-os="windows"><i class="fa-brands fa-windows"></i>Windows</button>
+                  <button type="button" class="os-pick" data-os="mac"><i class="fa-brands fa-apple"></i>macOS</button>
+                  <button type="button" class="os-pick" data-os="linux"><i class="fa-brands fa-linux"></i>Linux</button>
+                </div>
+                <hr class="picker-divider">
+                <div class="version-picker">
+                  <span class="version-picker__label font-body-sm">Pick your version</span>
+                  <div class="version-picker__options" id="dl-version-options">
+                    <a class="btn btn-primary btn-xl btn-shadow version-btn" href="#">Loading&hellip;</a>
+                  </div>
+                  <p class="version-picker__note font-body-sm" id="dl-version-note" style="display: none;"></p>
+                </div>
+              </div>
+              <p class="font-body" id="press-pass-mobile" style="display: none; color: rgb(var(--muted-foreground));">
+                Open this same link on a Windows, macOS, or Linux computer to download the full app.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation Guide (shown only with a live press pass) -->
+    <section class="section section-alt" id="press-install" style="display: none;">
+      <div class="container">
+        <div class="press-narrow">
+          <h2 class="font-heading-lg text-center">Installation Guide</h2>
+
+          <div class="install-tabs">
+            <button type="button" class="install-tab install-tab--active" data-install-tab="windows">
+              <i class="fa-brands fa-windows"></i>&ensp;Windows
+            </button>
+            <button type="button" class="install-tab" data-install-tab="mac">
+              <i class="fa-brands fa-apple"></i>&ensp;macOS
+            </button>
+            <button type="button" class="install-tab" data-install-tab="linux">
+              <i class="fa-brands fa-linux"></i>&ensp;Linux
+            </button>
+          </div>
+
+          <div class="install-panel" data-install-panel="windows">
+            <ol class="font-body">
+              <li>Run the downloaded <code>.exe</code> installer.</li>
+              <li>Follow the installation prompts. Penpoint will launch when finished.</li>
+            </ol>
+            <p class="font-body"><strong>Penpoint won't open?</strong> <a href="/windows-help" target="_blank" rel="noopener">Check or repair Microsoft WebView2.</a></p>
+          </div>
+
+          <div class="install-panel" data-install-panel="mac" hidden>
+            <ol class="font-body">
+              <li>Open the downloaded <code>.dmg</code> file.</li>
+              <li>Drag Penpoint to your <strong>Applications</strong> folder.</li>
+              <li>Open Penpoint from Applications. It comes with a demo book to explore.</li>
+            </ol>
+          </div>
+
+          <div class="install-panel" data-install-panel="linux" hidden>
+            <p class="font-body" style="margin-bottom: var(--space-4);"><strong>.AppImage</strong> (recommended: works on any distro and updates itself)</p>
+            <ol class="font-body" style="margin-bottom: var(--space-6);">
+              <li>Make the AppImage executable. Open a terminal and run:<br><code>chmod +x Penpoint_*.AppImage</code></li>
+              <li>Double-click the <code>.AppImage</code> file to launch Penpoint, or run it from the terminal:<br><code>./Penpoint_*.AppImage</code></li>
+            </ol>
+            <p class="font-body" style="margin-bottom: var(--space-4);"><strong>.deb package</strong> (Ubuntu, Debian, Pop!_OS, Mint). Installs through your package manager, but you update it manually each release; the AppImage updates itself.</p>
+            <ol class="font-body">
+              <li>Double-click the downloaded <code>.deb</code> file. Your package manager will handle the rest.</li>
+              <li>Find Penpoint in your app launcher and open it.</li>
+            </ol>
           </div>
         </div>
       </div>
@@ -634,6 +930,301 @@
     || (navigator.maxTouchPoints > 1 && window.innerWidth < 820);
   if (isMobile && mobileView) {
     mobileView.style.display = '';
+  }
+
+  // Press Pass: penpoint.app/press?pass=<code> (made with `npm run press-pass -- add "Outlet"`).
+  // The press-pass function answers the pass's name when it is live; the page then swaps the
+  // "Request a review copy" button for the same download picker /download uses. Unlike /download
+  // this fails CLOSED: a bad, revoked or unanswered pass leaves the email button, which still works.
+  var PASS_URL = 'https://lpgprxbwrkzxmbwzkisz.supabase.co/functions/v1/press-pass';
+  var CLICK_URL = 'https://lpgprxbwrkzxmbwzkisz.supabase.co/functions/v1/track-click';
+  var LATEST_JSON_URL = 'https://updates.penpoint.app/latest.json';
+  var RELEASE_BASE = 'https://f003.backblazeb2.com/file/penpoint-releases';
+  var SUPPORT_FALLBACK = 'mailto:support@penpoint.app?subject=Penpoint%20review%20copy%20download';
+  var CHECK_TIMEOUT_MS = 8000;
+
+  var pass = (new URLSearchParams(window.location.search).get('pass') || '').trim();
+  if (!pass) return;
+
+  var requestEl = document.getElementById('press-request');
+  var checkingEl = document.getElementById('press-checking');
+  var passEl = document.getElementById('press-pass');
+
+  function reveal(el) {
+    el.style.display = '';
+    el.classList.remove('press-reveal');
+    void el.offsetWidth; // restart the fade
+    el.classList.add('press-reveal');
+  }
+
+  function showRequest(missed) {
+    checkingEl.style.display = 'none';
+    if (missed) document.getElementById('press-pass-miss').style.display = '';
+    reveal(requestEl);
+  }
+
+  function showPass(name) {
+    checkingEl.style.display = 'none';
+    document.getElementById('press-pass-name').textContent = name;
+    document.getElementById('press-subline').textContent = 'Your press pass is below: the full version of Penpoint, ready to download.';
+    if (isMobile) {
+      document.getElementById('press-pass-desktop').style.display = 'none';
+      document.getElementById('dl-version').style.display = 'none';
+      document.getElementById('press-pass-mobile').style.display = '';
+    }
+    reveal(passEl);
+    reveal(document.getElementById('press-install'));
+  }
+
+  requestEl.style.display = 'none';
+  checkingEl.style.display = '';
+
+  // Warm the manifest and build the picker behind the check, so a live pass reveals a finished picker.
+  // The install-guide tabs are wired on every device, since they read fine on a phone.
+  initInstallTabs();
+  var manifestPromise = fetch(LATEST_JSON_URL).then(function (r) { return r.json(); }).catch(function () { return null; });
+  var prep = isMobile ? Promise.resolve() : initDownloads(manifestPromise);
+
+  var timedOut = false;
+  var timer = setTimeout(function () { timedOut = true; showRequest(false); }, CHECK_TIMEOUT_MS);
+
+  fetch(PASS_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ pass: pass, event: 'open' })
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (res) {
+      if (timedOut) return;
+      clearTimeout(timer);
+      if (res && res.ok && typeof res.name === 'string') {
+        prep.then(function () { showPass(res.name); });
+      } else {
+        showRequest(true);
+      }
+    })
+    .catch(function () {
+      if (timedOut) return;
+      clearTimeout(timer);
+      showRequest(false);
+    });
+
+  // Count a download on the pass (per outlet) and on the dashboard's anonymous Press Downloads tile.
+  passEl.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href]');
+    if (!link || !/\.(exe|dmg|AppImage|deb)$/.test(link.href)) return;
+    fetch(PASS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pass: pass, event: 'download' }),
+      keepalive: true
+    }).catch(function () {});
+    if (!sessionStorage.getItem('pp_tracked_press_download')) {
+      sessionStorage.setItem('pp_tracked_press_download', '1');
+      fetch(CLICK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ eventType: 'press_download' }),
+        keepalive: true
+      }).catch(function () {});
+    }
+  });
+
+  // ---- Download picker (same manifest, host and build list as download.html) ----
+
+  function detectOS() {
+    var ua = navigator.userAgent;
+    if (/Windows/.test(ua)) return 'windows';
+    if (/Mac/.test(ua)) return 'mac';
+    if (/Linux/.test(ua)) return 'linux';
+    return 'unknown';
+  }
+
+  function detectMacArch() {
+    try {
+      var canvas = document.createElement('canvas');
+      var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) return null;
+      var debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+      if (!debugInfo) return null;
+      var renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+      if (/Apple M\d|Apple GPU/i.test(renderer)) return 'mac-arm';
+      if (/Intel/i.test(renderer)) return 'mac-intel';
+      return null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // Windows ARM64 via User-Agent Client Hints (Chromium only).
+  function detectWindowsArm() {
+    if (!navigator.userAgentData || typeof navigator.userAgentData.getHighEntropyValues !== 'function') {
+      return Promise.resolve(false);
+    }
+    return navigator.userAgentData.getHighEntropyValues(['architecture', 'bitness'])
+      .then(function (ua) { return ua.architecture === 'arm' && ua.bitness === '64'; })
+      .catch(function () { return false; });
+  }
+
+  function buildInstallerUrl(version, platform) {
+    var tag = 'v' + version;
+    if (platform === 'windows') return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_x64-setup.exe';
+    if (platform === 'windows-arm') return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_arm64-setup.exe';
+    if (platform === 'mac-arm') return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_aarch64.dmg';
+    if (platform === 'mac-intel') return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_x64.dmg';
+    if (platform === 'linux') return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_amd64.AppImage';
+    if (platform === 'linux-deb') return RELEASE_BASE + '/' + tag + '/Penpoint_' + version + '_amd64.deb';
+    return null;
+  }
+
+  function platformAvailable(data, platform) {
+    if (!data.platforms) return false;
+    if (platform === 'windows') return !!data.platforms['windows-x86_64'];
+    if (platform === 'windows-arm') return !!data.platforms['windows-aarch64'];
+    if (platform === 'mac-arm') return !!data.platforms['darwin-aarch64'];
+    if (platform === 'mac-intel') return !!data.platforms['darwin-x86_64'];
+    // The .deb ships whenever the Linux build ships, so it keys off the same manifest entry.
+    if (platform === 'linux' || platform === 'linux-deb') return !!data.platforms['linux-x86_64'];
+    return false;
+  }
+
+  function platformIcon(platform) {
+    if (platform === 'windows' || platform === 'windows-arm') return 'fa-brands fa-windows';
+    if (platform === 'mac-arm' || platform === 'mac-intel') return 'fa-brands fa-apple';
+    if (platform === 'linux' || platform === 'linux-deb') return 'fa-brands fa-linux';
+    return '';
+  }
+
+  // Each OS family and the build variants it offers (name + a short "which one?" hint).
+  var VARIANTS = {
+    windows: [
+      { key: 'windows', name: 'Windows', hint: '64-bit · most PCs' },
+      { key: 'windows-arm', name: 'Windows on ARM', hint: 'Snapdragon · ARM64' }
+    ],
+    mac: [
+      { key: 'mac-arm', name: 'Apple Silicon', hint: 'M1, M2, M3, M4' },
+      { key: 'mac-intel', name: 'Intel', hint: '2019 & earlier' }
+    ],
+    linux: [
+      { key: 'linux', name: 'AppImage', hint: 'Any distro · updates itself' },
+      { key: 'linux-deb', name: '.deb package', hint: 'Debian/Ubuntu/Mint · manual updates' }
+    ]
+  };
+
+  function initInstallTabs() {
+    var tabs = document.querySelectorAll('[data-install-tab]');
+    var panels = document.querySelectorAll('[data-install-panel]');
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var target = tab.getAttribute('data-install-tab');
+        tabs.forEach(function (t) { t.classList.remove('install-tab--active'); });
+        panels.forEach(function (p) { p.hidden = true; });
+        tab.classList.add('install-tab--active');
+        var panel = document.querySelector('[data-install-panel="' + target + '"]');
+        if (panel) panel.hidden = false;
+      });
+    });
+  }
+
+  function syncInstallTab(osKey) {
+    var tab = document.querySelector('[data-install-tab="' + osKey + '"]');
+    if (tab) tab.click();
+  }
+
+  function initDownloads(manifest) {
+    var os = detectOS();
+    var versionEl = document.getElementById('dl-version');
+    var osPicker = document.getElementById('dl-os-picker');
+    var optionsEl = document.getElementById('dl-version-options');
+    var noteEl = document.getElementById('dl-version-note');
+
+    var isMac = os === 'mac';
+    var macArch = isMac ? detectMacArch() : null;
+    var armDetection = os === 'windows' ? detectWindowsArm() : Promise.resolve(false);
+
+    return armDetection.then(function (isWindowsArm) {
+      var startOs = isMac ? 'mac' : (os === 'linux' ? 'linux' : 'windows');
+
+      return manifest.then(function (data) {
+        if (!data) throw new Error('manifest unavailable');
+        var version = data.version;
+        if (versionEl) versionEl.textContent = 'Penpoint v' + version + ' · full version';
+
+        function getUrl(p) { return platformAvailable(data, p) ? buildInstallerUrl(version, p) : null; }
+
+        function recommendedFor(osKey) {
+          if (osKey === 'windows') return (isWindowsArm && getUrl('windows-arm')) ? 'windows-arm' : 'windows';
+          if (osKey === 'mac') return (macArch && getUrl(macArch)) ? macArch : (getUrl('mac-arm') ? 'mac-arm' : 'mac-intel');
+          if (osKey === 'linux') return 'linux';
+          return null;
+        }
+
+        function renderVersions(osKey) {
+          if (!optionsEl) return;
+          optionsEl.innerHTML = '';
+          optionsEl.classList.remove('fade-in');
+          if (noteEl) noteEl.style.display = 'none';
+
+          function playOptionsFade() { void optionsEl.offsetWidth; optionsEl.classList.add('fade-in'); }
+
+          var available = VARIANTS[osKey].filter(function (v) { return !!getUrl(v.key); });
+          if (available.length === 0) {
+            optionsEl.innerHTML = '<a class="btn btn-outline version-btn" href="' + SUPPORT_FALLBACK + '">Email support for a download link</a>';
+            playOptionsFade();
+            return;
+          }
+
+          var rec = recommendedFor(osKey);
+          available.forEach(function (v) {
+            var spotlight = v.key === rec; // spotlight the recommended build; others outline
+            var a = document.createElement('a');
+            a.href = getUrl(v.key);
+            a.className = 'btn version-btn ' + (spotlight ? 'btn-primary btn-shadow' : 'btn-outline');
+            a.innerHTML = '<span class="version-btn__name"><i class="' + platformIcon(v.key) + '"></i>&ensp;' + v.name + '</span>'
+                        + '<span class="version-hint">' + v.hint + '</span>';
+            optionsEl.appendChild(a);
+          });
+          playOptionsFade();
+
+          if (noteEl) {
+            if (osKey === 'linux' && getUrl('linux-deb')) {
+              noteEl.textContent = 'The AppImage updates itself. The .deb installs through your package manager, but you update it manually each release.';
+              noteEl.style.display = '';
+            } else if (osKey === 'mac' && !macArch) {
+              noteEl.textContent = 'Most Macs from 2020 on are Apple Silicon. On an older Intel Mac? Pick Intel. (The Apple menu, then About This Mac, tells you which.)';
+              noteEl.style.display = '';
+            }
+          }
+        }
+
+        // Wire the OS picker; disable an OS with no build in this release.
+        var osButtons = osPicker ? Array.prototype.slice.call(osPicker.querySelectorAll('[data-os]')) : [];
+        osButtons.forEach(function (b) {
+          var osKey = b.getAttribute('data-os');
+          var hasAny = VARIANTS[osKey].some(function (v) { return !!getUrl(v.key); });
+          if (!hasAny) { b.disabled = true; b.classList.add('is-disabled'); return; }
+          b.addEventListener('click', function () {
+            osButtons.forEach(function (x) { x.classList.remove('is-active'); });
+            b.classList.add('is-active');
+            renderVersions(osKey);
+            syncInstallTab(osKey);
+          });
+        });
+
+        // Open on the visitor's detected OS (fall back to the first OS that actually built).
+        var startBtn = osPicker && osPicker.querySelector('[data-os="' + startOs + '"]:not([disabled])');
+        if (!startBtn && osPicker) startBtn = osPicker.querySelector('[data-os]:not([disabled])');
+        if (startBtn) {
+          startBtn.classList.add('is-active');
+          renderVersions(startBtn.getAttribute('data-os'));
+          syncInstallTab(startBtn.getAttribute('data-os'));
+        }
+      })
+      .catch(function () {
+        if (optionsEl) optionsEl.innerHTML = '<a class="btn btn-primary btn-xl btn-shadow version-btn" href="' + SUPPORT_FALLBACK + '">Email support for a download link</a>';
+        if (versionEl) versionEl.textContent = '';
+      });
+    });
   }
 })();
 </script>
