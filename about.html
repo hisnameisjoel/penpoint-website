@@ -3,39 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    document.documentElement.classList.add('js-ready');
+  </script>
   <meta name="robots" content="index, follow">
-  <title>Why Penpoint? — The Writer Behind the App</title>
-  <meta name="description" content="Penpoint is made by one writer who got tired of drafting his book across five apps and a pile of subscriptions. Buy it once, own it forever, and your words never leave your computer.">
-  <meta name="keywords" content="about penpoint, who made penpoint, penpoint developer, indie writing software, one-time purchase writing app, no subscription writing software">
+  <title>About Penpoint: The Writers Behind the App</title>
+  <meta name="description" content="Penpoint is built by Joel, a writer who got tired of drafting his book across five apps and a pile of subscriptions, with a small crew running its community and outreach. Buy it once, own it forever, and your words never leave your computer.">
+  <meta name="keywords" content="about penpoint, who made penpoint, penpoint team, penpoint developer, indie writing software, one-time purchase writing app, no subscription writing software">
   <link rel="canonical" href="https://penpoint.app/about">
   <meta name="theme-color" content="#FFF7E6">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://penpoint.app/about">
-  <meta property="og:title" content="Why Penpoint? — The Writer Behind the App">
-  <meta property="og:description" content="Penpoint is made by one writer who wanted his manuscript and his world in one place, with no subscription and nothing leaving his computer. Here's the story.">
+  <meta property="og:title" content="About Penpoint: The Writers Behind the App">
+  <meta property="og:description" content="Penpoint started as one writer's app for his own book. Meet Joel, who builds it, and the small crew helping it reach more writers.">
   <meta property="og:image" content="https://penpoint.app/images/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Penpoint — Where Your Story Comes Together">
+  <meta property="og:image:alt" content="Penpoint: Where Your Story Comes Together">
   <meta property="og:site_name" content="Penpoint">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://penpoint.app/about">
-  <meta name="twitter:title" content="Why Penpoint? — The Writer Behind the App">
-  <meta name="twitter:description" content="Penpoint is made by one writer who wanted his manuscript and his world in one place, with no subscription and nothing leaving his computer.">
+  <meta name="twitter:title" content="About Penpoint: The Writers Behind the App">
+  <meta name="twitter:description" content="Penpoint started as one writer's app for his own book. Meet Joel, who builds it, and the small crew helping it reach more writers.">
   <meta name="twitter:image" content="https://penpoint.app/images/og-image.jpg">
-  <meta name="twitter:image:alt" content="Penpoint — Where Your Story Comes Together">
+  <meta name="twitter:image:alt" content="Penpoint: Where Your Story Comes Together">
   <link rel="help" type="text/plain" href="/llms.txt" title="LLM information about Penpoint">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png">
   <link rel="apple-touch-icon" href="images/icon-192.png">
+  <!-- Caveat is the hand lettering on the photo captions, as on State of the Pen and Novel November. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Caveat:wght@700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/site-chrome.css">
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-79JVXYBCTN"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-79JVXYBCTN");</script>
@@ -43,31 +46,53 @@
 {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  "name": "Why Penpoint?",
+  "name": "About Penpoint",
   "url": "https://penpoint.app/about",
-  "description": "The story behind Penpoint: a writing app made by one writer who wanted his manuscript and his worldbuilding in one place, with no subscription and no data leaving his computer.",
+  "description": "The story behind Penpoint, a writing app made by one writer who wanted his manuscript and his worldbuilding in one place, with no subscription and no data leaving his computer, and the small team that helps it reach more writers.",
   "publisher": {
     "@type": "Organization",
     "name": "Tophat Creative, LLC",
     "url": "https://penpoint.app/"
   },
   "mainEntity": {
-    "@type": "Person",
-    "name": "Joel Gerlach",
-    "image": "https://penpoint.app/images/joel-portrait.webp",
-    "jobTitle": "Founder & Developer, Penpoint",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Tophat Creative, LLC"
+    "@type": "Organization",
+    "name": "Tophat Creative, LLC",
+    "url": "https://penpoint.app/",
+    "founder": {
+      "@type": "Person",
+      "name": "Joel Gerlach",
+      "image": "https://penpoint.app/images/team-joel.webp",
+      "jobTitle": "Founder & Developer, Penpoint",
+      "sameAs": [
+        "https://www.hisnameisjoel.com"
+      ],
+      "description": "Writer and creative-software developer who built Penpoint after failing to find a tool that kept his manuscript and worldbuilding in one place without a subscription."
     },
-    "sameAs": [
-      "https://www.hisnameisjoel.com"
-    ],
-    "description": "Writer and creative-software developer who built Penpoint after failing to find a tool that kept his manuscript and worldbuilding in one place without a subscription."
+    "member": [
+      {
+        "@type": "Person",
+        "name": "Athena",
+        "image": "https://penpoint.app/images/team-athena.webp",
+        "jobTitle": "Community & Events, Penpoint"
+      },
+      {
+        "@type": "Person",
+        "name": "Jens",
+        "image": "https://penpoint.app/images/team-jens.webp",
+        "jobTitle": "Marketing & Outreach, Penpoint"
+      }
+    ]
   }
 }
 </script>
   <style>
+    /* ===========================================
+       ABOUT PENPOINT
+       Novel November's desk look (paper grain, tape, Caveat hand lettering),
+       self-contained the same way: only site-chrome.css is shared.
+       The team is three pinned photos with a handwritten caption each, and
+       that is the one bold moment on the page. The rest stays quiet.
+       =========================================== */
     *{box-sizing:border-box;}
     html,body{margin:0;padding:0;}
     html{scroll-behavior:smooth;}
@@ -75,26 +100,124 @@
     img{max-width:100%;}
     ::selection{background:var(--accent-bright,#DDA964);color:#29241E;}
     a{transition:opacity .2s ease, background .2s ease, color .2s ease;}
+    [id]{scroll-margin-top:84px;}
 
-    .about-portrait{float:right;width:clamp(210px,30%,300px);margin:6px 0 20px clamp(28px,4vw,48px);}
-    .about-portrait img{display:block;width:100%;height:auto;border:1px solid #E0D2BC;box-shadow:0 22px 46px -24px rgba(61,46,28,.45);}
-    .about-portrait figcaption{margin-top:11px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#7C5236;line-height:1.6;}
-    @media(max-width:600px){.about-portrait{float:none;width:min(240px,60%);margin:0 auto clamp(26px,6vw,34px);}.about-portrait figcaption{text-align:center;}}
+    /* Section scaffolding (novel-november.html) */
+    .tri-sec{padding:clamp(48px,7vw,92px) clamp(20px,5vw,52px);}
+    .tri-kicker{display:flex;align-items:center;justify-content:center;gap:clamp(10px,1.4vw,16px);font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1.35vw,16px);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#A4521D;margin:0 0 20px;}
+    .tri-kicker::before,.tri-kicker::after{content:"";flex:none;width:clamp(22px,3.6vw,44px);height:2px;background:currentColor;opacity:.5;}
+    .tri-h2{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.08;letter-spacing:-0.02em;color:#29241E;margin:0;text-wrap:balance;}
+    .tri-h2 em{font-style:italic;font-weight:400;}
+    .ab-head{text-align:center;max-width:680px;margin:0 auto clamp(28px,4vw,44px);}
+    .ab-alt{background:var(--paper-alt,#F4EBD8);border-top:1px solid #E6DCCD;border-bottom:1px solid #E6DCCD;}
+    .ab-grain{
+      background-color:#F8EFDB;
+      background-image:
+        radial-gradient(ellipse at 50% 40%, rgba(255,252,242,0.9) 0%, rgba(248,239,219,0) 62%),
+        radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 60%, rgba(120,80,30,0.10) 100%),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' seed='4'/><feColorMatrix values='0 0 0 0 0.45  0 0 0 0 0.32  0 0 0 0 0.16  0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
 
-    .about-prose p{font-family:'Source Serif 4',serif;font-size:clamp(17px,2vw,20px);line-height:1.68;color:#3D2E1C;margin:0 0 clamp(20px,2.6vw,26px);}
-    .about-prose p:last-child{margin-bottom:0;}
-    .about-prose a{color:#CD6E2C;text-decoration:underline;text-underline-offset:2px;}
-    .about-prose em{font-style:italic;}
-    .about-tagline{font-weight:600;color:#29241E;font-style:italic;}
-    .about-pull{clear:both;font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:clamp(22px,3vw,32px);line-height:1.36;letter-spacing:-0.01em;color:#29241E;text-align:center;margin:clamp(32px,4.6vw,46px) auto !important;max-width:36ch;}
-    .about-sign{margin-top:clamp(30px,4vw,42px);padding-top:clamp(22px,3vw,28px);border-top:1px solid #E6DCCD;}
-    .about-values{background:var(--paper-alt,#F4EBD8);border-top:1px solid #E6DCCD;border-bottom:1px solid #E6DCCD;}
-    .about-values__inner{max-width:768px;margin:0 auto;padding:clamp(48px,8vw,88px) clamp(20px,5vw,64px);}
-    .about-values h2{font-family:'Newsreader',serif;font-weight:var(--hl-weight,500);font-size:clamp(28px,4.4vw,44px);line-height:1.1;letter-spacing:-0.02em;color:#29241E;text-align:center;margin:0 0 clamp(16px,2.2vw,20px);}
-    .about-values__rule{width:44px;height:2px;background:var(--accent,#CD6E2C);margin:0 auto clamp(26px,3.4vw,34px);}
-    .about-values p{font-family:'Source Serif 4',serif;font-size:clamp(17px,2vw,20px);line-height:1.68;color:#3D2E1C;margin:0 0 clamp(18px,2.4vw,24px);}
-    .about-values p:last-child{margin-bottom:0;}
-    .about-values strong{color:#29241E;}
+    /* On-load fade for the hero, and the scroll reveal below it (novel-november.html).
+       Hidden only once JS has run, so a no-JS reader or a crawler sees everything. */
+    @keyframes triFade{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+    .tri-in{animation:triFade .7s cubic-bezier(.2,.7,.2,1) both;}
+    .js-ready [data-animate]{opacity:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
+    [data-animate].animate-in{animation:triFade .7s cubic-bezier(.2,.7,.2,1) forwards;}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-weight:600;text-decoration:none;cursor:pointer;border:none;line-height:1.2;transition:transform .2s ease, box-shadow .2s ease, background .2s ease;}
+    .btn-primary{background:var(--accent,#CD6E2C);color:#FFF7E6;}
+    .btn-primary:hover{background:#B85F22;transform:translateY(-1px);}
+    .btn-outline{background:transparent;color:#29241E;border:1px solid #C9B79A;}
+    .btn-outline:hover{background:#F1E6D2;}
+    .btn-lg{font-size:16px;padding:13px 30px;}
+    .btn-shadow{box-shadow:0 8px 16px -10px rgba(61,46,28,.42);}
+    .btn-shadow:hover{box-shadow:0 12px 22px -12px rgba(61,46,28,.5);}
+    .btn i{margin-right:9px;}
+    .btn:focus-visible,.ab-prose a:focus-visible,.ab-sign a:focus-visible{outline:2px solid #29241E;outline-offset:3px;}
+
+    /* ----- Hero ----- */
+    .ab-hero{padding:clamp(52px,9vw,104px) clamp(20px,5vw,52px) clamp(60px,8vw,104px);border-bottom:1px solid #E6DCCD;}
+    .ab-hero__top{text-align:center;}
+    .ab-hero__h1{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(38px,6.2vw,72px);line-height:1.06;letter-spacing:-0.022em;color:#29241E;margin:0 auto clamp(20px,2.8vw,28px);max-width:900px;text-wrap:balance;}
+    .ab-hero__h1 em{display:block;font-style:italic;font-weight:400;margin-top:.12em;}
+    .ab-hero__sub{font-family:'Source Serif 4',serif;font-size:clamp(17px,2vw,21px);line-height:1.58;color:#5C4A33;max-width:620px;margin:0 auto;text-wrap:pretty;}
+
+    /* ----- The team: pinned photos on the desk -----
+       Each photo is a square print with a taped top and a handwritten caption
+       in its bottom margin. Name, role and bio sit on the desk underneath. */
+    .ab-team-kicker{margin-top:clamp(52px,7vw,84px);}
+    .ab-team{list-style:none;margin:clamp(30px,4vw,44px) auto 0;padding:0;max-width:1080px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(30px,4.4vw,60px);}
+    .ab-member{--c:#A4521D;}
+    .ab-member--athena{--c:#4E6E43;}
+    .ab-member--jens{--c:#3E6598;}
+    .ab-print{position:relative;margin:0 auto;max-width:330px;padding:12px 12px 0;
+      background-color:#FFFDF7;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='9'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0 0.25  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      box-shadow:0 1px 2px rgba(60,35,10,0.10), 0 16px 32px rgba(60,35,10,0.16);
+      transform:rotate(var(--r,0deg));}
+    .ab-print img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;background:#E9DFCC;}
+    /* Room for two lines on every print, so the names below line up across the row. */
+    .ab-print figcaption{display:flex;align-items:center;justify-content:center;min-height:calc(2.2em + 26px);font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.4rem,2.3vw,1.7rem);line-height:1.1;color:#2A4A8A;text-align:center;padding:10px 6px 16px;text-wrap:balance;}
+    .ab-tape{position:absolute;top:-13px;left:50%;width:96px;height:26px;margin-left:-48px;background:rgba(233,221,188,0.85);box-shadow:0 1px 2px rgba(0,0,0,0.08);transform:rotate(var(--tr,-3deg));}
+    .ab-member__text{max-width:330px;margin:clamp(24px,3vw,32px) auto 0;}
+    .ab-member__name{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(28px,3vw,34px);line-height:1.05;letter-spacing:-0.015em;color:#29241E;margin:0;}
+    .ab-member__role{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--c);margin:10px 0 0;}
+    .ab-member__place{font-family:'Source Serif 4',serif;font-style:italic;font-size:15px;color:#7C5236;margin:4px 0 0;}
+    .ab-member__place i{font-size:.85em;margin-right:6px;color:var(--c);opacity:.8;}
+    .ab-member__bio{font-family:'Source Serif 4',serif;font-size:16.5px;line-height:1.62;color:#5C4332;margin:16px 0 0;padding-top:16px;border-top:2px solid var(--c);text-wrap:pretty;}
+    /* Narrow desktops: the photo sits beside its text. */
+    @media(max-width:900px){
+      .ab-team{grid-template-columns:1fr;max-width:680px;gap:clamp(44px,7vw,60px);}
+      .ab-member{display:grid;grid-template-columns:minmax(0,0.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,40px);align-items:start;}
+      .ab-print{max-width:none;margin:0;}
+      .ab-member__text{max-width:none;margin:6px 0 0;}
+    }
+    @media(max-width:560px){
+      .ab-member{display:block;}
+      .ab-print{max-width:280px;margin:0 auto;}
+      .ab-member__text{margin-top:26px;}
+    }
+
+    /* ----- Why Penpoint? ----- */
+    /* The story, promises and sign-off are all in Joel's first person; the byline says so up front. */
+    .ab-byline{display:inline-flex;align-items:center;gap:12px;margin:clamp(16px,2.2vw,22px) 0 0;font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:clamp(18px,2vw,21px);color:#7C5236;}
+    .ab-byline img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #FFFDF7;box-shadow:0 2px 8px -2px rgba(60,35,10,0.3);}
+    .ab-prose{max-width:680px;margin:0 auto;}
+    .ab-prose p{font-family:'Source Serif 4',serif;font-size:clamp(17px,2vw,19.5px);line-height:1.68;color:#3D2E1C;margin:0 0 clamp(20px,2.6vw,26px);text-wrap:pretty;}
+    .ab-prose p:last-child{margin-bottom:0;}
+    .ab-prose a{color:#CD6E2C;text-decoration:underline;text-underline-offset:2px;}
+    .ab-prose strong{color:#29241E;font-weight:600;}
+    .ab-pull{font-family:'Newsreader',serif !important;font-style:italic;font-weight:400;font-size:clamp(22px,3vw,30px) !important;line-height:1.36 !important;letter-spacing:-0.01em;color:#29241E !important;text-align:center;margin:clamp(34px,4.6vw,46px) auto 0 !important;max-width:34ch;text-wrap:balance !important;}
+
+    /* ----- Promises ----- */
+    .ab-promises{list-style:none;margin:clamp(30px,4vw,40px) auto;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:860px;}
+    .ab-promises li{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:2px clamp(12px,2vw,22px);border-left:1px solid #D9C6A5;}
+    .ab-promises li:first-child{border-left:none;}
+    .ab-promises i{font-size:17px;color:var(--accent,#CD6E2C);margin-bottom:4px;}
+    .ab-promise__t{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(21px,2.4vw,26px);line-height:1.1;letter-spacing:-0.01em;color:#29241E;}
+    .ab-promise__s{font-family:'Source Serif 4',serif;font-size:15px;line-height:1.5;color:#7C5236;text-wrap:balance;}
+    @media(max-width:620px){
+      .ab-promises{grid-template-columns:1fr;max-width:320px;}
+      .ab-promises li{border-left:none;border-top:1px solid #D9C6A5;padding:16px 0;}
+      .ab-promises li:first-child{border-top:none;padding-top:0;}
+    }
+
+    /* ----- Come say hi ----- */
+    .ab-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:clamp(30px,4vw,40px) 0 0;}
+    .ab-sign{max-width:680px;margin:clamp(40px,5vw,56px) auto 0;padding-top:clamp(22px,3vw,28px);border-top:1px solid #E6DCCD;}
+    .ab-sign__name{font-family:'Newsreader',serif;font-style:italic;font-weight:500;font-size:clamp(23px,2.7vw,30px);color:#29241E;margin:0;}
+    .ab-sign__role{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#7C5236;margin:7px 0 0;}
+    .ab-sign__more{font-family:'Source Serif 4',serif;font-size:15px;line-height:1.6;color:#7D5D35;margin:15px 0 0;}
+    .ab-sign__more a{color:#CD6E2C;text-decoration:underline;text-underline-offset:2px;}
+
+    /* Tilted paper only where there is room for it */
+    @media(max-width:560px){.ab-print{transform:rotate(calc(var(--r,0deg) / 2));}}
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto;}
+      .tri-in,[data-animate].animate-in{animation:none !important;}
+      .js-ready [data-animate]{opacity:1;}
+    }
   </style>
 </head>
 <body>
@@ -139,58 +262,127 @@
   </header>
   <main id="main">
 
-  <article style="max-width:900px;margin:0 auto;padding:clamp(46px,8vw,92px) clamp(20px,5vw,64px) clamp(24px,4vw,44px);">
-
-    <header style="text-align:center;margin-bottom:clamp(30px,4.5vw,44px);">
-      <h1 class="pp-kicker pp-kicker--center pp-kicker--wraps" style="margin:0 0 20px;">Indie Writing Software, No Subscription</h1>
-      <div style="font-family:'Newsreader',serif;font-weight:var(--hl-weight,500);font-size:clamp(42px,7vw,80px);line-height:1.05;letter-spacing:-0.022em;margin:0;color:#29241E;">Why <span style="font-style:var(--hl-emph-style,italic);font-weight:var(--hl-emph-weight,400);">Penpoint?</span></div>
-      <p style="font-family:'Newsreader',serif;font-style:italic;font-weight:400;font-size:clamp(17px,2vw,21px);line-height:1.5;color:#7C5236;margin:clamp(14px,2vw,18px) 0 0;">Why I built an app to help me write my own book</p>
-    </header>
-
-    <figure class="about-portrait">
-      <img src="images/joel-portrait.webp" width="900" height="1200" alt="Joel, the writer and developer who makes Penpoint" loading="eager">
-      <figcaption>Joel — the guy who occasionally writes about himself in third person</figcaption>
-    </figure>
-
-    <div class="about-prose">
-      <p>Hi, I'm Joel, and I've spent my career making things. I got my start in film as a VFX artist on The Avengers, Thor, and Captain America, then co-founded a production studio, doing award-winning work for Disney, LEGO, Nabisco, and ASICS. I helped build some of the first consumer VR experiences and shipped all kinds of interactive projects along the way. I know what it's like to lean on tools and software to turn a creative vision into a finished thing.</p>
-
-      <p>But through all of it, the one thing I keep coming back to is writing. I love the freedom of it: no budget, no feasibility reports, no limits except time and language.</p>
-
-      <p>When I finally sat down to write, I did it the way most people do: the manuscript in one document, my characters, outlines, and worldbuilding scattered across notes I could never find when I needed them. Checking whether I'd spelled a name the same way three chapters back meant leaving the draft, hunting through a dozen tabs, and losing my place. Change one detail and nothing else caught up. My story kept slipping through the gaps, and I burned hours just trying to keep my own world straight.</p>
-
-      <p>So I went looking for one tool to hold my writing and my world together, and mostly I found a wall of subscriptions: apps that charged me monthly to keep hold of my own words, apps that couldn't promise my prose wouldn't be used to train an AI (looking at you, Google), browser apps that vanished the second the wifi died. The offline ones felt archaic, and if getting started meant four hours of "how to set up Scrivener from scratch" tutorials on YouTube, it was already too complicated.</p>
-
-      <p>So I dusted off my coding skills and built what I actually wanted. That became Penpoint: first a tool for my own overambitious 250-year-spanning saga, then a copy for my brother (a writer), then his friends, and a post on Reddit that went viral, until somehow it was a real app other people write their books in. No corporate funding, no SaaS startup, just a writer making the app he wanted and sharing it.</p>
-
-      <p class="about-pull">I use Penpoint every day, and I build it in the open, with and for the writers who use it.</p>
-    </div>
-  </article>
-
-  <section class="about-values">
-    <div class="about-values__inner">
-      <h2>The Promises Behind Penpoint</h2>
-      <div class="about-values__rule"></div>
-      <p>The hunt for a decent writing tool is still fresh in my mind, and it shaped everything here. <strong>From an author, to authors, with love:</strong> Penpoint is the app I wished I'd found.</p>
-      <p>I believe the best writing tool is the one you stop noticing, there when you need it to find a name or to chase a loose thread, and quiet when you don't. I write my own book in it, which is the best quality control there is; every rough edge that annoys me gets fixed, and every new feature has to earn its place by actually helping someone tell their story.</p>
-      <p>The rest comes down to respecting authors and the work they put into their stories. You buy Penpoint once and own it forever. The app itself will never become a subscription. Everything stays on your computer: no account needed, and no AI reading your drafts. If you ever want an off-site copy, Penpoint Cloud is there as an optional add-on, encrypted so that even I cannot read it, and the app works exactly the same without it. And if I ever stop building Penpoint, your copy won't disappear because some service went dark. I work hard not to break what already works, because the book you start today should still open next year, and the year after that.</p>
-    </div>
-  </section>
-
-  <article style="max-width:900px;margin:0 auto;padding:clamp(40px,6vw,64px) clamp(20px,5vw,64px) clamp(64px,9vw,120px);">
-    <div class="about-prose">
-
-      <p>It's a small operation. When you email <a href="mailto:support@penpoint.app">support@penpoint.app</a> or start a thread on Reddit, I'm the one who answers. When you suggest something on our <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>, you're talking to the person who can build it. I never really planned to sell this thing. I'm glad I did, and I'm glad you're here. I hope this app can help you write something great.</p>
-
-      <p>You can get started with a <a href="/trial">free 14-day trial</a>: export your data anytime, no lock-in. That's the best way to see what Penpoint is all about.</p>
-
-      <div class="about-sign">
-        <p style="font-family:'Newsreader',serif;font-style:italic;font-weight:500;font-size:clamp(23px,2.7vw,30px);color:#29241E;margin:0;">Joel</p>
-        <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#7C5236;margin:7px 0 0;">Founder &amp; developer · Tophat Creative, LLC</p>
-        <p style="font-family:'Source Serif 4',serif;font-size:15px;line-height:1.6;color:#7D5D35;margin:15px 0 0;">Curious what else I get up to? It's all at <a href="https://www.hisnameisjoel.com/about/" target="_blank" rel="noopener" style="color:#CD6E2C;text-decoration:underline;text-underline-offset:2px;">hisnameisjoel.com</a>.</p>
+    <!-- ===========================================
+         HERO + THE TEAM
+         =========================================== -->
+    <section class="ab-hero ab-grain">
+      <div class="ab-hero__top">
+        <p class="tri-kicker tri-in">About Penpoint</p>
+        <h1 class="ab-hero__h1 tri-in" style="animation-delay:70ms;">Built by a writer. <em>Shaped by writers.</em></h1>
+        <p class="ab-hero__sub tri-in" style="animation-delay:150ms;">Penpoint started as one writer's app for his own book. Today a small crew helps it reach more writers, and the writers who use it every day help decide what it becomes next.</p>
+        <h2 class="tri-kicker ab-team-kicker tri-in" style="animation-delay:230ms;">The Penpoint team</h2>
       </div>
-    </div>
-  </article>
+
+      <ul class="ab-team">
+        <li class="ab-member tri-in" style="animation-delay:300ms;">
+          <figure class="ab-print" style="--r:-2deg;">
+            <span class="ab-tape" aria-hidden="true"></span>
+            <img src="images/team-joel.webp" width="720" height="720" alt="Joel, in a gray cap and sweater, outdoors" loading="eager">
+            <figcaption>Writing a 250-year saga</figcaption>
+          </figure>
+          <div class="ab-member__text">
+            <h3 class="ab-member__name">Joel</h3>
+            <p class="ab-member__role">Founder &amp; Developer</p>
+            <p class="ab-member__place"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Oregon, USA</p>
+            <p class="ab-member__bio">Hi, I'm Joel, and I've spent my career making things. I got my start in film as a VFX artist on The Avengers, Thor, and Captain America, then co-founded a production studio doing award-winning work for Disney, LEGO, Nabisco, and ASICS. I helped build some of the first consumer VR experiences along the way. Through all of it, the one thing I kept coming back to was writing. Now I build Penpoint, and I get to work with writers around the world, helping them make their stories better.</p>
+          </div>
+        </li>
+        <li class="ab-member ab-member--athena tri-in" style="animation-delay:400ms;">
+          <figure class="ab-print" style="--r:1.6deg;--tr:2deg;">
+            <span class="ab-tape" aria-hidden="true"></span>
+            <img src="images/team-athena.webp" width="720" height="720" alt="Athena, in clear pink glasses, smiling" loading="eager">
+            <figcaption>Writing dark &amp; grimdark fantasy</figcaption>
+          </figure>
+          <div class="ab-member__text">
+            <h3 class="ab-member__name">Athena</h3>
+            <p class="ab-member__role">Community &amp; Events</p>
+            <p class="ab-member__place"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Greece</p>
+            <p class="ab-member__bio">Hi! I'm Athena (WarMaiden on Discord)! Born and raised in Greece, I have been writing since I can remember myself. After a short break for degrees in Computer Forensics and International Security, I'm back doing what I adore most – writing my stories! And then the happy day came that I joined the Penpoint community and have never looked back. Penpoint is the kind of tool you buy once and own forever. And I hope to see our community become the place our writers can call home.</p>
+          </div>
+        </li>
+        <li class="ab-member ab-member--jens tri-in" style="animation-delay:500ms;">
+          <figure class="ab-print" style="--r:-1deg;--tr:-4deg;">
+            <span class="ab-tape" aria-hidden="true"></span>
+            <img src="images/team-jens.webp" width="720" height="720" alt="Jens, in a green hoodie, smiling" loading="eager">
+            <figcaption>Dungeon Master to three D&amp;D campaigns</figcaption>
+          </figure>
+          <div class="ab-member__text">
+            <h3 class="ab-member__name">Jens</h3>
+            <p class="ab-member__role">Marketing &amp; Outreach</p>
+            <p class="ab-member__place"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Denmark</p>
+            <p class="ab-member__bio">Hey there! I'm Jens, more commonly known as Alagar. I don't step into the public often. Instead, I usually help Penpoint out behind the scenes, with presentation and marketing. I like to joke that I have a degree in all forms of communication, but it isn't too far from the truth. Creativity has been in my life as long as I can remember, and I spend my life trying to share that same creativity as much as I can. I like to consider myself a video game historian. A title that started as a joke, but turned out to be very accurate.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+
+    <!-- ===========================================
+         WHY PENPOINT? (Joel's story)
+         =========================================== -->
+    <section id="story" class="tri-sec">
+      <div class="ab-head" data-animate="fade-up">
+        <p class="tri-kicker">How it started</p>
+        <h2 class="tri-h2">Why Penpoint?</h2>
+        <p class="ab-byline"><img src="images/team-joel.webp" width="44" height="44" alt="" loading="lazy">Written by Joel</p>
+      </div>
+      <div class="ab-prose" data-animate="fade-up">
+        <p>I love the freedom of writing: no budget, no feasibility reports, no limits except time and language. But when I finally sat down to write my book, I did it the way most people do. The manuscript lived in one document, and my characters, outlines, and worldbuilding were scattered across notes I could never find when I needed them. Checking whether I'd spelled a name the same way three chapters back meant leaving the draft and losing my place.</p>
+
+        <p>So I went looking for one tool to hold my writing and my world together, and mostly I found a wall of subscriptions: apps that charged me monthly to keep hold of my own words, apps that couldn't promise my prose wouldn't be used to train an AI (looking at you, Google), browser apps that vanished the second the wifi died. The offline ones felt archaic, and if getting started meant four hours of "how to set up Scrivener from scratch" tutorials on YouTube, it was already too complicated.</p>
+
+        <p>So I dusted off my coding skills and built what I actually wanted. That became Penpoint: first a tool for my own overambitious saga, then a copy for my brother (a writer), then his friends, then a post on Reddit that went viral, until somehow it was a real app other people write their books in. No corporate funding, no SaaS startup, just a writer making the app he wanted and sharing it.</p>
+
+        <p class="ab-pull">I use Penpoint every day, and I build it in the open, with and for the writers who use it.</p>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         THE PROMISES
+         =========================================== -->
+    <section id="promises" class="tri-sec ab-alt">
+      <div class="ab-head" data-animate="fade-up">
+        <p class="tri-kicker">The promises</p>
+        <h2 class="tri-h2">From an author, to authors, <em>with love.</em></h2>
+      </div>
+      <div class="ab-prose" data-animate="fade-up">
+        <p>The hunt for a decent writing tool is still fresh in my mind, and it shaped everything here. I believe the best writing tool is the one you stop noticing, there when you need it to find a name or to chase a loose thread, and quiet when you don't. I write my own book in it, which is the best quality control there is; every rough edge that annoys me gets fixed, and every new feature has to earn its place by actually helping someone tell their story.</p>
+      </div>
+      <ul class="ab-promises" data-animate="fade-up">
+        <li><i class="fa-solid fa-key" aria-hidden="true"></i><span class="ab-promise__t">Buy once, own it</span><span class="ab-promise__s">The app itself will never become a subscription.</span></li>
+        <li><i class="fa-solid fa-laptop" aria-hidden="true"></i><span class="ab-promise__t">Stays on your computer</span><span class="ab-promise__s">No account needed, and no AI reading your drafts.</span></li>
+        <li><i class="fa-solid fa-cloud" aria-hidden="true"></i><span class="ab-promise__t">Cloud if you want it</span><span class="ab-promise__s">Encrypted so even I can't read it. Penpoint works the same without it.</span></li>
+      </ul>
+      <div class="ab-prose" data-animate="fade-up">
+        <p>And if I ever stop building Penpoint, your copy won't disappear because some service went dark. I work hard not to break what already works, because the book you start today should still open next year, and the year after that.</p>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         COME SAY HI
+         =========================================== -->
+    <section id="say-hi" class="tri-sec" style="padding-bottom:clamp(64px,9vw,120px);">
+      <div class="ab-head" data-animate="fade-up">
+        <p class="tri-kicker">Say hi</p>
+        <h2 class="tri-h2">Come write with us.</h2>
+      </div>
+      <div class="ab-prose" data-animate="fade-up">
+        <p>Penpoint is still a small operation. When you email <a href="mailto:support@penpoint.app">support@penpoint.app</a> or start a thread on Reddit, I'm the one who answers. When you suggest something on our <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>, you're talking to the person who can build it, and Athena and Jens are in there too. I never really planned to sell this thing. I'm glad I did, and I'm glad you're here!</p>
+
+        <p>The best way to see what Penpoint is all about is the <a href="/trial">free 14-day trial</a>. You can export your data anytime, so there's no lock-in.</p>
+      </div>
+      <div class="ab-ctas" data-animate="fade-up">
+        <a href="/trial" class="btn btn-primary btn-lg btn-shadow">Try Penpoint free</a>
+        <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener" class="btn btn-outline btn-lg"><i class="fa-brands fa-discord" aria-hidden="true"></i>Join the Discord</a>
+      </div>
+      <div class="ab-sign" data-animate="fade-up">
+        <p class="ab-sign__name">Joel</p>
+        <p class="ab-sign__role">Founder &amp; Developer, Tophat Creative, LLC</p>
+        <p class="ab-sign__more">Curious what else I get up to? It's all at <a href="https://www.hisnameisjoel.com/about/" target="_blank" rel="noopener">hisnameisjoel.com</a>.</p>
+      </div>
+    </section>
 
   </main>
   <!-- ===== Shared site footer (see css/site-chrome.css) ===== -->
@@ -253,13 +445,33 @@
   </footer>
 
 </div>
+
+<!-- Scroll reveal: novel-november.html's data-animate pattern. Reduced motion and
+     no-observer browsers show everything at once. -->
+<script>
+(function () {
+  var els = Array.prototype.slice.call(document.querySelectorAll('[data-animate]'));
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('animate-in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
 <script>
 (function(){
 function ready(fn){ if(document.readyState!=='loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
 ready(function(){
 var root = document.getElementById('pp-root') || document.body;
-function drawIcons(){ if(window.lucide){ try{ window.lucide.createIcons(); }catch(e){} } }
-drawIcons(); setTimeout(drawIcons,400); setTimeout(drawIcons,1200);
 (function(){ var burger=root.querySelector('[data-burger]'); var panel=root.querySelector('[data-mobile-menu]'); if(!burger||!panel) return;
   function setOpen(open){ burger.classList.toggle('open',open); panel.classList.toggle('open',open); burger.setAttribute('aria-expanded', open?'true':'false'); }
   burger.addEventListener('click', function(){ setOpen(!panel.classList.contains('open')); });
