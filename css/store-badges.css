@@ -1,9 +1,7 @@
 /* Store badges for Minipen, the Penpoint phone app.
-   Google Play is live (a link). The App Store is "coming soon" (a plain span, not a link).
+   Both listings are live links: App Store (https://apps.apple.com/us/app/penpoint-novel-writing-app/id6790618175) first, then Google Play.
    Badge artwork is the official, unaltered Google and Apple art in images/store-badges/.
-   When Apple approves: turn each <span class="sb-badge sb-badge--soon" data-apple-soon> into
-   <a class="sb-badge" href="APPLE URL" target="_blank" rel="noopener"> and drop the chip.
-   Find every spot with:  grep -rn "data-apple-soon" Website */
+   .sb-badge--soon (a dimmed badge with a chip) is kept for a future "coming soon" store. */
 
 .sb-row{display:flex;flex-wrap:wrap;align-items:center;gap:22px 16px;margin:0;padding:17px 0 0;}
 .sb-row--center{justify-content:center;}
