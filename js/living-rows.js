@@ -3,9 +3,12 @@
    from data-w/data-h on [data-lr-stage]) scaled down to the frame's width. A scene registers with
      LR.scene('search', async function (s) { ... });
    and gets a fresh toolkit `s` on every play (see makeKit below).
-   Lifecycle: plays once when the frame is half in view, rests on its last frame, and plays again
-   from the top after it has fully left the screen and come back. data-loop="ms" on the frame makes
-   it replay after that many ms instead. Every play starts from a pristine copy of the stage markup.
+   Lifecycle: plays when the frame is half in view, rests on its last frame for LOOP_MS, fades out and
+   plays again from the top, for as long as it stays in view (every wait holds while the frame is off
+   screen, so a row nobody is looking at does no work). Once a frame has fully left the screen it starts
+   over from the top the next time it comes back. A visitor who takes a scene over (s.keepResting) is
+   never interrupted by a replay. data-loop="ms" on a frame sets its own pause; data-loop="0" turns the
+   loop off. Every play starts from a pristine copy of the stage markup.
    Reduced motion runs the scene in instant mode: waits resolve at once, transitions are off, the
    pointer and the drawn lines are skipped unless a call opts in, so it lands on the final frame. */
 (function () {
@@ -14,6 +17,7 @@
   var CANCEL = { cancelled: true };
   var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   var registry = {}, runners = [];
+  var LOOP_MS = 5000; // how long a finished scene rests on its last frame before it plays again
 
   function Runner(frame) {
     var r = this;
@@ -25,7 +29,7 @@
     r.pristine = r.stage.innerHTML;
     r.dirty = false; // the markup is untouched until the first play, so that play needs no rebuild
     r.state = 'idle'; r.gen = 0; r.ratio = 0; r.paused = true; r.waiters = []; r.timers = []; r.intervals = []; r.offs = [];
-    r.loop = frame.hasAttribute('data-loop') ? (+frame.getAttribute('data-loop') || 2500) : 0;
+    r.loop = frame.hasAttribute('data-loop') ? (+frame.getAttribute('data-loop') || 0) : LOOP_MS;
     r.scale = 1;
     frame.style.aspectRatio = r.W + ' / ' + r.H;
     r.stage.style.width = r.W + 'px'; r.stage.style.height = r.H + 'px';
@@ -61,7 +65,17 @@
     if (this.dirty) this.stage.innerHTML = this.pristine;
     this.dirty = false;
     this.stage.classList.remove('lr-instant');
+    this.stage.style.opacity = ''; // after a loop's fade-out, this is what fades the fresh start back in
     this.state = 'idle';
+  };
+
+  // The loop's turn of the page: fade the window out, then play from the top (play() resets, which fades it back in).
+  // The timer is one of the play's own, so a reset in between (the frame left the screen) cancels it cleanly.
+  Runner.prototype.restart = function () {
+    var r = this, gen = r.gen;
+    r.stage.style.transition = 'opacity .5s ease';
+    r.stage.style.opacity = 0;
+    r.timers.push(setTimeout(function () { if (r.gen === gen) r.play(false); }, 520));
   };
 
   Runner.prototype.play = function (instant) {
@@ -79,7 +93,8 @@
       // A resting scene does no work: stop any ticker a scene left running (one-shot timers may still finish a fade).
       r.intervals.forEach(function (t) { clearInterval(t); }); r.intervals = [];
       r.frame.dispatchEvent(new CustomEvent('lr:done', { bubbles: true, detail: { scene: r.name, instant: !!instant } }));
-      if (r.loop && !instant) kit.wait(r.loop).then(function () { if (kit.gen === r.gen) r.play(false); }, function () {});
+      // keepResting is re-read when the pause ends: a visitor can take over while the finished scene is resting.
+      if (r.loop && !instant && !kit.keepResting) kit.wait(r.loop).then(function () { if (kit.gen === r.gen && !kit.keepResting) r.restart(); }, function () {});
     }, function (e) {
       if (e !== CANCEL) { console.error('[living rows] scene "' + r.name + '" failed', e); }
     });
@@ -103,7 +118,7 @@
   /* ---------------------------------------------------------------- the scene toolkit */
   function makeKit(r, instant, gen) {
     var stage = r.stage;
-    var s = { stage: stage, frame: r.frame, section: r.frame.closest('section'), figure: r.frame.closest('figure'), W: r.W, H: r.H, instant: instant, gen: gen };
+    var s = { stage: stage, frame: r.frame, section: r.frame.closest('section'), figure: r.frame.closest('figure'), W: r.W, H: r.H, instant: instant, gen: gen, keepResting: false };
     function live() { if (r.gen !== gen) throw CANCEL; }
 
     s.$ = function (sel) { return stage.querySelector(sel); };
@@ -430,6 +445,7 @@ LR.scene('switch', async function (s) {
   function takeOver(to) {
     if (busy || to === mode) return;
     stopped = true;
+    s.keepResting = true;                  // the visitor is driving now: no replay over the mode they picked
     s.pointer.hide();
     s.clearWeb();
     transition(to).catch(function (e) { if (!(e && e.cancelled)) throw e; });

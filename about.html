@@ -8,7 +8,7 @@
   </script>
   <meta name="robots" content="index, follow">
   <title>About Penpoint: The Writers Behind the App</title>
-  <meta name="description" content="Penpoint is built by Joel, a writer who got tired of drafting his book across five apps and a pile of subscriptions, with a small crew running its community and outreach. Buy it once, own it forever, and your words never leave your computer.">
+  <meta name="description" content="Penpoint is built by Joel, a writer who got tired of drafting his book across five apps and a pile of subscriptions, with a small crew running its community, outreach, and testing. Buy it once, own it forever, and your words never leave your computer.">
   <meta name="keywords" content="about penpoint, who made penpoint, penpoint team, penpoint developer, indie writing software, one-time purchase writing app, no subscription writing software">
   <link rel="canonical" href="https://penpoint.app/about">
   <meta name="theme-color" content="#FFF7E6">
@@ -77,6 +77,12 @@
       },
       {
         "@type": "Person",
+        "name": "George",
+        "image": "https://penpoint.app/images/team-george.webp",
+        "jobTitle": "QA & User Experience, Penpoint"
+      },
+      {
+        "@type": "Person",
         "name": "Jens",
         "image": "https://penpoint.app/images/team-jens.webp",
         "jobTitle": "Marketing & Outreach, Penpoint"
@@ -90,8 +96,9 @@
        ABOUT PENPOINT
        Novel November's desk look (paper grain, tape, Caveat hand lettering),
        self-contained the same way: only site-chrome.css is shared.
-       The team is three pinned photos with a handwritten caption each, and
-       that is the one bold moment on the page. The rest stays quiet.
+       The team is four pinned photos with a handwritten caption each, Joel on
+       his own above the three who help, and that is the one bold moment on
+       the page. The rest stays quiet.
        =========================================== */
     *{box-sizing:border-box;}
     html,body{margin:0;padding:0;}
@@ -150,8 +157,9 @@
     .ab-team{list-style:none;margin:clamp(30px,4vw,44px) auto 0;padding:0;max-width:1080px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(30px,4.4vw,60px);}
     .ab-member{--c:#A4521D;}
     .ab-member--athena{--c:#4E6E43;}
+    .ab-member--george{--c:#7B4B7F;}
     .ab-member--jens{--c:#3E6598;}
-    .ab-print{position:relative;margin:0 auto;max-width:330px;padding:12px 12px 0;
+    .ab-print{position:relative;margin:0 auto;max-width:270px;padding:12px 12px 0;
       background-color:#FFFDF7;
       background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='9'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0 0.25  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
       box-shadow:0 1px 2px rgba(60,35,10,0.10), 0 16px 32px rgba(60,35,10,0.16);
@@ -160,12 +168,24 @@
     /* Room for two lines on every print, so the names below line up across the row. */
     .ab-print figcaption{display:flex;align-items:center;justify-content:center;min-height:calc(2.2em + 26px);font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.4rem,2.3vw,1.7rem);line-height:1.1;color:#2A4A8A;text-align:center;padding:10px 6px 16px;text-wrap:balance;}
     .ab-tape{position:absolute;top:-13px;left:50%;width:96px;height:26px;margin-left:-48px;background:rgba(233,221,188,0.85);box-shadow:0 1px 2px rgba(0,0,0,0.08);transform:rotate(var(--tr,-3deg));}
-    .ab-member__text{max-width:330px;margin:clamp(24px,3vw,32px) auto 0;}
+    .ab-member__text{max-width:270px;margin:clamp(24px,3vw,32px) auto 0;}
     .ab-member__name{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(28px,3vw,34px);line-height:1.05;letter-spacing:-0.015em;color:#29241E;margin:0;}
     .ab-member__role{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--c);margin:10px 0 0;}
     .ab-member__place{font-family:'Source Serif 4',serif;font-style:italic;font-size:15px;color:#7C5236;margin:4px 0 0;}
     .ab-member__place i{font-size:.85em;margin-right:6px;color:var(--c);opacity:.8;}
     .ab-member__bio{font-family:'Source Serif 4',serif;font-size:16.5px;line-height:1.62;color:#5C4332;margin:16px 0 0;padding-top:16px;border-top:2px solid var(--c);text-wrap:pretty;}
+    /* Joel leads on a single row, centered on the page: his text on the left, a smaller photo on the
+       right. The three who help sit in a row below him. On phones he stacks like everyone else. */
+    .ab-team--lead{grid-template-columns:minmax(0,1fr);max-width:860px;}
+    .ab-team--staff{margin-top:clamp(56px,7.5vw,88px);max-width:930px;}
+    @media(min-width:561px){
+      .ab-team--lead .ab-member{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:clamp(32px,5vw,56px);align-items:center;}
+      .ab-team--lead .ab-print{grid-column:2;grid-row:1;max-width:none;margin:0;}
+      .ab-team--lead .ab-member__text{grid-column:1;grid-row:1;max-width:none;margin:0;}
+    }
+    @media(min-width:561px) and (max-width:900px){
+      .ab-team--lead .ab-member{grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr);}
+    }
     /* Narrow desktops: the photo sits beside its text. */
     @media(max-width:900px){
       .ab-team{grid-template-columns:1fr;max-width:680px;gap:clamp(44px,7vw,60px);}
@@ -269,11 +289,11 @@
       <div class="ab-hero__top">
         <p class="tri-kicker tri-in">About Penpoint</p>
         <h1 class="ab-hero__h1 tri-in" style="animation-delay:70ms;">Built by a writer. <em>Shaped by writers.</em></h1>
-        <p class="ab-hero__sub tri-in" style="animation-delay:150ms;">Penpoint started as one writer's app for his own book. Today a small crew helps it reach more writers, and the writers who use it every day help decide what it becomes next.</p>
+        <p class="ab-hero__sub tri-in" style="animation-delay:150ms;">Penpoint started as one writer's app for his own book. Today a small crew helps it work better and reach more writers, and the writers who use it every day help decide what it becomes next.</p>
         <h2 class="tri-kicker ab-team-kicker tri-in" style="animation-delay:230ms;">The Penpoint team</h2>
       </div>
 
-      <ul class="ab-team">
+      <ul class="ab-team ab-team--lead">
         <li class="ab-member tri-in" style="animation-delay:300ms;">
           <figure class="ab-print" style="--r:-2deg;">
             <span class="ab-tape" aria-hidden="true"></span>
@@ -287,6 +307,9 @@
             <p class="ab-member__bio">Hi, I'm Joel, and I've spent my career making things. I got my start in film as a VFX artist on The Avengers, Thor, and Captain America, then co-founded a production studio doing award-winning work for Disney, LEGO, Nabisco, and ASICS. I helped build some of the first consumer VR experiences along the way. Through all of it, the one thing I kept coming back to was writing. Now I build Penpoint, and I get to work with writers around the world, helping them make their stories better.</p>
           </div>
         </li>
+      </ul>
+
+      <ul class="ab-team ab-team--staff">
         <li class="ab-member ab-member--athena tri-in" style="animation-delay:400ms;">
           <figure class="ab-print" style="--r:1.6deg;--tr:2deg;">
             <span class="ab-tape" aria-hidden="true"></span>
@@ -300,7 +323,20 @@
             <p class="ab-member__bio">Hi! I'm Athena (WarMaiden on Discord)! Born and raised in Greece, I have been writing since I can remember myself. After a short break for degrees in Computer Forensics and International Security, I'm back doing what I adore most – writing my stories! And then the happy day came that I joined the Penpoint community and have never looked back. Penpoint is the kind of tool you buy once and own forever. And I hope to see our community become the place our writers can call home.</p>
           </div>
         </li>
-        <li class="ab-member ab-member--jens tri-in" style="animation-delay:500ms;">
+        <li class="ab-member ab-member--george tri-in" style="animation-delay:500ms;">
+          <figure class="ab-print" style="--r:-0.6deg;--tr:3deg;">
+            <span class="ab-tape" aria-hidden="true"></span>
+            <img src="images/team-george.webp" width="720" height="720" alt="George, in a dark sweater, looking at the camera" loading="eager">
+            <figcaption>Writing random things for fun</figcaption>
+          </figure>
+          <div class="ab-member__text">
+            <h3 class="ab-member__name">George</h3>
+            <p class="ab-member__role">QA &amp; User Experience</p>
+            <p class="ab-member__place"><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Germany</p>
+            <p class="ab-member__bio">Hi, I'm George, or Georg if you want to get technical. And I'm all about getting technical. I don't have much of a public creative profile, but I have a science degree and an eye for details. Nevertheless, I've long had plans for stretching my creative muscles, and just as I started dabbling in writing something bigger I came across a post looking for testers of a new writing app. I took a look at what Penpoint had to offer, and was immediately convinced. Since then I've been helping Joel with brainstorming features and squashing bugs.</p>
+          </div>
+        </li>
+        <li class="ab-member ab-member--jens tri-in" style="animation-delay:600ms;">
           <figure class="ab-print" style="--r:-1deg;--tr:-4deg;">
             <span class="ab-tape" aria-hidden="true"></span>
             <img src="images/team-jens.webp" width="720" height="720" alt="Jens, in a green hoodie, smiling" loading="eager">
@@ -369,7 +405,7 @@
         <h2 class="tri-h2">Come write with us.</h2>
       </div>
       <div class="ab-prose" data-animate="fade-up">
-        <p>Penpoint is still a small operation. When you email <a href="mailto:support@penpoint.app">support@penpoint.app</a> or start a thread on Reddit, I'm the one who answers. When you suggest something on our <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>, you're talking to the person who can build it, and Athena and Jens are in there too. I never really planned to sell this thing. I'm glad I did, and I'm glad you're here!</p>
+        <p>Penpoint is still a small operation. When you email <a href="mailto:support@penpoint.app">support@penpoint.app</a> or start a thread on Reddit, I'm the one who answers. When you suggest something on our <a href="https://discord.gg/q7yV3PXrGB" target="_blank" rel="noopener">Discord</a>, you're talking to the person who can build it, and Athena, George, and Jens are in there too. I never really planned to sell this thing. I'm glad I did, and I'm glad you're here!</p>
 
         <p>The best way to see what Penpoint is all about is the <a href="/trial">free 14-day trial</a>. You can export your data anytime, so there's no lock-in.</p>
       </div>
