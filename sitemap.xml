@@ -326,6 +326,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://penpoint.app/help/mark-a-spot-to-fix-later</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://penpoint.app/help/save-cut-passages-for-later</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://penpoint.app/help/undo-deleted-scene-or-chapter</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://penpoint.app/help/find-character-names-in-a-manuscript</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -406,6 +424,12 @@
   <url>
     <loc>https://penpoint.app/help/export-your-novel-to-word</loc>
     <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://penpoint.app/help/front-matter-and-back-matter</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

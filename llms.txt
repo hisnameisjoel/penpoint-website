@@ -67,7 +67,7 @@ One-time purchase: $40 USD. The app carries no subscription and no recurring fee
 Penpoint Cloud is a separate, optional subscription. The app is a one-time $40 purchase and works fully offline without it; Cloud adds an encrypted off-site copy of your work.
 
 - **Penpoint Backup** ($5/month or $45/year): encrypted cloud backup from one computer at a time, with unlimited version history
-- **Penpoint Sync** ($10/month or $96/year): everything in Backup, plus up to 5 computers kept in step automatically, plus the Penpoint phone app
+- **Penpoint Sync** ($10/month or $96/year): everything in Backup, plus up to 5 devices, computers or phones, kept in step automatically (the Penpoint phone app is included and counts as one of the 5)
 - **Unlimited storage on both plans**: no storage cap and no storage meter, so a writer never has to move up a plan to make room. Fair use applies: the Terms allow slowing uploads on an account past 15 GB, with at least 7 days' notice
 - **End-to-end encrypted**: books are encrypted on the writer's computer with a password only they hold, before anything is uploaded. Penpoint stores the books and cannot read them. A 12-word Recovery Kit is the backup if the password is lost
 - **Local books are never dependent on it**: the files on the computer are the originals. Canceling Cloud does not touch them
