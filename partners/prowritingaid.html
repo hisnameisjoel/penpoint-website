@@ -1081,7 +1081,7 @@
     ],
     mac: [
       { key: 'mac-arm', name: 'Apple Silicon', hint: 'M1, M2, M3, M4' },
-      { key: 'mac-intel', name: 'Intel', hint: '2019 & earlier' }
+      { key: 'mac-intel', name: 'Intel', hint: 'macOS 10.15+ · 2019 & earlier' }
     ],
     linux: [
       { key: 'linux', name: 'AppImage', hint: 'Any distro · updates itself' },
@@ -1173,8 +1173,9 @@
               if (osKey === 'linux' && getUrl('linux-deb')) {
                 noteEl.textContent = 'The AppImage updates itself. The .deb installs through your package manager, but you update it manually each release.';
                 noteEl.style.display = '';
-              } else if (osKey === 'mac' && !macArch) {
-                noteEl.textContent = 'Most Macs from 2020 on are Apple Silicon. On an older Intel Mac? Pick Intel. (The Apple menu, then About This Mac, tells you which.)';
+              } else if (osKey === 'mac') {
+                var macReq = 'Penpoint needs macOS 10.15 (Catalina) or later. Some older Intel Macs are stuck on an earlier macOS, so check the Apple menu, then About This Mac, before you download.';
+                noteEl.textContent = macArch ? macReq : (macReq + ' Most Macs from 2020 on are Apple Silicon; on an older Intel Mac, pick Intel.');
                 noteEl.style.display = '';
               }
             }

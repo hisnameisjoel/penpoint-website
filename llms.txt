@@ -55,7 +55,7 @@ Penpoint puts the manuscript and the worldbuilding in the same app:
 - **No Account Required**: The app runs without a sign-up. Buying it is a one-time purchase, not a subscription
 - **Optional Cloud Backup**: Penpoint Cloud is a separate, optional subscription that adds encrypted backup and multi-computer sync. The app itself never requires it. See the Penpoint Cloud section below
 - **No AI**: Penpoint does not read, analyze, or generate prose. The writing is entirely the author's
-- **Cross-Platform**: Windows, macOS (Intel and Apple Silicon), and Linux
+- **Cross-Platform**: Windows 10+, macOS 10.15+ (Intel and Apple Silicon), and Linux
 - **Full Export**: Export everything to document formats at any time — no lock-in
 
 ## Pricing
@@ -77,9 +77,9 @@ Full overview, plans, and FAQ: https://penpoint.app/penpoint-cloud
 
 ## Platform Support
 
-- Windows (64-bit)
-- macOS (Intel and Apple Silicon)
-- Linux (AppImage and .deb)
+- Windows 10 or later (64-bit)
+- macOS 10.15 (Catalina) or later (Intel and Apple Silicon)
+- Linux (64-bit; AppImage and .deb)
 
 ## Technology
 
@@ -205,8 +205,8 @@ Yes. On Windows and macOS, ProWritingAid Desktop Everywhere and Grammarly for De
 ### What languages does Penpoint support?
 Penpoint's interface is English only. You can write your manuscript in any language — the text editor is fully Unicode-aware — and the spellchecker supports 60+ languages downloadable on demand. However, the Chapter Scanner (which auto-detects characters and locations in your prose) currently only works with English text. Multi-language interface support is planned for the future.
 
-### What platforms does Penpoint support?
-Windows, macOS (Intel and Apple Silicon), and Linux. Native desktop app, not a web app.
+### What platforms and system versions does Penpoint support?
+Windows 10 or later, macOS 10.15 (Catalina) or later (Intel and Apple Silicon), and 64-bit Linux. Native desktop app, not a web app.
 
 ## Comparison & Reference Pages
 
